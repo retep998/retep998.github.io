@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\opengl32-sys-0.0.2\src\lib.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>lib.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
+<span id="344">344</span>
+<span id="345">345</span>
+<span id="346">346</span>
+<span id="347">347</span>
+<span id="348">348</span>
+<span id="349">349</span>
+<span id="350">350</span>
+<span id="351">351</span>
+<span id="352">352</span>
+<span id="353">353</span>
+<span id="354">354</span>
+<span id="355">355</span>
+<span id="356">356</span>
+<span id="357">357</span>
+<span id="358">358</span>
+<span id="359">359</span>
+<span id="360">360</span>
+<span id="361">361</span>
+<span id="362">362</span>
+<span id="363">363</span>
+<span id="364">364</span>
+<span id="365">365</span>
+<span id="366">366</span>
+<span id="367">367</span>
+<span id="368">368</span>
+<span id="369">369</span>
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+</pre><pre class='rust '>
+<span class='comment'>// Copyright © 2015, Peter Atashian</span>
+<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class='doccomment'>//! FFI bindings to opengl32.</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>all</span>(<span class='ident'>windows</span>, <span class='ident'>any</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)))]</span>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
+<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
+<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
+    <span class='comment'>// pub fn GlmfBeginGlsBlock();</span>
+    <span class='comment'>// pub fn GlmfCloseMetaFile();</span>
+    <span class='comment'>// pub fn GlmfEndGlsBlock();</span>
+    <span class='comment'>// pub fn GlmfEndPlayback();</span>
+    <span class='comment'>// pub fn GlmfInitPlayback();</span>
+    <span class='comment'>// pub fn GlmfPlayGlsRecord();</span>
+    <span class='comment'>// pub fn glAccum();</span>
+    <span class='comment'>// pub fn glAlphaFunc();</span>
+    <span class='comment'>// pub fn glAreTexturesResident();</span>
+    <span class='comment'>// pub fn glArrayElement();</span>
+    <span class='comment'>// pub fn glBegin();</span>
+    <span class='comment'>// pub fn glBindTexture();</span>
+    <span class='comment'>// pub fn glBitmap();</span>
+    <span class='comment'>// pub fn glBlendFunc();</span>
+    <span class='comment'>// pub fn glCallList();</span>
+    <span class='comment'>// pub fn glCallLists();</span>
+    <span class='comment'>// pub fn glClear();</span>
+    <span class='comment'>// pub fn glClearAccum();</span>
+    <span class='comment'>// pub fn glClearColor();</span>
+    <span class='comment'>// pub fn glClearDepth();</span>
+    <span class='comment'>// pub fn glClearIndex();</span>
+    <span class='comment'>// pub fn glClearStencil();</span>
+    <span class='comment'>// pub fn glClipPlane();</span>
+    <span class='comment'>// pub fn glColor3b();</span>
+    <span class='comment'>// pub fn glColor3bv();</span>
+    <span class='comment'>// pub fn glColor3d();</span>
+    <span class='comment'>// pub fn glColor3dv();</span>
+    <span class='comment'>// pub fn glColor3f();</span>
+    <span class='comment'>// pub fn glColor3fv();</span>
+    <span class='comment'>// pub fn glColor3i();</span>
+    <span class='comment'>// pub fn glColor3iv();</span>
+    <span class='comment'>// pub fn glColor3s();</span>
+    <span class='comment'>// pub fn glColor3sv();</span>
+    <span class='comment'>// pub fn glColor3ub();</span>
+    <span class='comment'>// pub fn glColor3ubv();</span>
+    <span class='comment'>// pub fn glColor3ui();</span>
+    <span class='comment'>// pub fn glColor3uiv();</span>
+    <span class='comment'>// pub fn glColor3us();</span>
+    <span class='comment'>// pub fn glColor3usv();</span>
+    <span class='comment'>// pub fn glColor4b();</span>
+    <span class='comment'>// pub fn glColor4bv();</span>
+    <span class='comment'>// pub fn glColor4d();</span>
+    <span class='comment'>// pub fn glColor4dv();</span>
+    <span class='comment'>// pub fn glColor4f();</span>
+    <span class='comment'>// pub fn glColor4fv();</span>
+    <span class='comment'>// pub fn glColor4i();</span>
+    <span class='comment'>// pub fn glColor4iv();</span>
+    <span class='comment'>// pub fn glColor4s();</span>
+    <span class='comment'>// pub fn glColor4sv();</span>
+    <span class='comment'>// pub fn glColor4ub();</span>
+    <span class='comment'>// pub fn glColor4ubv();</span>
+    <span class='comment'>// pub fn glColor4ui();</span>
+    <span class='comment'>// pub fn glColor4uiv();</span>
+    <span class='comment'>// pub fn glColor4us();</span>
+    <span class='comment'>// pub fn glColor4usv();</span>
+    <span class='comment'>// pub fn glColorMask();</span>
+    <span class='comment'>// pub fn glColorMaterial();</span>
+    <span class='comment'>// pub fn glColorPointer();</span>
+    <span class='comment'>// pub fn glCopyPixels();</span>
+    <span class='comment'>// pub fn glCopyTexImage1D();</span>
+    <span class='comment'>// pub fn glCopyTexImage2D();</span>
+    <span class='comment'>// pub fn glCopyTexSubImage1D();</span>
+    <span class='comment'>// pub fn glCopyTexSubImage2D();</span>
+    <span class='comment'>// pub fn glCullFace();</span>
+    <span class='comment'>// pub fn glDebugEntry();</span>
+    <span class='comment'>// pub fn glDeleteLists();</span>
+    <span class='comment'>// pub fn glDeleteTextures();</span>
+    <span class='comment'>// pub fn glDepthFunc();</span>
+    <span class='comment'>// pub fn glDepthMask();</span>
+    <span class='comment'>// pub fn glDepthRange();</span>
+    <span class='comment'>// pub fn glDisable();</span>
+    <span class='comment'>// pub fn glDisableClientState();</span>
+    <span class='comment'>// pub fn glDrawArrays();</span>
+    <span class='comment'>// pub fn glDrawBuffer();</span>
+    <span class='comment'>// pub fn glDrawElements();</span>
+    <span class='comment'>// pub fn glDrawPixels();</span>
+    <span class='comment'>// pub fn glEdgeFlag();</span>
+    <span class='comment'>// pub fn glEdgeFlagPointer();</span>
+    <span class='comment'>// pub fn glEdgeFlagv();</span>
+    <span class='comment'>// pub fn glEnable();</span>
+    <span class='comment'>// pub fn glEnableClientState();</span>
+    <span class='comment'>// pub fn glEnd();</span>
+    <span class='comment'>// pub fn glEndList();</span>
+    <span class='comment'>// pub fn glEvalCoord1d();</span>
+    <span class='comment'>// pub fn glEvalCoord1dv();</span>
+    <span class='comment'>// pub fn glEvalCoord1f();</span>
+    <span class='comment'>// pub fn glEvalCoord1fv();</span>
+    <span class='comment'>// pub fn glEvalCoord2d();</span>
+    <span class='comment'>// pub fn glEvalCoord2dv();</span>
+    <span class='comment'>// pub fn glEvalCoord2f();</span>
+    <span class='comment'>// pub fn glEvalCoord2fv();</span>
+    <span class='comment'>// pub fn glEvalMesh1();</span>
+    <span class='comment'>// pub fn glEvalMesh2();</span>
+    <span class='comment'>// pub fn glEvalPoint1();</span>
+    <span class='comment'>// pub fn glEvalPoint2();</span>
+    <span class='comment'>// pub fn glFeedbackBuffer();</span>
+    <span class='comment'>// pub fn glFinish();</span>
+    <span class='comment'>// pub fn glFlush();</span>
+    <span class='comment'>// pub fn glFogf();</span>
+    <span class='comment'>// pub fn glFogfv();</span>
+    <span class='comment'>// pub fn glFogi();</span>
+    <span class='comment'>// pub fn glFogiv();</span>
+    <span class='comment'>// pub fn glFrontFace();</span>
+    <span class='comment'>// pub fn glFrustum();</span>
+    <span class='comment'>// pub fn glGenLists();</span>
+    <span class='comment'>// pub fn glGenTextures();</span>
+    <span class='comment'>// pub fn glGetBooleanv();</span>
+    <span class='comment'>// pub fn glGetClipPlane();</span>
+    <span class='comment'>// pub fn glGetDoublev();</span>
+    <span class='comment'>// pub fn glGetError();</span>
+    <span class='comment'>// pub fn glGetFloatv();</span>
+    <span class='comment'>// pub fn glGetIntegerv();</span>
+    <span class='comment'>// pub fn glGetLightfv();</span>
+    <span class='comment'>// pub fn glGetLightiv();</span>
+    <span class='comment'>// pub fn glGetMapdv();</span>
+    <span class='comment'>// pub fn glGetMapfv();</span>
+    <span class='comment'>// pub fn glGetMapiv();</span>
+    <span class='comment'>// pub fn glGetMaterialfv();</span>
+    <span class='comment'>// pub fn glGetMaterialiv();</span>
+    <span class='comment'>// pub fn glGetPixelMapfv();</span>
+    <span class='comment'>// pub fn glGetPixelMapuiv();</span>
+    <span class='comment'>// pub fn glGetPixelMapusv();</span>
+    <span class='comment'>// pub fn glGetPointerv();</span>
+    <span class='comment'>// pub fn glGetPolygonStipple();</span>
+    <span class='comment'>// pub fn glGetString();</span>
+    <span class='comment'>// pub fn glGetTexEnvfv();</span>
+    <span class='comment'>// pub fn glGetTexEnviv();</span>
+    <span class='comment'>// pub fn glGetTexGendv();</span>
+    <span class='comment'>// pub fn glGetTexGenfv();</span>
+    <span class='comment'>// pub fn glGetTexGeniv();</span>
+    <span class='comment'>// pub fn glGetTexImage();</span>
+    <span class='comment'>// pub fn glGetTexLevelParameterfv();</span>
+    <span class='comment'>// pub fn glGetTexLevelParameteriv();</span>
+    <span class='comment'>// pub fn glGetTexParameterfv();</span>
+    <span class='comment'>// pub fn glGetTexParameteriv();</span>
+    <span class='comment'>// pub fn glHint();</span>
+    <span class='comment'>// pub fn glIndexMask();</span>
+    <span class='comment'>// pub fn glIndexPointer();</span>
+    <span class='comment'>// pub fn glIndexd();</span>
+    <span class='comment'>// pub fn glIndexdv();</span>
+    <span class='comment'>// pub fn glIndexf();</span>
+    <span class='comment'>// pub fn glIndexfv();</span>
+    <span class='comment'>// pub fn glIndexi();</span>
+    <span class='comment'>// pub fn glIndexiv();</span>
+    <span class='comment'>// pub fn glIndexs();</span>
+    <span class='comment'>// pub fn glIndexsv();</span>
+    <span class='comment'>// pub fn glIndexub();</span>
+    <span class='comment'>// pub fn glIndexubv();</span>
+    <span class='comment'>// pub fn glInitNames();</span>
+    <span class='comment'>// pub fn glInterleavedArrays();</span>
+    <span class='comment'>// pub fn glIsEnabled();</span>
+    <span class='comment'>// pub fn glIsList();</span>
+    <span class='comment'>// pub fn glIsTexture();</span>
+    <span class='comment'>// pub fn glLightModelf();</span>
+    <span class='comment'>// pub fn glLightModelfv();</span>
+    <span class='comment'>// pub fn glLightModeli();</span>
+    <span class='comment'>// pub fn glLightModeliv();</span>
+    <span class='comment'>// pub fn glLightf();</span>
+    <span class='comment'>// pub fn glLightfv();</span>
+    <span class='comment'>// pub fn glLighti();</span>
+    <span class='comment'>// pub fn glLightiv();</span>
+    <span class='comment'>// pub fn glLineStipple();</span>
+    <span class='comment'>// pub fn glLineWidth();</span>
+    <span class='comment'>// pub fn glListBase();</span>
+    <span class='comment'>// pub fn glLoadIdentity();</span>
+    <span class='comment'>// pub fn glLoadMatrixd();</span>
+    <span class='comment'>// pub fn glLoadMatrixf();</span>
+    <span class='comment'>// pub fn glLoadName();</span>
+    <span class='comment'>// pub fn glLogicOp();</span>
+    <span class='comment'>// pub fn glMap1d();</span>
+    <span class='comment'>// pub fn glMap1f();</span>
+    <span class='comment'>// pub fn glMap2d();</span>
+    <span class='comment'>// pub fn glMap2f();</span>
+    <span class='comment'>// pub fn glMapGrid1d();</span>
+    <span class='comment'>// pub fn glMapGrid1f();</span>
+    <span class='comment'>// pub fn glMapGrid2d();</span>
+    <span class='comment'>// pub fn glMapGrid2f();</span>
+    <span class='comment'>// pub fn glMaterialf();</span>
+    <span class='comment'>// pub fn glMaterialfv();</span>
+    <span class='comment'>// pub fn glMateriali();</span>
+    <span class='comment'>// pub fn glMaterialiv();</span>
+    <span class='comment'>// pub fn glMatrixMode();</span>
+    <span class='comment'>// pub fn glMultMatrixd();</span>
+    <span class='comment'>// pub fn glMultMatrixf();</span>
+    <span class='comment'>// pub fn glNewList();</span>
+    <span class='comment'>// pub fn glNormal3b();</span>
+    <span class='comment'>// pub fn glNormal3bv();</span>
+    <span class='comment'>// pub fn glNormal3d();</span>
+    <span class='comment'>// pub fn glNormal3dv();</span>
+    <span class='comment'>// pub fn glNormal3f();</span>
+    <span class='comment'>// pub fn glNormal3fv();</span>
+    <span class='comment'>// pub fn glNormal3i();</span>
+    <span class='comment'>// pub fn glNormal3iv();</span>
+    <span class='comment'>// pub fn glNormal3s();</span>
+    <span class='comment'>// pub fn glNormal3sv();</span>
+    <span class='comment'>// pub fn glNormalPointer();</span>
+    <span class='comment'>// pub fn glOrtho();</span>
+    <span class='comment'>// pub fn glPassThrough();</span>
+    <span class='comment'>// pub fn glPixelMapfv();</span>
+    <span class='comment'>// pub fn glPixelMapuiv();</span>
+    <span class='comment'>// pub fn glPixelMapusv();</span>
+    <span class='comment'>// pub fn glPixelStoref();</span>
+    <span class='comment'>// pub fn glPixelStorei();</span>
+    <span class='comment'>// pub fn glPixelTransferf();</span>
+    <span class='comment'>// pub fn glPixelTransferi();</span>
+    <span class='comment'>// pub fn glPixelZoom();</span>
+    <span class='comment'>// pub fn glPointSize();</span>
+    <span class='comment'>// pub fn glPolygonMode();</span>
+    <span class='comment'>// pub fn glPolygonOffset();</span>
+    <span class='comment'>// pub fn glPolygonStipple();</span>
+    <span class='comment'>// pub fn glPopAttrib();</span>
+    <span class='comment'>// pub fn glPopClientAttrib();</span>
+    <span class='comment'>// pub fn glPopMatrix();</span>
+    <span class='comment'>// pub fn glPopName();</span>
+    <span class='comment'>// pub fn glPrioritizeTextures();</span>
+    <span class='comment'>// pub fn glPushAttrib();</span>
+    <span class='comment'>// pub fn glPushClientAttrib();</span>
+    <span class='comment'>// pub fn glPushMatrix();</span>
+    <span class='comment'>// pub fn glPushName();</span>
+    <span class='comment'>// pub fn glRasterPos2d();</span>
+    <span class='comment'>// pub fn glRasterPos2dv();</span>
+    <span class='comment'>// pub fn glRasterPos2f();</span>
+    <span class='comment'>// pub fn glRasterPos2fv();</span>
+    <span class='comment'>// pub fn glRasterPos2i();</span>
+    <span class='comment'>// pub fn glRasterPos2iv();</span>
+    <span class='comment'>// pub fn glRasterPos2s();</span>
+    <span class='comment'>// pub fn glRasterPos2sv();</span>
+    <span class='comment'>// pub fn glRasterPos3d();</span>
+    <span class='comment'>// pub fn glRasterPos3dv();</span>
+    <span class='comment'>// pub fn glRasterPos3f();</span>
+    <span class='comment'>// pub fn glRasterPos3fv();</span>
+    <span class='comment'>// pub fn glRasterPos3i();</span>
+    <span class='comment'>// pub fn glRasterPos3iv();</span>
+    <span class='comment'>// pub fn glRasterPos3s();</span>
+    <span class='comment'>// pub fn glRasterPos3sv();</span>
+    <span class='comment'>// pub fn glRasterPos4d();</span>
+    <span class='comment'>// pub fn glRasterPos4dv();</span>
+    <span class='comment'>// pub fn glRasterPos4f();</span>
+    <span class='comment'>// pub fn glRasterPos4fv();</span>
+    <span class='comment'>// pub fn glRasterPos4i();</span>
+    <span class='comment'>// pub fn glRasterPos4iv();</span>
+    <span class='comment'>// pub fn glRasterPos4s();</span>
+    <span class='comment'>// pub fn glRasterPos4sv();</span>
+    <span class='comment'>// pub fn glReadBuffer();</span>
+    <span class='comment'>// pub fn glReadPixels();</span>
+    <span class='comment'>// pub fn glRectd();</span>
+    <span class='comment'>// pub fn glRectdv();</span>
+    <span class='comment'>// pub fn glRectf();</span>
+    <span class='comment'>// pub fn glRectfv();</span>
+    <span class='comment'>// pub fn glRecti();</span>
+    <span class='comment'>// pub fn glRectiv();</span>
+    <span class='comment'>// pub fn glRects();</span>
+    <span class='comment'>// pub fn glRectsv();</span>
+    <span class='comment'>// pub fn glRenderMode();</span>
+    <span class='comment'>// pub fn glRotated();</span>
+    <span class='comment'>// pub fn glRotatef();</span>
+    <span class='comment'>// pub fn glScaled();</span>
+    <span class='comment'>// pub fn glScalef();</span>
+    <span class='comment'>// pub fn glScissor();</span>
+    <span class='comment'>// pub fn glSelectBuffer();</span>
+    <span class='comment'>// pub fn glShadeModel();</span>
+    <span class='comment'>// pub fn glStencilFunc();</span>
+    <span class='comment'>// pub fn glStencilMask();</span>
+    <span class='comment'>// pub fn glStencilOp();</span>
+    <span class='comment'>// pub fn glTexCoord1d();</span>
+    <span class='comment'>// pub fn glTexCoord1dv();</span>
+    <span class='comment'>// pub fn glTexCoord1f();</span>
+    <span class='comment'>// pub fn glTexCoord1fv();</span>
+    <span class='comment'>// pub fn glTexCoord1i();</span>
+    <span class='comment'>// pub fn glTexCoord1iv();</span>
+    <span class='comment'>// pub fn glTexCoord1s();</span>
+    <span class='comment'>// pub fn glTexCoord1sv();</span>
+    <span class='comment'>// pub fn glTexCoord2d();</span>
+    <span class='comment'>// pub fn glTexCoord2dv();</span>
+    <span class='comment'>// pub fn glTexCoord2f();</span>
+    <span class='comment'>// pub fn glTexCoord2fv();</span>
+    <span class='comment'>// pub fn glTexCoord2i();</span>
+    <span class='comment'>// pub fn glTexCoord2iv();</span>
+    <span class='comment'>// pub fn glTexCoord2s();</span>
+    <span class='comment'>// pub fn glTexCoord2sv();</span>
+    <span class='comment'>// pub fn glTexCoord3d();</span>
+    <span class='comment'>// pub fn glTexCoord3dv();</span>
+    <span class='comment'>// pub fn glTexCoord3f();</span>
+    <span class='comment'>// pub fn glTexCoord3fv();</span>
+    <span class='comment'>// pub fn glTexCoord3i();</span>
+    <span class='comment'>// pub fn glTexCoord3iv();</span>
+    <span class='comment'>// pub fn glTexCoord3s();</span>
+    <span class='comment'>// pub fn glTexCoord3sv();</span>
+    <span class='comment'>// pub fn glTexCoord4d();</span>
+    <span class='comment'>// pub fn glTexCoord4dv();</span>
+    <span class='comment'>// pub fn glTexCoord4f();</span>
+    <span class='comment'>// pub fn glTexCoord4fv();</span>
+    <span class='comment'>// pub fn glTexCoord4i();</span>
+    <span class='comment'>// pub fn glTexCoord4iv();</span>
+    <span class='comment'>// pub fn glTexCoord4s();</span>
+    <span class='comment'>// pub fn glTexCoord4sv();</span>
+    <span class='comment'>// pub fn glTexCoordPointer();</span>
+    <span class='comment'>// pub fn glTexEnvf();</span>
+    <span class='comment'>// pub fn glTexEnvfv();</span>
+    <span class='comment'>// pub fn glTexEnvi();</span>
+    <span class='comment'>// pub fn glTexEnviv();</span>
+    <span class='comment'>// pub fn glTexGend();</span>
+    <span class='comment'>// pub fn glTexGendv();</span>
+    <span class='comment'>// pub fn glTexGenf();</span>
+    <span class='comment'>// pub fn glTexGenfv();</span>
+    <span class='comment'>// pub fn glTexGeni();</span>
+    <span class='comment'>// pub fn glTexGeniv();</span>
+    <span class='comment'>// pub fn glTexImage1D();</span>
+    <span class='comment'>// pub fn glTexImage2D();</span>
+    <span class='comment'>// pub fn glTexParameterf();</span>
+    <span class='comment'>// pub fn glTexParameterfv();</span>
+    <span class='comment'>// pub fn glTexParameteri();</span>
+    <span class='comment'>// pub fn glTexParameteriv();</span>
+    <span class='comment'>// pub fn glTexSubImage1D();</span>
+    <span class='comment'>// pub fn glTexSubImage2D();</span>
+    <span class='comment'>// pub fn glTranslated();</span>
+    <span class='comment'>// pub fn glTranslatef();</span>
+    <span class='comment'>// pub fn glVertex2d();</span>
+    <span class='comment'>// pub fn glVertex2dv();</span>
+    <span class='comment'>// pub fn glVertex2f();</span>
+    <span class='comment'>// pub fn glVertex2fv();</span>
+    <span class='comment'>// pub fn glVertex2i();</span>
+    <span class='comment'>// pub fn glVertex2iv();</span>
+    <span class='comment'>// pub fn glVertex2s();</span>
+    <span class='comment'>// pub fn glVertex2sv();</span>
+    <span class='comment'>// pub fn glVertex3d();</span>
+    <span class='comment'>// pub fn glVertex3dv();</span>
+    <span class='comment'>// pub fn glVertex3f();</span>
+    <span class='comment'>// pub fn glVertex3fv();</span>
+    <span class='comment'>// pub fn glVertex3i();</span>
+    <span class='comment'>// pub fn glVertex3iv();</span>
+    <span class='comment'>// pub fn glVertex3s();</span>
+    <span class='comment'>// pub fn glVertex3sv();</span>
+    <span class='comment'>// pub fn glVertex4d();</span>
+    <span class='comment'>// pub fn glVertex4dv();</span>
+    <span class='comment'>// pub fn glVertex4f();</span>
+    <span class='comment'>// pub fn glVertex4fv();</span>
+    <span class='comment'>// pub fn glVertex4i();</span>
+    <span class='comment'>// pub fn glVertex4iv();</span>
+    <span class='comment'>// pub fn glVertex4s();</span>
+    <span class='comment'>// pub fn glVertex4sv();</span>
+    <span class='comment'>// pub fn glVertexPointer();</span>
+    <span class='comment'>// pub fn glViewport();</span>
+    <span class='comment'>// pub fn wglChoosePixelFormat();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCopyContext</span>(<span class='ident'>hglrcSrc</span>: <span class='ident'>HGLRC</span>, <span class='ident'>hglrcDst</span>: <span class='ident'>HGLRC</span>, <span class='ident'>mask</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCreateContext</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCreateLayerContext</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>iLayerPlane</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglDeleteContext</span>(<span class='ident'>hglrc</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='comment'>// pub fn wglDescribeLayerPlane();</span>
+    <span class='comment'>// pub fn wglDescribePixelFormat();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetCurrentContext</span>() <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetCurrentDC</span>() <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='comment'>// pub fn wglGetDefaultProcAddress();</span>
+    <span class='comment'>// pub fn wglGetLayerPaletteEntries();</span>
+    <span class='comment'>// pub fn wglGetPixelFormat();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetProcAddress</span>(<span class='ident'>lpszProc</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>PROC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglMakeCurrent</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>hglrc</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='comment'>// pub fn wglRealizeLayerPalette();</span>
+    <span class='comment'>// pub fn wglSetLayerPaletteEntries();</span>
+    <span class='comment'>// pub fn wglSetPixelFormat();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglShareLists</span>(<span class='ident'>hglrc1</span>: <span class='ident'>HGLRC</span>, <span class='ident'>hglrc2</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='comment'>// pub fn wglSwapBuffers();</span>
+    <span class='comment'>// pub fn wglSwapLayerBuffers();</span>
+    <span class='comment'>// pub fn wglSwapMultipleBuffers();</span>
+    <span class='comment'>// pub fn wglUseFontBitmapsA();</span>
+    <span class='comment'>// pub fn wglUseFontBitmapsW();</span>
+    <span class='comment'>// pub fn wglUseFontOutlinesA();</span>
+    <span class='comment'>// pub fn wglUseFontOutlinesW();</span>
+}
+</pre>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div class="shortcuts">
+            <h1>Keyboard shortcuts</h1>
+            <dl>
+                <dt>?</dt>
+                <dd>Show this help dialog</dd>
+                <dt>S</dt>
+                <dd>Focus the search field</dd>
+                <dt>&larrb;</dt>
+                <dd>Move up in search results</dd>
+                <dt>&rarrb;</dt>
+                <dd>Move down in search results</dd>
+                <dt>&#9166;</dt>
+                <dd>Go to active search result</dd>
+            </dl>
+        </div>
+        <div class="infos">
+            <h1>Search tricks</h1>
+            <p>
+                Prefix searches with a type followed by a colon (e.g.
+                <code>fn:</code>) to restrict the search to a given type.
+            </p>
+            <p>
+                Accepted types are: <code>fn</code>, <code>mod</code>,
+                <code>struct</code>, <code>enum</code>,
+                <code>trait</code>, <code>typedef</code> (or
+                <code>tdef</code>).
+            </p>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "opengl32-sys";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>
