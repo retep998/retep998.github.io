@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\kernel32-sys-0.0.11\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\lib\kernel32-sys\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -1698,6 +1698,10 @@
 <span id="1656">1656</span>
 <span id="1657">1657</span>
 <span id="1658">1658</span>
+<span id="1659">1659</span>
+<span id="1660">1660</span>
+<span id="1661">1661</span>
+<span id="1662">1662</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1958,7 +1962,11 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DeleteVolumeMountPointW</span>(<span class='ident'>lpszVolumeMountPoint</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
     <span class='comment'>// pub fn DequeueUmsCompletionListItems();</span>
-    <span class='comment'>// pub fn DeviceIoControl();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DeviceIoControl</span>(
+        <span class='ident'>hDevice</span>: <span class='ident'>HANDLE</span>, <span class='ident'>dwIoControlCode</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpInBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>nInBufferSize</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>lpOutBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>nOutBufferSize</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpBytesReturned</span>: <span class='ident'>LPDWORD</span>,
+        <span class='ident'>lpOverlapped</span>: <span class='ident'>LPOVERLAPPED</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn DisableThreadLibraryCalls();</span>
     <span class='comment'>// pub fn DisableThreadProfiling();</span>
     <span class='comment'>// pub fn DisassociateCurrentThreadFromCallback();</span>

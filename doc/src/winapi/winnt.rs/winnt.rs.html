@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-0.1.15\src\winnt.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\winnt.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winnt.rs.html -- source</title>
@@ -551,6 +551,20 @@
 <span id="509">509</span>
 <span id="510">510</span>
 <span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1035,6 +1049,20 @@
     <span class='kw'>pub</span> <span class='ident'>Alignment</span>: ::<span class='ident'>ULONGLONG</span>,
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILE_SEGMENT_ELEMENT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILE_SEGMENT_ELEMENT</span>;
+<span class='comment'>//12475</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_MOUNT_POINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xA0000003</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_HSM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xC0000004</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_HSM2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000006</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_SIS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000007</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_WIM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000008</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_CSV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000009</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_DFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000000A</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_SYMLINK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xA000000C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_DFSR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000012</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_DEDUP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000013</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_NFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000014</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_FILE_PLACEHOLDER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000015</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_REPARSE_TAG_WOF</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000017</span>;
 <span class='comment'>//18195</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RTL_SRWLOCK</span> {

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-0.1.15\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -2670,6 +2670,13 @@
 <span id="2628">2628</span>
 <span id="2629">2629</span>
 <span id="2630">2630</span>
+<span id="2631">2631</span>
+<span id="2632">2632</span>
+<span id="2633">2633</span>
+<span id="2634">2634</span>
+<span id="2635">2635</span>
+<span id="2636">2636</span>
+<span id="2637">2637</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -2718,6 +2725,7 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>windowsx</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winerror</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wingdi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winioctl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnls</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsvc</span>::<span class='op'>*</span>;
@@ -2759,6 +2767,11 @@
         };
     }
 }
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>CTL_CODE</span> {
+    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>DeviceType</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Function</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Method</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Access</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> {
+        (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>DeviceType</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span>) <span class='op'>|</span> (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Access</span> <span class='op'>&lt;&lt;</span> <span class='number'>14</span>) <span class='op'>|</span> (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Function</span> <span class='op'>&lt;&lt;</span> <span class='number'>2</span>) <span class='op'>|</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>Method</span>
+    }
+}
 
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// Modules</span>
@@ -2781,6 +2794,7 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windowsx</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winerror</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wingdi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winioctl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnls</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsvc</span>;
