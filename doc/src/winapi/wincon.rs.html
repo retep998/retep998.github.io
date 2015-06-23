@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-0.1.16\src\wincon.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\wincon.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>wincon.rs.html -- source</title>
@@ -265,6 +265,12 @@
 <span id="223">223</span>
 <span id="224">224</span>
 <span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -475,9 +481,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_AUTO_POSITION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_PROCESSED_OUTPUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_WRAP_AT_EOL_OUTPUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>2</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>3</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ATTACH_PARENT_PROCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFE</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFFFFFFFFFE</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFD</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFFFFFFFFFD</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ATTACH_PARENT_PROCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_READCONSOLE_CONTROL</span> {
     <span class='kw'>pub</span> <span class='ident'>nLength</span>: ::<span class='ident'>ULONG</span>,
@@ -524,6 +536,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

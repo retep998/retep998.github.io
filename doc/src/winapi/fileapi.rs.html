@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-0.1.16\src\fileapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\fileapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>fileapi.rs.html -- source</title>
@@ -97,8 +97,8 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OPEN_ALWAYS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TRUNCATE_EXISTING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_FILE_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_SET_FILE_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_FILE_ATTRIBUTES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_SET_FILE_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_FILE_ATTRIBUTES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WIN32_FILE_ATTRIBUTE_DATA</span> {
     <span class='kw'>pub</span> <span class='ident'>dwFileAttributes</span>: ::<span class='ident'>DWORD</span>,
@@ -168,6 +168,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

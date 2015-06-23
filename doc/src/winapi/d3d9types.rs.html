@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-0.1.16\src\d3d9types.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\d3d9types.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>d3d9types.rs.html -- source</title>
@@ -1600,6 +1600,8 @@
 <span id="1558">1558</span>
 <span id="1559">1559</span>
 <span id="1560">1560</span>
+<span id="1561">1561</span>
+<span id="1562">1562</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Corey Richardson</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -2596,6 +2598,7 @@
     <span class='kw'>pub</span> <span class='ident'>green</span>: [::<span class='ident'>WORD</span>; <span class='number'>256</span>],
     <span class='kw'>pub</span> <span class='ident'>blue</span>: [::<span class='ident'>WORD</span>; <span class='number'>256</span>],
 }
+<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>D3DGAMMARAMP</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D3DGAMMARAMP</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3DBACKBUFFER_TYPE</span> {
     <span class='ident'>TYPE_MONO</span> <span class='op'>=</span> <span class='number'>0</span>,
@@ -2744,6 +2747,7 @@
     <span class='kw'>pub</span> <span class='ident'>DeviceIdentifier</span>: ::<span class='ident'>GUID</span>,
     <span class='kw'>pub</span> <span class='ident'>WHQLLevel</span>: ::<span class='ident'>DWORD</span>,
 }
+<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>D3DADAPTER_IDENTIFIER9</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D3DADAPTER_IDENTIFIER9</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DRASTER_STATUS</span> {
     <span class='kw'>pub</span> <span class='ident'>InVBlank</span>: ::<span class='ident'>BOOL</span>,
@@ -3194,6 +3198,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

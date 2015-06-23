@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\user32-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\lib\user32-sys\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -967,6 +967,25 @@
 <span id="925">925</span>
 <span id="926">926</span>
 <span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1101,7 +1120,7 @@
     ) <span class='op'>-&gt;</span> <span class='ident'>HICON</span>;
     <span class='comment'>// pub fn CreateIconFromResource();</span>
     <span class='comment'>// pub fn CreateIconFromResourceEx();</span>
-    <span class='comment'>// pub fn CreateIconIndirect(piconinfo: PICONINFO) -&gt; HICON;</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateIconIndirect</span>(<span class='ident'>piconinfo</span>: <span class='ident'>PICONINFO</span>) <span class='op'>-&gt;</span> <span class='ident'>HICON</span>;
     <span class='comment'>// pub fn CreateMDIWindowA();</span>
     <span class='comment'>// pub fn CreateMDIWindowW();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateMenu</span>() <span class='op'>-&gt;</span> <span class='ident'>HMENU</span>;
@@ -1177,7 +1196,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyCaret</span>() <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyCursor</span>(<span class='ident'>hCursor</span>: <span class='ident'>HCURSOR</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyIcon</span>(<span class='ident'>hIcon</span>: <span class='ident'>HICON</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyMenu</span>(<span class='ident'>hMenu</span>: <span class='ident'>HMENU</span>) <span class='op'>-&gt;</span> <span class='ident'>HMENU</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyMenu</span>(<span class='ident'>hMenu</span>: <span class='ident'>HMENU</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>DestroyWindow</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn DialogBoxIndirectParamA();</span>
     <span class='comment'>// pub fn DialogBoxIndirectParamW();</span>
@@ -1285,7 +1304,7 @@
     ) <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>FindWindowW</span>(<span class='ident'>lpClassName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpWindowName</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>FlashWindow</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>bInvert</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn FlashWindowEx();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>FlashWindowEx</span>(<span class='ident'>pfwi</span>: <span class='ident'>PFLASHWINFO</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>FrameRect</span>(<span class='ident'>hDC</span>: <span class='ident'>HDC</span>, <span class='ident'>lprc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>, <span class='ident'>hbr</span>: <span class='ident'>HBRUSH</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// pub fn FreeDDElParam();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetActiveWindow</span>() <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
@@ -1296,7 +1315,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetAsyncKeyState</span>(<span class='ident'>vKey</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>SHORT</span>;
     <span class='comment'>// pub fn GetAutoRotationState();</span>
     <span class='comment'>// pub fn GetCIMSSM();</span>
-    <span class='comment'>// pub fn GetCapture();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetCapture</span>() <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetCaretBlinkTime</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetCaretPos</span>(<span class='ident'>lpPoint</span>: <span class='ident'>LPPOINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn GetClassInfoA();</span>
@@ -1313,8 +1332,8 @@
     <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClassLongPtrW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>ULONG_PTR</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClassLongW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='comment'>// pub fn GetClassNameA();</span>
-    <span class='comment'>// pub fn GetClassNameW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClassNameA</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpClassName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>nMaxCount</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClassNameW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpClassName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>nMaxCount</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClassWord</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>WORD</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClientRect</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpRect</span>: <span class='ident'>LPRECT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetClipCursor</span>(<span class='ident'>lpRect</span>: <span class='ident'>LPRECT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
@@ -1350,7 +1369,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetDlgItemTextW</span>(
         <span class='ident'>hDlg</span>: <span class='ident'>HWND</span>, <span class='ident'>nIDDlgItem</span>: <span class='ident'>c_int</span>, <span class='ident'>lpString</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>nMaxCount</span>: <span class='ident'>c_int</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
-    <span class='comment'>// pub fn GetDoubleClickTime();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetDoubleClickTime</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetFocus</span>() <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetForegroundWindow</span>() <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='comment'>// pub fn GetGUIThreadInfo();</span>
@@ -1358,7 +1377,7 @@
     <span class='comment'>// pub fn GetGestureExtraArgs();</span>
     <span class='comment'>// pub fn GetGestureInfo();</span>
     <span class='comment'>// pub fn GetGuiResources();</span>
-    <span class='comment'>// pub fn GetIconInfo();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetIconInfo</span>(<span class='ident'>hIcon</span>: <span class='ident'>HICON</span>, <span class='ident'>piconinfo</span>: <span class='ident'>PICONINFO</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn GetIconInfoExA();</span>
     <span class='comment'>// pub fn GetIconInfoExW();</span>
     <span class='comment'>// pub fn GetInputDesktop();</span>
@@ -1430,7 +1449,7 @@
     <span class='comment'>// pub fn GetProcessWindowStation();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetPropA</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpString</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HANDLE</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetPropW</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpString</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HANDLE</span>;
-    <span class='comment'>// pub fn GetQueueStatus();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetQueueStatus</span>(<span class='ident'>flags</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetRawInputBuffer</span>(<span class='ident'>pData</span>: <span class='ident'>PRAWINPUT</span>, <span class='ident'>pcbSize</span>: <span class='ident'>PUINT</span>, <span class='ident'>cbSizeHeader</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetRawInputData</span>(
         <span class='ident'>hRawInput</span>: <span class='ident'>HRAWINPUT</span>, <span class='ident'>uiCommand</span>: <span class='ident'>UINT</span>, <span class='ident'>pData</span>: <span class='ident'>LPVOID</span>, <span class='ident'>pcbSize</span>: <span class='ident'>PUINT</span>, <span class='ident'>cbSizeHeader</span>: <span class='ident'>UINT</span>,
@@ -1455,7 +1474,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetShellWindow</span>() <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='comment'>// pub fn GetSubMenu();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetSysColor</span>(<span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='comment'>// pub fn GetSysColorBrush();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetSysColorBrush</span>(<span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
     <span class='comment'>// pub fn GetSystemMenu();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetSystemMetrics</span>(<span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// pub fn GetTabbedTextExtentA();</span>
@@ -1486,8 +1505,12 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowLongPtrW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG_PTR</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowLongW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='comment'>// pub fn GetWindowModuleFileName();</span>
-    <span class='comment'>// pub fn GetWindowModuleFileNameA();</span>
-    <span class='comment'>// pub fn GetWindowModuleFileNameW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowModuleFileNameA</span>(
+        <span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpszFileName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>cchFileNameMax</span>: <span class='ident'>UINT</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowModuleFileNameW</span>(
+        <span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpszFileName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchFileNameMax</span>: <span class='ident'>UINT</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowPlacement</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpwndpl</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINDOWPLACEMENT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetWindowRect</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>lpRect</span>: <span class='ident'>LPRECT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn GetWindowRgn();</span>
@@ -1617,16 +1640,25 @@
     <span class='comment'>// pub fn MonitorFromPoint();</span>
     <span class='comment'>// pub fn MonitorFromRect();</span>
     <span class='comment'>// pub fn MonitorFromWindow();</span>
-    <span class='comment'>// pub fn MoveWindow();</span>
-    <span class='comment'>// pub fn MsgWaitForMultipleObjects();</span>
-    <span class='comment'>// pub fn MsgWaitForMultipleObjectsEx();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MoveWindow</span>(
+        <span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>X</span>: <span class='ident'>c_int</span>, <span class='ident'>Y</span>: <span class='ident'>c_int</span>, <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>nHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>bRepaint</span>: <span class='ident'>BOOL</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='comment'>// Use UINT instead of DWORD for dwWaitMask to be consistent with GetQueueStatus</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MsgWaitForMultipleObjects</span>(
+        <span class='ident'>nCount</span>: <span class='ident'>DWORD</span>, <span class='ident'>pHandles</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>HANDLE</span>, <span class='ident'>fWaitAll</span>: <span class='ident'>BOOL</span>, <span class='ident'>dwMilliseconds</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>dwWakeMask</span>: <span class='ident'>UINT</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MsgWaitForMultipleObjectsEx</span>(
+        <span class='ident'>nCount</span>: <span class='ident'>DWORD</span>, <span class='ident'>pHandles</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>HANDLE</span>, <span class='ident'>dwMilliseconds</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwWakeMask</span>: <span class='ident'>UINT</span>,
+        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
     <span class='comment'>// pub fn NotifyWinEvent();</span>
     <span class='comment'>// pub fn OemKeyScan();</span>
     <span class='comment'>// pub fn OemToCharA();</span>
     <span class='comment'>// pub fn OemToCharBuffA();</span>
     <span class='comment'>// pub fn OemToCharBuffW();</span>
     <span class='comment'>// pub fn OemToCharW();</span>
-    <span class='comment'>// pub fn OffsetRect();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>OffsetRect</span>(<span class='ident'>lprc</span>: <span class='ident'>LPRECT</span>, <span class='ident'>dx</span>: <span class='ident'>c_int</span>, <span class='ident'>dy</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>OpenClipboard</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn OpenDesktopA();</span>
     <span class='comment'>// pub fn OpenDesktopW();</span>
@@ -1697,7 +1729,7 @@
     <span class='comment'>// pub fn RegisterTouchWindow();</span>
     <span class='comment'>// pub fn RegisterWindowMessageA();</span>
     <span class='comment'>// pub fn RegisterWindowMessageW();</span>
-    <span class='comment'>// pub fn ReleaseCapture();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ReleaseCapture</span>() <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ReleaseDC</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>hDC</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// pub fn RemoveClipboardFormatListener();</span>
     <span class='comment'>// pub fn RemoveMenu();</span>
@@ -1737,7 +1769,7 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SendNotifyMessageA</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>msg</span>: <span class='ident'>UINT</span>, <span class='ident'>wParam</span>: <span class='ident'>WPARAM</span>, <span class='ident'>lParam</span>: <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SendNotifyMessageW</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>msg</span>: <span class='ident'>UINT</span>, <span class='ident'>wParam</span>: <span class='ident'>WPARAM</span>, <span class='ident'>lParam</span>: <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetActiveWindow</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>) <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
-    <span class='comment'>// pub fn SetCapture();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetCapture</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>) <span class='op'>-&gt;</span> <span class='ident'>HWND</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetCaretBlinkTime</span>(<span class='ident'>uMSeconds</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetCaretPos</span>(<span class='ident'>x</span>: <span class='ident'>c_int</span>, <span class='ident'>y</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetClassLongA</span>(<span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>, <span class='ident'>dwNewLong</span>: <span class='ident'>LONG</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
@@ -1794,7 +1826,9 @@
     <span class='comment'>// pub fn SetSysColors();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetSystemCursor</span>(<span class='ident'>hcur</span>: <span class='ident'>HCURSOR</span>, <span class='ident'>id</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetThreadDesktop</span>(<span class='ident'>hDesktop</span>: <span class='ident'>HDESK</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn SetTimer();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SetTimer</span>(
+        <span class='ident'>hWnd</span>: <span class='ident'>HWND</span>, <span class='ident'>nIDEvent</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>uElapse</span>: <span class='ident'>UINT</span>, <span class='ident'>lpTimerFunc</span>: <span class='ident'>TimerProc</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>UINT_PTR</span>;
     <span class='comment'>// pub fn SetUserObjectInformationA();</span>
     <span class='comment'>// pub fn SetUserObjectInformationW();</span>
     <span class='comment'>// pub fn SetUserObjectSecurity();</span>
@@ -1836,8 +1870,12 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SwapMouseButton</span>(<span class='ident'>fSwap</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SwitchDesktop</span>(<span class='ident'>hDesktop</span>: <span class='ident'>HDESK</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn SwitchToThisWindow();</span>
-    <span class='comment'>// pub fn SystemParametersInfoA();</span>
-    <span class='comment'>// pub fn SystemParametersInfoW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SystemParametersInfoA</span>(
+        <span class='ident'>uiAction</span>: <span class='ident'>UINT</span>, <span class='ident'>uiParam</span>: <span class='ident'>UINT</span>, <span class='ident'>pvParam</span>: <span class='ident'>PVOID</span>, <span class='ident'>fWinIni</span>: <span class='ident'>UINT</span>
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SystemParametersInfoW</span>(
+        <span class='ident'>uiAction</span>: <span class='ident'>UINT</span>, <span class='ident'>uiParam</span>: <span class='ident'>UINT</span>, <span class='ident'>pvParam</span>: <span class='ident'>PVOID</span>, <span class='ident'>fWinIni</span>: <span class='ident'>UINT</span>
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn TabbedTextOutA();</span>
     <span class='comment'>// pub fn TabbedTextOutW();</span>
     <span class='comment'>// pub fn TileChildWindows();</span>
@@ -1846,7 +1884,7 @@
     <span class='comment'>// pub fn ToAsciiEx();</span>
     <span class='comment'>// pub fn ToUnicode();</span>
     <span class='comment'>// pub fn ToUnicodeEx();</span>
-    <span class='comment'>// pub fn TrackMouseEvent();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>TrackMouseEvent</span>(<span class='ident'>lpEventTrack</span>: <span class='ident'>LPTRACKMOUSEEVENT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn TrackPopupMenu();</span>
     <span class='comment'>// pub fn TrackPopupMenuEx();</span>
     <span class='comment'>// pub fn TranslateAccelerator();</span>
@@ -1928,6 +1966,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

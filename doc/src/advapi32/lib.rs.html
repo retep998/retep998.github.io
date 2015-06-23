@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\advapi32-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\lib\advapi32-sys\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -947,6 +947,96 @@
 <span id="905">905</span>
 <span id="906">906</span>
 <span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
+<span id="922">922</span>
+<span id="923">923</span>
+<span id="924">924</span>
+<span id="925">925</span>
+<span id="926">926</span>
+<span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
+<span id="947">947</span>
+<span id="948">948</span>
+<span id="949">949</span>
+<span id="950">950</span>
+<span id="951">951</span>
+<span id="952">952</span>
+<span id="953">953</span>
+<span id="954">954</span>
+<span id="955">955</span>
+<span id="956">956</span>
+<span id="957">957</span>
+<span id="958">958</span>
+<span id="959">959</span>
+<span id="960">960</span>
+<span id="961">961</span>
+<span id="962">962</span>
+<span id="963">963</span>
+<span id="964">964</span>
+<span id="965">965</span>
+<span id="966">966</span>
+<span id="967">967</span>
+<span id="968">968</span>
+<span id="969">969</span>
+<span id="970">970</span>
+<span id="971">971</span>
+<span id="972">972</span>
+<span id="973">973</span>
+<span id="974">974</span>
+<span id="975">975</span>
+<span id="976">976</span>
+<span id="977">977</span>
+<span id="978">978</span>
+<span id="979">979</span>
+<span id="980">980</span>
+<span id="981">981</span>
+<span id="982">982</span>
+<span id="983">983</span>
+<span id="984">984</span>
+<span id="985">985</span>
+<span id="986">986</span>
+<span id="987">987</span>
+<span id="988">988</span>
+<span id="989">989</span>
+<span id="990">990</span>
+<span id="991">991</span>
+<span id="992">992</span>
+<span id="993">993</span>
+<span id="994">994</span>
+<span id="995">995</span>
+<span id="996">996</span>
+<span id="997">997</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1114,13 +1204,13 @@
     ) <span class='op'>-&gt;</span> <span class='ident'>SC_HANDLE</span>;
     <span class='comment'>// pub fn CreateTraceInstanceId();</span>
     <span class='comment'>// pub fn CreateWellKnownSid();</span>
-    <span class='comment'>// pub fn CredDeleteA();</span>
-    <span class='comment'>// pub fn CredDeleteW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredDeleteA</span>(<span class='ident'>TargetName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>Type</span>: <span class='ident'>DWORD</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredDeleteW</span>(<span class='ident'>TargetName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>Type</span>: <span class='ident'>DWORD</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn CredEnumerateA();</span>
     <span class='comment'>// pub fn CredEnumerateW();</span>
     <span class='comment'>// pub fn CredFindBestCredentialA();</span>
     <span class='comment'>// pub fn CredFindBestCredentialW();</span>
-    <span class='comment'>// pub fn CredFree();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredFree</span>(<span class='ident'>Buffer</span>: <span class='ident'>PVOID</span>);
     <span class='comment'>// pub fn CredGetSessionTypes();</span>
     <span class='comment'>// pub fn CredGetTargetInfoA();</span>
     <span class='comment'>// pub fn CredGetTargetInfoW();</span>
@@ -1132,20 +1222,24 @@
     <span class='comment'>// pub fn CredMarshalCredentialW();</span>
     <span class='comment'>// pub fn CredProtectA();</span>
     <span class='comment'>// pub fn CredProtectW();</span>
-    <span class='comment'>// pub fn CredReadA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredReadA</span>(
+        <span class='ident'>TargetName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>Type</span>: <span class='ident'>DWORD</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>, <span class='ident'>Credential</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCREDENTIALA</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn CredReadDomainCredentialsA();</span>
     <span class='comment'>// pub fn CredReadDomainCredentialsW();</span>
-    <span class='comment'>// pub fn CredReadW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredReadW</span>(
+        <span class='ident'>TargetName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>Type</span>: <span class='ident'>DWORD</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>, <span class='ident'>Credential</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCREDENTIALW</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn CredRenameA();</span>
     <span class='comment'>// pub fn CredRenameW();</span>
     <span class='comment'>// pub fn CredUnmarshalCredentialA();</span>
     <span class='comment'>// pub fn CredUnmarshalCredentialW();</span>
     <span class='comment'>// pub fn CredUnprotectA();</span>
     <span class='comment'>// pub fn CredUnprotectW();</span>
-    <span class='comment'>// pub fn CredWriteA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredWriteA</span>(<span class='ident'>Credential</span>: <span class='ident'>PCREDENTIALA</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn CredWriteDomainCredentialsA();</span>
     <span class='comment'>// pub fn CredWriteDomainCredentialsW();</span>
-    <span class='comment'>// pub fn CredWriteW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CredWriteW</span>(<span class='ident'>Credential</span>: <span class='ident'>PCREDENTIALW</span>, <span class='ident'>Flags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptAcquireContextA</span>(
         <span class='ident'>phProv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTPROV</span>, <span class='ident'>szContainer</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>szProvider</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>,
         <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
@@ -1154,50 +1248,116 @@
         <span class='ident'>phProv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTPROV</span>, <span class='ident'>szContainer</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>szProvider</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>,
         <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptContextAddRef();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptContextAddRef</span>(<span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptCreateHash</span>(
         <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>Algid</span>: <span class='ident'>ALG_ID</span>, <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>phHash</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTHASH</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptDecrypt();</span>
-    <span class='comment'>// pub fn CryptDeriveKey();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDecrypt</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>Final</span>: <span class='ident'>BOOL</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, 
+        <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDeriveKey</span>(
+        <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>Algid</span>: <span class='ident'>ALG_ID</span>, <span class='ident'>hBaseData</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>phKey</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTKEY</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDestroyHash</span>(<span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptDestroyKey();</span>
-    <span class='comment'>// pub fn CryptDuplicateHash();</span>
-    <span class='comment'>// pub fn CryptDuplicateKey();</span>
-    <span class='comment'>// pub fn CryptEncrypt();</span>
-    <span class='comment'>// pub fn CryptEnumProviderTypesA();</span>
-    <span class='comment'>// pub fn CryptEnumProviderTypesW();</span>
-    <span class='comment'>// pub fn CryptEnumProvidersA();</span>
-    <span class='comment'>// pub fn CryptEnumProvidersW();</span>
-    <span class='comment'>// pub fn CryptExportKey();</span>
-    <span class='comment'>// pub fn CryptGenKey();</span>
-    <span class='comment'>// pub fn CryptGenRandom();</span>
-    <span class='comment'>// pub fn CryptGetDefaultProviderA();</span>
-    <span class='comment'>// pub fn CryptGetDefaultProviderW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDestroyKey</span>(<span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDuplicateHash</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>phHash</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTHASH</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptDuplicateKey</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>phKey</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTKEY</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptEncrypt</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>Final</span>: <span class='ident'>BOOL</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, 
+        <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwBufLen</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptEnumProviderTypesA</span>(
+        <span class='ident'>dwIndex</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwProvType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, 
+        <span class='ident'>szTypeName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>pcbTypeName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptEnumProviderTypesW</span>(
+        <span class='ident'>dwIndex</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwProvType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, 
+        <span class='ident'>szTypeName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>pcbTypeName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptEnumProvidersA</span>(
+        <span class='ident'>dwIndex</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwProvType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, 
+        <span class='ident'>szProvName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>pcbProvName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptEnumProvidersW</span>(
+        <span class='ident'>dwIndex</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwProvType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, 
+        <span class='ident'>szProvName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>pcbProvName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptExportKey</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>hExpKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>dwBlobType</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>,
+        <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGenKey</span>(
+        <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>Algid</span>: <span class='ident'>ALG_ID</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>phKey</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTKEY</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGenRandom</span>(<span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>dwLen</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbBuffer</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetDefaultProviderA</span>(
+        <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pszProvName</span>: <span class='ident'>LPSTR</span>,
+        <span class='ident'>pcbProvName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetDefaultProviderW</span>(
+        <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>pszProvName</span>: <span class='ident'>LPWSTR</span>,
+        <span class='ident'>pcbProvName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetHashParam</span>(
         <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
         <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptGetKeyParam();</span>
-    <span class='comment'>// pub fn CryptGetProvParam();</span>
-    <span class='comment'>// pub fn CryptGetUserKey();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetKeyParam</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetProvParam</span>(
+        <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, <span class='ident'>pdwDataLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptGetUserKey</span>(<span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>dwKeySpec</span>: <span class='ident'>DWORD</span>, <span class='ident'>phUserKey</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTKEY</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptHashData</span>(
         <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwDataLen</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptHashSessionKey();</span>
-    <span class='comment'>// pub fn CryptImportKey();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptHashSessionKey</span>(<span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptImportKey</span>(
+        <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwDataLen</span>: <span class='ident'>DWORD</span>, <span class='ident'>hPubKey</span>: <span class='ident'>HCRYPTKEY</span>,
+        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>phKey</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCRYPTKEY</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptReleaseContext</span>(<span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CryptSetHashParam();</span>
-    <span class='comment'>// pub fn CryptSetKeyParam();</span>
-    <span class='comment'>// pub fn CryptSetProvParam();</span>
-    <span class='comment'>// pub fn CryptSetProviderA();</span>
-    <span class='comment'>// pub fn CryptSetProviderExA();</span>
-    <span class='comment'>// pub fn CryptSetProviderExW();</span>
-    <span class='comment'>// pub fn CryptSetProviderW();</span>
-    <span class='comment'>// pub fn CryptSignHashA();</span>
-    <span class='comment'>// pub fn CryptSignHashW();</span>
-    <span class='comment'>// pub fn CryptVerifySignatureA();</span>
-    <span class='comment'>// pub fn CryptVerifySignatureW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetHashParam</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetKeyParam</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HCRYPTKEY</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetProvParam</span>(
+        <span class='ident'>hProv</span>: <span class='ident'>HCRYPTPROV</span>, <span class='ident'>dwParam</span>: <span class='ident'>DWORD</span>, <span class='ident'>pbData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetProviderA</span>(<span class='ident'>pszProvName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetProviderExA</span>(
+        <span class='ident'>pszProvName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetProviderExW</span>(
+        <span class='ident'>pszProvName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdwReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSetProviderW</span>(<span class='ident'>pszProvName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwProvType</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSignHashA</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>dwKeySpec</span>: <span class='ident'>DWORD</span>, <span class='ident'>szDescription</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>pbSignature</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, <span class='ident'>pdwSigLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptSignHashW</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>dwKeySpec</span>: <span class='ident'>DWORD</span>, <span class='ident'>szDescription</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>pbSignature</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BYTE</span>, <span class='ident'>pdwSigLen</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptVerifySignatureA</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>pbSignature</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwSigLen</span>: <span class='ident'>DWORD</span>, <span class='ident'>hPubKey</span>: <span class='ident'>HCRYPTKEY</span>, 
+        <span class='ident'>szDescription</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CryptVerifySignatureW</span>(
+        <span class='ident'>hHash</span>: <span class='ident'>HCRYPTHASH</span>, <span class='ident'>pbSignature</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BYTE</span>, <span class='ident'>dwSigLen</span>: <span class='ident'>DWORD</span>, <span class='ident'>hPubKey</span>: <span class='ident'>HCRYPTKEY</span>, 
+        <span class='ident'>szDescription</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn DecryptFileA();</span>
     <span class='comment'>// pub fn DecryptFileW();</span>
     <span class='comment'>// pub fn DeleteAce();</span>
@@ -1568,17 +1728,25 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegCopyTreeW</span>(<span class='ident'>hKeySrc</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>hKeyDest</span>: <span class='ident'>HKEY</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='comment'>// pub fn RegCreateKeyA();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegCreateKeyExA</span>(
-        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
         <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>lpSecurityAttributes</span>: <span class='ident'>LPSECURITY_ATTRIBUTES</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
         <span class='ident'>lpdwDisposition</span>: <span class='ident'>LPDWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegCreateKeyExW</span>(
-        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
         <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>lpSecurityAttributes</span>: <span class='ident'>LPSECURITY_ATTRIBUTES</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
         <span class='ident'>lpdwDisposition</span>: <span class='ident'>LPDWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
-    <span class='comment'>// pub fn RegCreateKeyTransactedA();</span>
-    <span class='comment'>// pub fn RegCreateKeyTransactedW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegCreateKeyTransactedA</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>lpSecurityAttributes</span>: <span class='ident'>LPSECURITY_ATTRIBUTES</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
+        <span class='ident'>lpdwDisposition</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegCreateKeyTransactedW</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpClass</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>lpSecurityAttributes</span>: <span class='ident'>LPSECURITY_ATTRIBUTES</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
+        <span class='ident'>lpdwDisposition</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='comment'>// pub fn RegCreateKeyW();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyA</span>(<span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyExA</span>(
@@ -1587,8 +1755,14 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyExW</span>(
         <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
-    <span class='comment'>// pub fn RegDeleteKeyTransactedA();</span>
-    <span class='comment'>// pub fn RegDeleteKeyTransactedW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyTransactedA</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyTransactedW</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>Reserved</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyValueA</span>(<span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpValueName</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyValueW</span>(<span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpValueName</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegDeleteKeyW</span>(<span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
@@ -1649,8 +1823,14 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegOpenKeyExW</span>(
         <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>ulOptions</span>: <span class='ident'>DWORD</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
-    <span class='comment'>// pub fn RegOpenKeyTransactedA();</span>
-    <span class='comment'>// pub fn RegOpenKeyTransactedW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegOpenKeyTransactedA</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>ulOptions</span>: <span class='ident'>DWORD</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
+        <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegOpenKeyTransactedW</span>(
+        <span class='ident'>hKey</span>: <span class='ident'>HKEY</span>, <span class='ident'>lpSubKey</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>ulOptions</span>: <span class='ident'>DWORD</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
+        <span class='ident'>hTransaction</span>: <span class='ident'>HANDLE</span>, <span class='ident'>pExtendedParemeter</span>: <span class='ident'>PVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>LONG</span>;
     <span class='comment'>// pub fn RegOpenKeyW();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RegOpenUserClassesRoot</span>(
         <span class='ident'>hToken</span>: <span class='ident'>HANDLE</span>, <span class='ident'>dwOptions</span>: <span class='ident'>DWORD</span>, <span class='ident'>samDesired</span>: <span class='ident'>REGSAM</span>, <span class='ident'>phkResult</span>: <span class='ident'>PHKEY</span>,
@@ -1888,6 +2068,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>

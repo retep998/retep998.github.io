@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["D3DPERF_BeginEvent",""],["D3DPERF_EndEvent",""],["D3DPERF_GetStatus",""],["D3DPERF_QueryRepeatFrame",""],["D3DPERF_SetMarker",""],["D3DPERF_SetOptions",""],["D3DPERF_SetRegion",""],["Direct3DCreate9",""],["Direct3DCreate9Ex",""]]});

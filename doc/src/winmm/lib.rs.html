@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-1ecc6299db9ec823\winmm-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\lib\winmm-sys\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -52,6 +52,55 @@
 <span id="10">10</span>
 <span id="11">11</span>
 <span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -64,6 +113,55 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>PlaySoundW</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>hmod</span>: <span class='ident'>HMODULE</span>, <span class='ident'>fdwSound</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sndPlaySoundA</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>fuSound</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sndPlaySoundW</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>fuSound</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeBeginPeriod</span>(<span class='ident'>uPeriod</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeEndPeriod</span>(<span class='ident'>uPeriod</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeGetDevCaps</span>(<span class='ident'>ptc</span>: <span class='ident'>LPTIMECAPS</span>, <span class='ident'>cbtc</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeGetTime</span>() <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInAddBuffer</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInClose</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveInGetDevCapsA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetDevCapsW</span>(<span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>pwic</span>: <span class='ident'>LPWAVEINCAPSW</span>, <span class='ident'>cbwic</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveInGetErrorTextA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetErrorTextW</span>(<span class='ident'>mmrError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>pszText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveInGetID();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetPosition</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pmmt</span>: <span class='ident'>LPMMTIME</span>, <span class='ident'>cbmmt</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInMessage</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>uMsg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInOpen</span>(
+        <span class='ident'>phwi</span>: <span class='ident'>LPHWAVEIN</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>pwfx</span>: <span class='ident'>LPCWAVEFORMATEX</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>,
+        <span class='ident'>dwInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>fdwOpen</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInPrepareHeader</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInReset</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInStart</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInStop</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInUnprepareHeader</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutBreakLoop</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutClose</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveOutGetDevCapsA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetDevCapsW</span>(<span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>pwoc</span>: <span class='ident'>LPWAVEOUTCAPSW</span>, <span class='ident'>cbwoc</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveOutGetErrorTextA();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetErrorTextW</span>(<span class='ident'>mmrError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>pszText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='comment'>// pub fn waveOutGetID();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPitch</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwPitch</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPlaybackRate</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwRate</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPosition</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pmmt</span>: <span class='ident'>LPMMTIME</span>, <span class='ident'>cbmmt</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetVolume</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwVolume</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutMessage</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>uMsg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutOpen</span>(
+        <span class='ident'>phwo</span>: <span class='ident'>LPHWAVEOUT</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>pwfx</span>: <span class='ident'>LPCWAVEFORMATEX</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>,
+        <span class='ident'>dwInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>fdwOpen</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutPause</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutPrepareHeader</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutReset</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutRestart</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetPitch</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwPitch</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetPlaybackRate</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwRate</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetVolume</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwVolume</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutUnprepareHeader</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutWrite</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
 }
 </pre>
 </section>
@@ -98,6 +196,10 @@
                 <code>struct</code>, <code>enum</code>,
                 <code>trait</code>, <code>typedef</code> (or
                 <code>tdef</code>).
+            </p>
+            <p>
+                Search functions by type signature (e.g.
+                <code>vec -> usize</code>)
             </p>
         </div>
     </div>
