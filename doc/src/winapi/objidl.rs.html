@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -90,6 +90,31 @@
 <span id="48">48</span>
 <span id="49">49</span>
 <span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
+<span id="62">62</span>
+<span id="63">63</span>
+<span id="64">64</span>
+<span id="65">65</span>
+<span id="66">66</span>
+<span id="67">67</span>
+<span id="68">68</span>
+<span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -141,6 +166,31 @@
 );
 <span class='comment'>//9350</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>IMoniker</span> <span class='op'>=</span> ::<span class='ident'>IUnknown</span>; <span class='comment'>// TODO</span>
+
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>EOLE_AUTHENTICATION_CAPABILITIES</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_MUTUAL_AUTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_STATIC_CLOAKING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_DYNAMIC_CLOAKING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_ANY_AUTHORITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_MAKE_FULLSIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x100</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x800</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_SECURE_REFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_ACCESS_CONTROL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_APPID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_DYNAMIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_REQUIRE_FULLSIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x200</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_AUTO_IMPERSONATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x400</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_NO_CUSTOM_MARSHAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_DISABLE_AAA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1000</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span> {
+    <span class='kw'>pub</span> <span class='ident'>dwAuthnSvc</span>: ::<span class='ident'>DWORD</span>,
+    <span class='kw'>pub</span> <span class='ident'>dwAuthzSvc</span>: ::<span class='ident'>DWORD</span>,
+    <span class='kw'>pub</span> <span class='ident'>pPrincipalName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>OLECHAR</span>,
+    <span class='kw'>pub</span> <span class='ident'>hr</span>: ::<span class='ident'>HRESULT</span>,
+}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -149,7 +199,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -164,7 +214,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

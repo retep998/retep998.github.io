@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -45,10 +45,10 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-41325' class='srclink' href='../../src/winapi/lib.rs.html#150-156' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-56937' class='srclink' href='../../src/winapi/lib.rs.html#184-190' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IMMDeviceVtbl {
     pub parent: <a class='struct' href='../../winapi/unknwnbase/struct.IUnknownVtbl.html' title='winapi::unknwnbase::IUnknownVtbl'>IUnknownVtbl</a>,
-    pub Activate: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/mmdeviceapi/struct.IMMDevice.html' title='winapi::mmdeviceapi::IMMDevice'>IMMDevice</a></a>, iid: <a class='type' href='../../winapi/type.REFIID.html' title='winapi::REFIID'>REFIID</a>, dwClsCtx: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, pActivationParams: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/struct.PROPVARIANT.html' title='winapi::PROPVARIANT'>PROPVARIANT</a></a>, ppInterface: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.LPVOID.html' title='winapi::minwindef::LPVOID'>LPVOID</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
+    pub Activate: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/mmdeviceapi/struct.IMMDevice.html' title='winapi::mmdeviceapi::IMMDevice'>IMMDevice</a></a>, iid: <a class='type' href='../../winapi/guiddef/type.REFIID.html' title='winapi::guiddef::REFIID'>REFIID</a>, dwClsCtx: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, pActivationParams: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/struct.PROPVARIANT.html' title='winapi::PROPVARIANT'>PROPVARIANT</a></a>, ppInterface: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.LPVOID.html' title='winapi::minwindef::LPVOID'>LPVOID</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub OpenPropertyStore: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/mmdeviceapi/struct.IMMDevice.html' title='winapi::mmdeviceapi::IMMDevice'>IMMDevice</a></a>, stgmAccess: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, ppProperties: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/propsys/type.IPropertyStore.html' title='winapi::propsys::IPropertyStore'>IPropertyStore</a></a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetId: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/mmdeviceapi/struct.IMMDevice.html' title='winapi::mmdeviceapi::IMMDevice'>IMMDevice</a></a>, ppstrId: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetState: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/mmdeviceapi/struct.IMMDevice.html' title='winapi::mmdeviceapi::IMMDevice'>IMMDevice</a></a>, pdwState: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
@@ -65,7 +65,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -80,7 +80,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

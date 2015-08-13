@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -68,22 +68,22 @@
 <span class='doccomment'>//! Macro APIs, window message crackers, and control APIs</span>
 <span class='comment'>//1233</span>
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GET_X_LPARAM</span>(<span class='ident'>lp</span>: ::<span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span> {
-	::<span class='ident'>LOWORD</span>(<span class='ident'>lp</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>) <span class='kw'>as</span> ::<span class='ident'>c_short</span> <span class='kw'>as</span> ::<span class='ident'>c_int</span>
+    ::<span class='ident'>LOWORD</span>(<span class='ident'>lp</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>) <span class='kw'>as</span> ::<span class='ident'>c_short</span> <span class='kw'>as</span> ::<span class='ident'>c_int</span>
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GET_Y_LPARAM</span>(<span class='ident'>lp</span>: ::<span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span> {
-	::<span class='ident'>HIWORD</span>(<span class='ident'>lp</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>) <span class='kw'>as</span> ::<span class='ident'>c_short</span> <span class='kw'>as</span> ::<span class='ident'>c_int</span>
+    ::<span class='ident'>HIWORD</span>(<span class='ident'>lp</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>) <span class='kw'>as</span> ::<span class='ident'>c_short</span> <span class='kw'>as</span> ::<span class='ident'>c_int</span>
 }
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
 <span class='kw'>fn</span> <span class='ident'>test_get_x_lparam</span>() {
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xDEAD1234u32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='number'>0x1234</span>);
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xBEEFffffu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1</span>);
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xCAFEFB2Eu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1234</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xDEAD1234u32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='number'>0x1234</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xBEEFffffu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_X_LPARAM</span>(<span class='number'>0xCAFEFB2Eu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1234</span>);
 }
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
 <span class='kw'>fn</span> <span class='ident'>test_get_y_lparam</span>() {
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0x1234DEADu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='number'>0x1234</span>);
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0xffffBEEFu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1</span>);
-	<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0xFB2ECAFEu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1234</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0x1234DEADu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='number'>0x1234</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0xffffBEEFu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1</span>);
+    <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>GET_Y_LPARAM</span>(<span class='number'>0xFB2ECAFEu32</span> <span class='kw'>as</span> ::<span class='ident'>LPARAM</span>), <span class='op'>-</span><span class='number'>1234</span>);
 }
 </pre>
 </section>
@@ -93,7 +93,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -108,7 +108,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

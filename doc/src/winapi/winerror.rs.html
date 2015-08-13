@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -6097,10 +6097,20 @@
 <span id="6055">6055</span>
 <span id="6056">6056</span>
 <span id="6057">6057</span>
+<span id="6058">6058</span>
+<span id="6059">6059</span>
+<span id="6060">6060</span>
+<span id="6061">6061</span>
+<span id="6062">6062</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! error code definitions for the Win32 API functions</span>
+<span class='attribute'>#[<span class='ident'>inline</span>]</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SUCCEEDED</span>(<span class='ident'>hr</span>: <span class='ident'>HRESULT</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+    <span class='ident'>hr</span> <span class='op'>&gt;=</span> <span class='number'>0</span>
+}
+
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_XPS</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>82</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_XAML</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>43</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_USN</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>129</span>;
@@ -12163,7 +12173,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -12178,7 +12188,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

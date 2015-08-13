@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["wglCopyContext",""],["wglCreateContext",""],["wglCreateLayerContext",""],["wglDeleteContext",""],["wglGetCurrentContext",""],["wglGetCurrentDC",""],["wglGetProcAddress",""],["wglMakeCurrent",""],["wglShareLists",""]]});
+initSidebarItems({"fn":[["glAccum",""],["glAlphaFunc",""],["wglCopyContext",""],["wglCreateContext",""],["wglCreateLayerContext",""],["wglDeleteContext",""],["wglGetCurrentContext",""],["wglGetCurrentDC",""],["wglGetProcAddress",""],["wglMakeCurrent",""],["wglShareLists",""]]});

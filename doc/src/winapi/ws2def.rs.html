@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -216,6 +216,134 @@
 <span id="174">174</span>
 <span id="175">175</span>
 <span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -387,12 +515,140 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIO_RESERVED_2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>_WSAIOW</span><span class='macro'>!</span>(<span class='ident'>IOC_WS2</span>, <span class='number'>33</span>);
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIO_GET_MULTIPLE_EXTENSION_FUNCTION_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>_WSAIORW</span><span class='macro'>!</span>(<span class='ident'>IOC_WS2</span>, <span class='number'>36</span>);
 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IPPROTO_IP</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>IPPROTO</span> {
+    <span class='ident'>IPPROTO_HOPOPTS</span> <span class='op'>=</span> <span class='number'>0</span>,  <span class='comment'>// IPv6 Hop-by-Hop options</span>
+    <span class='ident'>IPPROTO_ICMP</span> <span class='op'>=</span> <span class='number'>1</span>,
+    <span class='ident'>IPPROTO_IGMP</span> <span class='op'>=</span> <span class='number'>2</span>,
+    <span class='ident'>IPPROTO_GGP</span> <span class='op'>=</span> <span class='number'>3</span>,
+    <span class='ident'>IPPROTO_IPV4</span> <span class='op'>=</span> <span class='number'>4</span>,
+    <span class='ident'>IPPROTO_ST</span> <span class='op'>=</span> <span class='number'>5</span>,
+    <span class='ident'>IPPROTO_TCP</span> <span class='op'>=</span> <span class='number'>6</span>,
+    <span class='ident'>IPPROTO_CBT</span> <span class='op'>=</span> <span class='number'>7</span>,
+    <span class='ident'>IPPROTO_EGP</span> <span class='op'>=</span> <span class='number'>8</span>,
+    <span class='ident'>IPPROTO_IGP</span> <span class='op'>=</span> <span class='number'>9</span>,
+    <span class='ident'>IPPROTO_PUP</span> <span class='op'>=</span> <span class='number'>12</span>,
+    <span class='ident'>IPPROTO_UDP</span> <span class='op'>=</span> <span class='number'>17</span>,
+    <span class='ident'>IPPROTO_IDP</span> <span class='op'>=</span> <span class='number'>22</span>,
+    <span class='ident'>IPPROTO_RDP</span> <span class='op'>=</span> <span class='number'>27</span>,
+    <span class='ident'>IPPROTO_IPV6</span> <span class='op'>=</span> <span class='number'>41</span>, <span class='comment'>// IPv6 header</span>
+    <span class='ident'>IPPROTO_ROUTING</span> <span class='op'>=</span> <span class='number'>43</span>, <span class='comment'>// IPv6 Routing header</span>
+    <span class='ident'>IPPROTO_FRAGMENT</span> <span class='op'>=</span> <span class='number'>44</span>, <span class='comment'>// IPv6 fragmentation header</span>
+    <span class='ident'>IPPROTO_ESP</span> <span class='op'>=</span> <span class='number'>50</span>, <span class='comment'>// encapsulating security payload</span>
+    <span class='ident'>IPPROTO_AH</span> <span class='op'>=</span> <span class='number'>51</span>, <span class='comment'>// authentication header</span>
+    <span class='ident'>IPPROTO_ICMPV6</span> <span class='op'>=</span> <span class='number'>58</span>, <span class='comment'>// ICMPv6</span>
+    <span class='ident'>IPPROTO_NONE</span> <span class='op'>=</span> <span class='number'>59</span>, <span class='comment'>// IPv6 no next header</span>
+    <span class='ident'>IPPROTO_DSTOPTS</span> <span class='op'>=</span> <span class='number'>60</span>, <span class='comment'>// IPv6 Destination options</span>
+    <span class='ident'>IPPROTO_ND</span> <span class='op'>=</span> <span class='number'>77</span>,
+    <span class='ident'>IPPROTO_ICLFXBM</span> <span class='op'>=</span> <span class='number'>78</span>,
+    <span class='ident'>IPPROTO_PIM</span> <span class='op'>=</span> <span class='number'>103</span>,
+    <span class='ident'>IPPROTO_PGM</span> <span class='op'>=</span> <span class='number'>113</span>,
+    <span class='ident'>IPPROTO_L2TP</span> <span class='op'>=</span> <span class='number'>115</span>,
+    <span class='ident'>IPPROTO_SCTP</span> <span class='op'>=</span> <span class='number'>132</span>,
+    <span class='ident'>IPPROTO_RAW</span> <span class='op'>=</span> <span class='number'>255</span>,
+    <span class='ident'>IPPROTO_MAX</span> <span class='op'>=</span> <span class='number'>256</span>,
+    <span class='ident'>IPPROTO_RESERVED_RAW</span>  <span class='op'>=</span> <span class='number'>257</span>,
+    <span class='ident'>IPPROTO_RESERVED_IPSEC</span> <span class='op'>=</span> <span class='number'>258</span>,
+    <span class='ident'>IPPROTO_RESERVED_IPSECOFFLOAD</span> <span class='op'>=</span> <span class='number'>259</span>,
+    <span class='ident'>IPPROTO_RESERVED_WNV</span> <span class='op'>=</span> <span class='number'>260</span>,
+    <span class='ident'>IPPROTO_RESERVED_MAX</span> <span class='op'>=</span> <span class='number'>261</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIPPROTO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IPPROTO</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOCKADDR_IN</span> {
+    <span class='kw'>pub</span> <span class='ident'>sin_family</span>: <span class='ident'>ADDRESS_FAMILY</span>,
+    <span class='kw'>pub</span> <span class='ident'>sin_port</span>: ::<span class='ident'>USHORT</span>,
+    <span class='kw'>pub</span> <span class='ident'>sin_addr</span>: ::<span class='ident'>IN_ADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>sin_zero</span>: [::<span class='ident'>CHAR</span>; <span class='number'>8</span>],
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKADDR_IN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR_IN</span>;
+
 <span class='comment'>//645</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCPARM_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x7f</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_VOID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_OUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_IN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_INOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>IOC_IN</span> <span class='op'>|</span> <span class='ident'>IOC_OUT</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSABUF</span> {
+    <span class='kw'>pub</span> <span class='ident'>len</span>: ::<span class='ident'>ULONG</span>,
+    <span class='kw'>pub</span> <span class='ident'>buf</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CHAR</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSABUF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSABUF</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSAMSG</span> {
+    <span class='kw'>pub</span> <span class='ident'>name</span>: <span class='ident'>LPSOCKADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>namelen</span>: ::<span class='ident'>INT</span>,
+    <span class='kw'>pub</span> <span class='ident'>lpBuffers</span>: <span class='ident'>LPWSABUF</span>,
+    <span class='kw'>pub</span> <span class='ident'>dwBufferCount</span>: ::<span class='ident'>ULONG</span>,
+    <span class='kw'>pub</span> <span class='ident'>Control</span>: <span class='ident'>WSABUF</span>,
+    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAMSG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAMSG</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAMSG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAMSG</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOA</span> {
+    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOA</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOA</span>;
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOW</span> {
+    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOW</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOW</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOEXA</span> {
+    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXA</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPADDRINFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXA</span>;
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOEXW</span> {
+    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
+    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPADDRINFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -401,7 +657,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -416,7 +672,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

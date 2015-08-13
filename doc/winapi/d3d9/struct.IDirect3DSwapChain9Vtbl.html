@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -45,10 +45,10 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-7324' class='srclink' href='../../src/winapi/lib.rs.html#150-156' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-8315' class='srclink' href='../../src/winapi/lib.rs.html#184-190' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IDirect3DSwapChain9Vtbl {
     pub parent: <a class='struct' href='../../winapi/unknwnbase/struct.IUnknownVtbl.html' title='winapi::unknwnbase::IUnknownVtbl'>IUnknownVtbl</a>,
-    pub Present: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSwapChain9.html' title='winapi::d3d9::IDirect3DSwapChain9'>IDirect3DSwapChain9</a></a>, pSourceRect: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/struct.RECT.html' title='winapi::RECT'>RECT</a></a>, pDestRect: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/struct.RECT.html' title='winapi::RECT'>RECT</a></a>, hDestWindowOverride: <a class='type' href='../../winapi/type.HWND.html' title='winapi::HWND'>HWND</a>, pDirtyRegion: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/wingdi/struct.RGNDATA.html' title='winapi::wingdi::RGNDATA'>RGNDATA</a></a>, dwFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
+    pub Present: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSwapChain9.html' title='winapi::d3d9::IDirect3DSwapChain9'>IDirect3DSwapChain9</a></a>, pSourceRect: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/windef/struct.RECT.html' title='winapi::windef::RECT'>RECT</a></a>, pDestRect: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/windef/struct.RECT.html' title='winapi::windef::RECT'>RECT</a></a>, hDestWindowOverride: <a class='type' href='../../winapi/windef/type.HWND.html' title='winapi::windef::HWND'>HWND</a>, pDirtyRegion: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/wingdi/struct.RGNDATA.html' title='winapi::wingdi::RGNDATA'>RGNDATA</a></a>, dwFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetFrontBufferData: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSwapChain9.html' title='winapi::d3d9::IDirect3DSwapChain9'>IDirect3DSwapChain9</a></a>, pDestSurface: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSurface9.html' title='winapi::d3d9::IDirect3DSurface9'>IDirect3DSurface9</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetBackBuffer: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSwapChain9.html' title='winapi::d3d9::IDirect3DSwapChain9'>IDirect3DSwapChain9</a></a>, iBackBuffer: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, Type: <a class='enum' href='../../winapi/d3d9types/enum.D3DBACKBUFFER_TYPE.html' title='winapi::d3d9types::D3DBACKBUFFER_TYPE'>D3DBACKBUFFER_TYPE</a>, ppBackBuffer: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSurface9.html' title='winapi::d3d9::IDirect3DSurface9'>IDirect3DSurface9</a></a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetRasterStatus: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9/struct.IDirect3DSwapChain9.html' title='winapi::d3d9::IDirect3DSwapChain9'>IDirect3DSwapChain9</a></a>, pRasterStatus: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/d3d9types/struct.D3DRASTER_STATUS.html' title='winapi::d3d9types::D3DRASTER_STATUS'>D3DRASTER_STATUS</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
@@ -71,7 +71,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -86,7 +86,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["AsyncIUnknown",""],["AsyncIUnknownVtbl",""],["IUnknown",""],["IUnknownVtbl",""]],"type":[["LPUNKNOWN",""]]});
+initSidebarItems({"struct":[["AsyncIUnknown",""],["AsyncIUnknownVtbl",""],["IClassFactory",""],["IClassFactoryVtbl",""],["IUnknown",""],["IUnknownVtbl",""]],"type":[["LPUNKNOWN",""]]});

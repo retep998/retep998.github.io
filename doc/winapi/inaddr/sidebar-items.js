@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["IN_ADDR",""]],"type":[["LPIN_ADDR",""],["PIN_ADDR",""]]});
+initSidebarItems({"struct":[["in_addr",""],["in_addr_S_un_b",""],["in_addr_S_un_w",""]],"type":[["IN_ADDR",""],["LPIN_ADDR",""],["PIN_ADDR",""]]});

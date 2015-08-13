@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -355,15 +355,15 @@
 }
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
 <span class='kw'>fn</span> <span class='ident'>test_INPUT_RECORD</span>() {
-    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>min_align_of</span>};
+    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>align_of</span>};
     <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>KEY_EVENT_RECORD</span><span class='op'>&gt;</span>());
     <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span><span class='op'>&gt;</span>());
     <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MENU_EVENT_RECORD</span><span class='op'>&gt;</span>());
     <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>FOCUS_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>KEY_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>MENU_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>min_align_of</span>::<span class='op'>&lt;</span><span class='ident'>FOCUS_EVENT_RECORD</span><span class='op'>&gt;</span>());
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>KEY_EVENT_RECORD</span><span class='op'>&gt;</span>());
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span><span class='op'>&gt;</span>());
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MENU_EVENT_RECORD</span><span class='op'>&gt;</span>());
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>FOCUS_EVENT_RECORD</span><span class='op'>&gt;</span>());
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PINPUT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>INPUT_RECORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KEY_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
@@ -378,9 +378,9 @@
 }
 <span class='attribute'>#[<span class='ident'>test</span>]</span>
 <span class='kw'>fn</span> <span class='ident'>test_CHAR_INFO</span>() {
-    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>min_align_of</span>};
+    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>align_of</span>};
     <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>WCHAR</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>CHAR</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>min_align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>WCHAR</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>min_align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>CHAR</span><span class='op'>&gt;</span>());
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>WCHAR</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>CHAR</span><span class='op'>&gt;</span>());
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCHAR_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHAR_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FOREGROUND_BLUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
@@ -511,7 +511,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -526,7 +526,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

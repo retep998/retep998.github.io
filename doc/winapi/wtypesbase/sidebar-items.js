@@ -1,1 +1,1 @@
-initSidebarItems({"type":[["LPCOLESTR",""],["LPOLESTR",""],["OLECHAR",""],["PSCODE",""],["SCODE",""]]});
+initSidebarItems({"struct":[["BLOB",""]],"type":[["DOUBLE",""],["LPBLOB",""],["LPCOLESTR",""],["LPOLESTR",""],["OLECHAR",""],["PSCODE",""],["SCODE",""]]});

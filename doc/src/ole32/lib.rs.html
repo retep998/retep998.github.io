@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -589,6 +589,11 @@
 <span id="547">547</span>
 <span id="548">548</span>
 <span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -678,8 +683,13 @@
     <span class='comment'>// pub fn CoHandlePriorityEventsFromMessagePump();</span>
     <span class='comment'>// pub fn CoImpersonateClient();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoIncrementMTAUsage</span>(<span class='ident'>pCookie</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CO_MTA_USAGE_COOKIE</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitialize</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeEx</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCoInit</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoInitializeSecurity();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeSecurity</span>(
+        <span class='ident'>pSecDesc</span>: <span class='ident'>PSECURITY_DESCRIPTOR</span>, <span class='ident'>cAuthSvc</span>: <span class='ident'>LONG</span>,
+        <span class='ident'>asAuthSvc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span>, <span class='ident'>pReserved1</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwAuthnLevel</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>dwImpLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>pAuthList</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCapabilities</span>: <span class='ident'>DWORD</span>, <span class='ident'>pReserved3</span>: <span class='ident'>LPVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='comment'>// pub fn CoInitializeWOW();</span>
     <span class='comment'>// pub fn CoInstall();</span>
     <span class='comment'>// pub fn CoInvalidateRemoteMachineBindings();</span>
@@ -1147,7 +1157,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -1162,7 +1172,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

@@ -1,1 +1,1 @@
-initSidebarItems({"type":[["PSRWLOCK",""],["SRWLOCK",""]]});
+initSidebarItems({"type":[["LPSYNCHRONIZATION_BARRIER",""],["PINIT_ONCE_FN",""],["PSRWLOCK",""],["PSYNCHRONIZATION_BARRIER",""],["PTIMERAPCROUTINE",""],["SRWLOCK",""],["SYNCHRONIZATION_BARRIER",""]]});

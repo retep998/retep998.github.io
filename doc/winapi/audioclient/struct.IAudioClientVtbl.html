@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -45,10 +45,10 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-554' class='srclink' href='../../src/winapi/lib.rs.html#150-156' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-591' class='srclink' href='../../src/winapi/lib.rs.html#184-190' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IAudioClientVtbl {
     pub parent: <a class='struct' href='../../winapi/unknwnbase/struct.IUnknownVtbl.html' title='winapi::unknwnbase::IUnknownVtbl'>IUnknownVtbl</a>,
-    pub Initialize: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, ShareMode: <a class='enum' href='../../winapi/enum.AUDCLNT_SHAREMODE.html' title='winapi::AUDCLNT_SHAREMODE'>AUDCLNT_SHAREMODE</a>, StreamFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, hnsBufferDuration: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, hnsPeriodicity: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, pFormat: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/struct.WAVEFORMATEX.html' title='winapi::WAVEFORMATEX'>WAVEFORMATEX</a></a>, AudioSessionGuid: <a class='type' href='../../winapi/type.LPCGUID.html' title='winapi::LPCGUID'>LPCGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
+    pub Initialize: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, ShareMode: <a class='enum' href='../../winapi/enum.AUDCLNT_SHAREMODE.html' title='winapi::AUDCLNT_SHAREMODE'>AUDCLNT_SHAREMODE</a>, StreamFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, hnsBufferDuration: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, hnsPeriodicity: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, pFormat: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/struct.WAVEFORMATEX.html' title='winapi::WAVEFORMATEX'>WAVEFORMATEX</a></a>, AudioSessionGuid: <a class='type' href='../../winapi/guiddef/type.LPCGUID.html' title='winapi::guiddef::LPCGUID'>LPCGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetBufferSize: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, pNumBufferFrames: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetStreamLatency: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, phnsLatency: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub GetCurrentPadding: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, pNumPaddingFrames: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
@@ -59,7 +59,7 @@
     pub Stop: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub Reset: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
     pub SetEventHandle: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, eventHandle: <a class='type' href='../../winapi/winnt/type.HANDLE.html' title='winapi::winnt::HANDLE'>HANDLE</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetService: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, riid: <a class='type' href='../../winapi/type.REFIID.html' title='winapi::REFIID'>REFIID</a>, ppv: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.LPVOID.html' title='winapi::minwindef::LPVOID'>LPVOID</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
+    pub GetService: unsafe  extern "system" fn(This: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, riid: <a class='type' href='../../winapi/guiddef/type.REFIID.html' title='winapi::guiddef::REFIID'>REFIID</a>, ppv: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.LPVOID.html' title='winapi::minwindef::LPVOID'>LPVOID</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
 }</pre><h2 class='fields'>Fields</h2>
 <table><tr class='stab '>
                                   <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
@@ -81,7 +81,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -96,7 +96,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

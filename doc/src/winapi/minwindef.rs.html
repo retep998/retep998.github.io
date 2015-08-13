@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -170,22 +170,22 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPARAM</span> <span class='op'>=</span> ::<span class='ident'>LONG_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LRESULT</span> <span class='op'>=</span> ::<span class='ident'>LONG_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MAKEWORD</span>(<span class='ident'>a</span>: <span class='ident'>BYTE</span>, <span class='ident'>b</span>: <span class='ident'>BYTE</span>) <span class='op'>-&gt;</span> <span class='ident'>WORD</span> {
-	(<span class='ident'>a</span> <span class='kw'>as</span> <span class='ident'>WORD</span>) <span class='op'>|</span> ((<span class='ident'>b</span> <span class='kw'>as</span> <span class='ident'>WORD</span>) <span class='op'>&lt;&lt;</span> <span class='number'>8</span>)
+    (<span class='ident'>a</span> <span class='kw'>as</span> <span class='ident'>WORD</span>) <span class='op'>|</span> ((<span class='ident'>b</span> <span class='kw'>as</span> <span class='ident'>WORD</span>) <span class='op'>&lt;&lt;</span> <span class='number'>8</span>)
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MAKELONG</span>(<span class='ident'>a</span>: <span class='ident'>WORD</span>, <span class='ident'>b</span>: <span class='ident'>WORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>LONG</span> {
-	((<span class='ident'>a</span> <span class='kw'>as</span> <span class='ident'>DWORD</span>) <span class='op'>|</span> ((<span class='ident'>b</span> <span class='kw'>as</span> <span class='ident'>DWORD</span>) <span class='op'>&lt;&lt;</span> <span class='number'>16</span>)) <span class='kw'>as</span> ::<span class='ident'>LONG</span>
+    ((<span class='ident'>a</span> <span class='kw'>as</span> <span class='ident'>DWORD</span>) <span class='op'>|</span> ((<span class='ident'>b</span> <span class='kw'>as</span> <span class='ident'>DWORD</span>) <span class='op'>&lt;&lt;</span> <span class='number'>16</span>)) <span class='kw'>as</span> ::<span class='ident'>LONG</span>
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>LOWORD</span>(<span class='ident'>l</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>WORD</span> {
-	(<span class='ident'>l</span> <span class='kw-2'>&amp;</span> <span class='number'>0xffff</span>) <span class='kw'>as</span> <span class='ident'>WORD</span>
+    (<span class='ident'>l</span> <span class='kw-2'>&amp;</span> <span class='number'>0xffff</span>) <span class='kw'>as</span> <span class='ident'>WORD</span>
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>HIWORD</span>(<span class='ident'>l</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>WORD</span> {
-	((<span class='ident'>l</span> <span class='op'>&gt;&gt;</span> <span class='number'>16</span>) <span class='kw-2'>&amp;</span> <span class='number'>0xffff</span>) <span class='kw'>as</span> <span class='ident'>WORD</span>
+    ((<span class='ident'>l</span> <span class='op'>&gt;&gt;</span> <span class='number'>16</span>) <span class='kw-2'>&amp;</span> <span class='number'>0xffff</span>) <span class='kw'>as</span> <span class='ident'>WORD</span>
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>LOBYTE</span>(<span class='ident'>l</span>: <span class='ident'>WORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BYTE</span> {
-	(<span class='ident'>l</span> <span class='kw-2'>&amp;</span> <span class='number'>0xff</span>) <span class='kw'>as</span> <span class='ident'>BYTE</span>
+    (<span class='ident'>l</span> <span class='kw-2'>&amp;</span> <span class='number'>0xff</span>) <span class='kw'>as</span> <span class='ident'>BYTE</span>
 }
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>HIBYTE</span>(<span class='ident'>l</span>: <span class='ident'>WORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BYTE</span> {
-	((<span class='ident'>l</span> <span class='op'>&gt;&gt;</span> <span class='number'>8</span>) <span class='kw-2'>&amp;</span> <span class='number'>0xff</span>) <span class='kw'>as</span> <span class='ident'>BYTE</span>
+    ((<span class='ident'>l</span> <span class='op'>&gt;&gt;</span> <span class='number'>8</span>) <span class='kw-2'>&amp;</span> <span class='number'>0xff</span>) <span class='kw'>as</span> <span class='ident'>BYTE</span>
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SPHANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HANDLE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPHANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HANDLE</span>;
@@ -229,7 +229,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -244,7 +244,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

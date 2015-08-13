@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -602,6 +602,28 @@
 <span id="560">560</span>
 <span id="561">561</span>
 <span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+<span id="580">580</span>
+<span id="581">581</span>
+<span id="582">582</span>
+<span id="583">583</span>
+<span id="584">584</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -610,17 +632,21 @@
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
 <span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
 <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='comment'>// pub fn AbortDoc();</span>
-    <span class='comment'>// pub fn AbortPath();</span>
-    <span class='comment'>// pub fn AddFontMemResourceEx();</span>
-    <span class='comment'>// pub fn AddFontResourceA();</span>
-    <span class='comment'>// pub fn AddFontResourceExA();</span>
-    <span class='comment'>// pub fn AddFontResourceExW();</span>
-    <span class='comment'>// pub fn AddFontResourceW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AbortDoc</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AbortPath</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AddFontMemResourceEx</span>(
+        <span class='ident'>pbFont</span>: <span class='ident'>PVOID</span>, <span class='ident'>cbSize</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdv</span>: <span class='ident'>PVOID</span>, <span class='ident'>pcFonts</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HANDLE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AddFontResourceA</span>(<span class='ident'>lpszFilename</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AddFontResourceExA</span>(<span class='ident'>lpszFilename</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>fl</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdv</span>: <span class='ident'>PVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AddFontResourceExW</span>(<span class='ident'>lpszFilename</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>fl</span>: <span class='ident'>DWORD</span>, <span class='ident'>pdv</span>: <span class='ident'>PVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AddFontResourceW</span>(<span class='ident'>lpszFilename</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AngleArc</span>(
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>X</span>: <span class='ident'>c_int</span>, <span class='ident'>Y</span>: <span class='ident'>c_int</span>, <span class='ident'>dwRadius</span>: <span class='ident'>DWORD</span>, <span class='ident'>eStartAngle</span>: <span class='ident'>FLOAT</span>, <span class='ident'>eSweepAngle</span>: <span class='ident'>FLOAT</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn AnimatePalette();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>AnimatePalette</span>(
+        <span class='ident'>hpal</span>: <span class='ident'>HPALETTE</span>, <span class='ident'>iStartIndex</span>: <span class='ident'>UINT</span>, <span class='ident'>cEntries</span>: <span class='ident'>UINT</span>, <span class='ident'>ppe</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PALETTEENTRY</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>Arc</span>(
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nLeftRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nTopRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nRightRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nBottomRect</span>: <span class='ident'>c_int</span>,
         <span class='ident'>nXStartArc</span>: <span class='ident'>c_int</span>, <span class='ident'>nYStartArc</span>: <span class='ident'>c_int</span>, <span class='ident'>nXEndArc</span>: <span class='ident'>c_int</span>, <span class='ident'>nYEndArc</span>: <span class='ident'>c_int</span>,
@@ -629,38 +655,44 @@
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nLeftRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nTopRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nRightRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nBottomRect</span>: <span class='ident'>c_int</span>,
         <span class='ident'>nXRadial1</span>: <span class='ident'>c_int</span>, <span class='ident'>nYRadial1</span>: <span class='ident'>c_int</span>, <span class='ident'>nXRadial2</span>: <span class='ident'>c_int</span>, <span class='ident'>nYRadial2</span>: <span class='ident'>c_int</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn BeginPath();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>BeginPath</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>BitBlt</span>(
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>x</span>: <span class='ident'>c_int</span>, <span class='ident'>y</span>: <span class='ident'>c_int</span>, <span class='ident'>cx</span>: <span class='ident'>c_int</span>, <span class='ident'>cy</span>: <span class='ident'>c_int</span>, <span class='ident'>hdcSrc</span>: <span class='ident'>HDC</span>, <span class='ident'>x1</span>: <span class='ident'>c_int</span>, <span class='ident'>y1</span>: <span class='ident'>c_int</span>,
         <span class='ident'>rop</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CancelDC();</span>
-    <span class='comment'>// pub fn CheckColorsInGamut();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CancelDC</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CheckColorsInGamut</span>(
+        <span class='ident'>hDC</span>: <span class='ident'>HDC</span>, <span class='ident'>lpRGBTriples</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>nCount</span>: <span class='ident'>UINT</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ChoosePixelFormat</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>ppfd</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PIXELFORMATDESCRIPTOR</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>Chord</span>(
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nLeftRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nTopRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nRightRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nBottomRect</span>: <span class='ident'>c_int</span>,
         <span class='ident'>nXRadial1</span>: <span class='ident'>c_int</span>, <span class='ident'>nYRadial1</span>: <span class='ident'>c_int</span>, <span class='ident'>nXRadial2</span>: <span class='ident'>c_int</span>, <span class='ident'>nYRadial2</span>: <span class='ident'>c_int</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CloseEnhMetaFile();</span>
-    <span class='comment'>// pub fn CloseFigure();</span>
-    <span class='comment'>// pub fn CloseMetaFile();</span>
-    <span class='comment'>// pub fn ColorCorrectPalette();</span>
-    <span class='comment'>// pub fn ColorMatchToTarget();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CloseEnhMetaFile</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HENHMETAFILE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CloseFigure</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CloseMetaFile</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HMETAFILE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ColorCorrectPalette</span>(
+        <span class='ident'>hDC</span>: <span class='ident'>HDC</span>, <span class='ident'>hPalette</span>: <span class='ident'>HPALETTE</span>, <span class='ident'>dwFirstEntry</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwNumOfEntries</span>: <span class='ident'>DWORD</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>ColorMatchToTarget</span>(<span class='ident'>hDC</span>: <span class='ident'>HDC</span>, <span class='ident'>hdcTarget</span>: <span class='ident'>HDC</span>, <span class='ident'>uiAction</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CombineRgn</span>(
         <span class='ident'>hrgnDst</span>: <span class='ident'>HRGN</span>, <span class='ident'>hrgnSrc1</span>: <span class='ident'>HRGN</span>, <span class='ident'>hrgnSrc2</span>: <span class='ident'>HRGN</span>, <span class='ident'>fnCombineMode</span>: <span class='ident'>c_int</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='comment'>// pub fn CombineTransform();</span>
-    <span class='comment'>// pub fn CopyEnhMetaFileA();</span>
-    <span class='comment'>// pub fn CopyEnhMetaFileW();</span>
-    <span class='comment'>// pub fn CopyMetaFileA();</span>
-    <span class='comment'>// pub fn CopyMetaFileW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CombineTransform</span>(
+        <span class='ident'>lpxformResult</span>: <span class='ident'>LPXFORM</span>, <span class='ident'>lpxform1</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>XFORM</span>, <span class='ident'>lpxform2</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>XFORM</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CopyEnhMetaFileA</span>(<span class='ident'>hemfSrc</span>: <span class='ident'>HENHMETAFILE</span>, <span class='ident'>lpszFile</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HENHMETAFILE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CopyEnhMetaFileW</span>(<span class='ident'>hemfSrc</span>: <span class='ident'>HENHMETAFILE</span>, <span class='ident'>lpszFile</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HENHMETAFILE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CopyMetaFileA</span>(<span class='ident'>hmfSrc</span>: <span class='ident'>HMETAFILE</span>, <span class='ident'>lpszFile</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HMETAFILE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CopyMetaFileW</span>(<span class='ident'>hmfSrc</span>: <span class='ident'>HMETAFILE</span>, <span class='ident'>lpszFile</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HMETAFILE</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateBitmap</span>(
         <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>nHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>nPlanes</span>: <span class='ident'>UINT</span>, <span class='ident'>nBitCount</span>: <span class='ident'>UINT</span>, <span class='ident'>lpBits</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HBITMAP</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateBitmapIndirect</span>(<span class='ident'>pbm</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BITMAP</span>) <span class='op'>-&gt;</span> <span class='ident'>HBITMAP</span>;
-    <span class='comment'>// pub fn CreateBrushIndirect();</span>
-    <span class='comment'>// pub fn CreateColorSpaceA();</span>
-    <span class='comment'>// pub fn CreateColorSpaceW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateBrushIndirect</span>(<span class='ident'>lplb</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LOGBRUSH</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateColorSpaceA</span>(<span class='ident'>lpLogColorSpace</span>: <span class='ident'>LPLOGCOLORSPACEA</span>) <span class='op'>-&gt;</span> <span class='ident'>HCOLORSPACE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateColorSpaceW</span>(<span class='ident'>lpLogColorSpace</span>: <span class='ident'>LPLOGCOLORSPACEW</span>) <span class='op'>-&gt;</span> <span class='ident'>HCOLORSPACE</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateCompatibleBitmap</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>cx</span>: <span class='ident'>c_int</span>, <span class='ident'>cy</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HBITMAP</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateCompatibleDC</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDCA</span>(
@@ -669,8 +701,8 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDCW</span>(
         <span class='ident'>lpszDriver</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpszDevice</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpszOutput</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpInitData</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>DEVMODEW</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
-    <span class='comment'>// pub fn CreateDIBPatternBrush();</span>
-    <span class='comment'>// pub fn CreateDIBPatternBrushPt();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDIBPatternBrush</span>(<span class='ident'>hglbDIBPacked</span>: <span class='ident'>HGLOBAL</span>, <span class='ident'>fuColorSpec</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDIBPatternBrushPt</span>(<span class='ident'>lpPackedDIB</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>VOID</span>, <span class='ident'>iUsage</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDIBSection</span>(
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>lpbmi</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BITMAPINFO</span>, <span class='ident'>usage</span>: <span class='ident'>UINT</span>, <span class='ident'>ppvBits</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>,
         <span class='ident'>hSection</span>: <span class='ident'>HANDLE</span>, <span class='ident'>offset</span>: <span class='ident'>DWORD</span>,
@@ -679,11 +711,17 @@
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>pbmih</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BITMAPINFOHEADER</span>, <span class='ident'>flInit</span>: <span class='ident'>DWORD</span>, <span class='ident'>pjBits</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>c_void</span>,
         <span class='ident'>pbmi</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BITMAPINFO</span>, <span class='ident'>iUsage</span>: <span class='ident'>UINT</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HBITMAP</span>;
-    <span class='comment'>// pub fn CreateDiscardableBitmap();</span>
-    <span class='comment'>// pub fn CreateEllipticRgn();</span>
-    <span class='comment'>// pub fn CreateEllipticRgnIndirect();</span>
-    <span class='comment'>// pub fn CreateEnhMetaFileA();</span>
-    <span class='comment'>// pub fn CreateEnhMetaFileW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateDiscardableBitmap</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>nHeight</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HBITMAP</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateEllipticRgn</span>(
+        <span class='ident'>nLeftRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nTopRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nRightRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nBottomRect</span>: <span class='ident'>c_int</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HRGN</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateEllipticRgnIndirect</span>(<span class='ident'>lprc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>) <span class='op'>-&gt;</span> <span class='ident'>HRGN</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateEnhMetaFileA</span>(
+        <span class='ident'>hdcRef</span>: <span class='ident'>HDC</span>, <span class='ident'>lpFilename</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpRect</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>, <span class='ident'>lpDescription</span>: <span class='ident'>LPCSTR</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateEnhMetaFileW</span>(
+        <span class='ident'>hdcRef</span>: <span class='ident'>HDC</span>, <span class='ident'>lpFilename</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpRect</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>, <span class='ident'>lpDescription</span>: <span class='ident'>LPCWSTR</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontA</span>(
         <span class='ident'>cHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>cWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>cEscapement</span>: <span class='ident'>c_int</span>, <span class='ident'>cOrientation</span>: <span class='ident'>c_int</span>, <span class='ident'>cWeight</span>: <span class='ident'>c_int</span>,
         <span class='ident'>bItalic</span>: <span class='ident'>DWORD</span>, <span class='ident'>bUnderline</span>: <span class='ident'>DWORD</span>, <span class='ident'>bStrikeOut</span>: <span class='ident'>DWORD</span>, <span class='ident'>iCharSet</span>: <span class='ident'>DWORD</span>,
@@ -691,8 +729,8 @@
         <span class='ident'>pszFaceName</span>: <span class='ident'>LPCSTR</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontIndirectA</span>(<span class='ident'>lplf</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LOGFONTA</span>) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
-    <span class='comment'>// pub fn CreateFontIndirectExA();</span>
-    <span class='comment'>// pub fn CreateFontIndirectExW();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontIndirectExA</span>(<span class='ident'>penumlfex</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ENUMLOGFONTEXDVA</span>) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontIndirectExW</span>(<span class='ident'>penumlfex</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ENUMLOGFONTEXDVW</span>) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontIndirectW</span>(<span class='ident'>lplf</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LOGFONTW</span>) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateFontW</span>(
         <span class='ident'>cHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>cWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>cEscapement</span>: <span class='ident'>c_int</span>, <span class='ident'>cOrientation</span>: <span class='ident'>c_int</span>, <span class='ident'>cWeight</span>: <span class='ident'>c_int</span>,
@@ -700,18 +738,24 @@
         <span class='ident'>iOutPrecision</span>: <span class='ident'>DWORD</span>, <span class='ident'>iClipPrecision</span>: <span class='ident'>DWORD</span>, <span class='ident'>iQuality</span>: <span class='ident'>DWORD</span>, <span class='ident'>iPitchAndFamily</span>: <span class='ident'>DWORD</span>,
         <span class='ident'>pszFaceName</span>: <span class='ident'>LPCWSTR</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HFONT</span>;
-    <span class='comment'>// pub fn CreateHalftonePalette();</span>
-    <span class='comment'>// pub fn CreateHatchBrush();</span>
-    <span class='comment'>// pub fn CreateICA();</span>
-    <span class='comment'>// pub fn CreateICW();</span>
-    <span class='comment'>// pub fn CreateMetaFileA();</span>
-    <span class='comment'>// pub fn CreateMetaFileW();</span>
-    <span class='comment'>// pub fn CreatePalette();</span>
-    <span class='comment'>// pub fn CreatePatternBrush();</span>
-    <span class='comment'>// pub fn CreatePen();</span>
-    <span class='comment'>// pub fn CreatePenIndirect();</span>
-    <span class='comment'>// pub fn CreatePolyPolygonRgn();</span>
-    <span class='comment'>// pub fn CreatePolygonRgn();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateHalftonePalette</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HPALETTE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateHatchBrush</span>(<span class='ident'>fnStyle</span>: <span class='ident'>c_int</span>, <span class='ident'>clrref</span>: <span class='ident'>COLORREF</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateICA</span>(
+        <span class='ident'>lpszDriver</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpszDevice</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpszOutput</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpdvmInit</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>DEVMODEA</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateICW</span>(
+        <span class='ident'>lpszDriver</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpszDevice</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpszOutput</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpdvmInit</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>DEVMODEW</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateMetaFileA</span>(<span class='ident'>lpszFile</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateMetaFileW</span>(<span class='ident'>lpszFile</span>: <span class='ident'>LPCWSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePalette</span>(<span class='ident'>lplgpl</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LOGPALETTE</span>) <span class='op'>-&gt;</span> <span class='ident'>HPALETTE</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePatternBrush</span>(<span class='ident'>hbmp</span>: <span class='ident'>HBITMAP</span>) <span class='op'>-&gt;</span> <span class='ident'>HBRUSH</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePen</span>(<span class='ident'>fnPenStyle</span>: <span class='ident'>c_int</span>, <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>crColor</span>: <span class='ident'>COLORREF</span>) <span class='op'>-&gt;</span> <span class='ident'>HPEN</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePenIndirect</span>(<span class='ident'>lplgpn</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>LOGPEN</span>) <span class='op'>-&gt;</span> <span class='ident'>HPEN</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePolyPolygonRgn</span>(
+        <span class='ident'>lppt</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>POINT</span>, <span class='ident'>lpPolyCounts</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>INT</span>, <span class='ident'>nCount</span>: <span class='ident'>c_int</span>, <span class='ident'>fnPolyFillMode</span>: <span class='ident'>c_int</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HRGN</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreatePolygonRgn</span>(<span class='ident'>lppt</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>POINT</span>, <span class='ident'>cPoints</span>: <span class='ident'>c_int</span>, <span class='ident'>fnPolyFillMode</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HRGN</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateRectRgn</span>(
         <span class='ident'>nLeftRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nTopRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nRightRect</span>: <span class='ident'>c_int</span>, <span class='ident'>nBottomRect</span>: <span class='ident'>c_int</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>HRGN</span>;
@@ -939,7 +983,7 @@
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>hbm</span>: <span class='ident'>HBITMAP</span>, <span class='ident'>start</span>: <span class='ident'>UINT</span>, <span class='ident'>cLines</span>: <span class='ident'>UINT</span>, <span class='ident'>lpvBits</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpbmi</span>: <span class='ident'>LPBITMAPINFO</span>,
         <span class='ident'>usage</span>: <span class='ident'>UINT</span>
     ) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
-    <span class='comment'>// pub fn GetDeviceCaps();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetDeviceCaps</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nIndex</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// pub fn GetDeviceGammaRamp();</span>
     <span class='comment'>// pub fn GetEnhMetaFileA();</span>
     <span class='comment'>// pub fn GetEnhMetaFileBits();</span>
@@ -1036,7 +1080,7 @@
     <span class='comment'>// pub fn OffsetWindowOrgEx();</span>
     <span class='comment'>// pub fn PaintRgn();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>PatBlt</span>(
-        <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nXLeft</span>: <span class='ident'>c_int</span>, <span class='ident'>nYLeft</span>: <span class='ident'>c_int</span>, <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>nHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>dwRop</span>: <span class='ident'>DWORD</span>
+        <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>nXLeft</span>: <span class='ident'>c_int</span>, <span class='ident'>nYLeft</span>: <span class='ident'>c_int</span>, <span class='ident'>nWidth</span>: <span class='ident'>c_int</span>, <span class='ident'>nHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>dwRop</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
     <span class='comment'>// pub fn PathToRegion();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>Pie</span>(
@@ -1150,7 +1194,7 @@
         <span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>XDest</span>: <span class='ident'>c_int</span>, <span class='ident'>YDest</span>: <span class='ident'>c_int</span>, <span class='ident'>nDestWidth</span>: <span class='ident'>c_int</span>,
         <span class='ident'>nDestHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>XSrc</span>: <span class='ident'>c_int</span>, <span class='ident'>YSrc</span>: <span class='ident'>c_int</span>, <span class='ident'>nSrcWidth</span>: <span class='ident'>c_int</span>,
         <span class='ident'>nSrcHeight</span>: <span class='ident'>c_int</span>, <span class='ident'>lpBits</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>VOID</span>, <span class='ident'>lpBitsInfo</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>BITMAPINFO</span>,
-        <span class='ident'>iUsage</span>: <span class='ident'>UINT</span>, <span class='ident'>dwRop</span>: <span class='ident'>DWORD</span>
+        <span class='ident'>iUsage</span>: <span class='ident'>UINT</span>, <span class='ident'>dwRop</span>: <span class='ident'>DWORD</span>,
     ) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
     <span class='comment'>// pub fn StrokeAndFillPath();</span>
     <span class='comment'>// pub fn StrokePath();</span>
@@ -1173,7 +1217,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -1188,7 +1232,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-52191' class='srclink' href='../../src/winapi/lib.rs.html#158-160' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-84386' class='srclink' href='../../src/winapi/lib.rs.html#192-194' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IFileDialog {
     pub lpVtbl: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/shobjidl/struct.IFileDialogVtbl.html' title='winapi::shobjidl::IFileDialogVtbl'>IFileDialogVtbl</a></a>,
 }</pre><h2 class='fields'>Fields</h2>
@@ -70,10 +70,10 @@
 <h4 id='method.AddPlace' class='method'><code>unsafe fn <a href='#method.AddPlace' class='fnname'>AddPlace</a>(&amp;mut self, psi: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/shobjidl/struct.IShellItem.html' title='winapi::shobjidl::IShellItem'>IShellItem</a></a>, fdap: <a class='enum' href='../../winapi/shobjidl/enum.FDAP.html' title='winapi::shobjidl::FDAP'>FDAP</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
 <h4 id='method.SetDefaultExtension' class='method'><code>unsafe fn <a href='#method.SetDefaultExtension' class='fnname'>SetDefaultExtension</a>(&amp;mut self, pszDefaultExtension: <a class='type' href='../../winapi/winnt/type.LPCWSTR.html' title='winapi::winnt::LPCWSTR'>LPCWSTR</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
 <h4 id='method.Close' class='method'><code>unsafe fn <a href='#method.Close' class='fnname'>Close</a>(&amp;mut self, hr: <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.SetClientGuid' class='method'><code>unsafe fn <a href='#method.SetClientGuid' class='fnname'>SetClientGuid</a>(&amp;mut self, guid: <a class='type' href='../../winapi/type.REFGUID.html' title='winapi::REFGUID'>REFGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
+<h4 id='method.SetClientGuid' class='method'><code>unsafe fn <a href='#method.SetClientGuid' class='fnname'>SetClientGuid</a>(&amp;mut self, guid: <a class='type' href='../../winapi/guiddef/type.REFGUID.html' title='winapi::guiddef::REFGUID'>REFGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
 <h4 id='method.ClearClientData' class='method'><code>unsafe fn <a href='#method.ClearClientData' class='fnname'>ClearClientData</a>(&amp;mut self) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
 <h4 id='method.SetFilter' class='method'><code>unsafe fn <a href='#method.SetFilter' class='fnname'>SetFilter</a>(&amp;mut self, pFilter: <a href='http://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/shobjidl/type.IShellItemFilter.html' title='winapi::shobjidl::IShellItemFilter'>IShellItemFilter</a></a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-</div><h2 id='deref-methods'>Methods from <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../winapi/shobjidl/struct.IModalWindow.html' title='winapi::shobjidl::IModalWindow'>IModalWindow</a>&gt;</h2><div class='impl-items'><h4 id='method.Show' class='method'><code>unsafe fn <a href='#method.Show' class='fnname'>Show</a>(&amp;mut self, hwndOwner: <a class='type' href='../../winapi/type.HWND.html' title='winapi::HWND'>HWND</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
+</div><h2 id='deref-methods'>Methods from <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../winapi/shobjidl/struct.IModalWindow.html' title='winapi::shobjidl::IModalWindow'>IModalWindow</a>&gt;</h2><div class='impl-items'><h4 id='method.Show' class='method'><code>unsafe fn <a href='#method.Show' class='fnname'>Show</a>(&amp;mut self, hwndOwner: <a class='type' href='../../winapi/windef/type.HWND.html' title='winapi::windef::HWND'>HWND</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
 </div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../winapi/shobjidl/struct.IFileDialog.html' title='winapi::shobjidl::IFileDialog'>IFileDialog</a></code></h3><div class='impl-items'><h4 id='assoc_type.Target' class='type'><code>type Target = <a class='struct' href='../../winapi/shobjidl/struct.IModalWindow.html' title='winapi::shobjidl::IModalWindow'>IModalWindow</a></code></h4>
 <h4 id='method.deref' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#method.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/shobjidl/struct.IModalWindow.html' title='winapi::shobjidl::IModalWindow'>IModalWindow</a></code></h4>
 </div><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html' title='core::ops::DerefMut'>DerefMut</a> for <a class='struct' href='../../winapi/shobjidl/struct.IFileDialog.html' title='winapi::shobjidl::IFileDialog'>IFileDialog</a></code></h3><div class='impl-items'><h4 id='method.deref_mut' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html#method.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/shobjidl/struct.IModalWindow.html' title='winapi::shobjidl::IModalWindow'>IModalWindow</a></code></h4>
@@ -85,7 +85,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -100,7 +100,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.

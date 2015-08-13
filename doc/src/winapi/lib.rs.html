@@ -34,7 +34,7 @@
             <div class="search-container">
                 <input class="search-input" name="search"
                        autocomplete="off"
-                       placeholder="Click or press 'S' to search, '?' for more options..."
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
                        type="search">
             </div>
         </form>
@@ -2012,6 +2012,55 @@
 <span id="1970">1970</span>
 <span id="1971">1971</span>
 <span id="1972">1972</span>
+<span id="1973">1973</span>
+<span id="1974">1974</span>
+<span id="1975">1975</span>
+<span id="1976">1976</span>
+<span id="1977">1977</span>
+<span id="1978">1978</span>
+<span id="1979">1979</span>
+<span id="1980">1980</span>
+<span id="1981">1981</span>
+<span id="1982">1982</span>
+<span id="1983">1983</span>
+<span id="1984">1984</span>
+<span id="1985">1985</span>
+<span id="1986">1986</span>
+<span id="1987">1987</span>
+<span id="1988">1988</span>
+<span id="1989">1989</span>
+<span id="1990">1990</span>
+<span id="1991">1991</span>
+<span id="1992">1992</span>
+<span id="1993">1993</span>
+<span id="1994">1994</span>
+<span id="1995">1995</span>
+<span id="1996">1996</span>
+<span id="1997">1997</span>
+<span id="1998">1998</span>
+<span id="1999">1999</span>
+<span id="2000">2000</span>
+<span id="2001">2001</span>
+<span id="2002">2002</span>
+<span id="2003">2003</span>
+<span id="2004">2004</span>
+<span id="2005">2005</span>
+<span id="2006">2006</span>
+<span id="2007">2007</span>
+<span id="2008">2008</span>
+<span id="2009">2009</span>
+<span id="2010">2010</span>
+<span id="2011">2011</span>
+<span id="2012">2012</span>
+<span id="2013">2013</span>
+<span id="2014">2014</span>
+<span id="2015">2015</span>
+<span id="2016">2016</span>
+<span id="2017">2017</span>
+<span id="2018">2018</span>
+<span id="2019">2019</span>
+<span id="2020">2020</span>
+<span id="2021">2021</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -2021,13 +2070,9 @@
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>warn</span>(<span class='ident'>unused_qualifications</span>, <span class='ident'>unused</span>)]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='comment'>// External crates</span>
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// Imports</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>libc</span>::{
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>::{
     <span class='ident'>c_void</span>,
     <span class='ident'>c_char</span>,
     <span class='ident'>c_schar</span>,
@@ -2040,39 +2085,72 @@
     <span class='ident'>c_ulong</span>,
     <span class='ident'>c_longlong</span>,
     <span class='ident'>c_ulonglong</span>,
-    <span class='ident'>wchar_t</span>,
     <span class='ident'>c_float</span>,
     <span class='ident'>c_double</span>,
-    <span class='ident'>size_t</span>,
 };
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>audioclient</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>basetsd</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>bcrypt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>commctrl</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>corsym</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d9</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d9caps</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d9types</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dbghelp</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dpapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dsound</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dwmapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>errhandlingapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>excpt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>fileapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>gl</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>guiddef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>heapapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>http</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>inaddr</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>libloaderapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmcons</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>memoryapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>minwinbase</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>minwindef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mmdeviceapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mmreg</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mmsystem</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mscat</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mssip</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ncrypt</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ntdef</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ntstatus</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>objbase</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>objidl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>objidlbase</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>olectl</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>processsnapshot</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>processthreadsapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>propsys</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>psapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>qos</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>reason</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>rpcdce</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>schannel</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>shellapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>shellscalingapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>shobjidl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>shtypes</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>sspi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>synchapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>sysinfoapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>threadpoolapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>timezoneapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>tlhelp32</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>unknwnbase</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>usp10</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>vadefs</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>vsbackup</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>vss</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>vsserror</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>vswriter</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>werapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winbase</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wincon</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wincred</span>::<span class='op'>*</span>;
@@ -2081,21 +2159,26 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>windef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winerror</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wingdi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winhttp</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winioctl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnetwk</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnls</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsock2</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winspool</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsvc</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winuser</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2def</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2spi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2tcpip</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wtypesbase</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>xinput</span>::<span class='op'>*</span>;
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// Macros</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>DECLARE_HANDLE</span> {
     (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>name</span>:<span class='ident'>ident</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>inner</span>:<span class='ident'>ident</span>) <span class='op'>=&gt;</span> {
-        <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span> <span class='kw'>struct</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>inner</span> { <span class='ident'>unused</span>: () }
+        <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span> <span class='kw'>struct</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>inner</span> { <span class='ident'>unused</span>: ::<span class='ident'>c_void</span> }
         <span class='kw'>pub</span> <span class='kw'>type</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>name</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>inner</span>;
     };
 }
@@ -2208,37 +2291,91 @@
         }
     }
 }
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>BITFIELD</span> {
+    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>base</span>:<span class='ident'>ident</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>field</span>:<span class='ident'>ident</span>: <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fieldtype</span>:<span class='ident'>ty</span> [
+        $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>thing</span>:<span class='ident'>ident</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>set_thing</span>:<span class='ident'>ident</span>[<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>:<span class='ident'>expr</span>],)<span class='op'>+</span>
+    ]) <span class='op'>=&gt;</span> {
+        <span class='kw'>impl</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>base</span> {$(
+            <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+            <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>thing</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fieldtype</span> {
+                <span class='kw'>let</span> <span class='ident'>size</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fieldtype</span><span class='op'>&gt;</span>() <span class='op'>*</span> <span class='number'>8</span>;
+                <span class='self'>self</span>.<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>field</span> <span class='op'>&lt;&lt;</span> (<span class='ident'>size</span> <span class='op'>-</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>end</span>) <span class='op'>&gt;&gt;</span> (<span class='ident'>size</span> <span class='op'>-</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>end</span> <span class='op'>+</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>start</span>)
+            }
+            <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+            <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>set_thing</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>val</span>: <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fieldtype</span>) {
+                <span class='kw'>let</span> <span class='ident'>mask</span> <span class='op'>=</span> ((<span class='number'>1</span> <span class='op'>&lt;&lt;</span> (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>end</span> <span class='op'>-</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>start</span>)) <span class='op'>-</span> <span class='number'>1</span>) <span class='op'>&lt;&lt;</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>start</span>;
+                <span class='self'>self</span>.<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>field</span> <span class='op'>&amp;=</span> <span class='op'>!</span><span class='ident'>mask</span>;
+                <span class='self'>self</span>.<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>field</span> <span class='op'>|=</span> (<span class='ident'>val</span> <span class='op'>&lt;&lt;</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>r</span>.<span class='ident'>start</span>) <span class='kw-2'>&amp;</span> <span class='ident'>mask</span>;
+            }
+        )<span class='op'>+</span>}
+    }
+}
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// Modules</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>audioclient</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>basetsd</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>bcrypt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>commctrl</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>corsym</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d9</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d9caps</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d9types</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dbghelp</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dpapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dsound</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dwmapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>errhandlingapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>excpt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>fileapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>gl</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>guiddef</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>heapapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>http</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>inaddr</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>libloaderapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmcons</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>memoryapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>minwinbase</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>minwindef</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mmdeviceapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mmreg</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mmsystem</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mscat</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mssip</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ncrypt</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ntdef</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ntstatus</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>objbase</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>objidl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>objidlbase</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>olectl</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>processsnapshot</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>processthreadsapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>propsys</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>psapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>qos</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>reason</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>rpcdce</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>schannel</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>shellapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>shellscalingapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>shobjidl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>shtypes</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>sspi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>synchapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>sysinfoapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>threadpoolapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>timezoneapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>tlhelp32</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>unknwnbase</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>usp10</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vadefs</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vsbackup</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vss</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vsserror</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>vswriter</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>werapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winbase</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wincon</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wincred</span>;
@@ -2247,17 +2384,22 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windowsx</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winerror</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wingdi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winhttp</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winioctl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnetwk</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnls</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsock2</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winspool</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsvc</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winuser</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2def</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2spi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2tcpip</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wtypesbase</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>xinput</span>;
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='comment'>// Primitive types not defined by libc</span>
+<span class='comment'>// Primitive types not provided by std</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>__int8</span> <span class='op'>=</span> <span class='ident'>i8</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>__uint8</span> <span class='op'>=</span> <span class='ident'>u8</span>;
@@ -2267,41 +2409,12 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>__uint32</span> <span class='op'>=</span> <span class='ident'>u32</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>__int64</span> <span class='op'>=</span> <span class='ident'>i64</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>__uint64</span> <span class='op'>=</span> <span class='ident'>u64</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>wchar_t</span> <span class='op'>=</span> <span class='ident'>c_ushort</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>size_t</span> <span class='op'>=</span> <span class='ident'>c_uint</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>size_t</span> <span class='op'>=</span> <span class='ident'>__uint64</span>;
 
-<span class='comment'>// guiddef.h</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>GUID</span> {
-    <span class='kw'>pub</span> <span class='ident'>Data1</span>: <span class='ident'>c_ulong</span>,
-    <span class='kw'>pub</span> <span class='ident'>Data2</span>: <span class='ident'>c_ushort</span>,
-    <span class='kw'>pub</span> <span class='ident'>Data3</span>: <span class='ident'>c_ushort</span>,
-    <span class='kw'>pub</span> <span class='ident'>Data4</span>: [<span class='ident'>c_uchar</span>; <span class='number'>8</span>],
-}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPGUID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCGUID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>IID</span> <span class='op'>=</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPIID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>CLSID</span> <span class='op'>=</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCLSID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CLSID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>FMTID</span> <span class='op'>=</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFMTID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FMTID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFGUID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFIID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>IID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFCLSID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>IID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFFMTID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>IID</span>;
-<span class='comment'>// excpt.h</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>EXCEPTION_DISPOSITION</span> {
-    <span class='ident'>ExceptionContinueExecution</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>ExceptionContinueSearch</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>ExceptionNestedException</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>ExceptionCollidedUnwind</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>_EXCEPTION_RECORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>_CONTEXT</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>_DISPATCHER_CONTEXT</span>;
 <span class='comment'>// shlobj.h</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>GPFIDL_FLAGS</span> <span class='op'>=</span> <span class='ident'>c_int</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
@@ -2328,85 +2441,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>GPFIDL_UNCPRINTER</span>: <span class='ident'>GPFIDL_FLAGS</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFASI_EDIT</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFASI_OPENDESKTOP</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='comment'>// winddef.h</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HWND__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HWND</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HWND__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HHOOK__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HHOOK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HHOOK__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HGDIOBJ</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HACCEL__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HACCEL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HACCEL__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HBITMAP__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HBITMAP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HBITMAP__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HBRUSH__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HBRUSH</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HBRUSH__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HCOLORSPACE__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HCOLORSPACE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCOLORSPACE__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HDC__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HDC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HDC__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HGLRC__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HGLRC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HGLRC__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HDESK__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HDESK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HDESK__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HENHMETAFILE__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HENHMETAFILE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HENHMETAFILE__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HFONT__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HFONT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HFONT__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HICON__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HICON</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HICON__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HMENU__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HMENU</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HMENU__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HPALETTE__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HPALETTE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HPALETTE__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HPEN__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HPEN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HPEN__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HWINEVENTHOOK__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HWINEVENTHOOK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HWINEVENTHOOK__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HMONITOR__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HMONITOR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HMONITOR__</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HUMPD__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HUMPD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HUMPD__</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HCURSOR</span> <span class='op'>=</span> <span class='ident'>HICON</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>COLORREF</span> <span class='op'>=</span> <span class='ident'>DWORD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCOLORREF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DWORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RECT</span> {
-    <span class='kw'>pub</span> <span class='ident'>left</span>: <span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>top</span>: <span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>right</span>: <span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>bottom</span>: <span class='ident'>LONG</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NPRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>POINT</span> {
-    <span class='kw'>pub</span> <span class='ident'>x</span>: <span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>y</span>: <span class='ident'>LONG</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NPPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
-
 <span class='comment'>// shlobjdl.h</span>
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IContextMenu</span>;
@@ -2846,15 +2880,21 @@
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// wtypes.h</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_INPROC_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_INPROC_HANDLER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_LOCAL_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_REMOTE_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_SERVER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_LOCAL_SERVER</span> <span class='op'>|</span>
-                                 <span class='ident'>CLSCTX_REMOTE_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_ALL</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_HANDLER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_SERVER</span>;
-
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DATE</span> <span class='op'>=</span> <span class='ident'>c_double</span>;
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DECIMAL</span> {
+    <span class='kw'>pub</span> <span class='ident'>wReserved</span>: <span class='ident'>USHORT</span>,
+    <span class='kw'>pub</span> <span class='ident'>scale</span>: <span class='ident'>BYTE</span>,
+    <span class='kw'>pub</span> <span class='ident'>sign</span>: <span class='ident'>BYTE</span>,
+    <span class='kw'>pub</span> <span class='ident'>Hi32</span>: <span class='ident'>ULONG</span>,
+    <span class='kw'>pub</span> <span class='ident'>Lo64</span>: <span class='ident'>ULONGLONG</span>,
+}
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DECIMAL_NEG</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x80</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDECIMAL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DECIMAL</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VARTYPE</span> <span class='op'>=</span> <span class='ident'>c_ushort</span>;
+
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OLECHAR</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPBSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BSTR</span>;
 
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// audiosessiontypes.h</span>
@@ -2864,6 +2904,11 @@
     <span class='ident'>AUDCLNT_SHAREMODE_SHARED</span>,
     <span class='ident'>AUDCLNT_SHAREMODE_EXCLUSIVE</span>,
 }
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_CROSSPROCESS</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_LOOPBACK</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_EVENTCALLBACK</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_NOPERSIST</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_RATEADJUST</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
 
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// strmif.h</span>
@@ -2900,6 +2945,14 @@
 <span class='comment'>// combaseapi.h</span>
 <span class='comment'>// Base Component Object Model defintions.</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_INPROC_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_INPROC_HANDLER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_LOCAL_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_REMOTE_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_SERVER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_LOCAL_SERVER</span> <span class='op'>|</span>
+                                 <span class='ident'>CLSCTX_REMOTE_SERVER</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_ALL</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_HANDLER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_SERVER</span>;
+
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ServerInformation</span> {
     <span class='kw'>pub</span> <span class='ident'>dwServerPid</span>: <span class='ident'>DWORD</span>,
@@ -3110,6 +3163,36 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>GW_ENABLEDPOPUP</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>6</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>GW_MAX</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>6</span>;
 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTERROR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTRANSPARENT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTNOWHERE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTCLIENT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTCAPTION</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTSYSMENU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTGROWBOX</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTSIZE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='ident'>HTGROWBOX</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTMENU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>5</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTHSCROLL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>6</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTVSCROLL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>7</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTMINBUTTON</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>8</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTMAXBUTTON</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>9</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTLEFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTRIGHT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>11</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTOP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>12</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTOPLEFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>13</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTOPRIGHT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>14</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTBOTTOM</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>15</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTBOTTOMLEFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>16</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTBOTTOMRIGHT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>17</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTBORDER</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>18</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTREDUCE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='ident'>HTMINBUTTON</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTZOOM</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='ident'>HTMAXBUTTON</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTSIZEFIRST</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='ident'>HTLEFT</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTSIZELAST</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='ident'>HTBOTTOMRIGHT</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTOBJECT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>19</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTCLOSE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>20</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTHELP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>21</span>;
+
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LSFW_LOCK</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LSFW_UNLOCK</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 
@@ -3193,166 +3276,166 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SWP_DEFERERASE</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SWP_ASYNCWINDOWPOS</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
 
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LBUTTON</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RBUTTON</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CANCEL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x03</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MBUTTON</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x04</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_XBUTTON1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x05</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_XBUTTON2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x06</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BACK</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x08</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_TAB</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x09</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CLEAR</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x0C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RETURN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x0D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SHIFT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CONTROL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MENU</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAUSE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x13</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CAPITAL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_KANA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANGUEL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANGUL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_JUNJA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x17</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_FINAL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x18</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANJA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x19</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_KANJI</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x19</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ESCAPE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x1B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CONVERT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x1C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NONCONVERT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x1D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ACCEPT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x1E</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MODECHANGE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x1F</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SPACE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PRIOR</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x21</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NEXT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x22</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_END</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x23</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HOME</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x24</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LEFT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x25</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_UP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x26</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RIGHT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x27</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DOWN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x28</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SELECT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x29</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PRINT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EXECUTE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SNAPSHOT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_INSERT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DELETE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2E</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HELP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x2F</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LWIN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x5B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RWIN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x5C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_APPS</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x5D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SLEEP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x5F</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD0</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x60</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x61</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x62</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD3</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x63</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD4</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x64</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD5</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x65</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD6</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x66</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD7</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x67</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD8</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x68</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD9</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x69</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MULTIPLY</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ADD</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SEPARATOR</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SUBTRACT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DECIMAL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6E</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DIVIDE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x6F</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x70</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x71</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F3</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x72</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F4</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x73</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F5</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x74</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F6</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x75</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F7</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x76</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F8</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x77</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F9</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x78</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F10</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x79</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F11</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F12</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F13</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F14</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7D</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F15</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7E</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F16</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x7F</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F17</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F18</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x81</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F19</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x82</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F20</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x83</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F21</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x84</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F22</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x85</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F23</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x86</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F24</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x87</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMLOCK</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x90</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SCROLL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x91</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_NEC_EQUAL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x92</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_JISHO</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x92</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_MASSHOU</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x93</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_TOUROKU</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x94</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_LOYA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x95</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_ROYA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x96</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LSHIFT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RSHIFT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LCONTROL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RCONTROL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LMENU</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RMENU</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_BACK</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_FORWARD</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_REFRESH</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_STOP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xA9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_SEARCH</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_FAVORITES</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_HOME</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_MUTE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_DOWN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_UP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xAF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_NEXT_TRACK</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_PREV_TRACK</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_STOP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_PLAY_PAUSE</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_MAIL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_MEDIA_SELECT</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_APP1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_APP2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xB7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PLUS</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_COMMA</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_MINUS</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PERIOD</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xBF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_3</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xC0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_4</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xDB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_5</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xDC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_6</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xDD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_7</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xDE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_8</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xDF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_AX</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_102</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_HELP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_00</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PROCESSKEY</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_CLEAR</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PACKET</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_RESET</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xE9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_JUMP</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xEA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xEB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA2</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xEC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA3</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_WSCTRL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xEE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_CUSEL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xEF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_ATTN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FINISH</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_COPY</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_AUTO</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_ENLW</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_BACKTAB</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ATTN</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CRSEL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EXSEL</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EREOF</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xF9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PLAY</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xFA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ZOOM</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xFB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NONAME</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xFC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PA1</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xFD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_CLEAR</span>: <span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0xFE</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LBUTTON</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x01</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RBUTTON</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x02</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CANCEL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x03</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MBUTTON</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x04</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_XBUTTON1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x05</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_XBUTTON2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x06</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BACK</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x08</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_TAB</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x09</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CLEAR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x0C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RETURN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x0D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SHIFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x10</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CONTROL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x11</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MENU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x12</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAUSE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x13</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CAPITAL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x14</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_KANA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x15</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANGUEL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x15</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANGUL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x15</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_JUNJA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x17</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_FINAL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x18</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HANJA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x19</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_KANJI</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x19</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ESCAPE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1B</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CONVERT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NONCONVERT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ACCEPT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1E</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MODECHANGE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x1F</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SPACE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x20</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PRIOR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x21</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NEXT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x22</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_END</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x23</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HOME</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x24</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LEFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x25</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_UP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x26</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RIGHT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x27</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DOWN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x28</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SELECT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x29</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PRINT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2A</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EXECUTE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2B</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SNAPSHOT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_INSERT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DELETE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2E</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_HELP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x2F</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LWIN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x5B</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RWIN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x5C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_APPS</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x5D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SLEEP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x5F</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD0</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x60</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x61</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x62</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD3</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x63</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD4</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x64</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD5</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x65</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD6</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x66</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD7</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x67</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD8</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x68</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMPAD9</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x69</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MULTIPLY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6A</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ADD</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6B</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SEPARATOR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SUBTRACT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DECIMAL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6E</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_DIVIDE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x6F</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x70</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x71</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F3</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x72</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F4</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x73</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F5</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x74</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F6</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x75</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F7</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x76</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F8</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x77</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F9</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x78</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F10</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x79</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F11</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7A</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F12</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7B</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F13</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7C</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F14</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7D</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F15</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7E</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F16</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7F</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F17</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x80</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F18</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x81</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F19</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x82</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F20</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x83</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F21</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x84</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F22</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x85</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F23</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x86</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_F24</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x87</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NUMLOCK</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x90</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_SCROLL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x91</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_NEC_EQUAL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x92</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_JISHO</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x92</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_MASSHOU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x93</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_TOUROKU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x94</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_LOYA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x95</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FJ_ROYA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x96</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LSHIFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RSHIFT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LCONTROL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RCONTROL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LMENU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_RMENU</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA5</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_BACK</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA6</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_FORWARD</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA7</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_REFRESH</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA8</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_STOP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xA9</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_SEARCH</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAA</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_FAVORITES</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAB</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_BROWSER_HOME</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAC</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_MUTE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_DOWN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAE</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_VOLUME_UP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xAF</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_NEXT_TRACK</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_PREV_TRACK</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_STOP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_MEDIA_PLAY_PAUSE</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_MAIL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_MEDIA_SELECT</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB5</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_APP1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB6</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_LAUNCH_APP2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xB7</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBA</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PLUS</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBB</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_COMMA</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBC</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_MINUS</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PERIOD</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBE</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xBF</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_3</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xC0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_4</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xDB</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_5</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xDC</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_6</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xDD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_7</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xDE</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_8</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xDF</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_AX</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_102</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_HELP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_00</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PROCESSKEY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE5</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ICO_CLEAR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE6</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PACKET</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE7</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_RESET</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xE9</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_JUMP</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xEA</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xEB</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA2</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xEC</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_PA3</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xED</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_WSCTRL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xEE</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_CUSEL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xEF</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_ATTN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_FINISH</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF1</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_COPY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF2</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_AUTO</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF3</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_ENLW</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF4</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_BACKTAB</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF5</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ATTN</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF6</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_CRSEL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF7</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EXSEL</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF8</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_EREOF</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xF9</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PLAY</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xFA</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_ZOOM</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xFB</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_NONAME</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xFC</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PA1</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xFD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_OEM_CLEAR</span>: <span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0xFE</span>;
 
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_NULL</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x0000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_CREATE</span>: <span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
@@ -3660,20 +3743,35 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WS_EX_LAYOUTRTL</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WS_EX_COMPOSITED</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WS_EX_NOACTIVATE</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DESKTOPENUMPROCA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>LPSTR</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DESKTOPENUMPROCW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>LPWSTR</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NAMEENUMPROCA</span> <span class='op'>=</span> <span class='ident'>DESKTOPENUMPROCA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NAMEENUMPROCW</span> <span class='op'>=</span> <span class='ident'>DESKTOPENUMPROCW</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NAMEENUMPROCA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>LPSTR</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NAMEENUMPROCW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>LPWSTR</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DESKTOPENUMPROCA</span> <span class='op'>=</span> <span class='ident'>NAMEENUMPROCA</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DESKTOPENUMPROCW</span> <span class='op'>=</span> <span class='ident'>NAMEENUMPROCW</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WINSTAENUMPROCA</span> <span class='op'>=</span> <span class='ident'>NAMEENUMPROCA</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WINSTAENUMPROCW</span> <span class='op'>=</span> <span class='ident'>NAMEENUMPROCW</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WNDENUMPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HWND</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WNDPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HWND</span>, <span class='ident'>UINT</span>, <span class='ident'>WPARAM</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>LRESULT</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DLGPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HWND</span>, <span class='ident'>UINT</span>, <span class='ident'>WPARAM</span>, <span class='ident'>LPARAM</span>) <span class='op'>-&gt;</span> <span class='ident'>INT_PTR</span><span class='op'>&gt;</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>code</span>: <span class='ident'>c_int</span>, <span class='ident'>wParam</span>: <span class='ident'>WPARAM</span>, <span class='ident'>lParam</span>: <span class='ident'>LPARAM</span>,
 ) <span class='op'>-&gt;</span> <span class='ident'>LRESULT</span><span class='op'>&gt;</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>TimerProc</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>uMsg</span>: <span class='ident'>UINT</span>, <span class='ident'>idEvent</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>dwTime</span>: <span class='ident'>DWORD</span>,
 )<span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DRAWSTATEPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
+    <span class='ident'>HDC</span>, <span class='ident'>LPARAM</span>, <span class='ident'>WPARAM</span>, <span class='ident'>c_int</span>, <span class='ident'>c_int</span>,
+) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPENUMPROCA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HWND</span>, <span class='ident'>LPCSTR</span>, <span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPENUMPROCW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HWND</span>, <span class='ident'>LPCWSTR</span>, <span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>GRAYSTRINGPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>HDC</span>, <span class='ident'>LPARAM</span>, <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span><span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>MSGBOXCALLBACK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>LPHELPINFO</span>)<span class='op'>&gt;</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WINEVENTPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
+    <span class='ident'>HWINEVENTHOOK</span>, <span class='ident'>DWORD</span>, <span class='ident'>HWND</span>, <span class='ident'>LONG</span>, <span class='ident'>LONG</span>, <span class='ident'>DWORD</span>, <span class='ident'>DWORD</span>,
+)<span class='op'>&gt;</span>;
 
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HDEVNOTIFY</span> <span class='op'>=</span> <span class='ident'>PVOID</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>MENUTEMPLATEA</span> <span class='op'>=</span> <span class='ident'>VOID</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>MENUTEMPLATEW</span> <span class='op'>=</span> <span class='ident'>VOID</span>;
 
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MSG</span> {
@@ -3993,7 +4091,7 @@
 
     <div id="help" class="hidden">
         <div class="shortcuts">
-            <h1>Keyboard shortcuts</h1>
+            <h1>Keyboard Shortcuts</h1>
             <dl>
                 <dt>?</dt>
                 <dd>Show this help dialog</dd>
@@ -4008,7 +4106,7 @@
             </dl>
         </div>
         <div class="infos">
-            <h1>Search tricks</h1>
+            <h1>Search Tricks</h1>
             <p>
                 Prefix searches with a type followed by a colon (e.g.
                 <code>fn:</code>) to restrict the search to a given type.
