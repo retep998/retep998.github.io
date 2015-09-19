@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DECIMAL_NEG",""],["VT_ILLEGALMASKED",""],["VT_TYPEMASK",""]],"enum":[["VARENUM",""]],"struct":[["CY",""],["DECIMAL",""]],"type":[["BSTR",""],["DATE",""],["LPBSTR",""],["LPDECIMAL",""],["VARIANT_BOOL",""],["VARTYPE",""],["wireBSTR",""]]});

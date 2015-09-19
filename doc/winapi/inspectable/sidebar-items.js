@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TrustLevel",""]],"struct":[["IInspectable",""],["IInspectableVtbl",""]],"type":[["LPINSPECTABLE",""]]});

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\src\mmdeviceapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\mmdeviceapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mmdeviceapi.rs.html -- source</title>
@@ -107,110 +107,72 @@
 <span id="65">65</span>
 <span id="66">66</span>
 <span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
-<span id="70">70</span>
-<span id="71">71</span>
-<span id="72">72</span>
-<span id="73">73</span>
-<span id="74">74</span>
-<span id="75">75</span>
-<span id="76">76</span>
-<span id="77">77</span>
-<span id="78">78</span>
-<span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! this ALWAYS GENERATED file contains the definitions for the interfaces</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEVICE_STATE_ACTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEVICE_STATE_DISABLED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEVICE_STATE_NOTPRESENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEVICE_STATE_UNPLUGGED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEVICE_STATEMASK_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000000F</span>;
+
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>EDataFlow</span> {
     <span class='ident'>eRender</span>,
     <span class='ident'>eCapture</span>,
     <span class='ident'>eAll</span>,
     <span class='ident'>EDataFlow_enum_count</span>,
 }
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
+<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>ERole</span> {
     <span class='ident'>eConsole</span>,
     <span class='ident'>eMultimedia</span>,
     <span class='ident'>eCommunications</span>,
     <span class='ident'>ERole_enum_count</span>,
 }
-
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSID_MMDeviceEnumerator</span>: ::<span class='ident'>CLSID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span> {
-    <span class='ident'>Data1</span>: <span class='number'>0xBCDE0395</span>,
-    <span class='ident'>Data2</span>: <span class='number'>0xE52F</span>,
-    <span class='ident'>Data3</span>: <span class='number'>0x467C</span>,
-    <span class='ident'>Data4</span>: [<span class='number'>0x8E</span>, <span class='number'>0x3D</span>, <span class='number'>0xC4</span>, <span class='number'>0x57</span>, <span class='number'>0x92</span>, <span class='number'>0x91</span>, <span class='number'>0x69</span>, <span class='number'>0x2E</span>],
-};
-
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IID_IMMDeviceEnumerator</span>: ::<span class='ident'>IID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span> {
-    <span class='ident'>Data1</span>: <span class='number'>0xA95664D2</span>,
-    <span class='ident'>Data2</span>: <span class='number'>0x9614</span>,
-    <span class='ident'>Data3</span>: <span class='number'>0x4F35</span>,
-    <span class='ident'>Data4</span>: [<span class='number'>0xA7</span>, <span class='number'>0x46</span>, <span class='number'>0xDE</span>, <span class='number'>0x8D</span>, <span class='number'>0xB6</span>, <span class='number'>0x36</span>, <span class='number'>0x17</span>, <span class='number'>0xE6</span>],
-};
-
+<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>CLSID_MMDeviceEnumerator</span>, <span class='number'>0xBCDE0395</span>, <span class='number'>0xE52F</span>, <span class='number'>0x467C</span>,
+    <span class='number'>0x8E</span>, <span class='number'>0x3D</span>, <span class='number'>0xC4</span>, <span class='number'>0x57</span>, <span class='number'>0x92</span>, <span class='number'>0x91</span>, <span class='number'>0x69</span>, <span class='number'>0x2E</span>);
+<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IMMDeviceEnumerator</span>, <span class='number'>0xA95664D2</span>, <span class='number'>0x9614</span>, <span class='number'>0x4F35</span>,
+    <span class='number'>0xA7</span>, <span class='number'>0x46</span>, <span class='number'>0xDE</span>, <span class='number'>0x8D</span>, <span class='number'>0xB6</span>, <span class='number'>0x36</span>, <span class='number'>0x17</span>, <span class='number'>0xE6</span>);
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IMMDevice</span>(<span class='ident'>IMMDeviceVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Activate</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>iid</span>: ::<span class='ident'>REFIID</span>,
-        <span class='ident'>dwClsCtx</span>: ::<span class='ident'>DWORD</span>,
-        <span class='ident'>pActivationParams</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PROPVARIANT</span>,
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iid</span>: ::<span class='ident'>REFIID</span>, <span class='ident'>dwClsCtx</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>pActivationParams</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PROPVARIANT</span>,
         <span class='ident'>ppInterface</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LPVOID</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>OpenPropertyStore</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>stgmAccess</span>: ::<span class='ident'>DWORD</span>,
-        <span class='ident'>ppProperties</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IPropertyStore</span>
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>stgmAccess</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>ppProperties</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IPropertyStore</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetId</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppstrId</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LPWSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetState</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pdwState</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }
 );
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IMMDeviceEnumerator</span>(<span class='ident'>IMMDeviceEnumeratorVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>EnumAudioEndpoints</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>dataFlow</span>: <span class='ident'>EDataFlow</span>,
-        <span class='ident'>dwStateMask</span>: ::<span class='ident'>DWORD</span>,
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dataFlow</span>: <span class='ident'>EDataFlow</span>, <span class='ident'>dwStateMask</span>: ::<span class='ident'>DWORD</span>,
         <span class='ident'>ppDevices</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDeviceCollection</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetDefaultAudioEndpoint</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>dataFlow</span>: <span class='ident'>EDataFlow</span>,
-        <span class='ident'>role</span>: <span class='ident'>ERole</span>,
-        <span class='ident'>ppEndpoint</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDevice</span>
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dataFlow</span>: <span class='ident'>EDataFlow</span>, <span class='ident'>role</span>: <span class='ident'>ERole</span>, <span class='ident'>ppEndpoint</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDevice</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDevice</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>pwstrId</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>ppDevices</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDevice</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
+    <span class='kw'>fn</span> <span class='ident'>GetDevice</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pwstrId</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>ppDevices</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDevice</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>RegisterEndpointNotificationCallback</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>pClient</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMNotificationClient</span>
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pClient</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMNotificationClient</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>UnregisterEndpointNotificationCallback</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>,
-        <span class='ident'>pClient</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMNotificationClient</span>
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pClient</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMNotificationClient</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }
 );
+<span class='macro'>RIDL</span><span class='macro'>!</span>(
+<span class='ident'>interface</span> <span class='ident'>IMMDeviceCollection</span>(<span class='ident'>IMMDeviceCollectionVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
+    <span class='kw'>fn</span> <span class='ident'>GetCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcDevices</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
+    <span class='kw'>fn</span> <span class='ident'>Item</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>nDevice</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppDevice</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IMMDevice</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+}
+);
 
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IMMDeviceCollection</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IMMNotificationClient</span>;
 </pre>
@@ -220,37 +182,44 @@
     <section class="footer"></section>
 
     <div id="help" class="hidden">
-        <div class="shortcuts">
-            <h1>Keyboard Shortcuts</h1>
-            <dl>
-                <dt>?</dt>
-                <dd>Show this help dialog</dd>
-                <dt>S</dt>
-                <dd>Focus the search field</dd>
-                <dt>&larrb;</dt>
-                <dd>Move up in search results</dd>
-                <dt>&rarrb;</dt>
-                <dd>Move down in search results</dd>
-                <dt>&#9166;</dt>
-                <dd>Go to active search result</dd>
-            </dl>
-        </div>
-        <div class="infos">
-            <h1>Search Tricks</h1>
-            <p>
-                Prefix searches with a type followed by a colon (e.g.
-                <code>fn:</code>) to restrict the search to a given type.
-            </p>
-            <p>
-                Accepted types are: <code>fn</code>, <code>mod</code>,
-                <code>struct</code>, <code>enum</code>,
-                <code>trait</code>, <code>typedef</code> (or
-                <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
-            </p>
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
         </div>
     </div>
 

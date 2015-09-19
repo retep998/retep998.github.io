@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `dwrite` mod in crate `winapi`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, dwrite">
+
+    <title>winapi::dwrite - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>winapi</a></p><script>window.sidebarCurrent = {name: 'dwrite', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>winapi</a>::<wbr><a class='mod' href=''>dwrite</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-156895' class='srclink' href='../../src/winapi/dwrite.rs.html#3-1222' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Mappings for the contents of dwrite.h</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_FILE_TYPE.html' title='winapi::dwrite::DWRITE_FONT_FILE_TYPE'>DWRITE_FONT_FILE_TYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_FACE_TYPE.html' title='winapi::dwrite::DWRITE_FONT_FACE_TYPE'>DWRITE_FONT_FACE_TYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_SIMULATIONS.html' title='winapi::dwrite::DWRITE_FONT_SIMULATIONS'>DWRITE_FONT_SIMULATIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_WEIGHT.html' title='winapi::dwrite::DWRITE_FONT_WEIGHT'>DWRITE_FONT_WEIGHT</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_STRETCH.html' title='winapi::dwrite::DWRITE_FONT_STRETCH'>DWRITE_FONT_STRETCH</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_STYLE.html' title='winapi::dwrite::DWRITE_FONT_STYLE'>DWRITE_FONT_STYLE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_INFORMATIONAL_STRING_ID.html' title='winapi::dwrite::DWRITE_INFORMATIONAL_STRING_ID'>DWRITE_INFORMATIONAL_STRING_ID</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FACTORY_TYPE.html' title='winapi::dwrite::DWRITE_FACTORY_TYPE'>DWRITE_FACTORY_TYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_PIXEL_GEOMETRY.html' title='winapi::dwrite::DWRITE_PIXEL_GEOMETRY'>DWRITE_PIXEL_GEOMETRY</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_RENDERING_MODE.html' title='winapi::dwrite::DWRITE_RENDERING_MODE'>DWRITE_RENDERING_MODE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_READING_DIRECTION.html' title='winapi::dwrite::DWRITE_READING_DIRECTION'>DWRITE_READING_DIRECTION</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FLOW_DIRECTION.html' title='winapi::dwrite::DWRITE_FLOW_DIRECTION'>DWRITE_FLOW_DIRECTION</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_TEXT_ALIGNMENT.html' title='winapi::dwrite::DWRITE_TEXT_ALIGNMENT'>DWRITE_TEXT_ALIGNMENT</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_PARAGRAPH_ALIGNMENT.html' title='winapi::dwrite::DWRITE_PARAGRAPH_ALIGNMENT'>DWRITE_PARAGRAPH_ALIGNMENT</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_WORD_WRAPPING.html' title='winapi::dwrite::DWRITE_WORD_WRAPPING'>DWRITE_WORD_WRAPPING</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_LINE_SPACING_METHOD.html' title='winapi::dwrite::DWRITE_LINE_SPACING_METHOD'>DWRITE_LINE_SPACING_METHOD</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_TRIMMING_GRANULARITY.html' title='winapi::dwrite::DWRITE_TRIMMING_GRANULARITY'>DWRITE_TRIMMING_GRANULARITY</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_FONT_FEATURE_TAG.html' title='winapi::dwrite::DWRITE_FONT_FEATURE_TAG'>DWRITE_FONT_FEATURE_TAG</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_SCRIPT_SHAPES.html' title='winapi::dwrite::DWRITE_SCRIPT_SHAPES'>DWRITE_SCRIPT_SHAPES</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_BREAK_CONDITION.html' title='winapi::dwrite::DWRITE_BREAK_CONDITION'>DWRITE_BREAK_CONDITION</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_NUMBER_SUBSTITUTION_METHOD.html' title='winapi::dwrite::DWRITE_NUMBER_SUBSTITUTION_METHOD'>DWRITE_NUMBER_SUBSTITUTION_METHOD</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/dwrite/enum.DWRITE_TEXTURE_TYPE.html' title='winapi::dwrite::DWRITE_TEXTURE_TYPE'>DWRITE_TEXTURE_TYPE</a>::*;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_CLUSTER_METRICS.html'
+                               title='winapi::dwrite::DWRITE_CLUSTER_METRICS'>DWRITE_CLUSTER_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_FONT_FEATURE.html'
+                               title='winapi::dwrite::DWRITE_FONT_FEATURE'>DWRITE_FONT_FEATURE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_FONT_METRICS.html'
+                               title='winapi::dwrite::DWRITE_FONT_METRICS'>DWRITE_FONT_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_GLYPH_METRICS.html'
+                               title='winapi::dwrite::DWRITE_GLYPH_METRICS'>DWRITE_GLYPH_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_GLYPH_OFFSET.html'
+                               title='winapi::dwrite::DWRITE_GLYPH_OFFSET'>DWRITE_GLYPH_OFFSET</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_GLYPH_RUN.html'
+                               title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_GLYPH_RUN_DESCRIPTION.html'
+                               title='winapi::dwrite::DWRITE_GLYPH_RUN_DESCRIPTION'>DWRITE_GLYPH_RUN_DESCRIPTION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_HIT_TEST_METRICS.html'
+                               title='winapi::dwrite::DWRITE_HIT_TEST_METRICS'>DWRITE_HIT_TEST_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_INLINE_OBJECT_METRICS.html'
+                               title='winapi::dwrite::DWRITE_INLINE_OBJECT_METRICS'>DWRITE_INLINE_OBJECT_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_LINE_BREAKPOINT.html'
+                               title='winapi::dwrite::DWRITE_LINE_BREAKPOINT'>DWRITE_LINE_BREAKPOINT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_LINE_METRICS.html'
+                               title='winapi::dwrite::DWRITE_LINE_METRICS'>DWRITE_LINE_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_MATRIX.html'
+                               title='winapi::dwrite::DWRITE_MATRIX'>DWRITE_MATRIX</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_OVERHANG_METRICS.html'
+                               title='winapi::dwrite::DWRITE_OVERHANG_METRICS'>DWRITE_OVERHANG_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_SCRIPT_ANALYSIS.html'
+                               title='winapi::dwrite::DWRITE_SCRIPT_ANALYSIS'>DWRITE_SCRIPT_ANALYSIS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_SHAPING_GLYPH_PROPERTIES.html'
+                               title='winapi::dwrite::DWRITE_SHAPING_GLYPH_PROPERTIES'>DWRITE_SHAPING_GLYPH_PROPERTIES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_SHAPING_TEXT_PROPERTIES.html'
+                               title='winapi::dwrite::DWRITE_SHAPING_TEXT_PROPERTIES'>DWRITE_SHAPING_TEXT_PROPERTIES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_STRIKETHROUGH.html'
+                               title='winapi::dwrite::DWRITE_STRIKETHROUGH'>DWRITE_STRIKETHROUGH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_TEXT_METRICS.html'
+                               title='winapi::dwrite::DWRITE_TEXT_METRICS'>DWRITE_TEXT_METRICS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_TEXT_RANGE.html'
+                               title='winapi::dwrite::DWRITE_TEXT_RANGE'>DWRITE_TEXT_RANGE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_TRIMMING.html'
+                               title='winapi::dwrite::DWRITE_TRIMMING'>DWRITE_TRIMMING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_TYPOGRAPHIC_FEATURES.html'
+                               title='winapi::dwrite::DWRITE_TYPOGRAPHIC_FEATURES'>DWRITE_TYPOGRAPHIC_FEATURES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.DWRITE_UNDERLINE.html'
+                               title='winapi::dwrite::DWRITE_UNDERLINE'>DWRITE_UNDERLINE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteBitmapRenderTarget.html'
+                               title='winapi::dwrite::IDWriteBitmapRenderTarget'>IDWriteBitmapRenderTarget</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteBitmapRenderTargetVtbl.html'
+                               title='winapi::dwrite::IDWriteBitmapRenderTargetVtbl'>IDWriteBitmapRenderTargetVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFactory.html'
+                               title='winapi::dwrite::IDWriteFactory'>IDWriteFactory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFactoryVtbl.html'
+                               title='winapi::dwrite::IDWriteFactoryVtbl'>IDWriteFactoryVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFont.html'
+                               title='winapi::dwrite::IDWriteFont'>IDWriteFont</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontCollection.html'
+                               title='winapi::dwrite::IDWriteFontCollection'>IDWriteFontCollection</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontCollectionLoader.html'
+                               title='winapi::dwrite::IDWriteFontCollectionLoader'>IDWriteFontCollectionLoader</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontCollectionLoaderVtbl.html'
+                               title='winapi::dwrite::IDWriteFontCollectionLoaderVtbl'>IDWriteFontCollectionLoaderVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontCollectionVtbl.html'
+                               title='winapi::dwrite::IDWriteFontCollectionVtbl'>IDWriteFontCollectionVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFace.html'
+                               title='winapi::dwrite::IDWriteFontFace'>IDWriteFontFace</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFaceVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFaceVtbl'>IDWriteFontFaceVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFamily.html'
+                               title='winapi::dwrite::IDWriteFontFamily'>IDWriteFontFamily</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFamilyVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFamilyVtbl'>IDWriteFontFamilyVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFile.html'
+                               title='winapi::dwrite::IDWriteFontFile'>IDWriteFontFile</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileEnumerator.html'
+                               title='winapi::dwrite::IDWriteFontFileEnumerator'>IDWriteFontFileEnumerator</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileEnumeratorVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFileEnumeratorVtbl'>IDWriteFontFileEnumeratorVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileLoader.html'
+                               title='winapi::dwrite::IDWriteFontFileLoader'>IDWriteFontFileLoader</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileLoaderVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFileLoaderVtbl'>IDWriteFontFileLoaderVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileStream.html'
+                               title='winapi::dwrite::IDWriteFontFileStream'>IDWriteFontFileStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileStreamVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFileStreamVtbl'>IDWriteFontFileStreamVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontFileVtbl.html'
+                               title='winapi::dwrite::IDWriteFontFileVtbl'>IDWriteFontFileVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontList.html'
+                               title='winapi::dwrite::IDWriteFontList'>IDWriteFontList</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontListVtbl.html'
+                               title='winapi::dwrite::IDWriteFontListVtbl'>IDWriteFontListVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteFontVtbl.html'
+                               title='winapi::dwrite::IDWriteFontVtbl'>IDWriteFontVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteGdiInterop.html'
+                               title='winapi::dwrite::IDWriteGdiInterop'>IDWriteGdiInterop</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteGdiInteropVtbl.html'
+                               title='winapi::dwrite::IDWriteGdiInteropVtbl'>IDWriteGdiInteropVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteGlyphRunAnalysis.html'
+                               title='winapi::dwrite::IDWriteGlyphRunAnalysis'>IDWriteGlyphRunAnalysis</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteGlyphRunAnalysisVtbl.html'
+                               title='winapi::dwrite::IDWriteGlyphRunAnalysisVtbl'>IDWriteGlyphRunAnalysisVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteInlineObject.html'
+                               title='winapi::dwrite::IDWriteInlineObject'>IDWriteInlineObject</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteInlineObjectVtbl.html'
+                               title='winapi::dwrite::IDWriteInlineObjectVtbl'>IDWriteInlineObjectVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteLocalFontFileLoader.html'
+                               title='winapi::dwrite::IDWriteLocalFontFileLoader'>IDWriteLocalFontFileLoader</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteLocalFontFileLoaderVtbl.html'
+                               title='winapi::dwrite::IDWriteLocalFontFileLoaderVtbl'>IDWriteLocalFontFileLoaderVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteLocalizedStrings.html'
+                               title='winapi::dwrite::IDWriteLocalizedStrings'>IDWriteLocalizedStrings</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteLocalizedStringsVtbl.html'
+                               title='winapi::dwrite::IDWriteLocalizedStringsVtbl'>IDWriteLocalizedStringsVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteNumberSubstitution.html'
+                               title='winapi::dwrite::IDWriteNumberSubstitution'>IDWriteNumberSubstitution</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteNumberSubstitutionVtbl.html'
+                               title='winapi::dwrite::IDWriteNumberSubstitutionVtbl'>IDWriteNumberSubstitutionVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWritePixelSnapping.html'
+                               title='winapi::dwrite::IDWritePixelSnapping'>IDWritePixelSnapping</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWritePixelSnappingVtbl.html'
+                               title='winapi::dwrite::IDWritePixelSnappingVtbl'>IDWritePixelSnappingVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteRenderingParams.html'
+                               title='winapi::dwrite::IDWriteRenderingParams'>IDWriteRenderingParams</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteRenderingParamsVtbl.html'
+                               title='winapi::dwrite::IDWriteRenderingParamsVtbl'>IDWriteRenderingParamsVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalysisSink.html'
+                               title='winapi::dwrite::IDWriteTextAnalysisSink'>IDWriteTextAnalysisSink</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalysisSinkVtbl.html'
+                               title='winapi::dwrite::IDWriteTextAnalysisSinkVtbl'>IDWriteTextAnalysisSinkVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalysisSource.html'
+                               title='winapi::dwrite::IDWriteTextAnalysisSource'>IDWriteTextAnalysisSource</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalysisSourceVtbl.html'
+                               title='winapi::dwrite::IDWriteTextAnalysisSourceVtbl'>IDWriteTextAnalysisSourceVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalyzer.html'
+                               title='winapi::dwrite::IDWriteTextAnalyzer'>IDWriteTextAnalyzer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextAnalyzerVtbl.html'
+                               title='winapi::dwrite::IDWriteTextAnalyzerVtbl'>IDWriteTextAnalyzerVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextFormat.html'
+                               title='winapi::dwrite::IDWriteTextFormat'>IDWriteTextFormat</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextFormatVtbl.html'
+                               title='winapi::dwrite::IDWriteTextFormatVtbl'>IDWriteTextFormatVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextLayout.html'
+                               title='winapi::dwrite::IDWriteTextLayout'>IDWriteTextLayout</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextLayoutVtbl.html'
+                               title='winapi::dwrite::IDWriteTextLayoutVtbl'>IDWriteTextLayoutVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextRenderer.html'
+                               title='winapi::dwrite::IDWriteTextRenderer'>IDWriteTextRenderer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTextRendererVtbl.html'
+                               title='winapi::dwrite::IDWriteTextRendererVtbl'>IDWriteTextRendererVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTypography.html'
+                               title='winapi::dwrite::IDWriteTypography'>IDWriteTypography</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IDWriteTypographyVtbl.html'
+                               title='winapi::dwrite::IDWriteTypographyVtbl'>IDWriteTypographyVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_BREAK_CONDITION.html'
+                               title='winapi::dwrite::DWRITE_BREAK_CONDITION'>DWRITE_BREAK_CONDITION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FACTORY_TYPE.html'
+                               title='winapi::dwrite::DWRITE_FACTORY_TYPE'>DWRITE_FACTORY_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FLOW_DIRECTION.html'
+                               title='winapi::dwrite::DWRITE_FLOW_DIRECTION'>DWRITE_FLOW_DIRECTION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_FACE_TYPE.html'
+                               title='winapi::dwrite::DWRITE_FONT_FACE_TYPE'>DWRITE_FONT_FACE_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_FEATURE_TAG.html'
+                               title='winapi::dwrite::DWRITE_FONT_FEATURE_TAG'>DWRITE_FONT_FEATURE_TAG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_FILE_TYPE.html'
+                               title='winapi::dwrite::DWRITE_FONT_FILE_TYPE'>DWRITE_FONT_FILE_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_SIMULATIONS.html'
+                               title='winapi::dwrite::DWRITE_FONT_SIMULATIONS'>DWRITE_FONT_SIMULATIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_STRETCH.html'
+                               title='winapi::dwrite::DWRITE_FONT_STRETCH'>DWRITE_FONT_STRETCH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_STYLE.html'
+                               title='winapi::dwrite::DWRITE_FONT_STYLE'>DWRITE_FONT_STYLE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_FONT_WEIGHT.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT'>DWRITE_FONT_WEIGHT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_INFORMATIONAL_STRING_ID.html'
+                               title='winapi::dwrite::DWRITE_INFORMATIONAL_STRING_ID'>DWRITE_INFORMATIONAL_STRING_ID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_LINE_SPACING_METHOD.html'
+                               title='winapi::dwrite::DWRITE_LINE_SPACING_METHOD'>DWRITE_LINE_SPACING_METHOD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_NUMBER_SUBSTITUTION_METHOD.html'
+                               title='winapi::dwrite::DWRITE_NUMBER_SUBSTITUTION_METHOD'>DWRITE_NUMBER_SUBSTITUTION_METHOD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_PARAGRAPH_ALIGNMENT.html'
+                               title='winapi::dwrite::DWRITE_PARAGRAPH_ALIGNMENT'>DWRITE_PARAGRAPH_ALIGNMENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_PIXEL_GEOMETRY.html'
+                               title='winapi::dwrite::DWRITE_PIXEL_GEOMETRY'>DWRITE_PIXEL_GEOMETRY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_READING_DIRECTION.html'
+                               title='winapi::dwrite::DWRITE_READING_DIRECTION'>DWRITE_READING_DIRECTION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_RENDERING_MODE.html'
+                               title='winapi::dwrite::DWRITE_RENDERING_MODE'>DWRITE_RENDERING_MODE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_SCRIPT_SHAPES.html'
+                               title='winapi::dwrite::DWRITE_SCRIPT_SHAPES'>DWRITE_SCRIPT_SHAPES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_TEXTURE_TYPE.html'
+                               title='winapi::dwrite::DWRITE_TEXTURE_TYPE'>DWRITE_TEXTURE_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_TEXT_ALIGNMENT.html'
+                               title='winapi::dwrite::DWRITE_TEXT_ALIGNMENT'>DWRITE_TEXT_ALIGNMENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_TRIMMING_GRANULARITY.html'
+                               title='winapi::dwrite::DWRITE_TRIMMING_GRANULARITY'>DWRITE_TRIMMING_GRANULARITY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DWRITE_WORD_WRAPPING.html'
+                               title='winapi::dwrite::DWRITE_WORD_WRAPPING'>DWRITE_WORD_WRAPPING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_STRETCH_MEDIUM.html'
+                               title='winapi::dwrite::DWRITE_FONT_STRETCH_MEDIUM'>DWRITE_FONT_STRETCH_MEDIUM</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_EXTRA_BOLD.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_EXTRA_BOLD'>DWRITE_FONT_WEIGHT_EXTRA_BOLD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_HEAVY.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_HEAVY'>DWRITE_FONT_WEIGHT_HEAVY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_REGULAR.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_REGULAR'>DWRITE_FONT_WEIGHT_REGULAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_SEMI_BOLD.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_SEMI_BOLD'>DWRITE_FONT_WEIGHT_SEMI_BOLD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_ULTRA_BLACK.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_ULTRA_BLACK'>DWRITE_FONT_WEIGHT_ULTRA_BLACK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_FONT_WEIGHT_ULTRA_LIGHT.html'
+                               title='winapi::dwrite::DWRITE_FONT_WEIGHT_ULTRA_LIGHT'>DWRITE_FONT_WEIGHT_ULTRA_LIGHT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC.html'
+                               title='winapi::dwrite::DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC'>DWRITE_RENDERING_MODE_CLEARTYPE_GDI_CLASSIC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL.html'
+                               title='winapi::dwrite::DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL'>DWRITE_RENDERING_MODE_CLEARTYPE_GDI_NATURAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL.html'
+                               title='winapi::dwrite::DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL'>DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC.html'
+                               title='winapi::dwrite::DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC'>DWRITE_RENDERING_MODE_CLEARTYPE_NATURAL_SYMMETRIC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.UuidOfIDWriteFactory.html'
+                               title='winapi::dwrite::UuidOfIDWriteFactory'>UuidOfIDWriteFactory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.DWRITE_MAKE_OPENTYPE_TAG.html'
+                               title='winapi::dwrite::DWRITE_MAKE_OPENTYPE_TAG'>DWRITE_MAKE_OPENTYPE_TAG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.IDWriteGeometrySink.html'
+                               title='winapi::dwrite::IDWriteGeometrySink'>IDWriteGeometrySink</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "winapi";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

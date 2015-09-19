@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\winapi-rs\lib\ole32-sys\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\ole32-sys-0.1.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -590,10 +590,6 @@
 <span id="548">548</span>
 <span id="549">549</span>
 <span id="550">550</span>
-<span id="551">551</span>
-<span id="552">552</span>
-<span id="553">553</span>
-<span id="554">554</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -683,13 +679,9 @@
     <span class='comment'>// pub fn CoHandlePriorityEventsFromMessagePump();</span>
     <span class='comment'>// pub fn CoImpersonateClient();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoIncrementMTAUsage</span>(<span class='ident'>pCookie</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CO_MTA_USAGE_COOKIE</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitialize</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeEx</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCoInit</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeSecurity</span>(
-        <span class='ident'>pSecDesc</span>: <span class='ident'>PSECURITY_DESCRIPTOR</span>, <span class='ident'>cAuthSvc</span>: <span class='ident'>LONG</span>,
-        <span class='ident'>asAuthSvc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span>, <span class='ident'>pReserved1</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwAuthnLevel</span>: <span class='ident'>DWORD</span>,
-        <span class='ident'>dwImpLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>pAuthList</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCapabilities</span>: <span class='ident'>DWORD</span>, <span class='ident'>pReserved3</span>: <span class='ident'>LPVOID</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
+    <span class='comment'>// pub fn CoInitializeEx();</span>
+    <span class='comment'>// pub fn CoInitializeSecurity();</span>
     <span class='comment'>// pub fn CoInitializeWOW();</span>
     <span class='comment'>// pub fn CoInstall();</span>
     <span class='comment'>// pub fn CoInvalidateRemoteMachineBindings();</span>
@@ -1156,37 +1148,44 @@
     <section class="footer"></section>
 
     <div id="help" class="hidden">
-        <div class="shortcuts">
-            <h1>Keyboard Shortcuts</h1>
-            <dl>
-                <dt>?</dt>
-                <dd>Show this help dialog</dd>
-                <dt>S</dt>
-                <dd>Focus the search field</dd>
-                <dt>&larrb;</dt>
-                <dd>Move up in search results</dd>
-                <dt>&rarrb;</dt>
-                <dd>Move down in search results</dd>
-                <dt>&#9166;</dt>
-                <dd>Go to active search result</dd>
-            </dl>
-        </div>
-        <div class="infos">
-            <h1>Search Tricks</h1>
-            <p>
-                Prefix searches with a type followed by a colon (e.g.
-                <code>fn:</code>) to restrict the search to a given type.
-            </p>
-            <p>
-                Accepted types are: <code>fn</code>, <code>mod</code>,
-                <code>struct</code>, <code>enum</code>,
-                <code>trait</code>, <code>typedef</code> (or
-                <code>tdef</code>).
-            </p>
-            <p>
-                Search functions by type signature (e.g.
-                <code>vec -> usize</code>)
-            </p>
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
         </div>
     </div>
 

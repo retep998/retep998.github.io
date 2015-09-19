@@ -1,0 +1,3064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `sapi` mod in crate `winapi`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, sapi">
+
+    <title>winapi::sapi - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <section class="sidebar">
+        
+        <p class='location'><a href='../index.html'>winapi</a></p><script>window.sidebarCurrent = {name: 'sapi', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </section>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>winapi</a>::<wbr><a class='mod' href=''>sapi</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-238705' class='srclink' href='../../src/winapi/sapi.rs.html#3-3111' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Mappings for the contents of sapi.h</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPDATAKEYLOCATION.html' title='winapi::sapi::SPDATAKEYLOCATION'>SPDATAKEYLOCATION</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPSTREAMFORMAT.html' title='winapi::sapi::SPSTREAMFORMAT'>SPSTREAMFORMAT</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPEVENTLPARAMTYPE.html' title='winapi::sapi::SPEVENTLPARAMTYPE'>SPEVENTLPARAMTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPEVENTENUM.html' title='winapi::sapi::SPEVENTENUM'>SPEVENTENUM</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPINTERFERENCE.html' title='winapi::sapi::SPINTERFERENCE'>SPINTERFERENCE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPENDSRSTREAMFLAGS.html' title='winapi::sapi::SPENDSRSTREAMFLAGS'>SPENDSRSTREAMFLAGS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVFEATURE.html' title='winapi::sapi::SPVFEATURE'>SPVFEATURE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVISEMES.html' title='winapi::sapi::SPVISEMES'>SPVISEMES</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPFILEMODE.html' title='winapi::sapi::SPFILEMODE'>SPFILEMODE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPAUDIOSTATE.html' title='winapi::sapi::SPAUDIOSTATE'>SPAUDIOSTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPDISPLYATTRIBUTES.html' title='winapi::sapi::SPDISPLYATTRIBUTES'>SPDISPLYATTRIBUTES</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPPHRASEPROPERTYUNIONTYPE.html' title='winapi::sapi::SPPHRASEPROPERTYUNIONTYPE'>SPPHRASEPROPERTYUNIONTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPSEMANTICFORMAT.html' title='winapi::sapi::SPSEMANTICFORMAT'>SPSEMANTICFORMAT</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVALUETYPE.html' title='winapi::sapi::SPVALUETYPE'>SPVALUETYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                            href='./SPPHRASERNG/index.html'>SPPHRASERNG</a>::<a class='enum' href='../../winapi/sapi/enum.SPPHRASERNG.html' title='winapi::sapi::SPPHRASERNG'>SPPR_ALL_ELEMENTS</a>;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPRECOEVENTFLAGS.html' title='winapi::sapi::SPRECOEVENTFLAGS'>SPRECOEVENTFLAGS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPPARTOFSPEECH.html' title='winapi::sapi::SPPARTOFSPEECH'>SPPARTOFSPEECH</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPLEXICONTYPE.html' title='winapi::sapi::SPLEXICONTYPE'>SPLEXICONTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPWORDTYPE.html' title='winapi::sapi::SPWORDTYPE'>SPWORDTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                            href='./SPPRONUNCIATIONFLAGS/index.html'>SPPRONUNCIATIONFLAGS</a>::<a class='enum' href='../../winapi/sapi/enum.SPPRONUNCIATIONFLAGS.html' title='winapi::sapi::SPPRONUNCIATIONFLAGS'>ePRONFLAG_USED</a>;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPSHORTCUTTYPE.html' title='winapi::sapi::SPSHORTCUTTYPE'>SPSHORTCUTTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVACTIONS.html' title='winapi::sapi::SPVACTIONS'>SPVACTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPRUNSTATE.html' title='winapi::sapi::SPRUNSTATE'>SPRUNSTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVLIMITS.html' title='winapi::sapi::SPVLIMITS'>SPVLIMITS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPVPRIORITY.html' title='winapi::sapi::SPVPRIORITY'>SPVPRIORITY</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPEAKFLAGS.html' title='winapi::sapi::SPEAKFLAGS'>SPEAKFLAGS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPXMLRESULTOPTIONS.html' title='winapi::sapi::SPXMLRESULTOPTIONS'>SPXMLRESULTOPTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPCOMMITFLAGS.html' title='winapi::sapi::SPCOMMITFLAGS'>SPCOMMITFLAGS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPWORDPRONOUNCEABLE.html' title='winapi::sapi::SPWORDPRONOUNCEABLE'>SPWORDPRONOUNCEABLE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPGRAMMARSTATE.html' title='winapi::sapi::SPGRAMMARSTATE'>SPGRAMMARSTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPCONTEXTSTATE.html' title='winapi::sapi::SPCONTEXTSTATE'>SPCONTEXTSTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPRULESTATE.html' title='winapi::sapi::SPRULESTATE'>SPRULESTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPGRAMMARWORDTYPE.html' title='winapi::sapi::SPGRAMMARWORDTYPE'>SPGRAMMARWORDTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPCFGRULEATTRIBUTES.html' title='winapi::sapi::SPCFGRULEATTRIBUTES'>SPCFGRULEATTRIBUTES</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPLOADOPTIONS.html' title='winapi::sapi::SPLOADOPTIONS'>SPLOADOPTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPMATCHINGMODE.html' title='winapi::sapi::SPMATCHINGMODE'>SPMATCHINGMODE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.PHONETICALPHABET.html' title='winapi::sapi::PHONETICALPHABET'>PHONETICALPHABET</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPBOOKMARKOPTIONS.html' title='winapi::sapi::SPBOOKMARKOPTIONS'>SPBOOKMARKOPTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPAUDIOOPTIONS.html' title='winapi::sapi::SPAUDIOOPTIONS'>SPAUDIOOPTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPGRAMMAROPTIONS.html' title='winapi::sapi::SPGRAMMAROPTIONS'>SPGRAMMAROPTIONS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPADAPTATIONSETTINGS.html' title='winapi::sapi::SPADAPTATIONSETTINGS'>SPADAPTATIONSETTINGS</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPADAPTATIONRELEVANCE.html' title='winapi::sapi::SPADAPTATIONRELEVANCE'>SPADAPTATIONRELEVANCE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPWAVEFORMATTYPE.html' title='winapi::sapi::SPWAVEFORMATTYPE'>SPWAVEFORMATTYPE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SPRECOSTATE.html' title='winapi::sapi::SPRECOSTATE'>SPRECOSTATE</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechDataKey.html' title='winapi::sapi::DISPID_SpeechDataKey'>DISPID_SpeechDataKey</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechObjectToken.html' title='winapi::sapi::DISPID_SpeechObjectToken'>DISPID_SpeechObjectToken</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechDataKeyLocation.html' title='winapi::sapi::SpeechDataKeyLocation'>SpeechDataKeyLocation</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechTokenContext.html' title='winapi::sapi::SpeechTokenContext'>SpeechTokenContext</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechTokenShellFolder.html' title='winapi::sapi::SpeechTokenShellFolder'>SpeechTokenShellFolder</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechObjectTokens.html' title='winapi::sapi::DISPID_SpeechObjectTokens'>DISPID_SpeechObjectTokens</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechObjectTokenCategory.html' title='winapi::sapi::DISPID_SpeechObjectTokenCategory'>DISPID_SpeechObjectTokenCategory</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechAudioFormatType.html' title='winapi::sapi::SpeechAudioFormatType'>SpeechAudioFormatType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechAudioFormat.html' title='winapi::sapi::DISPID_SpeechAudioFormat'>DISPID_SpeechAudioFormat</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechBaseStream.html' title='winapi::sapi::DISPID_SpeechBaseStream'>DISPID_SpeechBaseStream</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechStreamSeekPositionType.html' title='winapi::sapi::SpeechStreamSeekPositionType'>SpeechStreamSeekPositionType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechAudio.html' title='winapi::sapi::DISPID_SpeechAudio'>DISPID_SpeechAudio</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechAudioState.html' title='winapi::sapi::SpeechAudioState'>SpeechAudioState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechMMSysAudio.html' title='winapi::sapi::DISPID_SpeechMMSysAudio'>DISPID_SpeechMMSysAudio</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechFileStream.html' title='winapi::sapi::DISPID_SpeechFileStream'>DISPID_SpeechFileStream</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechStreamFileMode.html' title='winapi::sapi::SpeechStreamFileMode'>SpeechStreamFileMode</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                            href='./DISPID_SpeechCustomStream/index.html'>DISPID_SpeechCustomStream</a>::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechCustomStream.html' title='winapi::sapi::DISPID_SpeechCustomStream'>DISPID_SCSBaseStream</a>;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechMemoryStream.html' title='winapi::sapi::DISPID_SpeechMemoryStream'>DISPID_SpeechMemoryStream</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechAudioStatus.html' title='winapi::sapi::DISPID_SpeechAudioStatus'>DISPID_SpeechAudioStatus</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechAudioBufferInfo.html' title='winapi::sapi::DISPID_SpeechAudioBufferInfo'>DISPID_SpeechAudioBufferInfo</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechWaveFormatEx.html' title='winapi::sapi::DISPID_SpeechWaveFormatEx'>DISPID_SpeechWaveFormatEx</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechVoice.html' title='winapi::sapi::DISPID_SpeechVoice'>DISPID_SpeechVoice</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechVoicePriority.html' title='winapi::sapi::SpeechVoicePriority'>SpeechVoicePriority</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechVoiceSpeakFlags.html' title='winapi::sapi::SpeechVoiceSpeakFlags'>SpeechVoiceSpeakFlags</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechVoiceEvents.html' title='winapi::sapi::SpeechVoiceEvents'>SpeechVoiceEvents</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechVoiceStatus.html' title='winapi::sapi::DISPID_SpeechVoiceStatus'>DISPID_SpeechVoiceStatus</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRunState.html' title='winapi::sapi::SpeechRunState'>SpeechRunState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechVisemeType.html' title='winapi::sapi::SpeechVisemeType'>SpeechVisemeType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechVisemeFeature.html' title='winapi::sapi::SpeechVisemeFeature'>SpeechVisemeFeature</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechVoiceEvent.html' title='winapi::sapi::DISPID_SpeechVoiceEvent'>DISPID_SpeechVoiceEvent</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecognizer.html' title='winapi::sapi::DISPID_SpeechRecognizer'>DISPID_SpeechRecognizer</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRecognizerState.html' title='winapi::sapi::SpeechRecognizerState'>SpeechRecognizerState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechDisplayAttributes.html' title='winapi::sapi::SpeechDisplayAttributes'>SpeechDisplayAttributes</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechFormatType.html' title='winapi::sapi::SpeechFormatType'>SpeechFormatType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechEmulationCompareFlags.html' title='winapi::sapi::SpeechEmulationCompareFlags'>SpeechEmulationCompareFlags</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecognizerStatus.html' title='winapi::sapi::DISPID_SpeechRecognizerStatus'>DISPID_SpeechRecognizerStatus</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecoContext.html' title='winapi::sapi::DISPID_SpeechRecoContext'>DISPID_SpeechRecoContext</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRetainedAudioOptions.html' title='winapi::sapi::SpeechRetainedAudioOptions'>SpeechRetainedAudioOptions</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechBookmarkOptions.html' title='winapi::sapi::SpeechBookmarkOptions'>SpeechBookmarkOptions</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechInterference.html' title='winapi::sapi::SpeechInterference'>SpeechInterference</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRecoEvents.html' title='winapi::sapi::SpeechRecoEvents'>SpeechRecoEvents</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRecoContextState.html' title='winapi::sapi::SpeechRecoContextState'>SpeechRecoContextState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPIDSPRG.html' title='winapi::sapi::DISPIDSPRG'>DISPIDSPRG</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechLoadOption.html' title='winapi::sapi::SpeechLoadOption'>SpeechLoadOption</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechWordPronounceable.html' title='winapi::sapi::SpeechWordPronounceable'>SpeechWordPronounceable</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechGrammarState.html' title='winapi::sapi::SpeechGrammarState'>SpeechGrammarState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRuleState.html' title='winapi::sapi::SpeechRuleState'>SpeechRuleState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRuleAttributes.html' title='winapi::sapi::SpeechRuleAttributes'>SpeechRuleAttributes</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechGrammarWordType.html' title='winapi::sapi::SpeechGrammarWordType'>SpeechGrammarWordType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecoContextEvents.html' title='winapi::sapi::DISPID_SpeechRecoContextEvents'>DISPID_SpeechRecoContextEvents</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechRecognitionType.html' title='winapi::sapi::SpeechRecognitionType'>SpeechRecognitionType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechGrammarRule.html' title='winapi::sapi::DISPID_SpeechGrammarRule'>DISPID_SpeechGrammarRule</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechGrammarRules.html' title='winapi::sapi::DISPID_SpeechGrammarRules'>DISPID_SpeechGrammarRules</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechGrammarRuleState.html' title='winapi::sapi::DISPID_SpeechGrammarRuleState'>DISPID_SpeechGrammarRuleState</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechSpecialTransitionType.html' title='winapi::sapi::SpeechSpecialTransitionType'>SpeechSpecialTransitionType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechGrammarRuleStateTransitions.html' title='winapi::sapi::DISPID_SpeechGrammarRuleStateTransitions'>DISPID_SpeechGrammarRuleStateTransitions</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechGrammarRuleStateTransition.html' title='winapi::sapi::DISPID_SpeechGrammarRuleStateTransition'>DISPID_SpeechGrammarRuleStateTransition</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechGrammarRuleStateTransitionType.html' title='winapi::sapi::SpeechGrammarRuleStateTransitionType'>SpeechGrammarRuleStateTransitionType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPIDSPTSI.html' title='winapi::sapi::DISPIDSPTSI'>DISPIDSPTSI</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecoResult.html' title='winapi::sapi::DISPID_SpeechRecoResult'>DISPID_SpeechRecoResult</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechDiscardType.html' title='winapi::sapi::SpeechDiscardType'>SpeechDiscardType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechXMLRecoResult.html' title='winapi::sapi::DISPID_SpeechXMLRecoResult'>DISPID_SpeechXMLRecoResult</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                            href='./DISPID_SpeechRecoResult2/index.html'>DISPID_SpeechRecoResult2</a>::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecoResult2.html' title='winapi::sapi::DISPID_SpeechRecoResult2'>DISPID_SRRSetTextFeedback</a>;</code></td></tr><tr><td><code>pub use self::<a class='mod'
+                                            href='./DISPID_SpeechPhraseBuilder/index.html'>DISPID_SpeechPhraseBuilder</a>::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseBuilder.html' title='winapi::sapi::DISPID_SpeechPhraseBuilder'>DISPID_SPPBRestorePhraseFromMemory</a>;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechRecoResultTimes.html' title='winapi::sapi::DISPID_SpeechRecoResultTimes'>DISPID_SpeechRecoResultTimes</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseAlternate.html' title='winapi::sapi::DISPID_SpeechPhraseAlternate'>DISPID_SpeechPhraseAlternate</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseAlternates.html' title='winapi::sapi::DISPID_SpeechPhraseAlternates'>DISPID_SpeechPhraseAlternates</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseInfo.html' title='winapi::sapi::DISPID_SpeechPhraseInfo'>DISPID_SpeechPhraseInfo</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseElement.html' title='winapi::sapi::DISPID_SpeechPhraseElement'>DISPID_SpeechPhraseElement</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechEngineConfidence.html' title='winapi::sapi::SpeechEngineConfidence'>SpeechEngineConfidence</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseElements.html' title='winapi::sapi::DISPID_SpeechPhraseElements'>DISPID_SpeechPhraseElements</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseReplacement.html' title='winapi::sapi::DISPID_SpeechPhraseReplacement'>DISPID_SpeechPhraseReplacement</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseReplacements.html' title='winapi::sapi::DISPID_SpeechPhraseReplacements'>DISPID_SpeechPhraseReplacements</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseProperty.html' title='winapi::sapi::DISPID_SpeechPhraseProperty'>DISPID_SpeechPhraseProperty</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseProperties.html' title='winapi::sapi::DISPID_SpeechPhraseProperties'>DISPID_SpeechPhraseProperties</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseRule.html' title='winapi::sapi::DISPID_SpeechPhraseRule'>DISPID_SpeechPhraseRule</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhraseRules.html' title='winapi::sapi::DISPID_SpeechPhraseRules'>DISPID_SpeechPhraseRules</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechLexicon.html' title='winapi::sapi::DISPID_SpeechLexicon'>DISPID_SpeechLexicon</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechLexiconType.html' title='winapi::sapi::SpeechLexiconType'>SpeechLexiconType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechPartOfSpeech.html' title='winapi::sapi::SpeechPartOfSpeech'>SpeechPartOfSpeech</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechLexiconWords.html' title='winapi::sapi::DISPID_SpeechLexiconWords'>DISPID_SpeechLexiconWords</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.SpeechWordType.html' title='winapi::sapi::SpeechWordType'>SpeechWordType</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechLexiconWord.html' title='winapi::sapi::DISPID_SpeechLexiconWord'>DISPID_SpeechLexiconWord</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechLexiconProns.html' title='winapi::sapi::DISPID_SpeechLexiconProns'>DISPID_SpeechLexiconProns</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechLexiconPronunciation.html' title='winapi::sapi::DISPID_SpeechLexiconPronunciation'>DISPID_SpeechLexiconPronunciation</a>::*;</code></td></tr><tr><td><code>pub use self::<a class='enum' href='../../winapi/sapi/enum.DISPID_SpeechPhoneConverter.html' title='winapi::sapi::DISPID_SpeechPhoneConverter'>DISPID_SpeechPhoneConverter</a>::*;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IEnumSpObjectTokens.html'
+                               title='winapi::sapi::IEnumSpObjectTokens'>IEnumSpObjectTokens</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.IEnumSpObjectTokensVtbl.html'
+                               title='winapi::sapi::IEnumSpObjectTokensVtbl'>IEnumSpObjectTokensVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpAudio.html'
+                               title='winapi::sapi::ISpAudio'>ISpAudio</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpAudioVtbl.html'
+                               title='winapi::sapi::ISpAudioVtbl'>ISpAudioVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpContainerLexicon.html'
+                               title='winapi::sapi::ISpContainerLexicon'>ISpContainerLexicon</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpContainerLexiconVtbl.html'
+                               title='winapi::sapi::ISpContainerLexiconVtbl'>ISpContainerLexiconVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpDataKey.html'
+                               title='winapi::sapi::ISpDataKey'>ISpDataKey</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpDataKeyVtbl.html'
+                               title='winapi::sapi::ISpDataKeyVtbl'>ISpDataKeyVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpDisplayAlternates.html'
+                               title='winapi::sapi::ISpDisplayAlternates'>ISpDisplayAlternates</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpDisplayAlternatesVtbl.html'
+                               title='winapi::sapi::ISpDisplayAlternatesVtbl'>ISpDisplayAlternatesVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEnginePronunciation.html'
+                               title='winapi::sapi::ISpEnginePronunciation'>ISpEnginePronunciation</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEnginePronunciationVtbl.html'
+                               title='winapi::sapi::ISpEnginePronunciationVtbl'>ISpEnginePronunciationVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSink.html'
+                               title='winapi::sapi::ISpEventSink'>ISpEventSink</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSinkVtbl.html'
+                               title='winapi::sapi::ISpEventSinkVtbl'>ISpEventSinkVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSource.html'
+                               title='winapi::sapi::ISpEventSource'>ISpEventSource</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSource2.html'
+                               title='winapi::sapi::ISpEventSource2'>ISpEventSource2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSource2Vtbl.html'
+                               title='winapi::sapi::ISpEventSource2Vtbl'>ISpEventSource2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpEventSourceVtbl.html'
+                               title='winapi::sapi::ISpEventSourceVtbl'>ISpEventSourceVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpGrammarBuilder.html'
+                               title='winapi::sapi::ISpGrammarBuilder'>ISpGrammarBuilder</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpGrammarBuilder2.html'
+                               title='winapi::sapi::ISpGrammarBuilder2'>ISpGrammarBuilder2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpGrammarBuilder2Vtbl.html'
+                               title='winapi::sapi::ISpGrammarBuilder2Vtbl'>ISpGrammarBuilder2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpGrammarBuilderVtbl.html'
+                               title='winapi::sapi::ISpGrammarBuilderVtbl'>ISpGrammarBuilderVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpLexicon.html'
+                               title='winapi::sapi::ISpLexicon'>ISpLexicon</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpLexiconVtbl.html'
+                               title='winapi::sapi::ISpLexiconVtbl'>ISpLexiconVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpMMSysAudio.html'
+                               title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpMMSysAudioVtbl.html'
+                               title='winapi::sapi::ISpMMSysAudioVtbl'>ISpMMSysAudioVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifyCallback.html'
+                               title='winapi::sapi::ISpNotifyCallback'>ISpNotifyCallback</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifyCallbackVtbl.html'
+                               title='winapi::sapi::ISpNotifyCallbackVtbl'>ISpNotifyCallbackVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifySink.html'
+                               title='winapi::sapi::ISpNotifySink'>ISpNotifySink</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifySinkVtbl.html'
+                               title='winapi::sapi::ISpNotifySinkVtbl'>ISpNotifySinkVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifySource.html'
+                               title='winapi::sapi::ISpNotifySource'>ISpNotifySource</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifySourceVtbl.html'
+                               title='winapi::sapi::ISpNotifySourceVtbl'>ISpNotifySourceVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifyTranslator.html'
+                               title='winapi::sapi::ISpNotifyTranslator'>ISpNotifyTranslator</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpNotifyTranslatorVtbl.html'
+                               title='winapi::sapi::ISpNotifyTranslatorVtbl'>ISpNotifyTranslatorVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectToken.html'
+                               title='winapi::sapi::ISpObjectToken'>ISpObjectToken</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectTokenCategory.html'
+                               title='winapi::sapi::ISpObjectTokenCategory'>ISpObjectTokenCategory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectTokenCategoryVtbl.html'
+                               title='winapi::sapi::ISpObjectTokenCategoryVtbl'>ISpObjectTokenCategoryVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectTokenInit.html'
+                               title='winapi::sapi::ISpObjectTokenInit'>ISpObjectTokenInit</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectTokenInitVtbl.html'
+                               title='winapi::sapi::ISpObjectTokenInitVtbl'>ISpObjectTokenInitVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectTokenVtbl.html'
+                               title='winapi::sapi::ISpObjectTokenVtbl'>ISpObjectTokenVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectWithToken.html'
+                               title='winapi::sapi::ISpObjectWithToken'>ISpObjectWithToken</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpObjectWithTokenVtbl.html'
+                               title='winapi::sapi::ISpObjectWithTokenVtbl'>ISpObjectWithTokenVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneConverter.html'
+                               title='winapi::sapi::ISpPhoneConverter'>ISpPhoneConverter</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneConverterVtbl.html'
+                               title='winapi::sapi::ISpPhoneConverterVtbl'>ISpPhoneConverterVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneticAlphabetConverter.html'
+                               title='winapi::sapi::ISpPhoneticAlphabetConverter'>ISpPhoneticAlphabetConverter</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneticAlphabetConverterVtbl.html'
+                               title='winapi::sapi::ISpPhoneticAlphabetConverterVtbl'>ISpPhoneticAlphabetConverterVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneticAlphabetSelection.html'
+                               title='winapi::sapi::ISpPhoneticAlphabetSelection'>ISpPhoneticAlphabetSelection</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhoneticAlphabetSelectionVtbl.html'
+                               title='winapi::sapi::ISpPhoneticAlphabetSelectionVtbl'>ISpPhoneticAlphabetSelectionVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhrase.html'
+                               title='winapi::sapi::ISpPhrase'>ISpPhrase</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhrase2.html'
+                               title='winapi::sapi::ISpPhrase2'>ISpPhrase2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhrase2Vtbl.html'
+                               title='winapi::sapi::ISpPhrase2Vtbl'>ISpPhrase2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhraseAlt.html'
+                               title='winapi::sapi::ISpPhraseAlt'>ISpPhraseAlt</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhraseAltVtbl.html'
+                               title='winapi::sapi::ISpPhraseAltVtbl'>ISpPhraseAltVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPhraseVtbl.html'
+                               title='winapi::sapi::ISpPhraseVtbl'>ISpPhraseVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpProperties.html'
+                               title='winapi::sapi::ISpProperties'>ISpProperties</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpPropertiesVtbl.html'
+                               title='winapi::sapi::ISpPropertiesVtbl'>ISpPropertiesVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoCategory.html'
+                               title='winapi::sapi::ISpRecoCategory'>ISpRecoCategory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoCategoryVtbl.html'
+                               title='winapi::sapi::ISpRecoCategoryVtbl'>ISpRecoCategoryVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoContext.html'
+                               title='winapi::sapi::ISpRecoContext'>ISpRecoContext</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoContext2.html'
+                               title='winapi::sapi::ISpRecoContext2'>ISpRecoContext2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoContext2Vtbl.html'
+                               title='winapi::sapi::ISpRecoContext2Vtbl'>ISpRecoContext2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoContextVtbl.html'
+                               title='winapi::sapi::ISpRecoContextVtbl'>ISpRecoContextVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoGrammar.html'
+                               title='winapi::sapi::ISpRecoGrammar'>ISpRecoGrammar</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoGrammar2.html'
+                               title='winapi::sapi::ISpRecoGrammar2'>ISpRecoGrammar2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoGrammar2Vtbl.html'
+                               title='winapi::sapi::ISpRecoGrammar2Vtbl'>ISpRecoGrammar2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoGrammarVtbl.html'
+                               title='winapi::sapi::ISpRecoGrammarVtbl'>ISpRecoGrammarVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoResult.html'
+                               title='winapi::sapi::ISpRecoResult'>ISpRecoResult</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoResult2.html'
+                               title='winapi::sapi::ISpRecoResult2'>ISpRecoResult2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoResult2Vtbl.html'
+                               title='winapi::sapi::ISpRecoResult2Vtbl'>ISpRecoResult2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecoResultVtbl.html'
+                               title='winapi::sapi::ISpRecoResultVtbl'>ISpRecoResultVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizer.html'
+                               title='winapi::sapi::ISpRecognizer'>ISpRecognizer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizer2.html'
+                               title='winapi::sapi::ISpRecognizer2'>ISpRecognizer2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizer2Vtbl.html'
+                               title='winapi::sapi::ISpRecognizer2Vtbl'>ISpRecognizer2Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizer3.html'
+                               title='winapi::sapi::ISpRecognizer3'>ISpRecognizer3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizer3Vtbl.html'
+                               title='winapi::sapi::ISpRecognizer3Vtbl'>ISpRecognizer3Vtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRecognizerVtbl.html'
+                               title='winapi::sapi::ISpRecognizerVtbl'>ISpRecognizerVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRegDataKey.html'
+                               title='winapi::sapi::ISpRegDataKey'>ISpRegDataKey</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpRegDataKeyVtbl.html'
+                               title='winapi::sapi::ISpRegDataKeyVtbl'>ISpRegDataKeyVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpResourceManager.html'
+                               title='winapi::sapi::ISpResourceManager'>ISpResourceManager</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpResourceManagerVtbl.html'
+                               title='winapi::sapi::ISpResourceManagerVtbl'>ISpResourceManagerVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpSerializeState.html'
+                               title='winapi::sapi::ISpSerializeState'>ISpSerializeState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpSerializeStateVtbl.html'
+                               title='winapi::sapi::ISpSerializeStateVtbl'>ISpSerializeStateVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpShortcut.html'
+                               title='winapi::sapi::ISpShortcut'>ISpShortcut</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpShortcutVtbl.html'
+                               title='winapi::sapi::ISpShortcutVtbl'>ISpShortcutVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStream.html'
+                               title='winapi::sapi::ISpStream'>ISpStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStreamFormat.html'
+                               title='winapi::sapi::ISpStreamFormat'>ISpStreamFormat</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStreamFormatConverter.html'
+                               title='winapi::sapi::ISpStreamFormatConverter'>ISpStreamFormatConverter</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStreamFormatConverterVtbl.html'
+                               title='winapi::sapi::ISpStreamFormatConverterVtbl'>ISpStreamFormatConverterVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStreamFormatVtbl.html'
+                               title='winapi::sapi::ISpStreamFormatVtbl'>ISpStreamFormatVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpStreamVtbl.html'
+                               title='winapi::sapi::ISpStreamVtbl'>ISpStreamVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpTranscript.html'
+                               title='winapi::sapi::ISpTranscript'>ISpTranscript</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpTranscriptVtbl.html'
+                               title='winapi::sapi::ISpTranscriptVtbl'>ISpTranscriptVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpVoice.html'
+                               title='winapi::sapi::ISpVoice'>ISpVoice</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpVoiceVtbl.html'
+                               title='winapi::sapi::ISpVoiceVtbl'>ISpVoiceVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpXMLRecoResult.html'
+                               title='winapi::sapi::ISpXMLRecoResult'>ISpXMLRecoResult</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpXMLRecoResultVtbl.html'
+                               title='winapi::sapi::ISpXMLRecoResultVtbl'>ISpXMLRecoResultVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioBufferInfo.html'
+                               title='winapi::sapi::ISpeechAudioBufferInfo'>ISpeechAudioBufferInfo</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioBufferInfoVtbl.html'
+                               title='winapi::sapi::ISpeechAudioBufferInfoVtbl'>ISpeechAudioBufferInfoVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioFormat.html'
+                               title='winapi::sapi::ISpeechAudioFormat'>ISpeechAudioFormat</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioFormatVtbl.html'
+                               title='winapi::sapi::ISpeechAudioFormatVtbl'>ISpeechAudioFormatVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioStatus.html'
+                               title='winapi::sapi::ISpeechAudioStatus'>ISpeechAudioStatus</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechAudioStatusVtbl.html'
+                               title='winapi::sapi::ISpeechAudioStatusVtbl'>ISpeechAudioStatusVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechDataKey.html'
+                               title='winapi::sapi::ISpeechDataKey'>ISpeechDataKey</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechDataKeyVtbl.html'
+                               title='winapi::sapi::ISpeechDataKeyVtbl'>ISpeechDataKeyVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectToken.html'
+                               title='winapi::sapi::ISpeechObjectToken'>ISpeechObjectToken</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectTokenCategory.html'
+                               title='winapi::sapi::ISpeechObjectTokenCategory'>ISpeechObjectTokenCategory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectTokenCategoryVtbl.html'
+                               title='winapi::sapi::ISpeechObjectTokenCategoryVtbl'>ISpeechObjectTokenCategoryVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectTokenVtbl.html'
+                               title='winapi::sapi::ISpeechObjectTokenVtbl'>ISpeechObjectTokenVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectTokens.html'
+                               title='winapi::sapi::ISpeechObjectTokens'>ISpeechObjectTokens</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechObjectTokensVtbl.html'
+                               title='winapi::sapi::ISpeechObjectTokensVtbl'>ISpeechObjectTokensVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechResourceLoader.html'
+                               title='winapi::sapi::ISpeechResourceLoader'>ISpeechResourceLoader</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechResourceLoaderVtbl.html'
+                               title='winapi::sapi::ISpeechResourceLoaderVtbl'>ISpeechResourceLoaderVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechWaveFormatEx.html'
+                               title='winapi::sapi::ISpeechWaveFormatEx'>ISpeechWaveFormatEx</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ISpeechWaveFormatExVtbl.html'
+                               title='winapi::sapi::ISpeechWaveFormatExVtbl'>ISpeechWaveFormatExVtbl</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPAUDIOBUFFERINFO.html'
+                               title='winapi::sapi::SPAUDIOBUFFERINFO'>SPAUDIOBUFFERINFO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPAUDIOSTATUS.html'
+                               title='winapi::sapi::SPAUDIOSTATUS'>SPAUDIOSTATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPBINARYGRAMMAR.html'
+                               title='winapi::sapi::SPBINARYGRAMMAR'>SPBINARYGRAMMAR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPDISPLAYPHRASE.html'
+                               title='winapi::sapi::SPDISPLAYPHRASE'>SPDISPLAYPHRASE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPDISPLAYTOKEN.html'
+                               title='winapi::sapi::SPDISPLAYTOKEN'>SPDISPLAYTOKEN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPEVENT.html'
+                               title='winapi::sapi::SPEVENT'>SPEVENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPEVENTEX.html'
+                               title='winapi::sapi::SPEVENTEX'>SPEVENTEX</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPEVENTSOURCEINFO.html'
+                               title='winapi::sapi::SPEVENTSOURCEINFO'>SPEVENTSOURCEINFO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPNORMALIZATIONLIST.html'
+                               title='winapi::sapi::SPNORMALIZATIONLIST'>SPNORMALIZATIONLIST</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASE.html'
+                               title='winapi::sapi::SPPHRASE'>SPPHRASE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASEELEMENT.html'
+                               title='winapi::sapi::SPPHRASEELEMENT'>SPPHRASEELEMENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASEPROPERTY.html'
+                               title='winapi::sapi::SPPHRASEPROPERTY'>SPPHRASEPROPERTY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASEREPLACEMENT.html'
+                               title='winapi::sapi::SPPHRASEREPLACEMENT'>SPPHRASEREPLACEMENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASERULE.html'
+                               title='winapi::sapi::SPPHRASERULE'>SPPHRASERULE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASE_50.html'
+                               title='winapi::sapi::SPPHRASE_50'>SPPHRASE_50</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPHRASE_53.html'
+                               title='winapi::sapi::SPPHRASE_53'>SPPHRASE_53</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPPROPERTYINFO.html'
+                               title='winapi::sapi::SPPROPERTYINFO'>SPPROPERTYINFO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPRECOCONTEXTSTATUS.html'
+                               title='winapi::sapi::SPRECOCONTEXTSTATUS'>SPRECOCONTEXTSTATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPRECOGNIZERSTATUS.html'
+                               title='winapi::sapi::SPRECOGNIZERSTATUS'>SPRECOGNIZERSTATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPRECORESULTTIMES.html'
+                               title='winapi::sapi::SPRECORESULTTIMES'>SPRECORESULTTIMES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPRULE.html'
+                               title='winapi::sapi::SPRULE'>SPRULE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSEMANTICERRORINFO.html'
+                               title='winapi::sapi::SPSEMANTICERRORINFO'>SPSEMANTICERRORINFO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSERIALIZEDEVENT.html'
+                               title='winapi::sapi::SPSERIALIZEDEVENT'>SPSERIALIZEDEVENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSERIALIZEDEVENT64.html'
+                               title='winapi::sapi::SPSERIALIZEDEVENT64'>SPSERIALIZEDEVENT64</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSERIALIZEDPHRASE.html'
+                               title='winapi::sapi::SPSERIALIZEDPHRASE'>SPSERIALIZEDPHRASE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSERIALIZEDRESULT.html'
+                               title='winapi::sapi::SPSERIALIZEDRESULT'>SPSERIALIZEDRESULT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSHORTCUTPAIR.html'
+                               title='winapi::sapi::SPSHORTCUTPAIR'>SPSHORTCUTPAIR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPSHORTCUTPAIRLIST.html'
+                               title='winapi::sapi::SPSHORTCUTPAIRLIST'>SPSHORTCUTPAIRLIST</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPTEXTSELECTIONINFO.html'
+                               title='winapi::sapi::SPTEXTSELECTIONINFO'>SPTEXTSELECTIONINFO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPVCONTEXT.html'
+                               title='winapi::sapi::SPVCONTEXT'>SPVCONTEXT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPVOICESTATUS.html'
+                               title='winapi::sapi::SPVOICESTATUS'>SPVOICESTATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPVPITCH.html'
+                               title='winapi::sapi::SPVPITCH'>SPVPITCH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPVSTATE.html'
+                               title='winapi::sapi::SPVSTATE'>SPVSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPWORD.html'
+                               title='winapi::sapi::SPWORD'>SPWORD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPWORDLIST.html'
+                               title='winapi::sapi::SPWORDLIST'>SPWORDLIST</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPWORDPRONUNCIATION.html'
+                               title='winapi::sapi::SPWORDPRONUNCIATION'>SPWORDPRONUNCIATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SPWORDPRONUNCIATIONLIST.html'
+                               title='winapi::sapi::SPWORDPRONUNCIATIONLIST'>SPWORDPRONUNCIATIONLIST</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPIDSPRG.html'
+                               title='winapi::sapi::DISPIDSPRG'>DISPIDSPRG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPIDSPTSI.html'
+                               title='winapi::sapi::DISPIDSPTSI'>DISPIDSPTSI</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechAudio.html'
+                               title='winapi::sapi::DISPID_SpeechAudio'>DISPID_SpeechAudio</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechAudioBufferInfo.html'
+                               title='winapi::sapi::DISPID_SpeechAudioBufferInfo'>DISPID_SpeechAudioBufferInfo</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechAudioFormat.html'
+                               title='winapi::sapi::DISPID_SpeechAudioFormat'>DISPID_SpeechAudioFormat</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechAudioStatus.html'
+                               title='winapi::sapi::DISPID_SpeechAudioStatus'>DISPID_SpeechAudioStatus</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechBaseStream.html'
+                               title='winapi::sapi::DISPID_SpeechBaseStream'>DISPID_SpeechBaseStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechCustomStream.html'
+                               title='winapi::sapi::DISPID_SpeechCustomStream'>DISPID_SpeechCustomStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechDataKey.html'
+                               title='winapi::sapi::DISPID_SpeechDataKey'>DISPID_SpeechDataKey</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechFileStream.html'
+                               title='winapi::sapi::DISPID_SpeechFileStream'>DISPID_SpeechFileStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechGrammarRule.html'
+                               title='winapi::sapi::DISPID_SpeechGrammarRule'>DISPID_SpeechGrammarRule</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechGrammarRuleState.html'
+                               title='winapi::sapi::DISPID_SpeechGrammarRuleState'>DISPID_SpeechGrammarRuleState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechGrammarRuleStateTransition.html'
+                               title='winapi::sapi::DISPID_SpeechGrammarRuleStateTransition'>DISPID_SpeechGrammarRuleStateTransition</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechGrammarRuleStateTransitions.html'
+                               title='winapi::sapi::DISPID_SpeechGrammarRuleStateTransitions'>DISPID_SpeechGrammarRuleStateTransitions</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechGrammarRules.html'
+                               title='winapi::sapi::DISPID_SpeechGrammarRules'>DISPID_SpeechGrammarRules</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechLexicon.html'
+                               title='winapi::sapi::DISPID_SpeechLexicon'>DISPID_SpeechLexicon</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechLexiconProns.html'
+                               title='winapi::sapi::DISPID_SpeechLexiconProns'>DISPID_SpeechLexiconProns</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechLexiconPronunciation.html'
+                               title='winapi::sapi::DISPID_SpeechLexiconPronunciation'>DISPID_SpeechLexiconPronunciation</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechLexiconWord.html'
+                               title='winapi::sapi::DISPID_SpeechLexiconWord'>DISPID_SpeechLexiconWord</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechLexiconWords.html'
+                               title='winapi::sapi::DISPID_SpeechLexiconWords'>DISPID_SpeechLexiconWords</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechMMSysAudio.html'
+                               title='winapi::sapi::DISPID_SpeechMMSysAudio'>DISPID_SpeechMMSysAudio</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechMemoryStream.html'
+                               title='winapi::sapi::DISPID_SpeechMemoryStream'>DISPID_SpeechMemoryStream</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechObjectToken.html'
+                               title='winapi::sapi::DISPID_SpeechObjectToken'>DISPID_SpeechObjectToken</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechObjectTokenCategory.html'
+                               title='winapi::sapi::DISPID_SpeechObjectTokenCategory'>DISPID_SpeechObjectTokenCategory</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechObjectTokens.html'
+                               title='winapi::sapi::DISPID_SpeechObjectTokens'>DISPID_SpeechObjectTokens</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhoneConverter.html'
+                               title='winapi::sapi::DISPID_SpeechPhoneConverter'>DISPID_SpeechPhoneConverter</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseAlternate.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseAlternate'>DISPID_SpeechPhraseAlternate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseAlternates.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseAlternates'>DISPID_SpeechPhraseAlternates</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseBuilder.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseBuilder'>DISPID_SpeechPhraseBuilder</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseElement.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseElement'>DISPID_SpeechPhraseElement</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseElements.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseElements'>DISPID_SpeechPhraseElements</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseInfo.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseInfo'>DISPID_SpeechPhraseInfo</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseProperties.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseProperties'>DISPID_SpeechPhraseProperties</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseProperty.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseProperty'>DISPID_SpeechPhraseProperty</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseReplacement.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseReplacement'>DISPID_SpeechPhraseReplacement</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseReplacements.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseReplacements'>DISPID_SpeechPhraseReplacements</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseRule.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseRule'>DISPID_SpeechPhraseRule</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechPhraseRules.html'
+                               title='winapi::sapi::DISPID_SpeechPhraseRules'>DISPID_SpeechPhraseRules</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecoContext.html'
+                               title='winapi::sapi::DISPID_SpeechRecoContext'>DISPID_SpeechRecoContext</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecoContextEvents.html'
+                               title='winapi::sapi::DISPID_SpeechRecoContextEvents'>DISPID_SpeechRecoContextEvents</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecoResult.html'
+                               title='winapi::sapi::DISPID_SpeechRecoResult'>DISPID_SpeechRecoResult</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecoResult2.html'
+                               title='winapi::sapi::DISPID_SpeechRecoResult2'>DISPID_SpeechRecoResult2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecoResultTimes.html'
+                               title='winapi::sapi::DISPID_SpeechRecoResultTimes'>DISPID_SpeechRecoResultTimes</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecognizer.html'
+                               title='winapi::sapi::DISPID_SpeechRecognizer'>DISPID_SpeechRecognizer</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechRecognizerStatus.html'
+                               title='winapi::sapi::DISPID_SpeechRecognizerStatus'>DISPID_SpeechRecognizerStatus</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechVoice.html'
+                               title='winapi::sapi::DISPID_SpeechVoice'>DISPID_SpeechVoice</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechVoiceEvent.html'
+                               title='winapi::sapi::DISPID_SpeechVoiceEvent'>DISPID_SpeechVoiceEvent</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechVoiceStatus.html'
+                               title='winapi::sapi::DISPID_SpeechVoiceStatus'>DISPID_SpeechVoiceStatus</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechWaveFormatEx.html'
+                               title='winapi::sapi::DISPID_SpeechWaveFormatEx'>DISPID_SpeechWaveFormatEx</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.DISPID_SpeechXMLRecoResult.html'
+                               title='winapi::sapi::DISPID_SpeechXMLRecoResult'>DISPID_SpeechXMLRecoResult</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.PHONETICALPHABET.html'
+                               title='winapi::sapi::PHONETICALPHABET'>PHONETICALPHABET</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPADAPTATIONRELEVANCE.html'
+                               title='winapi::sapi::SPADAPTATIONRELEVANCE'>SPADAPTATIONRELEVANCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPADAPTATIONSETTINGS.html'
+                               title='winapi::sapi::SPADAPTATIONSETTINGS'>SPADAPTATIONSETTINGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPAUDIOOPTIONS.html'
+                               title='winapi::sapi::SPAUDIOOPTIONS'>SPAUDIOOPTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPAUDIOSTATE.html'
+                               title='winapi::sapi::SPAUDIOSTATE'>SPAUDIOSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPBOOKMARKOPTIONS.html'
+                               title='winapi::sapi::SPBOOKMARKOPTIONS'>SPBOOKMARKOPTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPCATEGORYTYPE.html'
+                               title='winapi::sapi::SPCATEGORYTYPE'>SPCATEGORYTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPCFGRULEATTRIBUTES.html'
+                               title='winapi::sapi::SPCFGRULEATTRIBUTES'>SPCFGRULEATTRIBUTES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPCOMMITFLAGS.html'
+                               title='winapi::sapi::SPCOMMITFLAGS'>SPCOMMITFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPCONTEXTSTATE.html'
+                               title='winapi::sapi::SPCONTEXTSTATE'>SPCONTEXTSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPDATAKEYLOCATION.html'
+                               title='winapi::sapi::SPDATAKEYLOCATION'>SPDATAKEYLOCATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPDISPLYATTRIBUTES.html'
+                               title='winapi::sapi::SPDISPLYATTRIBUTES'>SPDISPLYATTRIBUTES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPEAKFLAGS.html'
+                               title='winapi::sapi::SPEAKFLAGS'>SPEAKFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPENDSRSTREAMFLAGS.html'
+                               title='winapi::sapi::SPENDSRSTREAMFLAGS'>SPENDSRSTREAMFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPEVENTENUM.html'
+                               title='winapi::sapi::SPEVENTENUM'>SPEVENTENUM</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPEVENTLPARAMTYPE.html'
+                               title='winapi::sapi::SPEVENTLPARAMTYPE'>SPEVENTLPARAMTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPFILEMODE.html'
+                               title='winapi::sapi::SPFILEMODE'>SPFILEMODE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPGRAMMAROPTIONS.html'
+                               title='winapi::sapi::SPGRAMMAROPTIONS'>SPGRAMMAROPTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPGRAMMARSTATE.html'
+                               title='winapi::sapi::SPGRAMMARSTATE'>SPGRAMMARSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPGRAMMARWORDTYPE.html'
+                               title='winapi::sapi::SPGRAMMARWORDTYPE'>SPGRAMMARWORDTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPINTERFERENCE.html'
+                               title='winapi::sapi::SPINTERFERENCE'>SPINTERFERENCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPLEXICONTYPE.html'
+                               title='winapi::sapi::SPLEXICONTYPE'>SPLEXICONTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPLOADOPTIONS.html'
+                               title='winapi::sapi::SPLOADOPTIONS'>SPLOADOPTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPMATCHINGMODE.html'
+                               title='winapi::sapi::SPMATCHINGMODE'>SPMATCHINGMODE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPPARTOFSPEECH.html'
+                               title='winapi::sapi::SPPARTOFSPEECH'>SPPARTOFSPEECH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPPHRASEPROPERTYUNIONTYPE.html'
+                               title='winapi::sapi::SPPHRASEPROPERTYUNIONTYPE'>SPPHRASEPROPERTYUNIONTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPPHRASERNG.html'
+                               title='winapi::sapi::SPPHRASERNG'>SPPHRASERNG</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPPRONUNCIATIONFLAGS.html'
+                               title='winapi::sapi::SPPRONUNCIATIONFLAGS'>SPPRONUNCIATIONFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPRECOEVENTFLAGS.html'
+                               title='winapi::sapi::SPRECOEVENTFLAGS'>SPRECOEVENTFLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPRECOSTATE.html'
+                               title='winapi::sapi::SPRECOSTATE'>SPRECOSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPRULESTATE.html'
+                               title='winapi::sapi::SPRULESTATE'>SPRULESTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPRUNSTATE.html'
+                               title='winapi::sapi::SPRUNSTATE'>SPRUNSTATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPSEMANTICFORMAT.html'
+                               title='winapi::sapi::SPSEMANTICFORMAT'>SPSEMANTICFORMAT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPSHORTCUTTYPE.html'
+                               title='winapi::sapi::SPSHORTCUTTYPE'>SPSHORTCUTTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPSTREAMFORMAT.html'
+                               title='winapi::sapi::SPSTREAMFORMAT'>SPSTREAMFORMAT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVACTIONS.html'
+                               title='winapi::sapi::SPVACTIONS'>SPVACTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVALUETYPE.html'
+                               title='winapi::sapi::SPVALUETYPE'>SPVALUETYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVFEATURE.html'
+                               title='winapi::sapi::SPVFEATURE'>SPVFEATURE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVISEMES.html'
+                               title='winapi::sapi::SPVISEMES'>SPVISEMES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVLIMITS.html'
+                               title='winapi::sapi::SPVLIMITS'>SPVLIMITS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPVPRIORITY.html'
+                               title='winapi::sapi::SPVPRIORITY'>SPVPRIORITY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPWAVEFORMATTYPE.html'
+                               title='winapi::sapi::SPWAVEFORMATTYPE'>SPWAVEFORMATTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPWORDPRONOUNCEABLE.html'
+                               title='winapi::sapi::SPWORDPRONOUNCEABLE'>SPWORDPRONOUNCEABLE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPWORDTYPE.html'
+                               title='winapi::sapi::SPWORDTYPE'>SPWORDTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SPXMLRESULTOPTIONS.html'
+                               title='winapi::sapi::SPXMLRESULTOPTIONS'>SPXMLRESULTOPTIONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechAudioFormatType.html'
+                               title='winapi::sapi::SpeechAudioFormatType'>SpeechAudioFormatType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechAudioState.html'
+                               title='winapi::sapi::SpeechAudioState'>SpeechAudioState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechBookmarkOptions.html'
+                               title='winapi::sapi::SpeechBookmarkOptions'>SpeechBookmarkOptions</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechDataKeyLocation.html'
+                               title='winapi::sapi::SpeechDataKeyLocation'>SpeechDataKeyLocation</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechDiscardType.html'
+                               title='winapi::sapi::SpeechDiscardType'>SpeechDiscardType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechDisplayAttributes.html'
+                               title='winapi::sapi::SpeechDisplayAttributes'>SpeechDisplayAttributes</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechEmulationCompareFlags.html'
+                               title='winapi::sapi::SpeechEmulationCompareFlags'>SpeechEmulationCompareFlags</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechEngineConfidence.html'
+                               title='winapi::sapi::SpeechEngineConfidence'>SpeechEngineConfidence</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechFormatType.html'
+                               title='winapi::sapi::SpeechFormatType'>SpeechFormatType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechGrammarRuleStateTransitionType.html'
+                               title='winapi::sapi::SpeechGrammarRuleStateTransitionType'>SpeechGrammarRuleStateTransitionType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechGrammarState.html'
+                               title='winapi::sapi::SpeechGrammarState'>SpeechGrammarState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechGrammarWordType.html'
+                               title='winapi::sapi::SpeechGrammarWordType'>SpeechGrammarWordType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechInterference.html'
+                               title='winapi::sapi::SpeechInterference'>SpeechInterference</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechLexiconType.html'
+                               title='winapi::sapi::SpeechLexiconType'>SpeechLexiconType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechLoadOption.html'
+                               title='winapi::sapi::SpeechLoadOption'>SpeechLoadOption</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechPartOfSpeech.html'
+                               title='winapi::sapi::SpeechPartOfSpeech'>SpeechPartOfSpeech</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRecoContextState.html'
+                               title='winapi::sapi::SpeechRecoContextState'>SpeechRecoContextState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRecoEvents.html'
+                               title='winapi::sapi::SpeechRecoEvents'>SpeechRecoEvents</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRecognitionType.html'
+                               title='winapi::sapi::SpeechRecognitionType'>SpeechRecognitionType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRecognizerState.html'
+                               title='winapi::sapi::SpeechRecognizerState'>SpeechRecognizerState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRetainedAudioOptions.html'
+                               title='winapi::sapi::SpeechRetainedAudioOptions'>SpeechRetainedAudioOptions</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRuleAttributes.html'
+                               title='winapi::sapi::SpeechRuleAttributes'>SpeechRuleAttributes</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRuleState.html'
+                               title='winapi::sapi::SpeechRuleState'>SpeechRuleState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechRunState.html'
+                               title='winapi::sapi::SpeechRunState'>SpeechRunState</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechSpecialTransitionType.html'
+                               title='winapi::sapi::SpeechSpecialTransitionType'>SpeechSpecialTransitionType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechStreamFileMode.html'
+                               title='winapi::sapi::SpeechStreamFileMode'>SpeechStreamFileMode</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechStreamSeekPositionType.html'
+                               title='winapi::sapi::SpeechStreamSeekPositionType'>SpeechStreamSeekPositionType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechTokenContext.html'
+                               title='winapi::sapi::SpeechTokenContext'>SpeechTokenContext</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechTokenShellFolder.html'
+                               title='winapi::sapi::SpeechTokenShellFolder'>SpeechTokenShellFolder</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechVisemeFeature.html'
+                               title='winapi::sapi::SpeechVisemeFeature'>SpeechVisemeFeature</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechVisemeType.html'
+                               title='winapi::sapi::SpeechVisemeType'>SpeechVisemeType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechVoiceEvents.html'
+                               title='winapi::sapi::SpeechVoiceEvents'>SpeechVoiceEvents</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechVoicePriority.html'
+                               title='winapi::sapi::SpeechVoicePriority'>SpeechVoicePriority</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechVoiceSpeakFlags.html'
+                               title='winapi::sapi::SpeechVoiceSpeakFlags'>SpeechVoiceSpeakFlags</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechWordPronounceable.html'
+                               title='winapi::sapi::SpeechWordPronounceable'>SpeechWordPronounceable</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.SpeechWordType.html'
+                               title='winapi::sapi::SpeechWordType'>SpeechWordType</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DEFAULT_WEIGHT.html'
+                               title='winapi::sapi::DEFAULT_WEIGHT'>DEFAULT_WEIGHT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_APPLEXICONS.html'
+                               title='winapi::sapi::SPCAT_APPLEXICONS'>SPCAT_APPLEXICONS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_AUDIOIN.html'
+                               title='winapi::sapi::SPCAT_AUDIOIN'>SPCAT_AUDIOIN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_AUDIOOUT.html'
+                               title='winapi::sapi::SPCAT_AUDIOOUT'>SPCAT_AUDIOOUT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_PHONECONVERTERS.html'
+                               title='winapi::sapi::SPCAT_PHONECONVERTERS'>SPCAT_PHONECONVERTERS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_RECOGNIZERS.html'
+                               title='winapi::sapi::SPCAT_RECOGNIZERS'>SPCAT_RECOGNIZERS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_RECOPROFILES.html'
+                               title='winapi::sapi::SPCAT_RECOPROFILES'>SPCAT_RECOPROFILES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_TEXTNORMALIZERS.html'
+                               title='winapi::sapi::SPCAT_TEXTNORMALIZERS'>SPCAT_TEXTNORMALIZERS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCAT_VOICES.html'
+                               title='winapi::sapi::SPCAT_VOICES'>SPCAT_VOICES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCURRENT_USER_LEXICON_TOKEN_ID.html'
+                               title='winapi::sapi::SPCURRENT_USER_LEXICON_TOKEN_ID'>SPCURRENT_USER_LEXICON_TOKEN_ID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPCURRENT_USER_SHORTCUT_TOKEN_ID.html'
+                               title='winapi::sapi::SPCURRENT_USER_SHORTCUT_TOKEN_ID'>SPCURRENT_USER_SHORTCUT_TOKEN_ID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDICTATION.html'
+                               title='winapi::sapi::SPDICTATION'>SPDICTATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_AddRemoveWord.html'
+                               title='winapi::sapi::SPDUI_AddRemoveWord'>SPDUI_AddRemoveWord</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_AudioProperties.html'
+                               title='winapi::sapi::SPDUI_AudioProperties'>SPDUI_AudioProperties</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_AudioVolume.html'
+                               title='winapi::sapi::SPDUI_AudioVolume'>SPDUI_AudioVolume</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_EngineProperties.html'
+                               title='winapi::sapi::SPDUI_EngineProperties'>SPDUI_EngineProperties</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_MicTraining.html'
+                               title='winapi::sapi::SPDUI_MicTraining'>SPDUI_MicTraining</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_RecoProfileProperties.html'
+                               title='winapi::sapi::SPDUI_RecoProfileProperties'>SPDUI_RecoProfileProperties</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_ShareData.html'
+                               title='winapi::sapi::SPDUI_ShareData'>SPDUI_ShareData</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_Tutorial.html'
+                               title='winapi::sapi::SPDUI_Tutorial'>SPDUI_Tutorial</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_UserEnrollment.html'
+                               title='winapi::sapi::SPDUI_UserEnrollment'>SPDUI_UserEnrollment</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPDUI_UserTraining.html'
+                               title='winapi::sapi::SPDUI_UserTraining'>SPDUI_UserTraining</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPEI_MAX_SR.html'
+                               title='winapi::sapi::SPEI_MAX_SR'>SPEI_MAX_SR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPEI_MAX_TTS.html'
+                               title='winapi::sapi::SPEI_MAX_TTS'>SPEI_MAX_TTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPEI_MIN_SR.html'
+                               title='winapi::sapi::SPEI_MIN_SR'>SPEI_MIN_SR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPEI_MIN_TTS.html'
+                               title='winapi::sapi::SPEI_MIN_TTS'>SPEI_MIN_TTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPFEI_ALL_EVENTS.html'
+                               title='winapi::sapi::SPFEI_ALL_EVENTS'>SPFEI_ALL_EVENTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPFEI_ALL_SR_EVENTS.html'
+                               title='winapi::sapi::SPFEI_ALL_SR_EVENTS'>SPFEI_ALL_SR_EVENTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPFEI_ALL_TTS_EVENTS.html'
+                               title='winapi::sapi::SPFEI_ALL_TTS_EVENTS'>SPFEI_ALL_TTS_EVENTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPFEI_FLAGCHECK.html'
+                               title='winapi::sapi::SPFEI_FLAGCHECK'>SPFEI_FLAGCHECK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPF_NLP_MASK.html'
+                               title='winapi::sapi::SPF_NLP_MASK'>SPF_NLP_MASK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPF_PARSE_AUTODETECT.html'
+                               title='winapi::sapi::SPF_PARSE_AUTODETECT'>SPF_PARSE_AUTODETECT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPF_PARSE_MASK.html'
+                               title='winapi::sapi::SPF_PARSE_MASK'>SPF_PARSE_MASK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPF_UNUSED_FLAGS.html'
+                               title='winapi::sapi::SPF_UNUSED_FLAGS'>SPF_UNUSED_FLAGS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPF_VOICE_MASK.html'
+                               title='winapi::sapi::SPF_VOICE_MASK'>SPF_VOICE_MASK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPINFDICTATION.html'
+                               title='winapi::sapi::SPINFDICTATION'>SPINFDICTATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPMMSYS_AUDIO_IN_TOKEN_ID.html'
+                               title='winapi::sapi::SPMMSYS_AUDIO_IN_TOKEN_ID'>SPMMSYS_AUDIO_IN_TOKEN_ID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPMMSYS_AUDIO_OUT_TOKEN_ID.html'
+                               title='winapi::sapi::SPMMSYS_AUDIO_OUT_TOKEN_ID'>SPMMSYS_AUDIO_OUT_TOKEN_ID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_ADAPTATION_ON.html'
+                               title='winapi::sapi::SPPROP_ADAPTATION_ON'>SPPROP_ADAPTATION_ON</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_COMPLEX_RESPONSE_SPEED.html'
+                               title='winapi::sapi::SPPROP_COMPLEX_RESPONSE_SPEED'>SPPROP_COMPLEX_RESPONSE_SPEED</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_HIGH_CONFIDENCE_THRESHOLD.html'
+                               title='winapi::sapi::SPPROP_HIGH_CONFIDENCE_THRESHOLD'>SPPROP_HIGH_CONFIDENCE_THRESHOLD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_LOW_CONFIDENCE_THRESHOLD.html'
+                               title='winapi::sapi::SPPROP_LOW_CONFIDENCE_THRESHOLD'>SPPROP_LOW_CONFIDENCE_THRESHOLD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_NORMAL_CONFIDENCE_THRESHOLD.html'
+                               title='winapi::sapi::SPPROP_NORMAL_CONFIDENCE_THRESHOLD'>SPPROP_NORMAL_CONFIDENCE_THRESHOLD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_PERSISTED_BACKGROUND_ADAPTATION.html'
+                               title='winapi::sapi::SPPROP_PERSISTED_BACKGROUND_ADAPTATION'>SPPROP_PERSISTED_BACKGROUND_ADAPTATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION.html'
+                               title='winapi::sapi::SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION'>SPPROP_PERSISTED_LANGUAGE_MODEL_ADAPTATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_RESOURCE_USAGE.html'
+                               title='winapi::sapi::SPPROP_RESOURCE_USAGE'>SPPROP_RESOURCE_USAGE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_RESPONSE_SPEED.html'
+                               title='winapi::sapi::SPPROP_RESPONSE_SPEED'>SPPROP_RESPONSE_SPEED</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPPROP_UX_IS_LISTENING.html'
+                               title='winapi::sapi::SPPROP_UX_IS_LISTENING'>SPPROP_UX_IS_LISTENING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPREG_LOCAL_MACHINE_ROOT.html'
+                               title='winapi::sapi::SPREG_LOCAL_MACHINE_ROOT'>SPREG_LOCAL_MACHINE_ROOT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPREG_SAFE_USER_TOKENS.html'
+                               title='winapi::sapi::SPREG_SAFE_USER_TOKENS'>SPREG_SAFE_USER_TOKENS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPREG_USER_ROOT.html'
+                               title='winapi::sapi::SPREG_USER_ROOT'>SPREG_USER_ROOT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPRR_ALL_ELEMENTS.html'
+                               title='winapi::sapi::SPRR_ALL_ELEMENTS'>SPRR_ALL_ELEMENTS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPRULETRANS_DICTATION.html'
+                               title='winapi::sapi::SPRULETRANS_DICTATION'>SPRULETRANS_DICTATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPRULETRANS_TEXTBUFFER.html'
+                               title='winapi::sapi::SPRULETRANS_TEXTBUFFER'>SPRULETRANS_TEXTBUFFER</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPRULETRANS_WILDCARD.html'
+                               title='winapi::sapi::SPRULETRANS_WILDCARD'>SPRULETRANS_WILDCARD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_ATTRIBUTES.html'
+                               title='winapi::sapi::SPTOKENKEY_ATTRIBUTES'>SPTOKENKEY_ATTRIBUTES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_AUDIO_LATENCY_TRUNCATE.html'
+                               title='winapi::sapi::SPTOKENKEY_AUDIO_LATENCY_TRUNCATE'>SPTOKENKEY_AUDIO_LATENCY_TRUNCATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL.html'
+                               title='winapi::sapi::SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL'>SPTOKENKEY_AUDIO_LATENCY_UPDATE_INTERVAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_AUDIO_LATENCY_WARNING.html'
+                               title='winapi::sapi::SPTOKENKEY_AUDIO_LATENCY_WARNING'>SPTOKENKEY_AUDIO_LATENCY_WARNING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_FILES.html'
+                               title='winapi::sapi::SPTOKENKEY_FILES'>SPTOKENKEY_FILES</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_RETAINEDAUDIO.html'
+                               title='winapi::sapi::SPTOKENKEY_RETAINEDAUDIO'>SPTOKENKEY_RETAINEDAUDIO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENKEY_UI.html'
+                               title='winapi::sapi::SPTOKENKEY_UI'>SPTOKENKEY_UI</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOKENVALUE_CLSID.html'
+                               title='winapi::sapi::SPTOKENVALUE_CLSID'>SPTOKENVALUE_CLSID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPTOPIC_SPELLING.html'
+                               title='winapi::sapi::SPTOPIC_SPELLING'>SPTOPIC_SPELLING</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPVOICECATEGORY_TTSRATE.html'
+                               title='winapi::sapi::SPVOICECATEGORY_TTSRATE'>SPVOICECATEGORY_TTSRATE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPWILDCARD.html'
+                               title='winapi::sapi::SPWILDCARD'>SPWILDCARD</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_EMULATE_RESULT.html'
+                               title='winapi::sapi::SP_EMULATE_RESULT'>SP_EMULATE_RESULT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_GETWHOLEPHRASE.html'
+                               title='winapi::sapi::SP_GETWHOLEPHRASE'>SP_GETWHOLEPHRASE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_HIGH_CONFIDENCE.html'
+                               title='winapi::sapi::SP_HIGH_CONFIDENCE'>SP_HIGH_CONFIDENCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_LOW_CONFIDENCE.html'
+                               title='winapi::sapi::SP_LOW_CONFIDENCE'>SP_LOW_CONFIDENCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_MAX_PRON_LENGTH.html'
+                               title='winapi::sapi::SP_MAX_PRON_LENGTH'>SP_MAX_PRON_LENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_MAX_WORD_LENGTH.html'
+                               title='winapi::sapi::SP_MAX_WORD_LENGTH'>SP_MAX_WORD_LENGTH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_NORMAL_CONFIDENCE.html'
+                               title='winapi::sapi::SP_NORMAL_CONFIDENCE'>SP_NORMAL_CONFIDENCE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_STREAMPOS_ASAP.html'
+                               title='winapi::sapi::SP_STREAMPOS_ASAP'>SP_STREAMPOS_ASAP</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SP_STREAMPOS_REALTIME.html'
+                               title='winapi::sapi::SP_STREAMPOS_REALTIME'>SP_STREAMPOS_REALTIME</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SVSFNLPMask.html'
+                               title='winapi::sapi::SVSFNLPMask'>SVSFNLPMask</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SVSFParseAutodetect.html'
+                               title='winapi::sapi::SVSFParseAutodetect'>SVSFParseAutodetect</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.UuidOfISpVoice.html'
+                               title='winapi::sapi::UuidOfISpVoice'>UuidOfISpVoice</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.SPFEI.html'
+                               title='winapi::sapi::SPFEI'>SPFEI</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.PCSPPHONEID.html'
+                               title='winapi::sapi::PCSPPHONEID'>PCSPPHONEID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.PSPPHONEID.html'
+                               title='winapi::sapi::PSPPHONEID'>PSPPHONEID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SPNOTIFYCALLBACK.html'
+                               title='winapi::sapi::SPNOTIFYCALLBACK'>SPNOTIFYCALLBACK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SPPHONEID.html'
+                               title='winapi::sapi::SPPHONEID'>SPPHONEID</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SPSTATEHANDLE.html'
+                               title='winapi::sapi::SPSTATEHANDLE'>SPSTATEHANDLE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SPSTREAMFORMATTYPE.html'
+                               title='winapi::sapi::SPSTREAMFORMATTYPE'>SPSTREAMFORMATTYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.SpeechLanguageId.html'
+                               title='winapi::sapi::SpeechLanguageId'>SpeechLanguageId</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <div id="help" class="hidden">
+        <div>
+            <div class="shortcuts">
+                <h1>Keyboard Shortcuts</h1>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h1>Search Tricks</h1>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "winapi";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

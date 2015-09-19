@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["D2D1_ALPHA_MODE",""],["DWRITE_MEASURING_MODE",""]],"struct":[["D2D1_PIXEL_FORMAT",""]]});
