@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='index.html'>ws2_32</a></p><script>window.sidebarCurrent = {name: 'SetAddrInfoExA', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,16 +45,18 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-184' class='srclink' href='../src/ws2_32/lib.rs.html#36-41' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-64' class='srclink' href='../src/ws2_32/lib.rs.html#36-41' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub unsafe extern "system" fn SetAddrInfoExA(pName: <a class='type' href='../winapi/winnt/type.PCSTR.html' title='winapi::winnt::PCSTR'>PCSTR</a>, pServiceName: <a class='type' href='../winapi/winnt/type.PCSTR.html' title='winapi::winnt::PCSTR'>PCSTR</a>, pAddresses: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../winapi/ws2def/struct.SOCKET_ADDRESS.html' title='winapi::ws2def::SOCKET_ADDRESS'>SOCKET_ADDRESS</a></a>, dwAddressCount: <a class='type' href='../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, lpBlob: <a class='type' href='../winapi/wtypesbase/type.LPBLOB.html' title='winapi::wtypesbase::LPBLOB'>LPBLOB</a>, dwFlags: <a class='type' href='../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, dwNameSpace: <a class='type' href='../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, lpNspId: <a class='type' href='../winapi/guiddef/type.LPGUID.html' title='winapi::guiddef::LPGUID'>LPGUID</a>, timeout: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../winapi/winsock2/struct.timeval.html' title='winapi::winsock2::timeval'>timeval</a></a>, lpOverlapped: <a class='type' href='../winapi/minwinbase/type.LPOVERLAPPED.html' title='winapi::minwinbase::LPOVERLAPPED'>LPOVERLAPPED</a>, lpCompletionRoutine: <a class='type' href='../winapi/ws2tcpip/type.LPLOOKUPSERVICE_COMPLETION_ROUTINE.html' title='winapi::ws2tcpip::LPLOOKUPSERVICE_COMPLETION_ROUTINE'>LPLOOKUPSERVICE_COMPLETION_ROUTINE</a>, lpNameHandle: <a class='type' href='../winapi/minwindef/type.LPHANDLE.html' title='winapi::minwindef::LPHANDLE'>LPHANDLE</a>) -&gt; <a class='type' href='../winapi/minwindef/type.INT.html' title='winapi::minwindef::INT'>INT</a></pre></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -71,7 +73,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -91,7 +93,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

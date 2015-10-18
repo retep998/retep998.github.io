@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\ole32-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\ole32-sys-0.2.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -590,6 +590,10 @@
 <span id="548">548</span>
 <span id="549">549</span>
 <span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -611,7 +615,7 @@
     <span class='comment'>// pub fn CLIPFORMAT_UserUnmarshal();</span>
     <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
     <span class='comment'>// pub fn CLIPFORMAT_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn CLSIDFromProgID();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CLSIDFromProgID</span>(<span class='ident'>lpszProgID</span>: <span class='ident'>LPCOLESTR</span>, <span class='ident'>lpclsid</span>: <span class='ident'>LPCLSID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='comment'>// pub fn CLSIDFromProgIDEx();</span>
     <span class='comment'>// pub fn CLSIDFromString();</span>
     <span class='comment'>// pub fn CoAddRefServerProcess();</span>
@@ -679,9 +683,13 @@
     <span class='comment'>// pub fn CoHandlePriorityEventsFromMessagePump();</span>
     <span class='comment'>// pub fn CoImpersonateClient();</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoIncrementMTAUsage</span>(<span class='ident'>pCookie</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CO_MTA_USAGE_COOKIE</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitialize</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeEx</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCoInit</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoInitializeEx();</span>
-    <span class='comment'>// pub fn CoInitializeSecurity();</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeSecurity</span>(
+        <span class='ident'>pSecDesc</span>: <span class='ident'>PSECURITY_DESCRIPTOR</span>, <span class='ident'>cAuthSvc</span>: <span class='ident'>LONG</span>,
+        <span class='ident'>asAuthSvc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span>, <span class='ident'>pReserved1</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwAuthnLevel</span>: <span class='ident'>DWORD</span>,
+        <span class='ident'>dwImpLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>pAuthList</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCapabilities</span>: <span class='ident'>DWORD</span>, <span class='ident'>pReserved3</span>: <span class='ident'>LPVOID</span>,
+    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
     <span class='comment'>// pub fn CoInitializeWOW();</span>
     <span class='comment'>// pub fn CoInstall();</span>
     <span class='comment'>// pub fn CoInvalidateRemoteMachineBindings();</span>
@@ -1147,10 +1155,12 @@
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -1167,7 +1177,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -1187,7 +1197,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 

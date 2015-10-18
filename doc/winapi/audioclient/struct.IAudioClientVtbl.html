@@ -24,10 +24,10 @@
 
     
 
-    <section class="sidebar">
+    <nav class="sidebar">
         
         <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>audioclient</a></p><script>window.sidebarCurrent = {name: 'IAudioClientVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
-    </section>
+    </nav>
 
     <nav class="sub">
         <form class="search-form js-only">
@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-628' class='srclink' href='../../src/winapi/macros.rs.html#98-104' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-166' class='srclink' href='../../src/winapi/macros.rs.html#98-104' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct IAudioClientVtbl {
     pub parent: <a class='struct' href='../../winapi/unknwnbase/struct.IUnknownVtbl.html' title='winapi::unknwnbase::IUnknownVtbl'>IUnknownVtbl</a>,
     pub Initialize: unsafe  extern "system" fn(This: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/audioclient/struct.IAudioClient.html' title='winapi::audioclient::IAudioClient'>IAudioClient</a></a>, ShareMode: <a class='enum' href='../../winapi/enum.AUDCLNT_SHAREMODE.html' title='winapi::AUDCLNT_SHAREMODE'>AUDCLNT_SHAREMODE</a>, StreamFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>, hnsBufferDuration: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, hnsPeriodicity: <a class='type' href='../../winapi/type.REFERENCE_TIME.html' title='winapi::REFERENCE_TIME'>REFERENCE_TIME</a>, pFormat: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/struct.WAVEFORMATEX.html' title='winapi::WAVEFORMATEX'>WAVEFORMATEX</a></a>, AudioSessionGuid: <a class='type' href='../../winapi/guiddef/type.LPCGUID.html' title='winapi::guiddef::LPCGUID'>LPCGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
@@ -79,10 +79,12 @@
 
     <section class="footer"></section>
 
-    <div id="help" class="hidden">
+    <aside id="help" class="hidden">
         <div>
+            <h1 class="hidden">Help</h1>
+
             <div class="shortcuts">
-                <h1>Keyboard Shortcuts</h1>
+                <h2>Keyboard Shortcuts</h2>
 
                 <dl>
                     <dt>?</dt>
@@ -99,7 +101,7 @@
             </div>
 
             <div class="infos">
-                <h1>Search Tricks</h1>
+                <h2>Search Tricks</h2>
 
                 <p>
                     Prefix searches with a type followed by a colon (e.g.
@@ -119,7 +121,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </aside>
 
     
 
