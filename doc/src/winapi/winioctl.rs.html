@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\winioctl.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winioctl.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winioctl.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -796,22 +797,6 @@
 <span id="754">754</span>
 <span id="755">755</span>
 <span id="756">756</span>
-<span id="757">757</span>
-<span id="758">758</span>
-<span id="759">759</span>
-<span id="760">760</span>
-<span id="761">761</span>
-<span id="762">762</span>
-<span id="763">763</span>
-<span id="764">764</span>
-<span id="765">765</span>
-<span id="766">766</span>
-<span id="767">767</span>
-<span id="768">768</span>
-<span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1439,7 +1424,6 @@
     ::<span class='ident'>FILE_WRITE_DATA</span>);
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FSCTL_UPDATE_OVERLAY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(<span class='ident'>FILE_DEVICE_FILE_SYSTEM</span>, <span class='number'>206</span>, <span class='ident'>METHOD_BUFFERED</span>,
     ::<span class='ident'>FILE_WRITE_DATA</span>);
-
 <span class='comment'>// FILE_DEVICE_AVIO is defined nowhere</span>
 <span class='comment'>//pub const IOCTL_AVIO_ALLOCATE_STREAM: ::DWORD = CTL_CODE!(FILE_DEVICE_AVIO, 1, METHOD_BUFFERED,</span>
 <span class='comment'>//    FILE_SPECIAL_ACCESS);</span>
@@ -1447,11 +1431,10 @@
 <span class='comment'>//    FILE_SPECIAL_ACCESS);</span>
 <span class='comment'>//pub const IOCTL_AVIO_MODIFY_STREAM: ::DWORD = CTL_CODE!(FILE_DEVICE_AVIO, 3, METHOD_BUFFERED,</span>
 <span class='comment'>//    FILE_SPECIAL_ACCESS);</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PATHNAME_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>PathNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Name</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PATHNAME_BUFFER</span> {
+    <span class='ident'>PathNameLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Name</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPATHNAME_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PATHNAME_BUFFER</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FSCTL_QUERY_FAT_BPB_BUFFER</span> {
@@ -1459,123 +1442,109 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>FSCTL_QUERY_FAT_BPB_BUFFER</span> {<span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FSCTL_QUERY_FAT_BPB_BUFFER</span> { <span class='op'>*</span><span class='self'>self</span> }}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFSCTL_QUERY_FAT_BPB_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FSCTL_QUERY_FAT_BPB_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NTFS_VOLUME_DATA_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>VolumeSerialNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberSectors</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>FreeClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalReserved</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerSector</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerCluster</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerFileRecordSegment</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ClustersPerFileRecordSegment</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MftValidDataLength</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>MftStartLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Mft2StartLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>MftZoneStart</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>MftZoneEnd</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NTFS_VOLUME_DATA_BUFFER</span> {
+    <span class='ident'>VolumeSerialNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>NumberSectors</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>TotalClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>FreeClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>TotalReserved</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>BytesPerSector</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BytesPerCluster</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BytesPerFileRecordSegment</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ClustersPerFileRecordSegment</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MftValidDataLength</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>MftStartLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>Mft2StartLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>MftZoneStart</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>MftZoneEnd</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNTFS_VOLUME_DATA_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NTFS_VOLUME_DATA_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NTFS_EXTENDED_VOLUME_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ByteCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MajorVersion</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MinorVersion</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerPhysicalSector</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>LfsMajorVersion</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>LfsMinorVersion</span>: ::<span class='ident'>WORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NTFS_EXTENDED_VOLUME_DATA</span> {
+    <span class='ident'>ByteCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MajorVersion</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>MinorVersion</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>BytesPerPhysicalSector</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>LfsMajorVersion</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>LfsMinorVersion</span>: ::<span class='ident'>WORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNTFS_EXTENDED_VOLUME_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NTFS_EXTENDED_VOLUME_DATA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>REFS_VOLUME_DATA_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>ByteCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerPhysicalSector</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VolumeSerialNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberSectors</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>FreeClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalReserved</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerSector</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BytesPerCluster</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaximumSizeOfResidentFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: [::<span class='ident'>LARGE_INTEGER</span>; <span class='number'>10</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>REFS_VOLUME_DATA_BUFFER</span> {
+    <span class='ident'>ByteCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BytesPerPhysicalSector</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VolumeSerialNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>NumberSectors</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>TotalClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>FreeClusters</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>TotalReserved</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>BytesPerSector</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BytesPerCluster</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaximumSizeOfResidentFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>Reserved</span>: [::<span class='ident'>LARGE_INTEGER</span>; <span class='number'>10</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PREFS_VOLUME_DATA_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>REFS_VOLUME_DATA_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>STARTING_LCN_INPUT_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>STARTING_LCN_INPUT_BUFFER</span> {
+    <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSTARTING_LCN_INPUT_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>STARTING_LCN_INPUT_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VOLUME_BITMAP_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>BitmapSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Buffer</span>: [::<span class='ident'>BYTE</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VOLUME_BITMAP_BUFFER</span> {
+    <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>BitmapSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>Buffer</span>: [::<span class='ident'>BYTE</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVOLUME_BITMAP_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VOLUME_BITMAP_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>STARTING_VCN_INPUT_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>STARTING_VCN_INPUT_BUFFER</span> {
+    <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSTARTING_VCN_INPUT_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>STARTING_VCN_INPUT_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RETRIEVAL_POINTERS_BUFFER_INTERNAL</span> {
-    <span class='kw'>pub</span> <span class='ident'>NextVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Lcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RETRIEVAL_POINTERS_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>ExtentCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Extents</span>: [<span class='ident'>RETRIEVAL_POINTERS_BUFFER_INTERNAL</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RETRIEVAL_POINTERS_BUFFER_INTERNAL</span> {
+    <span class='ident'>NextVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>Lcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RETRIEVAL_POINTERS_BUFFER</span> {
+    <span class='ident'>ExtentCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>Extents</span>: [<span class='ident'>RETRIEVAL_POINTERS_BUFFER_INTERNAL</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRETRIEVAL_POINTERS_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RETRIEVAL_POINTERS_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NTFS_FILE_RECORD_INPUT_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>FileReferenceNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NTFS_FILE_RECORD_INPUT_BUFFER</span> {
+    <span class='ident'>FileReferenceNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNTFS_FILE_RECORD_INPUT_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NTFS_FILE_RECORD_INPUT_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NTFS_FILE_RECORD_OUTPUT_BUFFER</span> {
-    <span class='kw'>pub</span> <span class='ident'>FileReferenceNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>FileRecordLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FileRecordBuffer</span>: [::<span class='ident'>BYTE</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NTFS_FILE_RECORD_OUTPUT_BUFFER</span> {
+    <span class='ident'>FileReferenceNumber</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>FileRecordLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FileRecordBuffer</span>: [::<span class='ident'>BYTE</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNTFS_FILE_RECORD_OUTPUT_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NTFS_FILE_RECORD_OUTPUT_BUFFER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MOVE_FILE_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>FileHandle</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>ClusterCount</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MOVE_FILE_DATA</span> {
+    <span class='ident'>FileHandle</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>StartingVcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>StartingLcn</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>ClusterCount</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMOVE_FILE_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MOVE_FILE_DATA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MOVE_FILE_RECORD_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>FileHandle</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceFileRecord</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetFileRecord</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MOVE_FILE_RECORD_DATA</span> {
+    <span class='ident'>FileHandle</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>SourceFileRecord</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>TargetFileRecord</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMOVE_FILE_RECORD_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MOVE_FILE_RECORD_DATA</span>;
 <span class='comment'>//9207</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_VOLUME_BASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000056</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(<span class='ident'>IOCTL_VOLUME_BASE</span>, <span class='number'>0</span>,
     <span class='ident'>METHOD_BUFFERED</span>, <span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DISK_EXTENT</span> {
-    <span class='kw'>pub</span> <span class='ident'>DiskNumber</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>StartingOffset</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>ExtentLength</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DISK_EXTENT</span> {
+    <span class='ident'>DiskNumber</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>StartingOffset</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>ExtentLength</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDISK_EXTENT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DISK_EXTENT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VOLUME_DISK_EXTENTS</span> {
-    <span class='kw'>pub</span> <span class='ident'>NumberOfDiskExtents</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Extents</span>: [<span class='ident'>DISK_EXTENT</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VOLUME_DISK_EXTENTS</span> {
+    <span class='ident'>NumberOfDiskExtents</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Extents</span>: [<span class='ident'>DISK_EXTENT</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVOLUME_DISK_EXTENTS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VOLUME_DISK_EXTENTS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_VOLUME_ONLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(<span class='ident'>IOCTL_VOLUME_BASE</span>, <span class='number'>2</span>, <span class='ident'>METHOD_BUFFERED</span>,
     <span class='ident'>FILE_READ_ACCESS</span> <span class='op'>|</span> <span class='ident'>FILE_WRITE_ACCESS</span>);
@@ -1645,6 +1614,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

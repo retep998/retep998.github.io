@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\wincred.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\wincred.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>wincred.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -249,51 +250,12 @@
 <span id="207">207</span>
 <span id="208">208</span>
 <span id="209">209</span>
-<span id="210">210</span>
-<span id="211">211</span>
-<span id="212">212</span>
-<span id="213">213</span>
-<span id="214">214</span>
-<span id="215">215</span>
-<span id="216">216</span>
-<span id="217">217</span>
-<span id="218">218</span>
-<span id="219">219</span>
-<span id="220">220</span>
-<span id="221">221</span>
-<span id="222">222</span>
-<span id="223">223</span>
-<span id="224">224</span>
-<span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
-<span id="229">229</span>
-<span id="230">230</span>
-<span id="231">231</span>
-<span id="232">232</span>
-<span id="233">233</span>
-<span id="234">234</span>
-<span id="235">235</span>
-<span id="236">236</span>
-<span id="237">237</span>
-<span id="238">238</span>
-<span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
-<span id="245">245</span>
-<span id="246">246</span>
-<span id="247">247</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Authentication API Prototypes and Definitions</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NERR_BASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NERR_PasswordExpired</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>NERR_BASE</span><span class='op'>+</span><span class='number'>142</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_STRING_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_USERNAME_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>256</span><span class='op'>+</span><span class='number'>1</span><span class='op'>+</span><span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_GENERIC_TARGET_NAME_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32767</span>;
@@ -302,9 +264,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_VALUE_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_ATTRIBUTES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>64</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_LOGON_TYPES_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xF000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_PASSWORD_FOR_CERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_PROMPT_NOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_USERNAME_TARGET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
@@ -313,7 +273,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_WILDCARD_MATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_VALID_FLAGS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xF03F</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_FLAGS_VALID_INPUT_FLAGS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xF01F</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_GENERIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_DOMAIN_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_DOMAIN_CERTIFICATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
@@ -322,66 +281,55 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_DOMAIN_EXTENDED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>6</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_MAXIMUM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TYPE_MAXIMUM_EX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CRED_TYPE_MAXIMUM</span><span class='op'>+</span><span class='number'>1000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_MAX_CREDENTIAL_BLOB_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span><span class='op'>*</span><span class='number'>512</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PERSIST_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PERSIST_SESSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PERSIST_LOCAL_MACHINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PERSIST_ENTERPRISE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIAL_ATTRIBUTEA</span> {
-    <span class='kw'>pub</span> <span class='ident'>Keyword</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ValueSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Value</span>: ::<span class='ident'>LPBYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIAL_ATTRIBUTEA</span> {
+    <span class='ident'>Keyword</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ValueSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Value</span>: ::<span class='ident'>LPBYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIAL_ATTRIBUTEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIAL_ATTRIBUTEA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIAL_ATTRIBUTEW</span> {
-    <span class='kw'>pub</span> <span class='ident'>Keyword</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ValueSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Value</span>: ::<span class='ident'>LPBYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIAL_ATTRIBUTEW</span> {
+    <span class='ident'>Keyword</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ValueSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Value</span>: ::<span class='ident'>LPBYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIAL_ATTRIBUTEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIAL_ATTRIBUTEW</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIALA</span> {
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Comment</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>LastWritten</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredentialBlobSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredentialBlob</span>: ::<span class='ident'>LPBYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Persist</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>AttributeCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Attributes</span>: <span class='ident'>PCREDENTIAL_ATTRIBUTEA</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetAlias</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>UserName</span>: ::<span class='ident'>LPSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIALA</span> {
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TargetName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>Comment</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>LastWritten</span>: ::<span class='ident'>FILETIME</span>,
+    <span class='ident'>CredentialBlobSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CredentialBlob</span>: ::<span class='ident'>LPBYTE</span>,
+    <span class='ident'>Persist</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>AttributeCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Attributes</span>: <span class='ident'>PCREDENTIAL_ATTRIBUTEA</span>,
+    <span class='ident'>TargetAlias</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>UserName</span>: ::<span class='ident'>LPSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIALA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIALA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIALW</span> {
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>LastWritten</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredentialBlobSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredentialBlob</span>: ::<span class='ident'>LPBYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Persist</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>AttributeCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Attributes</span>: <span class='ident'>PCREDENTIAL_ATTRIBUTEW</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetAlias</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>UserName</span>: ::<span class='ident'>LPWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIALW</span> {
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TargetName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>LastWritten</span>: ::<span class='ident'>FILETIME</span>,
+    <span class='ident'>CredentialBlobSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CredentialBlob</span>: ::<span class='ident'>LPBYTE</span>,
+    <span class='ident'>Persist</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>AttributeCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Attributes</span>: <span class='ident'>PCREDENTIAL_ATTRIBUTEW</span>,
+    <span class='ident'>TargetAlias</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>UserName</span>: ::<span class='ident'>LPWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIALW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIALW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_SERVER_FORMAT_UNKNOWN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_DOMAIN_FORMAT_UNKNOWN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_ONLY_PASSWORD_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
@@ -389,107 +337,86 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_CREATE_EXPLICIT_CRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_WORKGROUP_MEMBER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_TI_VALID_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xF07F</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONA</span> {
-    <span class='kw'>pub</span> <span class='ident'>TargetName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>NetbiosServerName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsServerName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsTreeName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>PackageName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredTypeCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredTypes</span>: ::<span class='ident'>LPDWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONA</span> {
+    <span class='ident'>TargetName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>NetbiosServerName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>DnsServerName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>DnsTreeName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>PackageName</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>CredTypeCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CredTypes</span>: ::<span class='ident'>LPDWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIAL_TARGET_INFORMATIONA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONW</span> {
-    <span class='kw'>pub</span> <span class='ident'>TargetName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>NetbiosServerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsServerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DnsTreeName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>PackageName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredTypeCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CredTypes</span>: ::<span class='ident'>LPDWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONW</span> {
+    <span class='ident'>TargetName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>NetbiosServerName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>DnsServerName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>DnsTreeName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>PackageName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>CredTypeCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CredTypes</span>: ::<span class='ident'>LPDWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDENTIAL_TARGET_INFORMATIONW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDENTIAL_TARGET_INFORMATIONW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CERT_HASH_LENGTH</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>20</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CERT_CREDENTIAL_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbHashOfCert</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>CERT_HASH_LENGTH</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CERT_CREDENTIAL_INFO</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>rgbHashOfCert</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>CERT_HASH_LENGTH</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCERT_CREDENTIAL_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CERT_CREDENTIAL_INFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>USERNAME_TARGET_CREDENTIAL_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>UserName</span>: ::<span class='ident'>LPWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>USERNAME_TARGET_CREDENTIAL_INFO</span> {
+    <span class='ident'>UserName</span>: ::<span class='ident'>LPWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PUSERNAME_TARGET_CREDENTIAL_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>USERNAME_TARGET_CREDENTIAL_INFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BINARY_BLOB_CREDENTIAL_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbBlob</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>pbBlob</span>: ::<span class='ident'>LPBYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BINARY_BLOB_CREDENTIAL_INFO</span> {
+    <span class='ident'>cbBlob</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>pbBlob</span>: ::<span class='ident'>LPBYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBINARY_BLOB_CREDENTIAL_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BINARY_BLOB_CREDENTIAL_INFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CRED_MARSHAL_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CRED_MARSHAL_TYPE</span> {
     <span class='ident'>CertCredential</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>UsernameTargetCredential</span>,
     <span class='ident'>BinaryBlobCredential</span>,
     <span class='ident'>UsernameForPackedCredentials</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRED_MARSHAL_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRED_MARSHAL_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CRED_PROTECTION_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CRED_PROTECTION_TYPE</span> {
     <span class='ident'>CredUnprotected</span>,
     <span class='ident'>CredUserProtection</span>,
     <span class='ident'>CredTrustedProtection</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRED_PROTECTION_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRED_PROTECTION_TYPE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PACK_PROTECTED_CREDENTIALS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PACK_WOW_BUFFER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PACK_GENERIC_CREDENTIALS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PACK_ID_PROVIDER_CREDENTIALS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDUI_INFOA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszMessageText</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszCaptionText</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmBanner</span>: ::<span class='ident'>HBITMAP</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDUI_INFOA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
+    <span class='ident'>pszMessageText</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>pszCaptionText</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>hbmBanner</span>: ::<span class='ident'>HBITMAP</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDUI_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDUI_INFOA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CREDUI_INFOW</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszMessageText</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszCaptionText</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmBanner</span>: ::<span class='ident'>HBITMAP</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREDUI_INFOW</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
+    <span class='ident'>pszMessageText</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>pszCaptionText</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>hbmBanner</span>: ::<span class='ident'>HBITMAP</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREDUI_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREDUI_INFOW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_MESSAGE_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1024</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_CAPTION_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>128</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_GENERIC_TARGET_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CRED_MAX_GENERIC_TARGET_NAME_LENGTH</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_DOMAIN_TARGET_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CRED_MAX_DOMAIN_TARGET_NAME_LENGTH</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_USERNAME_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CRED_MAX_USERNAME_LENGTH</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_MAX_PASSWORD_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>512</span> <span class='op'>/</span> <span class='number'>2</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_FLAGS_INCORRECT_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_FLAGS_DO_NOT_PERSIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUI_FLAGS_REQUEST_ADMINISTRATOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004</span>;
@@ -516,7 +443,6 @@
     <span class='op'>|</span> <span class='ident'>CREDUI_FLAGS_SERVER_CREDENTIAL</span> <span class='op'>|</span> <span class='ident'>CREDUI_FLAGS_EXPECT_CONFIRMATION</span>
     <span class='op'>|</span> <span class='ident'>CREDUI_FLAGS_GENERIC_CREDENTIALS</span> <span class='op'>|</span> <span class='ident'>CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS</span>
     <span class='op'>|</span> <span class='ident'>CREDUI_FLAGS_KEEP_USERNAME</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUIWIN_GENERIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUIWIN_CHECKBOX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREDUIWIN_AUTHPACKAGE_ONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
@@ -530,7 +456,6 @@
     <span class='op'>|</span> <span class='ident'>CREDUIWIN_AUTHPACKAGE_ONLY</span> <span class='op'>|</span> <span class='ident'>CREDUIWIN_IN_CRED_ONLY</span> <span class='op'>|</span> <span class='ident'>CREDUIWIN_ENUMERATE_ADMINS</span>
     <span class='op'>|</span> <span class='ident'>CREDUIWIN_ENUMERATE_CURRENT_USER</span> <span class='op'>|</span> <span class='ident'>CREDUIWIN_SECURE_PROMPT</span> <span class='op'>|</span> <span class='ident'>CREDUIWIN_PREPROMPTING</span>
     <span class='op'>|</span> <span class='ident'>CREDUIWIN_PACK_32_WOW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_PRESERVE_CREDENTIAL_BLOB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_ENUMERATE_ALL_CREDENTIALS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRED_CACHE_TARGET_INFORMATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -595,6 +520,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

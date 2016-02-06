@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\cfg.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\cfg.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>cfg.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -174,16 +175,6 @@
 <span id="132">132</span>
 <span id="133">133</span>
 <span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
-<span id="138">138</span>
-<span id="139">139</span>
-<span id="140">140</span>
-<span id="141">141</span>
-<span id="142">142</span>
-<span id="143">143</span>
-<span id="144">144</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -204,7 +195,6 @@
     <span class='ident'>PNP_VetoInsufficientRights</span>,
 }}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPNP_VETO_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PNP_VETO_TYPE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_NOT_CONFIGURED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_DEVLOADER_FAILED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_OUT_OF_MEMORY</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
@@ -258,14 +248,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_WAITING_ON_DEPENDENCY</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000033</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_UNSIGNED_DRIVER</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000034</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_PROB_USED_BY_DEBUGGER</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000035</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V1</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000025</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V2</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000032</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V3</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000033</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V4</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000034</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V5</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000035</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_CM_PROB_V6</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000036</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_ROOT_ENUMERATED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_DRIVER_LOADED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_ENUM_LOADED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -285,14 +273,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_MF_PARENT</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_MF_CHILD</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_WILL_BE_REMOVED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NOT_FIRST_TIMEE</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_STOP_FREE_RES</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_REBAL_CANDIDATE</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_BAD_PARTIAL</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NT_ENUMERATOR</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NT_DRIVER</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NEEDS_LOCKING</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_ARM_WAKEUP</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_APM_ENUMERATOR</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
@@ -300,20 +286,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_SILENT_INSTALL</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NO_SHOW_IN_DM</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_BOOT_LOG_PROB</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_NEED_RESTART</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_LIAR</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_DRIVER_BLOCKED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_NOT_FIRST_TIME</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_LEGACY_DRIVER</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_MOVED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_CHILD_WITH_INVALID_ID</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_HAS_MARK</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_DEVICE_DISCONNECTED</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_NEEDS_LOCKING</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_CHANGEABLE_FLAGS</span>: ::<span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>DN_NOT_FIRST_TIME</span> <span class='op'>+</span> <span class='ident'>DN_HARDWARE_ENUM</span> <span class='op'>+</span> <span class='ident'>DN_HAS_MARK</span>
     <span class='op'>+</span> <span class='ident'>DN_DISABLEABLE</span> <span class='op'>+</span> <span class='ident'>DN_REMOVABLE</span> <span class='op'>+</span> <span class='ident'>DN_MF_CHILD</span> <span class='op'>+</span> <span class='ident'>DN_MF_PARENT</span> <span class='op'>+</span> <span class='ident'>DN_NOT_FIRST_TIMEE</span>
     <span class='op'>+</span> <span class='ident'>DN_STOP_FREE_RES</span> <span class='op'>+</span> <span class='ident'>DN_REBAL_CANDIDATE</span> <span class='op'>+</span> <span class='ident'>DN_NT_ENUMERATOR</span> <span class='op'>+</span> <span class='ident'>DN_NT_DRIVER</span> <span class='op'>+</span> <span class='ident'>DN_SILENT_INSTALL</span>
     <span class='op'>+</span> <span class='ident'>DN_NO_SHOW_IN_DM</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCPRI_FORCECONFIG</span>: ::<span class='ident'>PRIORITY</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCPRI_BOOTCONFIG</span>: ::<span class='ident'>PRIORITY</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCPRI_DESIRED</span>: ::<span class='ident'>PRIORITY</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
@@ -389,6 +370,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

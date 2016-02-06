@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\objidl.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\objidl.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>objidl.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -111,22 +112,17 @@
 <span id="69">69</span>
 <span id="70">70</span>
 <span id="71">71</span>
-<span id="72">72</span>
-<span id="73">73</span>
-<span id="74">74</span>
-<span id="75">75</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! this ALWAYS GENERATED file contains the definitions for the interfaces</span>
 <span class='comment'>//8402</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BIND_OPTS</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>grfFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>grfMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwTickCountDeadline</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BIND_OPTS</span> {
+    <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>grfFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>grfMode</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwTickCountDeadline</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPBIND_OPTS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BIND_OPTS</span>;
 <span class='comment'>//8479</span>
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
@@ -166,7 +162,6 @@
 );
 <span class='comment'>//9350</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>IMoniker</span> <span class='op'>=</span> ::<span class='ident'>IUnknown</span>; <span class='comment'>// TODO</span>
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>EOLE_AUTHENTICATION_CAPABILITIES</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_MUTUAL_AUTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -183,14 +178,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_AUTO_IMPERSONATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x400</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_NO_CUSTOM_MARSHAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EOAC_DISABLE_AAA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwAuthnSvc</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwAuthzSvc</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pPrincipalName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>OLECHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hr</span>: ::<span class='ident'>HRESULT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span> {
+    <span class='ident'>dwAuthnSvc</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwAuthzSvc</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pPrincipalName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>OLECHAR</span>,
+    <span class='ident'>hr</span>: ::<span class='ident'>HRESULT</span>,
+}}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -251,6 +244,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

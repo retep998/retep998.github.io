@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\setupapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\setupapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>setupapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -1419,156 +1420,6 @@
 <span id="1377">1377</span>
 <span id="1378">1378</span>
 <span id="1379">1379</span>
-<span id="1380">1380</span>
-<span id="1381">1381</span>
-<span id="1382">1382</span>
-<span id="1383">1383</span>
-<span id="1384">1384</span>
-<span id="1385">1385</span>
-<span id="1386">1386</span>
-<span id="1387">1387</span>
-<span id="1388">1388</span>
-<span id="1389">1389</span>
-<span id="1390">1390</span>
-<span id="1391">1391</span>
-<span id="1392">1392</span>
-<span id="1393">1393</span>
-<span id="1394">1394</span>
-<span id="1395">1395</span>
-<span id="1396">1396</span>
-<span id="1397">1397</span>
-<span id="1398">1398</span>
-<span id="1399">1399</span>
-<span id="1400">1400</span>
-<span id="1401">1401</span>
-<span id="1402">1402</span>
-<span id="1403">1403</span>
-<span id="1404">1404</span>
-<span id="1405">1405</span>
-<span id="1406">1406</span>
-<span id="1407">1407</span>
-<span id="1408">1408</span>
-<span id="1409">1409</span>
-<span id="1410">1410</span>
-<span id="1411">1411</span>
-<span id="1412">1412</span>
-<span id="1413">1413</span>
-<span id="1414">1414</span>
-<span id="1415">1415</span>
-<span id="1416">1416</span>
-<span id="1417">1417</span>
-<span id="1418">1418</span>
-<span id="1419">1419</span>
-<span id="1420">1420</span>
-<span id="1421">1421</span>
-<span id="1422">1422</span>
-<span id="1423">1423</span>
-<span id="1424">1424</span>
-<span id="1425">1425</span>
-<span id="1426">1426</span>
-<span id="1427">1427</span>
-<span id="1428">1428</span>
-<span id="1429">1429</span>
-<span id="1430">1430</span>
-<span id="1431">1431</span>
-<span id="1432">1432</span>
-<span id="1433">1433</span>
-<span id="1434">1434</span>
-<span id="1435">1435</span>
-<span id="1436">1436</span>
-<span id="1437">1437</span>
-<span id="1438">1438</span>
-<span id="1439">1439</span>
-<span id="1440">1440</span>
-<span id="1441">1441</span>
-<span id="1442">1442</span>
-<span id="1443">1443</span>
-<span id="1444">1444</span>
-<span id="1445">1445</span>
-<span id="1446">1446</span>
-<span id="1447">1447</span>
-<span id="1448">1448</span>
-<span id="1449">1449</span>
-<span id="1450">1450</span>
-<span id="1451">1451</span>
-<span id="1452">1452</span>
-<span id="1453">1453</span>
-<span id="1454">1454</span>
-<span id="1455">1455</span>
-<span id="1456">1456</span>
-<span id="1457">1457</span>
-<span id="1458">1458</span>
-<span id="1459">1459</span>
-<span id="1460">1460</span>
-<span id="1461">1461</span>
-<span id="1462">1462</span>
-<span id="1463">1463</span>
-<span id="1464">1464</span>
-<span id="1465">1465</span>
-<span id="1466">1466</span>
-<span id="1467">1467</span>
-<span id="1468">1468</span>
-<span id="1469">1469</span>
-<span id="1470">1470</span>
-<span id="1471">1471</span>
-<span id="1472">1472</span>
-<span id="1473">1473</span>
-<span id="1474">1474</span>
-<span id="1475">1475</span>
-<span id="1476">1476</span>
-<span id="1477">1477</span>
-<span id="1478">1478</span>
-<span id="1479">1479</span>
-<span id="1480">1480</span>
-<span id="1481">1481</span>
-<span id="1482">1482</span>
-<span id="1483">1483</span>
-<span id="1484">1484</span>
-<span id="1485">1485</span>
-<span id="1486">1486</span>
-<span id="1487">1487</span>
-<span id="1488">1488</span>
-<span id="1489">1489</span>
-<span id="1490">1490</span>
-<span id="1491">1491</span>
-<span id="1492">1492</span>
-<span id="1493">1493</span>
-<span id="1494">1494</span>
-<span id="1495">1495</span>
-<span id="1496">1496</span>
-<span id="1497">1497</span>
-<span id="1498">1498</span>
-<span id="1499">1499</span>
-<span id="1500">1500</span>
-<span id="1501">1501</span>
-<span id="1502">1502</span>
-<span id="1503">1503</span>
-<span id="1504">1504</span>
-<span id="1505">1505</span>
-<span id="1506">1506</span>
-<span id="1507">1507</span>
-<span id="1508">1508</span>
-<span id="1509">1509</span>
-<span id="1510">1510</span>
-<span id="1511">1511</span>
-<span id="1512">1512</span>
-<span id="1513">1513</span>
-<span id="1514">1514</span>
-<span id="1515">1515</span>
-<span id="1516">1516</span>
-<span id="1517">1517</span>
-<span id="1518">1518</span>
-<span id="1519">1519</span>
-<span id="1520">1520</span>
-<span id="1521">1521</span>
-<span id="1522">1522</span>
-<span id="1523">1523</span>
-<span id="1524">1524</span>
-<span id="1525">1525</span>
-<span id="1526">1526</span>
-<span id="1527">1527</span>
-<span id="1528">1528</span>
-<span id="1529">1529</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -1582,56 +1433,44 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_SERVICE_NAME_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_SUBTITLE_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>256</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_MAX_MACHINENAME_LENGTH</span>: <span class='ident'>usize</span> <span class='op'>=</span> ::<span class='ident'>MAX_PATH</span> <span class='op'>+</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HINF</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>INFCONTEXT</span> {
-    <span class='kw'>pub</span> <span class='ident'>Inf</span>: ::<span class='ident'>PVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>CurrentInf</span>: ::<span class='ident'>PVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>Section</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Line</span>: ::<span class='ident'>UINT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>INFCONTEXT</span> {
+    <span class='ident'>Inf</span>: ::<span class='ident'>PVOID</span>,
+    <span class='ident'>CurrentInf</span>: ::<span class='ident'>PVOID</span>,
+    <span class='ident'>Section</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Line</span>: ::<span class='ident'>UINT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PINFCONTEXT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>INFCONTEXT</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_INF_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>InfStyle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>InfCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VersionData</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_INF_INFORMATION</span> {
+    <span class='ident'>InfStyle</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>InfCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VersionData</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INF_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_INF_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_ALTPLATFORM_INFO_V2</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Platform</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProcessorArchitecture</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FirstValidatedMajorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FirstValidatedMinorVersion</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_ALTPLATFORM_INFO_V2</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Platform</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ProcessorArchitecture</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>FirstValidatedMajorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FirstValidatedMinorVersion</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SP_ALTPLATFORM_INFO_V2</span>, <span class='ident'>Reserved</span>, <span class='ident'>Flags</span>, <span class='ident'>Flags_mut</span>, ::<span class='ident'>WORD</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ALTPLATFORM_INFO_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_ALTPLATFORM_INFO_V2</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_ALTPLATFORM_INFO_V1</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Platform</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProcessorArchitecture</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>WORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_ALTPLATFORM_INFO_V1</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Platform</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MajorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MinorVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ProcessorArchitecture</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>WORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ALTPLATFORM_INFO_V1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_ALTPLATFORM_INFO_V1</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_ALTPLATFORM_INFO</span> <span class='op'>=</span> <span class='ident'>SP_ALTPLATFORM_INFO_V2</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ALTPLATFORM_INFO</span> <span class='op'>=</span> <span class='ident'>PSP_ALTPLATFORM_INFO_V2</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_ALTPLATFORM_FLAGS_VERSION_RANGE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_ORIGINAL_FILE_INFO_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -1648,14 +1487,12 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_ORIGINAL_FILE_INFO_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_ORIGINAL_FILE_INFO_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ORIGINAL_FILE_INFO_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_ORIGINAL_FILE_INFO_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_OLDNT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_WIN4</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_CACHE_ENABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_CACHE_DISABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INF_STYLE_CACHE_IGNORE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_ABSOLUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span> <span class='op'>-</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_ABSOLUTE_16BIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffff</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_NULL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
@@ -1694,14 +1531,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_COMMON_TEMPLATES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16429</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_COMMON_DOCUMENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16430</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIRID_USER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_FILE_CALLBACK_A</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>Context</span>: ::<span class='ident'>PVOID</span>, <span class='ident'>Notification</span>: ::<span class='ident'>UINT</span>, <span class='ident'>Param1</span>: ::<span class='ident'>UINT_PTR</span>, <span class='ident'>Param2</span>: ::<span class='ident'>UINT_PTR</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>UINT</span><span class='op'>&gt;</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_FILE_CALLBACK_W</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>Context</span>: ::<span class='ident'>PVOID</span>, <span class='ident'>Notification</span>: ::<span class='ident'>UINT</span>, <span class='ident'>Param1</span>: ::<span class='ident'>UINT_PTR</span>, <span class='ident'>Param2</span>: ::<span class='ident'>UINT_PTR</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>UINT</span><span class='op'>&gt;</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_STARTQUEUE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_ENDQUEUE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_STARTSUBQUEUE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
@@ -1732,18 +1567,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_LANGMISMATCH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_TARGETEXISTS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILENOTIFY_TARGETNEWER</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_COPY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_RENAME</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_DELETE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_BACKUP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_ABORT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_DOIT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_SKIP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_RETRY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>FILEOP_DOIT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILEOP_NEWPATH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>4</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_WARN_IF_SKIP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_NOSKIP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_NOVERSIONCHECK</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -1757,90 +1589,76 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_REPLACE_BOOT_FILE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_NOPRUNE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COPYFLG_IN_USE_TRY_RENAME</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DELFLG_IN_USE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DELFLG_IN_USE1</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FILEPATHS_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>Target</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Source</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILEPATHS_A</span> {
+    <span class='ident'>Target</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Source</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILEPATHS_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILEPATHS_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FILEPATHS_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>Target</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Source</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILEPATHS_W</span> {
+    <span class='ident'>Target</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Source</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILEPATHS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILEPATHS_W</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FILEPATHS_SIGNERINFO_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>Target</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Source</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DigitalSigner</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Version</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CatalogFile</span>: ::<span class='ident'>PCSTR</span>
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILEPATHS_SIGNERINFO_A</span> {
+    <span class='ident'>Target</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Source</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DigitalSigner</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Version</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>CatalogFile</span>: ::<span class='ident'>PCSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILEPATHS_SIGNERINFO_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILEPATHS_SIGNERINFO_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FILEPATHS_SIGNERINFO_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>Target</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Source</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DigitalSigner</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Version</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CatalogFile</span>: ::<span class='ident'>PCWSTR</span>
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILEPATHS_SIGNERINFO_W</span> {
+    <span class='ident'>Target</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Source</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DigitalSigner</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Version</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>CatalogFile</span>: ::<span class='ident'>PCWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILEPATHS_SIGNERINFO_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILEPATHS_SIGNERINFO_W</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOURCE_MEDIA_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Tagfile</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Description</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourcePath</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceFile</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOURCE_MEDIA_A</span> {
+    <span class='ident'>Reserved</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Tagfile</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Description</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourcePath</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourceFile</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOURCE_MEDIA_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOURCE_MEDIA_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOURCE_MEDIA_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Tagfile</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Description</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourcePath</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceFile</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOURCE_MEDIA_W</span> {
+    <span class='ident'>Reserved</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Tagfile</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Description</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourcePath</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourceFile</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOURCE_MEDIA_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOURCE_MEDIA_W</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CABINET_INFO_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>CabinetPath</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CabinetFile</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DiskName</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SetId</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>CabinetNumber</span>: ::<span class='ident'>USHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CABINET_INFO_A</span> {
+    <span class='ident'>CabinetPath</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>CabinetFile</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>DiskName</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SetId</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>CabinetNumber</span>: ::<span class='ident'>USHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCABINET_INFO_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CABINET_INFO_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CABINET_INFO_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>CabinetPath</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CabinetFile</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>DiskName</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SetId</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>CabinetNumber</span>: ::<span class='ident'>USHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CABINET_INFO_W</span> {
+    <span class='ident'>CabinetPath</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>CabinetFile</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>DiskName</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SetId</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>CabinetNumber</span>: ::<span class='ident'>USHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCABINET_INFO_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CABINET_INFO_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FILE_IN_CABINET_INFO_A</span> {
     <span class='kw'>pub</span> <span class='ident'>NameInCabinet</span>: ::<span class='ident'>PCSTR</span>,
@@ -1865,24 +1683,20 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>FILE_IN_CABINET_INFO_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FILE_IN_CABINET_INFO_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFILE_IN_CABINET_INFO_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FILE_IN_CABINET_INFO_W</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FileName</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FailureCode</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FileName</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FailureCode</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_REGISTER_CONTROL_STATUSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSW</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FileName</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Win32Error</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FailureCode</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSW</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FileName</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>Win32Error</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FailureCode</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_REGISTER_CONTROL_STATUSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_REGISTER_CONTROL_STATUSW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_SUCCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_LOADLIBRARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_GETPROCADDR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -1890,87 +1704,71 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_DLLINSTALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000005</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPREG_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HSPFILEQ</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_FILE_COPY_PARAMS_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>QueueHandle</span>: <span class='ident'>HSPFILEQ</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceRootPath</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourcePath</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceFilename</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceDescription</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceTagfile</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetDirectory</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetFilename</span>: ::<span class='ident'>PCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CopyStyle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>LayoutInf</span>: <span class='ident'>HINF</span>,
-    <span class='kw'>pub</span> <span class='ident'>SecurityDescriptor</span>: ::<span class='ident'>PCSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_FILE_COPY_PARAMS_A</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>QueueHandle</span>: <span class='ident'>HSPFILEQ</span>,
+    <span class='ident'>SourceRootPath</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourcePath</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourceFilename</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourceDescription</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>SourceTagfile</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>TargetDirectory</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>TargetFilename</span>: ::<span class='ident'>PCSTR</span>,
+    <span class='ident'>CopyStyle</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>LayoutInf</span>: <span class='ident'>HINF</span>,
+    <span class='ident'>SecurityDescriptor</span>: ::<span class='ident'>PCSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_FILE_COPY_PARAMS_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_FILE_COPY_PARAMS_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_FILE_COPY_PARAMS_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>QueueHandle</span>: <span class='ident'>HSPFILEQ</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceRootPath</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourcePath</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceFilename</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceDescription</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>SourceTagfile</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetDirectory</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>TargetFilename</span>: ::<span class='ident'>PCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>CopyStyle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>LayoutInf</span>: <span class='ident'>HINF</span>,
-    <span class='kw'>pub</span> <span class='ident'>SecurityDescriptor</span>: ::<span class='ident'>PCWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_FILE_COPY_PARAMS_W</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>QueueHandle</span>: <span class='ident'>HSPFILEQ</span>,
+    <span class='ident'>SourceRootPath</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourcePath</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourceFilename</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourceDescription</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>SourceTagfile</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>TargetDirectory</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>TargetFilename</span>: ::<span class='ident'>PCWSTR</span>,
+    <span class='ident'>CopyStyle</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>LayoutInf</span>: <span class='ident'>HINF</span>,
+    <span class='ident'>SecurityDescriptor</span>: ::<span class='ident'>PCWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_FILE_COPY_PARAMS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_FILE_COPY_PARAMS_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HDSKSPC</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HDEVINFO</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVINFO_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>DevInst</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_DEVINFO_DATA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>DevInst</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVINFO_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVINFO_DATA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>InterfaceClassGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DATA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>InterfaceClassGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVICE_INTERFACE_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVICE_INTERFACE_DATA</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINT_ACTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINT_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINT_REMOVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_INTERFACE_DEVICE_DATA</span> <span class='op'>=</span> <span class='ident'>SP_DEVICE_INTERFACE_DATA</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INTERFACE_DEVICE_DATA</span> <span class='op'>=</span> <span class='ident'>PSP_DEVICE_INTERFACE_DATA</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPID_ACTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SPINT_ACTIVE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPID_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SPINT_DEFAULT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPID_REMOVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SPINT_REMOVED</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_A</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DevicePath</span>: [::<span class='ident'>CHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_A</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DevicePath</span>: [::<span class='ident'>CHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVICE_INTERFACE_DETAIL_DATA_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_W</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DevicePath</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_W</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DevicePath</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVICE_INTERFACE_DETAIL_DATA_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVICE_INTERFACE_DETAIL_DATA_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -1979,7 +1777,7 @@
     <span class='kw'>pub</span> <span class='ident'>RemoteMachineName</span>: [::<span class='ident'>CHAR</span>; <span class='ident'>SP_MAX_MACHINENAME_LENGTH</span>],
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_A</span> {
-    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_A</span> { <span class='op'>*</span><span class='self'>self</span> } 
+    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_A</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVINFO_LIST_DETAIL_DATA_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_A</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
@@ -1990,10 +1788,9 @@
     <span class='kw'>pub</span> <span class='ident'>RemoteMachineName</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SP_MAX_MACHINENAME_LENGTH</span>],
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_W</span> {
-    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_W</span> { <span class='op'>*</span><span class='self'>self</span> } 
+    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_W</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVINFO_LIST_DETAIL_DATA_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVINFO_LIST_DETAIL_DATA_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_SELECTDEVICE</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_INSTALLDEVICE</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_ASSIGNRESOURCES</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
@@ -2037,9 +1834,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_FINISHINSTALL_ACTION</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x0000002A</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_RESERVED2</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x00000030</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIF_MOVEDEVICE</span>: <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> <span class='number'>0x0000000E</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DI_FUNCTION</span> <span class='op'>=</span> ::<span class='ident'>UINT</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DEVINSTALL_PARAMS_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2070,7 +1865,6 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DEVINSTALL_PARAMS_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DEVINSTALL_PARAMS_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DEVINSTALL_PARAMS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DEVINSTALL_PARAMS_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_SHOWOEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_SHOWCOMPAT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_SHOWCLASS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2135,26 +1929,20 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_FLAGSEX_RESTART_DEVICE_ONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_FLAGSEX_RECURSIVESEARCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_FLAGSEX_SEARCH_PUBLISHED_INFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_CLASSINSTALL_HEADER</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>InstallFunction</span>: <span class='ident'>DI_FUNCTION</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_CLASSINSTALL_HEADER</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>InstallFunction</span>: <span class='ident'>DI_FUNCTION</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_CLASSINSTALL_HEADER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_CLASSINSTALL_HEADER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_ENABLECLASS_PARAMS</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>EnableMessage</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_ENABLECLASS_PARAMS</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>EnableMessage</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ENABLECLASS_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_ENABLECLASS_PARAMS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLECLASS_QUERY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLECLASS_SUCCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLECLASS_FAILURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_ENABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_DISABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_PROPCHANGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
@@ -2163,37 +1951,28 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_FLAG_GLOBAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_FLAG_CONFIGSPECIFIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICS_FLAG_CONFIGGENERAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_PROPCHANGE_PARAMS</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>StateChange</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_PROPCHANGE_PARAMS</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>StateChange</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_PROPCHANGE_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_PROPCHANGE_PARAMS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_REMOVEDEVICE_PARAMS</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_REMOVEDEVICE_PARAMS</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_REMOVEDEVICE_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_REMOVEDEVICE_PARAMS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_REMOVEDEVICE_GLOBAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_REMOVEDEVICE_CONFIGSPECIFIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_UNREMOVEDEVICE_PARAMS</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_UNREMOVEDEVICE_PARAMS</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>Scope</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>HwProfile</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_UNREMOVEDEVICE_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_UNREMOVEDEVICE_PARAMS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DI_UNREMOVEDEVICE_CONFIGSPECIFIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_SELECTDEVICE_PARAMS_A</span> {
     <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
@@ -2215,11 +1994,9 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_SELECTDEVICE_PARAMS_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_SELECTDEVICE_PARAMS_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_SELECTDEVICE_PARAMS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_SELECTDEVICE_PARAMS_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDETECT_PROGRESS_NOTIFY</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>ProgressNotifyParam</span>: ::<span class='ident'>PVOID</span>, <span class='ident'>DetectComplete</span>: ::<span class='ident'>DWORD</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DETECTDEVICE_PARAMS</span> {
     <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
@@ -2228,22 +2005,18 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DETECTDEVICE_PARAMS</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DETECTDEVICE_PARAMS</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DETECTDEVICE_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DETECTDEVICE_PARAMS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_INSTALLWIZARD_DYNAPAGES</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>20</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_INSTALLWIZARD_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DynamicPages</span>: [::<span class='ident'>HPROPSHEETPAGE</span>; <span class='ident'>MAX_INSTALLWIZARD_DYNAPAGES</span>],
-    <span class='kw'>pub</span> <span class='ident'>NumDynamicPages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DynamicPageFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrivateFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrivateData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndWizardDlg</span>: ::<span class='ident'>HWND</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_INSTALLWIZARD_DATA</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DynamicPages</span>: [::<span class='ident'>HPROPSHEETPAGE</span>; <span class='ident'>MAX_INSTALLWIZARD_DYNAPAGES</span>],
+    <span class='ident'>NumDynamicPages</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DynamicPageFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PrivateFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PrivateData</span>: ::<span class='ident'>LPARAM</span>,
+    <span class='ident'>hwndWizardDlg</span>: ::<span class='ident'>HWND</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INSTALLWIZARD_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_INSTALLWIZARD_DATA</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_DIDFACTDEFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_HARDWAREALLREADYIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_NEEDRESTART</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>DI_NEEDRESTART</span>;
@@ -2259,12 +2032,10 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_PCMCIADEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_USERCANCEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NDW_INSTALLFLAG_KNOWNCLASS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DYNAWIZ_FLAG_PAGESADDED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DYNAWIZ_FLAG_INSTALLDET_NEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DYNAWIZ_FLAG_INSTALLDET_PREV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MIN_IDD_DYNAWIZ_RESOURCE_ID</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_IDD_DYNAWIZ_RESOURCE_ID</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>11000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDD_DYNAWIZ_FIRSTPAGE</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10000</span>;
@@ -2279,20 +2050,16 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDD_DYNAWIZ_INSTALLDETECTED_PREVPAGE</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10006</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDD_DYNAWIZ_INSTALLDETECTED_NEXTPAGE</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10007</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDD_DYNAWIZ_INSTALLDETECTED_NODEVS</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>10008</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_NEWDEVICEWIZARD_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DynamicPages</span>: [::<span class='ident'>HPROPSHEETPAGE</span>; <span class='ident'>MAX_INSTALLWIZARD_DYNAPAGES</span>],
-    <span class='kw'>pub</span> <span class='ident'>NumDynamicPages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndWizardDlg</span>: ::<span class='ident'>HWND</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_NEWDEVICEWIZARD_DATA</span> {
+    <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DynamicPages</span>: [::<span class='ident'>HPROPSHEETPAGE</span>; <span class='ident'>MAX_INSTALLWIZARD_DYNAPAGES</span>],
+    <span class='ident'>NumDynamicPages</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>hwndWizardDlg</span>: ::<span class='ident'>HWND</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_NEWDEVICEWIZARD_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_NEWDEVICEWIZARD_DATA</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_ADDPROPERTYPAGE_DATA</span> <span class='op'>=</span> <span class='ident'>SP_NEWDEVICEWIZARD_DATA</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_ADDPROPERTYPAGE_DATA</span> <span class='op'>=</span> <span class='ident'>PSP_NEWDEVICEWIZARD_DATA</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_TROUBLESHOOTER_PARAMS_A</span> {
     <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
@@ -2313,7 +2080,6 @@
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_TROUBLESHOOTER_PARAMS_W</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_TROUBLESHOOTER_PARAMS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_TROUBLESHOOTER_PARAMS_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_POWERMESSAGEWAKE_PARAMS_A</span> {
     <span class='kw'>pub</span> <span class='ident'>ClassInstallHeader</span>: <span class='ident'>SP_CLASSINSTALL_HEADER</span>,
@@ -2332,7 +2098,6 @@
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_POWERMESSAGEWAKE_PARAMS_W</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_POWERMESSAGEWAKE_PARAMS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_POWERMESSAGEWAKE_PARAMS_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DRVINFO_DATA_V2_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2359,7 +2124,6 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DRVINFO_DATA_V2_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DRVINFO_DATA_V2_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINFO_DATA_V2_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DRVINFO_DATA_V2_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DRVINFO_DATA_V1_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2382,12 +2146,10 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DRVINFO_DATA_V1_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DRVINFO_DATA_V1_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINFO_DATA_V1_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DRVINFO_DATA_V1_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_DRVINFO_DATA_A</span> <span class='op'>=</span> <span class='ident'>SP_DRVINFO_DATA_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINFO_DATA_A</span> <span class='op'>=</span> <span class='ident'>PSP_DRVINFO_DATA_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_DRVINFO_DATA_W</span> <span class='op'>=</span> <span class='ident'>SP_DRVINFO_DATA_V2_W</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINFO_DATA_W</span> <span class='op'>=</span> <span class='ident'>PSP_DRVINFO_DATA_V2_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DRVINFO_DETAIL_DATA_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2416,17 +2178,14 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_DRVINFO_DETAIL_DATA_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_DRVINFO_DETAIL_DATA_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINFO_DETAIL_DATA_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DRVINFO_DETAIL_DATA_W</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_DRVINSTALL_PARAMS</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Rank</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrivateData</span>: ::<span class='ident'>DWORD_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_DRVINSTALL_PARAMS</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Rank</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PrivateData</span>: ::<span class='ident'>DWORD_PTR</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DRVINSTALL_PARAMS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_DRVINSTALL_PARAMS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_DUPDESC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_OLDDRIVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_EXCLUDEFROMLIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2459,41 +2218,32 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_UNUSED_29</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_UNUSED_30</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DNF_UNUSED_31</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_DETSIG_CMPPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>DeviceInfoSet</span>: <span class='ident'>HDEVINFO</span>, <span class='ident'>NewDeviceData</span>: <span class='ident'>PSP_DEVINFO_DATA</span>, <span class='ident'>ExistingDeviceData</span>: <span class='ident'>PSP_DEVINFO_DATA</span>,
     <span class='ident'>CompareContext</span>: ::<span class='ident'>PVOID</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>DWORD</span><span class='op'>&gt;</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>COINSTALLER_CONTEXT_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>PostProcessing</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>InstallResult</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrivateData</span>: ::<span class='ident'>PVOID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>COINSTALLER_CONTEXT_DATA</span> {
+    <span class='ident'>PostProcessing</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>InstallResult</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PrivateData</span>: ::<span class='ident'>PVOID</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCOINSTALLER_CONTEXT_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>COINSTALLER_CONTEXT_DATA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_CLASSIMAGELIST_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ImageList</span>: ::<span class='ident'>HIMAGELIST</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_CLASSIMAGELIST_DATA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ImageList</span>: ::<span class='ident'>HIMAGELIST</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_CLASSIMAGELIST_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_CLASSIMAGELIST_DATA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_PROPSHEETPAGE_REQUEST</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PageRequested</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DeviceInfoSet</span>: <span class='ident'>HDEVINFO</span>,
-    <span class='kw'>pub</span> <span class='ident'>DeviceInfoData</span>: <span class='ident'>PSP_DEVINFO_DATA</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SP_PROPSHEETPAGE_REQUEST</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PageRequested</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DeviceInfoSet</span>: <span class='ident'>HDEVINFO</span>,
+    <span class='ident'>DeviceInfoData</span>: <span class='ident'>PSP_DEVINFO_DATA</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_PROPSHEETPAGE_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_PROPSHEETPAGE_REQUEST</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPPSR_SELECT_DEVICE_RESOURCES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPPSR_ENUM_BASIC_DEVICE_PROPERTIES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPPSR_ENUM_ADV_DEVICE_PROPERTIES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V2_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2516,7 +2266,6 @@
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V2_W</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_V2_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V2_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V1_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -2537,12 +2286,10 @@
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V1_W</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_V1_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V1_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_A</span> <span class='op'>=</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_A</span> <span class='op'>=</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_W</span> <span class='op'>=</span> <span class='ident'>SP_BACKUP_QUEUE_PARAMS_V2_W</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_W</span> <span class='op'>=</span> <span class='ident'>PSP_BACKUP_QUEUE_PARAMS_V2_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_EXPECTED_SECTION_NAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>APPLICATION_ERROR_MASK</span> <span class='op'>|</span> ::<span class='ident'>ERROR_SEVERITY_ERROR</span>
     <span class='op'>|</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_BAD_SECTION_NAME_LINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>APPLICATION_ERROR_MASK</span> <span class='op'>|</span> ::<span class='ident'>ERROR_SEVERITY_ERROR</span>
@@ -2702,7 +2449,7 @@
     <span class='op'>|</span> ::<span class='ident'>ERROR_SEVERITY_ERROR</span> <span class='op'>|</span> <span class='number'>0x24C</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_UNRECOVERABLE_STACK_OVERFLOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>APPLICATION_ERROR_MASK</span>
     <span class='op'>|</span> ::<span class='ident'>ERROR_SEVERITY_ERROR</span> <span class='op'>|</span> <span class='number'>0x300</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EXCEPTION_SPAPI_UNRECOVERABLE_STACK_OVERFLOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EXCEPTION_SPAPI_UNRECOVERABLE_STACK_OVERFLOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>ERROR_UNRECOVERABLE_STACK_OVERFLOW</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_NO_DEFAULT_INTERFACE_DEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>ERROR_NO_DEFAULT_DEVICE_INTERFACE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_INTERFACE_DEVICE_ACTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>ERROR_DEVICE_INTERFACE_ACTIVE</span>;
@@ -2710,18 +2457,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_NO_SUCH_INTERFACE_DEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>ERROR_NO_SUCH_DEVICE_INTERFACE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_NOT_INSTALLED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>APPLICATION_ERROR_MASK</span> <span class='op'>|</span> ::<span class='ident'>ERROR_SEVERITY_ERROR</span>
     <span class='op'>|</span> <span class='number'>0x1000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INFINFO_INF_SPEC_IS_HINF</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INFINFO_INF_NAME_IS_ABSOLUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INFINFO_DEFAULT_SEARCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INFINFO_REVERSE_DEFAULT_SEARCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INFINFO_INF_PATH_LIST_SEARCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_COMPRESSION_NONE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_COMPRESSION_WINLZA</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_COMPRESSION_MSZIP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_COMPRESSION_NTCAB</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_TEMPORARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_NOBROWSE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_SYSTEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
@@ -2730,7 +2474,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_SUBDIRS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_APPEND</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCLIST_NOSTRIPPLATFORM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_NOBROWSE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_NOSKIP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_NODETAILS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2742,22 +2485,18 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_NOREMOVABLEMEDIAPROMPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_USEDISKNAMEASPROMPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDF_OEMDISK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DPROMPT_SUCCESS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DPROMPT_CANCEL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DPROMPT_SKIPFILE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DPROMPT_BUFFERTOOSMALL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DPROMPT_OUTOFMEMORY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>4</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SETDIRID_NOT_FULL_PATH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCINFO_PATH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCINFO_TAGFILE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCINFO_DESCRIPTION</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCINFO_FLAGS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRCINFO_TAGFILE2</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SRC_FLAGS_CABFILE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_COPY_DELETESOURCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_COPY_REPLACEONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_COPY_NEWER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000004</span>;
@@ -2791,7 +2530,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_BACKUP_DEMANDPASS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_BACKUP_SPECIAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_BACKUP_BOOTFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_SCAN_FILE_PRESENCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_SCAN_FILE_VALIDITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_SCAN_USE_CALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2804,28 +2542,22 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_SCAN_FILE_COMPARISON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_SCAN_ACTIVATE_DRP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_DELAYED_COPY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_FLAG_BACKUP_AWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_FLAG_ABORT_IF_UNSIGNED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_FLAG_FILES_MODIFIED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_FLAG_DO_SHUFFLEMOVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPQ_FLAG_VALID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000000F</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPOST_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPOST_PATH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPOST_URL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPOST_MAX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SUOI_FORCEDELETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SUOI_INTERNAL1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDSL_IGNORE_DISK</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDSL_DISALLOW_NEGATIVE_ADJUST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILEQ_FILE_IN_USE</span>: ::<span class='ident'>INT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILEQ_REBOOT_RECOMMENDED</span>: ::<span class='ident'>INT</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILEQ_REBOOT_IN_PROGRESS</span>: ::<span class='ident'>INT</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_ADDREG_DELREG_BIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_ADDREG_BINVALUETYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_ADDREG_NOCLOBBER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -2875,7 +2607,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_ADDPROPERTY_OR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_ADDPROPERTY_AND</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FLG_DELPROPERTY_MULTI_SZ_DELSTRING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_LOGCONFIG</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_INIFILES</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_REGISTRY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2893,7 +2624,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_LOGCONFIGS_ARE_OVERRIDES</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_REGISTERCALLBACKAWARE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPINST_DEVICEINSTALL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_TAGTOFRONT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_ASSOCSERVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_DELETEEVENTLOGENTRY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -2907,65 +2637,48 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_CLOBBER_SECURITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_STARTSERVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPSVCINST_NOCLOBBER_REQUIREDPRIVILEGES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HSPFILELOG</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILELOG_SYSTEMLOG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILELOG_FORCENEW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILELOG_QUERYONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPFILELOG_OEMFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>SetupFileLogInfo</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>SetupFileLogInfo</span> {
     <span class='ident'>SetupFileLogSourceFilename</span>,
     <span class='ident'>SetupFileLogChecksum</span>,
     <span class='ident'>SetupFileLogDiskTagfile</span>,
     <span class='ident'>SetupFileLogDiskDescription</span>,
     <span class='ident'>SetupFileLogOtherInfo</span>,
     <span class='ident'>SetupFileLogMax</span>,
-}
-
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LogSeverity</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LogSevInformation</span>: <span class='ident'>LogSeverity</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LogSevWarning</span>: <span class='ident'>LogSeverity</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LogSevError</span>: <span class='ident'>LogSeverity</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LogSevFatalError</span>: <span class='ident'>LogSeverity</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LogSevMaximum</span>: <span class='ident'>LogSeverity</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICD_GENERATE_ID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICD_INHERIT_CLASSDRVS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIOD_INHERIT_CLASSDRVS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIOD_CANCEL_REMOVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIODI_NO_ADD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPRDI_FIND_DUPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDIT_NODRIVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDIT_CLASSDRIVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDIT_COMPATDRIVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCF_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCF_PRESENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCF_ALLCLASSES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCF_PROFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCF_DEVICEINTERFACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIBCI_NOINSTALLCLASS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIBCI_NODISPLAYCLASS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIOCR_INSTALLER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIOCR_INTERFACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIREG_DEV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIREG_DRV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIREG_BOTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICLASSPROP_INSTALLER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICLASSPROP_INTERFACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_DEVICEDESC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_HARDWAREID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_COMPATIBLEIDS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -3004,7 +2717,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_LOCATION_PATHS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000023</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_BASE_CONTAINERID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000024</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPDRP_MAXIMUM_PROPERTY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000025</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_UPPERFILTERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000011</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_LOWERFILTERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000012</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_SECURITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000017</span>;
@@ -3013,32 +2725,26 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_EXCLUSIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000001A</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_CHARACTERISTICS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000001B</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPCRP_MAXIMUM_PROPERTY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000001C</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DMI_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DMI_BKCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DMI_USERECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCDP_FLAG_BASIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCDP_FLAG_ADVANCED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCDP_FLAG_REMOTE_BASIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DIGCDP_FLAG_REMOTE_ADVANCED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_RESOURCEFIRST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>159</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_RESOURCE</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>159</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_RESOURCELAST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>161</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_RESOURCEOVERLAYFIRST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>161</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_RESOURCEOVERLAYLAST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>161</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_CONFLICT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>161</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_CLASSICON_OVERLAYFIRST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>500</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_CLASSICON_OVERLAYLAST</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>502</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_PROBLEM_OVL</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>500</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_DISABLED_OVL</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>501</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IDI_FORCED_OVL</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>502</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPWPT_SELECTDEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SPWP_USE_DEVINFO_DATA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_INF_SIGNER_INFO_V1_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -3057,7 +2763,6 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_INF_SIGNER_INFO_V1_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_INF_SIGNER_INFO_V1_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INF_SIGNER_INFO_V1_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_INF_SIGNER_INFO_V1_W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_A</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -3078,12 +2783,10 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INF_SIGNER_INFO_V2_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_INF_SIGNER_INFO_A</span> <span class='op'>=</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INF_SIGNER_INFO_A</span> <span class='op'>=</span> <span class='ident'>PSP_INF_SIGNER_INFO_V2_A</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SP_INF_SIGNER_INFO_W</span> <span class='op'>=</span> <span class='ident'>SP_INF_SIGNER_INFO_V2_W</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSP_INF_SIGNER_INFO_W</span> <span class='op'>=</span> <span class='ident'>PSP_INF_SIGNER_INFO_V2_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFF000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_W9X_SUSPECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xC0000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_UNSIGNED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
@@ -3095,9 +2798,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_LOGO_PREMIUM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0D000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFF000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIGNERSCORE_SIGNED_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xF0000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DICUSTOMDEVPROP_MERGE_MULTISZ</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCWMI_CLOBBER_SECURITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 </pre>
 </section>
@@ -3159,6 +2860,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

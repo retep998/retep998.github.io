@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\hidpi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\hidpi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>hidpi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -194,222 +195,142 @@
 <span id="152">152</span>
 <span id="153">153</span>
 <span id="154">154</span>
-<span id="155">155</span>
-<span id="156">156</span>
-<span id="157">157</span>
-<span id="158">158</span>
-<span id="159">159</span>
-<span id="160">160</span>
-<span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
-<span id="165">165</span>
-<span id="166">166</span>
-<span id="167">167</span>
-<span id="168">168</span>
-<span id="169">169</span>
-<span id="170">170</span>
-<span id="171">171</span>
-<span id="172">172</span>
-<span id="173">173</span>
-<span id="174">174</span>
-<span id="175">175</span>
-<span id="176">176</span>
-<span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Alex Daniel Jones</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='comment'>// Taken from hidpi.h</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>HIDP_REPORT_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>HIDP_REPORT_TYPE</span> {
   <span class='ident'>HidP_Input</span>,
   <span class='ident'>HidP_Output</span>,
   <span class='ident'>HidP_Feature</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>USAGE_AND_PAGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
-}
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>USAGE_AND_PAGE</span> {
+    <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PUSAGE_AND_PAGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>USAGE_AND_PAGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_BUTTON_CAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>ReportID</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsAlias</span>: ::<span class='ident'>BOOLEAN</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>BitField</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>LinkCollection</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>IsRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsStringRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsDesignatorRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsAbsolute</span>: ::<span class='ident'>BOOLEAN</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: [::<span class='ident'>ULONG</span>; <span class='number'>10</span>],
-    <span class='kw'>pub</span> <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_BUTTON_CAPS</span> {
+    <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>ReportID</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>IsAlias</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>BitField</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>LinkCollection</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>IsRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsStringRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsDesignatorRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsAbsolute</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>Reserved</span>: [::<span class='ident'>ULONG</span>; <span class='number'>10</span>],
+    <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_BUTTON_CAPS</span>, <span class='ident'>S_un</span>, <span class='ident'>Range</span>, <span class='ident'>Range_mut</span>, <span class='ident'>HIDP_RANGE_STRUCT</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_BUTTON_CAPS</span>, <span class='ident'>S_un</span>, <span class='ident'>NotRange</span>, <span class='ident'>NotRange_mut</span>, <span class='ident'>HIDP_NOTRANGE_STRUCT</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_BUTTON_CAPS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_BUTTON_CAPS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_RANGE_STRUCT</span> {
-    <span class='kw'>pub</span> <span class='ident'>UsageMin</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>UsageMax</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>StringMin</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>StringMax</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DesignatorMin</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DesignatorMax</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DataIndexMin</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DataIndexMax</span>: ::<span class='ident'>USHORT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_NOTRANGE_STRUCT</span> {
-    <span class='kw'>pub</span> <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved1</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>StringIndex</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved2</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DesignatorIndex</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved3</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DataIndex</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved4</span>: ::<span class='ident'>USHORT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_VALUE_CAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>ReportID</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsAlias</span>: ::<span class='ident'>BOOLEAN</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>BitField</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>LinkCollection</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>IsRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsStringRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsDesignatorRange</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>IsAbsolute</span>: ::<span class='ident'>BOOLEAN</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>HasNull</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>BitSize</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>ReportCount</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved2</span>: [::<span class='ident'>USHORT</span>; <span class='number'>5</span>],
-
-    <span class='kw'>pub</span> <span class='ident'>UnitsExp</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>Units</span>: ::<span class='ident'>ULONG</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>LogicalMin</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>LogicalMax</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>PhysicalMin</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>PhysicalMax</span>: ::<span class='ident'>LONG</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_RANGE_STRUCT</span> {
+    <span class='ident'>UsageMin</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>UsageMax</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>StringMin</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>StringMax</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DesignatorMin</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DesignatorMax</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DataIndexMin</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DataIndexMax</span>: ::<span class='ident'>USHORT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_NOTRANGE_STRUCT</span> {
+    <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>Reserved1</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>StringIndex</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved2</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DesignatorIndex</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved3</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>DataIndex</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved4</span>: ::<span class='ident'>USHORT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_VALUE_CAPS</span> {
+    <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>ReportID</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>IsAlias</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>BitField</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>LinkCollection</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>IsRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsStringRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsDesignatorRange</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>IsAbsolute</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>HasNull</span>: ::<span class='ident'>BOOLEAN</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>BitSize</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>ReportCount</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved2</span>: [::<span class='ident'>USHORT</span>; <span class='number'>5</span>],
+    <span class='ident'>UnitsExp</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>Units</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>LogicalMin</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>LogicalMax</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>PhysicalMin</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>PhysicalMax</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_VALUE_CAPS</span>, <span class='ident'>S_un</span>, <span class='ident'>Range</span>, <span class='ident'>Range_mut</span>, <span class='ident'>HIDP_RANGE_STRUCT</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_VALUE_CAPS</span>, <span class='ident'>S_un</span>, <span class='ident'>NotRange</span>, <span class='ident'>NotRange_mut</span>, <span class='ident'>HIDP_NOTRANGE_STRUCT</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_VALUE_CAPS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_VALUE_CAPS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_LINK_COLLECTION_NODE</span> {
-    <span class='kw'>pub</span> <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Parent</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOfChildren</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NextSibling</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>FirstChild</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>UserContext</span>: ::<span class='ident'>PVOID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_LINK_COLLECTION_NODE</span> {
+    <span class='ident'>LinkUsage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>LinkUsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>Parent</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberOfChildren</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NextSibling</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>FirstChild</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>bit_fields</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>UserContext</span>: ::<span class='ident'>PVOID</span>,
+}}
 <span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>HIDP_LINK_COLLECTION_NODE</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>ULONG</span> [
     <span class='ident'>CollectionType</span> <span class='ident'>set_CollectionType</span>[<span class='number'>0</span>..<span class='number'>8</span>],
     <span class='ident'>IsAlias</span> <span class='ident'>set_IsAlias</span>[<span class='number'>8</span>..<span class='number'>9</span>],
     <span class='ident'>Reserved</span> <span class='ident'>set_Reserved</span>[<span class='number'>9</span>..<span class='number'>32</span>],
 ]);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_LINK_COLLECTION_NODE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_LINK_COLLECTION_NODE</span>;
-
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_CAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>InputReportByteLength</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>OutputReportByteLength</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>FeatureReportByteLength</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: [::<span class='ident'>USHORT</span>; <span class='number'>17</span>],
-
-    <span class='kw'>pub</span> <span class='ident'>NumberLinkCollectionNodes</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>NumberInputButtonCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberInputValueCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberInputDataIndices</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>NumberOutputButtonCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOutputValueCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOutputDataIndices</span>: ::<span class='ident'>USHORT</span>,
-
-    <span class='kw'>pub</span> <span class='ident'>NumberFeatureButtonCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberFeatureValueCaps</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberFeatureDataIndices</span>: ::<span class='ident'>USHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_CAPS</span> {
+    <span class='ident'>Usage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>UsagePage</span>: ::<span class='ident'>USAGE</span>,
+    <span class='ident'>InputReportByteLength</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>OutputReportByteLength</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>FeatureReportByteLength</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved</span>: [::<span class='ident'>USHORT</span>; <span class='number'>17</span>],
+    <span class='ident'>NumberLinkCollectionNodes</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberInputButtonCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberInputValueCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberInputDataIndices</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberOutputButtonCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberOutputValueCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberOutputDataIndices</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberFeatureButtonCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberFeatureValueCaps</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>NumberFeatureDataIndices</span>: ::<span class='ident'>USHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_CAPS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_CAPS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_DATA</span> {
-  <span class='kw'>pub</span> <span class='ident'>DataIndex</span>: ::<span class='ident'>USHORT</span>,
-  <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>USHORT</span>,
-  <span class='kw'>pub</span> <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>4</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_DATA</span> {
+    <span class='ident'>DataIndex</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>S_un</span>: [<span class='ident'>u8</span>; <span class='number'>4</span>],
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_DATA</span>, <span class='ident'>S_un</span>, <span class='ident'>RawValue</span>, <span class='ident'>RawValue_mut</span>, ::<span class='ident'>ULONG</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>HIDP_DATA</span>, <span class='ident'>S_un</span>, <span class='ident'>On</span>, <span class='ident'>On_mut</span>, ::<span class='ident'>BOOLEAN</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_DATA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_UNKNOWN_TOKEN</span> {
-    <span class='kw'>pub</span> <span class='ident'>Token</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>3</span>],
-    <span class='kw'>pub</span> <span class='ident'>BitField</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_UNKNOWN_TOKEN</span> {
+    <span class='ident'>Token</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>Reserved</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>3</span>],
+    <span class='ident'>BitField</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_UNKNOWN_TOKEN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_UNKNOWN_TOKEN</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HIDP_EXTENDED_ATTRIBUTES</span> {
-    <span class='kw'>pub</span> <span class='ident'>NumGlobalUnknowns</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>3</span>],
-    <span class='kw'>pub</span> <span class='ident'>GlobalUnknowns</span>: ::<span class='ident'>PHIDP_UNKNOWN_TOKEN</span>,
-    <span class='kw'>pub</span> <span class='ident'>Data</span>: [::<span class='ident'>ULONG</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HIDP_EXTENDED_ATTRIBUTES</span> {
+    <span class='ident'>NumGlobalUnknowns</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>Reserved</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>3</span>],
+    <span class='ident'>GlobalUnknowns</span>: ::<span class='ident'>PHIDP_UNKNOWN_TOKEN</span>,
+    <span class='ident'>Data</span>: [::<span class='ident'>ULONG</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHIDP_EXTENDED_ATTRIBUTES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HIDP_EXTENDED_ATTRIBUTES</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HIDP_STATUS_SUCCESS</span>: ::<span class='ident'>NTSTATUS</span> <span class='op'>=</span> <span class='number'>0x00110000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HIDP_STATUS_NULL</span>: ::<span class='ident'>NTSTATUS</span> <span class='op'>=</span> <span class='number'>0x08110001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HIDP_STATUS_INVALID_PREPARSED_DATA</span>: ::<span class='ident'>NTSTATUS</span> <span class='op'>=</span> <span class='number'>0x0C110001</span>;
@@ -489,6 +410,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

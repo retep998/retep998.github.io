@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\d2d1.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\d2d1.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>d2d1.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -774,199 +775,14 @@
 <span id="732">732</span>
 <span id="733">733</span>
 <span id="734">734</span>
-<span id="735">735</span>
-<span id="736">736</span>
-<span id="737">737</span>
-<span id="738">738</span>
-<span id="739">739</span>
-<span id="740">740</span>
-<span id="741">741</span>
-<span id="742">742</span>
-<span id="743">743</span>
-<span id="744">744</span>
-<span id="745">745</span>
-<span id="746">746</span>
-<span id="747">747</span>
-<span id="748">748</span>
-<span id="749">749</span>
-<span id="750">750</span>
-<span id="751">751</span>
-<span id="752">752</span>
-<span id="753">753</span>
-<span id="754">754</span>
-<span id="755">755</span>
-<span id="756">756</span>
-<span id="757">757</span>
-<span id="758">758</span>
-<span id="759">759</span>
-<span id="760">760</span>
-<span id="761">761</span>
-<span id="762">762</span>
-<span id="763">763</span>
-<span id="764">764</span>
-<span id="765">765</span>
-<span id="766">766</span>
-<span id="767">767</span>
-<span id="768">768</span>
-<span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
-<span id="800">800</span>
-<span id="801">801</span>
-<span id="802">802</span>
-<span id="803">803</span>
-<span id="804">804</span>
-<span id="805">805</span>
-<span id="806">806</span>
-<span id="807">807</span>
-<span id="808">808</span>
-<span id="809">809</span>
-<span id="810">810</span>
-<span id="811">811</span>
-<span id="812">812</span>
-<span id="813">813</span>
-<span id="814">814</span>
-<span id="815">815</span>
-<span id="816">816</span>
-<span id="817">817</span>
-<span id="818">818</span>
-<span id="819">819</span>
-<span id="820">820</span>
-<span id="821">821</span>
-<span id="822">822</span>
-<span id="823">823</span>
-<span id="824">824</span>
-<span id="825">825</span>
-<span id="826">826</span>
-<span id="827">827</span>
-<span id="828">828</span>
-<span id="829">829</span>
-<span id="830">830</span>
-<span id="831">831</span>
-<span id="832">832</span>
-<span id="833">833</span>
-<span id="834">834</span>
-<span id="835">835</span>
-<span id="836">836</span>
-<span id="837">837</span>
-<span id="838">838</span>
-<span id="839">839</span>
-<span id="840">840</span>
-<span id="841">841</span>
-<span id="842">842</span>
-<span id="843">843</span>
-<span id="844">844</span>
-<span id="845">845</span>
-<span id="846">846</span>
-<span id="847">847</span>
-<span id="848">848</span>
-<span id="849">849</span>
-<span id="850">850</span>
-<span id="851">851</span>
-<span id="852">852</span>
-<span id="853">853</span>
-<span id="854">854</span>
-<span id="855">855</span>
-<span id="856">856</span>
-<span id="857">857</span>
-<span id="858">858</span>
-<span id="859">859</span>
-<span id="860">860</span>
-<span id="861">861</span>
-<span id="862">862</span>
-<span id="863">863</span>
-<span id="864">864</span>
-<span id="865">865</span>
-<span id="866">866</span>
-<span id="867">867</span>
-<span id="868">868</span>
-<span id="869">869</span>
-<span id="870">870</span>
-<span id="871">871</span>
-<span id="872">872</span>
-<span id="873">873</span>
-<span id="874">874</span>
-<span id="875">875</span>
-<span id="876">876</span>
-<span id="877">877</span>
-<span id="878">878</span>
-<span id="879">879</span>
-<span id="880">880</span>
-<span id="881">881</span>
-<span id="882">882</span>
-<span id="883">883</span>
-<span id="884">884</span>
-<span id="885">885</span>
-<span id="886">886</span>
-<span id="887">887</span>
-<span id="888">888</span>
-<span id="889">889</span>
-<span id="890">890</span>
-<span id="891">891</span>
-<span id="892">892</span>
-<span id="893">893</span>
-<span id="894">894</span>
-<span id="895">895</span>
-<span id="896">896</span>
-<span id="897">897</span>
-<span id="898">898</span>
-<span id="899">899</span>
-<span id="900">900</span>
-<span id="901">901</span>
-<span id="902">902</span>
-<span id="903">903</span>
-<span id="904">904</span>
-<span id="905">905</span>
-<span id="906">906</span>
-<span id="907">907</span>
-<span id="908">908</span>
-<span id="909">909</span>
-<span id="910">910</span>
-<span id="911">911</span>
-<span id="912">912</span>
-<span id="913">913</span>
-<span id="914">914</span>
-<span id="915">915</span>
-<span id="916">916</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of d2d1.h</span>
-
 <span class='comment'>// Types confirmed affected by the ABI issue:</span>
 <span class='comment'>// D2D1_SIZE_F, D2D1_SIZE_U, D2D1_COLOR_F, D2D1_PIXEL_FORMAT,</span>
 <span class='comment'>// D2D1_POINT_2F</span>
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_DEFAULT_FLATTENING_TOLERANCE</span>: ::<span class='ident'>FLOAT</span> <span class='op'>=</span> <span class='number'>0.25</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
@@ -975,51 +791,30 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_FANT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>6</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_GAMMA</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_GAMMA</span> {
     <span class='ident'>D2D1_GAMMA_2_2</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_GAMMA_1_0</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_GAMMA</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_OPACITY_MASK_CONTENT</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_OPACITY_MASK_CONTENT</span> {
     <span class='ident'>D2D1_OPACITY_MASK_CONTENT_GRAPHICS</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_OPACITY_MASK_CONTENT_TEXT_NATURAL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_OPACITY_MASK_CONTENT_TEXT_GDI_COMPATIBLE</span> <span class='op'>=</span> <span class='number'>2</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_OPACITY_MASK_CONTENT</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_EXTEND_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_EXTEND_MODE</span> {
     <span class='ident'>D2D1_EXTEND_MODE_CLAMP</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_EXTEND_MODE_WRAP</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_EXTEND_MODE_MIRROR</span> <span class='op'>=</span> <span class='number'>2</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_EXTEND_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_ANTIALIAS_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_ANTIALIAS_MODE</span> {
     <span class='ident'>D2D1_ANTIALIAS_MODE_PER_PRIMITIVE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_ANTIALIAS_MODE_ALIASED</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_ANTIALIAS_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE</span> {
     <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE_DEFAULT</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE_ALIASED</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_TEXT_ANTIALIAS_MODE</span>::<span class='op'>*</span>;
-
+}}
 <span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE</span> {
     <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR</span> <span class='op'>=</span>
         <span class='ident'>D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR</span>,
@@ -1032,7 +827,6 @@
     <span class='ident'>D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT</span> <span class='op'>=</span> <span class='number'>0x00000004</span>,
     <span class='ident'>D2D1_DRAW_TEXT_OPTIONS_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
 }}
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_POINT_2U</span> <span class='op'>=</span> ::<span class='ident'>D2D_POINT_2U</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_POINT_2F</span> <span class='op'>=</span> ::<span class='ident'>D2D_POINT_2F</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_RECT_F</span> <span class='op'>=</span> ::<span class='ident'>D2D_RECT_F</span>;
@@ -1042,348 +836,221 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_COLOR_F</span> <span class='op'>=</span> ::<span class='ident'>D2D_COLOR_F</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_MATRIX_3X2_F</span> <span class='op'>=</span> ::<span class='ident'>D2D_MATRIX_3X2_F</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>D2D1_TAG</span> <span class='op'>=</span> ::<span class='ident'>UINT64</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_BITMAP_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>pixelFormat</span>: ::<span class='ident'>D2D1_PIXEL_FORMAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dpiX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dpiY</span>: ::<span class='ident'>FLOAT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_GRADIENT_STOP</span> {
-    <span class='kw'>pub</span> <span class='ident'>position</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>color</span>: <span class='ident'>D2D1_COLOR_F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_BRUSH_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>opacity</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>transform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_BITMAP_BRUSH_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>extendModeX</span>: <span class='ident'>D2D1_EXTEND_MODE</span>,
-    <span class='kw'>pub</span> <span class='ident'>extendModeY</span>: <span class='ident'>D2D1_EXTEND_MODE</span>,
-    <span class='kw'>pub</span> <span class='ident'>interpolationMode</span>: <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>startPoint</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>endPoint</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>center</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>gradientOriginOffset</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_ARC_SIZE</span> {
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_BITMAP_PROPERTIES</span> {
+    <span class='ident'>pixelFormat</span>: ::<span class='ident'>D2D1_PIXEL_FORMAT</span>,
+    <span class='ident'>dpiX</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>dpiY</span>: ::<span class='ident'>FLOAT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_GRADIENT_STOP</span> {
+    <span class='ident'>position</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>color</span>: <span class='ident'>D2D1_COLOR_F</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_BRUSH_PROPERTIES</span> {
+    <span class='ident'>opacity</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>transform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_BITMAP_BRUSH_PROPERTIES</span> {
+    <span class='ident'>extendModeX</span>: <span class='ident'>D2D1_EXTEND_MODE</span>,
+    <span class='ident'>extendModeY</span>: <span class='ident'>D2D1_EXTEND_MODE</span>,
+    <span class='ident'>interpolationMode</span>: <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES</span> {
+    <span class='ident'>startPoint</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>endPoint</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES</span> {
+    <span class='ident'>center</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>gradientOriginOffset</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_ARC_SIZE</span> {
     <span class='ident'>D2D1_ARC_SIZE_SMALL</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_ARC_SIZE_LARGE</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_ARC_SIZE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_CAP_STYLE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_CAP_STYLE</span> {
     <span class='ident'>D2D1_CAP_STYLE_FLAT</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_CAP_STYLE_SQUARE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_CAP_STYLE_ROUND</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_CAP_STYLE_TRIANGLE</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_CAP_STYLE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_DASH_STYLE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_DASH_STYLE</span> {
     <span class='ident'>D2D1_DASH_STYLE_SOLID</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_DASH_STYLE_DASH</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_DASH_STYLE_DOT</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_DASH_STYLE_DASH_DOT</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>D2D1_DASH_STYLE_DASH_DOT_DOT</span> <span class='op'>=</span> <span class='number'>4</span>,
     <span class='ident'>D2D1_DASH_STYLE_CUSTOM</span> <span class='op'>=</span> <span class='number'>5</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_DASH_STYLE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_LINE_JOIN</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_LINE_JOIN</span> {
     <span class='ident'>D2D1_LINE_JOIN_MITER</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_LINE_JOIN_BEVEL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_LINE_JOIN_ROUND</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_LINE_JOIN_MITER_OR_BEVEL</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_LINE_JOIN</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_COMBINE_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_COMBINE_MODE</span> {
     <span class='ident'>D2D1_COMBINE_MODE_UNION</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_COMBINE_MODE_INTERSECT</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_COMBINE_MODE_XOR</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_COMBINE_MODE_EXCLUDE</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_COMBINE_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_GEOMETRY_RELATION</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_GEOMETRY_RELATION</span> {
     <span class='ident'>D2D1_GEOMETRY_RELATION_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_GEOMETRY_RELATION_DISJOINT</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_GEOMETRY_RELATION_IS_CONTAINED</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_GEOMETRY_RELATION_CONTAINS</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>D2D1_GEOMETRY_RELATION_OVERLAP</span> <span class='op'>=</span> <span class='number'>4</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_GEOMETRY_RELATION</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_GEOMETRY_SIMPLIFICATION_OPTION</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_GEOMETRY_SIMPLIFICATION_OPTION</span> {
     <span class='ident'>D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_GEOMETRY_SIMPLIFICATION_OPTION</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_FIGURE_BEGIN</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_FIGURE_BEGIN</span> {
     <span class='ident'>D2D1_FIGURE_BEGIN_FILLED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_FIGURE_BEGIN_HOLLOW</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_FIGURE_BEGIN</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_FIGURE_END</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_FIGURE_END</span> {
     <span class='ident'>D2D1_FIGURE_END_OPEN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_FIGURE_END_CLOSED</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_FIGURE_END</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_BEZIER_SEGMENT</span> {
-    <span class='kw'>pub</span> <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>point3</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_TRIANGLE</span> {
-    <span class='kw'>pub</span> <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>point3</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_PATH_SEGMENT</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_BEZIER_SEGMENT</span> {
+    <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>point3</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_TRIANGLE</span> {
+    <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>point3</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_PATH_SEGMENT</span> {
     <span class='ident'>D2D1_PATH_SEGMENT_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
     <span class='ident'>D2D1_PATH_SEGMENT_FORCE_UNSTROKED</span> <span class='op'>=</span> <span class='number'>0x00000001</span>,
     <span class='ident'>D2D1_PATH_SEGMENT_FORCE_ROUND_LINE_JOIN</span> <span class='op'>=</span> <span class='number'>0x00000002</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_PATH_SEGMENT</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_SWEEP_DIRECTION</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_SWEEP_DIRECTION</span> {
     <span class='ident'>D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_SWEEP_DIRECTION_CLOCKWISE</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_SWEEP_DIRECTION</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_FILL_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_FILL_MODE</span> {
     <span class='ident'>D2D1_FILL_MODE_ALTERNATE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_FILL_MODE_WINDING</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_FILL_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_ARC_SEGMENT</span> {
-    <span class='kw'>pub</span> <span class='ident'>point</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>size</span>: <span class='ident'>D2D1_SIZE_F</span>,
-    <span class='kw'>pub</span> <span class='ident'>rotationAngle</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>sweepDirection</span>: <span class='ident'>D2D1_SWEEP_DIRECTION</span>,
-    <span class='kw'>pub</span> <span class='ident'>arcSize</span>: <span class='ident'>D2D1_ARC_SIZE</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_QUADRATIC_BEZIER_SEGMENT</span> {
-    <span class='kw'>pub</span> <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_ELLIPSE</span> {
-    <span class='kw'>pub</span> <span class='ident'>point</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_ROUNDED_RECT</span> {
-    <span class='kw'>pub</span> <span class='ident'>rect</span>: ::<span class='ident'>D2D1_RECT_F</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_STROKE_STYLE_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>startCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>endCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>dashCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lineJoin</span>: <span class='ident'>D2D1_LINE_JOIN</span>,
-    <span class='kw'>pub</span> <span class='ident'>miterLimit</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dashStyle</span>: <span class='ident'>D2D1_DASH_STYLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>dashOffset</span>: ::<span class='ident'>FLOAT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_LAYER_OPTIONS</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_ARC_SEGMENT</span> {
+    <span class='ident'>point</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>size</span>: <span class='ident'>D2D1_SIZE_F</span>,
+    <span class='ident'>rotationAngle</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>sweepDirection</span>: <span class='ident'>D2D1_SWEEP_DIRECTION</span>,
+    <span class='ident'>arcSize</span>: <span class='ident'>D2D1_ARC_SIZE</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_QUADRATIC_BEZIER_SEGMENT</span> {
+    <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>point2</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_ELLIPSE</span> {
+    <span class='ident'>point</span>: ::<span class='ident'>D2D1_POINT_2F</span>,
+    <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_ROUNDED_RECT</span> {
+    <span class='ident'>rect</span>: ::<span class='ident'>D2D1_RECT_F</span>,
+    <span class='ident'>radiusX</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>radiusY</span>: ::<span class='ident'>FLOAT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_STROKE_STYLE_PROPERTIES</span> {
+    <span class='ident'>startCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
+    <span class='ident'>endCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
+    <span class='ident'>dashCap</span>: <span class='ident'>D2D1_CAP_STYLE</span>,
+    <span class='ident'>lineJoin</span>: <span class='ident'>D2D1_LINE_JOIN</span>,
+    <span class='ident'>miterLimit</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>dashStyle</span>: <span class='ident'>D2D1_DASH_STYLE</span>,
+    <span class='ident'>dashOffset</span>: ::<span class='ident'>FLOAT</span>,
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_LAYER_OPTIONS</span> {
     <span class='ident'>D2D1_LAYER_OPTIONS_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
     <span class='ident'>D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE</span> <span class='op'>=</span> <span class='number'>0x00000001</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_LAYER_OPTIONS</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_LAYER_PARAMETERS</span> {
-    <span class='kw'>pub</span> <span class='ident'>contentBounds</span>: ::<span class='ident'>D2D1_RECT_F</span>,
-    <span class='kw'>pub</span> <span class='ident'>geometricMask</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Geometry</span>,
-    <span class='kw'>pub</span> <span class='ident'>maskAntialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>,
-    <span class='kw'>pub</span> <span class='ident'>maskTransform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
-    <span class='kw'>pub</span> <span class='ident'>opacity</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>opacityBrush</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Brush</span>,
-    <span class='kw'>pub</span> <span class='ident'>layerOptions</span>: <span class='ident'>D2D1_LAYER_OPTIONS</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_WINDOW_STATE</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_LAYER_PARAMETERS</span> {
+    <span class='ident'>contentBounds</span>: ::<span class='ident'>D2D1_RECT_F</span>,
+    <span class='ident'>geometricMask</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Geometry</span>,
+    <span class='ident'>maskAntialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>,
+    <span class='ident'>maskTransform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
+    <span class='ident'>opacity</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>opacityBrush</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Brush</span>,
+    <span class='ident'>layerOptions</span>: <span class='ident'>D2D1_LAYER_OPTIONS</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_WINDOW_STATE</span> {
     <span class='ident'>D2D1_WINDOW_STATE_NONE</span> <span class='op'>=</span> <span class='number'>0x0000000</span>,
     <span class='ident'>D2D1_WINDOW_STATE_OCCLUDED</span> <span class='op'>=</span> <span class='number'>0x0000001</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_WINDOW_STATE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_RENDER_TARGET_TYPE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_RENDER_TARGET_TYPE</span> {
     <span class='ident'>D2D1_RENDER_TARGET_TYPE_DEFAULT</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_RENDER_TARGET_TYPE_SOFTWARE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_RENDER_TARGET_TYPE_HARDWARE</span> <span class='op'>=</span> <span class='number'>2</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_RENDER_TARGET_TYPE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_FEATURE_LEVEL</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_FEATURE_LEVEL</span> {
     <span class='ident'>D2D1_FEATURE_LEVEL_DEFAULT</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>D2D1_FEATURE_LEVEL_9</span> <span class='op'>=</span> ::<span class='ident'>D3D_FEATURE_LEVEL_9_1</span> <span class='kw'>as</span> <span class='ident'>i32</span>,
-    <span class='ident'>D2D1_FEATURE_LEVEL_10</span> <span class='op'>=</span> ::<span class='ident'>D3D_FEATURE_LEVEL_10_0</span> <span class='kw'>as</span> <span class='ident'>i32</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_FEATURE_LEVEL</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_RENDER_TARGET_USAGE</span> {
+    <span class='ident'>D2D1_FEATURE_LEVEL_9</span> <span class='op'>=</span> ::<span class='ident'>D3D_FEATURE_LEVEL_9_1</span>.<span class='number'>0</span>,
+    <span class='ident'>D2D1_FEATURE_LEVEL_10</span> <span class='op'>=</span> ::<span class='ident'>D3D_FEATURE_LEVEL_10_0</span>.<span class='number'>0</span>,
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_RENDER_TARGET_USAGE</span> {
     <span class='ident'>D2D1_RENDER_TARGET_USAGE_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
     <span class='ident'>D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING</span> <span class='op'>=</span> <span class='number'>0x00000001</span>,
     <span class='ident'>D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE</span> <span class='op'>=</span> <span class='number'>0x00000002</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_RENDER_TARGET_USAGE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_PRESENT_OPTIONS</span> {
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_PRESENT_OPTIONS</span> {
     <span class='ident'>D2D1_PRESENT_OPTIONS_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
     <span class='ident'>D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS</span> <span class='op'>=</span> <span class='number'>0x00000001</span>,
     <span class='ident'>D2D1_PRESENT_OPTIONS_IMMEDIATELY</span> <span class='op'>=</span> <span class='number'>0x00000002</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_PRESENT_OPTIONS</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_RENDER_TARGET_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>_type</span>: <span class='ident'>D2D1_RENDER_TARGET_TYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>pixelFormat</span>: ::<span class='ident'>D2D1_PIXEL_FORMAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dpiX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dpiY</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>usage</span>: <span class='ident'>D2D1_RENDER_TARGET_USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>minLevel</span>: <span class='ident'>D2D1_FEATURE_LEVEL</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_HWND_RENDER_TARGET_PROPERTIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>hwnd</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>pixelSize</span>: <span class='ident'>D2D1_SIZE_U</span>,
-    <span class='kw'>pub</span> <span class='ident'>presentOptions</span>: <span class='ident'>D2D1_PRESENT_OPTIONS</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_RENDER_TARGET_PROPERTIES</span> {
+    <span class='ident'>_type</span>: <span class='ident'>D2D1_RENDER_TARGET_TYPE</span>,
+    <span class='ident'>pixelFormat</span>: ::<span class='ident'>D2D1_PIXEL_FORMAT</span>,
+    <span class='ident'>dpiX</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>dpiY</span>: ::<span class='ident'>FLOAT</span>,
+    <span class='ident'>usage</span>: <span class='ident'>D2D1_RENDER_TARGET_USAGE</span>,
+    <span class='ident'>minLevel</span>: <span class='ident'>D2D1_FEATURE_LEVEL</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_HWND_RENDER_TARGET_PROPERTIES</span> {
+    <span class='ident'>hwnd</span>: ::<span class='ident'>HWND</span>,
+    <span class='ident'>pixelSize</span>: <span class='ident'>D2D1_SIZE_U</span>,
+    <span class='ident'>presentOptions</span>: <span class='ident'>D2D1_PRESENT_OPTIONS</span>,
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS</span> {
     <span class='ident'>D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE</span> <span class='op'>=</span> <span class='number'>0x00000000</span>,
     <span class='ident'>D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE</span> <span class='op'>=</span> <span class='number'>0x00000001</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_DRAWING_STATE_DESCRIPTION</span> {
-    <span class='kw'>pub</span> <span class='ident'>antialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>,
-    <span class='kw'>pub</span> <span class='ident'>textAntialiasMode</span>: <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE</span>,
-    <span class='kw'>pub</span> <span class='ident'>tag1</span>: <span class='ident'>D2D1_TAG</span>,
-    <span class='kw'>pub</span> <span class='ident'>tag2</span>: <span class='ident'>D2D1_TAG</span>,
-    <span class='kw'>pub</span> <span class='ident'>transform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_DC_INITIALIZE_MODE</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_DRAWING_STATE_DESCRIPTION</span> {
+    <span class='ident'>antialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>,
+    <span class='ident'>textAntialiasMode</span>: <span class='ident'>D2D1_TEXT_ANTIALIAS_MODE</span>,
+    <span class='ident'>tag1</span>: <span class='ident'>D2D1_TAG</span>,
+    <span class='ident'>tag2</span>: <span class='ident'>D2D1_TAG</span>,
+    <span class='ident'>transform</span>: <span class='ident'>D2D1_MATRIX_3X2_F</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_DC_INITIALIZE_MODE</span> {
     <span class='ident'>D2D1_DC_INITIALIZE_MODE_COPY</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_DC_INITIALIZE_MODE_CLEAR</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_DC_INITIALIZE_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_DEBUG_LEVEL</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_DEBUG_LEVEL</span> {
     <span class='ident'>D2D1_DEBUG_LEVEL_NONE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_DEBUG_LEVEL_ERROR</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_DEBUG_LEVEL_WARNING</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_DEBUG_LEVEL_INFORMATION</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_DEBUG_LEVEL</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_FACTORY_TYPE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_FACTORY_TYPE</span> {
     <span class='ident'>D2D1_FACTORY_TYPE_SINGLE_THREADED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_FACTORY_TYPE_MULTI_THREADED</span> <span class='op'>=</span> <span class='number'>1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_FACTORY_TYPE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_FACTORY_OPTIONS</span> {
-    <span class='kw'>pub</span> <span class='ident'>debugLevel</span>: <span class='ident'>D2D1_DEBUG_LEVEL</span>,
-}
-
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_FACTORY_OPTIONS</span> {
+    <span class='ident'>debugLevel</span>: <span class='ident'>D2D1_DEBUG_LEVEL</span>,
+}}
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetFactory</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>factory</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Factory</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Image</span>(<span class='ident'>ID2D1ImageVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Bitmap</span>(<span class='ident'>ID2D1BitmapVtbl</span>): <span class='ident'>ID2D1Image</span>(<span class='ident'>ID2D1ImageVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetSize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ret</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_SIZE_F</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_SIZE_F</span>, <span class='comment'>// FIXME: ABI issue</span>
@@ -1404,7 +1071,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dstRect</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>D2D1_RECT_U</span>, <span class='ident'>srcData</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>c_void</span>, <span class='ident'>pitch</span>: ::<span class='ident'>UINT32</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1GradientStopCollection</span>(<span class='ident'>ID2D1GradientStopCollectionVtbl</span>)
     : <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
@@ -1415,7 +1081,6 @@
     <span class='kw'>fn</span> <span class='ident'>GetColorInterpolationGamma</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_GAMMA</span>,
     <span class='kw'>fn</span> <span class='ident'>GetExtendMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_EXTEND_MODE</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Brush</span>(<span class='ident'>ID2D1BrushVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetOpacity</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>opacity</span>: ::<span class='ident'>FLOAT</span>) <span class='op'>-&gt;</span> (),
@@ -1423,26 +1088,22 @@
     <span class='kw'>fn</span> <span class='ident'>GetOpacity</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>FLOAT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetTransform</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>transform</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_MATRIX_3X2_F</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1BitmapBrush</span>(<span class='ident'>ID2D1BitmapBrushVtbl</span>): <span class='ident'>ID2D1Brush</span>(<span class='ident'>ID2D1BrushVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetExtendModeX</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>extendModeX</span>: <span class='ident'>D2D1_EXTEND_MODE</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>SetExtendModeY</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>extendModeY</span>: <span class='ident'>D2D1_EXTEND_MODE</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>SetInterpolationMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>interpolationMode</span>: <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>SetBitmap</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bitmap</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Bitmap</span>) <span class='op'>-&gt;</span> (),
-
     <span class='kw'>fn</span> <span class='ident'>GetExtendModeX</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_EXTEND_MODE</span>,
     <span class='kw'>fn</span> <span class='ident'>GetExtendModeY</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_EXTEND_MODE</span>,
     <span class='kw'>fn</span> <span class='ident'>GetInterpolationMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_BITMAP_INTERPOLATION_MODE</span>,
     <span class='kw'>fn</span> <span class='ident'>GetBitmap</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bitmap</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Bitmap</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1SolidColorBrush</span>(<span class='ident'>ID2D1SolidColorBrushVtbl</span>): <span class='ident'>ID2D1Brush</span>(<span class='ident'>ID2D1BrushVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetColor</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>color</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_COLOR_F</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>GetColor</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>color</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_COLOR_F</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_COLOR_F</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1LinearGradientBrush</span>(<span class='ident'>ID2D1LinearGradientBrushVtbl</span>): <span class='ident'>ID2D1Brush</span>(<span class='ident'>ID2D1BrushVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetStartPoint</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>startPoint</span>: ::<span class='ident'>D2D1_POINT_2F</span>) <span class='op'>-&gt;</span> (),
@@ -1453,7 +1114,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>gradientStopCollection</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1GradientStopCollection</span>
     ) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1RadialGradientBrush</span>(<span class='ident'>ID2D1RadialGradientBrushVtbl</span>): <span class='ident'>ID2D1Brush</span>(<span class='ident'>ID2D1BrushVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetCenter</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>center</span>: ::<span class='ident'>D2D1_POINT_2F</span>) <span class='op'>-&gt;</span> (),
@@ -1470,7 +1130,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>gradientStopCollection</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1GradientStopCollection</span>
     ) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1StrokeStyle</span>(<span class='ident'>ID2D1StrokeStyleVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetStartCap</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_CAP_STYLE</span>,
@@ -1483,7 +1142,6 @@
     <span class='kw'>fn</span> <span class='ident'>GetDashesCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>UINT32</span>,
     <span class='kw'>fn</span> <span class='ident'>GetDashes</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dashes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>FLOAT</span>, <span class='ident'>dashesCount</span>: ::<span class='ident'>UINT32</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetBounds</span>(
@@ -1545,23 +1203,19 @@
         <span class='ident'>geometrySink</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1SimplifiedGeometrySink</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1RectangleGeometry</span>(<span class='ident'>ID2D1RectangleGeometryVtbl</span>): <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetRect</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rect</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>D2D1_RECT_F</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1RoundedRectangleGeometry</span>(<span class='ident'>ID2D1RoundedRectangleGeometryVtbl</span>)
     : <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetRoundedRect</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>roundedRect</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_ROUNDED_RECT</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1EllipseGeometry</span>(<span class='ident'>ID2D1EllipseGeometryVtbl</span>): <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetEllipse</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ellipse</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_ELLIPSE</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1GeometryGroup</span>(<span class='ident'>ID2D1GeometryGroupVtbl</span>): <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetFillMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>D2D1_FILL_MODE</span>,
@@ -1570,14 +1224,12 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>geometries</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Geometry</span>, <span class='ident'>geometriesCount</span>: ::<span class='ident'>UINT32</span>
     ) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1TransformedGeometry</span>(<span class='ident'>ID2D1TransformedGeometryVtbl</span>)
     : <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetSourceGeometry</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>sourceGeometry</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Geometry</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>GetTransform</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>transform</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_MATRIX_3X2_F</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1SimplifiedGeometrySink</span>(<span class='ident'>ID2D1SimplifiedGeometrySinkVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetFillMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>fillMode</span>: <span class='ident'>D2D1_FILL_MODE</span>) <span class='op'>-&gt;</span> (),
@@ -1588,7 +1240,6 @@
     <span class='kw'>fn</span> <span class='ident'>EndFigure</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>figureEnd</span>: <span class='ident'>D2D1_FIGURE_END</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>Close</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1GeometrySink</span>(<span class='ident'>ID2D1GeometrySinkVtbl</span>)
     : <span class='ident'>ID2D1SimplifiedGeometrySink</span>(<span class='ident'>ID2D1SimplifiedGeometrySinkVtbl</span>) {
@@ -1600,13 +1251,11 @@
     ) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>AddArc</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>arc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_ARC_SEGMENT</span>) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1TessellationSink</span>(<span class='ident'>ID2D1TessellationSinkVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>AddTriangles</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>triangles</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_TRIANGLE</span>, <span class='ident'>triangleCount</span>: ::<span class='ident'>UINT32</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>Close</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1PathGeometry</span>(<span class='ident'>ID2D1PathGeometryVtbl</span>): <span class='ident'>ID2D1Geometry</span>(<span class='ident'>ID2D1GeometryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Open</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>geometrySink</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1GeometrySink</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -1614,17 +1263,14 @@
     <span class='kw'>fn</span> <span class='ident'>GetSegmentCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>count</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT32</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetFigureCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>count</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT32</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Mesh</span>(<span class='ident'>ID2D1MeshVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Open</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>tessellationSink</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1TessellationSink</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Layer</span>(<span class='ident'>ID2D1LayerVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetSize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ret</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_SIZE_F</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_SIZE_F</span> <span class='comment'>// FIXME: ABI issue</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1DrawingStateBlock</span>(<span class='ident'>ID2D1DrawingStateBlockVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDescription</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>stateDescription</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_DRAWING_STATE_DESCRIPTION</span>) <span class='op'>-&gt;</span> (),
@@ -1636,7 +1282,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>textRenderingParams</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IDWriteRenderingParams</span>
     ) <span class='op'>-&gt;</span> ()
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1RenderTarget</span>(<span class='ident'>ID2D1RenderTargetVtbl</span>): <span class='ident'>ID2D1Resource</span>(<span class='ident'>ID2D1ResourceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>CreateBitmap</span>(
@@ -1684,7 +1329,6 @@
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>CreateLayer</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>size</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_SIZE_F</span>, <span class='ident'>layer</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Layer</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>CreateMesh</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>mesh</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Mesh</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-
     <span class='kw'>fn</span> <span class='ident'>DrawLine</span>(
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>point0</span>: ::<span class='ident'>D2D1_POINT_2F</span>, <span class='ident'>point1</span>: ::<span class='ident'>D2D1_POINT_2F</span>, <span class='ident'>brush</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Brush</span>,
         <span class='ident'>strokeWidth</span>: ::<span class='ident'>FLOAT</span>, <span class='ident'>strokeStype</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1StrokeStyle</span>
@@ -1745,7 +1389,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>baselineOrigin</span>: ::<span class='ident'>D2D1_POINT_2F</span>, <span class='ident'>glyphRun</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>DWRITE_GLYPH_RUN</span>,
         <span class='ident'>foregroundBrush</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Brush</span>, <span class='ident'>measuringMode</span>: ::<span class='ident'>DWRITE_MEASURING_MODE</span>
     ) <span class='op'>-&gt;</span> (),
-
     <span class='kw'>fn</span> <span class='ident'>SetTransform</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>transform</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_MATRIX_3X2_F</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>GetTransform</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>transform</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_MATRIX_3X2_F</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>SetAntialiasMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>antialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>) <span class='op'>-&gt;</span> (),
@@ -1771,7 +1414,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>clipRect</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>D2D1_RECT_F</span>, <span class='ident'>antialiasMode</span>: <span class='ident'>D2D1_ANTIALIAS_MODE</span>
     ) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>PopAxisAlignedClip</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> (),
-
     <span class='kw'>fn</span> <span class='ident'>Clear</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>clearColor</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_COLOR_F</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>BeginDraw</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> (),
     <span class='kw'>fn</span> <span class='ident'>EndDraw</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>tag1</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_TAG</span>, <span class='ident'>tag2</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D2D1_TAG</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -1787,13 +1429,11 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>renderTargetProperties</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_RENDER_TARGET_PROPERTIES</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1BitmapRenderTarget</span>(<span class='ident'>ID2D1BitmapRenderTargetVtbl</span>)
     : <span class='ident'>ID2D1RenderTarget</span>(<span class='ident'>ID2D1RenderTargetVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetBitmap</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bitmap</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID2D1Bitmap</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1HwndRenderTarget</span>(<span class='ident'>ID2D1HwndRenderTargetVtbl</span>)
     : <span class='ident'>ID2D1RenderTarget</span>(<span class='ident'>ID2D1RenderTargetVtbl</span>) {
@@ -1801,18 +1441,15 @@
     <span class='kw'>fn</span> <span class='ident'>Resize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pixelSize</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>D2D1_SIZE_U</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetHwnd</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HWND</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1GdiInteropRenderTarget</span>(<span class='ident'>ID2D1GdiInteropRenderTargetVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDC</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>mode</span>: <span class='ident'>D2D1_DC_INITIALIZE_MODE</span>, <span class='ident'>hdc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HDC</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>ReleaseDC</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>update</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>RECT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1DCRenderTarget</span>(<span class='ident'>ID2D1DCRenderTargetVtbl</span>): <span class='ident'>ID2D1RenderTarget</span>(<span class='ident'>ID2D1RenderTargetVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>BindDC</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>, <span class='ident'>pSubRect</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>RECT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID2D1Factory</span>(<span class='ident'>ID2D1FactoryVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>ReloadSystemMetrics</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -1933,6 +1570,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

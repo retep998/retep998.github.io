@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\inaddr.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\inaddr.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>inaddr.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -62,29 +63,23 @@
 <span id="20">20</span>
 <span id="21">21</span>
 <span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! IPv4 Internet address</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>in_addr_S_un_b</span> {
-    <span class='kw'>pub</span> <span class='ident'>s_b1</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>s_b2</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>s_b3</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>s_b4</span>: ::<span class='ident'>UCHAR</span>,
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>in_addr_S_un_w</span> {
-    <span class='kw'>pub</span> <span class='ident'>s_w1</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>s_w2</span>: ::<span class='ident'>USHORT</span>,
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>in_addr</span> {
-    <span class='kw'>pub</span> <span class='ident'>S_un</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>in_addr_S_un_b</span> {
+    <span class='ident'>s_b1</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>s_b2</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>s_b3</span>: ::<span class='ident'>UCHAR</span>,
+    <span class='ident'>s_b4</span>: ::<span class='ident'>UCHAR</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>in_addr_S_un_w</span> {
+    <span class='ident'>s_w1</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>s_w2</span>: ::<span class='ident'>USHORT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>in_addr</span> {
+    <span class='ident'>S_un</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>in_addr</span>, <span class='ident'>S_un</span>, <span class='ident'>S_un_b</span>, <span class='ident'>S_un_b_mut</span>, <span class='ident'>in_addr_S_un_b</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>in_addr</span>, <span class='ident'>S_un</span>, <span class='ident'>S_un_w</span>, <span class='ident'>S_un_w_mut</span>, <span class='ident'>in_addr_S_un_w</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>in_addr</span>, <span class='ident'>S_un</span>, <span class='ident'>S_addr</span>, <span class='ident'>S_addr_mut</span>, ::<span class='ident'>ULONG</span>);
@@ -151,6 +146,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

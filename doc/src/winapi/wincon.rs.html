@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\wincon.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\wincon.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>wincon.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -238,67 +239,32 @@
 <span id="196">196</span>
 <span id="197">197</span>
 <span id="198">198</span>
-<span id="199">199</span>
-<span id="200">200</span>
-<span id="201">201</span>
-<span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
-<span id="210">210</span>
-<span id="211">211</span>
-<span id="212">212</span>
-<span id="213">213</span>
-<span id="214">214</span>
-<span id="215">215</span>
-<span id="216">216</span>
-<span id="217">217</span>
-<span id="218">218</span>
-<span id="219">219</span>
-<span id="220">220</span>
-<span id="221">221</span>
-<span id="222">222</span>
-<span id="223">223</span>
-<span id="224">224</span>
-<span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
-<span id="229">229</span>
-<span id="230">230</span>
-<span id="231">231</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! This module contains the public data structures, data types, and procedures exported by the NT</span>
 <span class='doccomment'>//! console subsystem.</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>COORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>X</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Y</span>: ::<span class='ident'>SHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>COORD</span> {
+    <span class='ident'>X</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>Y</span>: ::<span class='ident'>SHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCOORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>COORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SMALL_RECT</span> {
-    <span class='kw'>pub</span> <span class='ident'>Left</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Top</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Right</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Bottom</span>: ::<span class='ident'>SHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SMALL_RECT</span> {
+    <span class='ident'>Left</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>Top</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>Right</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>Bottom</span>: ::<span class='ident'>SHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSMALL_RECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SMALL_RECT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>KEY_EVENT_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>bKeyDown</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>wRepeatCount</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wVirtualKeyCode</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wVirtualScanCode</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>uChar</span>: ::<span class='ident'>WCHAR</span>, <span class='comment'>//FIXME - untagged union</span>
-    <span class='kw'>pub</span> <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>KEY_EVENT_RECORD</span> {
+    <span class='ident'>bKeyDown</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>wRepeatCount</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>wVirtualKeyCode</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>wVirtualScanCode</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>UnicodeChar</span>: ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>DWORD</span>,
+}}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>KEY_EVENT_RECORD</span>, <span class='ident'>UnicodeChar</span>, <span class='ident'>AsciiChar</span>, <span class='ident'>AsciiChar_mut</span>, ::<span class='ident'>CHAR</span>}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PKEY_EVENT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>KEY_EVENT_RECORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RIGHT_ALT_PRESSED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LEFT_ALT_PRESSED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
@@ -316,13 +282,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NLS_ROMAN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NLS_IME_CONVERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NLS_IME_DISABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MOUSE_EVENT_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwMousePosition</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwButtonState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwEventFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MOUSE_EVENT_RECORD</span> {
+    <span class='ident'>dwMousePosition</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>dwButtonState</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwEventFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMOUSE_EVENT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MOUSE_EVENT_RECORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FROM_LEFT_1ST_BUTTON_PRESSED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RIGHTMOST_BUTTON_PRESSED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
@@ -333,55 +298,39 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DOUBLE_CLICK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MOUSE_WHEELED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MOUSE_HWHEELED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span> {
+    <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWINDOW_BUFFER_SIZE_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MENU_EVENT_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwCommandId</span>: ::<span class='ident'>UINT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MENU_EVENT_RECORD</span> {
+    <span class='ident'>dwCommandId</span>: ::<span class='ident'>UINT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMENU_EVENT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MENU_EVENT_RECORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FOCUS_EVENT_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>bSetFocus</span>: ::<span class='ident'>BOOL</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FOCUS_EVENT_RECORD</span> {
+    <span class='ident'>bSetFocus</span>: ::<span class='ident'>BOOL</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFOCUS_EVENT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FOCUS_EVENT_RECORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>INPUT_RECORD</span> {
-    <span class='kw'>pub</span> <span class='ident'>EventType</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Event</span>: <span class='ident'>MOUSE_EVENT_RECORD</span>, <span class='comment'>//FIXME - untagged union</span>
-}
-<span class='attribute'>#[<span class='ident'>test</span>]</span>
-<span class='kw'>fn</span> <span class='ident'>test_INPUT_RECORD</span>() {
-    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>align_of</span>};
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>KEY_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MENU_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span><span class='ident'>FOCUS_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>KEY_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MENU_EVENT_RECORD</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>MOUSE_EVENT_RECORD</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span><span class='ident'>FOCUS_EVENT_RECORD</span><span class='op'>&gt;</span>());
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>INPUT_RECORD</span> {
+    <span class='ident'>EventType</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>Event</span>: [<span class='ident'>u32</span>; <span class='number'>4</span>],
+}}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>INPUT_RECORD</span>, <span class='ident'>Event</span>, <span class='ident'>KeyEvent</span>, <span class='ident'>KeyEvent_mut</span>, <span class='ident'>KEY_EVENT_RECORD</span>}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>INPUT_RECORD</span>, <span class='ident'>Event</span>, <span class='ident'>MouseEvent</span>, <span class='ident'>MouseEvent_mut</span>, <span class='ident'>MOUSE_EVENT_RECORD</span>}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>INPUT_RECORD</span>, <span class='ident'>Event</span>, <span class='ident'>WindowBufferSizeEvent</span>, <span class='ident'>WindowBufferSizeEvent_mut</span>,
+    <span class='ident'>WINDOW_BUFFER_SIZE_RECORD</span>}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>INPUT_RECORD</span>, <span class='ident'>Event</span>, <span class='ident'>MenuEvent</span>, <span class='ident'>MenuEvent_mut</span>, <span class='ident'>MENU_EVENT_RECORD</span>}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>INPUT_RECORD</span>, <span class='ident'>Event</span>, <span class='ident'>FocusEvent</span>, <span class='ident'>FocusEvent_mut</span>, <span class='ident'>FOCUS_EVENT_RECORD</span>}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PINPUT_RECORD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>INPUT_RECORD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KEY_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MOUSE_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINDOW_BUFFER_SIZE_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MENU_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FOCUS_EVENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CHAR_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>Char</span>: ::<span class='ident'>WCHAR</span>, <span class='comment'>//FIXME - untagged union</span>
-    <span class='kw'>pub</span> <span class='ident'>Attributes</span>: ::<span class='ident'>WORD</span>,
-}
-<span class='attribute'>#[<span class='ident'>test</span>]</span>
-<span class='kw'>fn</span> <span class='ident'>test_CHAR_INFO</span>() {
-    <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::{<span class='ident'>size_of</span>, <span class='ident'>align_of</span>};
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>WCHAR</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>size_of</span>::<span class='op'>&lt;</span>::<span class='ident'>CHAR</span><span class='op'>&gt;</span>());
-    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>WCHAR</span><span class='op'>&gt;</span>() <span class='op'>&gt;=</span> <span class='ident'>align_of</span>::<span class='op'>&lt;</span>::<span class='ident'>CHAR</span><span class='op'>&gt;</span>());
-}
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KEY_EVENT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MOUSE_EVENT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINDOW_BUFFER_SIZE_EVENT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MENU_EVENT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FOCUS_EVENT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CHAR_INFO</span> {
+    <span class='ident'>UnicodeChar</span>: ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>Attributes</span>: ::<span class='ident'>WORD</span>,
+}}
+<span class='macro'>UNION</span><span class='macro'>!</span>{<span class='ident'>CHAR_INFO</span>, <span class='ident'>UnicodeChar</span>, <span class='ident'>AsciiChar</span>, <span class='ident'>AsciiChar_mut</span>, ::<span class='ident'>CHAR</span>}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCHAR_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHAR_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FOREGROUND_BLUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FOREGROUND_GREEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
@@ -399,65 +348,58 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COMMON_LVB_REVERSE_VIDEO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COMMON_LVB_UNDERSCORE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>COMMON_LVB_SBCSDBCS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0300</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCursorPosition</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wAttributes</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>srWindow</span>: <span class='ident'>SMALL_RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaximumWindowSize</span>: <span class='ident'>COORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFO</span> {
+    <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>dwCursorPosition</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>wAttributes</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>srWindow</span>: <span class='ident'>SMALL_RECT</span>,
+    <span class='ident'>dwMaximumWindowSize</span>: <span class='ident'>COORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_SCREEN_BUFFER_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFO</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFOEX</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCursorPosition</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wAttributes</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>srWindow</span>: <span class='ident'>SMALL_RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaximumWindowSize</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wPopupAttributes</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>bFullscreenSupported</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>ColorTable</span>: [::<span class='ident'>COLORREF</span>; <span class='number'>16</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFOEX</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>dwSize</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>dwCursorPosition</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>wAttributes</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>srWindow</span>: <span class='ident'>SMALL_RECT</span>,
+    <span class='ident'>dwMaximumWindowSize</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>wPopupAttributes</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>bFullscreenSupported</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>ColorTable</span>: [::<span class='ident'>COLORREF</span>; <span class='number'>16</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_SCREEN_BUFFER_INFOEX</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_SCREEN_BUFFER_INFOEX</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_CURSOR_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>bVisible</span>: ::<span class='ident'>BOOL</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_CURSOR_INFO</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>bVisible</span>: ::<span class='ident'>BOOL</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_CURSOR_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_CURSOR_INFO</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_FONT_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>nFont</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFontSize</span>: ::<span class='ident'>COORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_FONT_INFO</span> {
+    <span class='ident'>nFont</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFontSize</span>: ::<span class='ident'>COORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_FONT_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_FONT_INFO</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_FONT_INFOEX</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFont</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFontSize</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FontFamily</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>FontWeight</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>FaceName</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>LF_FACESIZE</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_FONT_INFOEX</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>nFont</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFontSize</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>FontFamily</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>FontWeight</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>FaceName</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>LF_FACESIZE</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_FONT_INFOEX</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_FONT_INFOEX</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HISTORY_NO_DUP_FLAG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_HISTORY_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>HistoryBufferSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOfHistoryBuffers</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_HISTORY_INFO</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>HistoryBufferSize</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>NumberOfHistoryBuffers</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_HISTORY_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_HISTORY_INFO</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_SELECTION_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwSelectionAnchor</span>: <span class='ident'>COORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>srSelection</span>: <span class='ident'>SMALL_RECT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_SELECTION_INFO</span> {
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwSelectionAnchor</span>: <span class='ident'>COORD</span>,
+    <span class='ident'>srSelection</span>: <span class='ident'>SMALL_RECT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_SELECTION_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_SELECTION_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_NO_SELECTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_SELECTION_IN_PROGRESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
@@ -481,22 +423,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_AUTO_POSITION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_PROCESSED_OUTPUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_WRAP_AT_EOL_OUTPUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFE</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFFFFFFFFFE</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFD</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFFFFFFFFFD</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_OUTPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>2isize</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_REAL_INPUT_HANDLE</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>3isize</span> <span class='kw'>as</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ATTACH_PARENT_PROCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONSOLE_READCONSOLE_CONTROL</span> {
-    <span class='kw'>pub</span> <span class='ident'>nLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>nInitialChars</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCtrlWakeupMask</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONSOLE_READCONSOLE_CONTROL</span> {
+    <span class='ident'>nLength</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>nInitialChars</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>dwCtrlWakeupMask</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>dwControlKeyState</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONSOLE_READCONSOLE_CONTROL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONSOLE_READCONSOLE_CONTROL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_TEXTMODE_BUFFER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONSOLE_FULLSCREEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
@@ -563,6 +498,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

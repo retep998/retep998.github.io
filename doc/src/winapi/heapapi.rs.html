@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\heapapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\heapapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>heapapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -52,19 +53,17 @@
 <span id="10">10</span>
 <span id="11">11</span>
 <span id="12">12</span>
-<span id="13">13</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! ApiSet Contract for api-ms-win-core-heap-l1</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HEAP_SUMMARY</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbAllocated</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbCommitted</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbReserved</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbMaxReserve</span>: ::<span class='ident'>SIZE_T</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HEAP_SUMMARY</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>cbAllocated</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>cbCommitted</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>cbReserved</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>cbMaxReserve</span>: ::<span class='ident'>SIZE_T</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHEAP_SUMMARY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HEAP_SUMMARY</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPHEAP_SUMMARY</span> <span class='op'>=</span> <span class='ident'>PHEAP_SUMMARY</span>;
 </pre>
@@ -127,6 +126,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

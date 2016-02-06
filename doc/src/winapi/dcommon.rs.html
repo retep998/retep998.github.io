@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\dcommon.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\dcommon.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dcommon.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -58,45 +59,25 @@
 <span id="16">16</span>
 <span id="17">17</span>
 <span id="18">18</span>
-<span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015; Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of dcommon.h</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DWRITE_MEASURING_MODE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DWRITE_MEASURING_MODE</span> {
     <span class='ident'>DWRITE_MEASURING_MODE_NATURAL</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>DWRITE_MEASURING_MODE_GDI_CLASSIC</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>DWRITE_MEASURING_MODE_GDI_NATURAL</span> <span class='op'>=</span> <span class='number'>2</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>DWRITE_MEASURING_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D2D1_ALPHA_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D2D1_ALPHA_MODE</span> {
     <span class='ident'>D2D1_ALPHA_MODE_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D2D1_ALPHA_MODE_PREMULTIPLIED</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D2D1_ALPHA_MODE_STRAIGHT</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D2D1_ALPHA_MODE_IGNORE</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D2D1_ALPHA_MODE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D2D1_PIXEL_FORMAT</span> {
-    <span class='kw'>pub</span> <span class='ident'>format</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>alphaMode</span>: <span class='ident'>D2D1_ALPHA_MODE</span>,
-}
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D2D1_PIXEL_FORMAT</span> {
+    <span class='ident'>format</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>alphaMode</span>: <span class='ident'>D2D1_ALPHA_MODE</span>,
+}}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -157,6 +138,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\d3d9caps.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\d3d9caps.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>d3d9caps.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -397,22 +398,16 @@
 <span id="355">355</span>
 <span id="356">356</span>
 <span id="357">357</span>
-<span id="358">358</span>
-<span id="359">359</span>
-<span id="360">360</span>
-<span id="361">361</span>
-<span id="362">362</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Corey Richardson</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Direct3D capabilities include file</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DVSHADERCAPS2_0</span> {
-    <span class='kw'>pub</span> <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DVSHADERCAPS2_0</span> {
+    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20CAPS_PREDICATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>24</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
@@ -420,14 +415,13 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_NUMTEMPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>12</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MAX_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DPSHADERCAPS2_0</span> {
-    <span class='kw'>pub</span> <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumInstructionSlots</span>: ::<span class='ident'>INT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DPSHADERCAPS2_0</span> {
+    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>NumInstructionSlots</span>: ::<span class='ident'>INT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_ARBITRARYSWIZZLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_GRADIENTINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_PREDICATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>2</span>;
@@ -443,12 +437,11 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MIN_NUMINSTRUCTIONSLOTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>96</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DMIN30SHADERINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>512</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DMAX30SHADERINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32768</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DOVERLAYCAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>Caps</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxOverlayDisplayWidth</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxOverlayDisplayHeight</span>: ::<span class='ident'>UINT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DOVERLAYCAPS</span> {
+    <span class='ident'>Caps</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>MaxOverlayDisplayWidth</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>MaxOverlayDisplayHeight</span>: ::<span class='ident'>UINT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_FULLRANGERGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_LIMITEDRANGERGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT601</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -457,14 +450,13 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT709_xvYCC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_STRETCHX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_STRETCHY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DCONTENTPROTECTIONCAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>KeyExchangeType</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>BufferAlignmentStart</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>BlockAlignmentSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProtectedMemorySize</span>: ::<span class='ident'>ULONGLONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DCONTENTPROTECTIONCAPS</span> {
+    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>KeyExchangeType</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>BufferAlignmentStart</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>BlockAlignmentSize</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>ProtectedMemorySize</span>: ::<span class='ident'>ULONGLONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_SOFTWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_HARDWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_PROTECTIONALWAYSON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -483,78 +475,77 @@
     <span class='number'>0x8e</span>, <span class='number'>0x5d</span>, <span class='number'>0xed</span>, <span class='number'>0x85</span>, <span class='number'>0x7d</span>, <span class='number'>0x17</span>, <span class='number'>0x15</span>, <span class='number'>0x20</span>);
 <span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>D3DKEYEXCHANGE_DXVA</span>, <span class='number'>0x43d3775c</span>, <span class='number'>0x38e5</span>, <span class='number'>0x4924</span>, <span class='number'>0x8d</span>,
     <span class='number'>0x86</span>, <span class='number'>0xd3</span>, <span class='number'>0xfc</span>, <span class='number'>0xcf</span>, <span class='number'>0x15</span>, <span class='number'>0x3e</span>, <span class='number'>0x9b</span>);
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3DCAPS9</span> {
-    <span class='kw'>pub</span> <span class='ident'>DeviceType</span>: ::<span class='ident'>D3DDEVTYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>AdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Caps2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Caps3</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PresentationIntervals</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CursorCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DevCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrimitiveMiscCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>RasterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ZCmpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>SrcBlendCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DestBlendCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>AlphaCmpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ShadeCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TextureCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CubeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VolumeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VolumeTextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>LineCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxTextureWidth</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxTextureHeight</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVolumeExtent</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxTextureRepeat</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxTextureAspectRatio</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxAnisotropy</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexW</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>GuardBandLeft</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>GuardBandTop</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>GuardBandRight</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>GuardBandBottom</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>ExtentsAdjust</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>StencilCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FVFCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TextureOpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxTextureBlendStages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxSimultaneousTextures</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VertexProcessingCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxActiveLights</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxUserClipPlanes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexBlendMatrices</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexBlendMatrixIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxPointSize</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxPrimitiveCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxStreams</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxStreamStride</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VertexShaderVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexShaderConst</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PixelShaderVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PixelShader1xMaxValue</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>DevCaps2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxNpatchTessellationLevel</span>: ::<span class='ident'>c_float</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved5</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MasterAdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>AdapterOrdinalInGroup</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOfAdaptersInGroup</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>DeclTypes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumSimultaneousRTs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>StretchRectFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>VS20Caps</span>: ::<span class='ident'>D3DVSHADERCAPS2_0</span>,
-    <span class='kw'>pub</span> <span class='ident'>PS20Caps</span>: ::<span class='ident'>D3DPSHADERCAPS2_0</span>,
-    <span class='kw'>pub</span> <span class='ident'>VertexTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxPShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxVertexShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxPixelShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DCAPS9</span> {
+    <span class='ident'>DeviceType</span>: ::<span class='ident'>D3DDEVTYPE</span>,
+    <span class='ident'>AdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Caps2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Caps3</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PresentationIntervals</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CursorCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DevCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PrimitiveMiscCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>RasterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ZCmpCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>SrcBlendCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DestBlendCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>AlphaCmpCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ShadeCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TextureCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CubeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VolumeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VolumeTextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>LineCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxTextureWidth</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxTextureHeight</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVolumeExtent</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxTextureRepeat</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxTextureAspectRatio</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxAnisotropy</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexW</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>GuardBandLeft</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>GuardBandTop</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>GuardBandRight</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>GuardBandBottom</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>ExtentsAdjust</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>StencilCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>FVFCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TextureOpCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxTextureBlendStages</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxSimultaneousTextures</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VertexProcessingCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxActiveLights</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxUserClipPlanes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexBlendMatrices</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexBlendMatrixIndex</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxPointSize</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>MaxPrimitiveCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexIndex</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxStreams</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxStreamStride</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VertexShaderVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexShaderConst</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PixelShaderVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PixelShader1xMaxValue</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>DevCaps2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxNpatchTessellationLevel</span>: ::<span class='ident'>c_float</span>,
+    <span class='ident'>Reserved5</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MasterAdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>AdapterOrdinalInGroup</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>NumberOfAdaptersInGroup</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>DeclTypes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>NumSimultaneousRTs</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>StretchRectFilterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>VS20Caps</span>: ::<span class='ident'>D3DVSHADERCAPS2_0</span>,
+    <span class='ident'>PS20Caps</span>: ::<span class='ident'>D3DPSHADERCAPS2_0</span>,
+    <span class='ident'>VertexTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxPShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxVertexShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MaxPixelShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS_OVERLAY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS_READ_SCANLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_FULLSCREENGAMMA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
@@ -825,6 +816,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

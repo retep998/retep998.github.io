@@ -9,6 +9,7 @@
 
     <title>winapi::winhttp - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-78076' class='srclink' href='../../src/winapi/winhttp.rs.html#3-478' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-104902' class='srclink' href='../../src/winapi/winhttp.rs.html#3-441' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Windows HTTP Services API constant definitions and macros</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -104,10 +105,9 @@
                              
                         </td>
                     </tr>
-                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
+                
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WINHTTP_WEB_SOCKET_BUFFER_TYPE.html'
+                        <td><a class='struct' href='struct.WINHTTP_WEB_SOCKET_BUFFER_TYPE.html'
                                title='winapi::winhttp::WINHTTP_WEB_SOCKET_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_BUFFER_TYPE</a></td>
                         <td class='docblock short'>
                              
@@ -115,7 +115,7 @@
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WINHTTP_WEB_SOCKET_CLOSE_STATUS.html'
+                        <td><a class='struct' href='struct.WINHTTP_WEB_SOCKET_CLOSE_STATUS.html'
                                title='winapi::winhttp::WINHTTP_WEB_SOCKET_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_CLOSE_STATUS</a></td>
                         <td class='docblock short'>
                              
@@ -123,7 +123,7 @@
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WINHTTP_WEB_SOCKET_OPERATION.html'
+                        <td><a class='struct' href='struct.WINHTTP_WEB_SOCKET_OPERATION.html'
                                title='winapi::winhttp::WINHTTP_WEB_SOCKET_OPERATION'>WINHTTP_WEB_SOCKET_OPERATION</a></td>
                         <td class='docblock short'>
                              
@@ -2730,6 +2730,174 @@
                              
                         </td>
                     </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_CLOSE_OPERATION.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_CLOSE_OPERATION'>WINHTTP_WEB_SOCKET_CLOSE_OPERATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_RECEIVE_OPERATION.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_RECEIVE_OPERATION'>WINHTTP_WEB_SOCKET_RECEIVE_OPERATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_SEND_OPERATION.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_SEND_OPERATION'>WINHTTP_WEB_SOCKET_SEND_OPERATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION'>WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS'>WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE.html'
+                               title='winapi::winhttp::WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE'>WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                     <tr class=' module-item'>
@@ -2910,6 +3078,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

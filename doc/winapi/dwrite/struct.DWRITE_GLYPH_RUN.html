@@ -9,6 +9,7 @@
 
     <title>winapi::dwrite::DWRITE_GLYPH_RUN - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,14 +46,14 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-32234' class='srclink' href='../../src/winapi/dwrite.rs.html#790-799' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-42783' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct DWRITE_GLYPH_RUN {
-    pub fontFace: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='struct' href='../../winapi/dwrite/struct.IDWriteFontFace.html' title='winapi::dwrite::IDWriteFontFace'>IDWriteFontFace</a></a>,
+    pub fontFace: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dwrite/struct.IDWriteFontFace.html' title='winapi::dwrite::IDWriteFontFace'>IDWriteFontFace</a>,
     pub fontEmSize: <a class='type' href='../../winapi/minwindef/type.FLOAT.html' title='winapi::minwindef::FLOAT'>FLOAT</a>,
     pub glyphCount: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>,
-    pub glyphIndices: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../../winapi/basetsd/type.UINT16.html' title='winapi::basetsd::UINT16'>UINT16</a></a>,
-    pub glyphAdvances: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='type' href='../../winapi/minwindef/type.FLOAT.html' title='winapi::minwindef::FLOAT'>FLOAT</a></a>,
-    pub glyphOffsets: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_OFFSET.html' title='winapi::dwrite::DWRITE_GLYPH_OFFSET'>DWRITE_GLYPH_OFFSET</a></a>,
+    pub glyphIndices: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../winapi/basetsd/type.UINT16.html' title='winapi::basetsd::UINT16'>UINT16</a>,
+    pub glyphAdvances: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../winapi/minwindef/type.FLOAT.html' title='winapi::minwindef::FLOAT'>FLOAT</a>,
+    pub glyphOffsets: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_OFFSET.html' title='winapi::dwrite::DWRITE_GLYPH_OFFSET'>DWRITE_GLYPH_OFFSET</a>,
     pub isSideways: <a class='type' href='../../winapi/minwindef/type.BOOL.html' title='winapi::minwindef::BOOL'>BOOL</a>,
     pub bidiLevel: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>,
 }</pre><h2 class='fields'>Fields</h2>
@@ -64,9 +65,9 @@
                                   <td id='structfield.glyphAdvances'><code>glyphAdvances</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.glyphOffsets'><code>glyphOffsets</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.isSideways'><code>isSideways</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.bidiLevel'><code>bidiLevel</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h4>
+                                  <td id='structfield.bidiLevel'><code>bidiLevel</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h4>
 <h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/dwrite/struct.DWRITE_GLYPH_RUN.html' title='winapi::dwrite::DWRITE_GLYPH_RUN'>DWRITE_GLYPH_RUN</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -126,6 +127,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

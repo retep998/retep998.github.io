@@ -9,6 +9,7 @@
 
     <title>winapi::bcrypt - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-353' class='srclink' href='../../src/winapi/bcrypt.rs.html#3-469' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-413' class='srclink' href='../../src/winapi/bcrypt.rs.html#3-356' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Cryptographic Primitive API Prototypes and Definitions</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -122,6 +123,14 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='struct' href='struct.BCRYPT_HASH_OPERATION_TYPE.html'
+                               title='winapi::bcrypt::BCRYPT_HASH_OPERATION_TYPE'>BCRYPT_HASH_OPERATION_TYPE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='struct' href='struct.BCRYPT_INTERFACE_VERSION.html'
                                title='winapi::bcrypt::BCRYPT_INTERFACE_VERSION'>BCRYPT_INTERFACE_VERSION</a></td>
                         <td class='docblock short'>
@@ -164,6 +173,14 @@
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.BCRYPT_MULTI_OBJECT_LENGTH_STRUCT.html'
                                title='winapi::bcrypt::BCRYPT_MULTI_OBJECT_LENGTH_STRUCT'>BCRYPT_MULTI_OBJECT_LENGTH_STRUCT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.BCRYPT_MULTI_OPERATION_TYPE.html'
+                               title='winapi::bcrypt::BCRYPT_MULTI_OPERATION_TYPE'>BCRYPT_MULTI_OPERATION_TYPE</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -344,26 +361,9 @@
                              
                         </td>
                     </tr>
-                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.BCRYPT_HASH_OPERATION_TYPE.html'
-                               title='winapi::bcrypt::BCRYPT_HASH_OPERATION_TYPE'>BCRYPT_HASH_OPERATION_TYPE</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.BCRYPT_MULTI_OPERATION_TYPE.html'
-                               title='winapi::bcrypt::BCRYPT_MULTI_OPERATION_TYPE'>BCRYPT_MULTI_OPERATION_TYPE</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.DSAFIPSVERSION_ENUM.html'
+                        <td><a class='struct' href='struct.DSAFIPSVERSION_ENUM.html'
                                title='winapi::bcrypt::DSAFIPSVERSION_ENUM'>DSAFIPSVERSION_ENUM</a></td>
                         <td class='docblock short'>
                              
@@ -371,7 +371,7 @@
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.HASHALGORITHM_ENUM.html'
+                        <td><a class='struct' href='struct.HASHALGORITHM_ENUM.html'
                                title='winapi::bcrypt::HASHALGORITHM_ENUM'>HASHALGORITHM_ENUM</a></td>
                         <td class='docblock short'>
                              
@@ -708,6 +708,22 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='constant' href='constant.BCRYPT_HASH_OPERATION_FINISH_HASH.html'
+                               title='winapi::bcrypt::BCRYPT_HASH_OPERATION_FINISH_HASH'>BCRYPT_HASH_OPERATION_FINISH_HASH</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.BCRYPT_HASH_OPERATION_HASH_DATA.html'
+                               title='winapi::bcrypt::BCRYPT_HASH_OPERATION_HASH_DATA'>BCRYPT_HASH_OPERATION_HASH_DATA</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='constant' href='constant.BCRYPT_HASH_REUSABLE_FLAG.html'
                                title='winapi::bcrypt::BCRYPT_HASH_REUSABLE_FLAG'>BCRYPT_HASH_REUSABLE_FLAG</a></td>
                         <td class='docblock short'>
@@ -742,6 +758,14 @@
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.BCRYPT_KEY_DERIVATION_OPERATION.html'
                                title='winapi::bcrypt::BCRYPT_KEY_DERIVATION_OPERATION'>BCRYPT_KEY_DERIVATION_OPERATION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.BCRYPT_OPERATION_TYPE_HASH.html'
+                               title='winapi::bcrypt::BCRYPT_OPERATION_TYPE_HASH'>BCRYPT_OPERATION_TYPE_HASH</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -1044,6 +1068,46 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DSA_FIPS186_2.html'
+                               title='winapi::bcrypt::DSA_FIPS186_2'>DSA_FIPS186_2</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DSA_FIPS186_3.html'
+                               title='winapi::bcrypt::DSA_FIPS186_3'>DSA_FIPS186_3</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DSA_HASH_ALGORITHM_SHA1.html'
+                               title='winapi::bcrypt::DSA_HASH_ALGORITHM_SHA1'>DSA_HASH_ALGORITHM_SHA1</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DSA_HASH_ALGORITHM_SHA256.html'
+                               title='winapi::bcrypt::DSA_HASH_ALGORITHM_SHA256'>DSA_HASH_ALGORITHM_SHA256</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DSA_HASH_ALGORITHM_SHA512.html'
+                               title='winapi::bcrypt::DSA_HASH_ALGORITHM_SHA512'>DSA_HASH_ALGORITHM_SHA512</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='constant' href='constant.KDF_ALGORITHMID.html'
                                title='winapi::bcrypt::KDF_ALGORITHMID'>KDF_ALGORITHMID</a></td>
                         <td class='docblock short'>
@@ -1198,15 +1262,6 @@
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.KDF_USE_SECRET_AS_HMAC_KEY_FLAG.html'
                                title='winapi::bcrypt::KDF_USE_SECRET_AS_HMAC_KEY_FLAG'>KDF_USE_SECRET_AS_HMAC_KEY_FLAG</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='fn' href='fn.BCRYPT_MAKE_INTERFACE_VERSION.html'
-                               title='winapi::bcrypt::BCRYPT_MAKE_INTERFACE_VERSION'>BCRYPT_MAKE_INTERFACE_VERSION</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -1495,6 +1550,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

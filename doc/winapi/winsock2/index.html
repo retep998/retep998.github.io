@@ -9,6 +9,7 @@
 
     <title>winapi::winsock2 - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-84017' class='srclink' href='../../src/winapi/winsock2.rs.html#3-490' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-111617' class='srclink' href='../../src/winapi/winsock2.rs.html#3-431' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>definitions to be used with the WinSock 2 DLL and WinSock 2 applications.</p>
 
 <p>This header file corresponds to version 2.2.x of the WinSock API specification.</p>
@@ -70,6 +71,14 @@
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.WSACOMPLETION.html'
                                title='winapi::winsock2::WSACOMPLETION'>WSACOMPLETION</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.WSACOMPLETIONTYPE.html'
+                               title='winapi::winsock2::WSACOMPLETIONTYPE'>WSACOMPLETIONTYPE</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -110,6 +119,22 @@
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.WSADATA.html'
                                title='winapi::winsock2::WSADATA'>WSADATA</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.WSAECOMPARATOR.html'
+                               title='winapi::winsock2::WSAECOMPARATOR'>WSAECOMPARATOR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.WSAESETSERVICEOP.html'
+                               title='winapi::winsock2::WSAESETSERVICEOP'>WSAESETSERVICEOP</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -322,33 +347,24 @@
                              
                         </td>
                     </tr>
-                </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WSACOMPLETIONTYPE.html'
-                               title='winapi::winsock2::WSACOMPLETIONTYPE'>WSACOMPLETIONTYPE</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WSAECOMPARATOR.html'
-                               title='winapi::winsock2::WSAECOMPARATOR'>WSAECOMPARATOR</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.WSAESETSERVICEOP.html'
-                               title='winapi::winsock2::WSAESETSERVICEOP'>WSAESETSERVICEOP</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
                 </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.COMP_EQUAL.html'
+                               title='winapi::winsock2::COMP_EQUAL'>COMP_EQUAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.COMP_NOTLESS.html'
+                               title='winapi::winsock2::COMP_NOTLESS'>COMP_NOTLESS</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.FD_MAX_EVENTS.html'
                                title='winapi::winsock2::FD_MAX_EVENTS'>FD_MAX_EVENTS</a></td>
@@ -366,6 +382,14 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='constant' href='constant.FIONBIO.html'
+                               title='winapi::winsock2::FIONBIO'>FIONBIO</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='constant' href='constant.INVALID_SOCKET.html'
                                title='winapi::winsock2::INVALID_SOCKET'>INVALID_SOCKET</a></td>
                         <td class='docblock short'>
@@ -376,6 +400,46 @@
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.MAX_PROTOCOL_CHAIN.html'
                                title='winapi::winsock2::MAX_PROTOCOL_CHAIN'>MAX_PROTOCOL_CHAIN</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NSP_NOTIFY_APC.html'
+                               title='winapi::winsock2::NSP_NOTIFY_APC'>NSP_NOTIFY_APC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NSP_NOTIFY_EVENT.html'
+                               title='winapi::winsock2::NSP_NOTIFY_EVENT'>NSP_NOTIFY_EVENT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NSP_NOTIFY_HWND.html'
+                               title='winapi::winsock2::NSP_NOTIFY_HWND'>NSP_NOTIFY_HWND</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NSP_NOTIFY_IMMEDIATELY.html'
+                               title='winapi::winsock2::NSP_NOTIFY_IMMEDIATELY'>NSP_NOTIFY_IMMEDIATELY</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.NSP_NOTIFY_PORT.html'
+                               title='winapi::winsock2::NSP_NOTIFY_PORT'>NSP_NOTIFY_PORT</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -672,6 +736,30 @@
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.POLLWRNORM.html'
                                title='winapi::winsock2::POLLWRNORM'>POLLWRNORM</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.RNRSERVICE_DELETE.html'
+                               title='winapi::winsock2::RNRSERVICE_DELETE'>RNRSERVICE_DELETE</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.RNRSERVICE_DEREGISTER.html'
+                               title='winapi::winsock2::RNRSERVICE_DEREGISTER'>RNRSERVICE_DEREGISTER</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.RNRSERVICE_REGISTER.html'
+                               title='winapi::winsock2::RNRSERVICE_REGISTER'>RNRSERVICE_REGISTER</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -1288,6 +1376,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

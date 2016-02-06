@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\tlhelp32.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\tlhelp32.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>tlhelp32.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -152,67 +153,44 @@
 <span id="110">110</span>
 <span id="111">111</span>
 <span id="112">112</span>
-<span id="113">113</span>
-<span id="114">114</span>
-<span id="115">115</span>
-<span id="116">116</span>
-<span id="117">117</span>
-<span id="118">118</span>
-<span id="119">119</span>
-<span id="120">120</span>
-<span id="121">121</span>
-<span id="122">122</span>
-<span id="123">123</span>
-<span id="124">124</span>
-<span id="125">125</span>
-<span id="126">126</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Gigih Aji Ibrahim</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_MODULE_NAME32</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>255</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPHEAPLIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPPROCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPTHREAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPMODULE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPMODULE32</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_SNAPALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     (<span class='ident'>TH32CS_SNAPHEAPLIST</span> <span class='op'>|</span> <span class='ident'>TH32CS_SNAPPROCESS</span> <span class='op'>|</span> <span class='ident'>TH32CS_SNAPTHREAD</span> <span class='op'>|</span> <span class='ident'>TH32CS_SNAPMODULE</span>);
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TH32CS_INHERIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HEAPLIST32</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32ProcessID</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32HeapID</span>: :: <span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HEAPLIST32</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>th32ProcessID</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>th32HeapID</span>: :: <span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHEAPLIST32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HEAPLIST32</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPHEAPLIST32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HEAPLIST32</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HF32_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HF32_SHARED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HEAPENTRY32</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>hHandle</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwAddress</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwBlockSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwLockCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwResvd</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32ProcessID</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32HeapID</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>HEAPENTRY32</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>hHandle</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>dwAddress</span>: ::<span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>dwBlockSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwLockCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwResvd</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>th32ProcessID</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>th32HeapID</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHEAPENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HEAPENTRY32</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPHEAPENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HEAPENTRY32</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LF32_FIXED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LF32_FREE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LF32_MOVEABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROCESSENTRY32W</span> {
     <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
@@ -229,7 +207,6 @@
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROCESSENTRY32W</span>{ <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROCESSENTRY32W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROCESSENTRY32W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESSENTRY32W</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROCESSENTRY32W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESSENTRY32W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROCESSENTRY32</span> {
     <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
@@ -246,20 +223,17 @@
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROCESSENTRY32</span>{ <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROCESSENTRY32</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROCESSENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESSENTRY32</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROCESSENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESSENTRY32</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>THREADENTRY32</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cntUsage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32ThreadID</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>th32OwnerProcessID</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>tpBasePri</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>tpDeltaPri</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>THREADENTRY32</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>cntUsage</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>th32ThreadID</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>th32OwnerProcessID</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>tpBasePri</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>tpDeltaPri</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PTHREADENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>THREADENTRY32</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPTHREADENTRY32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>THREADENTRY32</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MODULEENTRY32W</span> {
     <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
@@ -276,7 +250,6 @@
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>MODULEENTRY32W</span>{ <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>MODULEENTRY32W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMODULEENTRY32W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MODULEENTRY32W</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPMODULEENTRY32W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MODULEENTRY32W</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MODULEENTRY32</span> {
     <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
@@ -353,6 +326,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\corsym.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\corsym.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>corsym.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -119,13 +120,6 @@
 <span id="77">77</span>
 <span id="78">78</span>
 <span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -162,8 +156,7 @@
     <span class='number'>0xb6</span>, <span class='number'>0xf0</span>, <span class='number'>0x42</span>, <span class='number'>0xd4</span>, <span class='number'>0x81</span>, <span class='number'>0x72</span>, <span class='number'>0xa7</span>, <span class='number'>0x99</span>);
 <span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>CorSym_SourceHash_SHA1</span>, <span class='number'>0xff1816ec</span>, <span class='number'>0xaa5e</span>, <span class='number'>0x4d10</span>,
     <span class='number'>0x87</span>, <span class='number'>0xf7</span>, <span class='number'>0x6f</span>, <span class='number'>0x49</span>, <span class='number'>0x63</span>, <span class='number'>0x83</span>, <span class='number'>0x34</span>, <span class='number'>0x60</span>);
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CorSymAddrKind</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CorSymAddrKind</span> {
     <span class='ident'>ADDR_IL_OFFSET</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>ADDR_NATIVE_RVA</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>ADDR_NATIVE_REGISTER</span> <span class='op'>=</span> <span class='number'>3</span>,
@@ -174,14 +167,10 @@
     <span class='ident'>ADDR_NATIVE_STKREG</span> <span class='op'>=</span> <span class='number'>8</span>,
     <span class='ident'>ADDR_BITFIELD</span> <span class='op'>=</span> <span class='number'>9</span>,
     <span class='ident'>ADDR_NATIVE_ISECTOFFSET</span> <span class='op'>=</span> <span class='number'>10</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>CorSymAddrKind</span>::<span class='op'>*</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CorSymVarFlag</span> {
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CorSymVarFlag</span> {
     <span class='ident'>VAR_IS_COMP_GEN</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span> <span class='ident'>__</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>CorSymVarFlag</span>::<span class='op'>*</span>;
+}}
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ISymUnmanagedBinder</span>(<span class='ident'>ISymUnmanagedBinderVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetReaderForFile</span>(
@@ -194,14 +183,12 @@
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }
 );
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CorSymSearchPolicyAttributes</span> {
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CorSymSearchPolicyAttributes</span> {
     <span class='ident'>AllowRegistryAccess</span> <span class='op'>=</span> <span class='number'>0x1</span>,
     <span class='ident'>AllowSymbolServerAccess</span> <span class='op'>=</span> <span class='number'>0x2</span>,
     <span class='ident'>AllowOriginalPathAccess</span> <span class='op'>=</span> <span class='number'>0x4</span>,
     <span class='ident'>AllowReferencePathAccess</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>CorSymSearchPolicyAttributes</span>::<span class='op'>*</span>;
+}}
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ISymUnmanagedBinder2</span>(<span class='ident'>ISymUnmanagedBinder2Vtbl</span>):
     <span class='ident'>ISymUnmanagedBinder</span>(<span class='ident'>ISymUnmanagedBinderVtbl</span>) {
@@ -273,6 +260,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

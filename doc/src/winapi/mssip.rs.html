@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\mssip.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\mssip.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mssip.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -145,93 +146,79 @@
 <span id="103">103</span>
 <span id="104">104</span>
 <span id="105">105</span>
-<span id="106">106</span>
-<span id="107">107</span>
-<span id="108">108</span>
-<span id="109">109</span>
-<span id="110">110</span>
-<span id="111">111</span>
-<span id="112">112</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Microsoft SIP Provider Prototypes and Definitions</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SIP_SUBJECTINFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pgSubjectType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>hFile</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwsFileName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwsDisplayName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwIntVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hProv</span>: ::<span class='ident'>HCRYPTPROV</span>,
-    <span class='kw'>pub</span> <span class='ident'>DigestAlgorithm</span>: ::<span class='ident'>CRYPT_ALGORITHM_IDENTIFIER</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwEncodingType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>fdwCAPISettings</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>fdwSecuritySettings</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwUnionChoice</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>psFlat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_FLAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>pClientData</span>: ::<span class='ident'>LPVOID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SIP_SUBJECTINFO</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pgSubjectType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>GUID</span>,
+    <span class='ident'>hFile</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>pwsFileName</span>: ::<span class='ident'>LPCWSTR</span>,
+    <span class='ident'>pwsDisplayName</span>: ::<span class='ident'>LPCWSTR</span>,
+    <span class='ident'>dwReserved1</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwIntVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>hProv</span>: ::<span class='ident'>HCRYPTPROV</span>,
+    <span class='ident'>DigestAlgorithm</span>: ::<span class='ident'>CRYPT_ALGORITHM_IDENTIFIER</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwEncodingType</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwReserved2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>fdwCAPISettings</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>fdwSecuritySettings</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwIndex</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwUnionChoice</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>psFlat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_FLAT</span>,
+    <span class='ident'>pClientData</span>: ::<span class='ident'>LPVOID</span>,
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SIP_SUBJECTINFO</span>, <span class='ident'>psFlat</span>, <span class='ident'>psCatMember</span>, <span class='ident'>psCatMember_mut</span>, <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_CATALOGMEMBER</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SIP_SUBJECTINFO</span>, <span class='ident'>psFlat</span>, <span class='ident'>psBlob</span>, <span class='ident'>psBlob_mut</span>, <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_BLOB</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSIP_SUBJECTINFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_SUBJECTINFO</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_FLAT</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pIndirectData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_INDIRECT_DATA</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_FLAT</span> {
+    <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pIndirectData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_INDIRECT_DATA</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMS_ADDINFO_FLAT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_FLAT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_CATALOGMEMBER</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pStore</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CRYPTCATSTORE</span>,
-    <span class='kw'>pub</span> <span class='ident'>pMember</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CRYPTCATMEMBER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_CATALOGMEMBER</span> {
+    <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pStore</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CRYPTCATSTORE</span>,
+    <span class='ident'>pMember</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CRYPTCATMEMBER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMS_ADDINFO_CATALOGMEMBER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_CATALOGMEMBER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_BLOB</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbMemObject</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pbMemObject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbMemSignedMsg</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pbMemSignedMsg</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MS_ADDINFO_BLOB</span> {
+    <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>cbMemObject</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pbMemObject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
+    <span class='ident'>cbMemSignedMsg</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pbMemSignedMsg</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMS_ADDINFO_BLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MS_ADDINFO_BLOB</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SIP_INDIRECT_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>Data</span>: ::<span class='ident'>CRYPT_ATTRIBUTE_TYPE_VALUE</span>,
-    <span class='kw'>pub</span> <span class='ident'>DigestAlgorithm</span>: ::<span class='ident'>CRYPT_ALGORITHM_IDENTIFIER</span>,
-    <span class='kw'>pub</span> <span class='ident'>Digest</span>: ::<span class='ident'>CRYPT_HASH_BLOB</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SIP_INDIRECT_DATA</span> {
+    <span class='ident'>Data</span>: ::<span class='ident'>CRYPT_ATTRIBUTE_TYPE_VALUE</span>,
+    <span class='ident'>DigestAlgorithm</span>: ::<span class='ident'>CRYPT_ALGORITHM_IDENTIFIER</span>,
+    <span class='ident'>Digest</span>: ::<span class='ident'>CRYPT_HASH_BLOB</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSIP_INDIRECT_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_INDIRECT_DATA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SIP_ADD_NEWPROVIDER</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pgSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszDLLFileName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszMagicNumber</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszIsFunctionName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszGetFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszPutFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszCreateFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszVerifyFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszRemoveFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszIsFunctionNameFmt2</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszGetCapFuncName</span>: ::<span class='ident'>PWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SIP_ADD_NEWPROVIDER</span> {
+    <span class='ident'>cbStruct</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pgSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>GUID</span>,
+    <span class='ident'>pwszDLLFileName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszMagicNumber</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszIsFunctionName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszGetFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszPutFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszCreateFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszVerifyFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszRemoveFuncName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszIsFunctionNameFmt2</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>pwszGetCapFuncName</span>: ::<span class='ident'>PWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSIP_ADD_NEWPROVIDER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_ADD_NEWPROVIDER</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SIP_CAP_SET_V3</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>isMultiSign</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SIP_CAP_SET_V3</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>isMultiSign</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SIP_CAP_SET_V3</span>, <span class='ident'>dwFlags</span>, <span class='ident'>dwReserved</span>, <span class='ident'>dwReserved_mut</span>, ::<span class='ident'>DWORD</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSIP_CAP_SET_V3</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SIP_CAP_SET_V3</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SIP_CAP_SET</span> <span class='op'>=</span> <span class='ident'>PSIP_CAP_SET_V3</span>;
@@ -325,6 +312,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

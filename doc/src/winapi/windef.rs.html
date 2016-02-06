@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\windef.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\windef.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>windef.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -97,10 +98,6 @@
 <span id="55">55</span>
 <span id="56">56</span>
 <span id="57">57</span>
-<span id="58">58</span>
-<span id="59">59</span>
-<span id="60">60</span>
-<span id="61">61</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -128,40 +125,36 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HCURSOR</span> <span class='op'>=</span> <span class='ident'>HICON</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>COLORREF</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCOLORREF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>DWORD</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RECT</span> {
-    <span class='kw'>pub</span> <span class='ident'>left</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>top</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>right</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>bottom</span>: ::<span class='ident'>LONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RECT</span> {
+    <span class='ident'>left</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>top</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>right</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>bottom</span>: ::<span class='ident'>LONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NPRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECT</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCRECT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>RECTL</span> {
-    <span class='kw'>pub</span> <span class='ident'>left</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>top</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>right</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>bottom</span>: ::<span class='ident'>LONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RECTL</span> {
+    <span class='ident'>left</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>top</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>right</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>bottom</span>: ::<span class='ident'>LONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRECTL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECTL</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPRECTL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RECTL</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCRECTL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>RECTL</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>POINT</span> {
-    <span class='kw'>pub</span> <span class='ident'>x</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>y</span>: ::<span class='ident'>LONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>POINT</span> {
+    <span class='ident'>x</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>y</span>: ::<span class='ident'>LONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NPPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPOINT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINT</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>POINTL</span> {
-    <span class='kw'>pub</span> <span class='ident'>x</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>y</span>: ::<span class='ident'>LONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>POINTL</span> {
+    <span class='ident'>x</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>y</span>: ::<span class='ident'>LONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPOINTL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>POINTL</span>;
 </pre>
 </section>
@@ -223,6 +216,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

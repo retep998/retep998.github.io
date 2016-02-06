@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\lmcons.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\lmcons.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lmcons.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -83,6 +84,18 @@
 <span id="41">41</span>
 <span id="42">42</span>
 <span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -124,9 +137,21 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_PREFERRED_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1i32</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_KEY_LEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_TXT_LEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENCRYPTED_PWLEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENCRYPTED_PWLEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>16</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SESSION_PWLEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>24</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SESSION_CRYPT_KLEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>21</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PARM_ERROR_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1i32</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PARM_ERROR_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PARMNUM_BASE_INFOLEVEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1000</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LMSTR</span> <span class='op'>=</span> ::<span class='ident'>LPWSTR</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LMCSTR</span> <span class='op'>=</span> ::<span class='ident'>LPCWSTR</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>NET_API_STATUS</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>API_RET_TYPE</span> <span class='op'>=</span> <span class='ident'>NET_API_STATUS</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PLATFORM_ID_DOS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>300</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PLATFORM_ID_OS2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>400</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PLATFORM_ID_NT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>500</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PLATFORM_ID_OSF</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>600</span>;
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PLATFORM_ID_VMS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>700</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -187,6 +212,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

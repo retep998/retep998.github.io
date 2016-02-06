@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\ws2spi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\ws2spi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>ws2spi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -101,19 +102,11 @@
 <span id="59">59</span>
 <span id="60">60</span>
 <span id="61">61</span>
-<span id="62">62</span>
-<span id="63">63</span>
-<span id="64">64</span>
-<span id="65">65</span>
-<span id="66">66</span>
-<span id="67">67</span>
-<span id="68">68</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Definitions to be used with the WinSock service provider</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSPDESCRIPTION_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>255</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSPDATA</span> {
     <span class='kw'>pub</span> <span class='ident'>wVersion</span>: ::<span class='ident'>WORD</span>,
@@ -122,14 +115,11 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>WSPDATA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>WSPDATA</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSPDATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSPDATA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSATHREADID</span> {
-    <span class='kw'>pub</span> <span class='ident'>ThreadHandle</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSATHREADID</span> {
+    <span class='ident'>ThreadHandle</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSATHREADID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSATHREADID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNSPV2STARTUP</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>lpProviderId</span>: ::<span class='ident'>LPGUID</span>, <span class='ident'>ppvClientSessionArg</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LPVOID</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>INT</span><span class='op'>&gt;</span>;
@@ -152,7 +142,6 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNSPV2CLIENTSESSIONRUNDOWN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>lpProviderId</span>: ::<span class='ident'>LPGUID</span>, <span class='ident'>pvClientSessionArg</span>: ::<span class='ident'>LPVOID</span>,
 )<span class='op'>&gt;</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NSPV2_ROUTINE</span> {
     <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
@@ -171,12 +160,10 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNSPV2_ROUTINE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NSPV2_ROUTINE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCNSPV2_ROUTINE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>NSPV2_ROUTINE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCNSPV2_ROUTINE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>NSPV2_ROUTINE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>WSC_PROVIDER_INFO_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WSC_PROVIDER_INFO_TYPE</span> {
     <span class='ident'>ProviderInfoLspCategories</span>,
     <span class='ident'>ProviderInfoAudit</span>,
-}
+}}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -237,6 +224,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

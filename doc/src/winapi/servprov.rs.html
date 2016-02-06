@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\servprov.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\servprov.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>servprov.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -51,15 +52,11 @@
 <span id="9"> 9</span>
 <span id="10">10</span>
 <span id="11">11</span>
-<span id="12">12</span>
-<span id="13">13</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of servprov.h</span>
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSERVICEPROVIDER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IServiceProvider</span>;
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IServiceProvider</span>(<span class='ident'>IServiceProviderVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>QueryService</span>(
@@ -127,6 +124,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

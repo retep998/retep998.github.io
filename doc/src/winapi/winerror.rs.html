@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\winerror.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winerror.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winerror.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -6102,6 +6103,9 @@
 <span id="6060">6060</span>
 <span id="6061">6061</span>
 <span id="6062">6062</span>
+<span id="6063">6063</span>
+<span id="6064">6064</span>
+<span id="6065">6065</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -6110,7 +6114,6 @@
 <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>SUCCEEDED</span>(<span class='ident'>hr</span>: <span class='ident'>HRESULT</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
     <span class='ident'>hr</span> <span class='op'>&gt;=</span> <span class='number'>0</span>
 }
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_XPS</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>82</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_XAML</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>43</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FACILITY_USN</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>129</span>;
@@ -9045,6 +9048,10 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>STORE_ERROR_LICENSE_REVOKED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>15864</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SEVERITY_SUCCESS</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SEVERITY_ERROR</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>1</span>;
+<span class='attribute'>#[<span class='ident'>inline</span>]</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MAKE_HRESULT</span>(<span class='ident'>sev</span>: <span class='ident'>HRESULT</span>, <span class='ident'>fac</span>: <span class='ident'>HRESULT</span>, <span class='ident'>code</span>: <span class='ident'>HRESULT</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span> {
+    (<span class='ident'>sev</span> <span class='op'>&lt;&lt;</span> <span class='number'>31</span>) <span class='op'>|</span> (<span class='ident'>fac</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span>) <span class='op'>|</span> <span class='ident'>code</span>
+}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HRESULT</span> <span class='op'>=</span> ::<span class='ident'>c_long</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NOERROR</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>E_UNEXPECTED</span>: <span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='number'>0x8000FFFFu32</span> <span class='kw'>as</span> <span class='ident'>HRESULT</span>;
@@ -12225,6 +12232,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["EXCEPTION_DISPOSITION",""]],"struct":[["_CONTEXT",""],["_DISPATCHER_CONTEXT",""],["_EXCEPTION_RECORD",""]]});
+initSidebarItems({"constant":[["ExceptionCollidedUnwind",""],["ExceptionContinueExecution",""],["ExceptionContinueSearch",""],["ExceptionNestedException",""]],"struct":[["EXCEPTION_DISPOSITION",""],["_CONTEXT",""],["_DISPATCHER_CONTEXT",""],["_EXCEPTION_RECORD",""]]});

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\urlhist.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\urlhist.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>urlhist.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -96,13 +97,6 @@
 <span id="54">54</span>
 <span id="55">55</span>
 <span id="56">56</span>
-<span id="57">57</span>
-<span id="58">58</span>
-<span id="59">59</span>
-<span id="60">60</span>
-<span id="61">61</span>
-<span id="62">62</span>
-<span id="63">63</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -120,19 +114,16 @@
     <span class='ident'>ADDURL_Max</span> <span class='op'>=</span> <span class='number'>2147483647</span>,
 }}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPENUMSTATURL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IEnumSTATURL</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>STATURL</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwcsUrl</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwcsTitle</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ftLastVisited</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='kw'>pub</span> <span class='ident'>ftLastUpdated</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='kw'>pub</span> <span class='ident'>ftExpires</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>STATURL</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pwcsUrl</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>pwcsTitle</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>ftLastVisited</span>: ::<span class='ident'>FILETIME</span>,
+    <span class='ident'>ftLastUpdated</span>: ::<span class='ident'>FILETIME</span>,
+    <span class='ident'>ftExpires</span>: ::<span class='ident'>FILETIME</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSTATURL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>STATURL</span>;
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IEnumSTATURL</span>, <span class='number'>0x3C374A42</span>, <span class='number'>0xBAE4</span>, <span class='number'>0x11CF</span>,
-    <span class='number'>0xBF</span>, <span class='number'>0x7D</span>, <span class='number'>0x00</span>, <span class='number'>0xAA</span>, <span class='number'>0x00</span>, <span class='number'>0x69</span>, <span class='number'>0x46</span>, <span class='number'>0xEE</span>);
 <span class='macro'>RIDL</span><span class='macro'>!</span>{<span class='ident'>interface</span> <span class='ident'>IEnumSTATURL</span>(<span class='ident'>IEnumSTATURLVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Next</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>celt</span>: ::<span class='ident'>ULONG</span>, <span class='ident'>rgelt</span>: <span class='ident'>LPSTATURL</span>, <span class='ident'>pceltFetched</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>ULONG</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>Skip</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>celt</span>: ::<span class='ident'>ULONG</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -141,8 +132,6 @@
     <span class='kw'>fn</span> <span class='ident'>SetFilter</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>poszFilter</span>: ::<span class='ident'>LPCOLESTR</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPURLHISTORYSTG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IUrlHistoryStg</span>;
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IUrlHistoryStg</span>, <span class='number'>0x3C374A41</span>, <span class='number'>0xBAE4</span>, <span class='number'>0x11CF</span>,
-    <span class='number'>0xBF</span>, <span class='number'>0x7D</span>, <span class='number'>0x00</span>, <span class='number'>0xAA</span>, <span class='number'>0x00</span>, <span class='number'>0x69</span>, <span class='number'>0x46</span>, <span class='number'>0xEE</span>);
 <span class='macro'>RIDL</span><span class='macro'>!</span>{<span class='ident'>interface</span> <span class='ident'>IUrlHistoryStg</span>(<span class='ident'>IUrlHistoryStgVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>AddUrl</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pocsUrl</span>: ::<span class='ident'>LPCOLESTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>DeleteUrl</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pocsUrl</span>: ::<span class='ident'>LPCOLESTR</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -155,8 +144,6 @@
     <span class='kw'>fn</span> <span class='ident'>EnumUrls</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppEnum</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IEnumSTATURL</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPURLHISTORYSTG2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IUrlHistoryStg2</span>;
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IUrlHistoryStg2</span>, <span class='number'>0xAFA0DC11</span>, <span class='number'>0xC313</span>, <span class='number'>0x11d0</span>,
-    <span class='number'>0x83</span>, <span class='number'>0x1A</span>, <span class='number'>0x00</span>, <span class='number'>0xC0</span>, <span class='number'>0x4F</span>, <span class='number'>0xD5</span>, <span class='number'>0xAE</span>, <span class='number'>0x38</span>);
 <span class='macro'>RIDL</span><span class='macro'>!</span>{<span class='ident'>interface</span> <span class='ident'>IUrlHistoryStg2</span>(<span class='ident'>IUrlHistoryStg2Vtbl</span>): <span class='ident'>IUrlHistoryStg</span>(<span class='ident'>IUrlHistoryStgVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>AddUrlAndNotify</span>(
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pocsUrl</span>: ::<span class='ident'>LPCOLESTR</span>, <span class='ident'>pocsTitle</span>: ::<span class='ident'>LPCOLESTR</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
@@ -227,6 +214,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

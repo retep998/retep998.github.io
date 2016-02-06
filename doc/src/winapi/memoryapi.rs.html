@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\memoryapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\memoryapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>memoryapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -59,11 +60,6 @@
 <span id="17">17</span>
 <span id="18">18</span>
 <span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -74,20 +70,15 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_MAP_EXECUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>SECTION_MAP_EXECUTE_EXPLICIT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_MAP_COPY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILE_MAP_RESERVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>MEMORY_RESOURCE_NOTIFICATION_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>MEMORY_RESOURCE_NOTIFICATION_TYPE</span> {
     <span class='ident'>LowMemoryResourceNotification</span>,
-    <span class='ident'>HighMemoryResourceNotification</span>
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WIN32_MEMORY_RANGE_ENTRY</span> {
-    <span class='kw'>pub</span> <span class='ident'>VirtualAddress</span>: ::<span class='ident'>PVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumberOfBytes</span>: ::<span class='ident'>SIZE_T</span>,
-}
+    <span class='ident'>HighMemoryResourceNotification</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WIN32_MEMORY_RANGE_ENTRY</span> {
+    <span class='ident'>VirtualAddress</span>: ::<span class='ident'>PVOID</span>,
+    <span class='ident'>NumberOfBytes</span>: ::<span class='ident'>SIZE_T</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWIN32_MEMORY_RANGE_ENTRY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WIN32_MEMORY_RANGE_ENTRY</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBAD_MEMORY_CALLBACK_ROUTINE</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>()<span class='op'>&gt;</span>;
 </pre>
 </section>
@@ -149,6 +140,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

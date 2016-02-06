@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\libloaderapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\libloaderapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>libloaderapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -63,14 +64,12 @@
 <span id="21">21</span>
 <span id="22">22</span>
 <span id="23">23</span>
-<span id="24">24</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! ApiSet Contract for api-ms-win-core-libraryloader-l1</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DLL_DIRECTORY_COOKIE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDLL_DIRECTORY_COOKIE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PVOID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ENUMRESLANGPROCA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>hModule</span>: ::<span class='ident'>HMODULE</span>, <span class='ident'>lpType</span>: ::<span class='ident'>LPCSTR</span>, <span class='ident'>lpName</span>: ::<span class='ident'>LPCSTR</span>, <span class='ident'>wLanguage</span>: ::<span class='ident'>WORD</span>, <span class='ident'>lParam</span>: ::<span class='ident'>LONG_PTR</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
@@ -149,6 +148,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

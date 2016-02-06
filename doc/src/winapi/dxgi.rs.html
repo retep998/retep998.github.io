@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\dxgi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\dxgi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dxgi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -298,76 +299,21 @@
 <span id="256">256</span>
 <span id="257">257</span>
 <span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
-<span id="295">295</span>
-<span id="296">296</span>
-<span id="297">297</span>
-<span id="298">298</span>
-<span id="299">299</span>
-<span id="300">300</span>
-<span id="301">301</span>
-<span id="302">302</span>
-<span id="303">303</span>
-<span id="304">304</span>
-<span id="305">305</span>
-<span id="306">306</span>
-<span id="307">307</span>
-<span id="308">308</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015; Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of dxgi.h</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_FRAME_STATISTICS</span> {
-    <span class='kw'>pub</span> <span class='ident'>PresentCount</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>PresentRefreshCount</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>SyncRefreshCount</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>SyncQPCTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='kw'>pub</span> <span class='ident'>SyncGPUTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_MAPPED_RECT</span> {
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_FRAME_STATISTICS</span> {
+    <span class='ident'>PresentCount</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>PresentRefreshCount</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>SyncRefreshCount</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>SyncQPCTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+    <span class='ident'>SyncGPUTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_MAPPED_RECT</span> {
     <span class='ident'>Pitch</span>: ::<span class='ident'>INT</span>,
     <span class='ident'>pBits</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-}
-
+}}
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_ADAPTER_DESC</span> {
     <span class='kw'>pub</span> <span class='ident'>Description</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>128</span>],
@@ -380,13 +326,11 @@
     <span class='kw'>pub</span> <span class='ident'>SharedSystemMemory</span>: ::<span class='ident'>SIZE_T</span>,
     <span class='kw'>pub</span> <span class='ident'>AdapterLuid</span>: ::<span class='ident'>LUID</span>,
 }
-
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>DXGI_ADAPTER_DESC</span> {
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>DXGI_ADAPTER_DESC</span> {
         <span class='op'>*</span><span class='self'>self</span>
     }
 }
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_OUTPUT_DESC</span> {
     <span class='kw'>pub</span> <span class='ident'>DeviceName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>32</span>],
@@ -395,52 +339,36 @@
     <span class='kw'>pub</span> <span class='ident'>Rotation</span>: ::<span class='ident'>DXGI_MODE_ROTATION</span>,
     <span class='kw'>pub</span> <span class='ident'>Monitor</span>: ::<span class='ident'>HMONITOR</span>,
 }
-
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>DXGI_OUTPUT_DESC</span> {
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>DXGI_OUTPUT_DESC</span> {
         <span class='op'>*</span><span class='self'>self</span>
     }
 }
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_SHARED_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>Handle</span>: ::<span class='ident'>HANDLE</span>,
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_SHARED_RESOURCE</span> {
+    <span class='ident'>Handle</span>: ::<span class='ident'>HANDLE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_RESOURCE_PRIORITY_MINIMUM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x28000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_RESOURCE_PRIORITY_LOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x50000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_RESOURCE_PRIORITY_NORMAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x78000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_RESOURCE_PRIORITY_HIGH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xa0000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_RESOURCE_PRIORITY_MAXIMUM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xc8000000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DXGI_RESIDENCY</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DXGI_RESIDENCY</span> {
     <span class='ident'>DXGI_RESIDENCY_FULLY_RESIDENT</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>DXGI_RESIDENCY_RESIDENT_IN_SHARED_MEMORY</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>DXGI_RESIDENCY_EVICTED_TO_DISK</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>DXGI_RESIDENCY</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_SURFACE_DESC</span> {
-    <span class='kw'>pub</span> <span class='ident'>Width</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Height</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Format</span>: ::<span class='ident'>DXGI_FORMAT</span>,
-    <span class='kw'>pub</span> <span class='ident'>SampleDesc</span>: ::<span class='ident'>DXGI_SAMPLE_DESC</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DXGI_SWAP_EFFECT</span> {
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_SURFACE_DESC</span> {
+    <span class='ident'>Width</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Height</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>Format</span>: ::<span class='ident'>DXGI_FORMAT</span>,
+    <span class='ident'>SampleDesc</span>: ::<span class='ident'>DXGI_SAMPLE_DESC</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DXGI_SWAP_EFFECT</span> {
     <span class='ident'>DXGI_SWAP_EFFECT_DISCARD</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>DXGI_SWAP_EFFECT_SEQUENTIAL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>DXGI_SWAP_EFFECT</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DXGI_SWAP_CHAIN_FLAG</span> {
+}}
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DXGI_SWAP_CHAIN_FLAG</span> {
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_NONPREROTATED</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_GDI_COMPATIBLE</span> <span class='op'>=</span> <span class='number'>4</span>,
@@ -451,22 +379,17 @@
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER</span> <span class='op'>=</span> <span class='number'>128</span>,
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_FULLSCREEN_VIDEO</span> <span class='op'>=</span> <span class='number'>256</span>,
     <span class='ident'>DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO</span> <span class='op'>=</span> <span class='number'>512</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>DXGI_SWAP_CHAIN_FLAG</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_SWAP_CHAIN_DESC</span> {
-    <span class='kw'>pub</span> <span class='ident'>BufferDesc</span>: ::<span class='ident'>DXGI_MODE_DESC</span>,
-    <span class='kw'>pub</span> <span class='ident'>SampleDesc</span>: ::<span class='ident'>DXGI_SAMPLE_DESC</span>,
-    <span class='kw'>pub</span> <span class='ident'>BufferUsage</span>: ::<span class='ident'>DXGI_USAGE</span>,
-    <span class='kw'>pub</span> <span class='ident'>BufferCount</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>OutputWindow</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>Windowed</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>SwapEffect</span>: <span class='ident'>DXGI_SWAP_EFFECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>UINT</span>,
-}
-
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_SWAP_CHAIN_DESC</span> {
+    <span class='ident'>BufferDesc</span>: ::<span class='ident'>DXGI_MODE_DESC</span>,
+    <span class='ident'>SampleDesc</span>: ::<span class='ident'>DXGI_SAMPLE_DESC</span>,
+    <span class='ident'>BufferUsage</span>: ::<span class='ident'>DXGI_USAGE</span>,
+    <span class='ident'>BufferCount</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>OutputWindow</span>: ::<span class='ident'>HWND</span>,
+    <span class='ident'>Windowed</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>SwapEffect</span>: <span class='ident'>DXGI_SWAP_EFFECT</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>UINT</span>,
+}}
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetPrivateData</span>(
@@ -480,12 +403,10 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>riid</span>: ::<span class='ident'>REFIID</span>, <span class='ident'>ppParent</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIDeviceSubObject</span>(<span class='ident'>IDXGIDeviceSubObjectVtbl</span>): <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDevice</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>riid</span>: ::<span class='ident'>REFIID</span>, <span class='ident'>ppDevice</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIResource</span>(<span class='ident'>IDXGIResourceVtbl</span>): <span class='ident'>IDXGIDeviceSubObject</span>(<span class='ident'>IDXGIDeviceSubObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetSharedHandle</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pSharedHandle</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -493,26 +414,22 @@
     <span class='kw'>fn</span> <span class='ident'>SetEvictionPriority</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>EvictionPriority</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetEvictionPriority</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pEvictionPriority</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIKeyedMutex</span>(<span class='ident'>IDXGIKeyedMutexVtbl</span>): <span class='ident'>IDXGIDeviceSubObject</span>(<span class='ident'>IDXGIDeviceSubObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>AcquireSync</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Key</span>: ::<span class='ident'>UINT64</span>, <span class='ident'>dwMilliseconds</span>: ::<span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>ReleaseSync</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Key</span>: ::<span class='ident'>UINT64</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGISurface</span>(<span class='ident'>IDXGISurfaceVtbl</span>): <span class='ident'>IDXGIDeviceSubObject</span>(<span class='ident'>IDXGIDeviceSubObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDesc</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_SURFACE_DESC</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>Map</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pLockedRect</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_MAPPED_RECT</span>, <span class='ident'>MapFlags</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>Unmap</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGISurface1</span>(<span class='ident'>IDXGISurface1Vtbl</span>): <span class='ident'>IDXGISurface</span>(<span class='ident'>IDXGISurfaceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDC</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Discard</span>: ::<span class='ident'>BOOL</span>, <span class='ident'>phdc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HDC</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>ReleaseDC</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDirtyRect</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>RECT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIAdapter</span>(<span class='ident'>IDXGIAdapterVtbl</span>): <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>EnumOutputs</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Output</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppOutput</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGIOutput</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -521,7 +438,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>InterfaceName</span>: ::<span class='ident'>REFGUID</span>, <span class='ident'>pUMDVersion</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LARGE_INTEGER</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIOutput</span>(<span class='ident'>IDXGIOutputVtbl</span>): <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDesc</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_OUTPUT_DESC</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -545,7 +461,6 @@
     <span class='kw'>fn</span> <span class='ident'>GetDisplaySurfaceData</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDestination</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGISurface</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetFrameStatistics</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pStats</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_FRAME_STATISTICS</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_MAX_SWAP_CHAIN_BUFFERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_PRESENT_TEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_PRESENT_DO_NOT_SEQUENCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -555,7 +470,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_PRESENT_STEREO_TEMPORARY_MONO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_PRESENT_RESTRICT_TO_OUTPUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DXGI_PRESENT_USE_DURATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGISwapChain</span>(<span class='ident'>IDXGISwapChainVtbl</span>): <span class='ident'>IDXGIDeviceSubObject</span>(<span class='ident'>IDXGIDeviceSubObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Present</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SyncInterval</span>: ::<span class='ident'>UINT</span>, <span class='ident'>Flags</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -576,7 +490,6 @@
     <span class='kw'>fn</span> <span class='ident'>GetFrameStatistics</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pStats</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_FRAME_STATISTICS</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetLastPresentCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pLastPresentCount</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIFactory</span>(<span class='ident'>IDXGIFactoryVtbl</span>): <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>EnumAdapters</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Adapter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppAdapter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGIAdapter</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -590,7 +503,6 @@
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Module</span>: ::<span class='ident'>HMODULE</span>, <span class='ident'>ppAdapter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGIAdapter</span>
     ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIDevice</span>(<span class='ident'>IDXGIDeviceVtbl</span>): <span class='ident'>IDXGIObject</span>(<span class='ident'>IDXGIObjectVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetAdapter</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pAdapter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGIAdapter</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -605,16 +517,11 @@
     <span class='kw'>fn</span> <span class='ident'>SetGPUThreadPriority</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Priority</span>: ::<span class='ident'>INT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>GetGPUThreadPriority</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pPriority</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>INT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DXGI_ADAPTER_FLAG</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DXGI_ADAPTER_FLAG</span> {
     <span class='ident'>DXGI_ADAPTER_FLAG_NONE</span>,
     <span class='ident'>DXGI_ADAPTER_FLAG_REMOTE</span>,
     <span class='ident'>DXGI_ADAPTER_FLAG_SOFTWARE</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>DXGI_ADAPTER_FLAG</span>::<span class='op'>*</span>;
-
+}}
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_ADAPTER_DESC1</span> {
     <span class='kw'>pub</span> <span class='ident'>Description</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>128</span>],
@@ -628,30 +535,24 @@
     <span class='kw'>pub</span> <span class='ident'>AdapterLuid</span>: ::<span class='ident'>LUID</span>,
     <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>UINT</span>,
 }
-
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>DXGI_ADAPTER_DESC1</span> {
     <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>DXGI_ADAPTER_DESC1</span> {
         <span class='op'>*</span><span class='self'>self</span>
     }
 }
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DXGI_DISPLAY_COLOR_SPACE</span> {
-    <span class='kw'>pub</span> <span class='ident'>PrimaryCoordinates</span>: [[::<span class='ident'>FLOAT</span>; <span class='number'>2</span>]; <span class='number'>8</span>],
-    <span class='kw'>pub</span> <span class='ident'>WhitePoints</span>: [[::<span class='ident'>FLOAT</span>; <span class='number'>2</span>]; <span class='number'>16</span>],
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DXGI_DISPLAY_COLOR_SPACE</span> {
+    <span class='ident'>PrimaryCoordinates</span>: [[::<span class='ident'>FLOAT</span>; <span class='number'>2</span>]; <span class='number'>8</span>],
+    <span class='ident'>WhitePoints</span>: [[::<span class='ident'>FLOAT</span>; <span class='number'>2</span>]; <span class='number'>16</span>],
+}}
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIFactory1</span>(<span class='ident'>IDXGIFactory1Vtbl</span>): <span class='ident'>IDXGIFactory</span>(<span class='ident'>IDXGIFactoryVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>EnumAdapters1</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>Adapter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppAdapter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDXGIAdapter1</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
     <span class='kw'>fn</span> <span class='ident'>IsCurrent</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIAdapter1</span>(<span class='ident'>IDXGIAdapter1Vtbl</span>): <span class='ident'>IDXGIAdapter</span>(<span class='ident'>IDXGIAdapterVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetDesc1</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DXGI_ADAPTER_DESC1</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 });
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDXGIDevice1</span>(<span class='ident'>IDXGIDevice1Vtbl</span>): <span class='ident'>IDXGIDevice</span>(<span class='ident'>IDXGIDeviceVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>SetMaximumFrameLatency</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>MaxLatency</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -717,6 +618,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

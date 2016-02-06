@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\ws2def.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\ws2def.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>ws2def.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -324,26 +325,6 @@
 <span id="282">282</span>
 <span id="283">283</span>
 <span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
-<span id="295">295</span>
-<span id="296">296</span>
-<span id="297">297</span>
-<span id="298">298</span>
-<span id="299">299</span>
-<span id="300">300</span>
-<span id="301">301</span>
-<span id="302">302</span>
-<span id="303">303</span>
-<span id="304">304</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -422,18 +403,16 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SO_PORT_SCALABILITY</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x3006</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSK_SO_BASE</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TCP_NODELAY</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOCKADDR</span> {
-    <span class='kw'>pub</span> <span class='ident'>sa_family</span>: <span class='ident'>ADDRESS_FAMILY</span>,
-    <span class='kw'>pub</span> <span class='ident'>sa_data</span>: [::<span class='ident'>CHAR</span>; <span class='number'>14</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOCKADDR</span> {
+    <span class='ident'>sa_family</span>: <span class='ident'>ADDRESS_FAMILY</span>,
+    <span class='ident'>sa_data</span>: [::<span class='ident'>CHAR</span>; <span class='number'>14</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKADDR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSOCKADDR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOCKET_ADDRESS</span> {
-    <span class='kw'>pub</span> <span class='ident'>lpSockaddr</span>: <span class='ident'>LPSOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSockaddrLength</span>: ::<span class='ident'>INT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOCKET_ADDRESS</span> {
+    <span class='ident'>lpSockaddr</span>: <span class='ident'>LPSOCKADDR</span>,
+    <span class='ident'>iSockaddrLength</span>: ::<span class='ident'>INT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKET_ADDRESS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKET_ADDRESS</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSOCKET_ADDRESS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKET_ADDRESS</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span>
@@ -443,13 +422,12 @@
 }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKET_ADDRESS_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKET_ADDRESS_LIST</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSOCKET_ADDRESS_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKET_ADDRESS_LIST</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CSADDR_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>LocalAddr</span>: <span class='ident'>SOCKET_ADDRESS</span>,
-    <span class='kw'>pub</span> <span class='ident'>RemoteAddr</span>: <span class='ident'>SOCKET_ADDRESS</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSocketType</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>iProtocol</span>: ::<span class='ident'>INT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CSADDR_INFO</span> {
+    <span class='ident'>LocalAddr</span>: <span class='ident'>SOCKET_ADDRESS</span>,
+    <span class='ident'>RemoteAddr</span>: <span class='ident'>SOCKET_ADDRESS</span>,
+    <span class='ident'>iSocketType</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>iProtocol</span>: ::<span class='ident'>INT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCSADDR_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CSADDR_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCSADDR_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CSADDR_INFO</span>;
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
@@ -475,12 +453,11 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SOCKADDR_STORAGE</span> <span class='op'>=</span> <span class='ident'>SOCKADDR_STORAGE_LH</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKADDR_STORAGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR_STORAGE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSOCKADDR_STORAGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR_STORAGE</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOCKET_PROCESSOR_AFFINITY</span> {
-    <span class='kw'>pub</span> <span class='ident'>Processor</span>: ::<span class='ident'>PROCESSOR_NUMBER</span>,
-    <span class='kw'>pub</span> <span class='ident'>NumaNodeId</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>USHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOCKET_PROCESSOR_AFFINITY</span> {
+    <span class='ident'>Processor</span>: ::<span class='ident'>PROCESSOR_NUMBER</span>,
+    <span class='ident'>NumaNodeId</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>USHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKET_PROCESSOR_AFFINITY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKET_PROCESSOR_AFFINITY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_UNIX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_WS2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
@@ -514,11 +491,8 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIO_RESERVED_1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>_WSAIOW</span><span class='macro'>!</span>(<span class='ident'>IOC_WS2</span>, <span class='number'>26</span>);
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIO_RESERVED_2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>_WSAIOW</span><span class='macro'>!</span>(<span class='ident'>IOC_WS2</span>, <span class='number'>33</span>);
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIO_GET_MULTIPLE_EXTENSION_FUNCTION_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>_WSAIORW</span><span class='macro'>!</span>(<span class='ident'>IOC_WS2</span>, <span class='number'>36</span>);
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IPPROTO_IP</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>IPPROTO</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>IPPROTO</span> {
     <span class='ident'>IPPROTO_HOPOPTS</span> <span class='op'>=</span> <span class='number'>0</span>,  <span class='comment'>// IPv6 Hop-by-Hop options</span>
     <span class='ident'>IPPROTO_ICMP</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>IPPROTO_IGMP</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -554,99 +528,86 @@
     <span class='ident'>IPPROTO_RESERVED_IPSECOFFLOAD</span> <span class='op'>=</span> <span class='number'>259</span>,
     <span class='ident'>IPPROTO_RESERVED_WNV</span> <span class='op'>=</span> <span class='number'>260</span>,
     <span class='ident'>IPPROTO_RESERVED_MAX</span> <span class='op'>=</span> <span class='number'>261</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIPPROTO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IPPROTO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SOCKADDR_IN</span> {
-    <span class='kw'>pub</span> <span class='ident'>sin_family</span>: <span class='ident'>ADDRESS_FAMILY</span>,
-    <span class='kw'>pub</span> <span class='ident'>sin_port</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>sin_addr</span>: ::<span class='ident'>IN_ADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>sin_zero</span>: [::<span class='ident'>CHAR</span>; <span class='number'>8</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SOCKADDR_IN</span> {
+    <span class='ident'>sin_family</span>: <span class='ident'>ADDRESS_FAMILY</span>,
+    <span class='ident'>sin_port</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>sin_addr</span>: ::<span class='ident'>IN_ADDR</span>,
+    <span class='ident'>sin_zero</span>: [::<span class='ident'>CHAR</span>; <span class='number'>8</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSOCKADDR_IN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR_IN</span>;
-
 <span class='comment'>//645</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCPARM_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x7f</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_VOID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_OUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_IN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOC_INOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>IOC_IN</span> <span class='op'>|</span> <span class='ident'>IOC_OUT</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSABUF</span> {
-    <span class='kw'>pub</span> <span class='ident'>len</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>buf</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CHAR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSABUF</span> {
+    <span class='ident'>len</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>buf</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CHAR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSABUF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSABUF</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSAMSG</span> {
-    <span class='kw'>pub</span> <span class='ident'>name</span>: <span class='ident'>LPSOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>namelen</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpBuffers</span>: <span class='ident'>LPWSABUF</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwBufferCount</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>Control</span>: <span class='ident'>WSABUF</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAMSG</span> {
+    <span class='ident'>name</span>: <span class='ident'>LPSOCKADDR</span>,
+    <span class='ident'>namelen</span>: ::<span class='ident'>INT</span>,
+    <span class='ident'>lpBuffers</span>: <span class='ident'>LPWSABUF</span>,
+    <span class='ident'>dwBufferCount</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>Control</span>: <span class='ident'>WSABUF</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAMSG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAMSG</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAMSG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAMSG</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOA</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ADDRINFOA</span> {
+    <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
+    <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOA</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOW</span> {
-    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOW</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ADDRINFOW</span> {
+    <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
+    <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOW</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOW</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOEXA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ADDRINFOEXA</span> {
+    <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_canonname</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
+    <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+    <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
+    <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXA</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPADDRINFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ADDRINFOEXW</span> {
-    <span class='kw'>pub</span> <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ADDRINFOEXW</span> {
+    <span class='ident'>ai_flags</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_family</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_socktype</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_protocol</span>: ::<span class='ident'>c_int</span>,
+    <span class='ident'>ai_addrlen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_canonname</span>: ::<span class='ident'>PWSTR</span>,
+    <span class='ident'>ai_addr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOCKADDR</span>,
+    <span class='ident'>ai_blob</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+    <span class='ident'>ai_bloblen</span>: ::<span class='ident'>size_t</span>,
+    <span class='ident'>ai_provider</span>: ::<span class='ident'>LPGUID</span>,
+    <span class='ident'>ai_next</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADDRINFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPADDRINFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADDRINFOEXW</span>;
 </pre>
@@ -709,6 +670,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

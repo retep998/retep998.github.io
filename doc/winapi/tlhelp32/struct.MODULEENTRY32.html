@@ -9,6 +9,7 @@
 
     <title>winapi::tlhelp32::MODULEENTRY32 - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,18 +46,18 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-60632' class='srclink' href='../../src/winapi/tlhelp32.rs.html#112-123' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-85311' class='srclink' href='../../src/winapi/tlhelp32.rs.html#98-109' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct MODULEENTRY32 {
     pub dwSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub th32ModuleID: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub th32ProcessID: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub GlblcntUsage: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub ProccntUsage: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub modBaseAddr: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a></a>,
+    pub modBaseAddr: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a>,
     pub modBaseSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub hModule: <a class='type' href='../../winapi/minwindef/type.HMODULE.html' title='winapi::minwindef::HMODULE'>HMODULE</a>,
-    pub szModule: <a href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[<a class='type' href='../../winapi/winnt/type.CHAR.html' title='winapi::winnt::CHAR'>CHAR</a>; ::MAX_MODULE_NAME32 + 1]</a>,
-    pub szExePath: <a href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[<a class='type' href='../../winapi/winnt/type.CHAR.html' title='winapi::winnt::CHAR'>CHAR</a>; ::MAX_PATH]</a>,
+    pub szModule: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.CHAR.html' title='winapi::winnt::CHAR'>CHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; ::MAX_MODULE_NAME32 + 1]</a>,
+    pub szExePath: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.CHAR.html' title='winapi::winnt::CHAR'>CHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; ::MAX_PATH]</a>,
 }</pre><h2 class='fields'>Fields</h2>
 <table><tr class='stab '>
                                   <td id='structfield.dwSize'><code>dwSize</code></td><td></td></tr><tr class='stab '>
@@ -129,6 +130,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

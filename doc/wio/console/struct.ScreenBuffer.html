@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ScreenBuffer` struct in crate `wio`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ScreenBuffer">
+
+    <title>wio::console::ScreenBuffer - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>wio</a>::<wbr><a href='index.html'>console</a></p><script>window.sidebarCurrent = {name: 'ScreenBuffer', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>wio</a>::<wbr><a href='index.html'>console</a>::<wbr><a class='struct' href=''>ScreenBuffer</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-78' class='srclink' href='../../src/wio/console.rs.html#10' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ScreenBuffer(_);</pre><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a>&gt;</code></h4>
+<h4 id='method.from_stdout' class='method'><code>fn <a href='#method.from_stdout' class='fnname'>from_stdout</a>() -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a>&gt;</code></h4>
+<div class='docblock'><p>Gets the actual active console screen buffer</p>
+</div><h4 id='method.from_stdin' class='method'><code>fn <a href='#method.from_stdin' class='fnname'>from_stdin</a>() -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a>&gt;</code></h4>
+<div class='docblock'><p>Gets the actual active console input buffer</p>
+</div><h4 id='method.set_active' class='method'><code>fn <a href='#method.set_active' class='fnname'>set_active</a>(&amp;self) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.info' class='method'><code>fn <a href='#method.info' class='fnname'>info</a>(&amp;self) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='struct' href='../../wio/console/struct.Info.html' title='wio::console::Info'>Info</a>&gt;</code></h4>
+<h4 id='method.set_info_ex' class='method'><code>fn <a href='#method.set_info_ex' class='fnname'>set_info_ex</a>(&amp;self) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<h4 id='method.available_input' class='method'><code>fn <a href='#method.available_input' class='fnname'>available_input</a>(&amp;self) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></h4>
+<h4 id='method.read_input' class='method'><code>fn <a href='#method.read_input' class='fnname'>read_input</a>(&amp;self) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='enum' href='../../wio/console/enum.Input.html' title='wio::console::Input'>Input</a>&gt;&gt;</code></h4>
+<h4 id='method.write_output' class='method'><code>fn <a href='#method.write_output' class='fnname'>write_output</a>(&amp;self, buf: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../wio/console/struct.CharInfo.html' title='wio::console::CharInfo'>CharInfo</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>, pos: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i16.html'>i16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>) -&gt; <a class='type' href='../../wio/type.IoResult.html' title='wio::IoResult'>IoResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.FromRawHandle.html' title='std::sys::ext::io::FromRawHandle'>FromRawHandle</a> for <a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a></code></h3><div class='impl-items'><h4 id='method.from_raw_handle' class='method'><code>unsafe fn <a href='https://doc.rust-lang.org/nightly/std/sys/ext/io/trait.FromRawHandle.html#method.from_raw_handle' class='fnname'>from_raw_handle</a>(handle: <a class='type' href='../../winapi/winnt/type.HANDLE.html' title='winapi::winnt::HANDLE'>HANDLE</a>) -&gt; <a class='struct' href='../../wio/console/struct.ScreenBuffer.html' title='wio::console::ScreenBuffer'>ScreenBuffer</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "wio";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

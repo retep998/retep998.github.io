@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\cfgmgr32.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\cfgmgr32.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>cfgmgr32.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -812,210 +813,51 @@
 <span id="770">770</span>
 <span id="771">771</span>
 <span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
-<span id="800">800</span>
-<span id="801">801</span>
-<span id="802">802</span>
-<span id="803">803</span>
-<span id="804">804</span>
-<span id="805">805</span>
-<span id="806">806</span>
-<span id="807">807</span>
-<span id="808">808</span>
-<span id="809">809</span>
-<span id="810">810</span>
-<span id="811">811</span>
-<span id="812">812</span>
-<span id="813">813</span>
-<span id="814">814</span>
-<span id="815">815</span>
-<span id="816">816</span>
-<span id="817">817</span>
-<span id="818">818</span>
-<span id="819">819</span>
-<span id="820">820</span>
-<span id="821">821</span>
-<span id="822">822</span>
-<span id="823">823</span>
-<span id="824">824</span>
-<span id="825">825</span>
-<span id="826">826</span>
-<span id="827">827</span>
-<span id="828">828</span>
-<span id="829">829</span>
-<span id="830">830</span>
-<span id="831">831</span>
-<span id="832">832</span>
-<span id="833">833</span>
-<span id="834">834</span>
-<span id="835">835</span>
-<span id="836">836</span>
-<span id="837">837</span>
-<span id="838">838</span>
-<span id="839">839</span>
-<span id="840">840</span>
-<span id="841">841</span>
-<span id="842">842</span>
-<span id="843">843</span>
-<span id="844">844</span>
-<span id="845">845</span>
-<span id="846">846</span>
-<span id="847">847</span>
-<span id="848">848</span>
-<span id="849">849</span>
-<span id="850">850</span>
-<span id="851">851</span>
-<span id="852">852</span>
-<span id="853">853</span>
-<span id="854">854</span>
-<span id="855">855</span>
-<span id="856">856</span>
-<span id="857">857</span>
-<span id="858">858</span>
-<span id="859">859</span>
-<span id="860">860</span>
-<span id="861">861</span>
-<span id="862">862</span>
-<span id="863">863</span>
-<span id="864">864</span>
-<span id="865">865</span>
-<span id="866">866</span>
-<span id="867">867</span>
-<span id="868">868</span>
-<span id="869">869</span>
-<span id="870">870</span>
-<span id="871">871</span>
-<span id="872">872</span>
-<span id="873">873</span>
-<span id="874">874</span>
-<span id="875">875</span>
-<span id="876">876</span>
-<span id="877">877</span>
-<span id="878">878</span>
-<span id="879">879</span>
-<span id="880">880</span>
-<span id="881">881</span>
-<span id="882">882</span>
-<span id="883">883</span>
-<span id="884">884</span>
-<span id="885">885</span>
-<span id="886">886</span>
-<span id="887">887</span>
-<span id="888">888</span>
-<span id="889">889</span>
-<span id="890">890</span>
-<span id="891">891</span>
-<span id="892">892</span>
-<span id="893">893</span>
-<span id="894">894</span>
-<span id="895">895</span>
-<span id="896">896</span>
-<span id="897">897</span>
-<span id="898">898</span>
-<span id="899">899</span>
-<span id="900">900</span>
-<span id="901">901</span>
-<span id="902">902</span>
-<span id="903">903</span>
-<span id="904">904</span>
-<span id="905">905</span>
-<span id="906">906</span>
-<span id="907">907</span>
-<span id="908">908</span>
-<span id="909">909</span>
-<span id="910">910</span>
-<span id="911">911</span>
-<span id="912">912</span>
-<span id="913">913</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! user APIs for the Configuration Manager</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCVOID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>VOID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_DEVICE_ID_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_DEVNODE_ID_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='ident'>MAX_DEVICE_ID_LEN</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_GUID_STRING_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>39</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_CLASS_NAME_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>32</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_PROFILE_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>80</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_CONFIG_VALUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9999</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_INSTANCE_VALUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9999</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_MEM_REGISTERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_IO_PORTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>20</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_IRQS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_DMA_CHANNELS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DWORD_MAX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffffffff</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DWORDLONG_MAX</span>: ::<span class='ident'>DWORDLONG</span> <span class='op'>=</span> <span class='number'>0xffffffffffffffff</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONFIGMG_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0400</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RETURN_TYPE</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='ident'>RETURN_TYPE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVNODE</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVINST</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDEVNODE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVNODE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDEVINST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVNODE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVNODEID_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CHAR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVINSTID_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>CHAR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVNODEID_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DEVINSTID_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LOG_CONF</span> <span class='op'>=</span> ::<span class='ident'>DWORD_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PLOG_CONF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LOG_CONF</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RES_DES</span> <span class='op'>=</span> ::<span class='ident'>DWORD_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRES_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RES_DES</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RESOURCEID</span> <span class='op'>=</span> ::<span class='ident'>ULONG</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRESOURCEID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RESOURCEID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRIORITY</span> <span class='op'>=</span> ::<span class='ident'>ULONG</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPRIORITY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRIORITY</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RANGE_LIST</span> <span class='op'>=</span> ::<span class='ident'>DWORD_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRANGE_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RANGE_LIST</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RANGE_ELEMENT</span> <span class='op'>=</span> ::<span class='ident'>DWORD_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRANGE_ELEMENT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RANGE_ELEMENT</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HMACHINE</span> <span class='op'>=</span> ::<span class='ident'>HANDLE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHMACHINE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HMACHINE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>CONFLICT_LIST</span> <span class='op'>=</span> ::<span class='ident'>ULONG_PTR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONFLICT_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONFLICT_LIST</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONFLICT_DETAILS_A</span> {
     <span class='kw'>pub</span> <span class='ident'>CD_ulSize</span>: ::<span class='ident'>ULONG</span>,
@@ -1038,19 +880,15 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CONFLICT_DETAILS_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CONFLICT_DETAILS_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONFLICT_DETAILS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONFLICT_DETAILS_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDMASK_DEVINST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDMASK_RESDES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDMASK_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDMASK_DESCRIPTION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDMASK_VALID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0000000F</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDFLAGS_DRIVER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDFLAGS_ROOT_OWNED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CDFLAGS_RESERVED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REGDISPOSITION</span> <span class='op'>=</span> ::<span class='ident'>ULONG</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mMD_MemoryType</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fMD_MemoryType</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>mMD_MemoryType</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fMD_ROM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0</span>;
@@ -1077,65 +915,52 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fMD_Cacheable</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fMD_WINDOW_DECODE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fMD_MEMORY_BAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>MR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MR_nBytes</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MR_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MR_Reserved</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_RANGE</span> {
+    <span class='ident'>MR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MR_nBytes</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>MR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MR_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MR_Reserved</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>MD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MD_Reserved</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_DES</span> {
+    <span class='ident'>MD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MD_Reserved</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>MEM_Header</span>: <span class='ident'>MEM_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>MEM_Data</span>: [<span class='ident'>MEM_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_RESOURCE</span> {
+    <span class='ident'>MEM_Header</span>: <span class='ident'>MEM_DES</span>,
+    <span class='ident'>MEM_Data</span>: [<span class='ident'>MEM_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_RESOURCE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_LARGE_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>MLR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLR_nBytes</span>: ::<span class='ident'>ULONGLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLR_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLR_Reserved</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_LARGE_RANGE</span> {
+    <span class='ident'>MLR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MLR_nBytes</span>: ::<span class='ident'>ULONGLONG</span>,
+    <span class='ident'>MLR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MLR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MLR_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MLR_Reserved</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_LARGE_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_LARGE_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_LARGE_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>MLD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>MLD_Reserved</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_LARGE_DES</span> {
+    <span class='ident'>MLD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MLD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MLD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MLD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>MLD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>MLD_Reserved</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_LARGE_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_LARGE_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MEM_LARGE_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>MEM_LARGE_Header</span>: <span class='ident'>MEM_LARGE_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>MEM_LARGE_Data</span>: [<span class='ident'>MEM_LARGE_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEM_LARGE_RESOURCE</span> {
+    <span class='ident'>MEM_LARGE_Header</span>: <span class='ident'>MEM_LARGE_DES</span>,
+    <span class='ident'>MEM_LARGE_Data</span>: [<span class='ident'>MEM_LARGE_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMEM_LARGE_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEM_LARGE_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_PortType</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_Memory</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_IO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -1147,40 +972,32 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_PASSIVE_DECODE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0040</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_WINDOW_DECODE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0080</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIOD_PORT_BAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_ALIAS_10_BIT_DECODE</span>: ::<span class='ident'>DWORDLONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_ALIAS_12_BIT_DECODE</span>: ::<span class='ident'>DWORDLONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_ALIAS_16_BIT_DECODE</span>: ::<span class='ident'>DWORDLONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IO_ALIAS_POSITIVE_DECODE</span>: ::<span class='ident'>DWORDLONG</span> <span class='op'>=</span> <span class='number'>0x000000FF</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IO_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>IOR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOR_nPorts</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOR_RangeFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOR_Alias</span>: ::<span class='ident'>DWORDLONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IO_RANGE</span> {
+    <span class='ident'>IOR_Align</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>IOR_nPorts</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IOR_Min</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>IOR_Max</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>IOR_RangeFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IOR_Alias</span>: ::<span class='ident'>DWORDLONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIO_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IO_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IO_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>IOD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IOD_DesFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IO_DES</span> {
+    <span class='ident'>IOD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IOD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IOD_Alloc_Base</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>IOD_Alloc_End</span>: ::<span class='ident'>DWORDLONG</span>,
+    <span class='ident'>IOD_DesFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIO_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IO_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IO_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>IO_Header</span>: <span class='ident'>IO_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>IO_Data</span>: [<span class='ident'>IO_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IO_RESOURCE</span> {
+    <span class='ident'>IO_Header</span>: <span class='ident'>IO_DES</span>,
+    <span class='ident'>IO_Data</span>: [<span class='ident'>IO_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIO_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IO_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mDD_Width</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fDD_BYTE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fDD_WORD</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -1194,31 +1011,24 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fDD_TypeA</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x08</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fDD_TypeB</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x10</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fDD_TypeF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x18</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DMA_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>DR_Min</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>DR_Max</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>DR_Flags</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DMA_RANGE</span> {
+    <span class='ident'>DR_Min</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>DR_Max</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>DR_Flags</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDMA_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DMA_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DMA_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>DD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>DD_Alloc_Chan</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DMA_DES</span> {
+    <span class='ident'>DD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>DD_Alloc_Chan</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDMA_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DMA_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DMA_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>DMA_Header</span>: <span class='ident'>DMA_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>DMA_Data</span>: [<span class='ident'>DMA_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DMA_RESOURCE</span> {
+    <span class='ident'>DMA_Header</span>: <span class='ident'>DMA_DES</span>,
+    <span class='ident'>DMA_Data</span>: [<span class='ident'>DMA_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDMA_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DMA_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mIRQD_Share</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIRQD_Exclusive</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIRQD_Share</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -1227,90 +1037,71 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mIRQD_Edge_Level</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIRQD_Level</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fIRQD_Edge</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IRQ_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>IRQR_Min</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQR_Max</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQR_Flags</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IRQ_RANGE</span> {
+    <span class='ident'>IRQR_Min</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>IRQR_Max</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>IRQR_Flags</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIRQ_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IRQ_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IRQ_DES_32</span> {
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Alloc_Num</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Affinity</span>: ::<span class='ident'>ULONG32</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IRQ_DES_32</span> {
+    <span class='ident'>IRQD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Alloc_Num</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>IRQD_Affinity</span>: ::<span class='ident'>ULONG32</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIRQ_DES_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IRQ_DES_32</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IRQ_DES_64</span> {
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Alloc_Num</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQD_Affinity</span>: ::<span class='ident'>ULONG64</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IRQ_DES_64</span> {
+    <span class='ident'>IRQD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>IRQD_Alloc_Num</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>IRQD_Affinity</span>: ::<span class='ident'>ULONG64</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIRQ_DES_64</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IRQ_DES_64</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IRQ_RESOURCE_32</span> {
-    <span class='kw'>pub</span> <span class='ident'>IRQ_Header</span>: <span class='ident'>IRQ_DES_32</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQ_Data</span>: [<span class='ident'>IRQ_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IRQ_RESOURCE_32</span> {
+    <span class='ident'>IRQ_Header</span>: <span class='ident'>IRQ_DES_32</span>,
+    <span class='ident'>IRQ_Data</span>: [<span class='ident'>IRQ_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIRQ_RESOURCE_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IRQ_RESOURCE_32</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IRQ_RESOURCE_64</span> {
-    <span class='kw'>pub</span> <span class='ident'>IRQ_Header</span>: <span class='ident'>IRQ_DES_64</span>,
-    <span class='kw'>pub</span> <span class='ident'>IRQ_Data</span>: [<span class='ident'>IRQ_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>IRQ_RESOURCE_64</span> {
+    <span class='ident'>IRQ_Header</span>: <span class='ident'>IRQ_DES_64</span>,
+    <span class='ident'>IRQ_Data</span>: [<span class='ident'>IRQ_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIRQ_RESOURCE_64</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IRQ_RESOURCE_64</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>PR_Data1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PR_Data2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PR_Data3</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_RANGE</span> {
+    <span class='ident'>PR_Data1</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PR_Data2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PR_Data3</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDEVPRIVATE_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVPRIVATE_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>PD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PD_Data1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PD_Data2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PD_Data3</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PD_Flags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_DES</span> {
+    <span class='ident'>PD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PD_Data1</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PD_Data2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PD_Data3</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PD_Flags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDEVPRIVATE_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVPRIVATE_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>PRV_Header</span>: <span class='ident'>DEVPRIVATE_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>PRV_Data</span>: [<span class='ident'>DEVPRIVATE_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DEVPRIVATE_RESOURCE</span> {
+    <span class='ident'>PRV_Header</span>: <span class='ident'>DEVPRIVATE_DES</span>,
+    <span class='ident'>PRV_Data</span>: [<span class='ident'>DEVPRIVATE_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDEVPRIVATE_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVPRIVATE_RESOURCE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CS_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>CSD_SignatureLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CSD_LegacyDataOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CSD_LegacyDataSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CSD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CSD_ClassGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>CSD_Signature</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CS_DES</span> {
+    <span class='ident'>CSD_SignatureLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CSD_LegacyDataOffset</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CSD_LegacyDataSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CSD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CSD_ClassGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>CSD_Signature</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCS_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CS_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CS_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>CS_Header</span>: <span class='ident'>CS_DES</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CS_RESOURCE</span> {
+    <span class='ident'>CS_Header</span>: <span class='ident'>CS_DES</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCS_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CS_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mPCD_IO_8_16</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPCD_IO_8</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPCD_IO_16</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -1346,100 +1137,78 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPCD_MEM2_WS_TWO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPCD_MEM2_WS_THREE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x30000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPCD_MEM2_16</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PCD_MAX_MEMORY</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PCD_MAX_IO</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>2</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PCCARD_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>PCD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_ConfigIndex</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_Reserved</span>: [::<span class='ident'>BYTE</span>; <span class='number'>3</span>],
-    <span class='kw'>pub</span> <span class='ident'>PCD_MemoryCardBase1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_MemoryCardBase2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PCD_MemoryCardBase</span>: [::<span class='ident'>DWORD</span>; <span class='ident'>PCD_MAX_MEMORY</span>],
-    <span class='kw'>pub</span> <span class='ident'>PCD_MemoryFlags</span>: [::<span class='ident'>WORD</span>; <span class='ident'>PCD_MAX_MEMORY</span>],
-    <span class='kw'>pub</span> <span class='ident'>PCD_IoFlags</span>: [::<span class='ident'>BYTE</span>; <span class='ident'>PCD_MAX_IO</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PCCARD_DES</span> {
+    <span class='ident'>PCD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PCD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PCD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PCD_ConfigIndex</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>PCD_Reserved</span>: [::<span class='ident'>BYTE</span>; <span class='number'>3</span>],
+    <span class='ident'>PCD_MemoryCardBase1</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PCD_MemoryCardBase2</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PCD_MemoryCardBase</span>: [::<span class='ident'>DWORD</span>; <span class='ident'>PCD_MAX_MEMORY</span>],
+    <span class='ident'>PCD_MemoryFlags</span>: [::<span class='ident'>WORD</span>; <span class='ident'>PCD_MAX_MEMORY</span>],
+    <span class='ident'>PCD_IoFlags</span>: [::<span class='ident'>BYTE</span>; <span class='ident'>PCD_MAX_IO</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPCCARD_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCCARD_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PCCARD_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>PcCard_Header</span>: <span class='ident'>PCCARD_DES</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PCCARD_RESOURCE</span> {
+    <span class='ident'>PcCard_Header</span>: <span class='ident'>PCCARD_DES</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPCCARD_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCCARD_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>mPMF_AUDIO_ENABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>fPMF_AUDIO_ENABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MFCARD_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>PMF_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PMF_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PMF_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PMF_ConfigOptions</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>PMF_IoResourceIndex</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>PMF_Reserved</span>: [::<span class='ident'>BYTE</span>; <span class='number'>2</span>],
-    <span class='kw'>pub</span> <span class='ident'>PMF_ConfigRegisterBase</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MFCARD_DES</span> {
+    <span class='ident'>PMF_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PMF_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PMF_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PMF_ConfigOptions</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>PMF_IoResourceIndex</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>PMF_Reserved</span>: [::<span class='ident'>BYTE</span>; <span class='number'>2</span>],
+    <span class='ident'>PMF_ConfigRegisterBase</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMFCARD_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MFCARD_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MFCARD_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>MfCard_Header</span>: <span class='ident'>MFCARD_DES</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MFCARD_RESOURCE</span> {
+    <span class='ident'>MfCard_Header</span>: <span class='ident'>MFCARD_DES</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PMFCARD_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MFCARD_RESOURCE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BUSNUMBER_RANGE</span> {
-    <span class='kw'>pub</span> <span class='ident'>BUSR_Min</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSR_Max</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSR_nBusNumbers</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSR_Flags</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BUSNUMBER_RANGE</span> {
+    <span class='ident'>BUSR_Min</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>BUSR_Max</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>BUSR_nBusNumbers</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>BUSR_Flags</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBUSNUMBER_RANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BUSNUMBER_RANGE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BUSNUMBER_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>BUSD_Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSD_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSD_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSD_Alloc_Base</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>BUSD_Alloc_End</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BUSNUMBER_DES</span> {
+    <span class='ident'>BUSD_Count</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BUSD_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BUSD_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>BUSD_Alloc_Base</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>BUSD_Alloc_End</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBUSNUMBER_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BUSNUMBER_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>BUSNUMBER_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>BusNumber_Header</span>: <span class='ident'>BUSNUMBER_DES</span>,
-    <span class='kw'>pub</span> <span class='ident'>BusNumber_Data</span>: [<span class='ident'>BUSNUMBER_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BUSNUMBER_RESOURCE</span> {
+    <span class='ident'>BusNumber_Header</span>: <span class='ident'>BUSNUMBER_DES</span>,
+    <span class='ident'>BusNumber_Data</span>: [<span class='ident'>BUSNUMBER_RANGE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBUSNUMBER_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BUSNUMBER_RESOURCE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONNECTION_DES</span> {
-    <span class='kw'>pub</span> <span class='ident'>COND_Type</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_Class</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_ClassType</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_Reserved1</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_Reserved2</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>COND_Id</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONNECTION_DES</span> {
+    <span class='ident'>COND_Type</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>COND_Flags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>COND_Class</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>COND_ClassType</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>COND_Reserved1</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>COND_Reserved2</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>COND_Id</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONNECTION_DES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONNECTION_DES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CONNECTION_RESOURCE</span> {
-    <span class='kw'>pub</span> <span class='ident'>Connection_Header</span>: <span class='ident'>CONNECTION_DES</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONNECTION_RESOURCE</span> {
+    <span class='ident'>Connection_Header</span>: <span class='ident'>CONNECTION_DES</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONNECTION_RESOURCE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONNECTION_RESOURCE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_HWPI_NOT_DOCKABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_HWPI_UNDOCKED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_HWPI_DOCKED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>HWPROFILEINFO_A</span> {
     <span class='kw'>pub</span> <span class='ident'>HWPI_ulHWProfile</span>: ::<span class='ident'>ULONG</span>,
@@ -1456,7 +1225,6 @@
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>HWPROFILEINFO_W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>HWPROFILEINFO_W</span> { <span class='op'>*</span><span class='self'>self</span> } }
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHWPROFILEINFO_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HWPROFILEINFO_W</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_All</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_None</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_Mem</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
@@ -1474,11 +1242,9 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_PcCardConfig</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00008002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_MfCardConfig</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00008003</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ResType_Connection</span>: <span class='ident'>RESOURCEID</span> <span class='op'>=</span> <span class='number'>0x00008004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_RANGE_ADDIFCONFLICT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_RANGE_DONOTADDIFCONFLICT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_RANGE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BASIC_LOG_CONF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FILTERED_LOG_CONF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ALLOC_LOG_CONF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -1487,54 +1253,44 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OVERRIDE_LOG_CONF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000005</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NUM_LOG_CONF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000006</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LOG_CONF_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PRIORITY_EQUAL_FIRST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PRIORITY_EQUAL_LAST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PRIORITY_BIT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RegDisposition_OpenAlways</span>: <span class='ident'>REGDISPOSITION</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RegDisposition_OpenExisting</span>: <span class='ident'>REGDISPOSITION</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RegDisposition_Bits</span>: <span class='ident'>REGDISPOSITION</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_ID_HARDWARE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_ID_COMPATIBLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ADD_ID_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_NO_WAIT_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_PHANTOM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_GENERATE_ID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_DO_NOT_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVNODE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0000000F</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_NORMAL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_NO_WAIT_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_NO_WAIT_INSTALL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_PHANTOM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_PHANTOM</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_GENERATE_ID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_GENERATE_ID</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_DO_NOT_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_DO_NOT_INSTALL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CREATE_DEVINST_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_CREATE_DEVNODE_BITS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DELETE_CLASS_ONLY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DELETE_CLASS_SUBKEYS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DELETE_CLASS_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DELETE_CLASS_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ENUMERATE_CLASSES_INSTALLER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ENUMERATE_CLASSES_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_ENUMERATE_CLASSES_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DETECT_NEW_PROFILE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DETECT_CRASHED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DETECT_HWPROF_FIRST_BOOT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DETECT_RUN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DETECT_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x80000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DISABLE_POLITE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DISABLE_ABSOLUTE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DISABLE_HARDWARE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DISABLE_UI_NOT_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DISABLE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_NONE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_ENUMERATOR</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_SERVICE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -1547,11 +1303,9 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_PRESENT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_CLASS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GETIDLIST_FILTER_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x100003FF</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GET_DEVICE_INTERFACE_LIST_PRESENT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_GET_DEVICE_INTERFACE_LIST_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DRP_DEVICEDESC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DRP_HARDWAREID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DRP_COMPATIBLEIDS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
@@ -1600,7 +1354,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CRP_MIN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_DRP_MIN</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DRP_MAX</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000025</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CRP_MAX</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_DRP_MAX</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_LOCKSUPPORTED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_EJECTSUPPORTED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_REMOVABLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -1611,69 +1364,55 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_SURPRISEREMOVALOK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_HARDWAREDISABLED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_DEVCAP_NONDYNAMIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_INSTALL_STATE_INSTALLED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_INSTALL_STATE_NEEDS_REINSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_INSTALL_STATE_FAILED_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_INSTALL_STATE_FINISH_INSTALL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>3</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVNODE_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVNODE_PHANTOM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVNODE_CANCELREMOVE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVNODE_NOVALIDATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVNODE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVINST_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_LOCATE_DEVNODE_NORMAL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVINST_PHANTOM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_LOCATE_DEVNODE_PHANTOM</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVINST_CANCELREMOVE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_LOCATE_DEVNODE_CANCELREMOVE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVINST_NOVALIDATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_LOCATE_DEVNODE_NOVALIDATION</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_LOCATE_DEVINST_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_LOCATE_DEVNODE_BITS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_OPEN_CLASS_KEY_INSTALLER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_OPEN_CLASS_KEY_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_OPEN_CLASS_KEY_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVE_UI_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVE_UI_NOT_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVE_NO_RESTART</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REMOVE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_REMOVE_UI_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_REMOVE_UI_OK</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_REMOVE_UI_NOT_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_REMOVE_UI_NOT_OK</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_REMOVE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_QUERY_REMOVE_UI_OK</span> <span class='op'>|</span> <span class='ident'>CM_QUERY_REMOVE_UI_NOT_OK</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REENUMERATE_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REENUMERATE_SYNCHRONOUS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REENUMERATE_RETRY_INSTALLATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REENUMERATE_ASYNCHRONOUS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REENUMERATE_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTER_DEVICE_DRIVER_STATIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTER_DEVICE_DRIVER_DISABLEABLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTER_DEVICE_DRIVER_REMOVABLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTER_DEVICE_DRIVER_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTRY_HARDWARE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTRY_SOFTWARE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTRY_USER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTRY_CONFIG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_REGISTRY_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000301</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_OVERRIDE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVINST_PROBLEM_NORMAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_NORMAL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVINST_PROBLEM_OVERRIDE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_OVERRIDE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_DEVINST_PROBLEM_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_SET_DEVNODE_PROBLEM_BITS</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_HW_PROF_FLAGS_UI_NOT_OK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SET_HW_PROF_FLAGS_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_DEVNODE_READY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_DEVINST_READY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_SETUP_DEVNODE_READY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_DOWNLOAD</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
@@ -1688,52 +1427,41 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_DEVNODE_CONFIG_EXTENSIONS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_DEVINST_CONFIG_EXTENSIONS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_SETUP_DEVNODE_CONFIG_EXTENSIONS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_SETUP_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_ARBITRATOR_RAW</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_ARBITRATOR_TRANSLATED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_QUERY_ARBITRATOR_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CUSTOMDEVPROP_MERGE_MULTISZ</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CUSTOMDEVPROP_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CLASS_PROPERTY_INSTALLER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CLASS_PROPERTY_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_CLASS_PROPERTY_BITS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>HCMNOTIFICATION</span>, <span class='ident'>HCMNOTIFICATION__</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PHCMNOTIFICATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HCMNOTIFICATION</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CM_NOTIFY_FILTER_VALID_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES</span>
     <span class='op'>|</span> <span class='ident'>CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CM_NOTIFY_FILTER_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CM_NOTIFY_FILTER_TYPE</span> {
     <span class='ident'>CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE</span>,
     <span class='ident'>CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE</span>,
     <span class='ident'>CM_NOTIFY_FILTER_TYPE_MAX</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCM_NOTIFY_FILTER_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CM_NOTIFY_FILTER_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInterface</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceHandle</span> {
-    <span class='kw'>pub</span> <span class='ident'>hTarget</span>: ::<span class='ident'>HANDLE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInterface</span> {
+    <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceHandle</span> {
+    <span class='ident'>hTarget</span>: ::<span class='ident'>HANDLE</span>,
+}}
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInstance</span> {
     <span class='kw'>pub</span> <span class='ident'>InstanceId</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>MAX_DEVICE_ID_LEN</span>],
 }
 <span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInstance</span> {
-    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInstance</span> { <span class='op'>*</span><span class='self'>self</span> } 
+    <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CM_NOTIFY_FILTER_DeviceInstance</span> { <span class='op'>*</span><span class='self'>self</span> }
 }
 <span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_FILTER</span> {
@@ -1748,9 +1476,7 @@
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>CM_NOTIFY_FILTER</span>, <span class='ident'>u</span>, <span class='ident'>DeviceHandle</span>, <span class='ident'>DeviceHandle_mut</span>, <span class='ident'>CM_NOTIFY_FILTER_DeviceHandle</span>);
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>CM_NOTIFY_FILTER</span>, <span class='ident'>u</span>, <span class='ident'>DeviceInstance</span>, <span class='ident'>DeviceInstance_mut</span>, <span class='ident'>CM_NOTIFY_FILTER_DeviceInstance</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCM_NOTIFY_FILTER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CM_NOTIFY_FILTER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>CM_NOTIFY_ACTION</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>CM_NOTIFY_ACTION</span> {
     <span class='ident'>CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL</span>,
     <span class='ident'>CM_NOTIFY_ACTION_DEVICEQUERYREMOVE</span>,
@@ -1762,31 +1488,26 @@
     <span class='ident'>CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED</span>,
     <span class='ident'>CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED</span>,
     <span class='ident'>CM_NOTIFY_ACTION_MAX</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCM_NOTIFY_ACTION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CM_NOTIFY_ACTION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInterface</span> {
-    <span class='kw'>pub</span> <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>SymbolicLink</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceHandle</span> {
-    <span class='kw'>pub</span> <span class='ident'>EventGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>NameOffset</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>DataSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Data</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInstance</span> {
-    <span class='kw'>pub</span> <span class='ident'>InstanceId</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>FilterType</span>: <span class='ident'>CM_NOTIFY_FILTER_TYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>u</span>: [::<span class='ident'>BYTE</span>; <span class='number'>25</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInterface</span> {
+    <span class='ident'>ClassGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>SymbolicLink</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceHandle</span> {
+    <span class='ident'>EventGuid</span>: ::<span class='ident'>GUID</span>,
+    <span class='ident'>NameOffset</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>DataSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Data</span>: [::<span class='ident'>BYTE</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInstance</span> {
+    <span class='ident'>InstanceId</span>: [::<span class='ident'>WCHAR</span>; ::<span class='ident'>ANYSIZE_ARRAY</span>],
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CM_NOTIFY_EVENT_DATA</span> {
+    <span class='ident'>FilterType</span>: <span class='ident'>CM_NOTIFY_FILTER_TYPE</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>u</span>: [::<span class='ident'>BYTE</span>; <span class='number'>25</span>],
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(
     <span class='ident'>CM_NOTIFY_EVENT_DATA</span>, <span class='ident'>u</span>, <span class='ident'>DeviceInterface</span>, <span class='ident'>DeviceInterface_mut</span>,
     <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInterface</span>
@@ -1796,12 +1517,10 @@
     <span class='ident'>CM_NOTIFY_EVENT_DATA</span>, <span class='ident'>u</span>, <span class='ident'>DeviceInstance</span>, <span class='ident'>DeviceInstance_mut</span>, <span class='ident'>CM_NOTIFY_EVENT_DATA_DeviceInstance</span>
 );
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCM_NOTIFY_EVENT_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CM_NOTIFY_EVENT_DATA</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCM_NOTIFY_CALLBACK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>hNotify</span>: <span class='ident'>HCMNOTIFICATION</span>, <span class='ident'>Context</span>: ::<span class='ident'>PVOID</span>, <span class='ident'>Action</span>: <span class='ident'>CM_NOTIFY_ACTION</span>,
     <span class='ident'>EventData</span>: <span class='ident'>PCM_NOTIFY_EVENT_DATA</span>, <span class='ident'>EventDataSize</span>: ::<span class='ident'>DWORD</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>DWORD</span><span class='op'>&gt;</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CR_SUCCESS</span>: <span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CR_DEFAULT</span>: <span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CR_OUT_OF_MEMORY</span>: <span class='ident'>CONFIGRET</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -1927,6 +1646,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

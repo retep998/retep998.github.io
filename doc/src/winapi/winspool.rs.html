@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\winspool.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winspool.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winspool.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -69,44 +70,34 @@
 <span id="27">27</span>
 <span id="28">28</span>
 <span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Winspool header file</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTER_DEFAULTSA</span> {
-    <span class='kw'>pub</span> <span class='ident'>pDataType</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pDevMode</span>: ::<span class='ident'>LPDEVMODEA</span>,
-    <span class='kw'>pub</span> <span class='ident'>DesiredAccess</span>: ::<span class='ident'>ACCESS_MASK</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTER_DEFAULTSA</span> {
+    <span class='ident'>pDataType</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>pDevMode</span>: ::<span class='ident'>LPDEVMODEA</span>,
+    <span class='ident'>DesiredAccess</span>: ::<span class='ident'>ACCESS_MASK</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPRINTER_DEFAULTSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_DEFAULTSA</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTER_DEFAULTSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_DEFAULTSA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTER_DEFAULTSW</span> {
-    <span class='kw'>pub</span> <span class='ident'>pDataType</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pDevMode</span>: ::<span class='ident'>LPDEVMODEW</span>,
-    <span class='kw'>pub</span> <span class='ident'>DesiredAccess</span>: ::<span class='ident'>ACCESS_MASK</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTER_DEFAULTSW</span> {
+    <span class='ident'>pDataType</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>pDevMode</span>: ::<span class='ident'>LPDEVMODEW</span>,
+    <span class='ident'>DesiredAccess</span>: ::<span class='ident'>ACCESS_MASK</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPRINTER_DEFAULTSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_DEFAULTSW</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTER_DEFAULTSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_DEFAULTSW</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTER_OPTIONSA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTER_OPTIONSA</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPRINTER_OPTIONSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_OPTIONSA</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTER_OPTIONSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_OPTIONSA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTER_OPTIONSW</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTER_OPTIONSW</span> {
+    <span class='ident'>cbSize</span>: ::<span class='ident'>UINT</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPRINTER_OPTIONSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_OPTIONSW</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTER_OPTIONSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTER_OPTIONSW</span>;
 </pre>
@@ -169,6 +160,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

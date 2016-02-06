@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["WER_REGISTER_FILE_TYPE",""]]});
+initSidebarItems({"constant":[["WerRegFileTypeMax",""],["WerRegFileTypeOther",""],["WerRegFileTypeUserDocument",""]],"struct":[["WER_REGISTER_FILE_TYPE",""]]});

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\processthreadsapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\processthreadsapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>processthreadsapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -102,85 +103,69 @@
 <span id="60">60</span>
 <span id="61">61</span>
 <span id="62">62</span>
-<span id="63">63</span>
-<span id="64">64</span>
-<span id="65">65</span>
-<span id="66">66</span>
-<span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
-<span id="70">70</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROCESS_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>hProcess</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hThread</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwProcessId</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwThreadId</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PROCESS_INFORMATION</span> {
+    <span class='ident'>hProcess</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>hThread</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>dwProcessId</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwThreadId</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROCESS_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESS_INFORMATION</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROCESS_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESS_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>STARTUPINFOA</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpReserved</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpDesktop</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTitle</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwX</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwY</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwXSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwYSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwXCountChars</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwYCountChars</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFillAttribute</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wShowWindow</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbReserved2</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpReserved2</span>: ::<span class='ident'>LPBYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdInput</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdOutput</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdError</span>: ::<span class='ident'>HANDLE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>STARTUPINFOA</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpReserved</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>lpDesktop</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>lpTitle</span>: ::<span class='ident'>LPSTR</span>,
+    <span class='ident'>dwX</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwY</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwXSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwYSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwXCountChars</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwYCountChars</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFillAttribute</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>wShowWindow</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>cbReserved2</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>lpReserved2</span>: ::<span class='ident'>LPBYTE</span>,
+    <span class='ident'>hStdInput</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>hStdOutput</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>hStdError</span>: ::<span class='ident'>HANDLE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSTARTUPINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>STARTUPINFOA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>STARTUPINFOW</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpReserved</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpDesktop</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTitle</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwX</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwY</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwXSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwYSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwXCountChars</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwYCountChars</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFillAttribute</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wShowWindow</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbReserved2</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpReserved2</span>: ::<span class='ident'>LPBYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdInput</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdOutput</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hStdError</span>: ::<span class='ident'>HANDLE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>STARTUPINFOW</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpReserved</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>lpDesktop</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>lpTitle</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwX</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwY</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwXSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwYSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwXCountChars</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwYCountChars</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFillAttribute</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>wShowWindow</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>cbReserved2</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>lpReserved2</span>: ::<span class='ident'>LPBYTE</span>,
+    <span class='ident'>hStdInput</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>hStdOutput</span>: ::<span class='ident'>HANDLE</span>,
+    <span class='ident'>hStdError</span>: ::<span class='ident'>HANDLE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSTARTUPINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>STARTUPINFOW</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROC_THREAD_ATTRIBUTE_LIST</span> {
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PROC_THREAD_ATTRIBUTE_LIST</span> {
     <span class='ident'>dummy</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROC_THREAD_ATTRIBUTE_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROC_THREAD_ATTRIBUTE_LIST</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROC_THREAD_ATTRIBUTE_LIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROC_THREAD_ATTRIBUTE_LIST</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>THREAD_INFORMATION_CLASS</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>THREAD_INFORMATION_CLASS</span> {
     <span class='ident'>ThreadMemoryPriority</span>,
     <span class='ident'>ThreadAbsoluteCpuPriority</span>,
     <span class='ident'>ThreadInformationClassMax</span>,
-}
+}}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -241,6 +226,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

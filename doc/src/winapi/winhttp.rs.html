@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\winhttp.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winhttp.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winhttp.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -481,43 +482,6 @@
 <span id="439">439</span>
 <span id="440">440</span>
 <span id="441">441</span>
-<span id="442">442</span>
-<span id="443">443</span>
-<span id="444">444</span>
-<span id="445">445</span>
-<span id="446">446</span>
-<span id="447">447</span>
-<span id="448">448</span>
-<span id="449">449</span>
-<span id="450">450</span>
-<span id="451">451</span>
-<span id="452">452</span>
-<span id="453">453</span>
-<span id="454">454</span>
-<span id="455">455</span>
-<span id="456">456</span>
-<span id="457">457</span>
-<span id="458">458</span>
-<span id="459">459</span>
-<span id="460">460</span>
-<span id="461">461</span>
-<span id="462">462</span>
-<span id="463">463</span>
-<span id="464">464</span>
-<span id="465">465</span>
-<span id="466">466</span>
-<span id="467">467</span>
-<span id="468">468</span>
-<span id="469">469</span>
-<span id="470">470</span>
-<span id="471">471</span>
-<span id="472">472</span>
-<span id="473">473</span>
-<span id="474">474</span>
-<span id="475">475</span>
-<span id="476">476</span>
-<span id="477">477</span>
-<span id="478">478</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -527,13 +491,10 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPHINTERNET</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HINTERNET</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>INTERNET_PORT</span> <span class='op'>=</span> ::<span class='ident'>WORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPINTERNET_PORT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>INTERNET_PORT</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_DEFAULT_PORT</span>: <span class='ident'>INTERNET_PORT</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_DEFAULT_HTTP_PORT</span>: <span class='ident'>INTERNET_PORT</span> <span class='op'>=</span> <span class='number'>80</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_DEFAULT_HTTPS_PORT</span>: <span class='ident'>INTERNET_PORT</span> <span class='op'>=</span> <span class='number'>443</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_ASYNC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_SECURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_ESCAPE_PERCENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_NULL_CODEPAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
@@ -541,64 +502,53 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_REFRESH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_FLAG_BYPASS_PROXY_CACHE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_ESCAPE_DISABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FLAG_ESCAPE_DISABLE_QUERY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_ASYNC_RESULT</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwResult</span>: ::<span class='ident'>DWORD_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwError</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_ASYNC_RESULT</span> {
+    <span class='ident'>dwResult</span>: ::<span class='ident'>DWORD_PTR</span>,
+    <span class='ident'>dwError</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWINHTTP_ASYNC_RESULT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINHTTP_ASYNC_RESULT</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>INTERNET_SCHEME</span> <span class='op'>=</span> ::<span class='ident'>c_int</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPINTERNET_SCHEME</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_int</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_SCHEME_HTTP</span>: <span class='ident'>INTERNET_SCHEME</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_SCHEME_HTTPS</span>: <span class='ident'>INTERNET_SCHEME</span> <span class='op'>=</span> <span class='number'>2</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_SCHEME_FTP</span>: <span class='ident'>INTERNET_SCHEME</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INTERNET_SCHEME_SOCKS</span>: <span class='ident'>INTERNET_SCHEME</span> <span class='op'>=</span> <span class='number'>4</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>URL_COMPONENTS</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszScheme</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwSchemeLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nScheme</span>: <span class='ident'>INTERNET_SCHEME</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszHostName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwHostNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nPort</span>: <span class='ident'>INTERNET_PORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszUserName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwUserNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszPassword</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPasswordLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszUrlPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwUrlPathLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszExtraInfo</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwExtraInfoLength</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>URL_COMPONENTS</span> {
+    <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszScheme</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwSchemeLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>nScheme</span>: <span class='ident'>INTERNET_SCHEME</span>,
+    <span class='ident'>lpszHostName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwHostNameLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>nPort</span>: <span class='ident'>INTERNET_PORT</span>,
+    <span class='ident'>lpszUserName</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwUserNameLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszPassword</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwPasswordLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszUrlPath</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwUrlPathLength</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszExtraInfo</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>dwExtraInfoLength</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPURL_COMPONENTS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>URL_COMPONENTS</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>URL_COMPONENTSW</span> <span class='op'>=</span> <span class='ident'>URL_COMPONENTS</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPURL_COMPONENTSW</span> <span class='op'>=</span> <span class='ident'>LPURL_COMPONENTS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_INFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwAccessType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszProxy</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszProxyBypass</span>: ::<span class='ident'>LPWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_INFO</span> {
+    <span class='ident'>dwAccessType</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszProxy</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>lpszProxyBypass</span>: ::<span class='ident'>LPWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWINHTTP_PROXY_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINHTTP_PROXY_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WINHTTP_PROXY_INFOW</span> <span class='op'>=</span> <span class='ident'>WINHTTP_PROXY_INFO</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWINHTTP_PROXY_INFOW</span> <span class='op'>=</span> <span class='ident'>LPWINHTTP_PROXY_INFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_AUTOPROXY_OPTIONS</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwAutoDetectFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszAutoConfigUrl</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpvReserved</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>fAutoLogonIfChallenged</span>: ::<span class='ident'>BOOL</span>,
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_AUTOPROXY_OPTIONS</span> {
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwAutoDetectFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpszAutoConfigUrl</span>: ::<span class='ident'>LPCWSTR</span>,
+    <span class='ident'>lpvReserved</span>: ::<span class='ident'>LPVOID</span>,
+    <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>fAutoLogonIfChallenged</span>: ::<span class='ident'>BOOL</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_AUTO_DETECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_CONFIG_URL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_HOST_KEEPCASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -609,25 +559,19 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_NO_CACHE_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_NO_CACHE_SVC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTOPROXY_SORT_RESULTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTO_DETECT_TYPE_DHCP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_AUTO_DETECT_TYPE_DNS_A</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_RESULT_ENTRY</span> {
-    <span class='kw'>pub</span> <span class='ident'>fProxy</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>fBypass</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProxyScheme</span>: <span class='ident'>INTERNET_SCHEME</span>,
-    <span class='kw'>pub</span> <span class='ident'>pwszProxy</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProxyPort</span>: <span class='ident'>INTERNET_PORT</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_RESULT</span> {
-    <span class='kw'>pub</span> <span class='ident'>cEntries</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pEntries</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINHTTP_PROXY_RESULT_ENTRY</span>,
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_RESULT_ENTRY</span> {
+    <span class='ident'>fProxy</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>fBypass</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>ProxyScheme</span>: <span class='ident'>INTERNET_SCHEME</span>,
+    <span class='ident'>pwszProxy</span>: ::<span class='ident'>PWSTR</span>,
+    <span class='ident'>ProxyPort</span>: <span class='ident'>INTERNET_PORT</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_PROXY_RESULT</span> {
+    <span class='ident'>cEntries</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>pEntries</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINHTTP_PROXY_RESULT_ENTRY</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_FIRST_OPTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_OPTION_CALLBACK</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_CALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_RESOLVE_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
@@ -694,19 +638,16 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_WEB_SOCKET_RECEIVE_BUFFER_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>122</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_WEB_SOCKET_SEND_BUFFER_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>123</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_LAST_OPTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_OPTION_WEB_SOCKET_SEND_BUFFER_SIZE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_USERNAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_PROXY_USERNAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_OPTION_PROXY_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1003</span>;
-
 <span class='comment'>//552</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WINHTTP_STATUS_CALLBACK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>hInternet</span>: <span class='ident'>HINTERNET</span>, <span class='ident'>dwContext</span>: ::<span class='ident'>DWORD_PTR</span>, <span class='ident'>dwInternetStatus</span>: ::<span class='ident'>DWORD</span>,
     <span class='ident'>lpvStatusInformation</span>: ::<span class='ident'>LPVOID</span>, <span class='ident'>dwStatusInformationLength</span>: ::<span class='ident'>DWORD</span>,
 )<span class='op'>&gt;</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWINHTTP_STATUS_CALLBACK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WINHTTP_STATUS_CALLBACK</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_RESOLVING_NAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_NAME_RESOLVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -732,14 +673,13 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_GETPROXYFORURL_COMPLETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_CLOSE_COMPLETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_RESOLVE_NAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_RESOLVING_NAME</span>
     <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_NAME_RESOLVED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_CONNECT_TO_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_CONNECT_TO_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_SEND_REQUEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_SEND_REQUEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_SENDING_REQUEST</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_REQUEST_SENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_RECEIVE_RESPONSE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_RECEIVE_RESPONSE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_CLOSE_CONNECTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_CLOSING_CONNECTION</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED</span>;
@@ -760,13 +700,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_REQUEST_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_REQUEST_ERROR</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_GETPROXYFORURL_COMPLETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_GETPROXYFORURL_COMPLETE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_ALL_COMPLETIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_ALL_COMPLETIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span>
     <span class='ident'>WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE</span>
     <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_READ_COMPLETE</span>
     <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE</span> <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_REQUEST_ERROR</span>
     <span class='op'>|</span> <span class='ident'>WINHTTP_CALLBACK_STATUS_GETPROXYFORURL_COMPLETE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_CALLBACK_FLAG_ALL_NOTIFICATIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffffffff</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_MIME_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_CONTENT_TYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_CONTENT_TRANSFER_ENCODING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
@@ -847,7 +786,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_FLAG_REQUEST_HEADERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_FLAG_SYSTEMTIME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_QUERY_FLAG_NUMBER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_CONTINUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_SWITCH_PROTOCOLS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>101</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_OK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>200</span>;
@@ -890,12 +828,10 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_VERSION_NOT_SUP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>505</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_FIRST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>HTTP_STATUS_CONTINUE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HTTP_STATUS_LAST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>HTTP_STATUS_VERSION_NOT_SUP</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ACCESS_TYPE_DEFAULT_PROXY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ACCESS_TYPE_NO_PROXY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ACCESS_TYPE_NAMED_PROXY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ERROR_BASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>12000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_WINHTTP_OUT_OF_HANDLES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_ERROR_BASE</span> <span class='op'>+</span> <span class='number'>1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_WINHTTP_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_ERROR_BASE</span> <span class='op'>+</span> <span class='number'>2</span>;
@@ -947,7 +883,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_WINHTTP_CLIENT_CERT_NO_PRIVATE_KEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_ERROR_BASE</span> <span class='op'>+</span> <span class='number'>185</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ERROR_WINHTTP_CLIENT_CERT_NO_ACCESS_PRIVATE_KEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_ERROR_BASE</span> <span class='op'>+</span> <span class='number'>186</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_ERROR_LAST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WINHTTP_ERROR_BASE</span> <span class='op'>+</span> <span class='number'>186</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_STATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_SWPAD_CURRENT_NETWORK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_SWPAD_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -955,35 +890,27 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000FFFF</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_NOTIFY_NETWORK_CHANGED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINHTTP_RESET_OUT_OF_PROC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WINHTTP_CURRENT_USER_IE_PROXY_CONFIG</span> {
-    <span class='kw'>pub</span> <span class='ident'>fAutoDetect</span>: ::<span class='ident'>BOOL</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszAutoConfigUrl</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszProxy</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszProxyBypass</span>: ::<span class='ident'>LPWSTR</span>,
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WINHTTP_CURRENT_USER_IE_PROXY_CONFIG</span> {
+    <span class='ident'>fAutoDetect</span>: ::<span class='ident'>BOOL</span>,
+    <span class='ident'>lpszAutoConfigUrl</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>lpszProxy</span>: ::<span class='ident'>LPWSTR</span>,
+    <span class='ident'>lpszProxyBypass</span>: ::<span class='ident'>LPWSTR</span>,
+}}
 <span class='comment'>//1370</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_OPERATION</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_OPERATION</span> {
     <span class='ident'>WINHTTP_WEB_SOCKET_SEND_OPERATION</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_RECEIVE_OPERATION</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_CLOSE_OPERATION</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_BUFFER_TYPE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_BUFFER_TYPE</span> {
     <span class='ident'>WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE</span> <span class='op'>=</span> <span class='number'>4</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_CLOSE_STATUS</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WINHTTP_WEB_SOCKET_CLOSE_STATUS</span> {
     <span class='ident'>WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1000</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1001</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1002</span>,
@@ -996,7 +923,7 @@
     <span class='ident'>WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1010</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1011</span>,
     <span class='ident'>WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS</span> <span class='op'>=</span> <span class='number'>1015</span>,
-}
+}}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -1057,6 +984,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

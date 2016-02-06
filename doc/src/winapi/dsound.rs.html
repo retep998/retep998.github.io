@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\dsound.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\dsound.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dsound.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -172,71 +173,54 @@
 <span id="130">130</span>
 <span id="131">131</span>
 <span id="132">132</span>
-<span id="133">133</span>
-<span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
-<span id="138">138</span>
-<span id="139">139</span>
-<span id="140">140</span>
-<span id="141">141</span>
-<span id="142">142</span>
-<span id="143">143</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! DSound procedure declarations, constant definitions and macros</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DSCAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMinSecondarySampleRate</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxSecondarySampleRate</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPrimaryBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHwMixingAllBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHwMixingStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHwMixingStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHwMixingAllBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHwMixingStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHwMixingStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHw3DAllBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHw3DStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxHw3DStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHw3DAllBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHw3DStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHw3DStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwTotalHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFreeHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxContigFreeHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwUnlockTransferRateHwBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPlayCpuOverheadSwBuffers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved2</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSCAPS</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMinSecondarySampleRate</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxSecondarySampleRate</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwPrimaryBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHwMixingAllBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHwMixingStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHwMixingStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHwMixingAllBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHwMixingStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHwMixingStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHw3DAllBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHw3DStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxHw3DStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHw3DAllBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHw3DStaticBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHw3DStreamingBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwTotalHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFreeHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwMaxContigFreeHwMemBytes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwUnlockTransferRateHwBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwPlayCpuOverheadSwBuffers</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwReserved1</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwReserved2</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDSCAPS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSCAPS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DSBCAPS</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwBufferBytes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwUnlockTransferRate</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPlayCpuOverhead</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSBCAPS</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwBufferBytes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwUnlockTransferRate</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwPlayCpuOverhead</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDSBCAPS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSBCAPS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DSBUFFERDESC</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwBufferBytes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpwfxFormat</span>: ::<span class='ident'>LPWAVEFORMATEX</span>,
-    <span class='kw'>pub</span> <span class='ident'>guid3DAlgorithm</span>: ::<span class='ident'>GUID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSBUFFERDESC</span> {
+    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwBufferBytes</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>lpwfxFormat</span>: ::<span class='ident'>LPWAVEFORMATEX</span>,
+    <span class='ident'>guid3DAlgorithm</span>: ::<span class='ident'>GUID</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCDSBUFFERDESC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>DSBUFFERDESC</span>;
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDirectSoundBuffer</span>(<span class='ident'>IDirectSoundBufferVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>GetCaps</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDSBufferCaps</span>: ::<span class='ident'>LPDSBCAPS</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -274,7 +258,6 @@
 }
 );
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDIRECTSOUNDBUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDirectSoundBuffer</span>;
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IDirectSound</span>(<span class='ident'>IDirectSoundVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>)
 {
@@ -295,15 +278,12 @@
 }
 );
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDIRECTSOUND</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IDirectSound</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_OK</span>: ::<span class='ident'>HRESULT</span> <span class='op'>=</span> ::<span class='ident'>S_OK</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSERR_GENERIC</span>: ::<span class='ident'>HRESULT</span> <span class='op'>=</span> ::<span class='ident'>E_FAIL</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSSCL_NORMAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSSCL_PRIORITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSSCL_EXCLUSIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSSCL_WRITEPRIMARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_PRIMARYBUFFER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_STATIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_LOCHARDWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -320,7 +300,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_MUTE3DATMAXDISTANCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_LOCDEFER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBCAPS_TRUEPLAYPOSITION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBPLAY_LOOPING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBPLAY_LOCHARDWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSBPLAY_LOCSOFTWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -387,6 +366,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

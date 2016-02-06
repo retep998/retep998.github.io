@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\winsvc.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winsvc.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winsvc.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -244,11 +245,6 @@
 <span id="202">202</span>
 <span id="203">203</span>
 <span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -411,27 +407,22 @@
 <span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>SC_HANDLE</span>, <span class='ident'>SC_HANDLE__</span>);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSC_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SC_HANDLE</span>;
 <span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>SERVICE_STATUS_HANDLE</span>, <span class='ident'>SERVICE_STATUS_HANDLE__</span>);
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>SC_STATUS_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>SC_STATUS_TYPE</span> {
     <span class='ident'>SC_STATUS_PROCESS_INFO</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>__</span>, <span class='comment'>// FIXME - Univariant enums</span>
-}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>_SC_ENUM_TYPE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>_SC_ENUM_TYPE</span> {
     <span class='ident'>SC_ENUM_PROCESS_INFO</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>__</span>, <span class='comment'>// FIXME - Univariant enums</span>
-}
+}}
 <span class='comment'>//700</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SERVICE_STATUS</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwServiceType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCurrentState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwControlsAccepted</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwWin32ExitCode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceSpecificExitCode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCheckPoint</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwWaitHint</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SERVICE_STATUS</span> {
+    <span class='ident'>dwServiceType</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwCurrentState</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwControlsAccepted</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwWin32ExitCode</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwServiceSpecificExitCode</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwCheckPoint</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>dwWaitHint</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSERVICE_STATUS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SERVICE_STATUS</span>;
 <span class='comment'>//848</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSERVICE_MAIN_FUNCTIONW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
@@ -519,6 +510,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

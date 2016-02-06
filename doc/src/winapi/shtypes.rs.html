@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\shtypes.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\shtypes.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>shtypes.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -80,7 +81,6 @@
 <span id="38">38</span>
 <span id="39">39</span>
 <span id="40">40</span>
-<span id="41">41</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -116,11 +116,10 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_RELATIVE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCUIDLIST_RELATIVE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCIDLIST_ABSOLUTE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCIDLIST_ABSOLUTE</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_ABSOLUTE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCUIDLIST_ABSOLUTE</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>COMDLG_FILTERSPEC</span> {
-    <span class='kw'>pub</span> <span class='ident'>pszName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszSpec</span>: ::<span class='ident'>LPCWSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>COMDLG_FILTERSPEC</span> {
+    <span class='ident'>pszName</span>: ::<span class='ident'>LPCWSTR</span>,
+    <span class='ident'>pszSpec</span>: ::<span class='ident'>LPCWSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>KNOWNFOLDERID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFKNOWNFOLDERID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>KNOWNFOLDERID</span>;
 </pre>
@@ -183,6 +182,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

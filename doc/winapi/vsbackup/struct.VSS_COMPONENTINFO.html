@@ -9,6 +9,7 @@
 
     <title>winapi::vsbackup::VSS_COMPONENTINFO - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,18 +46,18 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-61740' class='srclink' href='../../src/winapi/vsbackup.rs.html#17-33' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-86402' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct VSS_COMPONENTINFO {
-    pub type_: <a class='enum' href='../../winapi/vswriter/enum.VSS_COMPONENT_TYPE.html' title='winapi::vswriter::VSS_COMPONENT_TYPE'>VSS_COMPONENT_TYPE</a>,
+    pub type_: <a class='struct' href='../../winapi/vswriter/struct.VSS_COMPONENT_TYPE.html' title='winapi::vswriter::VSS_COMPONENT_TYPE'>VSS_COMPONENT_TYPE</a>,
     pub bstrLogicalPath: <a class='type' href='../../winapi/wtypes/type.BSTR.html' title='winapi::wtypes::BSTR'>BSTR</a>,
     pub bstrComponentName: <a class='type' href='../../winapi/wtypes/type.BSTR.html' title='winapi::wtypes::BSTR'>BSTR</a>,
     pub bstrCaption: <a class='type' href='../../winapi/wtypes/type.BSTR.html' title='winapi::wtypes::BSTR'>BSTR</a>,
-    pub pbIcon: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a></a>,
+    pub pbIcon: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a>,
     pub cbIcon: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub bRestoreMetadata: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
-    pub bNotifyOnBackupComplete: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
-    pub bSelectable: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
-    pub bSelectableForRestore: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub bRestoreMetadata: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub bNotifyOnBackupComplete: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub bSelectable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub bSelectableForRestore: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
     pub dwComponentFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
     pub cFileCount: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
     pub cDatabases: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
@@ -78,9 +79,9 @@
                                   <td id='structfield.cFileCount'><code>cFileCount</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.cDatabases'><code>cDatabases</code></td><td></td></tr><tr class='stab '>
                                   <td id='structfield.cLogFiles'><code>cLogFiles</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cDependencies'><code>cDependencies</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h4>
+                                  <td id='structfield.cDependencies'><code>cDependencies</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h4>
 <h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/vsbackup/struct.VSS_COMPONENTINFO.html' title='winapi::vsbackup::VSS_COMPONENTINFO'>VSS_COMPONENTINFO</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -140,6 +141,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

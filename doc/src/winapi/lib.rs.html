@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -460,20 +461,6 @@
 <span id="418">418</span>
 <span id="419">419</span>
 <span id="420">420</span>
-<span id="421">421</span>
-<span id="422">422</span>
-<span id="423">423</span>
-<span id="424">424</span>
-<span id="425">425</span>
-<span id="426">426</span>
-<span id="427">427</span>
-<span id="428">428</span>
-<span id="429">429</span>
-<span id="430">430</span>
-<span id="431">431</span>
-<span id="432">432</span>
-<span id="433">433</span>
-<span id="434">434</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -502,6 +489,7 @@
     <span class='ident'>c_double</span>,
 };
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>audioclient</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>audiosessiontypes</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>basetsd</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>bcrypt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>cfg</span>::<span class='op'>*</span>;
@@ -515,16 +503,23 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d9caps</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d9types</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d11</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d12</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3d12sdklayers</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>d3dcommon</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dbghelp</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dcommon</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>devpropdef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>docobj</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dpapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dsgetdc</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dsound</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dsrole</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dwmapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dwrite</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgi1_2</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgi1_3</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgi1_4</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgiformat</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>dxgitype</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>errhandlingapi</span>::<span class='op'>*</span>;
@@ -544,7 +539,12 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>inspectable</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ksmedia</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>libloaderapi</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmaccess</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmcons</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmdfs</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmerrlog</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lmjoin</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>lsalookup</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>memoryapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>minwinbase</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>minwindef</span>::<span class='op'>*</span>;
@@ -553,8 +553,10 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mmsystem</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mscat</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>mssip</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>nb30</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ncrypt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ntdef</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ntsecapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ntstatus</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>oaidl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>objbase</span>::<span class='op'>*</span>;
@@ -568,6 +570,7 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>psapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>qos</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>reason</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>rpc</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>rpcdce</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>sapi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>schannel</span>::<span class='op'>*</span>;
@@ -605,17 +608,21 @@
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>windef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>windowscodecs</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winerror</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winevt</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wingdi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winhttp</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winioctl</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnetwk</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnls</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winnt</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winscard</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsmcrd</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsock2</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winspool</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winsvc</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>winuser</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2def</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2ipdef</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2spi</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>ws2tcpip</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>wtypes</span>::<span class='op'>*</span>;
@@ -626,6 +633,7 @@
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='attribute'>#[<span class='ident'>macro_use</span>]</span> <span class='kw'>mod</span> <span class='ident'>macros</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>audioclient</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>audiosessiontypes</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>basetsd</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>bcrypt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>cfg</span>;
@@ -639,16 +647,23 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d9caps</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d9types</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d11</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d12</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3d12sdklayers</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>d3dcommon</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dbghelp</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dcommon</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>devpropdef</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>docobj</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dpapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dsgetdc</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dsound</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dsrole</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dwmapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dwrite</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgi1_2</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgi1_3</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgi1_4</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgiformat</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>dxgitype</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>errhandlingapi</span>;
@@ -668,7 +683,12 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>inspectable</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ksmedia</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>libloaderapi</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmaccess</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmcons</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmdfs</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmerrlog</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lmjoin</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>lsalookup</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>memoryapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>minwinbase</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>minwindef</span>;
@@ -677,8 +697,10 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mmsystem</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mscat</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>mssip</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>nb30</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ncrypt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ntdef</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ntsecapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ntstatus</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>oaidl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>objbase</span>;
@@ -692,6 +714,7 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>psapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>qos</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>reason</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>rpc</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>rpcdce</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>sapi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>schannel</span>;
@@ -729,17 +752,21 @@
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windowscodecs</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windowsx</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winerror</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winevt</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wingdi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winhttp</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winioctl</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnetwk</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnls</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winnt</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winscard</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsmcrd</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsock2</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winspool</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winsvc</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>winuser</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2def</span>;
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2ipdef</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2spi</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>ws2tcpip</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>wtypes</span>;
@@ -761,60 +788,20 @@
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>size_t</span> <span class='op'>=</span> <span class='ident'>c_uint</span>;
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>size_t</span> <span class='op'>=</span> <span class='ident'>__uint64</span>;
-
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='comment'>// audiosessiontypes.h</span>
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>AUDCLNT_SHAREMODE</span> {
-    <span class='ident'>AUDCLNT_SHAREMODE_SHARED</span>,
-    <span class='ident'>AUDCLNT_SHAREMODE_EXCLUSIVE</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_CROSSPROCESS</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_LOOPBACK</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_EVENTCALLBACK</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_NOPERSIST</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>AUDCLNT_STREAMFLAGS_RATEADJUST</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// strmif.h</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFERENCE_TIME</span> <span class='op'>=</span> <span class='ident'>LONGLONG</span>;
-
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='comment'>// mmreg.h</span>
-<span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>, <span class='ident'>packed</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WAVEFORMATEX</span> {
-    <span class='kw'>pub</span> <span class='ident'>wFormatTag</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nChannels</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nSamplesPerSec</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nAvgBytesPerSec</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nBlockAlign</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wBitsPerSample</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbSize</span>: <span class='ident'>WORD</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>, <span class='ident'>packed</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WAVEFORMATEXTENSIBLE</span> {
-    <span class='kw'>pub</span> <span class='ident'>Format</span>: <span class='ident'>WAVEFORMATEX</span>,
-    <span class='kw'>pub</span> <span class='ident'>Samples</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwChannelMask</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>SubFormat</span>: <span class='ident'>GUID</span>,
-}
-
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// propidl.h</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROPVARIANT</span> {
-    <span class='kw'>pub</span> <span class='ident'>vt</span>: <span class='ident'>VARTYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>wReserved1</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wReserved2</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wReserved3</span>: <span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>data</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PROPVARIANT</span> {
+    <span class='ident'>vt</span>: <span class='ident'>VARTYPE</span>,
+    <span class='ident'>wReserved1</span>: <span class='ident'>WORD</span>,
+    <span class='ident'>wReserved2</span>: <span class='ident'>WORD</span>,
+    <span class='ident'>wReserved3</span>: <span class='ident'>WORD</span>,
+    <span class='ident'>data</span>: [<span class='ident'>u8</span>; <span class='number'>16</span>],
+}}
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// combaseapi.h</span>
 <span class='comment'>// Base Component Object Model defintions.</span>
@@ -826,16 +813,13 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_SERVER</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_SERVER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_LOCAL_SERVER</span> <span class='op'>|</span>
                                  <span class='ident'>CLSCTX_REMOTE_SERVER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CLSCTX_ALL</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CLSCTX_INPROC_HANDLER</span> <span class='op'>|</span> <span class='ident'>CLSCTX_SERVER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ServerInformation</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwServerPid</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServerTid</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ui64ServerAddress</span>: <span class='ident'>UINT64</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ServerInformation</span> {
+    <span class='ident'>dwServerPid</span>: <span class='ident'>DWORD</span>,
+    <span class='ident'>dwServerTid</span>: <span class='ident'>DWORD</span>,
+    <span class='ident'>ui64ServerAddress</span>: <span class='ident'>UINT64</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PServerInformation</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ServerInformation</span>;
 <span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>CO_MTA_USAGE_COOKIE</span>, <span class='ident'>CO_MTA_USAGE_COOKIE__</span>);
-
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// playsoundapi.h</span>
 <span class='comment'>// ApiSet Contract for api-ms-win-mm-playsound-l1-1-0</span>
@@ -856,32 +840,25 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SND_SENTRY</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SND_RING</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SND_SYSTEM</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
 <span class='comment'>// winreg.h</span>
 <span class='comment'>// Registry API procedure declarations, constant definitions and macros</span>
 <span class='comment'>//-------------------------------------------------------------------------------------------------</span>
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REGSAM</span> <span class='op'>=</span> <span class='ident'>ACCESS_MASK</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VALENTA</span> {
-    <span class='kw'>pub</span> <span class='ident'>ve_valuename</span>: <span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_valuelen</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_valueptr</span>: <span class='ident'>DWORD_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_type</span>: <span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VALENTA</span> {
+    <span class='ident'>ve_valuename</span>: <span class='ident'>LPSTR</span>,
+    <span class='ident'>ve_valuelen</span>: <span class='ident'>DWORD</span>,
+    <span class='ident'>ve_valueptr</span>: <span class='ident'>DWORD_PTR</span>,
+    <span class='ident'>ve_type</span>: <span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVALENTA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VALENTA</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VALENTW</span> {
-    <span class='kw'>pub</span> <span class='ident'>ve_valuename</span>: <span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_valuelen</span>: <span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_valueptr</span>: <span class='ident'>DWORD_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ve_type</span>: <span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VALENTW</span> {
+    <span class='ident'>ve_valuename</span>: <span class='ident'>LPWSTR</span>,
+    <span class='ident'>ve_valuelen</span>: <span class='ident'>DWORD</span>,
+    <span class='ident'>ve_valueptr</span>: <span class='ident'>DWORD_PTR</span>,
+    <span class='ident'>ve_type</span>: <span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVALENTW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VALENTW</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_CLASSES_ROOT</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000000</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_CURRENT_USER</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000001</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_LOCAL_MACHINE</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000002</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
@@ -892,9 +869,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_CURRENT_CONFIG</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000005</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_DYN_DATA</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000006</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HKEY_CURRENT_USER_LOCAL_SETTINGS</span>: <span class='ident'>HKEY</span> <span class='op'>=</span> <span class='number'>0x80000007</span> <span class='kw'>as</span> <span class='ident'>HKEY</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REG_MUI_STRING_TRUNCATE</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_NONE</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_SZ</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_EXPAND_SZ</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
@@ -902,11 +877,9 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_DWORD</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_MULTI_SZ</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_REG_QWORD</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_DWORD</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RRF_RT_REG_BINARY</span><span class='op'>|</span><span class='ident'>RRF_RT_REG_DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_QWORD</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RRF_RT_REG_BINARY</span><span class='op'>|</span><span class='ident'>RRF_RT_REG_QWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_RT_ANY</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000ffff</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_NOEXPAND</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RRF_ZEROONFAILURE</span>: <span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
 </pre>
@@ -969,6 +942,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

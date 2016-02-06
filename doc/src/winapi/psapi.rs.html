@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\psapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\psapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>psapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -206,29 +207,6 @@
 <span id="164">164</span>
 <span id="165">165</span>
 <span id="166">166</span>
-<span id="167">167</span>
-<span id="168">168</span>
-<span id="169">169</span>
-<span id="170">170</span>
-<span id="171">171</span>
-<span id="172">172</span>
-<span id="173">173</span>
-<span id="174">174</span>
-<span id="175">175</span>
-<span id="176">176</span>
-<span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
@@ -237,20 +215,16 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LIST_MODULES_32BIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LIST_MODULES_64BIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LIST_MODULES_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>LIST_MODULES_32BIT</span> <span class='op'>|</span> <span class='ident'>LIST_MODULES_64BIT</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>MODULEINFO</span> {
-    <span class='kw'>pub</span> <span class='ident'>lpBaseOfDll</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>SizeOfImage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>EntryPoint</span>: ::<span class='ident'>LPVOID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MODULEINFO</span> {
+    <span class='ident'>lpBaseOfDll</span>: ::<span class='ident'>LPVOID</span>,
+    <span class='ident'>SizeOfImage</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>EntryPoint</span>: ::<span class='ident'>LPVOID</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPMODULEINFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MODULEINFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_BLOCK</span> {
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_BLOCK</span> {
+    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
 <span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>PSAPI_WORKING_SET_BLOCK</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span> [
     <span class='ident'>Protection</span> <span class='ident'>set_Protection</span>[<span class='number'>0</span>..<span class='number'>5</span>],
@@ -268,18 +242,14 @@
     <span class='ident'>VirtualPage</span> <span class='ident'>set_VirtualPage</span>[<span class='number'>12</span>..<span class='number'>64</span>],
 ]);
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WORKING_SET_BLOCK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WORKING_SET_BLOCK</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>NumberOfEntries</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>WorkingSetInfo</span>: [<span class='ident'>PSAPI_WORKING_SET_BLOCK</span>; <span class='number'>1</span>],
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_INFORMATION</span> {
+    <span class='ident'>NumberOfEntries</span>: ::<span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>WorkingSetInfo</span>: [<span class='ident'>PSAPI_WORKING_SET_BLOCK</span>; <span class='number'>1</span>],
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WORKING_SET_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WORKING_SET_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK_Invalid</span> {
-    <span class='kw'>pub</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK_Invalid</span> {
+    <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
 <span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>PSAPI_WORKING_SET_EX_BLOCK_Invalid</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span> [
     <span class='ident'>Valid</span> <span class='ident'>set_Valid</span>[<span class='number'>0</span>..<span class='number'>1</span>],
@@ -297,11 +267,10 @@
     <span class='ident'>Bad</span> <span class='ident'>set_Bad</span>[<span class='number'>31</span>..<span class='number'>32</span>],
     <span class='ident'>ReservedUlong</span> <span class='ident'>set_ReservedUlong</span>[<span class='number'>32</span>..<span class='number'>64</span>],
 ]);
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span> {
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span> {
+    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
 <span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span> <span class='ident'>BitFields</span>: ::<span class='ident'>ULONG_PTR</span> [
     <span class='ident'>Valid</span> <span class='ident'>set_Valid</span>[<span class='number'>0</span>..<span class='number'>1</span>],
@@ -331,88 +300,74 @@
     <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span>, <span class='ident'>BitFields</span>, <span class='ident'>Invalid</span>, <span class='ident'>Invalid_mut</span>, <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK_Invalid</span>
 );
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WORKING_SET_EX_BLOCK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>VirtualAddress</span>: ::<span class='ident'>PVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>VirtualAttributes</span>: <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WORKING_SET_EX_INFORMATION</span> {
+    <span class='ident'>VirtualAddress</span>: ::<span class='ident'>PVOID</span>,
+    <span class='ident'>VirtualAttributes</span>: <span class='ident'>PSAPI_WORKING_SET_EX_BLOCK</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WORKING_SET_EX_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WORKING_SET_EX_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>FaultingPc</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>FaultingVa</span>: ::<span class='ident'>LPVOID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION</span> {
+    <span class='ident'>FaultingPc</span>: ::<span class='ident'>LPVOID</span>,
+    <span class='ident'>FaultingVa</span>: ::<span class='ident'>LPVOID</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WS_WATCH_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION_EX</span> {
-    <span class='kw'>pub</span> <span class='ident'>BasicInfo</span>: <span class='ident'>PSAPI_WS_WATCH_INFORMATION</span>,
-    <span class='kw'>pub</span> <span class='ident'>FaultingThreadId</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION_EX</span> {
+    <span class='ident'>BasicInfo</span>: <span class='ident'>PSAPI_WS_WATCH_INFORMATION</span>,
+    <span class='ident'>FaultingThreadId</span>: ::<span class='ident'>ULONG_PTR</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG_PTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPSAPI_WS_WATCH_INFORMATION_EX</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSAPI_WS_WATCH_INFORMATION_EX</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROCESS_MEMORY_COUNTERS</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PageFaultCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakWorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>WorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPeakPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPeakNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakPagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PROCESS_MEMORY_COUNTERS</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PageFaultCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PeakWorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>WorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPeakPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPeakNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PeakPagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROCESS_MEMORY_COUNTERS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESS_MEMORY_COUNTERS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROCESS_MEMORY_COUNTERS_EX</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PageFaultCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakWorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>WorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPeakPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaPeakNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>QuotaNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakPagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PrivateUsage</span>: ::<span class='ident'>SIZE_T</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PROCESS_MEMORY_COUNTERS_EX</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PageFaultCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>PeakWorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>WorkingSetSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPeakPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaPeakNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>QuotaNonPagedPoolUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PeakPagefileUsage</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PrivateUsage</span>: ::<span class='ident'>SIZE_T</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPROCESS_MEMORY_COUNTERS_EX</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROCESS_MEMORY_COUNTERS_EX</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PERFORMANCE_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>CommitTotal</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>CommitLimit</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>CommitPeak</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PhysicalTotal</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PhysicalAvailable</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>SystemCache</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>KernelTotal</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>KernelPaged</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>KernelNonpaged</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PageSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>HandleCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProcessCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ThreadCount</span>: ::<span class='ident'>DWORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PERFORMANCE_INFORMATION</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>CommitTotal</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>CommitLimit</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>CommitPeak</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PhysicalTotal</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PhysicalAvailable</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>SystemCache</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>KernelTotal</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>KernelPaged</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>KernelNonpaged</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PageSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>HandleCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ProcessCount</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>ThreadCount</span>: ::<span class='ident'>DWORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PPERFORMANCE_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PERFORMANCE_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ENUM_PAGE_FILE_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalSize</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>TotalInUse</span>: ::<span class='ident'>SIZE_T</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakUsage</span>: ::<span class='ident'>SIZE_T</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ENUM_PAGE_FILE_INFORMATION</span> {
+    <span class='ident'>cb</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Reserved</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>TotalSize</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>TotalInUse</span>: ::<span class='ident'>SIZE_T</span>,
+    <span class='ident'>PeakUsage</span>: ::<span class='ident'>SIZE_T</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PENUM_PAGE_FILE_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ENUM_PAGE_FILE_INFORMATION</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PENUM_PAGE_FILE_CALLBACKA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
     <span class='ident'>pContext</span>: ::<span class='ident'>LPVOID</span>, <span class='ident'>pPageFileInfo</span>: <span class='ident'>PENUM_PAGE_FILE_INFORMATION</span>, <span class='ident'>lpFilename</span>: ::<span class='ident'>LPCSTR</span>,
 ) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
@@ -479,6 +434,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

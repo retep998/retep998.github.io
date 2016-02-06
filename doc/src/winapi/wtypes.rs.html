@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\wtypes.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\wtypes.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>wtypes.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -115,25 +116,11 @@
 <span id="73">73</span>
 <span id="74">74</span>
 <span id="75">75</span>
-<span id="76">76</span>
-<span id="77">77</span>
-<span id="78">78</span>
-<span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
-<span id="87">87</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of wstypes.h</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VARENUM</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VARENUM</span> {
     <span class='ident'>VT_EMPTY</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VT_NULL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VT_I2</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -184,33 +171,23 @@
     <span class='ident'>VT_BYREF</span> <span class='op'>=</span> <span class='number'>0x4000</span>,
     <span class='ident'>VT_RESERVED</span> <span class='op'>=</span> <span class='number'>0x8000</span>,
     <span class='ident'>VT_ILLEGAL</span> <span class='op'>=</span> <span class='number'>0xffff</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>VARENUM</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VT_ILLEGALMASKED</span>: <span class='ident'>VARENUM</span> <span class='op'>=</span> <span class='ident'>VT_BSTR_BLOB</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VT_TYPEMASK</span>: <span class='ident'>VARENUM</span> <span class='op'>=</span> <span class='ident'>VT_BSTR_BLOB</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>DATE</span> <span class='op'>=</span> ::<span class='ident'>c_double</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CY</span> {
-    <span class='kw'>pub</span> <span class='ident'>int64</span>: ::<span class='ident'>LONGLONG</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>DECIMAL</span> {
-    <span class='kw'>pub</span> <span class='ident'>wReserved</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>scale</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>sign</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Hi32</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>Lo64</span>: ::<span class='ident'>ULONGLONG</span>,
-}
-
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CY</span> {
+    <span class='ident'>int64</span>: ::<span class='ident'>LONGLONG</span>,
+}}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DECIMAL</span> {
+    <span class='ident'>wReserved</span>: ::<span class='ident'>USHORT</span>,
+    <span class='ident'>scale</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>sign</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>Hi32</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>Lo64</span>: ::<span class='ident'>ULONGLONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DECIMAL_NEG</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x80</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDECIMAL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DECIMAL</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VARTYPE</span> <span class='op'>=</span> ::<span class='ident'>c_ushort</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>wireBSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>FLAGGED_WORD_BLOB</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>OLECHAR</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPBSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BSTR</span>;
@@ -275,6 +252,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

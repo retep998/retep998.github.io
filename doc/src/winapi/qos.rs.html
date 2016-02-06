@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\qos.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\qos.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>qos.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -56,25 +57,21 @@
 <span id="14">14</span>
 <span id="15">15</span>
 <span id="16">16</span>
-<span id="17">17</span>
-<span id="18">18</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, skdltmxn</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! QoS definitions for NDIS components.</span>
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SERVICETYPE</span> <span class='op'>=</span> ::<span class='ident'>ULONG</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FLOWSPEC</span> {
-    <span class='kw'>pub</span> <span class='ident'>TokenRate</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>TokenBucketSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>PeakBandwidth</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>Latency</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>DelayVariation</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>ServiceType</span>: <span class='ident'>SERVICETYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>MaxSduSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>MinimumPolicedSize</span>: ::<span class='ident'>ULONG</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FLOWSPEC</span> {
+    <span class='ident'>TokenRate</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>TokenBucketSize</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>PeakBandwidth</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>Latency</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>DelayVariation</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>ServiceType</span>: <span class='ident'>SERVICETYPE</span>,
+    <span class='ident'>MaxSduSize</span>: ::<span class='ident'>ULONG</span>,
+    <span class='ident'>MinimumPolicedSize</span>: ::<span class='ident'>ULONG</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFLOWSPEC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FLOWSPEC</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFLOWSPEC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FLOWSPEC</span>;
 </pre>
@@ -137,6 +134,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

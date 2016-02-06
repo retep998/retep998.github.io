@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\vss.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\vss.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>vss.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -296,64 +297,20 @@
 <span id="254">254</span>
 <span id="255">255</span>
 <span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
-<span id="295">295</span>
-<span id="296">296</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Brian Vincent</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! VSS header file</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_OBJECT_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_OBJECT_TYPE</span> {
     <span class='ident'>VSS_OBJECT_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_OBJECT_NONE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_OBJECT_SNAPSHOT_SET</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>VSS_OBJECT_SNAPSHOT</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>VSS_OBJECT_PROVIDER</span> <span class='op'>=</span> <span class='number'>4</span>,
     <span class='ident'>VSS_OBJECT_TYPE_COUNT</span> <span class='op'>=</span> <span class='number'>5</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_OBJECT_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_OBJECT_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_SNAPSHOT_STATE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_SNAPSHOT_STATE</span> {
     <span class='ident'>VSS_SS_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0x00</span>,
     <span class='ident'>VSS_SS_PREPARING</span> <span class='op'>=</span> <span class='number'>0x01</span>,
     <span class='ident'>VSS_SS_PROCESSING_PREPARE</span> <span class='op'>=</span> <span class='number'>0x02</span>,
@@ -371,9 +328,8 @@
     <span class='ident'>VSS_SS_DELETED</span> <span class='op'>=</span> <span class='number'>0x0e</span>,
     <span class='ident'>VSS_SS_POSTCOMMITTED</span> <span class='op'>=</span> <span class='number'>0x0f</span>,
     <span class='ident'>VSS_SS_COUNT</span> <span class='op'>=</span> <span class='number'>0x10</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_SNAPSHOT_STATE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_SNAPSHOT_STATE</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_VOLUME_SNAPSHOT_ATTRIBUTES</span> <span class='op'>=</span> ::<span class='ident'>LONG</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTORECOVERY</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
@@ -395,22 +351,20 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_VOLSNAP_ATTR_TXF_RECOVERY</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_VOLSNAP_ATTR_FILE_SHARE</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_VOLUME_SNAPSHOT_ATTRIBUTES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_VOLUME_SNAPSHOT_ATTRIBUTES</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_SNAPSHOT_CONTEXT</span> <span class='op'>=</span> ::<span class='ident'>LONG</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_SNAPSHOT_CONTEXT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_SNAPSHOT_CONTEXT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_BACKUP</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_FILE_SHARE_BACKUP</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_WRITERS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_NAS_ROLLBACK</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_NAS_ROLLBACK</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span>
     <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE</span> <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_WRITERS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_APP_ROLLBACK</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_APP_ROLLBACK</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span>
     <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_CLIENT_ACCESSIBLE</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span>
-    <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_CLIENT_ACCESSIBLE</span> <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE</span> 
+    <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_CLIENT_ACCESSIBLE</span> <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE</span>
     <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_WRITERS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_CLIENT_ACCESSIBLE_WRITERS</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span> 
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_CLIENT_ACCESSIBLE_WRITERS</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='ident'>VSS_VOLSNAP_ATTR_PERSISTENT</span>
     <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_CLIENT_ACCESSIBLE</span> <span class='op'>|</span> <span class='ident'>VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_CTX_ALL</span>: ::<span class='ident'>LONG</span> <span class='op'>=</span> <span class='number'>0xffffffffu32</span> <span class='kw'>as</span> ::<span class='ident'>LONG</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_PROVIDER_CAPABILITIES</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_PROVIDER_CAPABILITIES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_PROVIDER_CAPABILITIES</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_PRV_CAPABILITY_LEGACY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -423,7 +377,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_PRV_CAPABILITY_PLEX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_PRV_CAPABILITY_DIFFERENTIAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_PRV_CAPABILITY_CLUSTERED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x200</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_HARDWARE_OPTIONS</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_HARDWARE_OPTIONS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_HARDWARE_OPTIONS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_BREAKEX_FLAG_MASK_LUNS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -434,14 +387,11 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x200</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x400</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_ONLUNSTATECHANGE_DO_MASK_LUNS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x800</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_RECOVERY_OPTIONS</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_RECOVERY_OPTIONS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_RECOVERY_OPTIONS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_RECOVERY_REVERT_IDENTITY_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_RECOVERY_NO_VOLUME_CHECK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_WRITER_STATE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_WRITER_STATE</span> {
     <span class='ident'>VSS_WS_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_WS_STABLE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_WS_WAITING_FOR_FREEZE</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -459,11 +409,9 @@
     <span class='ident'>VSS_WS_FAILED_AT_POST_RESTORE</span> <span class='op'>=</span> <span class='number'>14</span>,
     <span class='ident'>VSS_WS_FAILED_AT_BACKUPSHUTDOWN</span> <span class='op'>=</span> <span class='number'>15</span>,
     <span class='ident'>VSS_WS_COUNT</span> <span class='op'>=</span> <span class='number'>16</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_WRITER_STATE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_WRITER_STATE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_BACKUP_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_BACKUP_TYPE</span> {
     <span class='ident'>VSS_BT_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_BT_FULL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_BT_INCREMENTAL</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -471,50 +419,40 @@
     <span class='ident'>VSS_BT_LOG</span> <span class='op'>=</span> <span class='number'>4</span>,
     <span class='ident'>VSS_BT_COPY</span> <span class='op'>=</span> <span class='number'>5</span>,
     <span class='ident'>VSS_BT_OTHER</span> <span class='op'>=</span> <span class='number'>6</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_BACKUP_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_BACKUP_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_RESTORE_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_RESTORE_TYPE</span> {
     <span class='ident'>VSS_RTYPE_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_RTYPE_BY_COPY</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_RTYPE_IMPORT</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>VSS_RTYPE_OTHER</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_RESTORE_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_RESTORE_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_ROLLFORWARD_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_ROLLFORWARD_TYPE</span> {
     <span class='ident'>VSS_RF_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_RF_NONE</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_RF_ALL</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>VSS_RF_PARTIAL</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_ROLLFORWARD_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_ROLLFORWARD_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_PROVIDER_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_PROVIDER_TYPE</span> {
     <span class='ident'>VSS_PROV_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_PROV_SYSTEM</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_PROV_SOFTWARE</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>VSS_PROV_HARDWARE</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>VSS_PROV_FILESHARE</span> <span class='op'>=</span> <span class='number'>4</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_PROVIDER_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_PROVIDER_TYPE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_APPLICATION_LEVEL</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_APPLICATION_LEVEL</span> {
     <span class='ident'>VSS_APP_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_APP_SYSTEM</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>VSS_APP_BACK_END</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>VSS_APP_FRONT_END</span> <span class='op'>=</span> <span class='number'>3</span>,
     <span class='ident'>VSS_APP_SYSTEM_RM</span> <span class='op'>=</span> <span class='number'>4</span>,
-    <span class='ident'>VSS_APP_AUTO</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>,
-}
+    <span class='ident'>VSS_APP_AUTO</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1i32</span> <span class='kw'>as</span> <span class='ident'>u32</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_APPLICATION_LEVEL</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_APPLICATION_LEVEL</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>VSS_SNAPSHOT_PROPERTY_ID</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>VSS_SNAPSHOT_PROPERTY_ID</span> {
     <span class='ident'>VSS_SPROPID_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>VSS_SPROPID_SNAPSHOT_ID</span> <span class='op'>=</span> <span class='number'>0x1</span>,
     <span class='ident'>VSS_SPROPID_SNAPSHOT_SET_ID</span> <span class='op'>=</span> <span class='number'>0x2</span>,
@@ -529,9 +467,8 @@
     <span class='ident'>VSS_SPROPID_SNAPSHOT_ATTRIBUTES</span> <span class='op'>=</span> <span class='number'>0xb</span>,
     <span class='ident'>VSS_SPROPID_CREATION_TIMESTAMP</span> <span class='op'>=</span> <span class='number'>0xc</span>,
     <span class='ident'>VSS_SPROPID_STATUS</span> <span class='op'>=</span> <span class='number'>0xd</span>,
-}
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_SNAPSHOT_PROPERTY_ID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_SNAPSHOT_PROPERTY_ID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_FILE_SPEC_BACKUP_TYPE</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_FILE_SPEC_BACKUP_TYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_FILE_SPEC_BACKUP_TYPE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_FSBT_FULL_BACKUP_REQUIRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
@@ -545,7 +482,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_FSBT_CREATED_DURING_BACKUP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_FSBT_ALL_BACKUP_REQUIRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xf</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_FSBT_ALL_SNAPSHOT_REQUIRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xf00</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_BACKUP_SCHEMA</span> <span class='op'>=</span> ::<span class='ident'>DWORD</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSS_BACKUP_SCHEMA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_BACKUP_SCHEMA</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_BS_UNDEFINED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
@@ -564,57 +500,43 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_BS_RESTORE_RENAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_BS_AUTHORITATIVE_RESTORE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_BS_WRITER_SUPPORTS_PARALLEL_RESTORES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
-
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_ID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_PWSZ</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WCHAR</span>;
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>VSS_TIMESTAMP</span> <span class='op'>=</span> ::<span class='ident'>LONGLONG</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VSS_SNAPSHOT_PROP</span> {
-    <span class='kw'>pub</span> <span class='ident'>m_SnapshotId</span>: ::<span class='ident'>VSS_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_SnapshotSetId</span>: ::<span class='ident'>VSS_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_lSnapshotsCount</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszSnapshotDeviceObject</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszOriginalVolumeName</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszOriginatingMachine</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszServiceMachine</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszExposedName</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszExposedPath</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_ProviderId</span>: ::<span class='ident'>VSS_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_lSnapshotAttributes</span>: ::<span class='ident'>LONG</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_tsCreationTimestamp</span>: ::<span class='ident'>VSS_TIMESTAMP</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_eStatus</span>: ::<span class='ident'>VSS_SNAPSHOT_STATE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VSS_SNAPSHOT_PROP</span> {
+    <span class='ident'>m_SnapshotId</span>: ::<span class='ident'>VSS_ID</span>,
+    <span class='ident'>m_SnapshotSetId</span>: ::<span class='ident'>VSS_ID</span>,
+    <span class='ident'>m_lSnapshotsCount</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>m_pwszSnapshotDeviceObject</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_pwszOriginalVolumeName</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_pwszOriginatingMachine</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_pwszServiceMachine</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_pwszExposedName</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_pwszExposedPath</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_ProviderId</span>: ::<span class='ident'>VSS_ID</span>,
+    <span class='ident'>m_lSnapshotAttributes</span>: ::<span class='ident'>LONG</span>,
+    <span class='ident'>m_tsCreationTimestamp</span>: ::<span class='ident'>VSS_TIMESTAMP</span>,
+    <span class='ident'>m_eStatus</span>: ::<span class='ident'>VSS_SNAPSHOT_STATE</span>,
+}}
 <span class='kw'>type</span> <span class='ident'>PVSS_SNAPSHOT_PROP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_SNAPSHOT_PROP</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VSS_PROVIDER_PROP</span> {
-    <span class='kw'>pub</span> <span class='ident'>m_ProviderId</span>: ::<span class='ident'>VSS_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszProviderName</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_eProviderType</span>: ::<span class='ident'>VSS_PROVIDER_TYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_pwszProviderVersion</span>: ::<span class='ident'>VSS_PWSZ</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_ProviderVersionId</span>: ::<span class='ident'>VSS_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>m_ClassId</span>: ::<span class='ident'>CLSID</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VSS_PROVIDER_PROP</span> {
+    <span class='ident'>m_ProviderId</span>: ::<span class='ident'>VSS_ID</span>,
+    <span class='ident'>m_pwszProviderName</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_eProviderType</span>: ::<span class='ident'>VSS_PROVIDER_TYPE</span>,
+    <span class='ident'>m_pwszProviderVersion</span>: ::<span class='ident'>VSS_PWSZ</span>,
+    <span class='ident'>m_ProviderVersionId</span>: ::<span class='ident'>VSS_ID</span>,
+    <span class='ident'>m_ClassId</span>: ::<span class='ident'>CLSID</span>,
+}}
 <span class='kw'>type</span> <span class='ident'>PVSS_PROVIDER_PROP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_PROVIDER_PROP</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VSS_OBJECT_UNION</span> {
-    <span class='kw'>pub</span> <span class='ident'>Snap</span>: ::<span class='ident'>VSS_SNAPSHOT_PROP</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VSS_OBJECT_UNION</span> {
+    <span class='ident'>Snap</span>: ::<span class='ident'>VSS_SNAPSHOT_PROP</span>,
+}}
 <span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>VSS_OBJECT_UNION</span>, <span class='ident'>Snap</span>, <span class='ident'>Prov</span>, <span class='ident'>Prov_mut</span>, <span class='ident'>VSS_PROVIDER_PROP</span>);
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>VSS_OBJECT_PROP</span> {
-    <span class='kw'>pub</span> <span class='ident'>Type</span>: ::<span class='ident'>VSS_OBJECT_TYPE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Obj</span>: ::<span class='ident'>VSS_OBJECT_UNION</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VSS_OBJECT_PROP</span> {
+    <span class='ident'>Type</span>: ::<span class='ident'>VSS_OBJECT_TYPE</span>,
+    <span class='ident'>Obj</span>: ::<span class='ident'>VSS_OBJECT_UNION</span>,
+}}
 <span class='kw'>type</span> <span class='ident'>PVSS_OBJECT_PROP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>VSS_OBJECT_PROP</span>;
-
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IVssEnumObject</span>(<span class='ident'>IVssEnumObjectVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Next</span>(
@@ -625,7 +547,6 @@
     <span class='kw'>fn</span> <span class='ident'>Clone</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppenum</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssEnumObject</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }
 );
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>IVssAsync</span>(<span class='ident'>IVssAsyncVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Cancel</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
@@ -693,6 +614,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\shellscalingapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\shellscalingapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>shellscalingapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -59,44 +60,26 @@
 <span id="17">17</span>
 <span id="18">18</span>
 <span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='comment'>// ShellScalingApi.h</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>PROCESS_DPI_AWARENESS</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>PROCESS_DPI_AWARENESS</span> {
     <span class='ident'>Process_DPI_Unaware</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>Process_System_DPI_Aware</span>  <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>Process_Per_Monitor_DPI_Aware</span> <span class='op'>=</span> <span class='number'>2</span>
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>SHELL_UI_COMPONENT</span> { 
+    <span class='ident'>Process_Per_Monitor_DPI_Aware</span> <span class='op'>=</span> <span class='number'>2</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>SHELL_UI_COMPONENT</span> {
     <span class='ident'>SHELL_UI_COMPONENT_TASKBARS</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>SHELL_UI_COMPONENT_NOTIFICATIONAREA</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>SHELL_UI_COMPONENT_DESKBAND</span> <span class='op'>=</span> <span class='number'>2</span>
-}
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>MONITOR_DPI_TYPE</span> {
+    <span class='ident'>SHELL_UI_COMPONENT_DESKBAND</span> <span class='op'>=</span> <span class='number'>2</span>,
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>MONITOR_DPI_TYPE</span> {
     <span class='ident'>MDT_EFFECTIVE_DPI</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>MDT_ANGULAR_DPI</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>MDT_RAW_DPI</span> <span class='op'>=</span> <span class='number'>2</span>
-}
-
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MDT_DEFAULT</span>: <span class='ident'>MONITOR_DPI_TYPE</span> <span class='op'>=</span> <span class='ident'>MONITOR_DPI_TYPE</span>::<span class='ident'>MDT_EFFECTIVE_DPI</span>;
+    <span class='ident'>MDT_RAW_DPI</span> <span class='op'>=</span> <span class='number'>2</span>,
+}}
+<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MDT_DEFAULT</span>: <span class='ident'>MONITOR_DPI_TYPE</span> <span class='op'>=</span> <span class='ident'>MDT_EFFECTIVE_DPI</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -157,6 +140,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

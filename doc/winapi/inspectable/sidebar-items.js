@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["TrustLevel",""]],"struct":[["IInspectable",""],["IInspectableVtbl",""]],"type":[["LPINSPECTABLE",""]]});
+initSidebarItems({"constant":[["BaseTrust",""],["FullTrust",""],["PartialTrust",""]],"struct":[["IInspectable",""],["IInspectableVtbl",""],["TrustLevel",""]],"type":[["LPINSPECTABLE",""]]});

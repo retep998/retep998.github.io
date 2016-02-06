@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\xinput.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\xinput.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>xinput.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -158,52 +159,19 @@
 <span id="116">116</span>
 <span id="117">117</span>
 <span id="118">118</span>
-<span id="119">119</span>
-<span id="120">120</span>
-<span id="121">121</span>
-<span id="122">122</span>
-<span id="123">123</span>
-<span id="124">124</span>
-<span id="125">125</span>
-<span id="126">126</span>
-<span id="127">127</span>
-<span id="128">128</span>
-<span id="129">129</span>
-<span id="130">130</span>
-<span id="131">131</span>
-<span id="132">132</span>
-<span id="133">133</span>
-<span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
-<span id="138">138</span>
-<span id="139">139</span>
-<span id="140">140</span>
-<span id="141">141</span>
-<span id="142">142</span>
-<span id="143">143</span>
-<span id="144">144</span>
-<span id="145">145</span>
-<span id="146">146</span>
-<span id="147">147</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015, Peter Atashian</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! XInput procedure declarations, constant definitions and macros</span>
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVTYPE_GAMEPAD</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_GAMEPAD</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_WHEEL</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x02</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_ARCADE_STICK</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x03</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_FLIGHT_SICK</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x04</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_DANCE_PAD</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x05</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_GUITAR</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x06</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_DEVSUBTYPE_DRUM_KIT</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x08</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_CAPS_VOICE_SUPPORTED</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_DPAD_UP</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_DPAD_DOWN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_DPAD_LEFT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
@@ -218,31 +186,23 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_B</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_X</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_Y</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>7849</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>8689</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_GAMEPAD_TRIGGER_THRESHOLD</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>30</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_FLAG_GAMEPAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_DEVTYPE_GAMEPAD</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x00</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_DEVTYPE_HEADSET</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_TYPE_DISCONNECTED</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x00</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_TYPE_WIRED</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x01</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_TYPE_ALKALINE</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x02</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_TYPE_NIMH</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x03</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_TYPE_UNKNOWN</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0xFF</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_LEVEL_EMPTY</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x00</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_LEVEL_LOW</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x01</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_LEVEL_MEDIUM</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x02</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BATTERY_LEVEL_FULL</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0x03</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XUSER_MAX_COUNT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XUSER_INDEX_ANY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000000FF</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_A</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5800</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_B</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5801</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_X</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5802</span>;
@@ -251,7 +211,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LSHOULDER</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5805</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTRIGGER</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5806</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTRIGGER</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5807</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_DPAD_UP</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5810</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_DPAD_DOWN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5811</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_DPAD_LEFT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5812</span>;
@@ -260,7 +219,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_BACK</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5815</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_PRESS</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5816</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_PRESS</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5817</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_UP</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5820</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_DOWN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5821</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_RIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5822</span>;
@@ -269,7 +227,6 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_UPRIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5825</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_DOWNRIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5826</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_LTHUMB_DOWNLEFT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5827</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_UP</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5830</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_DOWN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5831</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_RIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5832</span>;
@@ -278,63 +235,49 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_UPRIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5835</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_DOWNRIGHT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5836</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VK_PAD_RTHUMB_DOWNLEFT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x5837</span>;
-
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_KEYSTROKE_KEYDOWN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_KEYSTROKE_KEYUP</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>XINPUT_KEYSTROKE_REPEAT</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_GAMEPAD</span> {
-    <span class='kw'>pub</span> <span class='ident'>wButtons</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>bLeftTrigger</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>bRightTrigger</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>sThumbLX</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>sThumbLY</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>sThumbRX</span>: ::<span class='ident'>SHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>sThumbRY</span>: ::<span class='ident'>SHORT</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_GAMEPAD</span> {
+    <span class='ident'>wButtons</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>bLeftTrigger</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>bRightTrigger</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>sThumbLX</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>sThumbLY</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>sThumbRX</span>: ::<span class='ident'>SHORT</span>,
+    <span class='ident'>sThumbRY</span>: ::<span class='ident'>SHORT</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_GAMEPAD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_GAMEPAD</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_STATE</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwPacketNumber</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Gamepad</span>: ::<span class='ident'>XINPUT_GAMEPAD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_STATE</span> {
+    <span class='ident'>dwPacketNumber</span>: ::<span class='ident'>DWORD</span>,
+    <span class='ident'>Gamepad</span>: ::<span class='ident'>XINPUT_GAMEPAD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_STATE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_STATE</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_VIBRATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>wLeftMotorSpeed</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wRightMotorSpeed</span>: ::<span class='ident'>WORD</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_VIBRATION</span> {
+    <span class='ident'>wLeftMotorSpeed</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>wRightMotorSpeed</span>: ::<span class='ident'>WORD</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_VIBRATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_VIBRATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_CAPABILITIES</span> {
-    <span class='kw'>pub</span> <span class='ident'>Type</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>SubType</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Gamepad</span>: ::<span class='ident'>XINPUT_GAMEPAD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Vibration</span>: ::<span class='ident'>XINPUT_VIBRATION</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_CAPABILITIES</span> {
+    <span class='ident'>Type</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>SubType</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>Flags</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>Gamepad</span>: ::<span class='ident'>XINPUT_GAMEPAD</span>,
+    <span class='ident'>Vibration</span>: ::<span class='ident'>XINPUT_VIBRATION</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_CAPABILITIES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_CAPABILITIES</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_BATTERY_INFORMATION</span> {
-    <span class='kw'>pub</span> <span class='ident'>BatteryType</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>BatteryLevel</span>: ::<span class='ident'>BYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_BATTERY_INFORMATION</span> {
+    <span class='ident'>BatteryType</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>BatteryLevel</span>: ::<span class='ident'>BYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_BATTERY_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_BATTERY_INFORMATION</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>XINPUT_KEYSTROKE</span> {
-    <span class='kw'>pub</span> <span class='ident'>VirtualKey</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>Unicode</span>: ::<span class='ident'>WCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>UserIndex</span>: ::<span class='ident'>BYTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>HidCode</span>: ::<span class='ident'>BYTE</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>XINPUT_KEYSTROKE</span> {
+    <span class='ident'>VirtualKey</span>: ::<span class='ident'>WORD</span>,
+    <span class='ident'>Unicode</span>: ::<span class='ident'>WCHAR</span>,
+    <span class='ident'>UserIndex</span>: ::<span class='ident'>BYTE</span>,
+    <span class='ident'>HidCode</span>: ::<span class='ident'>BYTE</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PXINPUT_KEYSTROKE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>XINPUT_KEYSTROKE</span>;
-
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -395,6 +338,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\Users\Peter\.cargo\registry\src\github.com-0a35038f75765ae4\winapi-0.2.4\src\d3dcommon.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\d3dcommon.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>d3dcommon.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -793,134 +794,19 @@
 <span id="751">751</span>
 <span id="752">752</span>
 <span id="753">753</span>
-<span id="754">754</span>
-<span id="755">755</span>
-<span id="756">756</span>
-<span id="757">757</span>
-<span id="758">758</span>
-<span id="759">759</span>
-<span id="760">760</span>
-<span id="761">761</span>
-<span id="762">762</span>
-<span id="763">763</span>
-<span id="764">764</span>
-<span id="765">765</span>
-<span id="766">766</span>
-<span id="767">767</span>
-<span id="768">768</span>
-<span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
-<span id="800">800</span>
-<span id="801">801</span>
-<span id="802">802</span>
-<span id="803">803</span>
-<span id="804">804</span>
-<span id="805">805</span>
-<span id="806">806</span>
-<span id="807">807</span>
-<span id="808">808</span>
-<span id="809">809</span>
-<span id="810">810</span>
-<span id="811">811</span>
-<span id="812">812</span>
-<span id="813">813</span>
-<span id="814">814</span>
-<span id="815">815</span>
-<span id="816">816</span>
-<span id="817">817</span>
-<span id="818">818</span>
-<span id="819">819</span>
-<span id="820">820</span>
-<span id="821">821</span>
-<span id="822">822</span>
-<span id="823">823</span>
-<span id="824">824</span>
-<span id="825">825</span>
-<span id="826">826</span>
-<span id="827">827</span>
-<span id="828">828</span>
-<span id="829">829</span>
-<span id="830">830</span>
-<span id="831">831</span>
-<span id="832">832</span>
-<span id="833">833</span>
-<span id="834">834</span>
-<span id="835">835</span>
-<span id="836">836</span>
-<span id="837">837</span>
-<span id="838">838</span>
-<span id="839">839</span>
-<span id="840">840</span>
-<span id="841">841</span>
-<span id="842">842</span>
-<span id="843">843</span>
-<span id="844">844</span>
-<span id="845">845</span>
-<span id="846">846</span>
-<span id="847">847</span>
-<span id="848">848</span>
-<span id="849">849</span>
-<span id="850">850</span>
-<span id="851">851</span>
-<span id="852">852</span>
-<span id="853">853</span>
-<span id="854">854</span>
-<span id="855">855</span>
-<span id="856">856</span>
-<span id="857">857</span>
-<span id="858">858</span>
-<span id="859">859</span>
-<span id="860">860</span>
-<span id="861">861</span>
-<span id="862">862</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright © 2015; Connor Hilarides</span>
 <span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
 <span class='doccomment'>//! Mappings for the contents of d3dcommon.h</span>
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_DRIVER_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_DRIVER_TYPE</span> {
     <span class='ident'>D3D_DRIVER_TYPE_UNKNOWN</span>,
     <span class='ident'>D3D_DRIVER_TYPE_HARDWARE</span>,
     <span class='ident'>D3D_DRIVER_TYPE_REFERENCE</span>,
     <span class='ident'>D3D_DRIVER_TYPE_NULL</span>,
     <span class='ident'>D3D_DRIVER_TYPE_SOFTWARE</span>,
     <span class='ident'>D3D_DRIVER_TYPE_WARP</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_DRIVER_TYPE</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_FEATURE_LEVEL</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_FEATURE_LEVEL</span> {
     <span class='ident'>D3D_FEATURE_LEVEL_9_1</span> <span class='op'>=</span> <span class='number'>0x9100</span>,
     <span class='ident'>D3D_FEATURE_LEVEL_9_2</span> <span class='op'>=</span> <span class='number'>0x9200</span>,
     <span class='ident'>D3D_FEATURE_LEVEL_9_3</span> <span class='op'>=</span> <span class='number'>0x9300</span>,
@@ -928,12 +814,8 @@
     <span class='ident'>D3D_FEATURE_LEVEL_10_1</span> <span class='op'>=</span> <span class='number'>0xa100</span>,
     <span class='ident'>D3D_FEATURE_LEVEL_11_0</span> <span class='op'>=</span> <span class='number'>0xb000</span>,
     <span class='ident'>D3D_FEATURE_LEVEL_11_1</span> <span class='op'>=</span> <span class='number'>0xb100</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_FEATURE_LEVEL</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span> {
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_POINTLIST</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_LINELIST</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -976,10 +858,7 @@
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_30_CONTROL_POINT_PATCHLIST</span> <span class='op'>=</span> <span class='number'>62</span>,
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST</span> <span class='op'>=</span> <span class='number'>63</span>,
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST</span> <span class='op'>=</span> <span class='number'>64</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_PRIMITIVE_TOPOLOGY_UNDEFINED</span>: ::<span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span> <span class='op'>=</span>
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_PRIMITIVE_TOPOLOGY_POINTLIST</span>: ::<span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span> <span class='op'>=</span>
@@ -1084,9 +963,7 @@
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_31_CONTROL_POINT_PATCHLIST</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST</span>: ::<span class='ident'>D3D_PRIMITIVE_TOPOLOGY</span> <span class='op'>=</span>
     <span class='ident'>D3D_PRIMITIVE_TOPOLOGY_32_CONTROL_POINT_PATCHLIST</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_PRIMITIVE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_PRIMITIVE</span> {
     <span class='ident'>D3D_PRIMITIVE_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_PRIMITIVE_POINT</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_PRIMITIVE_LINE</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -1125,10 +1002,7 @@
     <span class='ident'>D3D_PRIMITIVE_30_CONTROL_POINT_PATCH</span> <span class='op'>=</span> <span class='number'>38</span>,
     <span class='ident'>D3D_PRIMITIVE_31_CONTROL_POINT_PATCH</span> <span class='op'>=</span> <span class='number'>39</span>,
     <span class='ident'>D3D_PRIMITIVE_32_CONTROL_POINT_PATCH</span> <span class='op'>=</span> <span class='number'>40</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_PRIMITIVE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_PRIMITIVE_UNDEFINED</span>: ::<span class='ident'>D3D_PRIMITIVE</span> <span class='op'>=</span> <span class='ident'>D3D_PRIMITIVE_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_PRIMITIVE_POINT</span>: ::<span class='ident'>D3D_PRIMITIVE</span> <span class='op'>=</span> <span class='ident'>D3D_PRIMITIVE_POINT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_PRIMITIVE_LINE</span>: ::<span class='ident'>D3D_PRIMITIVE</span> <span class='op'>=</span> <span class='ident'>D3D_PRIMITIVE_LINE</span>;
@@ -1205,9 +1079,7 @@
     <span class='ident'>D3D_PRIMITIVE_31_CONTROL_POINT_PATCH</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_PRIMITIVE_32_CONTROL_POINT_PATCH</span>: ::<span class='ident'>D3D_PRIMITIVE</span> <span class='op'>=</span>
     <span class='ident'>D3D_PRIMITIVE_32_CONTROL_POINT_PATCH</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SRV_DIMENSION</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SRV_DIMENSION</span> {
     <span class='ident'>D3D_SRV_DIMENSION_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_SRV_DIMENSION_BUFFER</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_SRV_DIMENSION_TEXTURE1D</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -1220,10 +1092,7 @@
     <span class='ident'>D3D_SRV_DIMENSION_TEXTURECUBE</span> <span class='op'>=</span> <span class='number'>9</span>,
     <span class='ident'>D3D_SRV_DIMENSION_TEXTURECUBEARRAY</span> <span class='op'>=</span> <span class='number'>10</span>,
     <span class='ident'>D3D_SRV_DIMENSION_BUFFEREX</span> <span class='op'>=</span> <span class='number'>11</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SRV_DIMENSION</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SRV_DIMENSION_UNKNOWN</span>: ::<span class='ident'>D3D_SRV_DIMENSION</span> <span class='op'>=</span>
     <span class='ident'>D3D_SRV_DIMENSION_UNKNOWN</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SRV_DIMENSION_BUFFER</span>: ::<span class='ident'>D3D_SRV_DIMENSION</span> <span class='op'>=</span>
@@ -1290,14 +1159,11 @@
     <span class='ident'>D3D_SRV_DIMENSION_TEXTURECUBEARRAY</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SRV_DIMENSION_BUFFEREX</span>: ::<span class='ident'>D3D_SRV_DIMENSION</span> <span class='op'>=</span>
     <span class='ident'>D3D_SRV_DIMENSION_BUFFEREX</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>D3D_SHADER_MACRO</span> {
-    <span class='kw'>pub</span> <span class='ident'>Name</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Definition</span>: ::<span class='ident'>LPCSTR</span>,
-}
+<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3D_SHADER_MACRO</span> {
+    <span class='ident'>Name</span>: ::<span class='ident'>LPCSTR</span>,
+    <span class='ident'>Definition</span>: ::<span class='ident'>LPCSTR</span>,
+}}
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPD3D_SHADER_MACRO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>D3D_SHADER_MACRO</span>;
-
 <span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(
     <span class='ident'>IID_ID3D10Blob</span>, <span class='number'>0x8ba5fb08</span>, <span class='number'>0x5195</span>, <span class='number'>0x40e2</span>, <span class='number'>0xac</span>, <span class='number'>0x58</span>, <span class='number'>0xd</span>, <span class='number'>0x98</span>, <span class='number'>0x9c</span>, <span class='number'>0x3a</span>, <span class='number'>0x1</span>, <span class='number'>0x2</span>
 );
@@ -1307,22 +1173,15 @@
     <span class='kw'>fn</span> <span class='ident'>GetBufferSize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>SIZE_T</span>
 }
 );
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPD3D10BLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID3D10Blob</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ID3DBlob</span> <span class='op'>=</span> <span class='ident'>ID3D10Blob</span>;
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPD3DBLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID3DBlob</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_INCLUDE_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_INCLUDE_TYPE</span> {
     <span class='ident'>D3D_INCLUDE_LOCAL</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_INCLUDE_SYSTEM</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_INCLUDE_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_INCLUDE_LOCAL</span>: ::<span class='ident'>D3D_INCLUDE_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_INCLUDE_LOCAL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_INCLUDE_SYSTEM</span>: ::<span class='ident'>D3D_INCLUDE_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_INCLUDE_SYSTEM</span>;
-
 <span class='macro'>RIDL</span><span class='macro'>!</span>(
 <span class='ident'>interface</span> <span class='ident'>ID3DInclude</span>(<span class='ident'>ID3DIncludeVtbl</span>) {
     <span class='kw'>fn</span> <span class='ident'>Open</span>(
@@ -1332,11 +1191,8 @@
     <span class='kw'>fn</span> <span class='ident'>Close</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pData</span>: ::<span class='ident'>LPCVOID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
 }
 );
-
 <span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPD3DINCLUDE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ID3DInclude</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> {
     <span class='ident'>D3D_SVC_SCALAR</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_SVC_VECTOR</span>,
     <span class='ident'>D3D_SVC_MATRIX_ROWS</span>,
@@ -1345,10 +1201,7 @@
     <span class='ident'>D3D_SVC_STRUCT</span>,
     <span class='ident'>D3D_SVC_INTERFACE_CLASS</span>,
     <span class='ident'>D3D_SVC_INTERFACE_POINTER</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVC_SCALAR</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_SCALAR</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVC_VECTOR</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_VECTOR</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVC_MATRIX_ROWS</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_MATRIX_ROWS</span>;
@@ -1357,24 +1210,17 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVC_STRUCT</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_STRUCT</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SVC_INTERFACE_CLASS</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_INTERFACE_CLASS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SVC_INTERFACE_POINTER</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_CLASS</span> <span class='op'>=</span> <span class='ident'>D3D_SVC_INTERFACE_POINTER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> {
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> {
     <span class='ident'>D3D_SVF_USERPACKED</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_SVF_USED</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D3D_SVF_INTERFACE_POINTER</span> <span class='op'>=</span> <span class='number'>4</span>,
     <span class='ident'>D3D_SVF_INTERFACE_PARAMETER</span> <span class='op'>=</span> <span class='number'>8</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVF_USERPACKED</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SVF_USERPACKED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVF_USED</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SVF_USED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SVF_INTERFACE_POINTER</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SVF_INTERFACE_POINTER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SVF_INTERFACE_PARAMETER</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SVF_INTERFACE_PARAMETER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> {
     <span class='ident'>D3D_SVT_VOID</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_SVT_BOOL</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_SVT_INT</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -1433,10 +1279,7 @@
     <span class='ident'>D3D_SVT_MIN12INT</span> <span class='op'>=</span> <span class='number'>55</span>,
     <span class='ident'>D3D_SVT_MIN16INT</span> <span class='op'>=</span> <span class='number'>56</span>,
     <span class='ident'>D3D_SVT_MIN16UINT</span> <span class='op'>=</span> <span class='number'>57</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_VARIABLE_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVT_VOID</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SVT_VOID</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVT_BOOL</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SVT_BOOL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SVT_INT</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SVT_INT</span>;
@@ -1494,27 +1337,20 @@
     <span class='ident'>D3D_SVT_APPEND_STRUCTURED_BUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SVT_CONSUME_STRUCTURED_BUFFER</span>: ::<span class='ident'>D3D_SHADER_VARIABLE_TYPE</span> <span class='op'>=</span>
     <span class='ident'>D3D_SVT_CONSUME_STRUCTURED_BUFFER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_INPUT_FLAGS</span> {
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_INPUT_FLAGS</span> {
     <span class='ident'>D3D_SIF_USERPACKED</span> <span class='op'>=</span> <span class='number'>0x1</span>,
     <span class='ident'>D3D_SIF_COMPARISON_SAMPLER</span> <span class='op'>=</span> <span class='number'>0x2</span>,
     <span class='ident'>D3D_SIF_TEXTURE_COMPONENT_0</span> <span class='op'>=</span> <span class='number'>0x4</span>,
     <span class='ident'>D3D_SIF_TEXTURE_COMPONENT_1</span> <span class='op'>=</span> <span class='number'>0x8</span>,
     <span class='ident'>D3D_SIF_TEXTURE_COMPONENTS</span> <span class='op'>=</span> <span class='number'>0xc</span>,
     <span class='ident'>D3D_SIF_UNUSED</span> <span class='op'>=</span> <span class='number'>0x10</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIF_USERPACKED</span>: ::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SIF_USERPACKED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIF_COMPARISON_SAMPLER</span>: ::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SIF_COMPARISON_SAMPLER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIF_TEXTURE_COMPONENT_0</span>: ::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SIF_TEXTURE_COMPONENT_0</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIF_TEXTURE_COMPONENT_1</span>: ::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SIF_TEXTURE_COMPONENT_1</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIF_TEXTURE_COMPONENTS</span>: ::<span class='ident'>D3D_SHADER_INPUT_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_SIF_TEXTURE_COMPONENTS</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_INPUT_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_INPUT_TYPE</span> {
     <span class='ident'>D3D_SIT_CBUFFER</span>,
     <span class='ident'>D3D_SIT_TBUFFER</span>,
     <span class='ident'>D3D_SIT_TEXTURE</span>,
@@ -1527,10 +1363,7 @@
     <span class='ident'>D3D_SIT_UAV_APPEND_STRUCTURED</span>,
     <span class='ident'>D3D_SIT_UAV_CONSUME_STRUCTURED</span>,
     <span class='ident'>D3D_SIT_UAV_RWSTRUCTURED_WITH_COUNTER</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_INPUT_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIT_CBUFFER</span>: ::<span class='ident'>D3D_SHADER_INPUT_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SIT_CBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIT_TBUFFER</span>: ::<span class='ident'>D3D_SHADER_INPUT_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SIT_TBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_SIT_TEXTURE</span>: ::<span class='ident'>D3D_SHADER_INPUT_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_SIT_TEXTURE</span>;
@@ -1545,36 +1378,23 @@
     <span class='ident'>D3D_SIT_UAV_CONSUME_STRUCTURED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_SIT_UAV_RWSTRUCTURED_WITH_COUNTER</span>: ::<span class='ident'>D3D_SHADER_INPUT_TYPE</span> <span class='op'>=</span>
     <span class='ident'>D3D_SIT_UAV_RWSTRUCTURED_WITH_COUNTER</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_SHADER_CBUFFER_FLAGS</span> {
+<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_SHADER_CBUFFER_FLAGS</span> {
     <span class='ident'>D3D_CBF_USERPACKED</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>__</span>, <span class='comment'>// FIXME - univariant enum</span>
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_SHADER_CBUFFER_FLAGS</span>::<span class='ident'>D3D_CBF_USERPACKED</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_CBF_USERPACKED</span>: ::<span class='ident'>D3D_SHADER_CBUFFER_FLAGS</span> <span class='op'>=</span> <span class='ident'>D3D_CBF_USERPACKED</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_CBUFFER_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_CBUFFER_TYPE</span> {
     <span class='ident'>D3D_CT_CBUFFER</span>,
     <span class='ident'>D3D_CT_TBUFFER</span>,
     <span class='ident'>D3D_CT_INTERFACE_POINTERS</span>,
     <span class='ident'>D3D_CT_RESOURCE_BIND_INFO</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_CBUFFER_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_CT_CBUFFER</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_CBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_CT_TBUFFER</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_TBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_CT_CBUFFER</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_CBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_CT_TBUFFER</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_TBUFFER</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_CT_INTERFACE_POINTERS</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_INTERFACE_POINTERS</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_CT_RESOURCE_BIND_INFO</span>: ::<span class='ident'>D3D_CBUFFER_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_CT_RESOURCE_BIND_INFO</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_NAME</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_NAME</span> {
     <span class='ident'>D3D_NAME_UNDEFINED</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_NAME_POSITION</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_NAME_CLIP_DISTANCE</span> <span class='op'>=</span> <span class='number'>2</span>,
@@ -1597,10 +1417,7 @@
     <span class='ident'>D3D_NAME_COVERAGE</span> <span class='op'>=</span> <span class='number'>66</span>,
     <span class='ident'>D3D_NAME_DEPTH_GREATER_EQUAL</span> <span class='op'>=</span> <span class='number'>67</span>,
     <span class='ident'>D3D_NAME_DEPTH_LESS_EQUAL</span> <span class='op'>=</span> <span class='number'>68</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_NAME</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_NAME_UNDEFINED</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_NAME_POSITION</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_POSITION</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_NAME_CLIP_DISTANCE</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_CLIP_DISTANCE</span>;
@@ -1623,9 +1440,7 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_NAME_FINAL_LINE_DENSITY_TESSFACTOR</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_FINAL_LINE_DENSITY_TESSFACTOR</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_NAME_DEPTH_GREATER_EQUAL</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_DEPTH_GREATER_EQUAL</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_NAME_DEPTH_LESS_EQUAL</span>: <span class='ident'>D3D_NAME</span> <span class='op'>=</span> <span class='ident'>D3D_NAME_DEPTH_LESS_EQUAL</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> {
     <span class='ident'>D3D_RETURN_TYPE_UNORM</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_RETURN_TYPE_SNORM</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D3D_RETURN_TYPE_SINT</span> <span class='op'>=</span> <span class='number'>3</span>,
@@ -1634,10 +1449,7 @@
     <span class='ident'>D3D_RETURN_TYPE_MIXED</span> <span class='op'>=</span> <span class='number'>6</span>,
     <span class='ident'>D3D_RETURN_TYPE_DOUBLE</span> <span class='op'>=</span> <span class='number'>7</span>,
     <span class='ident'>D3D_RETURN_TYPE_CONTINUED</span> <span class='op'>=</span> <span class='number'>8</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_RETURN_TYPE_UNORM</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_UNORM</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_RETURN_TYPE_SNORM</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_SNORM</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_RETURN_TYPE_SINT</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_SINT</span>;
@@ -1652,17 +1464,12 @@
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_RETURN_TYPE_MIXED</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_MIXED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_RETURN_TYPE_DOUBLE</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_DOUBLE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_RETURN_TYPE_CONTINUED</span>: ::<span class='ident'>D3D_RESOURCE_RETURN_TYPE</span> <span class='op'>=</span> <span class='ident'>D3D_RETURN_TYPE_CONTINUED</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span> {
     <span class='ident'>D3D_REGISTER_COMPONENT_UNKNOWN</span> <span class='op'>=</span> <span class='number'>0</span>,
     <span class='ident'>D3D_REGISTER_COMPONENT_UINT32</span> <span class='op'>=</span> <span class='number'>1</span>,
     <span class='ident'>D3D_REGISTER_COMPONENT_SINT32</span> <span class='op'>=</span> <span class='number'>2</span>,
     <span class='ident'>D3D_REGISTER_COMPONENT_FLOAT32</span> <span class='op'>=</span> <span class='number'>3</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_REGISTER_COMPONENT_UNKNOWN</span>: ::<span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span> <span class='op'>=</span>
     <span class='ident'>D3D_REGISTER_COMPONENT_UNKNOWN</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_REGISTER_COMPONENT_UINT32</span>: ::<span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span> <span class='op'>=</span>
@@ -1671,35 +1478,25 @@
     <span class='ident'>D3D_REGISTER_COMPONENT_SINT32</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D10_REGISTER_COMPONENT_FLOAT32</span>: ::<span class='ident'>D3D_REGISTER_COMPONENT_TYPE</span> <span class='op'>=</span>
     <span class='ident'>D3D_REGISTER_COMPONENT_FLOAT32</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_DOMAIN</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_DOMAIN</span> {
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_UNDEFINED</span>,
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_ISOLINE</span>,
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_TRI</span>,
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_QUAD</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_TESSELLATOR_DOMAIN</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_DOMAIN_UNDEFINED</span>: ::<span class='ident'>D3D_TESSELLATOR_DOMAIN</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_DOMAIN_ISOLINE</span>: ::<span class='ident'>D3D_TESSELLATOR_DOMAIN</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_DOMAIN_ISOLINE</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_DOMAIN_TRI</span>: ::<span class='ident'>D3D_TESSELLATOR_DOMAIN</span> <span class='op'>=</span> <span class='ident'>D3D_TESSELLATOR_DOMAIN_TRI</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_DOMAIN_QUAD</span>: ::<span class='ident'>D3D_TESSELLATOR_DOMAIN</span> <span class='op'>=</span> <span class='ident'>D3D_TESSELLATOR_DOMAIN_QUAD</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_PARTITIONING</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_PARTITIONING</span> {
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_UNDEFINED</span>,
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_INTEGER</span>,
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_POW2</span>,
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD</span>,
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_TESSELLATOR_PARTITIONING</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_PARTITIONING_UNDEFINED</span>: ::<span class='ident'>D3D_TESSELLATOR_PARTITIONING</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_PARTITIONING_INTEGER</span>: ::<span class='ident'>D3D_TESSELLATOR_PARTITIONING</span> <span class='op'>=</span>
@@ -1710,18 +1507,13 @@
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN</span>: ::<span class='ident'>D3D_TESSELLATOR_PARTITIONING</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span> {
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_UNDEFINED</span>,
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_POINT</span>,
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_LINE</span>,
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_TRIANGLE_CW</span>,
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_TRIANGLE_CCW</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span>::<span class='op'>*</span>;
-
+}}
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_OUTPUT_UNDEFINED</span>: ::<span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_UNDEFINED</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_OUTPUT_POINT</span>: ::<span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span> <span class='op'>=</span>
@@ -1732,9 +1524,7 @@
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_TRIANGLE_CW</span>;
 <span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3D11_TESSELLATOR_OUTPUT_TRIANGLE_CCW</span>: ::<span class='ident'>D3D_TESSELLATOR_OUTPUT_PRIMITIVE</span> <span class='op'>=</span>
     <span class='ident'>D3D_TESSELLATOR_OUTPUT_TRIANGLE_CCW</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_MIN_PRECISION</span> {
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_MIN_PRECISION</span> {
     <span class='ident'>D3D_MIN_PRECISION_DEFAULT</span>,
     <span class='ident'>D3D_MIN_PRECISION_FLOAT_16</span>,
     <span class='ident'>D3D_MIN_PRECISION_FLOAT_2_8</span>,
@@ -1743,12 +1533,8 @@
     <span class='ident'>D3D_MIN_PRECISION_UINT_16</span>,
     <span class='ident'>D3D_MIN_PRECISION_ANY_16</span> <span class='op'>=</span> <span class='number'>0xf0</span>,
     <span class='ident'>D3D_MIN_PRECISION_ANY_10</span> <span class='op'>=</span> <span class='number'>0xf1</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_MIN_PRECISION</span>::<span class='op'>*</span>;
-
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>i32</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>D3D_INTERPOLATION_MODE</span> {
+}}
+<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>D3D_INTERPOLATION_MODE</span> {
     <span class='ident'>D3D_INTERPOLATION_UNDEFINED</span>,
     <span class='ident'>D3D_INTERPOLATION_CONSTANT</span>,
     <span class='ident'>D3D_INTERPOLATION_LINEAR</span>,
@@ -1757,10 +1543,7 @@
     <span class='ident'>D3D_INTERPOLATION_LINEAR_NOPERSPECTIVE_CENTROID</span>,
     <span class='ident'>D3D_INTERPOLATION_LINEAR_SAMPLE</span>,
     <span class='ident'>D3D_INTERPOLATION_LINEAR_NOPERSPECTIVE_SAMPLE</span>,
-}
-
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>D3D_INTERPOLATION_MODE</span>::<span class='op'>*</span>;
-
+}}
 <span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(
     <span class='ident'>WKPDID_D3DDebugObjectName</span>,
     <span class='number'>0x429b8c22</span>, <span class='number'>0x9188</span>, <span class='number'>0x4b0c</span>, <span class='number'>0x87</span>, <span class='number'>0x42</span>, <span class='number'>0xac</span>, <span class='number'>0xb0</span>, <span class='number'>0xbf</span>, <span class='number'>0x85</span>, <span class='number'>0xc2</span>, <span class='number'>0x00</span>
@@ -1825,6 +1608,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>
