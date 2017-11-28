@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\sysinfoapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\sysinfoapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>sysinfoapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -87,53 +89,53 @@
 <span id="44">44</span>
 <span id="45">45</span>
 <span id="46">46</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! ApiSet Contract for api-ms-win-core-sysinfo-l1.</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SYSTEM_INFO</span> {
-    <span class='ident'>wProcessorArchitecture</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wReserved</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>dwPageSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpMinimumApplicationAddress</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='ident'>lpMaximumApplicationAddress</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='ident'>dwActiveProcessorMask</span>: ::<span class='ident'>DWORD_PTR</span>,
-    <span class='ident'>dwNumberOfProcessors</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwProcessorType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwAllocationGranularity</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>wProcessorLevel</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wProcessorRevision</span>: ::<span class='ident'>WORD</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! ApiSet Contract for api-ms-win-core-sysinfo-l1.</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SYSTEM_INFO</span> {
+    <span class="ident">wProcessorArchitecture</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wReserved</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">dwPageSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpMinimumApplicationAddress</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">lpMaximumApplicationAddress</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwActiveProcessorMask</span>: ::<span class="ident">DWORD_PTR</span>,
+    <span class="ident">dwNumberOfProcessors</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwProcessorType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwAllocationGranularity</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">wProcessorLevel</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wProcessorRevision</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SYSTEM_INFO</span>, <span class='ident'>wProcessorArchitecture</span>, <span class='ident'>dwOemId</span>, <span class='ident'>dwOemId_mut</span>, ::<span class='ident'>DWORD</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSYSTEM_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SYSTEM_INFO</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>MEMORYSTATUSEX</span> {
-    <span class='ident'>dwLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwMemoryLoad</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ullTotalPhys</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullAvailPhys</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullTotalPageFile</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullAvailPageFile</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullTotalVirtual</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullAvailVirtual</span>: ::<span class='ident'>DWORDLONG</span>,
-    <span class='ident'>ullAvailExtendedVirtual</span>: ::<span class='ident'>DWORDLONG</span>,
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">SYSTEM_INFO</span>, <span class="ident">wProcessorArchitecture</span>, <span class="ident">dwOemId</span>, <span class="ident">dwOemId_mut</span>, ::<span class="ident">DWORD</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSYSTEM_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SYSTEM_INFO</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">MEMORYSTATUSEX</span> {
+    <span class="ident">dwLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwMemoryLoad</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ullTotalPhys</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullAvailPhys</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullTotalPageFile</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullAvailPageFile</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullTotalVirtual</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullAvailVirtual</span>: ::<span class="ident">DWORDLONG</span>,
+    <span class="ident">ullAvailExtendedVirtual</span>: ::<span class="ident">DWORDLONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPMEMORYSTATUSEX</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>MEMORYSTATUSEX</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>COMPUTER_NAME_FORMAT</span> {
-    <span class='ident'>ComputerNameNetBIOS</span>,
-    <span class='ident'>ComputerNameDnsHostname</span>,
-    <span class='ident'>ComputerNameDnsDomain</span>,
-    <span class='ident'>ComputerNameDnsFullyQualified</span>,
-    <span class='ident'>ComputerNamePhysicalNetBIOS</span>,
-    <span class='ident'>ComputerNamePhysicalDnsHostname</span>,
-    <span class='ident'>ComputerNamePhysicalDnsDomain</span>,
-    <span class='ident'>ComputerNamePhysicalDnsFullyQualified</span>,
-    <span class='ident'>ComputerNameMax</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPMEMORYSTATUSEX</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">MEMORYSTATUSEX</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">COMPUTER_NAME_FORMAT</span> {
+    <span class="ident">ComputerNameNetBIOS</span>,
+    <span class="ident">ComputerNameDnsHostname</span>,
+    <span class="ident">ComputerNameDnsDomain</span>,
+    <span class="ident">ComputerNameDnsFullyQualified</span>,
+    <span class="ident">ComputerNamePhysicalNetBIOS</span>,
+    <span class="ident">ComputerNamePhysicalDnsHostname</span>,
+    <span class="ident">ComputerNamePhysicalDnsDomain</span>,
+    <span class="ident">ComputerNamePhysicalDnsFullyQualified</span>,
+    <span class="ident">ComputerNameMax</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>INIT_ONCE</span> <span class='op'>=</span> ::<span class='ident'>RTL_RUN_ONCE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PINIT_ONCE</span> <span class='op'>=</span> ::<span class='ident'>PRTL_RUN_ONCE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPINIT_ONCE</span> <span class='op'>=</span> ::<span class='ident'>PRTL_RUN_ONCE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>CONDITION_VARIABLE</span> <span class='op'>=</span> ::<span class='ident'>RTL_CONDITION_VARIABLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCONDITION_VARIABLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONDITION_VARIABLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">INIT_ONCE</span> <span class="op">=</span> ::<span class="ident">RTL_RUN_ONCE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PINIT_ONCE</span> <span class="op">=</span> ::<span class="ident">PRTL_RUN_ONCE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPINIT_ONCE</span> <span class="op">=</span> ::<span class="ident">PRTL_RUN_ONCE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CONDITION_VARIABLE</span> <span class="op">=</span> ::<span class="ident">RTL_CONDITION_VARIABLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCONDITION_VARIABLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CONDITION_VARIABLE</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -152,12 +154,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -178,7 +184,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -189,11 +195,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

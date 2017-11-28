@@ -9,13 +9,15 @@
 
     <title>winapi::sapi::ISpStreamVtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a></p><script>window.sidebarCurrent = {name: 'ISpStreamVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct ISpStreamVtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.SetBaseStream">SetBaseStream</a><a href="#structfield.GetBaseStream">GetBaseStream</a><a href="#structfield.BindToFile">BindToFile</a><a href="#structfield.Close">Close</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a></p><script>window.sidebarCurrent = {name: 'ISpStreamVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +43,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a>::<wbr><a class='struct' href=''>ISpStreamVtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-68880' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ISpStreamVtbl {
-    pub parent: <a class='struct' href='../../winapi/sapi/struct.ISpStreamFormatVtbl.html' title='winapi::sapi::ISpStreamFormatVtbl'>ISpStreamFormatVtbl</a>,
-    pub SetBaseStream: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpStream.html' title='winapi::sapi::ISpStream'>ISpStream</a>, pStream: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/objidlbase/struct.IStream.html' title='winapi::objidlbase::IStream'>IStream</a>, rguidFormat: <a class='type' href='../../winapi/guiddef/type.REFGUID.html' title='winapi::guiddef::REFGUID'>REFGUID</a>, pWaveFormatEx: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/mmreg/struct.WAVEFORMATEX.html' title='winapi::mmreg::WAVEFORMATEX'>WAVEFORMATEX</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetBaseStream: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpStream.html' title='winapi::sapi::ISpStream'>ISpStream</a>, ppStream: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/objidlbase/struct.IStream.html' title='winapi::objidlbase::IStream'>IStream</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub BindToFile: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpStream.html' title='winapi::sapi::ISpStream'>ISpStream</a>, pszFileName: <a class='type' href='../../winapi/winnt/type.LPCWSTR.html' title='winapi::winnt::LPCWSTR'>LPCWSTR</a>, eMode: <a class='struct' href='../../winapi/sapi/struct.SPFILEMODE.html' title='winapi::sapi::SPFILEMODE'>SPFILEMODE</a>, pFormatId: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/guiddef/struct.GUID.html' title='winapi::guiddef::GUID'>GUID</a>, pWaveFormatEx: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/mmreg/struct.WAVEFORMATEX.html' title='winapi::mmreg::WAVEFORMATEX'>WAVEFORMATEX</a>, ullEventInterest: <a class='type' href='../../winapi/winnt/type.ULONGLONG.html' title='winapi::winnt::ULONGLONG'>ULONGLONG</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub Close: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpStream.html' title='winapi::sapi::ISpStream'>ISpStream</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetBaseStream'><code>SetBaseStream</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetBaseStream'><code>GetBaseStream</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.BindToFile'><code>BindToFile</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Close'><code>Close</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a>::<wbr><a class="struct" href=''>ISpStreamVtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct ISpStreamVtbl {
+    pub parent: <a class="struct" href="../../winapi/sapi/struct.ISpStreamFormatVtbl.html" title="struct winapi::sapi::ISpStreamFormatVtbl">ISpStreamFormatVtbl</a>,
+    pub SetBaseStream: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, pStream: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/objidlbase/struct.IStream.html" title="struct winapi::objidlbase::IStream">IStream</a>, rguidFormat: <a class="type" href="../../winapi/guiddef/type.REFGUID.html" title="type winapi::guiddef::REFGUID">REFGUID</a>, pWaveFormatEx: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/mmreg/struct.WAVEFORMATEX.html" title="struct winapi::mmreg::WAVEFORMATEX">WAVEFORMATEX</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetBaseStream: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, ppStream: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/objidlbase/struct.IStream.html" title="struct winapi::objidlbase::IStream">IStream</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub BindToFile: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, pszFileName: <a class="type" href="../../winapi/winnt/type.LPCWSTR.html" title="type winapi::winnt::LPCWSTR">LPCWSTR</a>, eMode: <a class="struct" href="../../winapi/sapi/struct.SPFILEMODE.html" title="struct winapi::sapi::SPFILEMODE">SPFILEMODE</a>, pFormatId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a>, pWaveFormatEx: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/mmreg/struct.WAVEFORMATEX.html" title="struct winapi::mmreg::WAVEFORMATEX">WAVEFORMATEX</a>, ullEventInterest: <a class="type" href="../../winapi/winnt/type.ULONGLONG.html" title="type winapi::winnt::ULONGLONG">ULONGLONG</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub Close: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/sapi/struct.ISpStreamFormatVtbl.html" title="struct winapi::sapi::ISpStreamFormatVtbl">ISpStreamFormatVtbl</a></code>
+                           </span></span><span id="structfield.SetBaseStream" class="structfield small-section-header">
+                           <a href="#structfield.SetBaseStream" class="anchor field"></a>
+                           <span id="SetBaseStream.v" class='invisible'>
+                           <code>SetBaseStream: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, pStream: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/objidlbase/struct.IStream.html" title="struct winapi::objidlbase::IStream">IStream</a>, rguidFormat: <a class="type" href="../../winapi/guiddef/type.REFGUID.html" title="type winapi::guiddef::REFGUID">REFGUID</a>, pWaveFormatEx: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/mmreg/struct.WAVEFORMATEX.html" title="struct winapi::mmreg::WAVEFORMATEX">WAVEFORMATEX</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetBaseStream" class="structfield small-section-header">
+                           <a href="#structfield.GetBaseStream" class="anchor field"></a>
+                           <span id="GetBaseStream.v" class='invisible'>
+                           <code>GetBaseStream: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, ppStream: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/objidlbase/struct.IStream.html" title="struct winapi::objidlbase::IStream">IStream</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.BindToFile" class="structfield small-section-header">
+                           <a href="#structfield.BindToFile" class="anchor field"></a>
+                           <span id="BindToFile.v" class='invisible'>
+                           <code>BindToFile: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>, pszFileName: <a class="type" href="../../winapi/winnt/type.LPCWSTR.html" title="type winapi::winnt::LPCWSTR">LPCWSTR</a>, eMode: <a class="struct" href="../../winapi/sapi/struct.SPFILEMODE.html" title="struct winapi::sapi::SPFILEMODE">SPFILEMODE</a>, pFormatId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a>, pWaveFormatEx: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/mmreg/struct.WAVEFORMATEX.html" title="struct winapi::mmreg::WAVEFORMATEX">WAVEFORMATEX</a>, ullEventInterest: <a class="type" href="../../winapi/winnt/type.ULONGLONG.html" title="type winapi::winnt::ULONGLONG">ULONGLONG</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.Close" class="structfield small-section-header">
+                           <a href="#structfield.Close" class="anchor field"></a>
+                           <span id="Close.v" class='invisible'>
+                           <code>Close: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpStream.html" title="struct winapi::sapi::ISpStream">ISpStream</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,12 +94,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -102,7 +124,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,11 +135,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

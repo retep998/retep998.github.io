@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winsock2.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\winsock2.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winsock2.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -470,440 +472,436 @@
 <span id="427">427</span>
 <span id="428">428</span>
 <span id="429">429</span>
-<span id="430">430</span>
-<span id="431">431</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! definitions to be used with the WinSock 2 DLL and WinSock 2 applications.</span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! This header file corresponds to version 2.2.x of the WinSock API specification.</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WINSOCK_VERSION</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>2</span> <span class='op'>|</span> (<span class='number'>2</span> <span class='op'>&lt;&lt;</span> <span class='number'>8</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>u_char</span> <span class='op'>=</span> ::<span class='ident'>c_uchar</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>u_short</span> <span class='op'>=</span> ::<span class='ident'>c_ushort</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>u_int</span> <span class='op'>=</span> ::<span class='ident'>c_uint</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>u_long</span> <span class='op'>=</span> ::<span class='ident'>c_ulong</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>u_int64</span> <span class='op'>=</span> ::<span class='ident'>__uint64</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SOCKET</span> <span class='op'>=</span> ::<span class='ident'>UINT_PTR</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>GROUP</span> <span class='op'>=</span> ::<span class='ident'>c_uint</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FD_SETSIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>64</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FD_MAX_EVENTS</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>fd_set</span> {
-    <span class='kw'>pub</span> <span class='ident'>fd_count</span>: <span class='ident'>u_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>fd_array</span>: [<span class='ident'>SOCKET</span>; <span class='ident'>FD_SETSIZE</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>fd_set</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>fd_set</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>timeval</span> {
-    <span class='ident'>tv_sec</span>: ::<span class='ident'>c_long</span>,
-    <span class='ident'>tv_usec</span>: ::<span class='ident'>c_long</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! definitions to be used with the WinSock 2 DLL and WinSock 2 applications.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! This header file corresponds to version 2.2.x of the WinSock API specification.</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WINSOCK_VERSION</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">2</span> <span class="op">|</span> (<span class="number">2</span> <span class="op">&lt;&lt;</span> <span class="number">8</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">u_char</span> <span class="op">=</span> ::<span class="ident">c_uchar</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">u_short</span> <span class="op">=</span> ::<span class="ident">c_ushort</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">u_int</span> <span class="op">=</span> ::<span class="ident">c_uint</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">u_long</span> <span class="op">=</span> ::<span class="ident">c_ulong</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">u_int64</span> <span class="op">=</span> ::<span class="ident">__uint64</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SOCKET</span> <span class="op">=</span> ::<span class="ident">UINT_PTR</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">GROUP</span> <span class="op">=</span> ::<span class="ident">c_uint</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FD_SETSIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">64</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FD_MAX_EVENTS</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">fd_set</span> {
+    <span class="ident">fd_count</span>: <span class="ident">u_int</span>,
+    <span class="ident">fd_array</span>: [<span class="ident">SOCKET</span>; <span class="ident">FD_SETSIZE</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>hostent</span> {
-    <span class='ident'>h_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>h_aliases</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>h_addrtype</span>: ::<span class='ident'>c_short</span>,
-    <span class='ident'>h_length</span>: ::<span class='ident'>c_short</span>,
-    <span class='ident'>h_addr_list</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">timeval</span> {
+    <span class="ident">tv_sec</span>: ::<span class="ident">c_long</span>,
+    <span class="ident">tv_usec</span>: ::<span class="ident">c_long</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>netent</span> {
-    <span class='ident'>n_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>n_aliases</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>n_addrtype</span>: ::<span class='ident'>c_short</span>,
-    <span class='ident'>n_net</span>: <span class='ident'>u_long</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">hostent</span> {
+    <span class="ident">h_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">h_aliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">h_addrtype</span>: ::<span class="ident">c_short</span>,
+    <span class="ident">h_length</span>: ::<span class="ident">c_short</span>,
+    <span class="ident">h_addr_list</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
 }}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>servent</span> {
-    <span class='kw'>pub</span> <span class='ident'>s_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='kw'>pub</span> <span class='ident'>s_aliases</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>s_port</span>: ::<span class='ident'>c_short</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>s_proto</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>s_proto</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>s_port</span>: ::<span class='ident'>c_short</span>,
-}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>protoent</span> {
-    <span class='ident'>p_name</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>p_aliases</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='ident'>p_proto</span>: ::<span class='ident'>c_short</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">netent</span> {
+    <span class="ident">n_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">n_aliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">n_addrtype</span>: ::<span class="ident">c_short</span>,
+    <span class="ident">n_net</span>: <span class="ident">u_long</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSADESCRIPTION_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>256</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSASYS_STATUS_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>128</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSADATA</span> {
-    <span class='kw'>pub</span> <span class='ident'>wVersion</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wHighVersion</span>: ::<span class='ident'>WORD</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>szDescription</span>: [::<span class='ident'>c_char</span>; <span class='ident'>WSADESCRIPTION_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>szSystemStatus</span>: [::<span class='ident'>c_char</span>; <span class='ident'>WSASYS_STATUS_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-    <span class='kw'>pub</span> <span class='ident'>iMaxSockets</span>: ::<span class='ident'>c_ushort</span>,
-    <span class='kw'>pub</span> <span class='ident'>iMaxUdpDg</span>: ::<span class='ident'>c_ushort</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpVendorInfo</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_char</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>szDescription</span>: [::<span class='ident'>c_char</span>; <span class='ident'>WSADESCRIPTION_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>szSystemStatus</span>: [::<span class='ident'>c_char</span>; <span class='ident'>WSASYS_STATUS_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>WSADATA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>WSADATA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSADATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSADATA</span>;
-<span class='comment'>//391</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_SOCKET</span>: <span class='ident'>SOCKET</span> <span class='op'>=</span> <span class='op'>!</span><span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SOCKET_ERROR</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>sockproto</span> {
-    <span class='ident'>sp_family</span>: <span class='ident'>u_short</span>,
-    <span class='ident'>sp_protocol</span>: <span class='ident'>u_short</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">servent</span> {
+    <span class="ident">s_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">s_aliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">s_port</span>: ::<span class="ident">c_short</span>,
+    <span class="ident">s_proto</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_UNSPEC</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_UNSPEC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_UNIX</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_UNIX</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_INET</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_INET</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_IMPLINK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_IMPLINK</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_PUP</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_PUP</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_CHAOS</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_CHAOS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_NS</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_NS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_IPX</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_IPX</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_ISO</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_ISO</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_OSI</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_OSI</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_ECMA</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_ECMA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_DATAKIT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_DATAKIT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_CCITT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_CCITT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_SNA</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_SNA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_DECnet</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_DECnet</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_DLI</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_DLI</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_LAT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_LAT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_HYLINK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_HYLINK</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_APPLETALK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_APPLETALK</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_VOICEVIEW</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_VOICEVIEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_FIREFOX</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_FIREFOX</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_UNKNOWN1</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_UNKNOWN1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_BAN</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_BAN</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_ATM</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_ATM</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_INET6</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_INET6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_BTH</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_BTH</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PF_MAX</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> ::<span class='ident'>AF_MAX</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>linger</span> {
-    <span class='ident'>l_onoff</span>: <span class='ident'>u_short</span>,
-    <span class='ident'>l_linger</span>: <span class='ident'>u_short</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">servent</span> {
+    <span class="ident">s_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">s_aliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">s_proto</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">s_port</span>: ::<span class="ident">c_short</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SOMAXCONN</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0x7fffffff</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WSAEVENT</span> <span class='op'>=</span> ::<span class='ident'>HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAEVENT</span> <span class='op'>=</span> ::<span class='ident'>LPHANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WSAOVERLAPPED</span> <span class='op'>=</span> ::<span class='ident'>OVERLAPPED</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAOVERLAPPED</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>OVERLAPPED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_IO_PENDING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_IO_PENDING</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_IO_INCOMPLETE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_IO_INCOMPLETE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_INVALID_HANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_INVALID_PARAMETER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_PARAMETER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_NOT_ENOUGH_MEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_ENOUGH_MEMORY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSA_OPERATION_ABORTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_OPERATION_ABORTED</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>QOS</span> {
-    <span class='ident'>SendingFlowspec</span>: ::<span class='ident'>FLOWSPEC</span>,
-    <span class='ident'>FLOWSPEC</span>: ::<span class='ident'>FLOWSPEC</span>,
-    <span class='ident'>ProviderSpecific</span>: ::<span class='ident'>WSABUF</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">protoent</span> {
+    <span class="ident">p_name</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">p_aliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">p_proto</span>: ::<span class="ident">c_short</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPQOS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>QOS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANETWORKEVENTS</span> {
-    <span class='ident'>lNetworkEvents</span>: ::<span class='ident'>c_long</span>,
-    <span class='ident'>iErrorCode</span>: [::<span class='ident'>c_int</span>; <span class='ident'>FD_MAX_EVENTS</span>],
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSADESCRIPTION_LEN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">256</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSASYS_STATUS_LEN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">128</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">WSADATA</span> {
+    <span class="ident">wVersion</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wHighVersion</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">szDescription</span>: [::<span class="ident">c_char</span>; <span class="ident">WSADESCRIPTION_LEN</span> <span class="op">+</span> <span class="number">1</span>],
+    <span class="ident">szSystemStatus</span>: [::<span class="ident">c_char</span>; <span class="ident">WSASYS_STATUS_LEN</span> <span class="op">+</span> <span class="number">1</span>],
+    <span class="ident">iMaxSockets</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">iMaxUdpDg</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">lpVendorInfo</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANETWORKEVENTS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANETWORKEVENTS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_PROTOCOL_CHAIN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>7</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAPROTOCOLCHAIN</span> {
-    <span class='ident'>ChainLen</span>: ::<span class='ident'>c_int</span>,
-    <span class='ident'>ChainEntries</span>: [::<span class='ident'>DWORD</span>; <span class='ident'>MAX_PROTOCOL_CHAIN</span>],
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">WSADATA</span> {
+    <span class="ident">wVersion</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wHighVersion</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">iMaxSockets</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">iMaxUdpDg</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">lpVendorInfo</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_char</span>,
+    <span class="ident">szDescription</span>: [::<span class="ident">c_char</span>; <span class="ident">WSADESCRIPTION_LEN</span> <span class="op">+</span> <span class="number">1</span>],
+    <span class="ident">szSystemStatus</span>: [::<span class="ident">c_char</span>; <span class="ident">WSASYS_STATUS_LEN</span> <span class="op">+</span> <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAPROTOCOLCHAIN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAPROTOCOLCHAIN</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WSAPROTOCOL_LEN</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>255</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSAPROTOCOL_INFOA</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags3</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags4</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags5</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCatalogEntryId</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProtocolChain</span>: <span class='ident'>WSAPROTOCOLCHAIN</span>,
-    <span class='kw'>pub</span> <span class='ident'>iVersion</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iAddressFamily</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iMaxSockAddr</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iMinSockAddr</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSocketType</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iProtocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iProtocolMaxOffset</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iNetworkByteOrder</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSecurityScheme</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMessageSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwProviderReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szProtocol</span>: [::<span class='ident'>CHAR</span>; <span class='ident'>WSAPROTOCOL_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>WSAPROTOCOL_INFOA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>WSAPROTOCOL_INFOA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAPROTOCOL_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAPROTOCOL_INFOA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSAPROTOCOL_INFOW</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags3</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags4</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwServiceFlags5</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCatalogEntryId</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ProtocolChain</span>: <span class='ident'>WSAPROTOCOLCHAIN</span>,
-    <span class='kw'>pub</span> <span class='ident'>iVersion</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iAddressFamily</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iMaxSockAddr</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iMinSockAddr</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSocketType</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iProtocol</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iProtocolMaxOffset</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iNetworkByteOrder</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>iSecurityScheme</span>: ::<span class='ident'>c_int</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMessageSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwProviderReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szProtocol</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>WSAPROTOCOL_LEN</span> <span class='op'>+</span> <span class='number'>1</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>WSAPROTOCOL_INFOW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>WSAPROTOCOL_INFOW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAPROTOCOL_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAPROTOCOL_INFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCONDITIONPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>lpCallerId</span>: ::<span class='ident'>LPWSABUF</span>, <span class='ident'>lpCallerData</span>: ::<span class='ident'>LPWSABUF</span>, <span class='ident'>lpSQOS</span>: <span class='ident'>LPQOS</span>, <span class='ident'>lpGQOS</span>: <span class='ident'>LPQOS</span>,
-    <span class='ident'>lpCalleeId</span>: ::<span class='ident'>LPWSABUF</span>, <span class='ident'>lpCalleeData</span>: ::<span class='ident'>LPWSABUF</span>, <span class='ident'>g</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>GROUP</span>, <span class='ident'>dwCallbackData</span>: ::<span class='ident'>DWORD</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAOVERLAPPED_COMPLETION_ROUTINE</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>dwError</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>cbTransferred</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>lpOverlapped</span>: <span class='ident'>LPWSAOVERLAPPED</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-)<span class='op'>&gt;</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WSACOMPLETIONTYPE</span> {
-    <span class='ident'>NSP_NOTIFY_IMMEDIATELY</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>NSP_NOTIFY_HWND</span>,
-    <span class='ident'>NSP_NOTIFY_EVENT</span>,
-    <span class='ident'>NSP_NOTIFY_PORT</span>,
-    <span class='ident'>NSP_NOTIFY_APC</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSADATA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSADATA</span>;
+<span class="comment">//391</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INVALID_SOCKET</span>: <span class="ident">SOCKET</span> <span class="op">=</span> <span class="op">!</span><span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SOCKET_ERROR</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="op">-</span><span class="number">1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">sockproto</span> {
+    <span class="ident">sp_family</span>: <span class="ident">u_short</span>,
+    <span class="ident">sp_protocol</span>: <span class="ident">u_short</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSACOMPLETIONTYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSACOMPLETIONTYPE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSACOMPLETIONTYPE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSACOMPLETIONTYPE</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSACOMPLETION_WindowMessage</span> {
-    <span class='ident'>hWnd</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>uMsg</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>context</span>: ::<span class='ident'>WPARAM</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_UNSPEC</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_UNSPEC</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_UNIX</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_UNIX</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_INET</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_INET</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_IMPLINK</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_IMPLINK</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_PUP</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_PUP</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_CHAOS</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_CHAOS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_NS</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_NS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_IPX</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_IPX</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_ISO</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_ISO</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_OSI</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_OSI</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_ECMA</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_ECMA</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_DATAKIT</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_DATAKIT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_CCITT</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_CCITT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_SNA</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_SNA</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_DECnet</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_DECnet</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_DLI</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_DLI</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_LAT</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_LAT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_HYLINK</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_HYLINK</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_APPLETALK</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_APPLETALK</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_VOICEVIEW</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_VOICEVIEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_FIREFOX</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_FIREFOX</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_UNKNOWN1</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_UNKNOWN1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_BAN</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_BAN</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_ATM</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_ATM</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_INET6</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_INET6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_BTH</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_BTH</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PF_MAX</span>: ::<span class="ident">c_int</span> <span class="op">=</span> ::<span class="ident">AF_MAX</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">linger</span> {
+    <span class="ident">l_onoff</span>: <span class="ident">u_short</span>,
+    <span class="ident">l_linger</span>: <span class="ident">u_short</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSACOMPLETION_Event</span> {
-    <span class='ident'>lpOverlapped</span>: <span class='ident'>LPWSAOVERLAPPED</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SOMAXCONN</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">0x7fffffff</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WSAEVENT</span> <span class="op">=</span> ::<span class="ident">HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAEVENT</span> <span class="op">=</span> ::<span class="ident">LPHANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WSAOVERLAPPED</span> <span class="op">=</span> ::<span class="ident">OVERLAPPED</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAOVERLAPPED</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">OVERLAPPED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_IO_PENDING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_IO_PENDING</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_IO_INCOMPLETE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_IO_INCOMPLETE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_INVALID_HANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_INVALID_PARAMETER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_PARAMETER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_NOT_ENOUGH_MEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_ENOUGH_MEMORY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSA_OPERATION_ABORTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_OPERATION_ABORTED</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">QOS</span> {
+    <span class="ident">SendingFlowspec</span>: ::<span class="ident">FLOWSPEC</span>,
+    <span class="ident">FLOWSPEC</span>: ::<span class="ident">FLOWSPEC</span>,
+    <span class="ident">ProviderSpecific</span>: ::<span class="ident">WSABUF</span>,
 }}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSACOMPLETION_Apc</span> {
-    <span class='kw'>pub</span> <span class='ident'>lpOverlapped</span>: <span class='ident'>LPWSAOVERLAPPED</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnCompletionProc</span>: <span class='ident'>LPWSAOVERLAPPED_COMPLETION_ROUTINE</span>
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>WSACOMPLETION_Apc</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>WSACOMPLETION_Apc</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSACOMPLETION_Port</span> {
-    <span class='ident'>lpOverlapped</span>: <span class='ident'>LPWSAOVERLAPPED</span>,
-    <span class='ident'>hPort</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='ident'>Key</span>: ::<span class='ident'>ULONG_PTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPQOS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">QOS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANETWORKEVENTS</span> {
+    <span class="ident">lNetworkEvents</span>: ::<span class="ident">c_long</span>,
+    <span class="ident">iErrorCode</span>: [::<span class="ident">c_int</span>; <span class="ident">FD_MAX_EVENTS</span>],
 }}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WSACOMPLETION</span> {
-    <span class='kw'>pub</span> <span class='ident'>Type</span>: <span class='ident'>WSACOMPLETIONTYPE</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>Parameters</span>: [<span class='ident'>u8</span>; <span class='number'>12</span>],
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>Parameters</span>: [<span class='ident'>u8</span>; <span class='number'>24</span>],
-}
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>WSACOMPLETION</span>, <span class='ident'>Parameters</span>, <span class='ident'>WindowMessage</span>, <span class='ident'>WindowMessage_mut</span>, <span class='ident'>WSACOMPLETION_WindowMessage</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>WSACOMPLETION</span>, <span class='ident'>Parameters</span>, <span class='ident'>Event</span>, <span class='ident'>Event_mut</span>, <span class='ident'>WSACOMPLETION_Event</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>WSACOMPLETION</span>, <span class='ident'>Parameters</span>, <span class='ident'>Apc</span>, <span class='ident'>Apc_mut</span>, <span class='ident'>WSACOMPLETION_Apc</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>WSACOMPLETION</span>, <span class='ident'>Parameters</span>, <span class='ident'>Port</span>, <span class='ident'>Port_mut</span>, <span class='ident'>WSACOMPLETION_Port</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSACOMPLETION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSACOMPLETION</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSACOMPLETION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSACOMPLETION</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>AFPROTOCOLS</span> {
-    <span class='ident'>iAddressFamily</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>iProtocol</span>: ::<span class='ident'>INT</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANETWORKEVENTS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANETWORKEVENTS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MAX_PROTOCOL_CHAIN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">7</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAPROTOCOLCHAIN</span> {
+    <span class="ident">ChainLen</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">ChainEntries</span>: [::<span class="ident">DWORD</span>; <span class="ident">MAX_PROTOCOL_CHAIN</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PAFPROTOCOLS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>AFPROTOCOLS</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPAFPROTOCOLS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>AFPROTOCOLS</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WSAECOMPARATOR</span> {
-    <span class='ident'>COMP_EQUAL</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>COMP_NOTLESS</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAPROTOCOLCHAIN</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAPROTOCOLCHAIN</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WSAPROTOCOL_LEN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">255</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">WSAPROTOCOL_INFOA</span> {
+    <span class="ident">dwServiceFlags1</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags3</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags4</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags5</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwCatalogEntryId</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ProtocolChain</span>: <span class="ident">WSAPROTOCOLCHAIN</span>,
+    <span class="ident">iVersion</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iAddressFamily</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iMaxSockAddr</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iMinSockAddr</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iSocketType</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iProtocol</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iProtocolMaxOffset</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iNetworkByteOrder</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iSecurityScheme</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">dwMessageSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwProviderReserved</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szProtocol</span>: [::<span class="ident">CHAR</span>; <span class="ident">WSAPROTOCOL_LEN</span> <span class="op">+</span> <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAECOMPARATOR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAECOMPARATOR</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAECOMPARATOR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAECOMPARATOR</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAVERSION</span> {
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ecHow</span>: <span class='ident'>WSAECOMPARATOR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAPROTOCOL_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAPROTOCOL_INFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">WSAPROTOCOL_INFOW</span> {
+    <span class="ident">dwServiceFlags1</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags3</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags4</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwServiceFlags5</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwCatalogEntryId</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ProtocolChain</span>: <span class="ident">WSAPROTOCOLCHAIN</span>,
+    <span class="ident">iVersion</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iAddressFamily</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iMaxSockAddr</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iMinSockAddr</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iSocketType</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iProtocol</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iProtocolMaxOffset</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iNetworkByteOrder</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iSecurityScheme</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">dwMessageSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwProviderReserved</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szProtocol</span>: [::<span class="ident">WCHAR</span>; <span class="ident">WSAPROTOCOL_LEN</span> <span class="op">+</span> <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAVERSION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAVERSION</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAVERSION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAVERSION</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAQUERYSETA</span> {
-    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszServiceInstanceName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpServiceClassId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpVersion</span>: <span class='ident'>LPWSAVERSION</span>,
-    <span class='ident'>lpszComment</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpNSProviderId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszContext</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNumberOfProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpafpProtocols</span>: <span class='ident'>LPAFPROTOCOLS</span>,
-    <span class='ident'>lpszQueryString</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNumberOfCsAddrs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpcsaBuffer</span>: ::<span class='ident'>LPCSADDR_INFO</span>,
-    <span class='ident'>dwOutputFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpBlob</span>: ::<span class='ident'>LPBLOB</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAPROTOCOL_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAPROTOCOL_INFOW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCONDITIONPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">lpCallerId</span>: ::<span class="ident">LPWSABUF</span>, <span class="ident">lpCallerData</span>: ::<span class="ident">LPWSABUF</span>, <span class="ident">lpSQOS</span>: <span class="ident">LPQOS</span>, <span class="ident">lpGQOS</span>: <span class="ident">LPQOS</span>,
+    <span class="ident">lpCalleeId</span>: ::<span class="ident">LPWSABUF</span>, <span class="ident">lpCalleeData</span>: ::<span class="ident">LPWSABUF</span>, <span class="ident">g</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">GROUP</span>, <span class="ident">dwCallbackData</span>: ::<span class="ident">DWORD</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">c_int</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAOVERLAPPED_COMPLETION_ROUTINE</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">dwError</span>: ::<span class="ident">DWORD</span>, <span class="ident">cbTransferred</span>: ::<span class="ident">DWORD</span>, <span class="ident">lpOverlapped</span>: <span class="ident">LPWSAOVERLAPPED</span>, <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+)<span class="op">&gt;</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WSACOMPLETIONTYPE</span> {
+    <span class="ident">NSP_NOTIFY_IMMEDIATELY</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">NSP_NOTIFY_HWND</span>,
+    <span class="ident">NSP_NOTIFY_EVENT</span>,
+    <span class="ident">NSP_NOTIFY_PORT</span>,
+    <span class="ident">NSP_NOTIFY_APC</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAQUERYSETA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSETA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAQUERYSETA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSETA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAQUERYSETW</span> {
-    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszServiceInstanceName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpServiceClassId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpVersion</span>: <span class='ident'>LPWSAVERSION</span>,
-    <span class='ident'>lpszComment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpNSProviderId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszContext</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNumberOfProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpafpProtocols</span>: <span class='ident'>LPAFPROTOCOLS</span>,
-    <span class='ident'>lpszQueryString</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNumberOfCsAddrs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpcsaBuffer</span>: ::<span class='ident'>LPCSADDR_INFO</span>,
-    <span class='ident'>dwOutputFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpBlob</span>: ::<span class='ident'>LPBLOB</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSACOMPLETIONTYPE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSACOMPLETIONTYPE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSACOMPLETIONTYPE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSACOMPLETIONTYPE</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSACOMPLETION_WindowMessage</span> {
+    <span class="ident">hWnd</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">uMsg</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">context</span>: ::<span class="ident">WPARAM</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAQUERYSETW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSETW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAQUERYSETW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSETW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAQUERYSET2A</span> {
-    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszServiceInstanceName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpVersion</span>: <span class='ident'>LPWSAVERSION</span>,
-    <span class='ident'>lpszComment</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpNSProviderId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszContext</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNumberOfProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpafpProtocols</span>: <span class='ident'>LPAFPROTOCOLS</span>,
-    <span class='ident'>lpszQueryString</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNumberOfCsAddrs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpcsaBuffer</span>: ::<span class='ident'>LPCSADDR_INFO</span>,
-    <span class='ident'>dwOutputFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpBlob</span>: ::<span class='ident'>LPBLOB</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSACOMPLETION_Event</span> {
+    <span class="ident">lpOverlapped</span>: <span class="ident">LPWSAOVERLAPPED</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAQUERYSET2A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSET2A</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAQUERYSET2A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSET2A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAQUERYSET2W</span> {
-    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszServiceInstanceName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpVersion</span>: <span class='ident'>LPWSAVERSION</span>,
-    <span class='ident'>lpszComment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpNSProviderId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszContext</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNumberOfProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpafpProtocols</span>: <span class='ident'>LPAFPROTOCOLS</span>,
-    <span class='ident'>lpszQueryString</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNumberOfCsAddrs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpcsaBuffer</span>: ::<span class='ident'>LPCSADDR_INFO</span>,
-    <span class='ident'>dwOutputFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpBlob</span>: ::<span class='ident'>LPBLOB</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">WSACOMPLETION_Apc</span> {
+    <span class="ident">lpOverlapped</span>: <span class="ident">LPWSAOVERLAPPED</span>,
+    <span class="ident">lpfnCompletionProc</span>: <span class="ident">LPWSAOVERLAPPED_COMPLETION_ROUTINE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAQUERYSET2W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSET2W</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAQUERYSET2W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAQUERYSET2W</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WSAESETSERVICEOP</span> {
-    <span class='ident'>RNRSERVICE_REGISTER</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>RNRSERVICE_DEREGISTER</span>,
-    <span class='ident'>RNRSERVICE_DELETE</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSACOMPLETION_Port</span> {
+    <span class="ident">lpOverlapped</span>: <span class="ident">LPWSAOVERLAPPED</span>,
+    <span class="ident">hPort</span>: ::<span class="ident">HANDLE</span>,
+    <span class="ident">Key</span>: ::<span class="ident">ULONG_PTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAESETSERVICEOP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAESETSERVICEOP</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAESETSERVICEOP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAESETSERVICEOP</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANSCLASSINFOA</span> {
-    <span class='ident'>lpszName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwValueType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwValueSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpValue</span>: ::<span class='ident'>LPVOID</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSACOMPLETION</span> {
+    <span class="ident">Type</span>: <span class="ident">WSACOMPLETIONTYPE</span>,
+    <span class="ident">Parameters</span>: [<span class="ident">u8</span>; <span class="number">12</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANSCLASSINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANSCLASSINFOA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANSCLASSINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANSCLASSINFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANSCLASSINFOW</span> {
-    <span class='ident'>lpszName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwValueType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwValueSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpValue</span>: ::<span class='ident'>LPVOID</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSACOMPLETION</span> {
+    <span class="ident">Type</span>: <span class="ident">WSACOMPLETIONTYPE</span>,
+    <span class="ident">Parameters</span>: [<span class="ident">u8</span>; <span class="number">24</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANSCLASSINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANSCLASSINFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANSCLASSINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANSCLASSINFOW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSASERVICECLASSINFOA</span> {
-    <span class='ident'>lpServiceClassId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszServiceClassName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpClassInfos</span>: <span class='ident'>LPWSANSCLASSINFOA</span>,
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">WSACOMPLETION</span>, <span class="ident">Parameters</span>, <span class="ident">WindowMessage</span>, <span class="ident">WindowMessage_mut</span>, <span class="ident">WSACOMPLETION_WindowMessage</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">WSACOMPLETION</span>, <span class="ident">Parameters</span>, <span class="ident">Event</span>, <span class="ident">Event_mut</span>, <span class="ident">WSACOMPLETION_Event</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">WSACOMPLETION</span>, <span class="ident">Parameters</span>, <span class="ident">Apc</span>, <span class="ident">Apc_mut</span>, <span class="ident">WSACOMPLETION_Apc</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">WSACOMPLETION</span>, <span class="ident">Parameters</span>, <span class="ident">Port</span>, <span class="ident">Port_mut</span>, <span class="ident">WSACOMPLETION_Port</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSACOMPLETION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSACOMPLETION</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSACOMPLETION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSACOMPLETION</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">AFPROTOCOLS</span> {
+    <span class="ident">iAddressFamily</span>: ::<span class="ident">INT</span>,
+    <span class="ident">iProtocol</span>: ::<span class="ident">INT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSASERVICECLASSINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSASERVICECLASSINFOA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSASERVICECLASSINFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSASERVICECLASSINFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSASERVICECLASSINFOW</span> {
-    <span class='ident'>lpServiceClassId</span>: ::<span class='ident'>LPGUID</span>,
-    <span class='ident'>lpszServiceClassName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpClassInfos</span>: <span class='ident'>LPWSANSCLASSINFOW</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PAFPROTOCOLS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">AFPROTOCOLS</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPAFPROTOCOLS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">AFPROTOCOLS</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WSAECOMPARATOR</span> {
+    <span class="ident">COMP_EQUAL</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">COMP_NOTLESS</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSASERVICECLASSINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSASERVICECLASSINFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSASERVICECLASSINFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSASERVICECLASSINFOW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANAMESPACE_INFOA</span> {
-    <span class='ident'>NSProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fActive</span>: ::<span class='ident'>BOOL</span>,
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszIdentifier</span>: ::<span class='ident'>LPSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAECOMPARATOR</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAECOMPARATOR</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAECOMPARATOR</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAECOMPARATOR</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAVERSION</span> {
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ecHow</span>: <span class="ident">WSAECOMPARATOR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANAMESPACE_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANAMESPACE_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANAMESPACE_INFOW</span> {
-    <span class='ident'>NSProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fActive</span>: ::<span class='ident'>BOOL</span>,
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszIdentifier</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAVERSION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAVERSION</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAVERSION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAVERSION</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAQUERYSETA</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszServiceInstanceName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpServiceClassId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpVersion</span>: <span class="ident">LPWSAVERSION</span>,
+    <span class="ident">lpszComment</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpNSProviderId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszContext</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNumberOfProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpafpProtocols</span>: <span class="ident">LPAFPROTOCOLS</span>,
+    <span class="ident">lpszQueryString</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNumberOfCsAddrs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpcsaBuffer</span>: ::<span class="ident">LPCSADDR_INFO</span>,
+    <span class="ident">dwOutputFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpBlob</span>: ::<span class="ident">LPBLOB</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANAMESPACE_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANAMESPACE_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANAMESPACE_INFOEXA</span> {
-    <span class='ident'>NSProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fActive</span>: ::<span class='ident'>BOOL</span>,
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszIdentifier</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>ProviderSpecific</span>: ::<span class='ident'>BLOB</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAQUERYSETA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSETA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAQUERYSETA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSETA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAQUERYSETW</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszServiceInstanceName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpServiceClassId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpVersion</span>: <span class="ident">LPWSAVERSION</span>,
+    <span class="ident">lpszComment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpNSProviderId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszContext</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNumberOfProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpafpProtocols</span>: <span class="ident">LPAFPROTOCOLS</span>,
+    <span class="ident">lpszQueryString</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNumberOfCsAddrs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpcsaBuffer</span>: ::<span class="ident">LPCSADDR_INFO</span>,
+    <span class="ident">dwOutputFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpBlob</span>: ::<span class="ident">LPBLOB</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANAMESPACE_INFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOEXA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANAMESPACE_INFOEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOEXA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSANAMESPACE_INFOEXW</span> {
-    <span class='ident'>NSProviderId</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>dwNameSpace</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fActive</span>: ::<span class='ident'>BOOL</span>,
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpszIdentifier</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>ProviderSpecific</span>: ::<span class='ident'>BLOB</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAQUERYSETW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSETW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAQUERYSETW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSETW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAQUERYSET2A</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszServiceInstanceName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpVersion</span>: <span class="ident">LPWSAVERSION</span>,
+    <span class="ident">lpszComment</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpNSProviderId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszContext</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNumberOfProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpafpProtocols</span>: <span class="ident">LPAFPROTOCOLS</span>,
+    <span class="ident">lpszQueryString</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNumberOfCsAddrs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpcsaBuffer</span>: ::<span class="ident">LPCSADDR_INFO</span>,
+    <span class="ident">dwOutputFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpBlob</span>: ::<span class="ident">LPBLOB</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSANAMESPACE_INFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOEXW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSANAMESPACE_INFOEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSANAMESPACE_INFOEXW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLRDNORM</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLRDBAND</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLIN</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='ident'>POLLRDNORM</span> <span class='op'>|</span> <span class='ident'>POLLRDBAND</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLPRI</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLWRNORM</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLOUT</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='ident'>POLLWRNORM</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLWRBAND</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLERR</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLHUP</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>POLLNVAL</span>: ::<span class='ident'>SHORT</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WSAPOLLFD</span> {
-    <span class='ident'>fd</span>: ::<span class='ident'>SOCKET</span>,
-    <span class='ident'>events</span>: ::<span class='ident'>SHORT</span>,
-    <span class='ident'>revents</span>: ::<span class='ident'>SHORT</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAQUERYSET2A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSET2A</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAQUERYSET2A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSET2A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAQUERYSET2W</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszServiceInstanceName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpVersion</span>: <span class="ident">LPWSAVERSION</span>,
+    <span class="ident">lpszComment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpNSProviderId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszContext</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNumberOfProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpafpProtocols</span>: <span class="ident">LPAFPROTOCOLS</span>,
+    <span class="ident">lpszQueryString</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNumberOfCsAddrs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpcsaBuffer</span>: ::<span class="ident">LPCSADDR_INFO</span>,
+    <span class="ident">dwOutputFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpBlob</span>: ::<span class="ident">LPBLOB</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PWSAPOLLFD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAPOLLFD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWSAPOLLFD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WSAPOLLFD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FIONBIO</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x8004667e</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAQUERYSET2W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSET2W</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAQUERYSET2W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAQUERYSET2W</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WSAESETSERVICEOP</span> {
+    <span class="ident">RNRSERVICE_REGISTER</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">RNRSERVICE_DEREGISTER</span>,
+    <span class="ident">RNRSERVICE_DELETE</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAESETSERVICEOP</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAESETSERVICEOP</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAESETSERVICEOP</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAESETSERVICEOP</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANSCLASSINFOA</span> {
+    <span class="ident">lpszName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwValueType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwValueSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpValue</span>: ::<span class="ident">LPVOID</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANSCLASSINFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANSCLASSINFOA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANSCLASSINFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANSCLASSINFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANSCLASSINFOW</span> {
+    <span class="ident">lpszName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwValueType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwValueSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpValue</span>: ::<span class="ident">LPVOID</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANSCLASSINFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANSCLASSINFOW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANSCLASSINFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANSCLASSINFOW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSASERVICECLASSINFOA</span> {
+    <span class="ident">lpServiceClassId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszServiceClassName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwCount</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpClassInfos</span>: <span class="ident">LPWSANSCLASSINFOA</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSASERVICECLASSINFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSASERVICECLASSINFOA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSASERVICECLASSINFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSASERVICECLASSINFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSASERVICECLASSINFOW</span> {
+    <span class="ident">lpServiceClassId</span>: ::<span class="ident">LPGUID</span>,
+    <span class="ident">lpszServiceClassName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwCount</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpClassInfos</span>: <span class="ident">LPWSANSCLASSINFOW</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSASERVICECLASSINFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSASERVICECLASSINFOW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSASERVICECLASSINFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSASERVICECLASSINFOW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANAMESPACE_INFOA</span> {
+    <span class="ident">NSProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fActive</span>: ::<span class="ident">BOOL</span>,
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszIdentifier</span>: ::<span class="ident">LPSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANAMESPACE_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANAMESPACE_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANAMESPACE_INFOW</span> {
+    <span class="ident">NSProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fActive</span>: ::<span class="ident">BOOL</span>,
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszIdentifier</span>: ::<span class="ident">LPWSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANAMESPACE_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANAMESPACE_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANAMESPACE_INFOEXA</span> {
+    <span class="ident">NSProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fActive</span>: ::<span class="ident">BOOL</span>,
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszIdentifier</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">ProviderSpecific</span>: ::<span class="ident">BLOB</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANAMESPACE_INFOEXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOEXA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANAMESPACE_INFOEXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOEXA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSANAMESPACE_INFOEXW</span> {
+    <span class="ident">NSProviderId</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">dwNameSpace</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fActive</span>: ::<span class="ident">BOOL</span>,
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpszIdentifier</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">ProviderSpecific</span>: ::<span class="ident">BLOB</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSANAMESPACE_INFOEXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOEXW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSANAMESPACE_INFOEXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSANAMESPACE_INFOEXW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLRDNORM</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLRDBAND</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLIN</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="ident">POLLRDNORM</span> <span class="op">|</span> <span class="ident">POLLRDBAND</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLPRI</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLWRNORM</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLOUT</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="ident">POLLWRNORM</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLWRBAND</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLERR</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLHUP</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">POLLNVAL</span>: ::<span class="ident">SHORT</span> <span class="op">=</span> <span class="number">0x0004</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WSAPOLLFD</span> {
+    <span class="ident">fd</span>: ::<span class="ident">SOCKET</span>,
+    <span class="ident">events</span>: ::<span class="ident">SHORT</span>,
+    <span class="ident">revents</span>: ::<span class="ident">SHORT</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PWSAPOLLFD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAPOLLFD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWSAPOLLFD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WSAPOLLFD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FIONBIO</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x8004667e</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -922,12 +920,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -948,7 +950,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -959,11 +961,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

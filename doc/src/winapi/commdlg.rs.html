@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\commdlg.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\commdlg.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>commdlg.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -624,646 +626,590 @@
 <span id="581">581</span>
 <span id="582">582</span>
 <span id="583">583</span>
-<span id="584">584</span>
-<span id="585">585</span>
-<span id="586">586</span>
-<span id="587">587</span>
-<span id="588">588</span>
-<span id="589">589</span>
-<span id="590">590</span>
-<span id="591">591</span>
-<span id="592">592</span>
-<span id="593">593</span>
-<span id="594">594</span>
-<span id="595">595</span>
-<span id="596">596</span>
-<span id="597">597</span>
-<span id="598">598</span>
-<span id="599">599</span>
-<span id="600">600</span>
-<span id="601">601</span>
-<span id="602">602</span>
-<span id="603">603</span>
-<span id="604">604</span>
-<span id="605">605</span>
-<span id="606">606</span>
-<span id="607">607</span>
-<span id="608">608</span>
-<span id="609">609</span>
-<span id="610">610</span>
-<span id="611">611</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! 32-Bit Common Dialog APIs</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOFNHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENFILENAME_NT4A</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFilter</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCustomFilter</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCustFilter</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFilterIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFile</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFile</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFileTitle</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFileTitle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrInitialDir</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileExtension</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrDefExt</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPOFNHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENFILENAME_NT4A</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENFILENAME_NT4A</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENFILENAME_NT4A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENFILENAME_NT4A</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENFILENAME_NT4W</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFilter</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCustomFilter</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCustFilter</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFilterIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFile</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFile</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFileTitle</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFileTitle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrInitialDir</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileExtension</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrDefExt</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPOFNHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENFILENAME_NT4W</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENFILENAME_NT4W</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENFILENAME_NT4W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENFILENAME_NT4W</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENFILENAMEA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFilter</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCustomFilter</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCustFilter</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFilterIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFile</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFile</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFileTitle</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFileTitle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrInitialDir</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileExtension</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrDefExt</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPOFNHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FlagsEx</span>: ::<span class='ident'>DWORD</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENFILENAMEA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENFILENAMEA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENFILENAMEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENFILENAMEA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENFILENAMEW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFilter</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCustomFilter</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCustFilter</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFilterIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFile</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFile</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFileTitle</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxFileTitle</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrInitialDir</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFileExtension</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrDefExt</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPOFNHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvReserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>FlagsEx</span>: ::<span class='ident'>DWORD</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENFILENAMEW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENFILENAMEW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENFILENAMEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENFILENAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_READONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_OVERWRITEPROMPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_HIDEREADONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NOCHANGEDIR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ENABLEHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ENABLETEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ENABLETEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NOVALIDATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ALLOWMULTISELECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_EXTENSIONDIFFERENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_PATHMUSTEXIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_FILEMUSTEXIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_CREATEPROMPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_SHAREAWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NOREADONLYRETURN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NOTESTFILECREATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NONETWORKBUTTON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NOLONGNAMES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_EXPLORER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_NODEREFERENCELINKS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_LONGNAMES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ENABLEINCLUDENOTIFY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_ENABLESIZING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_DONTADDTORECENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_FORCESHOWHIDDEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_EX_NOPLACESBAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_SHAREFALLTHROUGH</span>: ::<span class='ident'>UINT_PTR</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_SHARENOWARN</span>: ::<span class='ident'>UINT_PTR</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OFN_SHAREWARN</span>: ::<span class='ident'>UINT_PTR</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCCHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>OFNOTIFYA</span> {
-    <span class='ident'>hdr</span>: ::<span class='ident'>NMHDR</span>,
-    <span class='ident'>lpOFN</span>: <span class='ident'>LPOPENFILENAMEA</span>,
-    <span class='ident'>pszFile</span>: ::<span class='ident'>LPSTR</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! 32-Bit Common Dialog APIs</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOFNHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENFILENAME_NT4A</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpstrFilter</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpstrCustomFilter</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCustFilter</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFilterIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFile</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxFile</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFileTitle</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxFileTitle</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrInitialDir</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nFileExtension</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lpstrDefExt</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPOFNHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOFNOTIFYA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OFNOTIFYA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>OFNOTIFYW</span> {
-    <span class='ident'>hdr</span>: ::<span class='ident'>NMHDR</span>,
-    <span class='ident'>lpOFN</span>: <span class='ident'>LPOPENFILENAMEW</span>,
-    <span class='ident'>pszFile</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENFILENAME_NT4A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENFILENAME_NT4A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENFILENAME_NT4W</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpstrFilter</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpstrCustomFilter</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCustFilter</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFilterIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFile</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxFile</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFileTitle</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxFileTitle</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrInitialDir</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nFileExtension</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lpstrDefExt</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPOFNHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOFNOTIFYW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OFNOTIFYW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>OFNOTIFYEXA</span> {
-    <span class='ident'>hdr</span>: ::<span class='ident'>NMHDR</span>,
-    <span class='ident'>lpOFN</span>: <span class='ident'>LPOPENFILENAMEA</span>,
-    <span class='ident'>psf</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='ident'>pidl</span>: ::<span class='ident'>LPVOID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENFILENAME_NT4W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENFILENAME_NT4W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENFILENAMEA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpstrFilter</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpstrCustomFilter</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCustFilter</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFilterIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFile</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxFile</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFileTitle</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxFileTitle</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrInitialDir</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nFileExtension</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lpstrDefExt</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPOFNHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">pvReserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">dwReserved</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FlagsEx</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOFNOTIFYEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OFNOTIFYEXA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>OFNOTIFYEXW</span> {
-    <span class='ident'>hdr</span>: ::<span class='ident'>NMHDR</span>,
-    <span class='ident'>lpOFN</span>: <span class='ident'>LPOPENFILENAMEW</span>,
-    <span class='ident'>psf</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='ident'>pidl</span>: ::<span class='ident'>LPVOID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENFILENAMEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENFILENAMEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENFILENAMEW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpstrFilter</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpstrCustomFilter</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCustFilter</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFilterIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFile</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxFile</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFileTitle</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxFileTitle</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrInitialDir</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nFileExtension</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lpstrDefExt</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPOFNHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pvReserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">dwReserved</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FlagsEx</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOFNOTIFYEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OFNOTIFYEXW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_FIRST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span> <span class='op'>-</span> <span class='number'>601</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_LAST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span> <span class='op'>-</span> <span class='number'>699</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_INITDONE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_SELCHANGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_FOLDERCHANGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_SHAREVIOLATION</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_HELP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_FILEOK</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_TYPECHANGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0006</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDN_INCLUDEITEM</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDN_FIRST</span> <span class='op'>-</span> <span class='number'>0x0007</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_FIRST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_LAST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_GETSPEC</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_GETFILEPATH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_GETFOLDERPATH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_GETFOLDERIDLIST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_SETCONTROLTEXT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_HIDECONTROL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CDM_SETDEFEXT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>CDM_FIRST</span> <span class='op'>+</span> <span class='number'>0x0006</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CHOOSECOLORA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbResult</span>: ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpCustColors</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPCCHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CHOOSECOLORA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CHOOSECOLORA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCHOOSECOLORA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHOOSECOLORA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CHOOSECOLORW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbResult</span>: ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpCustColors</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPCCHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CHOOSECOLORW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CHOOSECOLORW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCHOOSECOLORW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHOOSECOLORW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_RGBINIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_FULLOPEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_PREVENTFULLOPEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_ENABLEHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_ENABLETEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_ENABLETEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_SOLIDCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CC_ANYCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFRHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FINDREPLACEA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFindWhat</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrReplaceWith</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>wFindWhatLen</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wReplaceWithLen</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPFRHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>FINDREPLACEA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FINDREPLACEA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFINDREPLACEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FINDREPLACEA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>FINDREPLACEW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrFindWhat</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrReplaceWith</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>wFindWhatLen</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>wReplaceWithLen</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPFRHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>FINDREPLACEW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>FINDREPLACEW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFINDREPLACEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FINDREPLACEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_DOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_WHOLEWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_MATCHCASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_FINDNEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_REPLACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_REPLACEALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_DIALOGTERM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_ENABLEHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_ENABLETEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_NOUPDOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_NOMATCHCASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_NOWHOLEWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_ENABLETEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_HIDEUPDOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_HIDEMATCHCASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_HIDEWHOLEWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_RAW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_MATCHDIAC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_MATCHKASHIDA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>FR_MATCHALEFHAMZA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCFHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CHOOSEFONTA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpLogFont</span>: ::<span class='ident'>LPLOGFONTA</span>,
-    <span class='kw'>pub</span> <span class='ident'>iPointSize</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbColors</span>: ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPCFHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszStyle</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFontType</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>___MISSING_ALIGNMENT__</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nSizeMin</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>nSizeMax</span>: ::<span class='ident'>INT</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CHOOSEFONTA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CHOOSEFONTA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCHOOSEFONTA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHOOSEFONTA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>CHOOSEFONTW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpLogFont</span>: ::<span class='ident'>LPLOGFONTW</span>,
-    <span class='kw'>pub</span> <span class='ident'>iPointSize</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbColors</span>: ::<span class='ident'>COLORREF</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnHook</span>: <span class='ident'>LPCFHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpszStyle</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFontType</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>___MISSING_ALIGNMENT__</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nSizeMin</span>: ::<span class='ident'>INT</span>,
-    <span class='kw'>pub</span> <span class='ident'>nSizeMax</span>: ::<span class='ident'>INT</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>CHOOSEFONTW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>CHOOSEFONTW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCHOOSEFONTW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CHOOSEFONTW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_SCREENFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_PRINTERFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_BOTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CF_SCREENFONTS</span> <span class='op'>|</span> <span class='ident'>CF_PRINTERFONTS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_ENABLEHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_ENABLETEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_ENABLETEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_INITTOLOGFONTSTRUCT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_USESTYLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_EFFECTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_APPLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_ANSIONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_SCRIPTSONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CF_ANSIONLY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOVECTORFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOOEMFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>CF_NOVECTORFONTS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOSIMULATIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_LIMITSIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_FIXEDPITCHONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_WYSIWYG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_FORCEFONTEXIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_SCALABLEONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_TTONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOFACESEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOSTYLESEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOSIZESEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_SELECTSCRIPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOSCRIPTSEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_NOVERTFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CF_INACTIVEFONTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIMULATED_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PRINTER_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCREEN_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x2000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BOLD_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ITALIC_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REGULAR_FONTTYPE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PS_OPENTYPE_FONTTYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TT_OPENTYPE_FONTTYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TYPE1_FONTTYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SYMBOL_FONTTYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_CHOOSEFONT_GETLOGFONT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_CHOOSEFONT_SETLOGFONT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>101</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_CHOOSEFONT_SETFLAGS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>102</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CD_LBSELNOITEMS</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0</span> <span class='op'>-</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CD_LBSELCHANGE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CD_LBSELSUB</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CD_LBSELADD</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSETUPHOOKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTDLGA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFromPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nToPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMinPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nCopies</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPrintHook</span>: <span class='ident'>LPPRINTHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnSetupHook</span>: <span class='ident'>LPSETUPHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpPrintTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpSetupTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hPrintTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSetupTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PRINTDLGA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PRINTDLGA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTDLGA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTDLGA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PRINTDLGW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nFromPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nToPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMinPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxPage</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>nCopies</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPrintHook</span>: <span class='ident'>LPPRINTHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnSetupHook</span>: <span class='ident'>LPSETUPHOOKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpPrintTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpSetupTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hPrintTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSetupTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PRINTDLGW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PRINTDLGW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTDLGW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTDLGW</span>;
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IPrintDialogCallback</span>(<span class='ident'>IPrintDialogCallbackVtbl</span>) : <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>InitDone</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SelectionChange</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>HandleMessage</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>hDlg</span>: ::<span class='ident'>HWND</span>, <span class='ident'>uMsg</span>: ::<span class='ident'>UINT</span>, <span class='ident'>wParam</span>: ::<span class='ident'>WPARAM</span>, <span class='ident'>lParam</span>: ::<span class='ident'>LPARAM</span>,
-        <span class='ident'>pResult</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LRESULT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENFILENAMEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENFILENAMEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_READONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_OVERWRITEPROMPT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_HIDEREADONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NOCHANGEDIR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ENABLEHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ENABLETEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ENABLETEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NOVALIDATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ALLOWMULTISELECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_EXTENSIONDIFFERENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_PATHMUSTEXIST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_FILEMUSTEXIST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_CREATEPROMPT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_SHAREAWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NOREADONLYRETURN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NOTESTFILECREATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NONETWORKBUTTON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NOLONGNAMES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_EXPLORER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_NODEREFERENCELINKS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_LONGNAMES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ENABLEINCLUDENOTIFY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_ENABLESIZING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00800000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_DONTADDTORECENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_FORCESHOWHIDDEN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_EX_NOPLACESBAR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_SHAREFALLTHROUGH</span>: ::<span class="ident">UINT_PTR</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_SHARENOWARN</span>: ::<span class="ident">UINT_PTR</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OFN_SHAREWARN</span>: ::<span class="ident">UINT_PTR</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCCHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">OFNOTIFYA</span> {
+    <span class="ident">hdr</span>: ::<span class="ident">NMHDR</span>,
+    <span class="ident">lpOFN</span>: <span class="ident">LPOPENFILENAMEA</span>,
+    <span class="ident">pszFile</span>: ::<span class="ident">LPSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOFNOTIFYA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OFNOTIFYA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">OFNOTIFYW</span> {
+    <span class="ident">hdr</span>: ::<span class="ident">NMHDR</span>,
+    <span class="ident">lpOFN</span>: <span class="ident">LPOPENFILENAMEW</span>,
+    <span class="ident">pszFile</span>: ::<span class="ident">LPWSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOFNOTIFYW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OFNOTIFYW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">OFNOTIFYEXA</span> {
+    <span class="ident">hdr</span>: ::<span class="ident">NMHDR</span>,
+    <span class="ident">lpOFN</span>: <span class="ident">LPOPENFILENAMEA</span>,
+    <span class="ident">psf</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">pidl</span>: ::<span class="ident">LPVOID</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOFNOTIFYEXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OFNOTIFYEXA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">OFNOTIFYEXW</span> {
+    <span class="ident">hdr</span>: ::<span class="ident">NMHDR</span>,
+    <span class="ident">lpOFN</span>: <span class="ident">LPOPENFILENAMEW</span>,
+    <span class="ident">psf</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">pidl</span>: ::<span class="ident">LPVOID</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOFNOTIFYEXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OFNOTIFYEXW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_FIRST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="op">-</span><span class="number">601i32</span> <span class="kw">as</span> ::<span class="ident">UINT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_LAST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="op">-</span><span class="number">699i32</span> <span class="kw">as</span> ::<span class="ident">UINT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_INITDONE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_SELCHANGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_FOLDERCHANGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_SHAREVIOLATION</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_HELP</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_FILEOK</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_TYPECHANGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0006</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDN_INCLUDEITEM</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDN_FIRST</span> <span class="op">-</span> <span class="number">0x0007</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_FIRST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_LAST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_GETSPEC</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_GETFILEPATH</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_GETFOLDERPATH</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_GETFOLDERIDLIST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_SETCONTROLTEXT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_HIDECONTROL</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CDM_SETDEFEXT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">CDM_FIRST</span> <span class="op">+</span> <span class="number">0x0006</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">CHOOSECOLORA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">rgbResult</span>: ::<span class="ident">COLORREF</span>,
+    <span class="ident">lpCustColors</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">COLORREF</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPCCHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCHOOSECOLORA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CHOOSECOLORA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">CHOOSECOLORW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">rgbResult</span>: ::<span class="ident">COLORREF</span>,
+    <span class="ident">lpCustColors</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">COLORREF</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPCCHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCHOOSECOLORW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CHOOSECOLORW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_RGBINIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_FULLOPEN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_PREVENTFULLOPEN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_ENABLEHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_ENABLETEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_ENABLETEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_SOLIDCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CC_ANYCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFRHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">FINDREPLACEA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFindWhat</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpstrReplaceWith</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">wFindWhatLen</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wReplaceWithLen</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPFRHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFINDREPLACEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FINDREPLACEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">FINDREPLACEW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrFindWhat</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpstrReplaceWith</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">wFindWhatLen</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wReplaceWithLen</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPFRHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFINDREPLACEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FINDREPLACEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_DOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_WHOLEWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_MATCHCASE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_FINDNEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_REPLACE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_REPLACEALL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_DIALOGTERM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_ENABLEHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_ENABLETEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_NOUPDOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_NOMATCHCASE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_NOWHOLEWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_ENABLETEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_HIDEUPDOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_HIDEMATCHCASE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_HIDEWHOLEWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_RAW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_MATCHDIAC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_MATCHKASHIDA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FR_MATCHALEFHAMZA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCFHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">CHOOSEFONTA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">lpLogFont</span>: ::<span class="ident">LPLOGFONTA</span>,
+    <span class="ident">iPointSize</span>: ::<span class="ident">INT</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbColors</span>: ::<span class="ident">COLORREF</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPCFHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpszStyle</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nFontType</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">___MISSING_ALIGNMENT__</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nSizeMin</span>: ::<span class="ident">INT</span>,
+    <span class="ident">nSizeMax</span>: ::<span class="ident">INT</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCHOOSEFONTA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CHOOSEFONTA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">CHOOSEFONTW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">lpLogFont</span>: ::<span class="ident">LPLOGFONTW</span>,
+    <span class="ident">iPointSize</span>: ::<span class="ident">INT</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbColors</span>: ::<span class="ident">COLORREF</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnHook</span>: <span class="ident">LPCFHOOKPROC</span>,
+    <span class="ident">lpTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpszStyle</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nFontType</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">___MISSING_ALIGNMENT__</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nSizeMin</span>: ::<span class="ident">INT</span>,
+    <span class="ident">nSizeMax</span>: ::<span class="ident">INT</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCHOOSEFONTW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CHOOSEFONTW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_SCREENFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_PRINTERFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_BOTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">CF_SCREENFONTS</span> <span class="op">|</span> <span class="ident">CF_PRINTERFONTS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_ENABLEHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_ENABLETEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_ENABLETEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_INITTOLOGFONTSTRUCT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_USESTYLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_EFFECTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_APPLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_ANSIONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_SCRIPTSONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">CF_ANSIONLY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOVECTORFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOOEMFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">CF_NOVECTORFONTS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOSIMULATIONS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_LIMITSIZE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_FIXEDPITCHONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_WYSIWYG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_FORCEFONTEXIST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_SCALABLEONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_TTONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOFACESEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOSTYLESEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOSIZESEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_SELECTSCRIPT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOSCRIPTSEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00800000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_NOVERTFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CF_INACTIVEFONTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIMULATED_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x8000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PRINTER_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x4000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCREEN_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x2000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BOLD_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x0100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ITALIC_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x0200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">REGULAR_FONTTYPE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x0400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PS_OPENTYPE_FONTTYPE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TT_OPENTYPE_FONTTYPE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TYPE1_FONTTYPE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SYMBOL_FONTTYPE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_CHOOSEFONT_GETLOGFONT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_CHOOSEFONT_SETLOGFONT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">101</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_CHOOSEFONT_SETFLAGS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">102</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CD_LBSELNOITEMS</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="op">-</span><span class="number">1i16</span> <span class="kw">as</span> ::<span class="ident">WORD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CD_LBSELCHANGE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CD_LBSELSUB</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CD_LBSELADD</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSETUPHOOKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PRINTDLGA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFromPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nToPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nMinPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nMaxPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nCopies</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnPrintHook</span>: <span class="ident">LPPRINTHOOKPROC</span>,
+    <span class="ident">lpfnSetupHook</span>: <span class="ident">LPSETUPHOOKPROC</span>,
+    <span class="ident">lpPrintTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpSetupTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hPrintTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hSetupTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTDLGA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PRINTDLGA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PRINTDLGW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFromPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nToPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nMinPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nMaxPage</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">nCopies</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnPrintHook</span>: <span class="ident">LPPRINTHOOKPROC</span>,
+    <span class="ident">lpfnSetupHook</span>: <span class="ident">LPSETUPHOOKPROC</span>,
+    <span class="ident">lpPrintTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpSetupTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hPrintTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hSetupTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTDLGW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PRINTDLGW</span>;
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IPrintDialogCallback</span>(<span class="ident">IPrintDialogCallbackVtbl</span>) : <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">InitDone</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SelectionChange</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">HandleMessage</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hDlg</span>: ::<span class="ident">HWND</span>, <span class="ident">uMsg</span>: ::<span class="ident">UINT</span>, <span class="ident">wParam</span>: ::<span class="ident">WPARAM</span>, <span class="ident">lParam</span>: ::<span class="ident">LPARAM</span>,
+        <span class="ident">pResult</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">LRESULT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IPrintDialogServices</span>(<span class='ident'>IPrintDialogServicesVtbl</span>) : <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetCurrentDevMode</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDevMode</span>: ::<span class='ident'>LPDEVMODEW</span>, <span class='ident'>pcbSize</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetCurrentPrinterName</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pPrinterName</span>: ::<span class='ident'>LPWSTR</span>, <span class='ident'>pcchSize</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetCurrentPortName</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pPortName</span>: ::<span class='ident'>LPWSTR</span>, <span class='ident'>pcchSize</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IPrintDialogServices</span>(<span class="ident">IPrintDialogServicesVtbl</span>) : <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetCurrentDevMode</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pDevMode</span>: ::<span class="ident">LPDEVMODEW</span>, <span class="ident">pcbSize</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetCurrentPrinterName</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pPrinterName</span>: ::<span class="ident">LPWSTR</span>, <span class="ident">pcchSize</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetCurrentPortName</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pPortName</span>: ::<span class="ident">LPWSTR</span>, <span class="ident">pcchSize</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTPAGERANGE</span> {
-    <span class='ident'>nFromPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nToPage</span>: ::<span class='ident'>DWORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">PRINTPAGERANGE</span> {
+    <span class="ident">nFromPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nToPage</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTPAGERANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTPAGERANGE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCPRINTPAGERANGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PRINTPAGERANGE</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTDLGEXA</span> {
-    <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Flags2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ExclusionFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nPageRanges</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nMaxPageRanges</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpPageRanges</span>: <span class='ident'>LPPRINTPAGERANGE</span>,
-    <span class='ident'>nMinPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nMaxPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nCopies</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='ident'>lpPrintTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='ident'>lpCallback</span>: ::<span class='ident'>LPUNKNOWN</span>,
-    <span class='ident'>nPropertyPages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lphPropertyPages</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HPROPSHEETPAGE</span>,
-    <span class='ident'>nStartPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwResultAction</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTPAGERANGE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PRINTPAGERANGE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCPRINTPAGERANGE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PRINTPAGERANGE</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">PRINTDLGEXA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Flags2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ExclusionFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nPageRanges</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nMaxPageRanges</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpPageRanges</span>: <span class="ident">LPPRINTPAGERANGE</span>,
+    <span class="ident">nMinPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nMaxPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nCopies</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpPrintTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpCallback</span>: ::<span class="ident">LPUNKNOWN</span>,
+    <span class="ident">nPropertyPages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lphPropertyPages</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HPROPSHEETPAGE</span>,
+    <span class="ident">nStartPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwResultAction</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTDLGEXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTDLGEXA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PRINTDLGEXW</span> {
-    <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='ident'>hDC</span>: ::<span class='ident'>HDC</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Flags2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ExclusionFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nPageRanges</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nMaxPageRanges</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpPageRanges</span>: <span class='ident'>LPPRINTPAGERANGE</span>,
-    <span class='ident'>nMinPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nMaxPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nCopies</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='ident'>lpPrintTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='ident'>lpCallback</span>: ::<span class='ident'>LPUNKNOWN</span>,
-    <span class='ident'>nPropertyPages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lphPropertyPages</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HPROPSHEETPAGE</span>,
-    <span class='ident'>nStartPage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwResultAction</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTDLGEXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PRINTDLGEXA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">PRINTDLGEXW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDC</span>: ::<span class="ident">HDC</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Flags2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ExclusionFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nPageRanges</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nMaxPageRanges</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpPageRanges</span>: <span class="ident">LPPRINTPAGERANGE</span>,
+    <span class="ident">nMinPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nMaxPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nCopies</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lpPrintTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpCallback</span>: ::<span class="ident">LPUNKNOWN</span>,
+    <span class="ident">nPropertyPages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lphPropertyPages</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HPROPSHEETPAGE</span>,
+    <span class="ident">nStartPage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwResultAction</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPRINTDLGEXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PRINTDLGEXW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ALLPAGES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_SELECTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_PAGENUMS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_NOSELECTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_NOPAGENUMS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_COLLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_PRINTTOFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_PRINTSETUP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_NOWARNING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RETURNDC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RETURNIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RETURNDEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLEPRINTHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLESETUPHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLEPRINTTEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLESETUPTEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLEPRINTTEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_ENABLESETUPTEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_USEDEVMODECOPIES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_USEDEVMODECOPIESANDCOLLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_DISABLEPRINTTOFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_HIDEPRINTTOFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_NONETWORKBUTTON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_CURRENTPAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_NOCURRENTPAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_EXCLUSIONFLAGS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_USELARGETEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_EXCL_COPIESANDCOLLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>DM_COPIES</span> <span class='op'>|</span> ::<span class='ident'>DM_COLLATE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>START_PAGE_GENERAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffffffff</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RESULT_CANCEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RESULT_PRINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PD_RESULT_APPLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DEVNAMES</span> {
-    <span class='ident'>wDriverOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wDeviceOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wOutputOffset</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wDefault</span>: ::<span class='ident'>WORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPRINTDLGEXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PRINTDLGEXW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ALLPAGES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_SELECTION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_PAGENUMS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_NOSELECTION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_NOPAGENUMS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_COLLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_PRINTTOFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_PRINTSETUP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_NOWARNING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RETURNDC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RETURNIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RETURNDEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLEPRINTHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLESETUPHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLEPRINTTEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLESETUPTEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLEPRINTTEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_ENABLESETUPTEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_USEDEVMODECOPIES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_USEDEVMODECOPIESANDCOLLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_DISABLEPRINTTOFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_HIDEPRINTTOFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_NONETWORKBUTTON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_CURRENTPAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_NOCURRENTPAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00800000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_EXCLUSIONFLAGS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_USELARGETEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_EXCL_COPIESANDCOLLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">DM_COPIES</span> <span class="op">|</span> ::<span class="ident">DM_COLLATE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">START_PAGE_GENERAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xffffffff</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RESULT_CANCEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RESULT_PRINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PD_RESULT_APPLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DEVNAMES</span> {
+    <span class="ident">wDriverOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wDeviceOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wOutputOffset</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wDefault</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDEVNAMES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DEVNAMES</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCDEVNAMES</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>DEVNAMES</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DN_DEFAULTPRN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_PAGESETUPDLG</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_FULLPAGERECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_MINMARGINRECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_MARGINRECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_GREEKTEXTRECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_ENVSTAMPRECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WM_PSD_YAFULLPAGERECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPAGEPAINTHOOK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPAGESETUPHOOK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>WPARAM</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT_PTR</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PAGESETUPDLGA</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ptPaperSize</span>: ::<span class='ident'>POINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>rtMinMargin</span>: ::<span class='ident'>RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>rtMargin</span>: ::<span class='ident'>RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPageSetupHook</span>: <span class='ident'>LPPAGESETUPHOOK</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPagePaintHook</span>: <span class='ident'>LPPAGEPAINTHOOK</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpPageSetupTemplateName</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hPageSetupTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PAGESETUPDLGA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PAGESETUPDLGA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPAGESETUPDLGA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PAGESETUPDLGA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PAGESETUPDLGW</span> {
-    <span class='kw'>pub</span> <span class='ident'>lStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevMode</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>hDevNames</span>: ::<span class='ident'>HGLOBAL</span>,
-    <span class='kw'>pub</span> <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ptPaperSize</span>: ::<span class='ident'>POINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>rtMinMargin</span>: ::<span class='ident'>RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>rtMargin</span>: ::<span class='ident'>RECT</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>lCustData</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPageSetupHook</span>: <span class='ident'>LPPAGESETUPHOOK</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnPagePaintHook</span>: <span class='ident'>LPPAGEPAINTHOOK</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpPageSetupTemplateName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hPageSetupTemplate</span>: ::<span class='ident'>HGLOBAL</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PAGESETUPDLGW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PAGESETUPDLGW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPAGESETUPDLGW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PAGESETUPDLGW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DEFAULTMINMARGINS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_INWININIINTLMEASURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_MINMARGINS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_MARGINS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_INTHOUSANDTHSOFINCHES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_INHUNDREDTHSOFMILLIMETERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DISABLEMARGINS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DISABLEPRINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_NOWARNING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DISABLEORIENTATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_RETURNDEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DISABLEPAPER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_SHOWHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_ENABLEPAGESETUPHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_ENABLEPAGESETUPTEMPLATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_ENABLEPAGESETUPTEMPLATEHANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_ENABLEPAGEPAINTHOOK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_DISABLEPAGEPAINTING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSD_NONETWORKBUTTON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDEVNAMES</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DEVNAMES</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCDEVNAMES</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DEVNAMES</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DN_DEFAULTPRN</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_PAGESETUPDLG</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_FULLPAGERECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_MINMARGINRECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_MARGINRECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_GREEKTEXTRECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_ENVSTAMPRECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WM_PSD_YAFULLPAGERECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPAGEPAINTHOOK</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPAGESETUPHOOK</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">WPARAM</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT_PTR</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PAGESETUPDLGA</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ptPaperSize</span>: ::<span class="ident">POINT</span>,
+    <span class="ident">rtMinMargin</span>: ::<span class="ident">RECT</span>,
+    <span class="ident">rtMargin</span>: ::<span class="ident">RECT</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnPageSetupHook</span>: <span class="ident">LPPAGESETUPHOOK</span>,
+    <span class="ident">lpfnPagePaintHook</span>: <span class="ident">LPPAGEPAINTHOOK</span>,
+    <span class="ident">lpPageSetupTemplateName</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hPageSetupTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPAGESETUPDLGA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PAGESETUPDLGA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PAGESETUPDLGW</span> {
+    <span class="ident">lStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hDevMode</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">hDevNames</span>: ::<span class="ident">HGLOBAL</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ptPaperSize</span>: ::<span class="ident">POINT</span>,
+    <span class="ident">rtMinMargin</span>: ::<span class="ident">RECT</span>,
+    <span class="ident">rtMargin</span>: ::<span class="ident">RECT</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">lCustData</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">lpfnPageSetupHook</span>: <span class="ident">LPPAGESETUPHOOK</span>,
+    <span class="ident">lpfnPagePaintHook</span>: <span class="ident">LPPAGEPAINTHOOK</span>,
+    <span class="ident">lpPageSetupTemplateName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hPageSetupTemplate</span>: ::<span class="ident">HGLOBAL</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPAGESETUPDLGW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PAGESETUPDLGW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DEFAULTMINMARGINS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_INWININIINTLMEASURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_MINMARGINS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_MARGINS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_INTHOUSANDTHSOFINCHES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_INHUNDREDTHSOFMILLIMETERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DISABLEMARGINS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DISABLEPRINTER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_NOWARNING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DISABLEORIENTATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_RETURNDEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DISABLEPAPER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_SHOWHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_ENABLEPAGESETUPHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_ENABLEPAGESETUPTEMPLATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_ENABLEPAGESETUPTEMPLATEHANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_ENABLEPAGEPAINTHOOK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_DISABLEPAGEPAINTING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSD_NONETWORKBUTTON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -1282,12 +1228,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -1308,7 +1258,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -1319,11 +1269,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

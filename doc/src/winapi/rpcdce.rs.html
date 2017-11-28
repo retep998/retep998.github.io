@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\rpcdce.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\rpcdce.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>rpcdce.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -576,542 +578,542 @@
 <span id="533">533</span>
 <span id="534">534</span>
 <span id="535">535</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Brian Vincent</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='comment'>// This module contains the DCE RPC runtime APIs.</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_CSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_WSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>wchar_t</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_CWSTR</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>wchar_t</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_BINDING_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>I_RPC_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>handle_t</span> <span class='op'>=</span> <span class='ident'>RPC_BINDING_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>rpc_binding_handle_t</span> <span class='op'>=</span> <span class='ident'>RPC_BINDING_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>UUID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>uuid_t</span> <span class='op'>=</span> <span class='ident'>UUID</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_VECTOR</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>BindingH</span>: [<span class='ident'>RPC_BINDING_HANDLE</span>; <span class='number'>1</span>],
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Brian Vincent</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="comment">// This module contains the DCE RPC runtime APIs.</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_CSTR</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_WSTR</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">wchar_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_CWSTR</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">wchar_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_BINDING_HANDLE</span> <span class="op">=</span> ::<span class="ident">I_RPC_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">handle_t</span> <span class="op">=</span> <span class="ident">RPC_BINDING_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">rpc_binding_handle_t</span> <span class="op">=</span> <span class="ident">RPC_BINDING_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">UUID</span> <span class="op">=</span> ::<span class="ident">GUID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">uuid_t</span> <span class="op">=</span> <span class="ident">UUID</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_VECTOR</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">BindingH</span>: [<span class="ident">RPC_BINDING_HANDLE</span>; <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>rpc_binding_vector_t</span> <span class='op'>=</span> <span class='ident'>RPC_BINDING_VECTOR</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>UUID_VECTOR</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Uuid</span>: [<span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID</span>; <span class='number'>1</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">rpc_binding_vector_t</span> <span class="op">=</span> <span class="ident">RPC_BINDING_VECTOR</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">UUID_VECTOR</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Uuid</span>: [<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID</span>; <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>uuid_vector_t</span> <span class='op'>=</span> <span class='ident'>UUID_VECTOR</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_IF_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_IF_ID</span> {
-    <span class='ident'>Uuid</span>: <span class='ident'>UUID</span>,
-    <span class='ident'>VersMajor</span>: ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>VersMinor</span>: ::<span class='ident'>c_ushort</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">uuid_vector_t</span> <span class="op">=</span> <span class="ident">UUID_VECTOR</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_IF_HANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_IF_ID</span> {
+    <span class="ident">Uuid</span>: <span class="ident">UUID</span>,
+    <span class="ident">VersMajor</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">VersMinor</span>: ::<span class="ident">c_ushort</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_BINDING_INFINITE_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_BINDING_MIN_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_BINDING_DEFAULT_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_BINDING_MAX_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_CANCEL_INFINITE_TIMEOUT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_LISTEN_MAX_CALLS_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1234</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTSEQ_MAX_REQS_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_BIND_TO_ALL_NICS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_USE_INTERNET_PORT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_USE_INTRANET_PORT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_DONT_FAIL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_RPCHTTP_USE_LOAD_BALANCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_TEMPORARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_PERMANENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_CLEAR_ON_OPEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_USE_EXISTING_SECURITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_AUTHN_LEVEL_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_DELIVERY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_PRIORITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_JOURNAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_ACKNOWLEDGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_AUTHN_SERVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_AUTHN_LEVEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_BINDING_NONCAUSAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_SECURITY_CALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_UNIQUE_BINDING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_CALL_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_DONT_LINGER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>13</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_TRUST_PEER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_ASYNC_BLOCK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_OPTIMIZE_TIME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_OPT_MAX_OPTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>17</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_EXPRESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_RECOVERABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_JOURNAL_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_JOURNAL_DEADLETTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MQ_JOURNAL_ALWAYS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_FULL_CERT_CHAIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_PROTSEQ_VECTORA</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>Protseq</span>: [<span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>; <span class='number'>1</span>],
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_BINDING_INFINITE_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_BINDING_MIN_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_BINDING_DEFAULT_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_BINDING_MAX_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_CANCEL_INFINITE_TIMEOUT</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="op">-</span><span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_LISTEN_MAX_CALLS_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1234</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTSEQ_MAX_REQS_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_BIND_TO_ALL_NICS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_USE_INTERNET_PORT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_USE_INTRANET_PORT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_DONT_FAIL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_RPCHTTP_USE_LOAD_BALANCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_TEMPORARY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_PERMANENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_CLEAR_ON_OPEN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_USE_EXISTING_SECURITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_AUTHN_LEVEL_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_DELIVERY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_PRIORITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_JOURNAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_ACKNOWLEDGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_AUTHN_SERVICE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_AUTHN_LEVEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_BINDING_NONCAUSAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_SECURITY_CALLBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_UNIQUE_BINDING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">11</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_CALL_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_DONT_LINGER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">13</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_TRUST_PEER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">14</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_ASYNC_BLOCK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">15</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_OPTIMIZE_TIME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_OPT_MAX_OPTIONS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">17</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_EXPRESS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_RECOVERABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_JOURNAL_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_JOURNAL_DEADLETTER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MQ_JOURNAL_ALWAYS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_FULL_CERT_CHAIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_PROTSEQ_VECTORA</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">Protseq</span>: [<span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>; <span class="number">1</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_PROTSEQ_VECTORW</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>Protseq</span>: [<span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>; <span class='number'>1</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_PROTSEQ_VECTORW</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">Protseq</span>: [<span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>; <span class="number">1</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_POLICY</span> {
-    <span class='ident'>Length</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>EndpointFlags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NICFlags</span>: ::<span class='ident'>c_ulong</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_POLICY</span> {
+    <span class="ident">Length</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">EndpointFlags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NICFlags</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_POLICY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_POLICY</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_OBJECT_INQ_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>ObjectUuid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID</span>, <span class='ident'>TypeUuid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID</span>, <span class='ident'>Status</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>RPC_STATUS</span>,
-)<span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_IF_CALLBACK_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>InterfaceUuid</span>: <span class='ident'>RPC_IF_HANDLE</span>, <span class='ident'>Context</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>RPC_STATUS</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_SECURITY_CALLBACK_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>Context</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>)<span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_MGR_EPV</span> <span class='op'>=</span> ::<span class='ident'>c_void</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_STATS_VECTOR</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>Stats</span>: [::<span class='ident'>c_ulong</span>; <span class='number'>1</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_POLICY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_POLICY</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_OBJECT_INQ_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">ObjectUuid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID</span>, <span class="ident">TypeUuid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID</span>, <span class="ident">Status</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">RPC_STATUS</span>,
+)<span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_IF_CALLBACK_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">InterfaceUuid</span>: <span class="ident">RPC_IF_HANDLE</span>, <span class="ident">Context</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">RPC_STATUS</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_SECURITY_CALLBACK_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(<span class="ident">Context</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>)<span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_MGR_EPV</span> <span class="op">=</span> ::<span class="ident">c_void</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_STATS_VECTOR</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">Stats</span>: [::<span class="ident">c_ulong</span>; <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_STATS_CALLS_IN</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_STATS_CALLS_OUT</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_STATS_PKTS_IN</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_STATS_PKTS_OUT</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_IF_ID_VECTOR</span> {
-    <span class='ident'>Count</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IfId</span>: [<span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_IF_ID</span>; <span class='number'>1</span>],
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_STATS_CALLS_IN</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_STATS_CALLS_OUT</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_STATS_PKTS_IN</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_STATS_PKTS_OUT</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_IF_ID_VECTOR</span> {
+    <span class="ident">Count</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IfId</span>: [<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_IF_ID</span>; <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_AUTH_IDENTITY_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_AUTHZ_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_CONNECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_CALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT_INTEGRITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT_PRIVACY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_IMP_LEVEL_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_IMP_LEVEL_ANONYMOUS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_IMP_LEVEL_IDENTIFY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_IMP_LEVEL_IMPERSONATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_IMP_LEVEL_DELEGATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_IDENTITY_STATIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_IDENTITY_DYNAMIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_DEFAULT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_NONE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_CONNECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_CONNECT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_CALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_CALL</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_PKT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_PKT_INTEGRITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT_INTEGRITY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_PROTECT_LEVEL_PKT_PRIVACY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RPC_C_AUTHN_LEVEL_PKT_PRIVACY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DCE_PRIVATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DCE_PUBLIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DEC_PUBLIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_GSS_NEGOTIATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_WINNT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_GSS_SCHANNEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_GSS_KERBEROS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>16</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DPA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>17</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_MSN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>18</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DIGEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>21</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_KERNEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_NEGO_EXTENDER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>30</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_PKU2U</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>31</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LIVE_SSP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_LIVEXP_SSP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>35</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_MSONLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>82</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_MQ</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_NO_CREDENTIALS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_SECURITY_QOS_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_SECURITY_QOS_VERSION_1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_AUTH_IDENTITY_HANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_AUTHZ_HANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_CONNECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_CALL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT_INTEGRITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT_PRIVACY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_IMP_LEVEL_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_IMP_LEVEL_ANONYMOUS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_IMP_LEVEL_IDENTIFY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_IMP_LEVEL_IMPERSONATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_IMP_LEVEL_DELEGATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_IDENTITY_STATIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_IDENTITY_DYNAMIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_DEFAULT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_NONE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_CONNECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_CONNECT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_CALL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_CALL</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_PKT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_PKT_INTEGRITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT_INTEGRITY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_PROTECT_LEVEL_PKT_PRIVACY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RPC_C_AUTHN_LEVEL_PKT_PRIVACY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DCE_PRIVATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DCE_PUBLIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DEC_PUBLIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_GSS_NEGOTIATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_WINNT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_GSS_SCHANNEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">14</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_GSS_KERBEROS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DPA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">17</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_MSN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">18</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DIGEST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">21</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_KERNEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_NEGO_EXTENDER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">30</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_PKU2U</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">31</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LIVE_SSP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_LIVEXP_SSP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">35</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_MSONLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">82</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_MQ</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_NO_CREDENTIALS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_SECURITY_QOS_VERSION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_SECURITY_QOS_VERSION_1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span> {
-    <span class='ident'>User</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>UserLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Domain</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>DomainLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Password</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>PasswordLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span> {
+    <span class="ident">User</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">UserLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Domain</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">DomainLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Password</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">PasswordLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSEC_WINNT_AUTH_IDENTITY_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span> {
-    <span class='ident'>User</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>UserLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Domain</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>DomainLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Password</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>PasswordLength</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSEC_WINNT_AUTH_IDENTITY_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span> {
+    <span class="ident">User</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">UserLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Domain</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">DomainLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Password</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">PasswordLength</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSEC_WINNT_AUTH_IDENTITY_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHN_INFO_TYPE_HTTP</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_TARGET_SERVER</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_TARGET_PROXY</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_BASIC</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_NTLM</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_PASSPORT</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_DIGEST</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_AUTHN_SCHEME_CERT</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_FLAG_USE_SSL</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>16</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSEC_WINNT_AUTH_IDENTITY_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHN_INFO_TYPE_HTTP</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_TARGET_SERVER</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_TARGET_PROXY</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_BASIC</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_NTLM</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_PASSPORT</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_DIGEST</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_AUTHN_SCHEME_CERT</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_FLAG_USE_SSL</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_FLAG_USE_FIRST_AUTH_SCHEME</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_FLAG_IGNORE_CERT_CN_INVALID</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_HTTP_FLAG_ENABLE_CERT_REVOCATION_CHECK</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span> {
+    <span class="ident">TransportCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span> {
+    <span class="ident">TransportCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>ProxyCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span>,
-    <span class='ident'>NumberOfProxyAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProxyAuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span> {
+    <span class="ident">TransportCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">ProxyCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span>,
+    <span class="ident">NumberOfProxyAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProxyAuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>ProxyCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span>,
-    <span class='ident'>NumberOfProxyAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProxyAuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span> {
+    <span class="ident">TransportCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">ProxyCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span>,
+    <span class="ident">NumberOfProxyAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProxyAuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='ident'>RPC_AUTH_IDENTITY_HANDLE</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>ProxyCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_AUTH_IDENTITY_HANDLE</span>,
-    <span class='ident'>NumberOfProxyAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProxyAuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span> {
+    <span class="ident">TransportCredentials</span>: <span class="ident">RPC_AUTH_IDENTITY_HANDLE</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">ProxyCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_AUTH_IDENTITY_HANDLE</span>,
+    <span class="ident">NumberOfProxyAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProxyAuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span> {
-    <span class='ident'>TransportCredentials</span>: <span class='ident'>RPC_AUTH_IDENTITY_HANDLE</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthenticationTarget</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NumberOfAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerCertificateSubject</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>ProxyCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_AUTH_IDENTITY_HANDLE</span>,
-    <span class='ident'>NumberOfProxyAuthnSchemes</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProxyAuthnSchemes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span> {
+    <span class="ident">TransportCredentials</span>: <span class="ident">RPC_AUTH_IDENTITY_HANDLE</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthenticationTarget</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NumberOfAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerCertificateSubject</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">ProxyCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_AUTH_IDENTITY_HANDLE</span>,
+    <span class="ident">NumberOfProxyAuthnSchemes</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProxyAuthnSchemes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V2_W_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V2_W_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V2_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V2_W_union</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V2_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V2_W_union</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V2_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V2_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V2_A_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V2_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V2_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V2_A_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V2_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V2_A_union</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V2_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V2_A_union</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V2_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V2_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V3_W_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V2_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V2_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V3_W_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V3_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V3_W_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V3_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V3_W_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V3_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V3_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V3_A_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V3_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V3_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V3_A_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V3_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V3_A_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V3_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V3_A_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V3_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V3_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V4_W_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V3_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V3_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V4_W_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V4_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V4_W_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>EffectiveOnly</span>: ::<span class='ident'>c_uint</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V4_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V4_W_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">EffectiveOnly</span>: ::<span class="ident">c_uint</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V4_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V4_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V4_A_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V4_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V4_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V4_A_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V4_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V4_A_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>EffectiveOnly</span>: ::<span class='ident'>c_uint</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V4_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V4_A_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">EffectiveOnly</span>: ::<span class="ident">c_uint</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V4_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V4_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V5_W_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V4_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V4_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V5_W_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_W</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V5_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V5_W_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>EffectiveOnly</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>ServerSecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V5_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V5_W_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">EffectiveOnly</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">ServerSecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V5_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V5_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V5_A_union</span> {
-    <span class='ident'>HttpCredentials</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V5_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V5_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V5_A_union</span> {
+    <span class="ident">HttpCredentials</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_HTTP_TRANSPORT_CREDENTIALS_A</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_SECURITY_QOS_V5_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Capabilities</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IdentityTracking</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ImpersonationType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AdditionalSecurityInfoType</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>u</span>: <span class='ident'>RPC_SECURITY_QOS_V5_A_union</span>,
-    <span class='ident'>Sid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>EffectiveOnly</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>ServerSecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_SECURITY_QOS_V5_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Capabilities</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IdentityTracking</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ImpersonationType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AdditionalSecurityInfoType</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">u</span>: <span class="ident">RPC_SECURITY_QOS_V5_A_union</span>,
+    <span class="ident">Sid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">EffectiveOnly</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">ServerSecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_SECURITY_QOS_V5_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS_V5_A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_PROTSEQ_TCP</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_PROTSEQ_NMP</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_PROTSEQ_LRPC</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_PROTSEQ_HTTP</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_BHT_OBJECT_UUID_VALID</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_BHO_NONCAUSAL</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_BHO_DONTLINGER</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_BHO_EXCLUSIVE_AND_GUARANTEED</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_W_union</span> {
-    <span class='ident'>Reserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_SECURITY_QOS_V5_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS_V5_A</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_PROTSEQ_TCP</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_PROTSEQ_NMP</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_PROTSEQ_LRPC</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_PROTSEQ_HTTP</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_BHT_OBJECT_UUID_VALID</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_BHO_NONCAUSAL</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_BHO_DONTLINGER</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_BHO_EXCLUSIVE_AND_GUARANTEED</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0x4</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_W_union</span> {
+    <span class="ident">Reserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProtocolSequence</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NetworkAddress</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>StringEndpoint</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>u1</span>: <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_W_union</span>,
-    <span class='ident'>ObjectUuid</span>: <span class='ident'>UUID</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProtocolSequence</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NetworkAddress</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">StringEndpoint</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">u1</span>: <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_W_union</span>,
+    <span class="ident">ObjectUuid</span>: <span class="ident">UUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_BINDING_HANDLE_TEMPLATE_V1_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_A_union</span> {
-    <span class='ident'>Reserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_BINDING_HANDLE_TEMPLATE_V1_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_A_union</span> {
+    <span class="ident">Reserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProtocolSequence</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NetworkAddress</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>StringEndpoint</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>u1</span>: <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_A_union</span>,
-    <span class='ident'>ObjectUuid</span>: <span class='ident'>UUID</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProtocolSequence</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NetworkAddress</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">StringEndpoint</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">u1</span>: <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_A_union</span>,
+    <span class="ident">ObjectUuid</span>: <span class="ident">UUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_BINDING_HANDLE_TEMPLATE_V1_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_BINDING_HANDLE_TEMPLATE_V1_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_SECURITY_V1_W</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerPrincName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>AuthnLevel</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSvc</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthIdentity</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_W</span>,
-    <span class='ident'>SecurityQos</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_BINDING_HANDLE_TEMPLATE_V1_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_BINDING_HANDLE_TEMPLATE_V1_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_SECURITY_V1_W</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerPrincName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_ushort</span>,
+    <span class="ident">AuthnLevel</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSvc</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthIdentity</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_W</span>,
+    <span class="ident">SecurityQos</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_BINDING_HANDLE_SECURITY_V1_W</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_BINDING_HANDLE_SECURITY_V1_W</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_SECURITY_V1_A</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ServerPrincName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>AuthnLevel</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthnSvc</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>AuthIdentity</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SEC_WINNT_AUTH_IDENTITY_A</span>,
-    <span class='ident'>SecurityQos</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_SECURITY_QOS</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_BINDING_HANDLE_SECURITY_V1_W</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_BINDING_HANDLE_SECURITY_V1_W</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_SECURITY_V1_A</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ServerPrincName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">AuthnLevel</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthnSvc</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">AuthIdentity</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SEC_WINNT_AUTH_IDENTITY_A</span>,
+    <span class="ident">SecurityQos</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_SECURITY_QOS</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_BINDING_HANDLE_SECURITY_V1_A</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_BINDING_HANDLE_SECURITY_V1_A</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_BINDING_HANDLE_OPTIONS_V1</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ComTimeout</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>CallTimeout</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_BINDING_HANDLE_SECURITY_V1_A</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_BINDING_HANDLE_SECURITY_V1_A</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_BINDING_HANDLE_OPTIONS_V1</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ComTimeout</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">CallTimeout</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_BINDING_HANDLE_OPTIONS_V1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_BINDING_HANDLE_OPTIONS_V1</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>RPC_HTTP_REDIRECTOR_STAGE</span> {
-    <span class='ident'>RPCHTTP_RS_REDIRECT</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>RPCHTTP_RS_ACCESS_1</span>,
-    <span class='ident'>RPCHTTP_RS_SESSION</span>,
-    <span class='ident'>RPCHTTP_RS_ACCESS_2</span>,
-    <span class='ident'>RPCHTTP_RS_INTERFACE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_BINDING_HANDLE_OPTIONS_V1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_BINDING_HANDLE_OPTIONS_V1</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">RPC_HTTP_REDIRECTOR_STAGE</span> {
+    <span class="ident">RPCHTTP_RS_REDIRECT</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">RPCHTTP_RS_ACCESS_1</span>,
+    <span class="ident">RPCHTTP_RS_SESSION</span>,
+    <span class="ident">RPCHTTP_RS_ACCESS_2</span>,
+    <span class="ident">RPCHTTP_RS_INTERFACE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_NEW_HTTP_PROXY_CHANNEL</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>RedirectorStage</span>: <span class='ident'>RPC_HTTP_REDIRECTOR_STAGE</span>, <span class='ident'>ServerName</span>: <span class='ident'>RPC_WSTR</span>, <span class='ident'>ServerPort</span>: <span class='ident'>RPC_WSTR</span>,
-    <span class='ident'>RemoteUser</span>: <span class='ident'>RPC_WSTR</span>, <span class='ident'>AuthType</span>: <span class='ident'>RPC_WSTR</span>, <span class='ident'>ResourceUuid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>SessionId</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>, <span class='ident'>Interface</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>, <span class='ident'>Reserved</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>, <span class='ident'>Flags</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>NewServerName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_WSTR</span>, <span class='ident'>NewServerPort</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_WSTR</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>RPC_STATUS</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_HTTP_PROXY_FREE_STRING</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>String</span>: <span class='ident'>RPC_WSTR</span>)<span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHZ_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHZ_NAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHZ_DCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_AUTHZ_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffffffff</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_AUTH_KEY_RETRIEVAL_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>Arg</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>, <span class='ident'>ServerPrincName</span>: <span class='ident'>RPC_WSTR</span>, <span class='ident'>KeyVer</span>: ::<span class='ident'>c_ulong</span>, <span class='ident'>Key</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>Status</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>RPC_STATUS</span>,
-)<span class='op'>&gt;</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_CLIENT_INFORMATION1</span> {
-    <span class='ident'>UserName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>ComputerName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_uchar</span>,
-    <span class='ident'>Privilege</span>: ::<span class='ident'>c_ushort</span>,
-    <span class='ident'>AuthFlags</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_NEW_HTTP_PROXY_CHANNEL</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">RedirectorStage</span>: <span class="ident">RPC_HTTP_REDIRECTOR_STAGE</span>, <span class="ident">ServerName</span>: <span class="ident">RPC_WSTR</span>, <span class="ident">ServerPort</span>: <span class="ident">RPC_WSTR</span>,
+    <span class="ident">RemoteUser</span>: <span class="ident">RPC_WSTR</span>, <span class="ident">AuthType</span>: <span class="ident">RPC_WSTR</span>, <span class="ident">ResourceUuid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">SessionId</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>, <span class="ident">Interface</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>, <span class="ident">Reserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>, <span class="ident">Flags</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">NewServerName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_WSTR</span>, <span class="ident">NewServerPort</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_WSTR</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">RPC_STATUS</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_HTTP_PROXY_FREE_STRING</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(<span class="ident">String</span>: <span class="ident">RPC_WSTR</span>)<span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHZ_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHZ_NAME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHZ_DCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_AUTHZ_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xffffffff</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_AUTH_KEY_RETRIEVAL_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">Arg</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>, <span class="ident">ServerPrincName</span>: <span class="ident">RPC_WSTR</span>, <span class="ident">KeyVer</span>: ::<span class="ident">c_ulong</span>, <span class="ident">Key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">Status</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">RPC_STATUS</span>,
+)<span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_CLIENT_INFORMATION1</span> {
+    <span class="ident">UserName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">ComputerName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_uchar</span>,
+    <span class="ident">Privilege</span>: ::<span class="ident">c_ushort</span>,
+    <span class="ident">AuthFlags</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_CLIENT_INFORMATION1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_CLIENT_INFORMATION1</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_EP_INQ_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>I_RPC_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_EP_ALL_ELTS</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_EP_MATCH_BY_IF</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_EP_MATCH_BY_OBJ</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_EP_MATCH_BY_BOTH</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_VERS_ALL</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_VERS_COMPATIBLE</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_VERS_EXACT</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_VERS_MAJOR_ONLY</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span>  <span class='ident'>RPC_C_VERS_UPTO</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_MGMT_AUTHORIZATION_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>ClientBinding</span>: <span class='ident'>RPC_BINDING_HANDLE</span>, <span class='ident'>RequestedMgmtOperation</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>Status</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>RPC_STATUS</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MGMT_INQ_IF_IDS</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MGMT_INQ_PRINC_NAME</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MGMT_INQ_STATS</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MGMT_IS_SERVER_LISTEN</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_C_MGMT_STOP_SERVER_LISTEN</span>: ::<span class='ident'>c_ulong</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_AUTOLISTEN</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_OLE</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_ALLOW_UNKNOWN_AUTHORITY</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_ALLOW_SECURE_ONLY</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_ALLOW_LOCAL_ONLY</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_SEC_NO_CACHE</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_SEC_CACHE_PER_PROC</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_IF_ASYNC_CALLBACK</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RPC_FW_IF_FLAG_DCOM</span>: ::<span class='ident'>c_uint</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_INTERFACE_GROUP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_INTERFACE_GROUP</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_ENDPOINT_TEMPLATEW</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProtSeq</span>: <span class='ident'>RPC_WSTR</span>,
-    <span class='ident'>Endpoint</span>: <span class='ident'>RPC_WSTR</span>,
-    <span class='ident'>SecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>Backlog</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_CLIENT_INFORMATION1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_CLIENT_INFORMATION1</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_EP_INQ_HANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">I_RPC_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_EP_ALL_ELTS</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_EP_MATCH_BY_IF</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_EP_MATCH_BY_OBJ</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_EP_MATCH_BY_BOTH</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_VERS_ALL</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_VERS_COMPATIBLE</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_VERS_EXACT</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_VERS_MAJOR_ONLY</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span>  <span class="ident">RPC_C_VERS_UPTO</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_MGMT_AUTHORIZATION_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">ClientBinding</span>: <span class="ident">RPC_BINDING_HANDLE</span>, <span class="ident">RequestedMgmtOperation</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">Status</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">RPC_STATUS</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">c_int</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MGMT_INQ_IF_IDS</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MGMT_INQ_PRINC_NAME</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MGMT_INQ_STATS</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MGMT_IS_SERVER_LISTEN</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_C_MGMT_STOP_SERVER_LISTEN</span>: ::<span class="ident">c_ulong</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_AUTOLISTEN</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_OLE</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_ALLOW_UNKNOWN_AUTHORITY</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_ALLOW_SECURE_ONLY</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_ALLOW_LOCAL_ONLY</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_SEC_NO_CACHE</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_SEC_CACHE_PER_PROC</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_IF_ASYNC_CALLBACK</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RPC_FW_IF_FLAG_DCOM</span>: ::<span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_INTERFACE_GROUP</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_INTERFACE_GROUP</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_ENDPOINT_TEMPLATEW</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProtSeq</span>: <span class="ident">RPC_WSTR</span>,
+    <span class="ident">Endpoint</span>: <span class="ident">RPC_WSTR</span>,
+    <span class="ident">SecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">Backlog</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_ENDPOINT_TEMPLATEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_ENDPOINT_TEMPLATEW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_ENDPOINT_TEMPLATEA</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>ProtSeq</span>: <span class='ident'>RPC_CSTR</span>,
-    <span class='ident'>Endpoint</span>: <span class='ident'>RPC_CSTR</span>,
-    <span class='ident'>SecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
-    <span class='ident'>Backlog</span>: ::<span class='ident'>c_ulong</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_ENDPOINT_TEMPLATEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_ENDPOINT_TEMPLATEW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_ENDPOINT_TEMPLATEA</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">ProtSeq</span>: <span class="ident">RPC_CSTR</span>,
+    <span class="ident">Endpoint</span>: <span class="ident">RPC_CSTR</span>,
+    <span class="ident">SecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
+    <span class="ident">Backlog</span>: ::<span class="ident">c_ulong</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_ENDPOINT_TEMPLATEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_ENDPOINT_TEMPLATEA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_INTERFACE_TEMPLATEA</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IfSpec</span>: <span class='ident'>RPC_IF_HANDLE</span>,
-    <span class='ident'>MgrTypeUuid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID</span>,
-    <span class='ident'>MgrEpv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_MGR_EPV</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>MaxCalls</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>MaxRpcSize</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>IfCallback</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_IF_CALLBACK_FN</span>,
-    <span class='ident'>UuidVector</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID_VECTOR</span>,
-    <span class='ident'>Annotation</span>: <span class='ident'>RPC_CSTR</span>,
-    <span class='ident'>SecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_ENDPOINT_TEMPLATEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_ENDPOINT_TEMPLATEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_INTERFACE_TEMPLATEA</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IfSpec</span>: <span class="ident">RPC_IF_HANDLE</span>,
+    <span class="ident">MgrTypeUuid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID</span>,
+    <span class="ident">MgrEpv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_MGR_EPV</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">MaxCalls</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">MaxRpcSize</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">IfCallback</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_IF_CALLBACK_FN</span>,
+    <span class="ident">UuidVector</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID_VECTOR</span>,
+    <span class="ident">Annotation</span>: <span class="ident">RPC_CSTR</span>,
+    <span class="ident">SecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_INTERFACE_TEMPLATEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_INTERFACE_TEMPLATEA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>RPC_INTERFACE_TEMPLATEW</span> {
-    <span class='ident'>Version</span>: ::<span class='ident'>c_ulong</span>,
-    <span class='ident'>IfSpec</span>: <span class='ident'>RPC_IF_HANDLE</span>,
-    <span class='ident'>MgrTypeUuid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID</span>,
-    <span class='ident'>MgrEpv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_MGR_EPV</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>MaxCalls</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>MaxRpcSize</span>: ::<span class='ident'>c_uint</span>,
-    <span class='ident'>IfCallback</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_IF_CALLBACK_FN</span>,
-    <span class='ident'>UuidVector</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UUID_VECTOR</span>,
-    <span class='ident'>Annotation</span>: <span class='ident'>RPC_WSTR</span>,
-    <span class='ident'>SecurityDescriptor</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_INTERFACE_TEMPLATEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_INTERFACE_TEMPLATEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">RPC_INTERFACE_TEMPLATEW</span> {
+    <span class="ident">Version</span>: ::<span class="ident">c_ulong</span>,
+    <span class="ident">IfSpec</span>: <span class="ident">RPC_IF_HANDLE</span>,
+    <span class="ident">MgrTypeUuid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID</span>,
+    <span class="ident">MgrEpv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_MGR_EPV</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">MaxCalls</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">MaxRpcSize</span>: ::<span class="ident">c_uint</span>,
+    <span class="ident">IfCallback</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_IF_CALLBACK_FN</span>,
+    <span class="ident">UuidVector</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UUID_VECTOR</span>,
+    <span class="ident">Annotation</span>: <span class="ident">RPC_WSTR</span>,
+    <span class="ident">SecurityDescriptor</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PRPC_INTERFACE_TEMPLATEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>RPC_INTERFACE_TEMPLATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>IfGroup</span>: <span class='ident'>RPC_INTERFACE_GROUP</span>, <span class='ident'>IdleCallbackContext</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>, <span class='ident'>IsGroupIdle</span>: ::<span class='ident'>c_ulong</span>,
-)<span class='op'>&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PRPC_INTERFACE_TEMPLATEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">RPC_INTERFACE_TEMPLATEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">IfGroup</span>: <span class="ident">RPC_INTERFACE_GROUP</span>, <span class="ident">IdleCallbackContext</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>, <span class="ident">IsGroupIdle</span>: ::<span class="ident">c_ulong</span>,
+)<span class="op">&gt;</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -1130,12 +1132,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -1156,7 +1162,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -1167,11 +1173,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

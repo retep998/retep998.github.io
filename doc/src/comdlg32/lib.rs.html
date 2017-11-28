@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\comdlg32-sys-0.2.0\src\lib.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>lib.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc source">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
+<span id="2"> 2</span>
+<span id="3"> 3</span>
+<span id="4"> 4</span>
+<span id="5"> 5</span>
+<span id="6"> 6</span>
+<span id="7"> 7</span>
+<span id="8"> 8</span>
+<span id="9"> 9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to comdlg32.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ChooseColorA</span>(<span class="ident">lpcc</span>: <span class="ident">LPCHOOSECOLORA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ChooseColorW</span>(<span class="ident">lpcc</span>: <span class="ident">LPCHOOSECOLORW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ChooseFontA</span>(<span class="ident">lpcf</span>: <span class="ident">LPCHOOSEFONTA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ChooseFontW</span>(<span class="ident">lpcf</span>: <span class="ident">LPCHOOSEFONTW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CommDlgExtendedError</span>() <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">FindTextA</span>(<span class="ident">lpfr</span>: <span class="ident">LPFINDREPLACEA</span>) <span class="op">-&gt;</span> <span class="ident">HWND</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">FindTextW</span>(<span class="ident">lpfr</span>: <span class="ident">LPFINDREPLACEW</span>) <span class="op">-&gt;</span> <span class="ident">HWND</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetFileTitleA</span>(<span class="ident">lpszFile</span>: <span class="ident">LPCSTR</span>, <span class="ident">Buf</span>: <span class="ident">LPSTR</span>, <span class="ident">cchSize</span>: <span class="ident">WORD</span>) <span class="op">-&gt;</span> <span class="ident">c_short</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetFileTitleW</span>(<span class="ident">lpszFile</span>: <span class="ident">LPCWSTR</span>, <span class="ident">Buf</span>: <span class="ident">LPWSTR</span>, <span class="ident">cchSize</span>: <span class="ident">WORD</span>) <span class="op">-&gt;</span> <span class="ident">c_short</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetOpenFileNameA</span>(<span class="ident">lpofn</span>: <span class="ident">LPOPENFILENAMEA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetOpenFileNameW</span>(<span class="ident">lpofn</span>: <span class="ident">LPOPENFILENAMEW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetSaveFileNameA</span>(<span class="ident">lpofn</span>: <span class="ident">LPOPENFILENAMEA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetSaveFileNameW</span>(<span class="ident">lpofn</span>: <span class="ident">LPOPENFILENAMEW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PageSetupDlgA</span>(<span class="ident">lppsd</span>: <span class="ident">LPPAGESETUPDLGA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PageSetupDlgW</span>(<span class="ident">lppsd</span>: <span class="ident">LPPAGESETUPDLGW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PrintDlgA</span>(<span class="ident">pPD</span>: <span class="ident">LPPRINTDLGA</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PrintDlgExA</span>(<span class="ident">pPD</span>: <span class="ident">LPPRINTDLGEXA</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PrintDlgExW</span>(<span class="ident">pPD</span>: <span class="ident">LPPRINTDLGEXW</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PrintDlgW</span>(<span class="ident">pPD</span>: <span class="ident">LPPRINTDLGW</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ReplaceTextA</span>(<span class="ident">lpfr</span>: <span class="ident">LPFINDREPLACEA</span>) <span class="op">-&gt;</span> <span class="ident">HWND</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ReplaceTextW</span>(<span class="ident">lpfr</span>: <span class="ident">LPFINDREPLACEW</span>) <span class="op">-&gt;</span> <span class="ident">HWND</span>;
+}
+</pre>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "comdlg32";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

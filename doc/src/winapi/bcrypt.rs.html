@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\bcrypt.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\bcrypt.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>bcrypt.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -397,363 +399,363 @@
 <span id="354">354</span>
 <span id="355">355</span>
 <span id="356">356</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Cryptographic Primitive API Prototypes and Definitions</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_HASH_ALGORITHM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SECRET_PREPEND</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SECRET_APPEND</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_HMAC_KEY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_TLS_PRF_LABEL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_TLS_PRF_SEED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SECRET_HANDLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_TLS_PRF_PROTOCOL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_ALGORITHMID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_PARTYUINFO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_PARTYVINFO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SUPPPUBINFO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SUPPPRIVINFO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xC</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_LABEL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_CONTEXT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_SALT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_ITERATION_COUNT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_GENERIC_PARAMETER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_KEYBITLENGTH</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KDF_USE_SECRET_AS_HMAC_KEY_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_KEY_LENGTHS_STRUCT</span> {
-    <span class='ident'>dwMinLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwMaxLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwIncrement</span>: ::<span class='ident'>ULONG</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Cryptographic Primitive API Prototypes and Definitions</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_HASH_ALGORITHM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SECRET_PREPEND</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SECRET_APPEND</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_HMAC_KEY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_TLS_PRF_LABEL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_TLS_PRF_SEED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SECRET_HANDLE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_TLS_PRF_PROTOCOL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_ALGORITHMID</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_PARTYUINFO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_PARTYVINFO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xA</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SUPPPUBINFO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xB</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SUPPPRIVINFO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xC</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_LABEL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_CONTEXT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_SALT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_ITERATION_COUNT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_GENERIC_PARAMETER</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x11</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_KEYBITLENGTH</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KDF_USE_SECRET_AS_HMAC_KEY_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_KEY_LENGTHS_STRUCT</span> {
+    <span class="ident">dwMinLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwMaxLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwIncrement</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_AUTH_TAG_LENGTHS_STRUCT</span> <span class='op'>=</span> <span class='ident'>BCRYPT_KEY_LENGTHS_STRUCT</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_OID</span> {
-    <span class='ident'>cbOID</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbOID</span>: ::<span class='ident'>PUCHAR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_AUTH_TAG_LENGTHS_STRUCT</span> <span class="op">=</span> <span class="ident">BCRYPT_KEY_LENGTHS_STRUCT</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_OID</span> {
+    <span class="ident">cbOID</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbOID</span>: ::<span class="ident">PUCHAR</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_OID_LIST</span> {
-    <span class='ident'>dwOIDCount</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pOIDs</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_OID</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_OID_LIST</span> {
+    <span class="ident">dwOIDCount</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pOIDs</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_OID</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_PKCS1_PADDING_INFO</span> {
-    <span class='ident'>pszAlgId</span>: ::<span class='ident'>LPCWSTR</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_PKCS1_PADDING_INFO</span> {
+    <span class="ident">pszAlgId</span>: ::<span class="ident">LPCWSTR</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_PSS_PADDING_INFO</span> {
-    <span class='ident'>pszAlgId</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='ident'>cbSalt</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_PSS_PADDING_INFO</span> {
+    <span class="ident">pszAlgId</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">cbSalt</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_OAEP_PADDING_INFO</span> {
-    <span class='ident'>pszAlgId</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='ident'>pbLabel</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbLabel</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_OAEP_PADDING_INFO</span> {
+    <span class="ident">pszAlgId</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pbLabel</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbLabel</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span> {
-    <span class='ident'>cbSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwInfoVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbNonce</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbNonce</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbAuthData</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbAuthData</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbTag</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbTag</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbMacContext</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbMacContext</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbAAD</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbData</span>: ::<span class='ident'>ULONGLONG</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span> {
+    <span class="ident">cbSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwInfoVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbNonce</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbNonce</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbAuthData</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbAuthData</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbTag</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbTag</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbMacContext</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbMacContext</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbAAD</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbData</span>: ::<span class="ident">ULONGLONG</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PROV_DISPATCH</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_BLOCK_PADDING</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PAD_NONE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PAD_PKCS1</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PAD_OAEP</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PAD_PSS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPTBUFFER_VERSION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCryptBuffer</span> {
-    <span class='ident'>cbBuffer</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>BufferType</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pvBuffer</span>: ::<span class='ident'>PVOID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PROV_DISPATCH</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_BLOCK_PADDING</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PAD_NONE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PAD_PKCS1</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PAD_OAEP</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PAD_PSS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPTBUFFER_VERSION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCryptBuffer</span> {
+    <span class="ident">cbBuffer</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">BufferType</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pvBuffer</span>: ::<span class="ident">PVOID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCryptBuffer</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCryptBuffer</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCryptBufferDesc</span> {
-    <span class='ident'>ulVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cBuffers</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pBuffers</span>: <span class='ident'>PBCryptBuffer</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCryptBuffer</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCryptBuffer</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCryptBufferDesc</span> {
+    <span class="ident">ulVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cBuffers</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pBuffers</span>: <span class="ident">PBCryptBuffer</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCryptBufferDesc</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCryptBufferDesc</span>;
-<span class='comment'>//321</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_ALG_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_KEY_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_HASH_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>BCRYPT_SECRET_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>PVOID</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_KEY_BLOB</span> {
-    <span class='ident'>Magic</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCryptBufferDesc</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCryptBufferDesc</span>;
+<span class="comment">//321</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_HANDLE</span> <span class="op">=</span> ::<span class="ident">PVOID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_ALG_HANDLE</span> <span class="op">=</span> ::<span class="ident">PVOID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_KEY_HANDLE</span> <span class="op">=</span> ::<span class="ident">PVOID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_HASH_HANDLE</span> <span class="op">=</span> ::<span class="ident">PVOID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">BCRYPT_SECRET_HANDLE</span> <span class="op">=</span> ::<span class="ident">PVOID</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_KEY_BLOB</span> {
+    <span class="ident">Magic</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RSAPUBLIC_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x31415352</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RSAPRIVATE_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x32415352</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_RSAKEY_BLOB</span> {
-    <span class='ident'>Magic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>BitLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbPublicExp</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbModulus</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbPrime1</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbPrime2</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RSAPUBLIC_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x31415352</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RSAPRIVATE_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x32415352</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_RSAKEY_BLOB</span> {
+    <span class="ident">Magic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">BitLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbPublicExp</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbModulus</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbPrime1</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbPrime2</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RSAFULLPRIVATE_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x33415352</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PUBLIC_P256_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x314B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PRIVATE_P256_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x324B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PUBLIC_P384_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x334B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PRIVATE_P384_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x344B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PUBLIC_P521_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x354B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDH_PRIVATE_P521_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x364B4345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PUBLIC_P256_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x31534345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PRIVATE_P256_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x32534345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PUBLIC_P384_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x33534345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PRIVATE_P384_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x34534345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PUBLIC_P521_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x35534345</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ECDSA_PRIVATE_P521_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x36534345</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_ECCKEY_BLOB</span> {
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKey</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RSAFULLPRIVATE_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x33415352</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PUBLIC_P256_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x314B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PRIVATE_P256_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x324B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PUBLIC_P384_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x334B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PRIVATE_P384_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x344B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PUBLIC_P521_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x354B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDH_PRIVATE_P521_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x364B4345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PUBLIC_P256_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x31534345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PRIVATE_P256_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x32534345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PUBLIC_P384_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x33534345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PRIVATE_P384_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x34534345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PUBLIC_P521_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x35534345</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ECDSA_PRIVATE_P521_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x36534345</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_ECCKEY_BLOB</span> {
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKey</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_ECCKEY_BLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_ECCKEY_BLOB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DH_PUBLIC_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x42504844</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DH_PRIVATE_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x56504844</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DH_KEY_BLOB</span> {
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKey</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_ECCKEY_BLOB</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_ECCKEY_BLOB</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DH_PUBLIC_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x42504844</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DH_PRIVATE_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x56504844</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DH_KEY_BLOB</span> {
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKey</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_DH_KEY_BLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_DH_KEY_BLOB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DH_PARAMETERS_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x4d504844</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DH_PARAMETER_HEADER</span> {
-    <span class='ident'>cbLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKeyLength</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_DH_KEY_BLOB</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_DH_KEY_BLOB</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DH_PARAMETERS_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x4d504844</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DH_PARAMETER_HEADER</span> {
+    <span class="ident">cbLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKeyLength</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PUBLIC_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x42505344</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PRIVATE_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x56505344</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PUBLIC_MAGIC_V2</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x32425044</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PRIVATE_MAGIC_V2</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x32565044</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DSA_KEY_BLOB</span> {
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKey</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Count</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>4</span>],
-    <span class='ident'>Seed</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>20</span>],
-    <span class='ident'>q</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>20</span>],
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PUBLIC_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x42505344</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PRIVATE_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x56505344</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PUBLIC_MAGIC_V2</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x32425044</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PRIVATE_MAGIC_V2</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x32565044</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DSA_KEY_BLOB</span> {
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKey</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Count</span>: [::<span class="ident">UCHAR</span>; <span class="number">4</span>],
+    <span class="ident">Seed</span>: [::<span class="ident">UCHAR</span>; <span class="number">20</span>],
+    <span class="ident">q</span>: [::<span class="ident">UCHAR</span>; <span class="number">20</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_DSA_KEY_BLOB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_DSA_KEY_BLOB</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>HASHALGORITHM_ENUM</span> {
-    <span class='ident'>DSA_HASH_ALGORITHM_SHA1</span>,
-    <span class='ident'>DSA_HASH_ALGORITHM_SHA256</span>,
-    <span class='ident'>DSA_HASH_ALGORITHM_SHA512</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_DSA_KEY_BLOB</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_DSA_KEY_BLOB</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">HASHALGORITHM_ENUM</span> {
+    <span class="ident">DSA_HASH_ALGORITHM_SHA1</span>,
+    <span class="ident">DSA_HASH_ALGORITHM_SHA256</span>,
+    <span class="ident">DSA_HASH_ALGORITHM_SHA512</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DSAFIPSVERSION_ENUM</span> {
-    <span class='ident'>DSA_FIPS186_2</span>,
-    <span class='ident'>DSA_FIPS186_3</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DSAFIPSVERSION_ENUM</span> {
+    <span class="ident">DSA_FIPS186_2</span>,
+    <span class="ident">DSA_FIPS186_3</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DSA_KEY_BLOB_V2</span> {
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKey</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>hashAlgorithm</span>: <span class='ident'>HASHALGORITHM_ENUM</span>,
-    <span class='ident'>standardVersion</span>: <span class='ident'>DSAFIPSVERSION_ENUM</span>,
-    <span class='ident'>cbSeedLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbGroupSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Count</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>4</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DSA_KEY_BLOB_V2</span> {
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKey</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">hashAlgorithm</span>: <span class="ident">HASHALGORITHM_ENUM</span>,
+    <span class="ident">standardVersion</span>: <span class="ident">DSAFIPSVERSION_ENUM</span>,
+    <span class="ident">cbSeedLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbGroupSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Count</span>: [::<span class="ident">UCHAR</span>; <span class="number">4</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_DSA_KEY_BLOB_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_DSA_KEY_BLOB_V2</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_KEY_DATA_BLOB_HEADER</span> {
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKeyData</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_DSA_KEY_BLOB_V2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_DSA_KEY_BLOB_V2</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_KEY_DATA_BLOB_HEADER</span> {
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKeyData</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_KEY_DATA_BLOB_HEADER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_KEY_DATA_BLOB_HEADER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_KEY_DATA_BLOB_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x4d42444b</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_KEY_DATA_BLOB_VERSION1</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PARAMETERS_MAGIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x4d505344</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_DSA_PARAMETERS_MAGIC_V2</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x324d5044</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DSA_PARAMETER_HEADER</span> {
-    <span class='ident'>cbLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKeyLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Count</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>4</span>],
-    <span class='ident'>Seed</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>20</span>],
-    <span class='ident'>q</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>20</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_KEY_DATA_BLOB_HEADER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_KEY_DATA_BLOB_HEADER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_KEY_DATA_BLOB_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x4d42444b</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_KEY_DATA_BLOB_VERSION1</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PARAMETERS_MAGIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x4d505344</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_DSA_PARAMETERS_MAGIC_V2</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x324d5044</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DSA_PARAMETER_HEADER</span> {
+    <span class="ident">cbLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKeyLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Count</span>: [::<span class="ident">UCHAR</span>; <span class="number">4</span>],
+    <span class="ident">Seed</span>: [::<span class="ident">UCHAR</span>; <span class="number">20</span>],
+    <span class="ident">q</span>: [::<span class="ident">UCHAR</span>; <span class="number">20</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_DSA_PARAMETER_HEADER_V2</span> {
-    <span class='ident'>cbLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwMagic</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbKeyLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>hashAlgorithm</span>: <span class='ident'>HASHALGORITHM_ENUM</span>,
-    <span class='ident'>standardVersion</span>: <span class='ident'>DSAFIPSVERSION_ENUM</span>,
-    <span class='ident'>cbSeedLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbGroupSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Count</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>4</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_DSA_PARAMETER_HEADER_V2</span> {
+    <span class="ident">cbLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwMagic</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbKeyLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">hashAlgorithm</span>: <span class="ident">HASHALGORITHM_ENUM</span>,
+    <span class="ident">standardVersion</span>: <span class="ident">DSAFIPSVERSION_ENUM</span>,
+    <span class="ident">cbSeedLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbGroupSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Count</span>: [::<span class="ident">UCHAR</span>; <span class="number">4</span>],
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>BCRYPT_HASH_OPERATION_TYPE</span> {
-    <span class='ident'>BCRYPT_HASH_OPERATION_HASH_DATA</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>BCRYPT_HASH_OPERATION_FINISH_HASH</span> <span class='op'>=</span> <span class='number'>2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">BCRYPT_HASH_OPERATION_TYPE</span> {
+    <span class="ident">BCRYPT_HASH_OPERATION_HASH_DATA</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">BCRYPT_HASH_OPERATION_FINISH_HASH</span> <span class="op">=</span> <span class="number">2</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_MULTI_HASH_OPERATION</span> {
-    <span class='ident'>iHash</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>hashOperation</span>: <span class='ident'>BCRYPT_HASH_OPERATION_TYPE</span>,
-    <span class='ident'>pbBuffer</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='ident'>cbBuffer</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_MULTI_HASH_OPERATION</span> {
+    <span class="ident">iHash</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">hashOperation</span>: <span class="ident">BCRYPT_HASH_OPERATION_TYPE</span>,
+    <span class="ident">pbBuffer</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">cbBuffer</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>BCRYPT_MULTI_OPERATION_TYPE</span> {
-    <span class='ident'>BCRYPT_OPERATION_TYPE_HASH</span> <span class='op'>=</span> <span class='number'>1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">BCRYPT_MULTI_OPERATION_TYPE</span> {
+    <span class="ident">BCRYPT_OPERATION_TYPE_HASH</span> <span class="op">=</span> <span class="number">1</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_MULTI_OBJECT_LENGTH_STRUCT</span> {
-    <span class='ident'>cbPerObject</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cbPerElement</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_MULTI_OBJECT_LENGTH_STRUCT</span> {
+    <span class="ident">cbPerObject</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cbPerElement</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_CIPHER_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SECRET_AGREEMENT_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SIGNATURE_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RNG_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000006</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_KEY_DERIVATION_INTERFACE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ALG_HANDLE_HMAC_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_CAPI_AES_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_REUSABLE_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_BUFFERS_LOCKED_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_EXTENDED_KEYSIZE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_CIPHER_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SECRET_AGREEMENT_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SIGNATURE_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RNG_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_KEY_DERIVATION_OPERATION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_ALGORITHM_IDENTIFIER</span> {
-    <span class='ident'>pszName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwClass</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_CIPHER_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SECRET_AGREEMENT_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SIGNATURE_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RNG_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000006</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_KEY_DERIVATION_INTERFACE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000007</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ALG_HANDLE_HMAC_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_CAPI_AES_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_REUSABLE_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_BUFFERS_LOCKED_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_EXTENDED_KEYSIZE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_CIPHER_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SECRET_AGREEMENT_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SIGNATURE_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RNG_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_KEY_DERIVATION_OPERATION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_ALGORITHM_IDENTIFIER</span> {
+    <span class="ident">pszName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwClass</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_PROVIDER_NAME</span> {
-    <span class='ident'>pszProviderName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_PROVIDER_NAME</span> {
+    <span class="ident">pszProviderName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PUBLIC_KEY_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_PRIVATE_KEY_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RNG_USE_ENTROPY_IN_BUFFER</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_USE_SYSTEM_PREFERRED_RNG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BCRYPT_INTERFACE_VERSION</span> {
-    <span class='ident'>MajorVersion</span>: ::<span class='ident'>USHORT</span>,
-    <span class='ident'>MinorVersion</span>: ::<span class='ident'>USHORT</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PUBLIC_KEY_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_PRIVATE_KEY_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RNG_USE_ENTROPY_IN_BUFFER</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_USE_SYSTEM_PREFERRED_RNG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BCRYPT_INTERFACE_VERSION</span> {
+    <span class="ident">MajorVersion</span>: ::<span class="ident">USHORT</span>,
+    <span class="ident">MinorVersion</span>: ::<span class="ident">USHORT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BCRYPT_INTERFACE_VERSION</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_CIPHER_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_INTERFACE_MAJORVERSION_2</span>: ::<span class='ident'>USHORT</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_HASH_INTERFACE_VERSION_2</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='ident'>BCRYPT_HASH_INTERFACE_MAJORVERSION_2</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SECRET_AGREEMENT_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_SIGNATURE_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>BCRYPT_RNG_INTERFACE_VERSION_1</span>: <span class='ident'>BCRYPT_INTERFACE_VERSION</span> <span class='op'>=</span>
-    <span class='macro'>BCRYPT_MAKE_INTERFACE_VERSION</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='number'>0</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_MIN_DEPENDENCIES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_PROCESS_ISOLATE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_UM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_KM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_MM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_ANY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_OVERWRITE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_LOCAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_DOMAIN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_EXCLUSIVE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_OVERRIDE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_ALL_FUNCTIONS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_ALL_PROVIDERS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_PRIORITY_TOP</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CRYPT_PRIORITY_BOTTOM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_INTERFACE_REG</span> {
-    <span class='ident'>dwInterface</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>cFunctions</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszFunctions</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBCRYPT_INTERFACE_VERSION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BCRYPT_INTERFACE_VERSION</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_CIPHER_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_INTERFACE_MAJORVERSION_2</span>: ::<span class="ident">USHORT</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_HASH_INTERFACE_VERSION_2</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="ident">BCRYPT_HASH_INTERFACE_MAJORVERSION_2</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SECRET_AGREEMENT_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_SIGNATURE_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">BCRYPT_RNG_INTERFACE_VERSION_1</span>: <span class="ident">BCRYPT_INTERFACE_VERSION</span> <span class="op">=</span>
+    <span class="macro">BCRYPT_MAKE_INTERFACE_VERSION</span><span class="macro">!</span>(<span class="number">1</span>, <span class="number">0</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_MIN_DEPENDENCIES</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_PROCESS_ISOLATE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_UM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_KM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_MM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_ANY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_OVERWRITE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_LOCAL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_DOMAIN</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_EXCLUSIVE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_OVERRIDE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_ALL_FUNCTIONS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_ALL_PROVIDERS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_PRIORITY_TOP</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CRYPT_PRIORITY_BOTTOM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_INTERFACE_REG</span> {
+    <span class="ident">dwInterface</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">cFunctions</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszFunctions</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_INTERFACE_REG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_INTERFACE_REG</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_IMAGE_REG</span> {
-    <span class='ident'>pszImage</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>cInterfaces</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpInterfaces</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCRYPT_INTERFACE_REG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_INTERFACE_REG</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_INTERFACE_REG</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_IMAGE_REG</span> {
+    <span class="ident">pszImage</span>: ::<span class="ident">PWSTR</span>,
+    <span class="ident">cInterfaces</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpInterfaces</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PCRYPT_INTERFACE_REG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_IMAGE_REG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_IMAGE_REG</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_PROVIDER_REG</span> {
-    <span class='ident'>cAliases</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszAliases</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>pUM</span>: <span class='ident'>PCRYPT_IMAGE_REG</span>,
-    <span class='ident'>pKM</span>: <span class='ident'>PCRYPT_IMAGE_REG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_IMAGE_REG</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_IMAGE_REG</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_PROVIDER_REG</span> {
+    <span class="ident">cAliases</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszAliases</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
+    <span class="ident">pUM</span>: <span class="ident">PCRYPT_IMAGE_REG</span>,
+    <span class="ident">pKM</span>: <span class="ident">PCRYPT_IMAGE_REG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_PROVIDER_REG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_PROVIDER_REG</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_PROVIDERS</span> {
-    <span class='ident'>cProviders</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszProviders</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_PROVIDER_REG</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_PROVIDER_REG</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_PROVIDERS</span> {
+    <span class="ident">cProviders</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszProviders</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_PROVIDERS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_PROVIDERS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_CONTEXT_CONFIG</span> {
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwReserved</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_PROVIDERS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_PROVIDERS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_CONTEXT_CONFIG</span> {
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwReserved</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_CONTEXT_CONFIG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_CONTEXT_CONFIG</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_CONTEXT_FUNCTION_CONFIG</span> {
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>dwReserved</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_CONTEXT_CONFIG</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_CONTEXT_CONFIG</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_CONTEXT_FUNCTION_CONFIG</span> {
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">dwReserved</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_CONTEXT_FUNCTION_CONFIG</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_CONTEXT_FUNCTION_CONFIG</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_CONTEXTS</span> {
-    <span class='ident'>cContexts</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszContexts</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_CONTEXT_FUNCTION_CONFIG</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_CONTEXT_FUNCTION_CONFIG</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_CONTEXTS</span> {
+    <span class="ident">cContexts</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszContexts</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_CONTEXTS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_CONTEXTS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_CONTEXT_FUNCTIONS</span> {
-    <span class='ident'>cFunctions</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszFunctions</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_CONTEXTS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_CONTEXTS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_CONTEXT_FUNCTIONS</span> {
+    <span class="ident">cFunctions</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszFunctions</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_CONTEXT_FUNCTIONS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_CONTEXT_FUNCTIONS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_CONTEXT_FUNCTION_PROVIDERS</span> {
-    <span class='ident'>cProviders</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpszProviders</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_CONTEXT_FUNCTIONS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_CONTEXT_FUNCTIONS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_CONTEXT_FUNCTION_PROVIDERS</span> {
+    <span class="ident">cProviders</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpszProviders</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_CONTEXT_FUNCTION_PROVIDERS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_CONTEXT_FUNCTION_PROVIDERS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_PROPERTY_REF</span> {
-    <span class='ident'>pszProperty</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>cbValue</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pbValue</span>: ::<span class='ident'>PUCHAR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_CONTEXT_FUNCTION_PROVIDERS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_CONTEXT_FUNCTION_PROVIDERS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_PROPERTY_REF</span> {
+    <span class="ident">pszProperty</span>: ::<span class="ident">PWSTR</span>,
+    <span class="ident">cbValue</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pbValue</span>: ::<span class="ident">PUCHAR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_PROPERTY_REF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_PROPERTY_REF</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_IMAGE_REF</span> {
-    <span class='ident'>pszImage</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_PROPERTY_REF</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_PROPERTY_REF</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_IMAGE_REF</span> {
+    <span class="ident">pszImage</span>: ::<span class="ident">PWSTR</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_IMAGE_REF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_IMAGE_REF</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_PROVIDER_REF</span> {
-    <span class='ident'>dwInterface</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pszFunction</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>pszProvider</span>: ::<span class='ident'>PWSTR</span>,
-    <span class='ident'>cProperties</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpProperties</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCRYPT_PROPERTY_REF</span>,
-    <span class='ident'>pUM</span>: <span class='ident'>PCRYPT_IMAGE_REF</span>,
-    <span class='ident'>pKM</span>: <span class='ident'>PCRYPT_IMAGE_REF</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_IMAGE_REF</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_IMAGE_REF</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_PROVIDER_REF</span> {
+    <span class="ident">dwInterface</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pszFunction</span>: ::<span class="ident">PWSTR</span>,
+    <span class="ident">pszProvider</span>: ::<span class="ident">PWSTR</span>,
+    <span class="ident">cProperties</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpProperties</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PCRYPT_PROPERTY_REF</span>,
+    <span class="ident">pUM</span>: <span class="ident">PCRYPT_IMAGE_REF</span>,
+    <span class="ident">pKM</span>: <span class="ident">PCRYPT_IMAGE_REF</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_PROVIDER_REF</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_PROVIDER_REF</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CRYPT_PROVIDER_REFS</span> {
-    <span class='ident'>cProviders</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>rgpProviders</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PCRYPT_PROVIDER_REF</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_PROVIDER_REF</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_PROVIDER_REF</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CRYPT_PROVIDER_REFS</span> {
+    <span class="ident">cProviders</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">rgpProviders</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PCRYPT_PROVIDER_REF</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCRYPT_PROVIDER_REFS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CRYPT_PROVIDER_REFS</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCRYPT_PROVIDER_REFS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CRYPT_PROVIDER_REFS</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -772,12 +774,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -798,7 +804,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -809,11 +815,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

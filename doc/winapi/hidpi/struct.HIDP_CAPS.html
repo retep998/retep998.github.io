@@ -9,13 +9,15 @@
 
     <title>winapi::hidpi::HIDP_CAPS - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a></p><script>window.sidebarCurrent = {name: 'HIDP_CAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct HIDP_CAPS</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.Usage">Usage</a><a href="#structfield.UsagePage">UsagePage</a><a href="#structfield.InputReportByteLength">InputReportByteLength</a><a href="#structfield.OutputReportByteLength">OutputReportByteLength</a><a href="#structfield.FeatureReportByteLength">FeatureReportByteLength</a><a href="#structfield.Reserved">Reserved</a><a href="#structfield.NumberLinkCollectionNodes">NumberLinkCollectionNodes</a><a href="#structfield.NumberInputButtonCaps">NumberInputButtonCaps</a><a href="#structfield.NumberInputValueCaps">NumberInputValueCaps</a><a href="#structfield.NumberInputDataIndices">NumberInputDataIndices</a><a href="#structfield.NumberOutputButtonCaps">NumberOutputButtonCaps</a><a href="#structfield.NumberOutputValueCaps">NumberOutputValueCaps</a><a href="#structfield.NumberOutputDataIndices">NumberOutputDataIndices</a><a href="#structfield.NumberFeatureButtonCaps">NumberFeatureButtonCaps</a><a href="#structfield.NumberFeatureValueCaps">NumberFeatureValueCaps</a><a href="#structfield.NumberFeatureDataIndices">NumberFeatureDataIndices</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a></p><script>window.sidebarCurrent = {name: 'HIDP_CAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,50 +43,109 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a>::<wbr><a class='struct' href=''>HIDP_CAPS</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-48209' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct HIDP_CAPS {
-    pub Usage: <a class='type' href='../../winapi/hidusage/type.USAGE.html' title='winapi::hidusage::USAGE'>USAGE</a>,
-    pub UsagePage: <a class='type' href='../../winapi/hidusage/type.USAGE.html' title='winapi::hidusage::USAGE'>USAGE</a>,
-    pub InputReportByteLength: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub OutputReportByteLength: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub FeatureReportByteLength: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub Reserved: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 17]</a>,
-    pub NumberLinkCollectionNodes: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberInputButtonCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberInputValueCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberInputDataIndices: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberOutputButtonCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberOutputValueCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberOutputDataIndices: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberFeatureButtonCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberFeatureValueCaps: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub NumberFeatureDataIndices: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.Usage'><code>Usage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.UsagePage'><code>UsagePage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.InputReportByteLength'><code>InputReportByteLength</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.OutputReportByteLength'><code>OutputReportByteLength</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FeatureReportByteLength'><code>FeatureReportByteLength</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Reserved'><code>Reserved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberLinkCollectionNodes'><code>NumberLinkCollectionNodes</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberInputButtonCaps'><code>NumberInputButtonCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberInputValueCaps'><code>NumberInputValueCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberInputDataIndices'><code>NumberInputDataIndices</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberOutputButtonCaps'><code>NumberOutputButtonCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberOutputValueCaps'><code>NumberOutputValueCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberOutputDataIndices'><code>NumberOutputDataIndices</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberFeatureButtonCaps'><code>NumberFeatureButtonCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberFeatureValueCaps'><code>NumberFeatureValueCaps</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.NumberFeatureDataIndices'><code>NumberFeatureDataIndices</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_CAPS.html' title='winapi::hidpi::HIDP_CAPS'>HIDP_CAPS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_CAPS.html' title='winapi::hidpi::HIDP_CAPS'>HIDP_CAPS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/hidpi/struct.HIDP_CAPS.html' title='winapi::hidpi::HIDP_CAPS'>HIDP_CAPS</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_CAPS.html' title='winapi::hidpi::HIDP_CAPS'>HIDP_CAPS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a>::<wbr><a class="struct" href=''>HIDP_CAPS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct HIDP_CAPS {
+    pub Usage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a>,
+    pub UsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a>,
+    pub InputReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub OutputReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub FeatureReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub Reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 17]</a>,
+    pub NumberLinkCollectionNodes: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberInputButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberInputValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberInputDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberOutputButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberOutputValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberOutputDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberFeatureButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberFeatureValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub NumberFeatureDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.Usage" class="structfield small-section-header">
+                           <a href="#structfield.Usage" class="anchor field"></a>
+                           <span id="Usage.v" class='invisible'>
+                           <code>Usage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a></code>
+                           </span></span><span id="structfield.UsagePage" class="structfield small-section-header">
+                           <a href="#structfield.UsagePage" class="anchor field"></a>
+                           <span id="UsagePage.v" class='invisible'>
+                           <code>UsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a></code>
+                           </span></span><span id="structfield.InputReportByteLength" class="structfield small-section-header">
+                           <a href="#structfield.InputReportByteLength" class="anchor field"></a>
+                           <span id="InputReportByteLength.v" class='invisible'>
+                           <code>InputReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.OutputReportByteLength" class="structfield small-section-header">
+                           <a href="#structfield.OutputReportByteLength" class="anchor field"></a>
+                           <span id="OutputReportByteLength.v" class='invisible'>
+                           <code>OutputReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.FeatureReportByteLength" class="structfield small-section-header">
+                           <a href="#structfield.FeatureReportByteLength" class="anchor field"></a>
+                           <span id="FeatureReportByteLength.v" class='invisible'>
+                           <code>FeatureReportByteLength: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.Reserved" class="structfield small-section-header">
+                           <a href="#structfield.Reserved" class="anchor field"></a>
+                           <span id="Reserved.v" class='invisible'>
+                           <code>Reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 17]</a></code>
+                           </span></span><span id="structfield.NumberLinkCollectionNodes" class="structfield small-section-header">
+                           <a href="#structfield.NumberLinkCollectionNodes" class="anchor field"></a>
+                           <span id="NumberLinkCollectionNodes.v" class='invisible'>
+                           <code>NumberLinkCollectionNodes: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberInputButtonCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberInputButtonCaps" class="anchor field"></a>
+                           <span id="NumberInputButtonCaps.v" class='invisible'>
+                           <code>NumberInputButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberInputValueCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberInputValueCaps" class="anchor field"></a>
+                           <span id="NumberInputValueCaps.v" class='invisible'>
+                           <code>NumberInputValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberInputDataIndices" class="structfield small-section-header">
+                           <a href="#structfield.NumberInputDataIndices" class="anchor field"></a>
+                           <span id="NumberInputDataIndices.v" class='invisible'>
+                           <code>NumberInputDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberOutputButtonCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberOutputButtonCaps" class="anchor field"></a>
+                           <span id="NumberOutputButtonCaps.v" class='invisible'>
+                           <code>NumberOutputButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberOutputValueCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberOutputValueCaps" class="anchor field"></a>
+                           <span id="NumberOutputValueCaps.v" class='invisible'>
+                           <code>NumberOutputValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberOutputDataIndices" class="structfield small-section-header">
+                           <a href="#structfield.NumberOutputDataIndices" class="anchor field"></a>
+                           <span id="NumberOutputDataIndices.v" class='invisible'>
+                           <code>NumberOutputDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberFeatureButtonCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberFeatureButtonCaps" class="anchor field"></a>
+                           <span id="NumberFeatureButtonCaps.v" class='invisible'>
+                           <code>NumberFeatureButtonCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberFeatureValueCaps" class="structfield small-section-header">
+                           <a href="#structfield.NumberFeatureValueCaps" class="anchor field"></a>
+                           <span id="NumberFeatureValueCaps.v" class='invisible'>
+                           <code>NumberFeatureValueCaps: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.NumberFeatureDataIndices" class="structfield small-section-header">
+                           <a href="#structfield.NumberFeatureDataIndices" class="anchor field"></a>
+                           <span id="NumberFeatureDataIndices.v" class='invisible'>
+                           <code>NumberFeatureDataIndices: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_CAPS.html" title="struct winapi::hidpi::HIDP_CAPS">HIDP_CAPS</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_CAPS.html" title="struct winapi::hidpi::HIDP_CAPS">HIDP_CAPS</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_CAPS.html" title="struct winapi::hidpi::HIDP_CAPS">HIDP_CAPS</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/hidpi/struct.HIDP_CAPS.html" title="struct winapi::hidpi::HIDP_CAPS">HIDP_CAPS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -101,12 +162,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -127,7 +192,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -138,11 +203,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

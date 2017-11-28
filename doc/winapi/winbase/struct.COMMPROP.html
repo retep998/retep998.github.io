@@ -9,13 +9,15 @@
 
     <title>winapi::winbase::COMMPROP - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winbase</a></p><script>window.sidebarCurrent = {name: 'COMMPROP', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct COMMPROP</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.wPacketLength">wPacketLength</a><a href="#structfield.wPacketVersion">wPacketVersion</a><a href="#structfield.dwServiceMask">dwServiceMask</a><a href="#structfield.dwReserved1">dwReserved1</a><a href="#structfield.dwMaxTxQueue">dwMaxTxQueue</a><a href="#structfield.dwMaxRxQueue">dwMaxRxQueue</a><a href="#structfield.dwMaxBaud">dwMaxBaud</a><a href="#structfield.dwProvSubType">dwProvSubType</a><a href="#structfield.dwProvCapabilities">dwProvCapabilities</a><a href="#structfield.dwSettableParams">dwSettableParams</a><a href="#structfield.dwSettableBaud">dwSettableBaud</a><a href="#structfield.wSettableData">wSettableData</a><a href="#structfield.wSettableStopParity">wSettableStopParity</a><a href="#structfield.dwCurrentTxQueue">dwCurrentTxQueue</a><a href="#structfield.dwCurrentRxQueue">dwCurrentRxQueue</a><a href="#structfield.dwProvSpec1">dwProvSpec1</a><a href="#structfield.dwProvSpec2">dwProvSpec2</a><a href="#structfield.wcProvChar">wcProvChar</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winbase</a></p><script>window.sidebarCurrent = {name: 'COMMPROP', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,54 +43,119 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winbase</a>::<wbr><a class='struct' href=''>COMMPROP</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-89191' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct COMMPROP {
-    pub wPacketLength: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub wPacketVersion: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub dwServiceMask: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwReserved1: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxTxQueue: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxRxQueue: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxBaud: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwProvSubType: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwProvCapabilities: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwSettableParams: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwSettableBaud: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub wSettableData: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub wSettableStopParity: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub dwCurrentTxQueue: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwCurrentRxQueue: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwProvSpec1: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwProvSpec2: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub wcProvChar: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 1]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.wPacketLength'><code>wPacketLength</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.wPacketVersion'><code>wPacketVersion</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwServiceMask'><code>dwServiceMask</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwReserved1'><code>dwReserved1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxTxQueue'><code>dwMaxTxQueue</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxRxQueue'><code>dwMaxRxQueue</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxBaud'><code>dwMaxBaud</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwProvSubType'><code>dwProvSubType</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwProvCapabilities'><code>dwProvCapabilities</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwSettableParams'><code>dwSettableParams</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwSettableBaud'><code>dwSettableBaud</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.wSettableData'><code>wSettableData</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.wSettableStopParity'><code>wSettableStopParity</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwCurrentTxQueue'><code>dwCurrentTxQueue</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwCurrentRxQueue'><code>dwCurrentRxQueue</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwProvSpec1'><code>dwProvSpec1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwProvSpec2'><code>dwProvSpec2</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.wcProvChar'><code>wcProvChar</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/winbase/struct.COMMPROP.html' title='winapi::winbase::COMMPROP'>COMMPROP</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/winbase/struct.COMMPROP.html' title='winapi::winbase::COMMPROP'>COMMPROP</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/winbase/struct.COMMPROP.html' title='winapi::winbase::COMMPROP'>COMMPROP</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/winbase/struct.COMMPROP.html' title='winapi::winbase::COMMPROP'>COMMPROP</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winbase</a>::<wbr><a class="struct" href=''>COMMPROP</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct COMMPROP {
+    pub wPacketLength: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub wPacketVersion: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub dwServiceMask: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwReserved1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxTxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxRxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxBaud: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwProvSubType: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwProvCapabilities: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwSettableParams: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwSettableBaud: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub wSettableData: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub wSettableStopParity: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub dwCurrentTxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwCurrentRxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwProvSpec1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwProvSpec2: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub wcProvChar: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.wPacketLength" class="structfield small-section-header">
+                           <a href="#structfield.wPacketLength" class="anchor field"></a>
+                           <span id="wPacketLength.v" class='invisible'>
+                           <code>wPacketLength: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.wPacketVersion" class="structfield small-section-header">
+                           <a href="#structfield.wPacketVersion" class="anchor field"></a>
+                           <span id="wPacketVersion.v" class='invisible'>
+                           <code>wPacketVersion: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.dwServiceMask" class="structfield small-section-header">
+                           <a href="#structfield.dwServiceMask" class="anchor field"></a>
+                           <span id="dwServiceMask.v" class='invisible'>
+                           <code>dwServiceMask: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwReserved1" class="structfield small-section-header">
+                           <a href="#structfield.dwReserved1" class="anchor field"></a>
+                           <span id="dwReserved1.v" class='invisible'>
+                           <code>dwReserved1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxTxQueue" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxTxQueue" class="anchor field"></a>
+                           <span id="dwMaxTxQueue.v" class='invisible'>
+                           <code>dwMaxTxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxRxQueue" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxRxQueue" class="anchor field"></a>
+                           <span id="dwMaxRxQueue.v" class='invisible'>
+                           <code>dwMaxRxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxBaud" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxBaud" class="anchor field"></a>
+                           <span id="dwMaxBaud.v" class='invisible'>
+                           <code>dwMaxBaud: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwProvSubType" class="structfield small-section-header">
+                           <a href="#structfield.dwProvSubType" class="anchor field"></a>
+                           <span id="dwProvSubType.v" class='invisible'>
+                           <code>dwProvSubType: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwProvCapabilities" class="structfield small-section-header">
+                           <a href="#structfield.dwProvCapabilities" class="anchor field"></a>
+                           <span id="dwProvCapabilities.v" class='invisible'>
+                           <code>dwProvCapabilities: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwSettableParams" class="structfield small-section-header">
+                           <a href="#structfield.dwSettableParams" class="anchor field"></a>
+                           <span id="dwSettableParams.v" class='invisible'>
+                           <code>dwSettableParams: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwSettableBaud" class="structfield small-section-header">
+                           <a href="#structfield.dwSettableBaud" class="anchor field"></a>
+                           <span id="dwSettableBaud.v" class='invisible'>
+                           <code>dwSettableBaud: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.wSettableData" class="structfield small-section-header">
+                           <a href="#structfield.wSettableData" class="anchor field"></a>
+                           <span id="wSettableData.v" class='invisible'>
+                           <code>wSettableData: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.wSettableStopParity" class="structfield small-section-header">
+                           <a href="#structfield.wSettableStopParity" class="anchor field"></a>
+                           <span id="wSettableStopParity.v" class='invisible'>
+                           <code>wSettableStopParity: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.dwCurrentTxQueue" class="structfield small-section-header">
+                           <a href="#structfield.dwCurrentTxQueue" class="anchor field"></a>
+                           <span id="dwCurrentTxQueue.v" class='invisible'>
+                           <code>dwCurrentTxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwCurrentRxQueue" class="structfield small-section-header">
+                           <a href="#structfield.dwCurrentRxQueue" class="anchor field"></a>
+                           <span id="dwCurrentRxQueue.v" class='invisible'>
+                           <code>dwCurrentRxQueue: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwProvSpec1" class="structfield small-section-header">
+                           <a href="#structfield.dwProvSpec1" class="anchor field"></a>
+                           <span id="dwProvSpec1.v" class='invisible'>
+                           <code>dwProvSpec1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwProvSpec2" class="structfield small-section-header">
+                           <a href="#structfield.dwProvSpec2" class="anchor field"></a>
+                           <span id="dwProvSpec2.v" class='invisible'>
+                           <code>dwProvSpec2: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.wcProvChar" class="structfield small-section-header">
+                           <a href="#structfield.wcProvChar" class="anchor field"></a>
+                           <span id="wcProvChar.v" class='invisible'>
+                           <code>wcProvChar: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1]</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/winbase/struct.COMMPROP.html" title="struct winapi::winbase::COMMPROP">COMMPROP</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/winbase/struct.COMMPROP.html" title="struct winapi::winbase::COMMPROP">COMMPROP</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/winbase/struct.COMMPROP.html" title="struct winapi::winbase::COMMPROP">COMMPROP</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/winbase/struct.COMMPROP.html" title="struct winapi::winbase::COMMPROP">COMMPROP</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -105,12 +172,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -131,7 +202,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -142,11 +213,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

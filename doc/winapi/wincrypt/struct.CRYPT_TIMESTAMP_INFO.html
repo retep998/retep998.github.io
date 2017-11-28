@@ -9,13 +9,15 @@
 
     <title>winapi::wincrypt::CRYPT_TIMESTAMP_INFO - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wincrypt</a></p><script>window.sidebarCurrent = {name: 'CRYPT_TIMESTAMP_INFO', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct CRYPT_TIMESTAMP_INFO</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.dwVersion">dwVersion</a><a href="#structfield.pszTSAPolicyId">pszTSAPolicyId</a><a href="#structfield.HashAlgorithm">HashAlgorithm</a><a href="#structfield.HashedMessage">HashedMessage</a><a href="#structfield.SerialNumber">SerialNumber</a><a href="#structfield.ftTime">ftTime</a><a href="#structfield.pvAccuracy">pvAccuracy</a><a href="#structfield.fOrdering">fOrdering</a><a href="#structfield.Nonce">Nonce</a><a href="#structfield.Tsa">Tsa</a><a href="#structfield.cExtension">cExtension</a><a href="#structfield.rgExtension">rgExtension</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wincrypt</a></p><script>window.sidebarCurrent = {name: 'CRYPT_TIMESTAMP_INFO', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,42 +43,89 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wincrypt</a>::<wbr><a class='struct' href=''>CRYPT_TIMESTAMP_INFO</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-94378' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct CRYPT_TIMESTAMP_INFO {
-    pub dwVersion: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub pszTSAPolicyId: <a class='type' href='../../winapi/winnt/type.LPSTR.html' title='winapi::winnt::LPSTR'>LPSTR</a>,
-    pub HashAlgorithm: <a class='struct' href='../../winapi/wincrypt/struct.CRYPT_ALGORITHM_IDENTIFIER.html' title='winapi::wincrypt::CRYPT_ALGORITHM_IDENTIFIER'>CRYPT_ALGORITHM_IDENTIFIER</a>,
-    pub HashedMessage: <a class='type' href='../../winapi/wincrypt/type.CRYPT_DER_BLOB.html' title='winapi::wincrypt::CRYPT_DER_BLOB'>CRYPT_DER_BLOB</a>,
-    pub SerialNumber: <a class='type' href='../../winapi/wincrypt/type.CRYPT_INTEGER_BLOB.html' title='winapi::wincrypt::CRYPT_INTEGER_BLOB'>CRYPT_INTEGER_BLOB</a>,
-    pub ftTime: <a class='struct' href='../../winapi/minwindef/struct.FILETIME.html' title='winapi::minwindef::FILETIME'>FILETIME</a>,
-    pub pvAccuracy: <a class='type' href='../../winapi/wincrypt/type.PCRYPT_TIMESTAMP_ACCURACY.html' title='winapi::wincrypt::PCRYPT_TIMESTAMP_ACCURACY'>PCRYPT_TIMESTAMP_ACCURACY</a>,
-    pub fOrdering: <a class='type' href='../../winapi/minwindef/type.BOOL.html' title='winapi::minwindef::BOOL'>BOOL</a>,
-    pub Nonce: <a class='type' href='../../winapi/wincrypt/type.CRYPT_DER_BLOB.html' title='winapi::wincrypt::CRYPT_DER_BLOB'>CRYPT_DER_BLOB</a>,
-    pub Tsa: <a class='type' href='../../winapi/wincrypt/type.CRYPT_DER_BLOB.html' title='winapi::wincrypt::CRYPT_DER_BLOB'>CRYPT_DER_BLOB</a>,
-    pub cExtension: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub rgExtension: <a class='type' href='../../winapi/wincrypt/type.PCERT_EXTENSION.html' title='winapi::wincrypt::PCERT_EXTENSION'>PCERT_EXTENSION</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.dwVersion'><code>dwVersion</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszTSAPolicyId'><code>pszTSAPolicyId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.HashAlgorithm'><code>HashAlgorithm</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.HashedMessage'><code>HashedMessage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SerialNumber'><code>SerialNumber</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ftTime'><code>ftTime</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pvAccuracy'><code>pvAccuracy</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.fOrdering'><code>fOrdering</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Nonce'><code>Nonce</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Tsa'><code>Tsa</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cExtension'><code>cExtension</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.rgExtension'><code>rgExtension</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html' title='winapi::wincrypt::CRYPT_TIMESTAMP_INFO'>CRYPT_TIMESTAMP_INFO</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html' title='winapi::wincrypt::CRYPT_TIMESTAMP_INFO'>CRYPT_TIMESTAMP_INFO</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html' title='winapi::wincrypt::CRYPT_TIMESTAMP_INFO'>CRYPT_TIMESTAMP_INFO</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html' title='winapi::wincrypt::CRYPT_TIMESTAMP_INFO'>CRYPT_TIMESTAMP_INFO</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wincrypt</a>::<wbr><a class="struct" href=''>CRYPT_TIMESTAMP_INFO</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct CRYPT_TIMESTAMP_INFO {
+    pub dwVersion: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub pszTSAPolicyId: <a class="type" href="../../winapi/winnt/type.LPSTR.html" title="type winapi::winnt::LPSTR">LPSTR</a>,
+    pub HashAlgorithm: <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_ALGORITHM_IDENTIFIER.html" title="struct winapi::wincrypt::CRYPT_ALGORITHM_IDENTIFIER">CRYPT_ALGORITHM_IDENTIFIER</a>,
+    pub HashedMessage: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a>,
+    pub SerialNumber: <a class="type" href="../../winapi/wincrypt/type.CRYPT_INTEGER_BLOB.html" title="type winapi::wincrypt::CRYPT_INTEGER_BLOB">CRYPT_INTEGER_BLOB</a>,
+    pub ftTime: <a class="struct" href="../../winapi/minwindef/struct.FILETIME.html" title="struct winapi::minwindef::FILETIME">FILETIME</a>,
+    pub pvAccuracy: <a class="type" href="../../winapi/wincrypt/type.PCRYPT_TIMESTAMP_ACCURACY.html" title="type winapi::wincrypt::PCRYPT_TIMESTAMP_ACCURACY">PCRYPT_TIMESTAMP_ACCURACY</a>,
+    pub fOrdering: <a class="type" href="../../winapi/minwindef/type.BOOL.html" title="type winapi::minwindef::BOOL">BOOL</a>,
+    pub Nonce: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a>,
+    pub Tsa: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a>,
+    pub cExtension: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub rgExtension: <a class="type" href="../../winapi/wincrypt/type.PCERT_EXTENSION.html" title="type winapi::wincrypt::PCERT_EXTENSION">PCERT_EXTENSION</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.dwVersion" class="structfield small-section-header">
+                           <a href="#structfield.dwVersion" class="anchor field"></a>
+                           <span id="dwVersion.v" class='invisible'>
+                           <code>dwVersion: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.pszTSAPolicyId" class="structfield small-section-header">
+                           <a href="#structfield.pszTSAPolicyId" class="anchor field"></a>
+                           <span id="pszTSAPolicyId.v" class='invisible'>
+                           <code>pszTSAPolicyId: <a class="type" href="../../winapi/winnt/type.LPSTR.html" title="type winapi::winnt::LPSTR">LPSTR</a></code>
+                           </span></span><span id="structfield.HashAlgorithm" class="structfield small-section-header">
+                           <a href="#structfield.HashAlgorithm" class="anchor field"></a>
+                           <span id="HashAlgorithm.v" class='invisible'>
+                           <code>HashAlgorithm: <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_ALGORITHM_IDENTIFIER.html" title="struct winapi::wincrypt::CRYPT_ALGORITHM_IDENTIFIER">CRYPT_ALGORITHM_IDENTIFIER</a></code>
+                           </span></span><span id="structfield.HashedMessage" class="structfield small-section-header">
+                           <a href="#structfield.HashedMessage" class="anchor field"></a>
+                           <span id="HashedMessage.v" class='invisible'>
+                           <code>HashedMessage: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a></code>
+                           </span></span><span id="structfield.SerialNumber" class="structfield small-section-header">
+                           <a href="#structfield.SerialNumber" class="anchor field"></a>
+                           <span id="SerialNumber.v" class='invisible'>
+                           <code>SerialNumber: <a class="type" href="../../winapi/wincrypt/type.CRYPT_INTEGER_BLOB.html" title="type winapi::wincrypt::CRYPT_INTEGER_BLOB">CRYPT_INTEGER_BLOB</a></code>
+                           </span></span><span id="structfield.ftTime" class="structfield small-section-header">
+                           <a href="#structfield.ftTime" class="anchor field"></a>
+                           <span id="ftTime.v" class='invisible'>
+                           <code>ftTime: <a class="struct" href="../../winapi/minwindef/struct.FILETIME.html" title="struct winapi::minwindef::FILETIME">FILETIME</a></code>
+                           </span></span><span id="structfield.pvAccuracy" class="structfield small-section-header">
+                           <a href="#structfield.pvAccuracy" class="anchor field"></a>
+                           <span id="pvAccuracy.v" class='invisible'>
+                           <code>pvAccuracy: <a class="type" href="../../winapi/wincrypt/type.PCRYPT_TIMESTAMP_ACCURACY.html" title="type winapi::wincrypt::PCRYPT_TIMESTAMP_ACCURACY">PCRYPT_TIMESTAMP_ACCURACY</a></code>
+                           </span></span><span id="structfield.fOrdering" class="structfield small-section-header">
+                           <a href="#structfield.fOrdering" class="anchor field"></a>
+                           <span id="fOrdering.v" class='invisible'>
+                           <code>fOrdering: <a class="type" href="../../winapi/minwindef/type.BOOL.html" title="type winapi::minwindef::BOOL">BOOL</a></code>
+                           </span></span><span id="structfield.Nonce" class="structfield small-section-header">
+                           <a href="#structfield.Nonce" class="anchor field"></a>
+                           <span id="Nonce.v" class='invisible'>
+                           <code>Nonce: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a></code>
+                           </span></span><span id="structfield.Tsa" class="structfield small-section-header">
+                           <a href="#structfield.Tsa" class="anchor field"></a>
+                           <span id="Tsa.v" class='invisible'>
+                           <code>Tsa: <a class="type" href="../../winapi/wincrypt/type.CRYPT_DER_BLOB.html" title="type winapi::wincrypt::CRYPT_DER_BLOB">CRYPT_DER_BLOB</a></code>
+                           </span></span><span id="structfield.cExtension" class="structfield small-section-header">
+                           <a href="#structfield.cExtension" class="anchor field"></a>
+                           <span id="cExtension.v" class='invisible'>
+                           <code>cExtension: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.rgExtension" class="structfield small-section-header">
+                           <a href="#structfield.rgExtension" class="anchor field"></a>
+                           <span id="rgExtension.v" class='invisible'>
+                           <code>rgExtension: <a class="type" href="../../winapi/wincrypt/type.PCERT_EXTENSION.html" title="type winapi::wincrypt::PCERT_EXTENSION">PCERT_EXTENSION</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html" title="struct winapi::wincrypt::CRYPT_TIMESTAMP_INFO">CRYPT_TIMESTAMP_INFO</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html" title="struct winapi::wincrypt::CRYPT_TIMESTAMP_INFO">CRYPT_TIMESTAMP_INFO</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html" title="struct winapi::wincrypt::CRYPT_TIMESTAMP_INFO">CRYPT_TIMESTAMP_INFO</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/wincrypt/struct.CRYPT_TIMESTAMP_INFO.html" title="struct winapi::wincrypt::CRYPT_TIMESTAMP_INFO">CRYPT_TIMESTAMP_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -93,12 +142,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -119,7 +172,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -130,11 +183,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

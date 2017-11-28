@@ -9,13 +9,15 @@
 
     <title>advapi32::RegQueryInfoKeyA - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc fn">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,13 +43,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content fn">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>advapi32</a>::<wbr><a class='fn' href=''>RegQueryInfoKeyA</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-557' class='srclink' href='../src/advapi32/lib.rs.html#803-808' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub unsafe extern "system" fn RegQueryInfoKeyA(hKey: <a class='type' href='../winapi/minwindef/type.HKEY.html' title='winapi::minwindef::HKEY'>HKEY</a>, lpClass: <a class='type' href='../winapi/winnt/type.LPSTR.html' title='winapi::winnt::LPSTR'>LPSTR</a>, lpcClass: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpReserved: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcSubKeys: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcMaxSubKeyLen: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcMaxClassLen: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcValues: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcMaxValueNameLen: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcMaxValueLen: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpcbSecurityDescriptor: <a class='type' href='../winapi/minwindef/type.LPDWORD.html' title='winapi::minwindef::LPDWORD'>LPDWORD</a>, lpftLastWriteTime: <a class='type' href='../winapi/minwindef/type.PFILETIME.html' title='winapi::minwindef::PFILETIME'>PFILETIME</a>) -&gt; <a class='type' href='../winapi/winnt/type.LONG.html' title='winapi::winnt::LONG'>LONG</a></pre></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Function <a href='index.html'>advapi32</a>::<wbr><a class="fn" href=''>RegQueryInfoKeyA</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/advapi32/lib.rs.html#807-812' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub unsafe extern &quot;system&quot; fn RegQueryInfoKeyA(<br>&nbsp;&nbsp;&nbsp;&nbsp;hKey: <a class="type" href="../winapi/minwindef/type.HKEY.html" title="type winapi::minwindef::HKEY">HKEY</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpClass: <a class="type" href="../winapi/winnt/type.LPSTR.html" title="type winapi::winnt::LPSTR">LPSTR</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcClass: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpReserved: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcSubKeys: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcMaxSubKeyLen: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcMaxClassLen: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcValues: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcMaxValueNameLen: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcMaxValueLen: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpcbSecurityDescriptor: <a class="type" href="../winapi/minwindef/type.LPDWORD.html" title="type winapi::minwindef::LPDWORD">LPDWORD</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;lpftLastWriteTime: <a class="type" href="../winapi/minwindef/type.PFILETIME.html" title="type winapi::minwindef::PFILETIME">PFILETIME</a><br>) -&gt; <a class="type" href="../winapi/winnt/type.LONG.html" title="type winapi::winnt::LONG">LONG</a></pre></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -64,12 +66,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -90,7 +96,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -101,11 +107,8 @@
     <script>
         window.rootPath = "../";
         window.currentCrate = "advapi32";
-        window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
     <script src="../main.js"></script>
-    
     <script defer src="../search-index.js"></script>
 </body>
 </html>

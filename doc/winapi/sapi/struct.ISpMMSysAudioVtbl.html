@@ -9,13 +9,15 @@
 
     <title>winapi::sapi::ISpMMSysAudioVtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a></p><script>window.sidebarCurrent = {name: 'ISpMMSysAudioVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct ISpMMSysAudioVtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.GetDeviceId">GetDeviceId</a><a href="#structfield.SetDeviceId">SetDeviceId</a><a href="#structfield.GetMMHandle">GetMMHandle</a><a href="#structfield.GetLineId">GetLineId</a><a href="#structfield.SetLineId">SetLineId</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a></p><script>window.sidebarCurrent = {name: 'ISpMMSysAudioVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,27 +43,46 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a>::<wbr><a class='struct' href=''>ISpMMSysAudioVtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-69155' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ISpMMSysAudioVtbl {
-    pub parent: <a class='struct' href='../../winapi/sapi/struct.ISpAudioVtbl.html' title='winapi::sapi::ISpAudioVtbl'>ISpAudioVtbl</a>,
-    pub GetDeviceId: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpMMSysAudio.html' title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a>, puDeviceId: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub SetDeviceId: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpMMSysAudio.html' title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a>, uDeviceId: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetMMHandle: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpMMSysAudio.html' title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a>, pHandle: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='enum' href='../../winapi/enum.c_void.html' title='winapi::c_void'>c_void</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetLineId: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpMMSysAudio.html' title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a>, puLineId: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub SetLineId: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/sapi/struct.ISpMMSysAudio.html' title='winapi::sapi::ISpMMSysAudio'>ISpMMSysAudio</a>, uLineId: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetDeviceId'><code>GetDeviceId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetDeviceId'><code>SetDeviceId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetMMHandle'><code>GetMMHandle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetLineId'><code>GetLineId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetLineId'><code>SetLineId</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>sapi</a>::<wbr><a class="struct" href=''>ISpMMSysAudioVtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct ISpMMSysAudioVtbl {
+    pub parent: <a class="struct" href="../../winapi/sapi/struct.ISpAudioVtbl.html" title="struct winapi::sapi::ISpAudioVtbl">ISpAudioVtbl</a>,
+    pub GetDeviceId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, puDeviceId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub SetDeviceId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, uDeviceId: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetMMHandle: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, pHandle: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="enum" href="../../winapi/enum.c_void.html" title="enum winapi::c_void">c_void</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetLineId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, puLineId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub SetLineId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, uLineId: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/sapi/struct.ISpAudioVtbl.html" title="struct winapi::sapi::ISpAudioVtbl">ISpAudioVtbl</a></code>
+                           </span></span><span id="structfield.GetDeviceId" class="structfield small-section-header">
+                           <a href="#structfield.GetDeviceId" class="anchor field"></a>
+                           <span id="GetDeviceId.v" class='invisible'>
+                           <code>GetDeviceId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, puDeviceId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.SetDeviceId" class="structfield small-section-header">
+                           <a href="#structfield.SetDeviceId" class="anchor field"></a>
+                           <span id="SetDeviceId.v" class='invisible'>
+                           <code>SetDeviceId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, uDeviceId: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetMMHandle" class="structfield small-section-header">
+                           <a href="#structfield.GetMMHandle" class="anchor field"></a>
+                           <span id="GetMMHandle.v" class='invisible'>
+                           <code>GetMMHandle: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, pHandle: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="enum" href="../../winapi/enum.c_void.html" title="enum winapi::c_void">c_void</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetLineId" class="structfield small-section-header">
+                           <a href="#structfield.GetLineId" class="anchor field"></a>
+                           <span id="GetLineId.v" class='invisible'>
+                           <code>GetLineId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, puLineId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.SetLineId" class="structfield small-section-header">
+                           <a href="#structfield.SetLineId" class="anchor field"></a>
+                           <span id="SetLineId.v" class='invisible'>
+                           <code>SetLineId: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/sapi/struct.ISpMMSysAudio.html" title="struct winapi::sapi::ISpMMSysAudio">ISpMMSysAudio</a>, uLineId: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -78,12 +99,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -104,7 +129,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -115,11 +140,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

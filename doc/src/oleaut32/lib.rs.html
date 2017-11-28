@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\oleaut32-sys-0.2.0\src\lib.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>lib.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc source">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
+<span id="342">342</span>
+<span id="343">343</span>
+<span id="344">344</span>
+<span id="345">345</span>
+<span id="346">346</span>
+<span id="347">347</span>
+<span id="348">348</span>
+<span id="349">349</span>
+<span id="350">350</span>
+<span id="351">351</span>
+<span id="352">352</span>
+<span id="353">353</span>
+<span id="354">354</span>
+<span id="355">355</span>
+<span id="356">356</span>
+<span id="357">357</span>
+<span id="358">358</span>
+<span id="359">359</span>
+<span id="360">360</span>
+<span id="361">361</span>
+<span id="362">362</span>
+<span id="363">363</span>
+<span id="364">364</span>
+<span id="365">365</span>
+<span id="366">366</span>
+<span id="367">367</span>
+<span id="368">368</span>
+<span id="369">369</span>
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+<span id="377">377</span>
+<span id="378">378</span>
+<span id="379">379</span>
+<span id="380">380</span>
+<span id="381">381</span>
+<span id="382">382</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to oleaut32.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysAllocString</span>(<span class="ident">psz</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">OLECHAR</span>) <span class="op">-&gt;</span> <span class="ident">BSTR</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysReAllocString</span>(<span class="ident">pbstr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>, <span class="ident">psz</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">OLECHAR</span>) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysAllocStringLen</span>(<span class="ident">strIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">OLECHAR</span>, <span class="ident">ui</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">BSTR</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysReAllocStringLen</span>(<span class="ident">pbstr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>, <span class="ident">psz</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">OLECHAR</span>, <span class="ident">len</span>: <span class="ident">c_uint</span>) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysFreeString</span>(<span class="ident">bstrString</span>: <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysStringLen</span>(<span class="ident">pbstr</span>: <span class="ident">BSTR</span>) <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysStringByteLen</span>(<span class="ident">bstr</span>: <span class="ident">BSTR</span>) <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SysAllocStringByteLen</span>(<span class="ident">psz</span>: <span class="ident">LPCSTR</span>, <span class="ident">len</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">BSTR</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">DosDateTimeToVariantTime</span>(
+        <span class="ident">wDosDate</span>: <span class="ident">USHORT</span>, <span class="ident">wDosTime</span>: <span class="ident">USHORT</span>, <span class="ident">pvtime</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>
+    ) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VariantTimeToDosDateTime</span>(
+        <span class="ident">vtime</span>: <span class="ident">DOUBLE</span>, <span class="ident">pwDosDate</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>, <span class="ident">pwDosTime</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">SystemTimeToVariantTime</span>(<span class="ident">lpSystemTime</span>: <span class="ident">LPSYSTEMTIME</span>, <span class="ident">pvtime</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VariantTimeToSystemTime</span>(<span class="ident">vtime</span>: <span class="ident">DOUBLE</span>, <span class="ident">lpSystemTime</span>: <span class="ident">LPSYSTEMTIME</span>) <span class="op">-&gt;</span> <span class="ident">INT</span>;
+    <span class="comment">// pub fn SafeArrayAllocDescriptor(cDims: UINT, ppsaOut: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayAllocDescriptorEx(vt: VARTYPE, cDims: UINT, ppsaOut: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayAllocData(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayCreate(</span>
+    <span class="comment">//     vt: VARTYPE, cDims: UINT, rgsabound: *mut SAFEARRAYBOUND</span>
+    <span class="comment">// ) -&gt; *mut SAFEARRAY;</span>
+    <span class="comment">// pub fn SafeArrayCreateEx(</span>
+    <span class="comment">//     vt: VARTYPE, cDims: UINT, rgsabound: *mut SAFEARRAYBOUND, pvExtra: PVOID</span>
+    <span class="comment">// ) -&gt; *mut SAFEARRAY;</span>
+    <span class="comment">// pub fn SafeArrayCopyData(psaSource: *mut SAFEARRAY, psaTarget: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayDestroyDescriptor(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayDestroyData(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayDestroy(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayRedim(psa: *mut SAFEARRAY, psaboundNew: *mut SAFEARRAYBOUND);</span>
+    <span class="comment">// pub fn SafeArrayGetDim(psa: *mut SAFEARRAY) -&gt; UINT;</span>
+    <span class="comment">// pub fn SafeArrayGetElemsize(psa: *mut SAFEARRAY) -&gt;  UINT;</span>
+    <span class="comment">// pub fn SafeArrayGetUBound(psa: *mut SAFEARRAY, nDim: UINT, plUbound: *mut LONG);</span>
+    <span class="comment">// pub fn SafeArrayGetLBound(psa: *mut SAFEARRAY, nDim: UINT, plLbound: *mut LONG);</span>
+    <span class="comment">// pub fn SafeArrayLock(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayUnlock(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayAccessData(psa: *mut SAFEARRAY, ppvData: *mut *mut c_void);</span>
+    <span class="comment">// pub fn SafeArrayUnaccessData(psa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayGetElement(psa: *mut SAFEARRAY, rgIndices: *mut LONG, pv: *mut c_void);</span>
+    <span class="comment">// pub fn SafeArrayPutElement(psa: *mut SAFEARRAY, rgIndices: *mut LONG, pv: *mut c_void);</span>
+    <span class="comment">// pub fn SafeArrayCopy(psa: *mut SAFEARRAY, ppsaOut: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn SafeArrayPtrOfIndex(</span>
+    <span class="comment">//     psa: *mut SAFEARRAY, rgIndices: *mut LONG, ppvData: *mut *mut c_void</span>
+    <span class="comment">// );</span>
+    <span class="comment">// pub fn SafeArraySetRecordInfo(psa: *mut SAFEARRAY, prinfo: *mut IRecordInfo);</span>
+    <span class="comment">// pub fn SafeArrayGetRecordInfo(psa: *mut SAFEARRAY, prinfo: *mut IRecordInfo);</span>
+    <span class="comment">// pub fn SafeArraySetIID(psa: *mut SAFEARRAY, guid: REFGUID);</span>
+    <span class="comment">// pub fn SafeArrayGetIID(psa: *mut SAFEARRAY, pguid: *mut GUID);</span>
+    <span class="comment">// pub fn SafeArrayGetVartype(psa: *mut SAFEARRAY, pvt: *mut VARTYPE);</span>
+    <span class="comment">// pub fn SafeArrayCreateVector(</span>
+    <span class="comment">//     vt: VARTYPE, lLbound: LONG, cElements: ULONG</span>
+    <span class="comment">// ) -&gt; *mut SAFEARRAY;</span>
+    <span class="comment">// pub fn SafeArrayCreateVectorEx(</span>
+    <span class="comment">//     vt: VARTYPE, lLbound: LONG, cElements: ULONG, pvExtra: PVOID</span>
+    <span class="comment">// ) -&gt; *mut SAFEARRAY;</span>
+    <span class="comment">// pub fn VariantInit(pvarg: *mut VARIANTARG);</span>
+    <span class="comment">// pub fn VariantClear(pvarg: *mut VARIANTARG);</span>
+    <span class="comment">// pub fn VariantCopy(pvargDest: *mut VARIANTARG,pvargSrc: *const VARIANTARG);</span>
+    <span class="comment">// pub fn VariantCopyInd(pvarDest: *mut VARIANT,pvargSrc: *const VARIANTARG);</span>
+    <span class="comment">// pub fn VariantChangeType();</span>
+    <span class="comment">// pub fn VariantChangeTypeEx();</span>
+    <span class="comment">// pub fn VectorFromBstr(bstr: BSTR, ppsa: *mut SAFEARRAY);</span>
+    <span class="comment">// pub fn BstrFromVector(psa: *mut SAFEARRAY, pbstr: *mut BSTR);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="comment">//pub fn VarUI1FromCy(cyIn: CY, pbOut: *mut BYTE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="comment">// pub fn VarUI1FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pbOut: *mut BYTE);</span>
+    <span class="comment">// pub fn VarUI1FromBool(VARIANT_boolIn: BOOL, pbOut: *mut BYTE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI1FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pbOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BYTE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="comment">//pub fn VarI2FromCy(cyIn: CY, psOut: *mut SHORT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="comment">// pub fn VarI2FromDisp(pdispIn: *mut IDispatch, lcid: LCID, psOut: *mut SHORT);</span>
+    <span class="comment">// pub fn VarI2FromBool(VARIANT_boolIn: BOOL, psOut: *mut SHORT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI2FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">psOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="comment">// pub fn VarI4FromCy(cyIn: CY, plOut: *mut LONG);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="comment">// pub fn VarI4FromDisp(pdispIn: *mut IDispatch, lcid: LCID, plOut: *mut LONG);</span>
+    <span class="comment">// pub fn VarI4FromBool(VARIANT_boolIn: BOOL, plOut: *mut LONG);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI4FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="comment">// pub fn VarI8FromCy(cyIn: CY, pi64Out: *mut LONG64);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="comment">// pub fn VarI8FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pi64Out: *mut LONG64);</span>
+    <span class="comment">// pub fn VarI8FromBool(VARIANT_boolIn: BOOL, pi64Out: *mut LONG64);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarI8FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="comment">// pub fn VarR4FromCy(cyIn: CY, pfltOut: *mut FLOAT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="comment">// pub fn VarR4FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pfltOut: *mut FLOAT);</span>
+    <span class="comment">// pub fn VarR4FromBool(VARIANT_boolIn: BOOL, pfltOut: *mut FLOAT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pfltOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FLOAT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="comment">// pub fn VarR8FromCy(cyIn: CY, pdblOut: *mut DOUBLE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="comment">// pub fn VarR8FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pdblOut: *mut DOUBLE);</span>
+    <span class="comment">// pub fn VarR8FromBool(VARIANT_boolIn: BOOL, pdblOut: *mut DOUBLE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pdblOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOUBLE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="comment">// pub fn VarDateFromCy(cyIn: CY, pdateOut: *mut DATE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="comment">// pub fn VarDateFromDisp(pdispIn: *mut IDispatch, lcid: LCID, pdateOut: *mut DATE);</span>
+    <span class="comment">// pub fn VarDateFromBool(VARIANT_boolIn: BOOL, pdateOut: *mut DATE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDateFromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pdateOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DATE</span>);
+    <span class="comment">// pub fn VarCyFromUI1(bIn: BYTE, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromI2(sIn: SHORT, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromI4(lIn: LONG, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromI8(i64In: LONG64, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromR4(fltIn: FLOAT, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromR8(dblIn: DOUBLE, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromDate(dateIn: DATE, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromDisp(pdispIn: *mut IDispatch, lcid: LCID, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromBool(VARIANT_boolIn: BOOL, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromI1(cIn: CHAR, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromUI2(uiIn: USHORT, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromUI4(ulIn: ULONG, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromUI8(ui64In: ULONG64, pcyOut: *mut CY);</span>
+    <span class="comment">// pub fn VarCyFromDec(pdecIn: *const DECIMAL, pcyOut: *mut CY);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromUI1</span>(<span class="ident">bVal</span>: <span class="ident">BYTE</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromI2</span>(<span class="ident">iVal</span>: <span class="ident">SHORT</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="comment">// pub fn VarBstrFromCy(cyIn: CY, lcid: LCID, dwFlags: ULONG, pbstrOut: *mut BSTR);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="comment">// pub fn VarBstrFromDisp(</span>
+    <span class="comment">//     pdispIn: *mut IDispatch, lcid: LCID, dwFlags: ULONG, pbstrOut: *mut BSTR</span>
+    <span class="comment">// );</span>
+    <span class="comment">// pub fn VarBstrFromBool(</span>
+    <span class="comment">//     VARIANT_boolIn: BOOL, lcid: LCID, dwFlags: ULONG, pbstrOut: *mut BSTR</span>
+    <span class="comment">// );</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrFromDec</span>(
+        <span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pbstrOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BSTR</span>
+    );
+    <span class="comment">// pub fn VarBoolFromUI1(bIn: BYTE, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromI2(sIn: SHORT, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromI4(lIn: LONG, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromI8(i64In: LONG64, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromR4(fltIn: FLOAT, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromR8(dblIn: DOUBLE, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromDate(dateIn: DATE, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromCy(cyIn: CY, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromStr(</span>
+    <span class="comment">//     strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG, VARIANT_pboolOut: *mut BOOL</span>
+    <span class="comment">// );</span>
+    <span class="comment">// pub fn VarBoolFromDisp(pdispIn: *mut IDispatch, lcid: LCID, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromI1(cIn: CHAR, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromUI2(uiIn: USHORT, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromUI4(ulIn: ULONG, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromUI8(i64In: ULONG64, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="comment">// pub fn VarBoolFromDec(pdecIn: *const DECIMAL, VARIANT_pboolOut: *mut BOOL);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromI2</span>(<span class="ident">uiIn</span>: <span class="ident">SHORT</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="comment">// pub fn VarUI2FromCy(cyIn: CY, puiOut: *mut USHORT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="comment">// pub fn VarUI2FromDisp(pdispIn: *mut IDispatch, lcid: LCID, puiOut: *mut USHORT);</span>
+    <span class="comment">// pub fn VarUI2FromBool(VARIANT_boolIn: BOOL, puiOut: *mut USHORT);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromUI8</span>(<span class="ident">i64In</span>: <span class="ident">ULONG64</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI2FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">puiOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">USHORT</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromI2</span>(<span class="ident">uiIn</span>: <span class="ident">SHORT</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="comment">// pub fn VarUI4FromCy(cyIn: CY, pulOut: *mut ULONG);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="comment">// pub fn VarUI4FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pulOut: *mut ULONG);</span>
+    <span class="comment">// pub fn VarUI4FromBool(VARIANT_boolIn: BOOL, pulOut: *mut ULONG);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">plOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI4FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pulOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromI2</span>(<span class="ident">sIn</span>: <span class="ident">SHORT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromI8</span>(<span class="ident">ui64In</span>: <span class="ident">LONG64</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="comment">// pub fn VarUI8FromCy(cyIn: CY, pi64Out: *mut ULONG64);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="comment">// pub fn VarUI8FromDisp(pdispIn: *mut IDispatch, lcid: LCID, pi64Out: *mut ULONG64);</span>
+    <span class="comment">// pub fn VarUI8FromBool(VARIANT_boolIn: BOOL, pi64Out: *mut ULONG64);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarUI8FromDec</span>(<span class="ident">pdecIn</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">DECIMAL</span>, <span class="ident">pi64Out</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG64</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromUI1</span>(<span class="ident">bIn</span>: <span class="ident">BYTE</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromI2</span>(<span class="ident">uiIn</span>: <span class="ident">SHORT</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromI4</span>(<span class="ident">lIn</span>: <span class="ident">LONG</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromI8</span>(<span class="ident">i64In</span>: <span class="ident">LONG64</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromR4</span>(<span class="ident">fltIn</span>: <span class="ident">FLOAT</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromR8</span>(<span class="ident">dblIn</span>: <span class="ident">DOUBLE</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromDate</span>(<span class="ident">dateIn</span>: <span class="ident">DATE</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="comment">// pub fn VarDecFromCy(cyIn: CY, pdecOut: *mut DECIMAL);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromStr</span>(<span class="ident">strIn</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="comment">// pub fn VarDecFromDisp(pdispIn: *mut IDispatch, lcid: LCID, pdecOut: *mut DECIMAL);</span>
+    <span class="comment">// pub fn VarDecFromBool(VARIANT_boolIn: BOOL, pdecOut: *mut DECIMAL);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromI1</span>(<span class="ident">cIn</span>: <span class="ident">CHAR</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromUI2</span>(<span class="ident">uiIn</span>: <span class="ident">USHORT</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromUI4</span>(<span class="ident">ulIn</span>: <span class="ident">ULONG</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFromUI8</span>(<span class="ident">ui64In</span>: <span class="ident">ULONG64</span>, <span class="ident">pdecOut</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DECIMAL</span>);
+    <span class="comment">// pub fn VarParseNumFromStr(strIn: LPCOLESTR, lcid: LCID, dwFlags: ULONG,</span>
+    <span class="comment">// pub fn VarNumFromParseNum(pnumprs: *mut NUMPARSE, rgbDig: *mut BYTE,</span>
+    <span class="comment">// pub fn VarAdd(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarAnd(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarCat(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarDiv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarEqv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarIdiv(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarImp(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarMod(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarMul(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarOr(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarPow(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarSub(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarXor(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarAbs(pvarIn: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarFix(pvarIn: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarInt(pvarIn: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarNeg(pvarIn: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarNot(pvarIn: LPVARIANT, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarRound(pvarIn: LPVARIANT, cDecimals: c_int, pvarResult: LPVARIANT);</span>
+    <span class="comment">// pub fn VarCmp(pvarLeft: LPVARIANT, pvarRight: LPVARIANT, lcid: LCID, dwFlags: ULONG);</span>
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecAdd</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecRight</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecDiv</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecRight</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecMul</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecRight</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecSub</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecRight</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecAbs</span>(<span class="ident">pdecIn</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecFix</span>(<span class="ident">pdecIn</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecInt</span>(<span class="ident">pdecIn</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecNeg</span>(<span class="ident">pdecIn</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecRound</span>(<span class="ident">pdecIn</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">cDecimals</span>: <span class="ident">c_int</span>, <span class="ident">pdecResult</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecCmp</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">pdecRight</span>: <span class="ident">LPDECIMAL</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarDecCmpR8</span>(<span class="ident">pdecLeft</span>: <span class="ident">LPDECIMAL</span>, <span class="ident">dblRight</span>: <span class="ident">c_double</span>);
+    <span class="comment">// pub fn VarCyAdd(cyLeft: CY, cyRight: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyMul(cyLeft: CY, cyRight: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyMulI4(cyLeft: CY, lRight: LONG, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyMulI8(cyLeft: CY, lRight: LONG64, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCySub(cyLeft: CY, cyRight: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyAbs(cyIn: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyFix(cyIn: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyInt(cyIn: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyNeg(cyIn: CY, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyRound(cyIn: CY, cDecimals: c_int, pcyResult: LPCY);</span>
+    <span class="comment">// pub fn VarCyCmp(cyLeft: CY, cyRight: CY);</span>
+    <span class="comment">// pub fn VarCyCmpR8(cyLeft: CY, dblRight: c_double);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrCat</span>(<span class="ident">bstrLeft</span>: <span class="ident">BSTR</span>, <span class="ident">bstrRight</span>: <span class="ident">BSTR</span>, <span class="ident">pbstrResult</span>: <span class="ident">LPBSTR</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarBstrCmp</span>(<span class="ident">bstrLeft</span>: <span class="ident">BSTR</span>, <span class="ident">bstrRight</span>: <span class="ident">BSTR</span>, <span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">dwFlags</span>: <span class="ident">ULONG</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8Pow</span>(<span class="ident">dblLeft</span>: <span class="ident">c_double</span>, <span class="ident">dblRight</span>: <span class="ident">c_double</span>, <span class="ident">pdblResult</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_double</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR4CmpR8</span>(<span class="ident">fltLeft</span>: <span class="ident">c_float</span>, <span class="ident">dblRight</span>: <span class="ident">c_double</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">VarR8Round</span>(<span class="ident">dblIn</span>: <span class="ident">c_double</span>, <span class="ident">cDecimals</span>: <span class="ident">c_int</span>, <span class="ident">pdblResult</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_double</span>);
+    <span class="comment">// pub fn VarDateFromUdate(pudateIn: *mut UDATE, dwFlags: ULONG, pdateOut: *mut DATE);</span>
+    <span class="comment">// pub fn VarDateFromUdateEx(</span>
+    <span class="comment">//     pudateIn: *mut UDATE, lcid: LCID, dwFlags: ULONG, pdateOut: *mut DATE</span>
+    <span class="comment">// );</span>
+    <span class="comment">// pub fn VarUdateFromDate(dateIn: DATE, dwFlags: ULONG, pudateOut: *mut UDATE);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetAltMonthNames</span>(<span class="ident">lcid</span>: <span class="ident">LCID</span>, <span class="ident">prgp</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPOLESTR</span>);
+    <span class="comment">// pub fn VarFormat();</span>
+    <span class="comment">// pub fn VarFormatDateTime();</span>
+    <span class="comment">// pub fn VarFormatNumber();</span>
+    <span class="comment">// pub fn VarFormatPercent();</span>
+    <span class="comment">// pub fn VarFormatCurrency();</span>
+    <span class="comment">// pub fn VarWeekdayName();</span>
+    <span class="comment">// pub fn VarMonthName();</span>
+    <span class="comment">// pub fn VarFormatFromTokens();</span>
+    <span class="comment">// pub fn VarTokenizeFormatString();</span>
+    <span class="comment">// pub fn LHashValOfNameSysA();</span>
+    <span class="comment">// pub fn LoadTypeLib(szFile: LPCOLESTR, pptlib: *mut ITypeLib);</span>
+    <span class="comment">// pub fn LoadTypeLibEx();</span>
+    <span class="comment">// pub fn LoadRegTypeLib();</span>
+    <span class="comment">// pub fn QueryPathOfRegTypeLib();</span>
+    <span class="comment">// pub fn RegisterTypeLib();</span>
+    <span class="comment">// pub fn UnRegisterTypeLib();</span>
+    <span class="comment">// pub fn RegisterTypeLibForUser();</span>
+    <span class="comment">// pub fn UnRegisterTypeLibForUser();</span>
+    <span class="comment">// pub fn CreateTypeLib();</span>
+    <span class="comment">// pub fn CreateTypeLib2();</span>
+    <span class="comment">// pub fn DispGetParam();</span>
+    <span class="comment">// pub fn DispGetIDsOfNames();</span>
+    <span class="comment">// pub fn DispInvoke();</span>
+    <span class="comment">// pub fn CreateDispTypeInfo();</span>
+    <span class="comment">// pub fn CreateStdDispatch();</span>
+    <span class="comment">// pub fn DispCallFunc();</span>
+    <span class="comment">// pub fn RegisterActiveObject();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">RevokeActiveObject</span>(<span class="ident">dwRegister</span>: <span class="ident">DWORD</span>, <span class="ident">pvReserved</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>);
+    <span class="comment">// pub fn GetActiveObject();</span>
+    <span class="comment">// pub fn SetErrorInfo(dwReserved: ULONG, perrinfo: *mut IErrorInfo);</span>
+    <span class="comment">// pub fn GetErrorInfo(dwReserved: ULONG, pperrinfo: *mut IErrorInfo);</span>
+    <span class="comment">// pub fn CreateErrorInfo(pperrinfo: *mut ICreateErrorInfo);</span>
+    <span class="comment">// pub fn GetRecordInfoFromTypeInfo();</span>
+    <span class="comment">// pub fn GetRecordInfoFromGuids();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">OaBuildVersion</span>() <span class="op">-&gt;</span> <span class="ident">ULONG</span>;
+    <span class="comment">// pub fn ClearCustData(pCustData: LPCUSTDATA);</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">OaEnablePerUserTLibRegistration</span>();
+}
+</pre>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "oleaut32";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

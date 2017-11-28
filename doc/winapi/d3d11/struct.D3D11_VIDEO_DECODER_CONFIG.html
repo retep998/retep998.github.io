@@ -9,13 +9,15 @@
 
     <title>winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d3d11</a></p><script>window.sidebarCurrent = {name: 'D3D11_VIDEO_DECODER_CONFIG', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct D3D11_VIDEO_DECODER_CONFIG</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.guidConfigBitstreamEncryption">guidConfigBitstreamEncryption</a><a href="#structfield.guidConfigMBcontrolEncryption">guidConfigMBcontrolEncryption</a><a href="#structfield.guidConfigResidDiffEncryption">guidConfigResidDiffEncryption</a><a href="#structfield.ConfigBitstreamRaw">ConfigBitstreamRaw</a><a href="#structfield.ConfigMBcontrolRasterOrder">ConfigMBcontrolRasterOrder</a><a href="#structfield.ConfigResidDiffHost">ConfigResidDiffHost</a><a href="#structfield.ConfigSpatialResid8">ConfigSpatialResid8</a><a href="#structfield.ConfigResid8Subtraction">ConfigResid8Subtraction</a><a href="#structfield.ConfigSpatialHost8or9Clipping">ConfigSpatialHost8or9Clipping</a><a href="#structfield.ConfigSpatialResidInterleaved">ConfigSpatialResidInterleaved</a><a href="#structfield.ConfigIntraResidUnsigned">ConfigIntraResidUnsigned</a><a href="#structfield.ConfigResidDiffAccelerator">ConfigResidDiffAccelerator</a><a href="#structfield.ConfigHostInverseScan">ConfigHostInverseScan</a><a href="#structfield.ConfigSpecificIDCT">ConfigSpecificIDCT</a><a href="#structfield.Config4GroupedCoefs">Config4GroupedCoefs</a><a href="#structfield.ConfigMinRenderTargetBuffCount">ConfigMinRenderTargetBuffCount</a><a href="#structfield.ConfigDecoderSpecific">ConfigDecoderSpecific</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d3d11</a></p><script>window.sidebarCurrent = {name: 'D3D11_VIDEO_DECODER_CONFIG', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,52 +43,114 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d3d11</a>::<wbr><a class='struct' href=''>D3D11_VIDEO_DECODER_CONFIG</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-25253' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct D3D11_VIDEO_DECODER_CONFIG {
-    pub guidConfigBitstreamEncryption: <a class='struct' href='../../winapi/guiddef/struct.GUID.html' title='winapi::guiddef::GUID'>GUID</a>,
-    pub guidConfigMBcontrolEncryption: <a class='struct' href='../../winapi/guiddef/struct.GUID.html' title='winapi::guiddef::GUID'>GUID</a>,
-    pub guidConfigResidDiffEncryption: <a class='struct' href='../../winapi/guiddef/struct.GUID.html' title='winapi::guiddef::GUID'>GUID</a>,
-    pub ConfigBitstreamRaw: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigMBcontrolRasterOrder: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigResidDiffHost: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigSpatialResid8: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigResid8Subtraction: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigSpatialHost8or9Clipping: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigSpatialResidInterleaved: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigIntraResidUnsigned: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigResidDiffAccelerator: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigHostInverseScan: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigSpecificIDCT: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub Config4GroupedCoefs: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub ConfigMinRenderTargetBuffCount: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub ConfigDecoderSpecific: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.guidConfigBitstreamEncryption'><code>guidConfigBitstreamEncryption</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.guidConfigMBcontrolEncryption'><code>guidConfigMBcontrolEncryption</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.guidConfigResidDiffEncryption'><code>guidConfigResidDiffEncryption</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigBitstreamRaw'><code>ConfigBitstreamRaw</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigMBcontrolRasterOrder'><code>ConfigMBcontrolRasterOrder</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigResidDiffHost'><code>ConfigResidDiffHost</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigSpatialResid8'><code>ConfigSpatialResid8</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigResid8Subtraction'><code>ConfigResid8Subtraction</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigSpatialHost8or9Clipping'><code>ConfigSpatialHost8or9Clipping</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigSpatialResidInterleaved'><code>ConfigSpatialResidInterleaved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigIntraResidUnsigned'><code>ConfigIntraResidUnsigned</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigResidDiffAccelerator'><code>ConfigResidDiffAccelerator</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigHostInverseScan'><code>ConfigHostInverseScan</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigSpecificIDCT'><code>ConfigSpecificIDCT</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Config4GroupedCoefs'><code>Config4GroupedCoefs</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigMinRenderTargetBuffCount'><code>ConfigMinRenderTargetBuffCount</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ConfigDecoderSpecific'><code>ConfigDecoderSpecific</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html' title='winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG'>D3D11_VIDEO_DECODER_CONFIG</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html' title='winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG'>D3D11_VIDEO_DECODER_CONFIG</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html' title='winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG'>D3D11_VIDEO_DECODER_CONFIG</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html' title='winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG'>D3D11_VIDEO_DECODER_CONFIG</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d3d11</a>::<wbr><a class="struct" href=''>D3D11_VIDEO_DECODER_CONFIG</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct D3D11_VIDEO_DECODER_CONFIG {
+    pub guidConfigBitstreamEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a>,
+    pub guidConfigMBcontrolEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a>,
+    pub guidConfigResidDiffEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a>,
+    pub ConfigBitstreamRaw: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigMBcontrolRasterOrder: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigResidDiffHost: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigSpatialResid8: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigResid8Subtraction: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigSpatialHost8or9Clipping: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigSpatialResidInterleaved: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigIntraResidUnsigned: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigResidDiffAccelerator: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigHostInverseScan: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigSpecificIDCT: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub Config4GroupedCoefs: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub ConfigMinRenderTargetBuffCount: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub ConfigDecoderSpecific: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.guidConfigBitstreamEncryption" class="structfield small-section-header">
+                           <a href="#structfield.guidConfigBitstreamEncryption" class="anchor field"></a>
+                           <span id="guidConfigBitstreamEncryption.v" class='invisible'>
+                           <code>guidConfigBitstreamEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a></code>
+                           </span></span><span id="structfield.guidConfigMBcontrolEncryption" class="structfield small-section-header">
+                           <a href="#structfield.guidConfigMBcontrolEncryption" class="anchor field"></a>
+                           <span id="guidConfigMBcontrolEncryption.v" class='invisible'>
+                           <code>guidConfigMBcontrolEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a></code>
+                           </span></span><span id="structfield.guidConfigResidDiffEncryption" class="structfield small-section-header">
+                           <a href="#structfield.guidConfigResidDiffEncryption" class="anchor field"></a>
+                           <span id="guidConfigResidDiffEncryption.v" class='invisible'>
+                           <code>guidConfigResidDiffEncryption: <a class="struct" href="../../winapi/guiddef/struct.GUID.html" title="struct winapi::guiddef::GUID">GUID</a></code>
+                           </span></span><span id="structfield.ConfigBitstreamRaw" class="structfield small-section-header">
+                           <a href="#structfield.ConfigBitstreamRaw" class="anchor field"></a>
+                           <span id="ConfigBitstreamRaw.v" class='invisible'>
+                           <code>ConfigBitstreamRaw: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigMBcontrolRasterOrder" class="structfield small-section-header">
+                           <a href="#structfield.ConfigMBcontrolRasterOrder" class="anchor field"></a>
+                           <span id="ConfigMBcontrolRasterOrder.v" class='invisible'>
+                           <code>ConfigMBcontrolRasterOrder: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigResidDiffHost" class="structfield small-section-header">
+                           <a href="#structfield.ConfigResidDiffHost" class="anchor field"></a>
+                           <span id="ConfigResidDiffHost.v" class='invisible'>
+                           <code>ConfigResidDiffHost: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigSpatialResid8" class="structfield small-section-header">
+                           <a href="#structfield.ConfigSpatialResid8" class="anchor field"></a>
+                           <span id="ConfigSpatialResid8.v" class='invisible'>
+                           <code>ConfigSpatialResid8: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigResid8Subtraction" class="structfield small-section-header">
+                           <a href="#structfield.ConfigResid8Subtraction" class="anchor field"></a>
+                           <span id="ConfigResid8Subtraction.v" class='invisible'>
+                           <code>ConfigResid8Subtraction: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigSpatialHost8or9Clipping" class="structfield small-section-header">
+                           <a href="#structfield.ConfigSpatialHost8or9Clipping" class="anchor field"></a>
+                           <span id="ConfigSpatialHost8or9Clipping.v" class='invisible'>
+                           <code>ConfigSpatialHost8or9Clipping: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigSpatialResidInterleaved" class="structfield small-section-header">
+                           <a href="#structfield.ConfigSpatialResidInterleaved" class="anchor field"></a>
+                           <span id="ConfigSpatialResidInterleaved.v" class='invisible'>
+                           <code>ConfigSpatialResidInterleaved: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigIntraResidUnsigned" class="structfield small-section-header">
+                           <a href="#structfield.ConfigIntraResidUnsigned" class="anchor field"></a>
+                           <span id="ConfigIntraResidUnsigned.v" class='invisible'>
+                           <code>ConfigIntraResidUnsigned: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigResidDiffAccelerator" class="structfield small-section-header">
+                           <a href="#structfield.ConfigResidDiffAccelerator" class="anchor field"></a>
+                           <span id="ConfigResidDiffAccelerator.v" class='invisible'>
+                           <code>ConfigResidDiffAccelerator: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigHostInverseScan" class="structfield small-section-header">
+                           <a href="#structfield.ConfigHostInverseScan" class="anchor field"></a>
+                           <span id="ConfigHostInverseScan.v" class='invisible'>
+                           <code>ConfigHostInverseScan: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigSpecificIDCT" class="structfield small-section-header">
+                           <a href="#structfield.ConfigSpecificIDCT" class="anchor field"></a>
+                           <span id="ConfigSpecificIDCT.v" class='invisible'>
+                           <code>ConfigSpecificIDCT: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.Config4GroupedCoefs" class="structfield small-section-header">
+                           <a href="#structfield.Config4GroupedCoefs" class="anchor field"></a>
+                           <span id="Config4GroupedCoefs.v" class='invisible'>
+                           <code>Config4GroupedCoefs: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.ConfigMinRenderTargetBuffCount" class="structfield small-section-header">
+                           <a href="#structfield.ConfigMinRenderTargetBuffCount" class="anchor field"></a>
+                           <span id="ConfigMinRenderTargetBuffCount.v" class='invisible'>
+                           <code>ConfigMinRenderTargetBuffCount: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.ConfigDecoderSpecific" class="structfield small-section-header">
+                           <a href="#structfield.ConfigDecoderSpecific" class="anchor field"></a>
+                           <span id="ConfigDecoderSpecific.v" class='invisible'>
+                           <code>ConfigDecoderSpecific: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html" title="struct winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG">D3D11_VIDEO_DECODER_CONFIG</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html" title="struct winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG">D3D11_VIDEO_DECODER_CONFIG</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html" title="struct winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG">D3D11_VIDEO_DECODER_CONFIG</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/d3d11/struct.D3D11_VIDEO_DECODER_CONFIG.html" title="struct winapi::d3d11::D3D11_VIDEO_DECODER_CONFIG">D3D11_VIDEO_DECODER_CONFIG</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -103,12 +167,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -129,7 +197,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -140,11 +208,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

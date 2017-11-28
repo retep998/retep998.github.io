@@ -9,13 +9,15 @@
 
     <title>winapi::cfgmgr32::CM_NOTIFY_FILTER - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>cfgmgr32</a></p><script>window.sidebarCurrent = {name: 'CM_NOTIFY_FILTER', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct CM_NOTIFY_FILTER</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.cbSize">cbSize</a><a href="#structfield.Flags">Flags</a><a href="#structfield.FilterType">FilterType</a><a href="#structfield.Reserved">Reserved</a><a href="#structfield.u">u</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.DeviceInterface">DeviceInterface</a><a href="#method.DeviceInterface_mut">DeviceInterface_mut</a><a href="#method.DeviceHandle">DeviceHandle</a><a href="#method.DeviceHandle_mut">DeviceHandle_mut</a><a href="#method.DeviceInstance">DeviceInstance</a><a href="#method.DeviceInstance_mut">DeviceInstance_mut</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>cfgmgr32</a></p><script>window.sidebarCurrent = {name: 'CM_NOTIFY_FILTER', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,33 +43,64 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>cfgmgr32</a>::<wbr><a class='struct' href=''>CM_NOTIFY_FILTER</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-2513' class='srclink' href='../../src/winapi/cfgmgr32.rs.html#651-657' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct CM_NOTIFY_FILTER {
-    pub cbSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub Flags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub FilterType: <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_TYPE.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_TYPE'>CM_NOTIFY_FILTER_TYPE</a>,
-    pub Reserved: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub u: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 400]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.cbSize'><code>cbSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Flags'><code>Flags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FilterType'><code>FilterType</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Reserved'><code>Reserved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.u'><code>u</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h3><div class='impl-items'><h4 id='method.DeviceInterface' class='method'><code>unsafe fn <a href='#method.DeviceInterface' class='fnname'>DeviceInterface</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInterface.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInterface'>CM_NOTIFY_FILTER_DeviceInterface</a></code></h4>
-<h4 id='method.DeviceInterface_mut' class='method'><code>unsafe fn <a href='#method.DeviceInterface_mut' class='fnname'>DeviceInterface_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInterface.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInterface'>CM_NOTIFY_FILTER_DeviceInterface</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h3><div class='impl-items'><h4 id='method.DeviceHandle' class='method'><code>unsafe fn <a href='#method.DeviceHandle' class='fnname'>DeviceHandle</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceHandle.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceHandle'>CM_NOTIFY_FILTER_DeviceHandle</a></code></h4>
-<h4 id='method.DeviceHandle_mut' class='method'><code>unsafe fn <a href='#method.DeviceHandle_mut' class='fnname'>DeviceHandle_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceHandle.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceHandle'>CM_NOTIFY_FILTER_DeviceHandle</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h3><div class='impl-items'><h4 id='method.DeviceInstance' class='method'><code>unsafe fn <a href='#method.DeviceInstance' class='fnname'>DeviceInstance</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInstance.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInstance'>CM_NOTIFY_FILTER_DeviceInstance</a></code></h4>
-<h4 id='method.DeviceInstance_mut' class='method'><code>unsafe fn <a href='#method.DeviceInstance_mut' class='fnname'>DeviceInstance_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInstance.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInstance'>CM_NOTIFY_FILTER_DeviceInstance</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html' title='winapi::cfgmgr32::CM_NOTIFY_FILTER'>CM_NOTIFY_FILTER</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>cfgmgr32</a>::<wbr><a class="struct" href=''>CM_NOTIFY_FILTER</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct CM_NOTIFY_FILTER {
+    pub cbSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub FilterType: <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_TYPE.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_TYPE">CM_NOTIFY_FILTER_TYPE</a>,
+    pub Reserved: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub u: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.BYTE.html" title="type winapi::minwindef::BYTE">BYTE</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 400]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.cbSize" class="structfield small-section-header">
+                           <a href="#structfield.cbSize" class="anchor field"></a>
+                           <span id="cbSize.v" class='invisible'>
+                           <code>cbSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.Flags" class="structfield small-section-header">
+                           <a href="#structfield.Flags" class="anchor field"></a>
+                           <span id="Flags.v" class='invisible'>
+                           <code>Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.FilterType" class="structfield small-section-header">
+                           <a href="#structfield.FilterType" class="anchor field"></a>
+                           <span id="FilterType.v" class='invisible'>
+                           <code>FilterType: <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_TYPE.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_TYPE">CM_NOTIFY_FILTER_TYPE</a></code>
+                           </span></span><span id="structfield.Reserved" class="structfield small-section-header">
+                           <a href="#structfield.Reserved" class="anchor field"></a>
+                           <span id="Reserved.v" class='invisible'>
+                           <code>Reserved: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.u" class="structfield small-section-header">
+                           <a href="#structfield.u" class="anchor field"></a>
+                           <span id="u.v" class='invisible'>
+                           <code>u: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.BYTE.html" title="type winapi::minwindef::BYTE">BYTE</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 400]</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.DeviceInterface' class="method"><span id='DeviceInterface.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceInterface' class='fnname'>DeviceInterface</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInterface.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInterface">CM_NOTIFY_FILTER_DeviceInterface</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.DeviceInterface_mut' class="method"><span id='DeviceInterface_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceInterface_mut' class='fnname'>DeviceInterface_mut</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self<br>) -&gt; &amp;mut <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInterface.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInterface">CM_NOTIFY_FILTER_DeviceInterface</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.DeviceHandle' class="method"><span id='DeviceHandle.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceHandle' class='fnname'>DeviceHandle</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceHandle.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceHandle">CM_NOTIFY_FILTER_DeviceHandle</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.DeviceHandle_mut' class="method"><span id='DeviceHandle_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceHandle_mut' class='fnname'>DeviceHandle_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceHandle.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceHandle">CM_NOTIFY_FILTER_DeviceHandle</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.DeviceInstance' class="method"><span id='DeviceInstance.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceInstance' class='fnname'>DeviceInstance</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInstance.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInstance">CM_NOTIFY_FILTER_DeviceInstance</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.DeviceInstance_mut' class="method"><span id='DeviceInstance_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.DeviceInstance_mut' class='fnname'>DeviceInstance_mut</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self<br>) -&gt; &amp;mut <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER_DeviceInstance.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER_DeviceInstance">CM_NOTIFY_FILTER_DeviceInstance</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/cfgmgr32/struct.CM_NOTIFY_FILTER.html" title="struct winapi::cfgmgr32::CM_NOTIFY_FILTER">CM_NOTIFY_FILTER</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -84,12 +117,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -110,7 +147,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -121,11 +158,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

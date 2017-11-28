@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\schannel.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\schannel.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>schannel.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -374,358 +376,340 @@
 <span id="331">331</span>
 <span id="332">332</span>
 <span id="333">333</span>
-<span id="334">334</span>
-<span id="335">335</span>
-<span id="336">336</span>
-<span id="337">337</span>
-<span id="338">338</span>
-<span id="339">339</span>
-<span id="340">340</span>
-<span id="341">341</span>
-<span id="342">342</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Public Definitions for SCHANNEL Security Provider</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNISP_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Microsoft Unified Security Protocol Provider&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL2SP_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Microsoft SSL 2.0&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL3SP_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Microsoft SSL 3.0&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1SP_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Microsoft TLS 1.0&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PCT1SP_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Microsoft PCT 1.0&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;Schannel&quot;</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>eTlsSignatureAlgorithm</span> {
-    <span class='ident'>TlsSignatureAlgorithm_Anonymous</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>TlsSignatureAlgorithm_Rsa</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>TlsSignatureAlgorithm_Dsa</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>TlsSignatureAlgorithm_Ecdsa</span> <span class='op'>=</span> <span class='number'>3</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Public Definitions for SCHANNEL Security Provider</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">UNISP_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Microsoft Unified Security Protocol Provider&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL2SP_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Microsoft SSL 2.0&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL3SP_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Microsoft SSL 3.0&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1SP_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Microsoft TLS 1.0&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PCT1SP_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Microsoft PCT 1.0&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Schannel&quot;</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">eTlsSignatureAlgorithm</span> {
+    <span class="ident">TlsSignatureAlgorithm_Anonymous</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">TlsSignatureAlgorithm_Rsa</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">TlsSignatureAlgorithm_Dsa</span> <span class="op">=</span> <span class="number">2</span>,
+    <span class="ident">TlsSignatureAlgorithm_Ecdsa</span> <span class="op">=</span> <span class="number">3</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>eTlsHashAlgorithm</span> {
-    <span class='ident'>TlsHashAlgorithm_None</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>TlsHashAlgorithm_Md5</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>TlsHashAlgorithm_Sha1</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>TlsHashAlgorithm_Sha224</span> <span class='op'>=</span> <span class='number'>3</span>,
-    <span class='ident'>TlsHashAlgorithm_Sha256</span> <span class='op'>=</span> <span class='number'>4</span>,
-    <span class='ident'>TlsHashAlgorithm_Sha384</span> <span class='op'>=</span> <span class='number'>5</span>,
-    <span class='ident'>TlsHashAlgorithm_Sha512</span> <span class='op'>=</span> <span class='number'>6</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">eTlsHashAlgorithm</span> {
+    <span class="ident">TlsHashAlgorithm_None</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">TlsHashAlgorithm_Md5</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">TlsHashAlgorithm_Sha1</span> <span class="op">=</span> <span class="number">2</span>,
+    <span class="ident">TlsHashAlgorithm_Sha224</span> <span class="op">=</span> <span class="number">3</span>,
+    <span class="ident">TlsHashAlgorithm_Sha256</span> <span class="op">=</span> <span class="number">4</span>,
+    <span class="ident">TlsHashAlgorithm_Sha384</span> <span class="op">=</span> <span class="number">5</span>,
+    <span class="ident">TlsHashAlgorithm_Sha512</span> <span class="op">=</span> <span class="number">6</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNISP_RPC_ID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>14</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_RemoteCredentialInfo</span> {
-    <span class='ident'>cbCertificateChain</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pbCertificateChain</span>: ::<span class='ident'>PBYTE</span>,
-    <span class='ident'>cCertificates</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwBits</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">UNISP_RPC_ID</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">14</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_RemoteCredentialInfo</span> {
+    <span class="ident">cbCertificateChain</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pbCertificateChain</span>: ::<span class="ident">PBYTE</span>,
+    <span class="ident">cCertificates</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwBits</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_RemoteCredentialInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_RemoteCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SecPkgContext_RemoteCredenitalInfo</span> <span class='op'>=</span> <span class='ident'>SecPkgContext_RemoteCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_RemoteCredenitalInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_RemoteCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RCRED_STATUS_NOCRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RCRED_CRED_EXISTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RCRED_STATUS_UNKNOWN_ISSUER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_LocalCredentialInfo</span> {
-    <span class='ident'>cbCertificateChain</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pbCertificateChain</span>: ::<span class='ident'>PBYTE</span>,
-    <span class='ident'>cCertificates</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>fFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwBits</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_RemoteCredentialInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_RemoteCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SecPkgContext_RemoteCredenitalInfo</span> <span class="op">=</span> <span class="ident">SecPkgContext_RemoteCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_RemoteCredenitalInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_RemoteCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RCRED_STATUS_NOCRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RCRED_CRED_EXISTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RCRED_STATUS_UNKNOWN_ISSUER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_LocalCredentialInfo</span> {
+    <span class="ident">cbCertificateChain</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pbCertificateChain</span>: ::<span class="ident">PBYTE</span>,
+    <span class="ident">cCertificates</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">fFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwBits</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_LocalCredentialInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_LocalCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SecPkgContext_LocalCredenitalInfo</span> <span class='op'>=</span> <span class='ident'>SecPkgContext_LocalCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_LocalCredenitalInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_LocalCredentialInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCRED_STATUS_NOCRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCRED_CRED_EXISTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LCRED_STATUS_UNKNOWN_ISSUER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_ClientCertPolicyResult</span> {
-    <span class='ident'>dwPolicyResult</span>: ::<span class='ident'>HRESULT</span>,
-    <span class='ident'>guidPolicyId</span>: ::<span class='ident'>GUID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_LocalCredentialInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_LocalCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SecPkgContext_LocalCredenitalInfo</span> <span class="op">=</span> <span class="ident">SecPkgContext_LocalCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_LocalCredenitalInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_LocalCredentialInfo</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LCRED_STATUS_NOCRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LCRED_CRED_EXISTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LCRED_STATUS_UNKNOWN_ISSUER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_ClientCertPolicyResult</span> {
+    <span class="ident">dwPolicyResult</span>: ::<span class="ident">HRESULT</span>,
+    <span class="ident">guidPolicyId</span>: ::<span class="ident">GUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_ClientCertPolicyResult</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_ClientCertPolicyResult</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_IssuerListInfoEx</span> {
-    <span class='ident'>aIssuers</span>: ::<span class='ident'>PCERT_NAME_BLOB</span>,
-    <span class='ident'>cIssuers</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_ClientCertPolicyResult</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_ClientCertPolicyResult</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_IssuerListInfoEx</span> {
+    <span class="ident">aIssuers</span>: ::<span class="ident">PCERT_NAME_BLOB</span>,
+    <span class="ident">cIssuers</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_IssuerListInfoEx</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_IssuerListInfoEx</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_ConnectionInfo</span> {
-    <span class='ident'>dwProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>aiCipher</span>: ::<span class='ident'>ALG_ID</span>,
-    <span class='ident'>dwCipherStrength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>aiHash</span>: ::<span class='ident'>ALG_ID</span>,
-    <span class='ident'>dwHashStrength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>aiExch</span>: ::<span class='ident'>ALG_ID</span>,
-    <span class='ident'>dwExchStrength</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_IssuerListInfoEx</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_IssuerListInfoEx</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_ConnectionInfo</span> {
+    <span class="ident">dwProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">aiCipher</span>: ::<span class="ident">ALG_ID</span>,
+    <span class="ident">dwCipherStrength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">aiHash</span>: ::<span class="ident">ALG_ID</span>,
+    <span class="ident">dwHashStrength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">aiExch</span>: ::<span class="ident">ALG_ID</span>,
+    <span class="ident">dwExchStrength</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_ConnectionInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_ConnectionInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SZ_ALG_MAX_SIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>64</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SECPKGCONTEXT_CIPHERINFO_V1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SecPkgContext_CipherInfo</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCipherSuite</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwBaseCipherSuite</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szCipherSuite</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SZ_ALG_MAX_SIZE</span>],
-    <span class='kw'>pub</span> <span class='ident'>szCipher</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SZ_ALG_MAX_SIZE</span>],
-    <span class='kw'>pub</span> <span class='ident'>dwCipherLen</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCipherBlockLen</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szHash</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SZ_ALG_MAX_SIZE</span>],
-    <span class='kw'>pub</span> <span class='ident'>dwHashLen</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szExchange</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SZ_ALG_MAX_SIZE</span>],
-    <span class='kw'>pub</span> <span class='ident'>dwMinExchangeLen</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwMaxExchangeLen</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>szCertificate</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SZ_ALG_MAX_SIZE</span>],
-    <span class='kw'>pub</span> <span class='ident'>dwKeyType</span>: ::<span class='ident'>DWORD</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SecPkgContext_CipherInfo</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SecPkgContext_CipherInfo</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_CipherInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_CipherInfo</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SecPkgContext_EapKeyBlock</span> {
-    <span class='kw'>pub</span> <span class='ident'>rgbKeys</span>: [::<span class='ident'>BYTE</span>; <span class='number'>128</span>],
-    <span class='kw'>pub</span> <span class='ident'>rgbIVs</span>: [::<span class='ident'>BYTE</span>; <span class='number'>64</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SecPkgContext_EapKeyBlock</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SecPkgContext_EapKeyBlock</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_EapKeyBlock</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_EapKeyBlock</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_MappedCredAttr</span> {
-    <span class='ident'>dwAttribute</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pvBuffer</span>: ::<span class='ident'>PVOID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_ConnectionInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_ConnectionInfo</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SZ_ALG_MAX_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">64</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SECPKGCONTEXT_CIPHERINFO_V1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SecPkgContext_CipherInfo</span> {
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwCipherSuite</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwBaseCipherSuite</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szCipherSuite</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SZ_ALG_MAX_SIZE</span>],
+    <span class="ident">szCipher</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SZ_ALG_MAX_SIZE</span>],
+    <span class="ident">dwCipherLen</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwCipherBlockLen</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szHash</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SZ_ALG_MAX_SIZE</span>],
+    <span class="ident">dwHashLen</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szExchange</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SZ_ALG_MAX_SIZE</span>],
+    <span class="ident">dwMinExchangeLen</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwMaxExchangeLen</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">szCertificate</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SZ_ALG_MAX_SIZE</span>],
+    <span class="ident">dwKeyType</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_MappedCredAttr</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_MappedCredAttr</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL_SESSION_RECONNECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_SessionInfo</span> {
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbSessionId</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>rgbSessionId</span>: [::<span class='ident'>BYTE</span>; <span class='number'>32</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_CipherInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_CipherInfo</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SecPkgContext_EapKeyBlock</span> {
+    <span class="ident">rgbKeys</span>: [::<span class="ident">BYTE</span>; <span class="number">128</span>],
+    <span class="ident">rgbIVs</span>: [::<span class="ident">BYTE</span>; <span class="number">64</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_SessionInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_SessionInfo</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_SessionAppData</span> {
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbAppData</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pbAppData</span>: ::<span class='ident'>PBYTE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_EapKeyBlock</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_EapKeyBlock</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_MappedCredAttr</span> {
+    <span class="ident">dwAttribute</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pvBuffer</span>: ::<span class="ident">PVOID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_SessionAppData</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_SessionAppData</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_EapPrfInfo</span> {
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbPrfData</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pbPrfData</span>: ::<span class='ident'>PBYTE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_MappedCredAttr</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_MappedCredAttr</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL_SESSION_RECONNECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_SessionInfo</span> {
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbSessionId</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbSessionId</span>: [::<span class="ident">BYTE</span>; <span class="number">32</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_EapPrfInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_EapPrfInfo</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_SupportedSignatures</span> {
-    <span class='ident'>cSignatureAndHashAlgorithms</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>pSignatureAndHashAlgorithms</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>WORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_SessionInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_SessionInfo</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_SessionAppData</span> {
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbAppData</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pbAppData</span>: ::<span class="ident">PBYTE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_SupportedSignatures</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_SupportedSignatures</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_Certificates</span> {
-    <span class='ident'>cCertificates</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbCertificateChain</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pbCertificateChain</span>: ::<span class='ident'>PBYTE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_SessionAppData</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_SessionAppData</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_EapPrfInfo</span> {
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbPrfData</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pbPrfData</span>: ::<span class="ident">PBYTE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_Certificates</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_Certificates</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_CertInfo</span> {
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbSubjectName</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pwszSubjectName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>cbIssuerName</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>pwszIssuerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwKeySize</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_EapPrfInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_EapPrfInfo</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_SupportedSignatures</span> {
+    <span class="ident">cSignatureAndHashAlgorithms</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">pSignatureAndHashAlgorithms</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">WORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_CertInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_CertInfo</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>KERN_CONTEXT_CERT_INFO_V1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_UiInfo</span> {
-    <span class='ident'>hParentWindow</span>: ::<span class='ident'>HWND</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_SupportedSignatures</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_SupportedSignatures</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_Certificates</span> {
+    <span class="ident">cCertificates</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbCertificateChain</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pbCertificateChain</span>: ::<span class="ident">PBYTE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_UiInfo</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_UiInfo</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SecPkgContext_EarlyStart</span> {
-    <span class='ident'>dwEarlyStartFlags</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_Certificates</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_Certificates</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_CertInfo</span> {
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbSubjectName</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pwszSubjectName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">cbIssuerName</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pwszIssuerName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwKeySize</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSecPkgContext_EarlyStart</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SecPkgContext_EarlyStart</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ENABLE_TLS_CLIENT_EARLY_START</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_V1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_V2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_V3</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_CRED_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Copy</span>, <span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>_HMAPPER</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCHANNEL_CRED</span> {
-    <span class='ident'>dwVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cCreds</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>paCred</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PCCERT_CONTEXT</span>,
-    <span class='ident'>hRootStore</span>: ::<span class='ident'>HCERTSTORE</span>,
-    <span class='ident'>cMappers</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>aphMappers</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>_HMAPPER</span>,
-    <span class='ident'>cSupportedAlgs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>palgSupportedAlgs</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>ALG_ID</span>,
-    <span class='ident'>grbitEnabledProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwMinimumCipherStrength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwMaximumCipherStrength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwSessionLifespan</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwCredFormat</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_CertInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_CertInfo</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">KERN_CONTEXT_CERT_INFO_V1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_UiInfo</span> {
+    <span class="ident">hParentWindow</span>: ::<span class="ident">HWND</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCHANNEL_CRED</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCHANNEL_CRED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_FORMAT_CERT_CONTEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_FORMAT_CERT_HASH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_FORMAT_CERT_HASH_STORE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_MAX_STORE_NAME_SIZE</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>128</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_MAX_SUPPORTED_ALGS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>256</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_MAX_SUPPORTED_CERTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>100</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCHANNEL_CERT_HASH</span> {
-    <span class='ident'>dwLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hProv</span>: ::<span class='ident'>HCRYPTPROV</span>,
-    <span class='ident'>ShaHash</span>: [::<span class='ident'>BYTE</span>; <span class='number'>20</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_UiInfo</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_UiInfo</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SecPkgContext_EarlyStart</span> {
+    <span class="ident">dwEarlyStartFlags</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCHANNEL_CERT_HASH</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCHANNEL_CERT_HASH</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCHANNEL_CERT_HASH_STORE</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hProv</span>: ::<span class='ident'>HCRYPTPROV</span>,
-    <span class='kw'>pub</span> <span class='ident'>ShaHash</span>: [::<span class='ident'>BYTE</span>; <span class='number'>20</span>],
-    <span class='kw'>pub</span> <span class='ident'>pwszStoreName</span>: [::<span class='ident'>WCHAR</span>; <span class='ident'>SCH_CRED_MAX_STORE_NAME_SIZE</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SCHANNEL_CERT_HASH_STORE</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SCHANNEL_CERT_HASH_STORE</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCHANNEL_CERT_HASH_STORE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCHANNEL_CERT_HASH_STORE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_MACHINE_CERT_HASH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_NO_SYSTEM_MAPPER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_NO_SERVERNAME_CHECK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_MANUAL_CRED_VALIDATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_NO_DEFAULT_CREDS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_AUTO_CRED_VALIDATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_USE_DEFAULT_CREDS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_DISABLE_RECONNECTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_REVOCATION_CHECK_END_CERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_REVOCATION_CHECK_CHAIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_IGNORE_NO_REVOCATION_CHECK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_IGNORE_REVOCATION_OFFLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_RESTRICTED_ROOTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_REVOCATION_CHECK_CACHE_ONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_CACHE_ONLY_URL_RETRIEVAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_MEMORY_STORE_CERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_SEND_ROOT_CERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_SNI_CREDENTIAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_SNI_ENABLE_OCSP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_SEND_AUX_RECORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_USE_STRONG_CRYPTO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_RENEGOTIATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_SHUTDOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_ALERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_SESSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCHANNEL_ALERT_TOKEN</span> {
-    <span class='ident'>dwTokenType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwAlertType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwAlertNumber</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSecPkgContext_EarlyStart</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SecPkgContext_EarlyStart</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENABLE_TLS_CLIENT_EARLY_START</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_V1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_V2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_VERSION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_V3</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_CRED_VERSION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">_HMAPPER</span> {}
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCHANNEL_CRED</span> {
+    <span class="ident">dwVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cCreds</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">paCred</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PCCERT_CONTEXT</span>,
+    <span class="ident">hRootStore</span>: ::<span class="ident">HCERTSTORE</span>,
+    <span class="ident">cMappers</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">aphMappers</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">_HMAPPER</span>,
+    <span class="ident">cSupportedAlgs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">palgSupportedAlgs</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">ALG_ID</span>,
+    <span class="ident">grbitEnabledProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwMinimumCipherStrength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwMaximumCipherStrength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwSessionLifespan</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwCredFormat</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_WARNING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_FATAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_CLOSE_NOTIFY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_UNEXPECTED_MESSAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_BAD_RECORD_MAC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_DECRYPTION_FAILED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>21</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_RECORD_OVERFLOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>22</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_DECOMPRESSION_FAIL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>30</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_HANDSHAKE_FAILURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>40</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_BAD_CERTIFICATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>42</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_UNSUPPORTED_CERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>43</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_CERTIFICATE_REVOKED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>44</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_CERTIFICATE_EXPIRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>45</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_CERTIFICATE_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>46</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_ILLEGAL_PARAMETER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>47</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_UNKNOWN_CA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>48</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_ACCESS_DENIED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>49</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_DECODE_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>50</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_DECRYPT_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>51</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_EXPORT_RESTRICTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>60</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_PROTOCOL_VERSION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>70</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_INSUFFIENT_SECURITY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>71</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_INTERNAL_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_USER_CANCELED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>90</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_NO_RENEGOTIATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_UNSUPPORTED_EXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>110</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TLS1_ALERT_NO_APP_PROTOCOL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>120</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL_SESSION_ENABLE_RECONNECTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL_SESSION_DISABLE_RECONNECTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCHANNEL_SESSION_TOKEN</span> {
-    <span class='ident'>dwTokenType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCHANNEL_CRED</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCHANNEL_CRED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_FORMAT_CERT_CONTEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_FORMAT_CERT_HASH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_FORMAT_CERT_HASH_STORE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_MAX_STORE_NAME_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">128</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_MAX_SUPPORTED_ALGS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">256</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_MAX_SUPPORTED_CERTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">100</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCHANNEL_CERT_HASH</span> {
+    <span class="ident">dwLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hProv</span>: ::<span class="ident">HCRYPTPROV</span>,
+    <span class="ident">ShaHash</span>: [::<span class="ident">BYTE</span>; <span class="number">20</span>],
 }}
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCHANNEL_CLIENT_SIGNATURE</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>aiHash</span>: ::<span class='ident'>ALG_ID</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbHash</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>HashValue</span>: [::<span class='ident'>BYTE</span>; <span class='number'>36</span>],
-    <span class='kw'>pub</span> <span class='ident'>CertThumbprint</span>: [::<span class='ident'>BYTE</span>; <span class='number'>20</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SCHANNEL_CLIENT_SIGNATURE</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SCHANNEL_CLIENT_SIGNATURE</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCHANNEL_CLIENT_SIGNATURE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCHANNEL_CLIENT_SIGNATURE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_PCT1_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_PCT1_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_PCT1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_PCT1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_PCT1_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL2_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL2_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_SSL2_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL2_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_SSL3_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1_CLIENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1_SERVERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_SSL3</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_UNI_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_UNI_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_UNI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_UNI_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_UNI_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xffffffff</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_NONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_CLIENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_PCT1_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL2_CLIENT</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_UNI_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SERVERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_PCT1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL2_SERVER</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_UNI_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_0_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_0_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_0</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_0_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_0_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_1_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_2_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_2_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_2_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_2_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_DTLS_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_0_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_0_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_0</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS1_0_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_DTLS1_0_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_X_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS1_0_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_X_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS1_0_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_DTLS1_X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_DTLS1_X_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_DTLS1_X_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1PLUS_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_1_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_2_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1PLUS_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_1_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_2_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_1PLUS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_1PLUS_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_1PLUS_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_X_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_0_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_1_SERVER</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_2_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_X_CLIENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_0_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_1_CLIENT</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_2_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_TLS1_X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_X_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_X_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1_X_CLIENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_X_CLIENT</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1_X_SERVERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_TLS1_X_SERVER</span> <span class='op'>|</span> <span class='ident'>SP_PROT_SSL3_SERVER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_SSL3TLS1_X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_SSL3</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_X</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_X_CLIENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_CLIENTS</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_X_CLIENT</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_DTLS1_X_CLIENT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SP_PROT_X_SERVERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SP_PROT_SERVERS</span> <span class='op'>|</span> <span class='ident'>SP_PROT_TLS1_X_SERVER</span>
-    <span class='op'>|</span> <span class='ident'>SP_PROT_DTLS1_X_SERVER</span>;
-<span class='comment'>//716</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_SECRET_TYPE_CAPI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCHANNEL_SECRET_PRIVKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_X509_CERTCHAIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_X509_CAPI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCH_CRED_CERT_CONTEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='comment'>//838</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL_CRACK_CERTIFICATE_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;SslCrackCertificate&quot;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSL_FREE_CERTIFICATE_NAME</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;static</span> <span class='ident'>str</span> <span class='op'>=</span> <span class='string'>&quot;SslFreeCertificate&quot;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCHANNEL_CERT_HASH</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCHANNEL_CERT_HASH</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SCHANNEL_CERT_HASH_STORE</span> {
+    <span class="ident">dwLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hProv</span>: ::<span class="ident">HCRYPTPROV</span>,
+    <span class="ident">ShaHash</span>: [::<span class="ident">BYTE</span>; <span class="number">20</span>],
+    <span class="ident">pwszStoreName</span>: [::<span class="ident">WCHAR</span>; <span class="ident">SCH_CRED_MAX_STORE_NAME_SIZE</span>],
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCHANNEL_CERT_HASH_STORE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCHANNEL_CERT_HASH_STORE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_MACHINE_CERT_HASH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_NO_SYSTEM_MAPPER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_NO_SERVERNAME_CHECK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_MANUAL_CRED_VALIDATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_NO_DEFAULT_CREDS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_AUTO_CRED_VALIDATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_USE_DEFAULT_CREDS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_DISABLE_RECONNECTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_REVOCATION_CHECK_END_CERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_REVOCATION_CHECK_CHAIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_IGNORE_NO_REVOCATION_CHECK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_IGNORE_REVOCATION_OFFLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_RESTRICTED_ROOTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_REVOCATION_CHECK_CACHE_ONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_CACHE_ONLY_URL_RETRIEVAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_MEMORY_STORE_CERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_SEND_ROOT_CERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_SNI_CREDENTIAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_SNI_ENABLE_OCSP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_SEND_AUX_RECORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_USE_STRONG_CRYPTO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_RENEGOTIATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_SHUTDOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_ALERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_SESSION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCHANNEL_ALERT_TOKEN</span> {
+    <span class="ident">dwTokenType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwAlertType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwAlertNumber</span>: ::<span class="ident">DWORD</span>,
+}}
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_WARNING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_FATAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_CLOSE_NOTIFY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_UNEXPECTED_MESSAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_BAD_RECORD_MAC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_DECRYPTION_FAILED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">21</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_RECORD_OVERFLOW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">22</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_DECOMPRESSION_FAIL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">30</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_HANDSHAKE_FAILURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">40</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_BAD_CERTIFICATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">42</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_UNSUPPORTED_CERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">43</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_CERTIFICATE_REVOKED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">44</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_CERTIFICATE_EXPIRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">45</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_CERTIFICATE_UNKNOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">46</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_ILLEGAL_PARAMETER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">47</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_UNKNOWN_CA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">48</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_ACCESS_DENIED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">49</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_DECODE_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">50</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_DECRYPT_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">51</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_EXPORT_RESTRICTION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">60</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_PROTOCOL_VERSION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">70</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_INSUFFIENT_SECURITY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">71</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_INTERNAL_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">80</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_USER_CANCELED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">90</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_NO_RENEGOTIATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_UNSUPPORTED_EXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">110</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TLS1_ALERT_NO_APP_PROTOCOL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">120</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL_SESSION_ENABLE_RECONNECTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL_SESSION_DISABLE_RECONNECTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCHANNEL_SESSION_TOKEN</span> {
+    <span class="ident">dwTokenType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+}}
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SCHANNEL_CLIENT_SIGNATURE</span> {
+    <span class="ident">cbLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">aiHash</span>: ::<span class="ident">ALG_ID</span>,
+    <span class="ident">cbHash</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">HashValue</span>: [::<span class="ident">BYTE</span>; <span class="number">36</span>],
+    <span class="ident">CertThumbprint</span>: [::<span class="ident">BYTE</span>; <span class="number">20</span>],
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCHANNEL_CLIENT_SIGNATURE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCHANNEL_CLIENT_SIGNATURE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_PCT1_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_PCT1_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_PCT1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_PCT1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_PCT1_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL2_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL2_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_SSL2_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL2_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_SSL3_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL3_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1_CLIENTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL3_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1_SERVERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL3_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_SSL3</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_UNI_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_UNI_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_UNI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_UNI_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_UNI_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_ALL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xffffffff</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_NONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_CLIENTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_PCT1_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL2_CLIENT</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_SSL3_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_UNI_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SERVERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_PCT1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL2_SERVER</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_SSL3_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_UNI_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_0_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_0_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_0</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_0_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_0_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_1_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_2_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_2_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_2_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_2_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_DTLS_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_0_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_0_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_0</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS1_0_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_DTLS1_0_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_X_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS1_0_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_X_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS1_0_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_DTLS1_X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_DTLS1_X_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_DTLS1_X_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1PLUS_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_1_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_2_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1PLUS_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_1_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_2_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_1PLUS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_1PLUS_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_1PLUS_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_X_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_0_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_1_SERVER</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_TLS1_2_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_X_CLIENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_0_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_1_CLIENT</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_TLS1_2_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_TLS1_X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_X_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_X_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1_X_CLIENTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_X_CLIENT</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL3_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1_X_SERVERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_TLS1_X_SERVER</span> <span class="op">|</span> <span class="ident">SP_PROT_SSL3_SERVER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_SSL3TLS1_X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_SSL3</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_X</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_X_CLIENTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_CLIENTS</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_X_CLIENT</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_DTLS1_X_CLIENT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SP_PROT_X_SERVERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SP_PROT_SERVERS</span> <span class="op">|</span> <span class="ident">SP_PROT_TLS1_X_SERVER</span>
+    <span class="op">|</span> <span class="ident">SP_PROT_DTLS1_X_SERVER</span>;
+<span class="comment">//716</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_SECRET_TYPE_CAPI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCHANNEL_SECRET_PRIVKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_X509_CERTCHAIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_X509_CAPI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCH_CRED_CERT_CONTEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="comment">//838</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL_CRACK_CERTIFICATE_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;SslCrackCertificate&quot;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSL_FREE_CERTIFICATE_NAME</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;SslFreeCertificate&quot;</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -744,12 +728,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -770,7 +758,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -781,11 +769,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

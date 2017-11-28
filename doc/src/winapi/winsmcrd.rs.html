@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winsmcrd.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\winsmcrd.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winsmcrd.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -198,164 +200,164 @@
 <span id="155">155</span>
 <span id="156">156</span>
 <span id="157">157</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='comment'>// Smart Card class/port IOCTL codes.</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>UWORD</span> <span class='op'>=</span> ::<span class='ident'>WORD</span>;
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>GUID_DEVINTERFACE_SMARTCARD_READER</span>, <span class='number'>0x50DD5230</span>, <span class='number'>0xBA8A</span>, <span class='number'>0x11D1</span>,
-    <span class='number'>0xBF</span>, <span class='number'>0x5D</span>, <span class='number'>0x00</span>, <span class='number'>0x00</span>, <span class='number'>0xF8</span>, <span class='number'>0x05</span>, <span class='number'>0xF5</span>, <span class='number'>0x30</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATR_LENGTHL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>33</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_UNDEFINED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_T0</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_T1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_RAW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_Tx</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>SCARD_PROTOCOL_T0</span> <span class='op'>|</span> <span class='ident'>SCARD_PROTOCOL_T1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROTOCOL_OPTIMAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_POWER_DOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_COLD_RESET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_WARM_RESET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_POWER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>1</span>, ::<span class='ident'>METHOD_BUFFERED</span>,
-    ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_GET_ATTRIBUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>2</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_SET_ATTRIBUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>3</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_CONFISCATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>4</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_TRANSMIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>5</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_EJECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>6</span>, ::<span class='ident'>METHOD_BUFFERED</span>,
-    ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_SWALLOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>7</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_IS_PRESENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>10</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_IS_ABSENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>11</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_SET_PROTOCOL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>12</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_GET_STATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>14</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_GET_LAST_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>15</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>IOCTL_SMARTCARD_GET_PERF_CNTR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='macro'>CTL_CODE</span><span class='macro'>!</span>(::<span class='ident'>FILE_DEVICE_SMARTCARD</span>, <span class='number'>16</span>,
-    ::<span class='ident'>METHOD_BUFFERED</span>, ::<span class='ident'>FILE_ANY_ACCESS</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAXIMUM_ATTR_STRING_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAXIMUM_SMARTCARD_READERS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_VENDOR_INFO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_COMMUNICATIONS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_POWER_MGMT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_SECURITY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_MECHANICAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_VENDOR_DEFINED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_PERF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x7ffe</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_CLASS_SYSTEM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x7fff</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_VENDOR_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_INFO</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_VENDOR_IFD_TYPE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_INFO</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0101</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_VENDOR_IFD_VERSION</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_INFO</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0102</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_VENDOR_IFD_SERIAL_NO</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_INFO</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0103</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CHANNEL_ID</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_COMMUNICATIONS</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0110</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_PROTOCOL_TYPES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0120</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEFAULT_CLK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0121</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_MAX_CLK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0122</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEFAULT_DATA_RATE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0123</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_MAX_DATA_RATE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0124</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_MAX_IFSD</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0125</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_POWER_MGMT_SUPPORT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_POWER_MGMT</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0131</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SECURITY</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0140</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_USER_AUTH_INPUT_DEVICE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SECURITY</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0142</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CHARACTERISTICS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_MECHANICAL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0150</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_PROTOCOL_TYPE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0201</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_CLK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0202</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_F</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0203</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_D</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0204</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_N</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0205</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_W</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0206</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_IFSC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0207</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_IFSD</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0208</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_BWT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0209</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_CWT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x020a</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_EBC_ENCODING</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x020b</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_EXTENDED_BWT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_IFD_PROTOCOL</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x020c</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ICC_PRESENCE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0300</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ICC_INTERFACE_STATUS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0301</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_CURRENT_IO_STATE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0302</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ATR_STRING</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0303</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ICC_TYPE_PER_ATR</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_ICC_STATE</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0304</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ESC_RESET</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_DEFINED</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0xA000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ESC_CANCEL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_DEFINED</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0xA003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_ESC_AUTHREQUEST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_DEFINED</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0xA005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_MAXINPUT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_VENDOR_DEFINED</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0xA007</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_UNIT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_IN_USE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_FRIENDLY_NAME_A</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_SYSTEM_NAME_A</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_FRIENDLY_NAME_W</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_DEVICE_SYSTEM_NAME_W</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0006</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ATTR_SUPRESS_T1_IFS_REQUEST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_SYSTEM</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0007</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PERF_NUM_TRANSMISSIONS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PERF</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PERF_BYTES_TRANSMITTED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PERF</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PERF_TRANSMISSION_TIME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>SCARD_CLASS_PERF</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span> <span class='op'>|</span> <span class='number'>0x0003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_T0_HEADER_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_T0_CMD_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_T1_PROLOGUE_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_T1_EPILOGUE_LENGTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_T1_MAX_IFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>254</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_UNKNOWN</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_ABSENT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PRESENT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SWALLOWED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_POWERED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_NEGOTIABLE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SPECIFIC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCARD_IO_REQUEST</span> {
-    <span class='ident'>dwProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbPciLength</span>: ::<span class='ident'>DWORD</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="comment">// Smart Card class/port IOCTL codes.</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">UWORD</span> <span class="op">=</span> ::<span class="ident">WORD</span>;
+<span class="macro">DEFINE_GUID</span><span class="macro">!</span>(<span class="ident">GUID_DEVINTERFACE_SMARTCARD_READER</span>, <span class="number">0x50DD5230</span>, <span class="number">0xBA8A</span>, <span class="number">0x11D1</span>,
+    <span class="number">0xBF</span>, <span class="number">0x5D</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xF8</span>, <span class="number">0x05</span>, <span class="number">0xF5</span>, <span class="number">0x30</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATR_LENGTHL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">33</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_UNDEFINED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_T0</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_T1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_RAW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_Tx</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">SCARD_PROTOCOL_T0</span> <span class="op">|</span> <span class="ident">SCARD_PROTOCOL_T1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROTOCOL_OPTIMAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_POWER_DOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_COLD_RESET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_WARM_RESET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_POWER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">1</span>, ::<span class="ident">METHOD_BUFFERED</span>,
+    ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_GET_ATTRIBUTE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">2</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_SET_ATTRIBUTE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">3</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_CONFISCATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">4</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_TRANSMIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">5</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_EJECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">6</span>, ::<span class="ident">METHOD_BUFFERED</span>,
+    ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_SWALLOW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">7</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_IS_PRESENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">10</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_IS_ABSENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">11</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_SET_PROTOCOL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">12</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_GET_STATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">14</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_GET_LAST_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">15</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IOCTL_SMARTCARD_GET_PERF_CNTR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="macro">CTL_CODE</span><span class="macro">!</span>(::<span class="ident">FILE_DEVICE_SMARTCARD</span>, <span class="number">16</span>,
+    ::<span class="ident">METHOD_BUFFERED</span>, ::<span class="ident">FILE_ANY_ACCESS</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MAXIMUM_ATTR_STRING_LENGTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MAXIMUM_SMARTCARD_READERS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_VENDOR_INFO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_COMMUNICATIONS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_PROTOCOL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_POWER_MGMT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_SECURITY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_MECHANICAL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_VENDOR_DEFINED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_ICC_STATE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_PERF</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x7ffe</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_CLASS_SYSTEM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x7fff</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_VENDOR_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_INFO</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_VENDOR_IFD_TYPE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_INFO</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0101</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_VENDOR_IFD_VERSION</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_INFO</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0102</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_VENDOR_IFD_SERIAL_NO</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_INFO</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0103</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CHANNEL_ID</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_COMMUNICATIONS</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0110</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_PROTOCOL_TYPES</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0120</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEFAULT_CLK</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0121</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_MAX_CLK</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0122</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEFAULT_DATA_RATE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0123</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_MAX_DATA_RATE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0124</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_MAX_IFSD</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0125</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_POWER_MGMT_SUPPORT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_POWER_MGMT</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0131</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_USER_TO_CARD_AUTH_DEVICE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SECURITY</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0140</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_USER_AUTH_INPUT_DEVICE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SECURITY</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0142</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CHARACTERISTICS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_MECHANICAL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0150</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_PROTOCOL_TYPE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0201</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_CLK</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0202</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_F</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0203</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_D</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0204</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_N</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0205</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_W</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0206</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_IFSC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0207</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_IFSD</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0208</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_BWT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0209</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_CWT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x020a</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_EBC_ENCODING</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x020b</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_EXTENDED_BWT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_IFD_PROTOCOL</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x020c</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ICC_PRESENCE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_ICC_STATE</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0300</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ICC_INTERFACE_STATUS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_ICC_STATE</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0301</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_CURRENT_IO_STATE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_ICC_STATE</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0302</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ATR_STRING</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_ICC_STATE</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0303</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ICC_TYPE_PER_ATR</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_ICC_STATE</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0304</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ESC_RESET</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_DEFINED</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0xA000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ESC_CANCEL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_DEFINED</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0xA003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_ESC_AUTHREQUEST</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_DEFINED</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0xA005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_MAXINPUT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_VENDOR_DEFINED</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0xA007</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_UNIT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_IN_USE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_FRIENDLY_NAME_A</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_SYSTEM_NAME_A</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_FRIENDLY_NAME_W</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_DEVICE_SYSTEM_NAME_W</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0006</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ATTR_SUPRESS_T1_IFS_REQUEST</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_SYSTEM</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0007</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PERF_NUM_TRANSMISSIONS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PERF</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PERF_BYTES_TRANSMITTED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PERF</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PERF_TRANSMISSION_TIME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">SCARD_CLASS_PERF</span> <span class="op">&lt;&lt;</span> <span class="number">16</span> <span class="op">|</span> <span class="number">0x0003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_T0_HEADER_LENGTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_T0_CMD_LENGTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_T1_PROLOGUE_LENGTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_T1_EPILOGUE_LENGTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_T1_MAX_IFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">254</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_UNKNOWN</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_ABSENT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PRESENT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SWALLOWED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_POWERED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_NEGOTIABLE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SPECIFIC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCARD_IO_REQUEST</span> {
+    <span class="ident">dwProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbPciLength</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_IO_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_IO_REQUEST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_IO_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_IO_REQUEST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCSCARD_IO_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>SCARD_IO_REQUEST</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCARD_T0_COMMAND</span> {
-    <span class='ident'>bCla</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>bIns</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>bP1</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>bP2</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>bP3</span>: ::<span class='ident'>BYTE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_IO_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_IO_REQUEST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_IO_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_IO_REQUEST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCSCARD_IO_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">SCARD_IO_REQUEST</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCARD_T0_COMMAND</span> {
+    <span class="ident">bCla</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">bIns</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">bP1</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">bP2</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">bP3</span>: ::<span class="ident">BYTE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_T0_COMMAND</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_T0_COMMAND</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCARD_T0_REQUEST</span> {
-    <span class='ident'>ioRequest</span>: <span class='ident'>SCARD_IO_REQUEST</span>,
-    <span class='ident'>bSw1</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>bSw2</span>: ::<span class='ident'>BYTE</span>,
-    <span class='ident'>CmdBytes</span>: <span class='ident'>SCARD_T0_COMMAND</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_T0_COMMAND</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_T0_COMMAND</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCARD_T0_REQUEST</span> {
+    <span class="ident">ioRequest</span>: <span class="ident">SCARD_IO_REQUEST</span>,
+    <span class="ident">bSw1</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">bSw2</span>: ::<span class="ident">BYTE</span>,
+    <span class="ident">CmdBytes</span>: <span class="ident">SCARD_T0_COMMAND</span>,
 }}
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>SCARD_T0_REQUEST</span>, <span class='ident'>CmdBytes</span>, <span class='ident'>rgbHeader</span>, <span class='ident'>rgbHeader_mut</span>, [::<span class='ident'>BYTE</span>; <span class='number'>5</span>]);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_T0_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_T0_REQUEST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_T0_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_T0_REQUEST</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCARD_T1_REQUEST</span> {
-    <span class='ident'>ioRequest</span>: <span class='ident'>SCARD_IO_REQUEST</span>,
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">SCARD_T0_REQUEST</span>, <span class="ident">CmdBytes</span>, <span class="ident">rgbHeader</span>, <span class="ident">rgbHeader_mut</span>, [::<span class="ident">BYTE</span>; <span class="number">5</span>]);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_T0_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_T0_REQUEST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_T0_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_T0_REQUEST</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCARD_T1_REQUEST</span> {
+    <span class="ident">ioRequest</span>: <span class="ident">SCARD_IO_REQUEST</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_T1_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_T1_REQUEST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_T1_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_T1_REQUEST</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_SWALLOWS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_EJECTS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_CONFISCATES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_SERIAL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_PARALELL</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_KEYBOARD</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x04</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_SCSI</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x08</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_IDE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_USB</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_PCMCIA</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x40</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_TPM</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_NFC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_UICC</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_TYPE_VENDOR</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xF0</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_T1_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_T1_REQUEST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_T1_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_T1_REQUEST</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_SWALLOWS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_EJECTS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_CONFISCATES</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_SERIAL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_PARALELL</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_KEYBOARD</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x04</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_SCSI</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x08</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_IDE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_USB</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_PCMCIA</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x40</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_TPM</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x80</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_NFC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_UICC</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_TYPE_VENDOR</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xF0</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -374,12 +376,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -400,7 +406,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -411,11 +417,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

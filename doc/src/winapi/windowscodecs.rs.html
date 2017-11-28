@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\windowscodecs.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\windowscodecs.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>windowscodecs.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -404,369 +406,369 @@
 <span id="361">361</span>
 <span id="362">362</span>
 <span id="363">363</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015; Connor Hilarides</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Mappings for the contents of wincodec.h</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WICColor</span> <span class='op'>=</span> ::<span class='ident'>UINT32</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WICInProcPointer</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFWICPixelFormatGUID</span> <span class='op'>=</span> ::<span class='ident'>REFGUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>WICPixelFormatGUID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WICRect</span> {
-    <span class='ident'>X</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>Y</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>Width</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>Height</span>: ::<span class='ident'>INT</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015; Connor Hilarides</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Mappings for the contents of wincodec.h</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WICColor</span> <span class="op">=</span> ::<span class="ident">UINT32</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WICInProcPointer</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">REFWICPixelFormatGUID</span> <span class="op">=</span> ::<span class="ident">REFGUID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">WICPixelFormatGUID</span> <span class="op">=</span> ::<span class="ident">GUID</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WICRect</span> {
+    <span class="ident">X</span>: ::<span class="ident">INT</span>,
+    <span class="ident">Y</span>: ::<span class="ident">INT</span>,
+    <span class="ident">Width</span>: ::<span class="ident">INT</span>,
+    <span class="ident">Height</span>: ::<span class="ident">INT</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICColorContextType</span> {
-    <span class='ident'>WICColorContextUninitialized</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICColorContextProfile</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICColorContextExifColorSpace</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICColorContextType</span> {
+    <span class="ident">WICColorContextUninitialized</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICColorContextProfile</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICColorContextExifColorSpace</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapCreateCacheOption</span> {
-    <span class='ident'>WICBitmapNoCache</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapCacheOnDemand</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapCacheOnLoad</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapCreateCacheOption</span> {
+    <span class="ident">WICBitmapNoCache</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapCacheOnDemand</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapCacheOnLoad</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICDecodeOptions</span> {
-    <span class='ident'>WICDecodeMetadataCacheOnDemand</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICDecodeMetadataCacheOnLoad</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICDecodeOptions</span> {
+    <span class="ident">WICDecodeMetadataCacheOnDemand</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICDecodeMetadataCacheOnLoad</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapEncoderCacheOption</span> {
-    <span class='ident'>WICBitmapEncoderCacheInMemory</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapEncoderCacheTempFile</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapEncoderNoCache</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapEncoderCacheOption</span> {
+    <span class="ident">WICBitmapEncoderCacheInMemory</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapEncoderCacheTempFile</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapEncoderNoCache</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICComponentType</span> {
-    <span class='ident'>WICDecoder</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICEncoder</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICPixelFormatConverter</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICMetadataReader</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-    <span class='ident'>WICMetadataWriter</span> <span class='op'>=</span> <span class='number'>0x10</span>,
-    <span class='ident'>WICPixelFormat</span> <span class='op'>=</span> <span class='number'>0x20</span>,
-    <span class='ident'>WICAllComponents</span> <span class='op'>=</span> <span class='number'>0x3f</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICComponentType</span> {
+    <span class="ident">WICDecoder</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICEncoder</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICPixelFormatConverter</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICMetadataReader</span> <span class="op">=</span> <span class="number">0x8</span>,
+    <span class="ident">WICMetadataWriter</span> <span class="op">=</span> <span class="number">0x10</span>,
+    <span class="ident">WICPixelFormat</span> <span class="op">=</span> <span class="number">0x20</span>,
+    <span class="ident">WICAllComponents</span> <span class="op">=</span> <span class="number">0x3f</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICComponentEnumerateOptions</span> {
-    <span class='ident'>WICComponentEnumerateDefault</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICComponentEnumerateRefresh</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICComponentEnumerateDisabled</span> <span class='op'>=</span> <span class='number'>0x80000000</span>,
-    <span class='ident'>WICComponentEnumerateUnsigned</span> <span class='op'>=</span> <span class='number'>0x40000000</span>,
-    <span class='ident'>WICComponentEnumerateBuiltInOnly</span> <span class='op'>=</span> <span class='number'>0x20000000</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICComponentEnumerateOptions</span> {
+    <span class="ident">WICComponentEnumerateDefault</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICComponentEnumerateRefresh</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICComponentEnumerateDisabled</span> <span class="op">=</span> <span class="number">0x80000000</span>,
+    <span class="ident">WICComponentEnumerateUnsigned</span> <span class="op">=</span> <span class="number">0x40000000</span>,
+    <span class="ident">WICComponentEnumerateBuiltInOnly</span> <span class="op">=</span> <span class="number">0x20000000</span>,
 }}
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WICBitmapPattern</span> {
-    <span class='ident'>Position</span>: ::<span class='ident'>ULARGE_INTEGER</span>,
-    <span class='ident'>Length</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Pattern</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-    <span class='ident'>Mask</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-    <span class='ident'>EndOfStream</span>: ::<span class='ident'>BOOL</span>,
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_qualifications</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WICBitmapPattern</span> {
+    <span class="ident">Position</span>: ::<span class="ident">ULARGE_INTEGER</span>,
+    <span class="ident">Length</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Pattern</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>,
+    <span class="ident">Mask</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>,
+    <span class="ident">EndOfStream</span>: ::<span class="ident">BOOL</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapInterpolationMode</span> {
-    <span class='ident'>WICBitmapInterpolationModeNearestNeighbor</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapInterpolationModeLinear</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapInterpolationModeCubic</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICBitmapInterpolationModeFant</span> <span class='op'>=</span> <span class='number'>0x3</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapInterpolationMode</span> {
+    <span class="ident">WICBitmapInterpolationModeNearestNeighbor</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapInterpolationModeLinear</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapInterpolationModeCubic</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICBitmapInterpolationModeFant</span> <span class="op">=</span> <span class="number">0x3</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapPaletteType</span> {
-    <span class='ident'>WICBitmapPaletteTypeCustom</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapPaletteTypeMedianCut</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedBW</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone8</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone27</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone64</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone125</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone216</span> <span class='op'>=</span> <span class='number'>0x7</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone252</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone256</span> <span class='op'>=</span> <span class='number'>0x9</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedGray4</span> <span class='op'>=</span> <span class='number'>0xa</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedGray16</span> <span class='op'>=</span> <span class='number'>0xb</span>,
-    <span class='ident'>WICBitmapPaletteTypeFixedGray256</span> <span class='op'>=</span> <span class='number'>0xc</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapPaletteType</span> {
+    <span class="ident">WICBitmapPaletteTypeCustom</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapPaletteTypeMedianCut</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedBW</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone8</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone27</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone64</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone125</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone216</span> <span class="op">=</span> <span class="number">0x7</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone252</span> <span class="op">=</span> <span class="number">0x8</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone256</span> <span class="op">=</span> <span class="number">0x9</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedGray4</span> <span class="op">=</span> <span class="number">0xa</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedGray16</span> <span class="op">=</span> <span class="number">0xb</span>,
+    <span class="ident">WICBitmapPaletteTypeFixedGray256</span> <span class="op">=</span> <span class="number">0xc</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WICBitmapPaletteTypeFixedWebPalette</span>: <span class='ident'>WICBitmapPaletteType</span> <span class='op'>=</span>
-    <span class='ident'>WICBitmapPaletteTypeFixedHalftone216</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapDitherType</span> {
-    <span class='ident'>WICBitmapDitherTypeSolid</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapDitherTypeOrdered4x4</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapDitherTypeOrdered8x8</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICBitmapDitherTypeOrdered16x16</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICBitmapDitherTypeSpiral4x4</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICBitmapDitherTypeSpiral8x8</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICBitmapDitherTypeDualSpiral4x4</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WICBitmapDitherTypeDualSpiral8x8</span> <span class='op'>=</span> <span class='number'>0x7</span>,
-    <span class='ident'>WICBitmapDitherTypeErrorDiffusion</span> <span class='op'>=</span> <span class='number'>0x8</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WICBitmapPaletteTypeFixedWebPalette</span>: <span class="ident">WICBitmapPaletteType</span> <span class="op">=</span>
+    <span class="ident">WICBitmapPaletteTypeFixedHalftone216</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapDitherType</span> {
+    <span class="ident">WICBitmapDitherTypeSolid</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapDitherTypeOrdered4x4</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapDitherTypeOrdered8x8</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICBitmapDitherTypeOrdered16x16</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICBitmapDitherTypeSpiral4x4</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICBitmapDitherTypeSpiral8x8</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICBitmapDitherTypeDualSpiral4x4</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WICBitmapDitherTypeDualSpiral8x8</span> <span class="op">=</span> <span class="number">0x7</span>,
+    <span class="ident">WICBitmapDitherTypeErrorDiffusion</span> <span class="op">=</span> <span class="number">0x8</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WICBitmapDitherTypeNone</span>: <span class='ident'>WICBitmapDitherType</span> <span class='op'>=</span> <span class='ident'>WICBitmapDitherTypeSolid</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapAlphaChannelOption</span> {
-    <span class='ident'>WICBitmapUseAlpha</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapUsePremultipliedAlpha</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapIgnoreAlpha</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WICBitmapDitherTypeNone</span>: <span class="ident">WICBitmapDitherType</span> <span class="op">=</span> <span class="ident">WICBitmapDitherTypeSolid</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapAlphaChannelOption</span> {
+    <span class="ident">WICBitmapUseAlpha</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapUsePremultipliedAlpha</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapIgnoreAlpha</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapTransformOptions</span> {
-    <span class='ident'>WICBitmapTransformRotate0</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICBitmapTransformRotate90</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapTransformRotate180</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICBitmapTransformRotate270</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICBitmapTransformFlipHorizontal</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-    <span class='ident'>WICBitmapTransformFlipVertical</span> <span class='op'>=</span> <span class='number'>0x10</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapTransformOptions</span> {
+    <span class="ident">WICBitmapTransformRotate0</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICBitmapTransformRotate90</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapTransformRotate180</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICBitmapTransformRotate270</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICBitmapTransformFlipHorizontal</span> <span class="op">=</span> <span class="number">0x8</span>,
+    <span class="ident">WICBitmapTransformFlipVertical</span> <span class="op">=</span> <span class="number">0x10</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapLockFlags</span> {
-    <span class='ident'>WICBitmapLockRead</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapLockWrite</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapLockFlags</span> {
+    <span class="ident">WICBitmapLockRead</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapLockWrite</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICBitmapDecoderCapabilities</span> {
-    <span class='ident'>WICBitmapDecoderCapabilitySameEncoder</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICBitmapDecoderCapabilityCanDecodeAllImages</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICBitmapDecoderCapabilityCanDecodeSomeImages</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICBitmapDecoderCapabilityCanEnumerateMetadata</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-    <span class='ident'>WICBitmapDecoderCapabilityCanDecodeThumbnail</span> <span class='op'>=</span> <span class='number'>0x10</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICBitmapDecoderCapabilities</span> {
+    <span class="ident">WICBitmapDecoderCapabilitySameEncoder</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICBitmapDecoderCapabilityCanDecodeAllImages</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICBitmapDecoderCapabilityCanDecodeSomeImages</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICBitmapDecoderCapabilityCanEnumerateMetadata</span> <span class="op">=</span> <span class="number">0x8</span>,
+    <span class="ident">WICBitmapDecoderCapabilityCanDecodeThumbnail</span> <span class="op">=</span> <span class="number">0x10</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICProgressOperation</span> {
-    <span class='ident'>WICProgressOperationCopyPixels</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICProgressOperationWritePixels</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICProgressOperationAll</span> <span class='op'>=</span> <span class='number'>0xffff</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICProgressOperation</span> {
+    <span class="ident">WICProgressOperationCopyPixels</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICProgressOperationWritePixels</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICProgressOperationAll</span> <span class="op">=</span> <span class="number">0xffff</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICProgressNotification</span> {
-    <span class='ident'>WICProgressNotificationBegin</span> <span class='op'>=</span> <span class='number'>0x10000</span>,
-    <span class='ident'>WICProgressNotificationEnd</span> <span class='op'>=</span> <span class='number'>0x20000</span>,
-    <span class='ident'>WICProgressNotificationFrequent</span> <span class='op'>=</span> <span class='number'>0x40000</span>,
-    <span class='ident'>WICProgressNotificationAll</span> <span class='op'>=</span> <span class='number'>0xffff0000</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICProgressNotification</span> {
+    <span class="ident">WICProgressNotificationBegin</span> <span class="op">=</span> <span class="number">0x10000</span>,
+    <span class="ident">WICProgressNotificationEnd</span> <span class="op">=</span> <span class="number">0x20000</span>,
+    <span class="ident">WICProgressNotificationFrequent</span> <span class="op">=</span> <span class="number">0x40000</span>,
+    <span class="ident">WICProgressNotificationAll</span> <span class="op">=</span> <span class="number">0xffff0000</span>,
 }}
-<span class='macro'>FLAGS</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICComponentSigning</span> {
-    <span class='ident'>WICComponentSigned</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICComponentUnsigned</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICComponentSafe</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICComponentDisabled</span> <span class='op'>=</span> <span class='number'>0x80000000</span>,
+<span class="macro">FLAGS</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICComponentSigning</span> {
+    <span class="ident">WICComponentSigned</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICComponentUnsigned</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICComponentSafe</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICComponentDisabled</span> <span class="op">=</span> <span class="number">0x80000000</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICGifLogicalScreenDescriptorProperties</span> {
-    <span class='ident'>WICGifLogicalScreenSignature</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorWidth</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorHeight</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorGlobalColorTableFlag</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorColorResolution</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorSortFlag</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorGlobalColorTableSize</span> <span class='op'>=</span> <span class='number'>0x7</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorBackgroundColorIndex</span> <span class='op'>=</span> <span class='number'>0x8</span>,
-    <span class='ident'>WICGifLogicalScreenDescriptorPixelAspectRatio</span> <span class='op'>=</span> <span class='number'>0x9</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICGifLogicalScreenDescriptorProperties</span> {
+    <span class="ident">WICGifLogicalScreenSignature</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorWidth</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorHeight</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorGlobalColorTableFlag</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorColorResolution</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorSortFlag</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorGlobalColorTableSize</span> <span class="op">=</span> <span class="number">0x7</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorBackgroundColorIndex</span> <span class="op">=</span> <span class="number">0x8</span>,
+    <span class="ident">WICGifLogicalScreenDescriptorPixelAspectRatio</span> <span class="op">=</span> <span class="number">0x9</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICGifImageDescriptorProperties</span> {
-    <span class='ident'>WICGifImageDescriptorLeft</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICGifImageDescriptorTop</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICGifImageDescriptorWidth</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICGifImageDescriptorHeight</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICGifImageDescriptorLocalColorTableFlag</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICGifImageDescriptorInterlaceFlag</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WICGifImageDescriptorSortFlag</span> <span class='op'>=</span> <span class='number'>0x7</span>,
-    <span class='ident'>WICGifImageDescriptorLocalColorTableSize</span> <span class='op'>=</span> <span class='number'>0x8</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICGifImageDescriptorProperties</span> {
+    <span class="ident">WICGifImageDescriptorLeft</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICGifImageDescriptorTop</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICGifImageDescriptorWidth</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICGifImageDescriptorHeight</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICGifImageDescriptorLocalColorTableFlag</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICGifImageDescriptorInterlaceFlag</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WICGifImageDescriptorSortFlag</span> <span class="op">=</span> <span class="number">0x7</span>,
+    <span class="ident">WICGifImageDescriptorLocalColorTableSize</span> <span class="op">=</span> <span class="number">0x8</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICGifGraphicControlExtensionProperties</span> {
-    <span class='ident'>WICGifGraphicControlExtensionDisposal</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICGifGraphicControlExtensionUserInputFlag</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICGifGraphicControlExtensionTransparencyFlag</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICGifGraphicControlExtensionDelay</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICGifGraphicControlExtensionTransparentColorIndex</span> <span class='op'>=</span> <span class='number'>0x5</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICGifGraphicControlExtensionProperties</span> {
+    <span class="ident">WICGifGraphicControlExtensionDisposal</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICGifGraphicControlExtensionUserInputFlag</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICGifGraphicControlExtensionTransparencyFlag</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICGifGraphicControlExtensionDelay</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICGifGraphicControlExtensionTransparentColorIndex</span> <span class="op">=</span> <span class="number">0x5</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICGifApplicationExtensionProperties</span> {
-    <span class='ident'>WICGifApplicationExtensionApplication</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICGifApplicationExtensionData</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICGifApplicationExtensionProperties</span> {
+    <span class="ident">WICGifApplicationExtensionApplication</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICGifApplicationExtensionData</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICGifCommentExtensionProperties</span> {
-    <span class='ident'>WICGifCommentExtensionText</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICGifCommentExtensionProperties</span> {
+    <span class="ident">WICGifCommentExtensionText</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICJpegCommentProperties</span> {
-    <span class='ident'>WICJpegCommentText</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICJpegCommentProperties</span> {
+    <span class="ident">WICJpegCommentText</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICJpegLuminanceProperties</span> {
-    <span class='ident'>WICJpegLuminanceTable</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICJpegLuminanceProperties</span> {
+    <span class="ident">WICJpegLuminanceTable</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICJpegChrominanceProperties</span> {
-    <span class='ident'>WICJpegChrominanceTable</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICJpegChrominanceProperties</span> {
+    <span class="ident">WICJpegChrominanceTable</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WIC8BIMIptcProperties</span> {
-    <span class='ident'>WIC8BIMIptcPString</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WIC8BIMIptcEmbeddedIPTC</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WIC8BIMIptcProperties</span> {
+    <span class="ident">WIC8BIMIptcPString</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WIC8BIMIptcEmbeddedIPTC</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WIC8BIMResolutionInfoProperties</span> {
-    <span class='ident'>WIC8BIMResolutionInfoPString</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WIC8BIMResolutionInfoHResolution</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WIC8BIMResolutionInfoHResolutionUnit</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WIC8BIMResolutionInfoWidthUnit</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WIC8BIMResolutionInfoVResolution</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WIC8BIMResolutionInfoVResolutionUnit</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WIC8BIMResolutionInfoHeightUnit</span> <span class='op'>=</span> <span class='number'>0x7</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WIC8BIMResolutionInfoProperties</span> {
+    <span class="ident">WIC8BIMResolutionInfoPString</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WIC8BIMResolutionInfoHResolution</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WIC8BIMResolutionInfoHResolutionUnit</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WIC8BIMResolutionInfoWidthUnit</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WIC8BIMResolutionInfoVResolution</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WIC8BIMResolutionInfoVResolutionUnit</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WIC8BIMResolutionInfoHeightUnit</span> <span class="op">=</span> <span class="number">0x7</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WIC8BIMIptcDigestProperties</span> {
-    <span class='ident'>WIC8BIMIptcDigestPString</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WIC8BIMIptcDigestIptcDigest</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WIC8BIMIptcDigestProperties</span> {
+    <span class="ident">WIC8BIMIptcDigestPString</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WIC8BIMIptcDigestIptcDigest</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngGamaProperties</span> {
-    <span class='ident'>WICPngGamaGamma</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngGamaProperties</span> {
+    <span class="ident">WICPngGamaGamma</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngBkgdProperties</span> {
-    <span class='ident'>WICPngBkgdBackgroundColor</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngBkgdProperties</span> {
+    <span class="ident">WICPngBkgdBackgroundColor</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngItxtProperties</span> {
-    <span class='ident'>WICPngItxtKeyword</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICPngItxtCompressionFlag</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICPngItxtLanguageTag</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICPngItxtTranslatedKeyword</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICPngItxtText</span> <span class='op'>=</span> <span class='number'>0x5</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngItxtProperties</span> {
+    <span class="ident">WICPngItxtKeyword</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICPngItxtCompressionFlag</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICPngItxtLanguageTag</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICPngItxtTranslatedKeyword</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICPngItxtText</span> <span class="op">=</span> <span class="number">0x5</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngChrmProperties</span> {
-    <span class='ident'>WICPngChrmWhitePointX</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICPngChrmWhitePointY</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICPngChrmRedX</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICPngChrmRedY</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICPngChrmGreenX</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICPngChrmGreenY</span> <span class='op'>=</span> <span class='number'>0x6</span>,
-    <span class='ident'>WICPngChrmBlueX</span> <span class='op'>=</span> <span class='number'>0x7</span>,
-    <span class='ident'>WICPngChrmBlueY</span> <span class='op'>=</span> <span class='number'>0x8</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngChrmProperties</span> {
+    <span class="ident">WICPngChrmWhitePointX</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICPngChrmWhitePointY</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICPngChrmRedX</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICPngChrmRedY</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICPngChrmGreenX</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICPngChrmGreenY</span> <span class="op">=</span> <span class="number">0x6</span>,
+    <span class="ident">WICPngChrmBlueX</span> <span class="op">=</span> <span class="number">0x7</span>,
+    <span class="ident">WICPngChrmBlueY</span> <span class="op">=</span> <span class="number">0x8</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngHistProperties</span> {
-    <span class='ident'>WICPngHistFrequencies</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngHistProperties</span> {
+    <span class="ident">WICPngHistFrequencies</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngIccpProperties</span> {
-    <span class='ident'>WICPngIccpProfileName</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICPngIccpProfileData</span> <span class='op'>=</span> <span class='number'>0x2</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngIccpProperties</span> {
+    <span class="ident">WICPngIccpProfileName</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICPngIccpProfileData</span> <span class="op">=</span> <span class="number">0x2</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngSrgbProperties</span> {
-    <span class='ident'>WICPngSrgbRenderingIntent</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngSrgbProperties</span> {
+    <span class="ident">WICPngSrgbRenderingIntent</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPngTimeProperties</span> {
-    <span class='ident'>WICPngTimeYear</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICPngTimeMonth</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICPngTimeDay</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICPngTimeHour</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICPngTimeMinute</span> <span class='op'>=</span> <span class='number'>0x5</span>,
-    <span class='ident'>WICPngTimeSecond</span> <span class='op'>=</span> <span class='number'>0x6</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPngTimeProperties</span> {
+    <span class="ident">WICPngTimeYear</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICPngTimeMonth</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICPngTimeDay</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICPngTimeHour</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICPngTimeMinute</span> <span class="op">=</span> <span class="number">0x5</span>,
+    <span class="ident">WICPngTimeSecond</span> <span class="op">=</span> <span class="number">0x6</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICSectionAccessLevel</span> {
-    <span class='ident'>WICSectionAccessLevelRead</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICSectionAccessLevelReadWrite</span> <span class='op'>=</span> <span class='number'>0x3</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICSectionAccessLevel</span> {
+    <span class="ident">WICSectionAccessLevelRead</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICSectionAccessLevelReadWrite</span> <span class="op">=</span> <span class="number">0x3</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPixelFormatNumericRepresentation</span> {
-    <span class='ident'>WICPixelFormatNumericRepresentationUnspecified</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICPixelFormatNumericRepresentationIndexed</span> <span class='op'>=</span> <span class='number'>0x1</span>,
-    <span class='ident'>WICPixelFormatNumericRepresentationUnsignedInteger</span> <span class='op'>=</span> <span class='number'>0x2</span>,
-    <span class='ident'>WICPixelFormatNumericRepresentationSignedInteger</span> <span class='op'>=</span> <span class='number'>0x3</span>,
-    <span class='ident'>WICPixelFormatNumericRepresentationFixed</span> <span class='op'>=</span> <span class='number'>0x4</span>,
-    <span class='ident'>WICPixelFormatNumericRepresentationFloat</span> <span class='op'>=</span> <span class='number'>0x5</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPixelFormatNumericRepresentation</span> {
+    <span class="ident">WICPixelFormatNumericRepresentationUnspecified</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICPixelFormatNumericRepresentationIndexed</span> <span class="op">=</span> <span class="number">0x1</span>,
+    <span class="ident">WICPixelFormatNumericRepresentationUnsignedInteger</span> <span class="op">=</span> <span class="number">0x2</span>,
+    <span class="ident">WICPixelFormatNumericRepresentationSignedInteger</span> <span class="op">=</span> <span class="number">0x3</span>,
+    <span class="ident">WICPixelFormatNumericRepresentationFixed</span> <span class="op">=</span> <span class="number">0x4</span>,
+    <span class="ident">WICPixelFormatNumericRepresentationFloat</span> <span class="op">=</span> <span class="number">0x5</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>WICPlanarOptions</span> {
-    <span class='ident'>WICPlanarOptionsDefault</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>WICPlanarOptionsPreserveSubsampling</span> <span class='op'>=</span> <span class='number'>0x1</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">WICPlanarOptions</span> {
+    <span class="ident">WICPlanarOptionsDefault</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">WICPlanarOptionsPreserveSubsampling</span> <span class="op">=</span> <span class="number">0x1</span>,
 }}
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WICImageParameters</span> {
-    <span class='ident'>PixelFormat</span>: ::<span class='ident'>D2D1_PIXEL_FORMAT</span>,
-    <span class='ident'>DpiX</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='ident'>DpiY</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='ident'>Top</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='ident'>Left</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='ident'>PixelWidth</span>: ::<span class='ident'>FLOAT</span>,
-    <span class='ident'>PixelHeight</span>: ::<span class='ident'>FLOAT</span>,
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_qualifications</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WICImageParameters</span> {
+    <span class="ident">PixelFormat</span>: ::<span class="ident">D2D1_PIXEL_FORMAT</span>,
+    <span class="ident">DpiX</span>: ::<span class="ident">FLOAT</span>,
+    <span class="ident">DpiY</span>: ::<span class="ident">FLOAT</span>,
+    <span class="ident">Top</span>: ::<span class="ident">FLOAT</span>,
+    <span class="ident">Left</span>: ::<span class="ident">FLOAT</span>,
+    <span class="ident">PixelWidth</span>: ::<span class="ident">FLOAT</span>,
+    <span class="ident">PixelHeight</span>: ::<span class="ident">FLOAT</span>,
 }}
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WICBitmapPlaneDescription</span> {
-    <span class='ident'>Format</span>: <span class='ident'>WICPixelFormatGUID</span>,
-    <span class='ident'>Width</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>Height</span>: ::<span class='ident'>UINT</span>,
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_qualifications</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WICBitmapPlaneDescription</span> {
+    <span class="ident">Format</span>: <span class="ident">WICPixelFormatGUID</span>,
+    <span class="ident">Width</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">Height</span>: ::<span class="ident">UINT</span>,
 }}
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_qualifications</span>)]</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WICBitmapPlane</span> {
-    <span class='ident'>Format</span>: <span class='ident'>WICPixelFormatGUID</span>,
-    <span class='ident'>pbBuffer</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-    <span class='ident'>cbStride</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>cbBufferSize</span>: ::<span class='ident'>UINT</span>,
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_qualifications</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WICBitmapPlane</span> {
+    <span class="ident">Format</span>: <span class="ident">WICPixelFormatGUID</span>,
+    <span class="ident">pbBuffer</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>,
+    <span class="ident">cbStride</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">cbBufferSize</span>: ::<span class="ident">UINT</span>,
 }}
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICPalette</span>(<span class='ident'>IWICPaletteVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>InitializePredefined</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ePaletteType</span>: <span class='ident'>WICBitmapPaletteType</span>, <span class='ident'>fAddTransparentColor</span>: ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>InitializeCustom</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pColors</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICColor</span>, <span class='ident'>cCount</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>InitializeFromBitmap</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pISurface</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>cCount</span>: ::<span class='ident'>UINT</span>, <span class='ident'>fAddTransparentColor</span>: ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>InitializeFromPalette</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pIPalette</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICPalette</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetType</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pePaletteType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICBitmapPaletteType</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetColorCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcCount</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetColors</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>cCount</span>: ::<span class='ident'>UINT</span>, <span class='ident'>pColros</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICColor</span>, <span class='ident'>pcActualColors</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>IsBlackWhite</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pfIsBlackWhite</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>IsGrayscale</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pfIsGrayscale</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>HasAlpha</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pfHasAlpha</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICPalette</span>(<span class="ident">IWICPaletteVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">InitializePredefined</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ePaletteType</span>: <span class="ident">WICBitmapPaletteType</span>, <span class="ident">fAddTransparentColor</span>: ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">InitializeCustom</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pColors</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICColor</span>, <span class="ident">cCount</span>: ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">InitializeFromBitmap</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pISurface</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">cCount</span>: ::<span class="ident">UINT</span>, <span class="ident">fAddTransparentColor</span>: ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">InitializeFromPalette</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pIPalette</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICPalette</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetType</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pePaletteType</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICBitmapPaletteType</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetColorCount</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcCount</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetColors</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">cCount</span>: ::<span class="ident">UINT</span>, <span class="ident">pColros</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICColor</span>, <span class="ident">pcActualColors</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">IsBlackWhite</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pfIsBlackWhite</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">IsGrayscale</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pfIsGrayscale</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">HasAlpha</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pfHasAlpha</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetSize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>puiWidth</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>, <span class='ident'>puiHeight</span>: ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetPixelFormat</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pPixelFormat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICPixelFormatGUID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetResolution</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDpiX</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>f64</span>, <span class='ident'>pDpiY</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>f64</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>CopyPalette</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pIPalette</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICPalette</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>CopyPixels</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>prc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>WICRect</span>, <span class='ident'>cbStride</span>: ::<span class='ident'>UINT</span>, <span class='ident'>cbBufferSize</span>: ::<span class='ident'>UINT</span>,
-        <span class='ident'>pbBuffer</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetSize</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">puiWidth</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>, <span class="ident">puiHeight</span>: ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetPixelFormat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pPixelFormat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICPixelFormatGUID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetResolution</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pDpiX</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">f64</span>, <span class="ident">pDpiY</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">f64</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">CopyPalette</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pIPalette</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICPalette</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">CopyPixels</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">prc</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">WICRect</span>, <span class="ident">cbStride</span>: ::<span class="ident">UINT</span>, <span class="ident">cbBufferSize</span>: ::<span class="ident">UINT</span>,
+        <span class="ident">pbBuffer</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICFormatConverter</span>(<span class='ident'>IWICFormatConverterVtbl</span>): <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Initialize</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pISource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>dstFormat</span>: <span class='ident'>REFWICPixelFormatGUID</span>,
-        <span class='ident'>dither</span>: <span class='ident'>WICBitmapDitherType</span>, <span class='ident'>pIPalette</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICPalette</span>, <span class='ident'>alphaThreasholdPercent</span>: <span class='ident'>f64</span>,
-        <span class='ident'>paletteTranslate</span>: <span class='ident'>WICBitmapPaletteType</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>CanConvert</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>srcPixelFormat</span>: <span class='ident'>REFWICPixelFormatGUID</span>, <span class='ident'>dstPixelFormat</span>: <span class='ident'>REFWICPixelFormatGUID</span>,
-        <span class='ident'>pfCanConvert</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICFormatConverter</span>(<span class="ident">IWICFormatConverterVtbl</span>): <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Initialize</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pISource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">dstFormat</span>: <span class="ident">REFWICPixelFormatGUID</span>,
+        <span class="ident">dither</span>: <span class="ident">WICBitmapDitherType</span>, <span class="ident">pIPalette</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICPalette</span>, <span class="ident">alphaThreasholdPercent</span>: <span class="ident">f64</span>,
+        <span class="ident">paletteTranslate</span>: <span class="ident">WICBitmapPaletteType</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">CanConvert</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">srcPixelFormat</span>: <span class="ident">REFWICPixelFormatGUID</span>, <span class="ident">dstPixelFormat</span>: <span class="ident">REFWICPixelFormatGUID</span>,
+        <span class="ident">pfCanConvert</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICPlanarFormatConverter</span>(<span class='ident'>IWICPlanarFormatConverterVtbl</span>)
-    : <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Initialize</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppPlanes</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>cPlanes</span>: ::<span class='ident'>UINT</span>,
-        <span class='ident'>dstFormat</span>: <span class='ident'>REFWICPixelFormatGUID</span>, <span class='ident'>dither</span>: <span class='ident'>WICBitmapDitherType</span>, <span class='ident'>pIPalette</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICPalette</span>,
-        <span class='ident'>alphaThreasholdPercent</span>: <span class='ident'>f64</span>, <span class='ident'>paletteTranslate</span>: <span class='ident'>WICBitmapPaletteType</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>CanConvert</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pSrcPixelFormats</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>WICPixelFormatGUID</span>, <span class='ident'>cSrcPlanes</span>: ::<span class='ident'>UINT</span>,
-        <span class='ident'>dstPixelFormat</span>: <span class='ident'>REFWICPixelFormatGUID</span>, <span class='ident'>pfCanConvert</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICPlanarFormatConverter</span>(<span class="ident">IWICPlanarFormatConverterVtbl</span>)
+    : <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Initialize</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppPlanes</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">cPlanes</span>: ::<span class="ident">UINT</span>,
+        <span class="ident">dstFormat</span>: <span class="ident">REFWICPixelFormatGUID</span>, <span class="ident">dither</span>: <span class="ident">WICBitmapDitherType</span>, <span class="ident">pIPalette</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICPalette</span>,
+        <span class="ident">alphaThreasholdPercent</span>: <span class="ident">f64</span>, <span class="ident">paletteTranslate</span>: <span class="ident">WICBitmapPaletteType</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">CanConvert</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pSrcPixelFormats</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">WICPixelFormatGUID</span>, <span class="ident">cSrcPlanes</span>: ::<span class="ident">UINT</span>,
+        <span class="ident">dstPixelFormat</span>: <span class="ident">REFWICPixelFormatGUID</span>, <span class="ident">pfCanConvert</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmapScaler</span>(<span class='ident'>IWICBitmapScalerVtbl</span>): <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Initialize</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pISource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>uiWidth</span>: ::<span class='ident'>UINT</span>, <span class='ident'>uiHeight</span>: ::<span class='ident'>UINT</span>,
-        <span class='ident'>mode</span>: <span class='ident'>WICBitmapInterpolationMode</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmapScaler</span>(<span class="ident">IWICBitmapScalerVtbl</span>): <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Initialize</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pISource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">uiWidth</span>: ::<span class="ident">UINT</span>, <span class="ident">uiHeight</span>: ::<span class="ident">UINT</span>,
+        <span class="ident">mode</span>: <span class="ident">WICBitmapInterpolationMode</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmapClipper</span>(<span class='ident'>IWICBitmapClipperVtbl</span>): <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Initialize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pISource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>prc</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>WICRect</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmapClipper</span>(<span class="ident">IWICBitmapClipperVtbl</span>): <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Initialize</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pISource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">prc</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">WICRect</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmapFlipRotator</span>(<span class='ident'>IWICBitmapFlipRotatorVtbl</span>)
-    : <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Initialize</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pISource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapSource</span>, <span class='ident'>options</span>: <span class='ident'>WICBitmapTransformOptions</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmapFlipRotator</span>(<span class="ident">IWICBitmapFlipRotatorVtbl</span>)
+    : <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Initialize</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pISource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapSource</span>, <span class="ident">options</span>: <span class="ident">WICBitmapTransformOptions</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmapLock</span>(<span class='ident'>IWICBitmapLockVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetSize</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>puiWidth</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>, <span class='ident'>puiHeight</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetStride</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcbStride</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDataPointer</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcbBufferSize</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>, <span class='ident'>ppbData</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICInProcPointer</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetPixelFormat</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pPixelFormat</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WICPixelFormatGUID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmapLock</span>(<span class="ident">IWICBitmapLockVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetSize</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">puiWidth</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>, <span class="ident">puiHeight</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetStride</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcbStride</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetDataPointer</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcbBufferSize</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>, <span class="ident">ppbData</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICInProcPointer</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetPixelFormat</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pPixelFormat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WICPixelFormatGUID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IWICBitmap</span>(<span class='ident'>IWICBitmapVtbl</span>): <span class='ident'>IWICBitmapSource</span>(<span class='ident'>IWICBitmapSourceVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>Lock</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>prcLock</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>WICRect</span>, <span class='ident'>flags</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>ppILock</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICBitmapLock</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetPalette</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pIPalette</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IWICPalette</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetResolution</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dpiX</span>: <span class='ident'>f64</span>, <span class='ident'>dpiY</span>: <span class='ident'>f64</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IWICBitmap</span>(<span class="ident">IWICBitmapVtbl</span>): <span class="ident">IWICBitmapSource</span>(<span class="ident">IWICBitmapSourceVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">Lock</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">prcLock</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">WICRect</span>, <span class="ident">flags</span>: ::<span class="ident">DWORD</span>, <span class="ident">ppILock</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICBitmapLock</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetPalette</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pIPalette</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IWICPalette</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetResolution</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">dpiX</span>: <span class="ident">f64</span>, <span class="ident">dpiY</span>: <span class="ident">f64</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 });
 </pre>
 </section>
@@ -786,12 +788,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -812,7 +818,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -823,11 +829,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

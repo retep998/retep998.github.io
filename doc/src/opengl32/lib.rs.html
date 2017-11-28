@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\opengl32-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\opengl32-sys-0.1.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -417,382 +419,382 @@
 <span id="374">374</span>
 <span id="375">375</span>
 <span id="376">376</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! FFI bindings to opengl32.</span>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>all</span>(<span class='ident'>windows</span>, <span class='ident'>any</span>(<span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86&quot;</span>, <span class='ident'>target_arch</span> <span class='op'>=</span> <span class='string'>&quot;x86_64&quot;</span>)))]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
-<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='comment'>// pub fn GlmfBeginGlsBlock();</span>
-    <span class='comment'>// pub fn GlmfCloseMetaFile();</span>
-    <span class='comment'>// pub fn GlmfEndGlsBlock();</span>
-    <span class='comment'>// pub fn GlmfEndPlayback();</span>
-    <span class='comment'>// pub fn GlmfInitPlayback();</span>
-    <span class='comment'>// pub fn GlmfPlayGlsRecord();</span>
-    <span class='comment'>// pub fn glAccum();</span>
-    <span class='comment'>// pub fn glAlphaFunc();</span>
-    <span class='comment'>// pub fn glAreTexturesResident();</span>
-    <span class='comment'>// pub fn glArrayElement();</span>
-    <span class='comment'>// pub fn glBegin();</span>
-    <span class='comment'>// pub fn glBindTexture();</span>
-    <span class='comment'>// pub fn glBitmap();</span>
-    <span class='comment'>// pub fn glBlendFunc();</span>
-    <span class='comment'>// pub fn glCallList();</span>
-    <span class='comment'>// pub fn glCallLists();</span>
-    <span class='comment'>// pub fn glClear();</span>
-    <span class='comment'>// pub fn glClearAccum();</span>
-    <span class='comment'>// pub fn glClearColor();</span>
-    <span class='comment'>// pub fn glClearDepth();</span>
-    <span class='comment'>// pub fn glClearIndex();</span>
-    <span class='comment'>// pub fn glClearStencil();</span>
-    <span class='comment'>// pub fn glClipPlane();</span>
-    <span class='comment'>// pub fn glColor3b();</span>
-    <span class='comment'>// pub fn glColor3bv();</span>
-    <span class='comment'>// pub fn glColor3d();</span>
-    <span class='comment'>// pub fn glColor3dv();</span>
-    <span class='comment'>// pub fn glColor3f();</span>
-    <span class='comment'>// pub fn glColor3fv();</span>
-    <span class='comment'>// pub fn glColor3i();</span>
-    <span class='comment'>// pub fn glColor3iv();</span>
-    <span class='comment'>// pub fn glColor3s();</span>
-    <span class='comment'>// pub fn glColor3sv();</span>
-    <span class='comment'>// pub fn glColor3ub();</span>
-    <span class='comment'>// pub fn glColor3ubv();</span>
-    <span class='comment'>// pub fn glColor3ui();</span>
-    <span class='comment'>// pub fn glColor3uiv();</span>
-    <span class='comment'>// pub fn glColor3us();</span>
-    <span class='comment'>// pub fn glColor3usv();</span>
-    <span class='comment'>// pub fn glColor4b();</span>
-    <span class='comment'>// pub fn glColor4bv();</span>
-    <span class='comment'>// pub fn glColor4d();</span>
-    <span class='comment'>// pub fn glColor4dv();</span>
-    <span class='comment'>// pub fn glColor4f();</span>
-    <span class='comment'>// pub fn glColor4fv();</span>
-    <span class='comment'>// pub fn glColor4i();</span>
-    <span class='comment'>// pub fn glColor4iv();</span>
-    <span class='comment'>// pub fn glColor4s();</span>
-    <span class='comment'>// pub fn glColor4sv();</span>
-    <span class='comment'>// pub fn glColor4ub();</span>
-    <span class='comment'>// pub fn glColor4ubv();</span>
-    <span class='comment'>// pub fn glColor4ui();</span>
-    <span class='comment'>// pub fn glColor4uiv();</span>
-    <span class='comment'>// pub fn glColor4us();</span>
-    <span class='comment'>// pub fn glColor4usv();</span>
-    <span class='comment'>// pub fn glColorMask();</span>
-    <span class='comment'>// pub fn glColorMaterial();</span>
-    <span class='comment'>// pub fn glColorPointer();</span>
-    <span class='comment'>// pub fn glCopyPixels();</span>
-    <span class='comment'>// pub fn glCopyTexImage1D();</span>
-    <span class='comment'>// pub fn glCopyTexImage2D();</span>
-    <span class='comment'>// pub fn glCopyTexSubImage1D();</span>
-    <span class='comment'>// pub fn glCopyTexSubImage2D();</span>
-    <span class='comment'>// pub fn glCullFace();</span>
-    <span class='comment'>// pub fn glDebugEntry();</span>
-    <span class='comment'>// pub fn glDeleteLists();</span>
-    <span class='comment'>// pub fn glDeleteTextures();</span>
-    <span class='comment'>// pub fn glDepthFunc();</span>
-    <span class='comment'>// pub fn glDepthMask();</span>
-    <span class='comment'>// pub fn glDepthRange();</span>
-    <span class='comment'>// pub fn glDisable();</span>
-    <span class='comment'>// pub fn glDisableClientState();</span>
-    <span class='comment'>// pub fn glDrawArrays();</span>
-    <span class='comment'>// pub fn glDrawBuffer();</span>
-    <span class='comment'>// pub fn glDrawElements();</span>
-    <span class='comment'>// pub fn glDrawPixels();</span>
-    <span class='comment'>// pub fn glEdgeFlag();</span>
-    <span class='comment'>// pub fn glEdgeFlagPointer();</span>
-    <span class='comment'>// pub fn glEdgeFlagv();</span>
-    <span class='comment'>// pub fn glEnable();</span>
-    <span class='comment'>// pub fn glEnableClientState();</span>
-    <span class='comment'>// pub fn glEnd();</span>
-    <span class='comment'>// pub fn glEndList();</span>
-    <span class='comment'>// pub fn glEvalCoord1d();</span>
-    <span class='comment'>// pub fn glEvalCoord1dv();</span>
-    <span class='comment'>// pub fn glEvalCoord1f();</span>
-    <span class='comment'>// pub fn glEvalCoord1fv();</span>
-    <span class='comment'>// pub fn glEvalCoord2d();</span>
-    <span class='comment'>// pub fn glEvalCoord2dv();</span>
-    <span class='comment'>// pub fn glEvalCoord2f();</span>
-    <span class='comment'>// pub fn glEvalCoord2fv();</span>
-    <span class='comment'>// pub fn glEvalMesh1();</span>
-    <span class='comment'>// pub fn glEvalMesh2();</span>
-    <span class='comment'>// pub fn glEvalPoint1();</span>
-    <span class='comment'>// pub fn glEvalPoint2();</span>
-    <span class='comment'>// pub fn glFeedbackBuffer();</span>
-    <span class='comment'>// pub fn glFinish();</span>
-    <span class='comment'>// pub fn glFlush();</span>
-    <span class='comment'>// pub fn glFogf();</span>
-    <span class='comment'>// pub fn glFogfv();</span>
-    <span class='comment'>// pub fn glFogi();</span>
-    <span class='comment'>// pub fn glFogiv();</span>
-    <span class='comment'>// pub fn glFrontFace();</span>
-    <span class='comment'>// pub fn glFrustum();</span>
-    <span class='comment'>// pub fn glGenLists();</span>
-    <span class='comment'>// pub fn glGenTextures();</span>
-    <span class='comment'>// pub fn glGetBooleanv();</span>
-    <span class='comment'>// pub fn glGetClipPlane();</span>
-    <span class='comment'>// pub fn glGetDoublev();</span>
-    <span class='comment'>// pub fn glGetError();</span>
-    <span class='comment'>// pub fn glGetFloatv();</span>
-    <span class='comment'>// pub fn glGetIntegerv();</span>
-    <span class='comment'>// pub fn glGetLightfv();</span>
-    <span class='comment'>// pub fn glGetLightiv();</span>
-    <span class='comment'>// pub fn glGetMapdv();</span>
-    <span class='comment'>// pub fn glGetMapfv();</span>
-    <span class='comment'>// pub fn glGetMapiv();</span>
-    <span class='comment'>// pub fn glGetMaterialfv();</span>
-    <span class='comment'>// pub fn glGetMaterialiv();</span>
-    <span class='comment'>// pub fn glGetPixelMapfv();</span>
-    <span class='comment'>// pub fn glGetPixelMapuiv();</span>
-    <span class='comment'>// pub fn glGetPixelMapusv();</span>
-    <span class='comment'>// pub fn glGetPointerv();</span>
-    <span class='comment'>// pub fn glGetPolygonStipple();</span>
-    <span class='comment'>// pub fn glGetString();</span>
-    <span class='comment'>// pub fn glGetTexEnvfv();</span>
-    <span class='comment'>// pub fn glGetTexEnviv();</span>
-    <span class='comment'>// pub fn glGetTexGendv();</span>
-    <span class='comment'>// pub fn glGetTexGenfv();</span>
-    <span class='comment'>// pub fn glGetTexGeniv();</span>
-    <span class='comment'>// pub fn glGetTexImage();</span>
-    <span class='comment'>// pub fn glGetTexLevelParameterfv();</span>
-    <span class='comment'>// pub fn glGetTexLevelParameteriv();</span>
-    <span class='comment'>// pub fn glGetTexParameterfv();</span>
-    <span class='comment'>// pub fn glGetTexParameteriv();</span>
-    <span class='comment'>// pub fn glHint();</span>
-    <span class='comment'>// pub fn glIndexMask();</span>
-    <span class='comment'>// pub fn glIndexPointer();</span>
-    <span class='comment'>// pub fn glIndexd();</span>
-    <span class='comment'>// pub fn glIndexdv();</span>
-    <span class='comment'>// pub fn glIndexf();</span>
-    <span class='comment'>// pub fn glIndexfv();</span>
-    <span class='comment'>// pub fn glIndexi();</span>
-    <span class='comment'>// pub fn glIndexiv();</span>
-    <span class='comment'>// pub fn glIndexs();</span>
-    <span class='comment'>// pub fn glIndexsv();</span>
-    <span class='comment'>// pub fn glIndexub();</span>
-    <span class='comment'>// pub fn glIndexubv();</span>
-    <span class='comment'>// pub fn glInitNames();</span>
-    <span class='comment'>// pub fn glInterleavedArrays();</span>
-    <span class='comment'>// pub fn glIsEnabled();</span>
-    <span class='comment'>// pub fn glIsList();</span>
-    <span class='comment'>// pub fn glIsTexture();</span>
-    <span class='comment'>// pub fn glLightModelf();</span>
-    <span class='comment'>// pub fn glLightModelfv();</span>
-    <span class='comment'>// pub fn glLightModeli();</span>
-    <span class='comment'>// pub fn glLightModeliv();</span>
-    <span class='comment'>// pub fn glLightf();</span>
-    <span class='comment'>// pub fn glLightfv();</span>
-    <span class='comment'>// pub fn glLighti();</span>
-    <span class='comment'>// pub fn glLightiv();</span>
-    <span class='comment'>// pub fn glLineStipple();</span>
-    <span class='comment'>// pub fn glLineWidth();</span>
-    <span class='comment'>// pub fn glListBase();</span>
-    <span class='comment'>// pub fn glLoadIdentity();</span>
-    <span class='comment'>// pub fn glLoadMatrixd();</span>
-    <span class='comment'>// pub fn glLoadMatrixf();</span>
-    <span class='comment'>// pub fn glLoadName();</span>
-    <span class='comment'>// pub fn glLogicOp();</span>
-    <span class='comment'>// pub fn glMap1d();</span>
-    <span class='comment'>// pub fn glMap1f();</span>
-    <span class='comment'>// pub fn glMap2d();</span>
-    <span class='comment'>// pub fn glMap2f();</span>
-    <span class='comment'>// pub fn glMapGrid1d();</span>
-    <span class='comment'>// pub fn glMapGrid1f();</span>
-    <span class='comment'>// pub fn glMapGrid2d();</span>
-    <span class='comment'>// pub fn glMapGrid2f();</span>
-    <span class='comment'>// pub fn glMaterialf();</span>
-    <span class='comment'>// pub fn glMaterialfv();</span>
-    <span class='comment'>// pub fn glMateriali();</span>
-    <span class='comment'>// pub fn glMaterialiv();</span>
-    <span class='comment'>// pub fn glMatrixMode();</span>
-    <span class='comment'>// pub fn glMultMatrixd();</span>
-    <span class='comment'>// pub fn glMultMatrixf();</span>
-    <span class='comment'>// pub fn glNewList();</span>
-    <span class='comment'>// pub fn glNormal3b();</span>
-    <span class='comment'>// pub fn glNormal3bv();</span>
-    <span class='comment'>// pub fn glNormal3d();</span>
-    <span class='comment'>// pub fn glNormal3dv();</span>
-    <span class='comment'>// pub fn glNormal3f();</span>
-    <span class='comment'>// pub fn glNormal3fv();</span>
-    <span class='comment'>// pub fn glNormal3i();</span>
-    <span class='comment'>// pub fn glNormal3iv();</span>
-    <span class='comment'>// pub fn glNormal3s();</span>
-    <span class='comment'>// pub fn glNormal3sv();</span>
-    <span class='comment'>// pub fn glNormalPointer();</span>
-    <span class='comment'>// pub fn glOrtho();</span>
-    <span class='comment'>// pub fn glPassThrough();</span>
-    <span class='comment'>// pub fn glPixelMapfv();</span>
-    <span class='comment'>// pub fn glPixelMapuiv();</span>
-    <span class='comment'>// pub fn glPixelMapusv();</span>
-    <span class='comment'>// pub fn glPixelStoref();</span>
-    <span class='comment'>// pub fn glPixelStorei();</span>
-    <span class='comment'>// pub fn glPixelTransferf();</span>
-    <span class='comment'>// pub fn glPixelTransferi();</span>
-    <span class='comment'>// pub fn glPixelZoom();</span>
-    <span class='comment'>// pub fn glPointSize();</span>
-    <span class='comment'>// pub fn glPolygonMode();</span>
-    <span class='comment'>// pub fn glPolygonOffset();</span>
-    <span class='comment'>// pub fn glPolygonStipple();</span>
-    <span class='comment'>// pub fn glPopAttrib();</span>
-    <span class='comment'>// pub fn glPopClientAttrib();</span>
-    <span class='comment'>// pub fn glPopMatrix();</span>
-    <span class='comment'>// pub fn glPopName();</span>
-    <span class='comment'>// pub fn glPrioritizeTextures();</span>
-    <span class='comment'>// pub fn glPushAttrib();</span>
-    <span class='comment'>// pub fn glPushClientAttrib();</span>
-    <span class='comment'>// pub fn glPushMatrix();</span>
-    <span class='comment'>// pub fn glPushName();</span>
-    <span class='comment'>// pub fn glRasterPos2d();</span>
-    <span class='comment'>// pub fn glRasterPos2dv();</span>
-    <span class='comment'>// pub fn glRasterPos2f();</span>
-    <span class='comment'>// pub fn glRasterPos2fv();</span>
-    <span class='comment'>// pub fn glRasterPos2i();</span>
-    <span class='comment'>// pub fn glRasterPos2iv();</span>
-    <span class='comment'>// pub fn glRasterPos2s();</span>
-    <span class='comment'>// pub fn glRasterPos2sv();</span>
-    <span class='comment'>// pub fn glRasterPos3d();</span>
-    <span class='comment'>// pub fn glRasterPos3dv();</span>
-    <span class='comment'>// pub fn glRasterPos3f();</span>
-    <span class='comment'>// pub fn glRasterPos3fv();</span>
-    <span class='comment'>// pub fn glRasterPos3i();</span>
-    <span class='comment'>// pub fn glRasterPos3iv();</span>
-    <span class='comment'>// pub fn glRasterPos3s();</span>
-    <span class='comment'>// pub fn glRasterPos3sv();</span>
-    <span class='comment'>// pub fn glRasterPos4d();</span>
-    <span class='comment'>// pub fn glRasterPos4dv();</span>
-    <span class='comment'>// pub fn glRasterPos4f();</span>
-    <span class='comment'>// pub fn glRasterPos4fv();</span>
-    <span class='comment'>// pub fn glRasterPos4i();</span>
-    <span class='comment'>// pub fn glRasterPos4iv();</span>
-    <span class='comment'>// pub fn glRasterPos4s();</span>
-    <span class='comment'>// pub fn glRasterPos4sv();</span>
-    <span class='comment'>// pub fn glReadBuffer();</span>
-    <span class='comment'>// pub fn glReadPixels();</span>
-    <span class='comment'>// pub fn glRectd();</span>
-    <span class='comment'>// pub fn glRectdv();</span>
-    <span class='comment'>// pub fn glRectf();</span>
-    <span class='comment'>// pub fn glRectfv();</span>
-    <span class='comment'>// pub fn glRecti();</span>
-    <span class='comment'>// pub fn glRectiv();</span>
-    <span class='comment'>// pub fn glRects();</span>
-    <span class='comment'>// pub fn glRectsv();</span>
-    <span class='comment'>// pub fn glRenderMode();</span>
-    <span class='comment'>// pub fn glRotated();</span>
-    <span class='comment'>// pub fn glRotatef();</span>
-    <span class='comment'>// pub fn glScaled();</span>
-    <span class='comment'>// pub fn glScalef();</span>
-    <span class='comment'>// pub fn glScissor();</span>
-    <span class='comment'>// pub fn glSelectBuffer();</span>
-    <span class='comment'>// pub fn glShadeModel();</span>
-    <span class='comment'>// pub fn glStencilFunc();</span>
-    <span class='comment'>// pub fn glStencilMask();</span>
-    <span class='comment'>// pub fn glStencilOp();</span>
-    <span class='comment'>// pub fn glTexCoord1d();</span>
-    <span class='comment'>// pub fn glTexCoord1dv();</span>
-    <span class='comment'>// pub fn glTexCoord1f();</span>
-    <span class='comment'>// pub fn glTexCoord1fv();</span>
-    <span class='comment'>// pub fn glTexCoord1i();</span>
-    <span class='comment'>// pub fn glTexCoord1iv();</span>
-    <span class='comment'>// pub fn glTexCoord1s();</span>
-    <span class='comment'>// pub fn glTexCoord1sv();</span>
-    <span class='comment'>// pub fn glTexCoord2d();</span>
-    <span class='comment'>// pub fn glTexCoord2dv();</span>
-    <span class='comment'>// pub fn glTexCoord2f();</span>
-    <span class='comment'>// pub fn glTexCoord2fv();</span>
-    <span class='comment'>// pub fn glTexCoord2i();</span>
-    <span class='comment'>// pub fn glTexCoord2iv();</span>
-    <span class='comment'>// pub fn glTexCoord2s();</span>
-    <span class='comment'>// pub fn glTexCoord2sv();</span>
-    <span class='comment'>// pub fn glTexCoord3d();</span>
-    <span class='comment'>// pub fn glTexCoord3dv();</span>
-    <span class='comment'>// pub fn glTexCoord3f();</span>
-    <span class='comment'>// pub fn glTexCoord3fv();</span>
-    <span class='comment'>// pub fn glTexCoord3i();</span>
-    <span class='comment'>// pub fn glTexCoord3iv();</span>
-    <span class='comment'>// pub fn glTexCoord3s();</span>
-    <span class='comment'>// pub fn glTexCoord3sv();</span>
-    <span class='comment'>// pub fn glTexCoord4d();</span>
-    <span class='comment'>// pub fn glTexCoord4dv();</span>
-    <span class='comment'>// pub fn glTexCoord4f();</span>
-    <span class='comment'>// pub fn glTexCoord4fv();</span>
-    <span class='comment'>// pub fn glTexCoord4i();</span>
-    <span class='comment'>// pub fn glTexCoord4iv();</span>
-    <span class='comment'>// pub fn glTexCoord4s();</span>
-    <span class='comment'>// pub fn glTexCoord4sv();</span>
-    <span class='comment'>// pub fn glTexCoordPointer();</span>
-    <span class='comment'>// pub fn glTexEnvf();</span>
-    <span class='comment'>// pub fn glTexEnvfv();</span>
-    <span class='comment'>// pub fn glTexEnvi();</span>
-    <span class='comment'>// pub fn glTexEnviv();</span>
-    <span class='comment'>// pub fn glTexGend();</span>
-    <span class='comment'>// pub fn glTexGendv();</span>
-    <span class='comment'>// pub fn glTexGenf();</span>
-    <span class='comment'>// pub fn glTexGenfv();</span>
-    <span class='comment'>// pub fn glTexGeni();</span>
-    <span class='comment'>// pub fn glTexGeniv();</span>
-    <span class='comment'>// pub fn glTexImage1D();</span>
-    <span class='comment'>// pub fn glTexImage2D();</span>
-    <span class='comment'>// pub fn glTexParameterf();</span>
-    <span class='comment'>// pub fn glTexParameterfv();</span>
-    <span class='comment'>// pub fn glTexParameteri();</span>
-    <span class='comment'>// pub fn glTexParameteriv();</span>
-    <span class='comment'>// pub fn glTexSubImage1D();</span>
-    <span class='comment'>// pub fn glTexSubImage2D();</span>
-    <span class='comment'>// pub fn glTranslated();</span>
-    <span class='comment'>// pub fn glTranslatef();</span>
-    <span class='comment'>// pub fn glVertex2d();</span>
-    <span class='comment'>// pub fn glVertex2dv();</span>
-    <span class='comment'>// pub fn glVertex2f();</span>
-    <span class='comment'>// pub fn glVertex2fv();</span>
-    <span class='comment'>// pub fn glVertex2i();</span>
-    <span class='comment'>// pub fn glVertex2iv();</span>
-    <span class='comment'>// pub fn glVertex2s();</span>
-    <span class='comment'>// pub fn glVertex2sv();</span>
-    <span class='comment'>// pub fn glVertex3d();</span>
-    <span class='comment'>// pub fn glVertex3dv();</span>
-    <span class='comment'>// pub fn glVertex3f();</span>
-    <span class='comment'>// pub fn glVertex3fv();</span>
-    <span class='comment'>// pub fn glVertex3i();</span>
-    <span class='comment'>// pub fn glVertex3iv();</span>
-    <span class='comment'>// pub fn glVertex3s();</span>
-    <span class='comment'>// pub fn glVertex3sv();</span>
-    <span class='comment'>// pub fn glVertex4d();</span>
-    <span class='comment'>// pub fn glVertex4dv();</span>
-    <span class='comment'>// pub fn glVertex4f();</span>
-    <span class='comment'>// pub fn glVertex4fv();</span>
-    <span class='comment'>// pub fn glVertex4i();</span>
-    <span class='comment'>// pub fn glVertex4iv();</span>
-    <span class='comment'>// pub fn glVertex4s();</span>
-    <span class='comment'>// pub fn glVertex4sv();</span>
-    <span class='comment'>// pub fn glVertexPointer();</span>
-    <span class='comment'>// pub fn glViewport();</span>
-    <span class='comment'>// pub fn wglChoosePixelFormat();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCopyContext</span>(<span class='ident'>hglrcSrc</span>: <span class='ident'>HGLRC</span>, <span class='ident'>hglrcDst</span>: <span class='ident'>HGLRC</span>, <span class='ident'>mask</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCreateContext</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>) <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglCreateLayerContext</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>iLayerPlane</span>: <span class='ident'>c_int</span>) <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglDeleteContext</span>(<span class='ident'>hglrc</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn wglDescribeLayerPlane();</span>
-    <span class='comment'>// pub fn wglDescribePixelFormat();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetCurrentContext</span>() <span class='op'>-&gt;</span> <span class='ident'>HGLRC</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetCurrentDC</span>() <span class='op'>-&gt;</span> <span class='ident'>HDC</span>;
-    <span class='comment'>// pub fn wglGetDefaultProcAddress();</span>
-    <span class='comment'>// pub fn wglGetLayerPaletteEntries();</span>
-    <span class='comment'>// pub fn wglGetPixelFormat();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglGetProcAddress</span>(<span class='ident'>lpszProc</span>: <span class='ident'>LPCSTR</span>) <span class='op'>-&gt;</span> <span class='ident'>PROC</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglMakeCurrent</span>(<span class='ident'>hdc</span>: <span class='ident'>HDC</span>, <span class='ident'>hglrc</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn wglRealizeLayerPalette();</span>
-    <span class='comment'>// pub fn wglSetLayerPaletteEntries();</span>
-    <span class='comment'>// pub fn wglSetPixelFormat();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>wglShareLists</span>(<span class='ident'>hglrc1</span>: <span class='ident'>HGLRC</span>, <span class='ident'>hglrc2</span>: <span class='ident'>HGLRC</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn wglSwapBuffers();</span>
-    <span class='comment'>// pub fn wglSwapLayerBuffers();</span>
-    <span class='comment'>// pub fn wglSwapMultipleBuffers();</span>
-    <span class='comment'>// pub fn wglUseFontBitmapsA();</span>
-    <span class='comment'>// pub fn wglUseFontBitmapsW();</span>
-    <span class='comment'>// pub fn wglUseFontOutlinesA();</span>
-    <span class='comment'>// pub fn wglUseFontOutlinesW();</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to opengl32.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">windows</span>, <span class="ident">any</span>(<span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86&quot;</span>, <span class="ident">target_arch</span> <span class="op">=</span> <span class="string">&quot;x86_64&quot;</span>)))]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="comment">// pub fn GlmfBeginGlsBlock();</span>
+    <span class="comment">// pub fn GlmfCloseMetaFile();</span>
+    <span class="comment">// pub fn GlmfEndGlsBlock();</span>
+    <span class="comment">// pub fn GlmfEndPlayback();</span>
+    <span class="comment">// pub fn GlmfInitPlayback();</span>
+    <span class="comment">// pub fn GlmfPlayGlsRecord();</span>
+    <span class="comment">// pub fn glAccum();</span>
+    <span class="comment">// pub fn glAlphaFunc();</span>
+    <span class="comment">// pub fn glAreTexturesResident();</span>
+    <span class="comment">// pub fn glArrayElement();</span>
+    <span class="comment">// pub fn glBegin();</span>
+    <span class="comment">// pub fn glBindTexture();</span>
+    <span class="comment">// pub fn glBitmap();</span>
+    <span class="comment">// pub fn glBlendFunc();</span>
+    <span class="comment">// pub fn glCallList();</span>
+    <span class="comment">// pub fn glCallLists();</span>
+    <span class="comment">// pub fn glClear();</span>
+    <span class="comment">// pub fn glClearAccum();</span>
+    <span class="comment">// pub fn glClearColor();</span>
+    <span class="comment">// pub fn glClearDepth();</span>
+    <span class="comment">// pub fn glClearIndex();</span>
+    <span class="comment">// pub fn glClearStencil();</span>
+    <span class="comment">// pub fn glClipPlane();</span>
+    <span class="comment">// pub fn glColor3b();</span>
+    <span class="comment">// pub fn glColor3bv();</span>
+    <span class="comment">// pub fn glColor3d();</span>
+    <span class="comment">// pub fn glColor3dv();</span>
+    <span class="comment">// pub fn glColor3f();</span>
+    <span class="comment">// pub fn glColor3fv();</span>
+    <span class="comment">// pub fn glColor3i();</span>
+    <span class="comment">// pub fn glColor3iv();</span>
+    <span class="comment">// pub fn glColor3s();</span>
+    <span class="comment">// pub fn glColor3sv();</span>
+    <span class="comment">// pub fn glColor3ub();</span>
+    <span class="comment">// pub fn glColor3ubv();</span>
+    <span class="comment">// pub fn glColor3ui();</span>
+    <span class="comment">// pub fn glColor3uiv();</span>
+    <span class="comment">// pub fn glColor3us();</span>
+    <span class="comment">// pub fn glColor3usv();</span>
+    <span class="comment">// pub fn glColor4b();</span>
+    <span class="comment">// pub fn glColor4bv();</span>
+    <span class="comment">// pub fn glColor4d();</span>
+    <span class="comment">// pub fn glColor4dv();</span>
+    <span class="comment">// pub fn glColor4f();</span>
+    <span class="comment">// pub fn glColor4fv();</span>
+    <span class="comment">// pub fn glColor4i();</span>
+    <span class="comment">// pub fn glColor4iv();</span>
+    <span class="comment">// pub fn glColor4s();</span>
+    <span class="comment">// pub fn glColor4sv();</span>
+    <span class="comment">// pub fn glColor4ub();</span>
+    <span class="comment">// pub fn glColor4ubv();</span>
+    <span class="comment">// pub fn glColor4ui();</span>
+    <span class="comment">// pub fn glColor4uiv();</span>
+    <span class="comment">// pub fn glColor4us();</span>
+    <span class="comment">// pub fn glColor4usv();</span>
+    <span class="comment">// pub fn glColorMask();</span>
+    <span class="comment">// pub fn glColorMaterial();</span>
+    <span class="comment">// pub fn glColorPointer();</span>
+    <span class="comment">// pub fn glCopyPixels();</span>
+    <span class="comment">// pub fn glCopyTexImage1D();</span>
+    <span class="comment">// pub fn glCopyTexImage2D();</span>
+    <span class="comment">// pub fn glCopyTexSubImage1D();</span>
+    <span class="comment">// pub fn glCopyTexSubImage2D();</span>
+    <span class="comment">// pub fn glCullFace();</span>
+    <span class="comment">// pub fn glDebugEntry();</span>
+    <span class="comment">// pub fn glDeleteLists();</span>
+    <span class="comment">// pub fn glDeleteTextures();</span>
+    <span class="comment">// pub fn glDepthFunc();</span>
+    <span class="comment">// pub fn glDepthMask();</span>
+    <span class="comment">// pub fn glDepthRange();</span>
+    <span class="comment">// pub fn glDisable();</span>
+    <span class="comment">// pub fn glDisableClientState();</span>
+    <span class="comment">// pub fn glDrawArrays();</span>
+    <span class="comment">// pub fn glDrawBuffer();</span>
+    <span class="comment">// pub fn glDrawElements();</span>
+    <span class="comment">// pub fn glDrawPixels();</span>
+    <span class="comment">// pub fn glEdgeFlag();</span>
+    <span class="comment">// pub fn glEdgeFlagPointer();</span>
+    <span class="comment">// pub fn glEdgeFlagv();</span>
+    <span class="comment">// pub fn glEnable();</span>
+    <span class="comment">// pub fn glEnableClientState();</span>
+    <span class="comment">// pub fn glEnd();</span>
+    <span class="comment">// pub fn glEndList();</span>
+    <span class="comment">// pub fn glEvalCoord1d();</span>
+    <span class="comment">// pub fn glEvalCoord1dv();</span>
+    <span class="comment">// pub fn glEvalCoord1f();</span>
+    <span class="comment">// pub fn glEvalCoord1fv();</span>
+    <span class="comment">// pub fn glEvalCoord2d();</span>
+    <span class="comment">// pub fn glEvalCoord2dv();</span>
+    <span class="comment">// pub fn glEvalCoord2f();</span>
+    <span class="comment">// pub fn glEvalCoord2fv();</span>
+    <span class="comment">// pub fn glEvalMesh1();</span>
+    <span class="comment">// pub fn glEvalMesh2();</span>
+    <span class="comment">// pub fn glEvalPoint1();</span>
+    <span class="comment">// pub fn glEvalPoint2();</span>
+    <span class="comment">// pub fn glFeedbackBuffer();</span>
+    <span class="comment">// pub fn glFinish();</span>
+    <span class="comment">// pub fn glFlush();</span>
+    <span class="comment">// pub fn glFogf();</span>
+    <span class="comment">// pub fn glFogfv();</span>
+    <span class="comment">// pub fn glFogi();</span>
+    <span class="comment">// pub fn glFogiv();</span>
+    <span class="comment">// pub fn glFrontFace();</span>
+    <span class="comment">// pub fn glFrustum();</span>
+    <span class="comment">// pub fn glGenLists();</span>
+    <span class="comment">// pub fn glGenTextures();</span>
+    <span class="comment">// pub fn glGetBooleanv();</span>
+    <span class="comment">// pub fn glGetClipPlane();</span>
+    <span class="comment">// pub fn glGetDoublev();</span>
+    <span class="comment">// pub fn glGetError();</span>
+    <span class="comment">// pub fn glGetFloatv();</span>
+    <span class="comment">// pub fn glGetIntegerv();</span>
+    <span class="comment">// pub fn glGetLightfv();</span>
+    <span class="comment">// pub fn glGetLightiv();</span>
+    <span class="comment">// pub fn glGetMapdv();</span>
+    <span class="comment">// pub fn glGetMapfv();</span>
+    <span class="comment">// pub fn glGetMapiv();</span>
+    <span class="comment">// pub fn glGetMaterialfv();</span>
+    <span class="comment">// pub fn glGetMaterialiv();</span>
+    <span class="comment">// pub fn glGetPixelMapfv();</span>
+    <span class="comment">// pub fn glGetPixelMapuiv();</span>
+    <span class="comment">// pub fn glGetPixelMapusv();</span>
+    <span class="comment">// pub fn glGetPointerv();</span>
+    <span class="comment">// pub fn glGetPolygonStipple();</span>
+    <span class="comment">// pub fn glGetString();</span>
+    <span class="comment">// pub fn glGetTexEnvfv();</span>
+    <span class="comment">// pub fn glGetTexEnviv();</span>
+    <span class="comment">// pub fn glGetTexGendv();</span>
+    <span class="comment">// pub fn glGetTexGenfv();</span>
+    <span class="comment">// pub fn glGetTexGeniv();</span>
+    <span class="comment">// pub fn glGetTexImage();</span>
+    <span class="comment">// pub fn glGetTexLevelParameterfv();</span>
+    <span class="comment">// pub fn glGetTexLevelParameteriv();</span>
+    <span class="comment">// pub fn glGetTexParameterfv();</span>
+    <span class="comment">// pub fn glGetTexParameteriv();</span>
+    <span class="comment">// pub fn glHint();</span>
+    <span class="comment">// pub fn glIndexMask();</span>
+    <span class="comment">// pub fn glIndexPointer();</span>
+    <span class="comment">// pub fn glIndexd();</span>
+    <span class="comment">// pub fn glIndexdv();</span>
+    <span class="comment">// pub fn glIndexf();</span>
+    <span class="comment">// pub fn glIndexfv();</span>
+    <span class="comment">// pub fn glIndexi();</span>
+    <span class="comment">// pub fn glIndexiv();</span>
+    <span class="comment">// pub fn glIndexs();</span>
+    <span class="comment">// pub fn glIndexsv();</span>
+    <span class="comment">// pub fn glIndexub();</span>
+    <span class="comment">// pub fn glIndexubv();</span>
+    <span class="comment">// pub fn glInitNames();</span>
+    <span class="comment">// pub fn glInterleavedArrays();</span>
+    <span class="comment">// pub fn glIsEnabled();</span>
+    <span class="comment">// pub fn glIsList();</span>
+    <span class="comment">// pub fn glIsTexture();</span>
+    <span class="comment">// pub fn glLightModelf();</span>
+    <span class="comment">// pub fn glLightModelfv();</span>
+    <span class="comment">// pub fn glLightModeli();</span>
+    <span class="comment">// pub fn glLightModeliv();</span>
+    <span class="comment">// pub fn glLightf();</span>
+    <span class="comment">// pub fn glLightfv();</span>
+    <span class="comment">// pub fn glLighti();</span>
+    <span class="comment">// pub fn glLightiv();</span>
+    <span class="comment">// pub fn glLineStipple();</span>
+    <span class="comment">// pub fn glLineWidth();</span>
+    <span class="comment">// pub fn glListBase();</span>
+    <span class="comment">// pub fn glLoadIdentity();</span>
+    <span class="comment">// pub fn glLoadMatrixd();</span>
+    <span class="comment">// pub fn glLoadMatrixf();</span>
+    <span class="comment">// pub fn glLoadName();</span>
+    <span class="comment">// pub fn glLogicOp();</span>
+    <span class="comment">// pub fn glMap1d();</span>
+    <span class="comment">// pub fn glMap1f();</span>
+    <span class="comment">// pub fn glMap2d();</span>
+    <span class="comment">// pub fn glMap2f();</span>
+    <span class="comment">// pub fn glMapGrid1d();</span>
+    <span class="comment">// pub fn glMapGrid1f();</span>
+    <span class="comment">// pub fn glMapGrid2d();</span>
+    <span class="comment">// pub fn glMapGrid2f();</span>
+    <span class="comment">// pub fn glMaterialf();</span>
+    <span class="comment">// pub fn glMaterialfv();</span>
+    <span class="comment">// pub fn glMateriali();</span>
+    <span class="comment">// pub fn glMaterialiv();</span>
+    <span class="comment">// pub fn glMatrixMode();</span>
+    <span class="comment">// pub fn glMultMatrixd();</span>
+    <span class="comment">// pub fn glMultMatrixf();</span>
+    <span class="comment">// pub fn glNewList();</span>
+    <span class="comment">// pub fn glNormal3b();</span>
+    <span class="comment">// pub fn glNormal3bv();</span>
+    <span class="comment">// pub fn glNormal3d();</span>
+    <span class="comment">// pub fn glNormal3dv();</span>
+    <span class="comment">// pub fn glNormal3f();</span>
+    <span class="comment">// pub fn glNormal3fv();</span>
+    <span class="comment">// pub fn glNormal3i();</span>
+    <span class="comment">// pub fn glNormal3iv();</span>
+    <span class="comment">// pub fn glNormal3s();</span>
+    <span class="comment">// pub fn glNormal3sv();</span>
+    <span class="comment">// pub fn glNormalPointer();</span>
+    <span class="comment">// pub fn glOrtho();</span>
+    <span class="comment">// pub fn glPassThrough();</span>
+    <span class="comment">// pub fn glPixelMapfv();</span>
+    <span class="comment">// pub fn glPixelMapuiv();</span>
+    <span class="comment">// pub fn glPixelMapusv();</span>
+    <span class="comment">// pub fn glPixelStoref();</span>
+    <span class="comment">// pub fn glPixelStorei();</span>
+    <span class="comment">// pub fn glPixelTransferf();</span>
+    <span class="comment">// pub fn glPixelTransferi();</span>
+    <span class="comment">// pub fn glPixelZoom();</span>
+    <span class="comment">// pub fn glPointSize();</span>
+    <span class="comment">// pub fn glPolygonMode();</span>
+    <span class="comment">// pub fn glPolygonOffset();</span>
+    <span class="comment">// pub fn glPolygonStipple();</span>
+    <span class="comment">// pub fn glPopAttrib();</span>
+    <span class="comment">// pub fn glPopClientAttrib();</span>
+    <span class="comment">// pub fn glPopMatrix();</span>
+    <span class="comment">// pub fn glPopName();</span>
+    <span class="comment">// pub fn glPrioritizeTextures();</span>
+    <span class="comment">// pub fn glPushAttrib();</span>
+    <span class="comment">// pub fn glPushClientAttrib();</span>
+    <span class="comment">// pub fn glPushMatrix();</span>
+    <span class="comment">// pub fn glPushName();</span>
+    <span class="comment">// pub fn glRasterPos2d();</span>
+    <span class="comment">// pub fn glRasterPos2dv();</span>
+    <span class="comment">// pub fn glRasterPos2f();</span>
+    <span class="comment">// pub fn glRasterPos2fv();</span>
+    <span class="comment">// pub fn glRasterPos2i();</span>
+    <span class="comment">// pub fn glRasterPos2iv();</span>
+    <span class="comment">// pub fn glRasterPos2s();</span>
+    <span class="comment">// pub fn glRasterPos2sv();</span>
+    <span class="comment">// pub fn glRasterPos3d();</span>
+    <span class="comment">// pub fn glRasterPos3dv();</span>
+    <span class="comment">// pub fn glRasterPos3f();</span>
+    <span class="comment">// pub fn glRasterPos3fv();</span>
+    <span class="comment">// pub fn glRasterPos3i();</span>
+    <span class="comment">// pub fn glRasterPos3iv();</span>
+    <span class="comment">// pub fn glRasterPos3s();</span>
+    <span class="comment">// pub fn glRasterPos3sv();</span>
+    <span class="comment">// pub fn glRasterPos4d();</span>
+    <span class="comment">// pub fn glRasterPos4dv();</span>
+    <span class="comment">// pub fn glRasterPos4f();</span>
+    <span class="comment">// pub fn glRasterPos4fv();</span>
+    <span class="comment">// pub fn glRasterPos4i();</span>
+    <span class="comment">// pub fn glRasterPos4iv();</span>
+    <span class="comment">// pub fn glRasterPos4s();</span>
+    <span class="comment">// pub fn glRasterPos4sv();</span>
+    <span class="comment">// pub fn glReadBuffer();</span>
+    <span class="comment">// pub fn glReadPixels();</span>
+    <span class="comment">// pub fn glRectd();</span>
+    <span class="comment">// pub fn glRectdv();</span>
+    <span class="comment">// pub fn glRectf();</span>
+    <span class="comment">// pub fn glRectfv();</span>
+    <span class="comment">// pub fn glRecti();</span>
+    <span class="comment">// pub fn glRectiv();</span>
+    <span class="comment">// pub fn glRects();</span>
+    <span class="comment">// pub fn glRectsv();</span>
+    <span class="comment">// pub fn glRenderMode();</span>
+    <span class="comment">// pub fn glRotated();</span>
+    <span class="comment">// pub fn glRotatef();</span>
+    <span class="comment">// pub fn glScaled();</span>
+    <span class="comment">// pub fn glScalef();</span>
+    <span class="comment">// pub fn glScissor();</span>
+    <span class="comment">// pub fn glSelectBuffer();</span>
+    <span class="comment">// pub fn glShadeModel();</span>
+    <span class="comment">// pub fn glStencilFunc();</span>
+    <span class="comment">// pub fn glStencilMask();</span>
+    <span class="comment">// pub fn glStencilOp();</span>
+    <span class="comment">// pub fn glTexCoord1d();</span>
+    <span class="comment">// pub fn glTexCoord1dv();</span>
+    <span class="comment">// pub fn glTexCoord1f();</span>
+    <span class="comment">// pub fn glTexCoord1fv();</span>
+    <span class="comment">// pub fn glTexCoord1i();</span>
+    <span class="comment">// pub fn glTexCoord1iv();</span>
+    <span class="comment">// pub fn glTexCoord1s();</span>
+    <span class="comment">// pub fn glTexCoord1sv();</span>
+    <span class="comment">// pub fn glTexCoord2d();</span>
+    <span class="comment">// pub fn glTexCoord2dv();</span>
+    <span class="comment">// pub fn glTexCoord2f();</span>
+    <span class="comment">// pub fn glTexCoord2fv();</span>
+    <span class="comment">// pub fn glTexCoord2i();</span>
+    <span class="comment">// pub fn glTexCoord2iv();</span>
+    <span class="comment">// pub fn glTexCoord2s();</span>
+    <span class="comment">// pub fn glTexCoord2sv();</span>
+    <span class="comment">// pub fn glTexCoord3d();</span>
+    <span class="comment">// pub fn glTexCoord3dv();</span>
+    <span class="comment">// pub fn glTexCoord3f();</span>
+    <span class="comment">// pub fn glTexCoord3fv();</span>
+    <span class="comment">// pub fn glTexCoord3i();</span>
+    <span class="comment">// pub fn glTexCoord3iv();</span>
+    <span class="comment">// pub fn glTexCoord3s();</span>
+    <span class="comment">// pub fn glTexCoord3sv();</span>
+    <span class="comment">// pub fn glTexCoord4d();</span>
+    <span class="comment">// pub fn glTexCoord4dv();</span>
+    <span class="comment">// pub fn glTexCoord4f();</span>
+    <span class="comment">// pub fn glTexCoord4fv();</span>
+    <span class="comment">// pub fn glTexCoord4i();</span>
+    <span class="comment">// pub fn glTexCoord4iv();</span>
+    <span class="comment">// pub fn glTexCoord4s();</span>
+    <span class="comment">// pub fn glTexCoord4sv();</span>
+    <span class="comment">// pub fn glTexCoordPointer();</span>
+    <span class="comment">// pub fn glTexEnvf();</span>
+    <span class="comment">// pub fn glTexEnvfv();</span>
+    <span class="comment">// pub fn glTexEnvi();</span>
+    <span class="comment">// pub fn glTexEnviv();</span>
+    <span class="comment">// pub fn glTexGend();</span>
+    <span class="comment">// pub fn glTexGendv();</span>
+    <span class="comment">// pub fn glTexGenf();</span>
+    <span class="comment">// pub fn glTexGenfv();</span>
+    <span class="comment">// pub fn glTexGeni();</span>
+    <span class="comment">// pub fn glTexGeniv();</span>
+    <span class="comment">// pub fn glTexImage1D();</span>
+    <span class="comment">// pub fn glTexImage2D();</span>
+    <span class="comment">// pub fn glTexParameterf();</span>
+    <span class="comment">// pub fn glTexParameterfv();</span>
+    <span class="comment">// pub fn glTexParameteri();</span>
+    <span class="comment">// pub fn glTexParameteriv();</span>
+    <span class="comment">// pub fn glTexSubImage1D();</span>
+    <span class="comment">// pub fn glTexSubImage2D();</span>
+    <span class="comment">// pub fn glTranslated();</span>
+    <span class="comment">// pub fn glTranslatef();</span>
+    <span class="comment">// pub fn glVertex2d();</span>
+    <span class="comment">// pub fn glVertex2dv();</span>
+    <span class="comment">// pub fn glVertex2f();</span>
+    <span class="comment">// pub fn glVertex2fv();</span>
+    <span class="comment">// pub fn glVertex2i();</span>
+    <span class="comment">// pub fn glVertex2iv();</span>
+    <span class="comment">// pub fn glVertex2s();</span>
+    <span class="comment">// pub fn glVertex2sv();</span>
+    <span class="comment">// pub fn glVertex3d();</span>
+    <span class="comment">// pub fn glVertex3dv();</span>
+    <span class="comment">// pub fn glVertex3f();</span>
+    <span class="comment">// pub fn glVertex3fv();</span>
+    <span class="comment">// pub fn glVertex3i();</span>
+    <span class="comment">// pub fn glVertex3iv();</span>
+    <span class="comment">// pub fn glVertex3s();</span>
+    <span class="comment">// pub fn glVertex3sv();</span>
+    <span class="comment">// pub fn glVertex4d();</span>
+    <span class="comment">// pub fn glVertex4dv();</span>
+    <span class="comment">// pub fn glVertex4f();</span>
+    <span class="comment">// pub fn glVertex4fv();</span>
+    <span class="comment">// pub fn glVertex4i();</span>
+    <span class="comment">// pub fn glVertex4iv();</span>
+    <span class="comment">// pub fn glVertex4s();</span>
+    <span class="comment">// pub fn glVertex4sv();</span>
+    <span class="comment">// pub fn glVertexPointer();</span>
+    <span class="comment">// pub fn glViewport();</span>
+    <span class="comment">// pub fn wglChoosePixelFormat();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglCopyContext</span>(<span class="ident">hglrcSrc</span>: <span class="ident">HGLRC</span>, <span class="ident">hglrcDst</span>: <span class="ident">HGLRC</span>, <span class="ident">mask</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglCreateContext</span>(<span class="ident">hdc</span>: <span class="ident">HDC</span>) <span class="op">-&gt;</span> <span class="ident">HGLRC</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglCreateLayerContext</span>(<span class="ident">hdc</span>: <span class="ident">HDC</span>, <span class="ident">iLayerPlane</span>: <span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">HGLRC</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglDeleteContext</span>(<span class="ident">hglrc</span>: <span class="ident">HGLRC</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="comment">// pub fn wglDescribeLayerPlane();</span>
+    <span class="comment">// pub fn wglDescribePixelFormat();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglGetCurrentContext</span>() <span class="op">-&gt;</span> <span class="ident">HGLRC</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglGetCurrentDC</span>() <span class="op">-&gt;</span> <span class="ident">HDC</span>;
+    <span class="comment">// pub fn wglGetDefaultProcAddress();</span>
+    <span class="comment">// pub fn wglGetLayerPaletteEntries();</span>
+    <span class="comment">// pub fn wglGetPixelFormat();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglGetProcAddress</span>(<span class="ident">lpszProc</span>: <span class="ident">LPCSTR</span>) <span class="op">-&gt;</span> <span class="ident">PROC</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglMakeCurrent</span>(<span class="ident">hdc</span>: <span class="ident">HDC</span>, <span class="ident">hglrc</span>: <span class="ident">HGLRC</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="comment">// pub fn wglRealizeLayerPalette();</span>
+    <span class="comment">// pub fn wglSetLayerPaletteEntries();</span>
+    <span class="comment">// pub fn wglSetPixelFormat();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wglShareLists</span>(<span class="ident">hglrc1</span>: <span class="ident">HGLRC</span>, <span class="ident">hglrc2</span>: <span class="ident">HGLRC</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="comment">// pub fn wglSwapBuffers();</span>
+    <span class="comment">// pub fn wglSwapLayerBuffers();</span>
+    <span class="comment">// pub fn wglSwapMultipleBuffers();</span>
+    <span class="comment">// pub fn wglUseFontBitmapsA();</span>
+    <span class="comment">// pub fn wglUseFontBitmapsW();</span>
+    <span class="comment">// pub fn wglUseFontOutlinesA();</span>
+    <span class="comment">// pub fn wglUseFontOutlinesW();</span>
 }
 </pre>
 </section>
@@ -812,12 +814,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -838,7 +844,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -849,11 +855,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "opengl32";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

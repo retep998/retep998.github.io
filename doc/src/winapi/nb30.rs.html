@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\nb30.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\nb30.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>nb30.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -229,195 +231,219 @@
 <span id="186">186</span>
 <span id="187">187</span>
 <span id="188">188</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='comment'>// This module contains the definitions for portable NetBIOS 3.0 support.</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBNAMSZ</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>16</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>MAX_LANA</span>: <span class='ident'>usize</span> <span class='op'>=</span> <span class='number'>254</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFPOST</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NCB</span>)<span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>NCB</span> {
-    <span class='kw'>pub</span> <span class='ident'>ncb_command</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_retcode</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_lsn</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_num</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_buffer</span>: ::<span class='ident'>PUCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_length</span>: ::<span class='ident'>WORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_callname</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>NCBNAMSZ</span>],
-    <span class='kw'>pub</span> <span class='ident'>ncb_name</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>NCBNAMSZ</span>],
-    <span class='kw'>pub</span> <span class='ident'>ncb_rto</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_sto</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_post</span>: <span class='ident'>PFPOST</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_lana_num</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ncb_cmd_cplt</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>ncb_reserve</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>10</span>],
-    <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-    <span class='kw'>pub</span> <span class='ident'>ncb_reserve</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>18</span>],
-    <span class='kw'>pub</span> <span class='ident'>ncb_event</span>: ::<span class='ident'>HANDLE</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>NCB</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>NCB</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNCB</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NCB</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ADAPTER_STATUS</span> {
-    <span class='ident'>adapter_address</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>6</span>],
-    <span class='ident'>rev_major</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>reserved0</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>adapter_type</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>rev_minor</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>duration</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>frmr_recv</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>frmr_xmit</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>iframe_recv_err</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>xmit_aborts</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>xmit_success</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>recv_success</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>iframe_xmit_err</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>recv_buff_unavail</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>t1_timeouts</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>ti_timeouts</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>reserved1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>free_ncbs</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_cfg_ncbs</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_ncbs</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>xmit_buf_unavail</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_dgram_size</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>pending_sess</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_cfg_sess</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_sess</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>max_sess_pkt_size</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>name_count</span>: ::<span class='ident'>WORD</span>,
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="comment">// This module contains the definitions for portable NetBIOS 3.0 support.</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBNAMSZ</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MAX_LANA</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">254</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PFPOST</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NCB</span>)<span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">NCB</span> {
+    <span class="ident">ncb_command</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_retcode</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_lsn</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_num</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_buffer</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">ncb_length</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">ncb_callname</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">ncb_name</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">ncb_rto</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_sto</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_post</span>: <span class="ident">PFPOST</span>,
+    <span class="ident">ncb_lana_num</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_cmd_cplt</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_reserve</span>: [::<span class="ident">UCHAR</span>; <span class="number">18</span>],
+    <span class="ident">ncb_event</span>: ::<span class="ident">HANDLE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PADAPTER_STATUS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ADAPTER_STATUS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NAME_BUFFER</span> {
-    <span class='ident'>name</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>NCBNAMSZ</span>],
-    <span class='ident'>name_num</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>name_flags</span>: ::<span class='ident'>UCHAR</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86&quot;</span>)]</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">NCB</span> {
+    <span class="ident">ncb_command</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_retcode</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_lsn</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_num</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_buffer</span>: ::<span class="ident">PUCHAR</span>,
+    <span class="ident">ncb_length</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">ncb_callname</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">ncb_name</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">ncb_rto</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_sto</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_post</span>: <span class="ident">PFPOST</span>,
+    <span class="ident">ncb_lana_num</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_cmd_cplt</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ncb_reserve</span>: [::<span class="ident">UCHAR</span>; <span class="number">10</span>],
+    <span class="ident">ncb_event</span>: ::<span class="ident">HANDLE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PNAME_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NAME_BUFFER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NAME_FLAGS_MASK</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x87</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>GROUP_NAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNIQUE_NAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x00</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REGISTERING</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x00</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REGISTERED</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x04</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DEREGISTERED</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x05</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DUPLICATE</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x06</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DUPLICATE_DEREG</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x07</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SESSION_HEADER</span> {
-    <span class='ident'>sess_name</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>num_sess</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>rcv_dg_outstanding</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>rcv_any_outstanding</span>: ::<span class='ident'>UCHAR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PNCB</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NCB</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">ADAPTER_STATUS</span> {
+    <span class="ident">adapter_address</span>: [::<span class="ident">UCHAR</span>; <span class="number">6</span>],
+    <span class="ident">rev_major</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">reserved0</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">adapter_type</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">rev_minor</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">duration</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">frmr_recv</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">frmr_xmit</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">iframe_recv_err</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">xmit_aborts</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">xmit_success</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">recv_success</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">iframe_xmit_err</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">recv_buff_unavail</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">t1_timeouts</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">ti_timeouts</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">reserved1</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">free_ncbs</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_cfg_ncbs</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_ncbs</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">xmit_buf_unavail</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_dgram_size</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">pending_sess</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_cfg_sess</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_sess</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">max_sess_pkt_size</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">name_count</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSESSION_HEADER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SESSION_HEADER</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SESSION_BUFFER</span> {
-    <span class='ident'>lsn</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>state</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>local_name</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>NCBNAMSZ</span>],
-    <span class='ident'>remote_name</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>NCBNAMSZ</span>],
-    <span class='ident'>rcvs_outstanding</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>sends_outstanding</span>: ::<span class='ident'>UCHAR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PADAPTER_STATUS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ADAPTER_STATUS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">NAME_BUFFER</span> {
+    <span class="ident">name</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">name_num</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">name_flags</span>: ::<span class="ident">UCHAR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSESSION_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SESSION_BUFFER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>LISTEN_OUTSTANDING</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CALL_PENDING</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SESSION_ESTABLISHED</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x03</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HANGUP_PENDING</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x04</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>HANGUP_COMPLETE</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x05</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SESSION_ABORTED</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x06</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>LANA_ENUM</span> {
-    <span class='kw'>pub</span> <span class='ident'>length</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lana</span>: [::<span class='ident'>UCHAR</span>; <span class='ident'>MAX_LANA</span> <span class='op'>+</span> <span class='number'>1</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>LANA_ENUM</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>LANA_ENUM</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PLANA_ENUM</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LANA_ENUM</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FIND_NAME_HEADER</span> {
-    <span class='ident'>node_count</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>reserved</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>unique_group</span>: ::<span class='ident'>UCHAR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PNAME_BUFFER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NAME_BUFFER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NAME_FLAGS_MASK</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x87</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">GROUP_NAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x80</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">UNIQUE_NAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x00</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">REGISTERING</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x00</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">REGISTERED</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x04</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DEREGISTERED</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x05</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DUPLICATE</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x06</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DUPLICATE_DEREG</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x07</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SESSION_HEADER</span> {
+    <span class="ident">sess_name</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">num_sess</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">rcv_dg_outstanding</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">rcv_any_outstanding</span>: ::<span class="ident">UCHAR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFIND_NAME_HEADER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FIND_NAME_HEADER</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FIND_NAME_BUFFER</span> {
-    <span class='ident'>length</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>access_control</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>frame_control</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>destination_addr</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>6</span>],
-    <span class='ident'>source_addr</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>6</span>],
-    <span class='ident'>routing_info</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>18</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSESSION_HEADER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SESSION_HEADER</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SESSION_BUFFER</span> {
+    <span class="ident">lsn</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">state</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">local_name</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">remote_name</span>: [::<span class="ident">UCHAR</span>; <span class="ident">NCBNAMSZ</span>],
+    <span class="ident">rcvs_outstanding</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">sends_outstanding</span>: ::<span class="ident">UCHAR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFIND_NAME_BUFFER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>FIND_NAME_BUFFER</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>ACTION_HEADER</span> {
-    <span class='ident'>transport_id</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>action_code</span>: ::<span class='ident'>USHORT</span>,
-    <span class='ident'>reserved</span>: ::<span class='ident'>USHORT</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSESSION_BUFFER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SESSION_BUFFER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">LISTEN_OUTSTANDING</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CALL_PENDING</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SESSION_ESTABLISHED</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x03</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">HANGUP_PENDING</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x04</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">HANGUP_COMPLETE</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x05</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SESSION_ABORTED</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x06</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">LANA_ENUM</span> {
+    <span class="ident">length</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">lana</span>: [::<span class="ident">UCHAR</span>; <span class="ident">MAX_LANA</span> <span class="op">+</span> <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PACTION_HEADER</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ACTION_HEADER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBCALL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBLISTEN</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBHANGUP</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBSEND</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBRECV</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBRECVANY</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x16</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBCHAINSEND</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x17</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBDGSEND</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBDGRECV</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x21</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBDGSENDBC</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x22</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBADDNAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x30</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBDELNAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x31</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBRESET</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x32</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBASTAT</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x33</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBSSTAT</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x34</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBCANCEL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x35</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBADDGRNAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x36</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBENUM</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x37</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBUNLINK</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x70</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBSENDNA</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x71</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBCHAINSENDNA</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x72</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBLANSTALERT</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x73</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBACTION</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x77</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBFINDNAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x78</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NCBTRACE</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x79</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ASYNCH</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_GOODRET</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x00</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_BUFLEN</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_ILLCMD</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x03</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_CMDTMO</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x05</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_INCOMP</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x06</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_BADDR</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x07</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_SNUMOUT</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x08</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NORES</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x09</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_SCLOSED</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x0a</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_CMDCAN</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x0b</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_DUPNAME</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x0d</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NAMTFUL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x0e</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_ACTSES</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x0f</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_LOCTFUL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_REMTFUL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_ILLNN</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x13</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NOCALL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NOWILD</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x15</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_INUSE</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x16</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NAMERR</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x17</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_SABORT</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x18</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NAMCONF</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x19</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_IFBUSY</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x21</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_TOOMANY</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x22</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_BRIDGE</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x23</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_CANOCCR</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x24</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_CANCEL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x26</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_DUPENV</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x30</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_ENVNOTDEF</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x34</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_OSRESNOTAV</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x35</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_MAXAPPS</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x36</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NOSAPS</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x37</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_NORESOURCES</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x38</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_INVADDRESS</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x39</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_INVDDID</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x3B</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_LOCKFAIL</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x3C</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_OPENERR</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x3f</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_SYSTEM</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0x40</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NRC_PENDING</span>: ::<span class='ident'>UCHAR</span> <span class='op'>=</span> <span class='number'>0xff</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PLANA_ENUM</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LANA_ENUM</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FIND_NAME_HEADER</span> {
+    <span class="ident">node_count</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">reserved</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">unique_group</span>: ::<span class="ident">UCHAR</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PFIND_NAME_HEADER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FIND_NAME_HEADER</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FIND_NAME_BUFFER</span> {
+    <span class="ident">length</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">access_control</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">frame_control</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">destination_addr</span>: [::<span class="ident">UCHAR</span>; <span class="number">6</span>],
+    <span class="ident">source_addr</span>: [::<span class="ident">UCHAR</span>; <span class="number">6</span>],
+    <span class="ident">routing_info</span>: [::<span class="ident">UCHAR</span>; <span class="number">18</span>],
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PFIND_NAME_BUFFER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FIND_NAME_BUFFER</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">ACTION_HEADER</span> {
+    <span class="ident">transport_id</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">action_code</span>: ::<span class="ident">USHORT</span>,
+    <span class="ident">reserved</span>: ::<span class="ident">USHORT</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PACTION_HEADER</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ACTION_HEADER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBCALL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBLISTEN</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x11</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBHANGUP</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBSEND</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x14</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBRECV</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x15</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBRECVANY</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBCHAINSEND</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x17</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBDGSEND</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBDGRECV</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x21</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBDGSENDBC</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x22</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBADDNAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x30</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBDELNAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x31</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBRESET</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBASTAT</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x33</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBSSTAT</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x34</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBCANCEL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x35</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBADDGRNAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x36</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBENUM</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x37</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBUNLINK</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x70</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBSENDNA</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x71</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBCHAINSENDNA</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x72</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBLANSTALERT</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x73</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBACTION</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x77</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBFINDNAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x78</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NCBTRACE</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x79</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ASYNCH</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x80</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_GOODRET</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x00</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_BUFLEN</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_ILLCMD</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x03</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_CMDTMO</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x05</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_INCOMP</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x06</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_BADDR</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x07</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_SNUMOUT</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x08</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NORES</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x09</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_SCLOSED</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x0a</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_CMDCAN</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x0b</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_DUPNAME</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x0d</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NAMTFUL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x0e</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_ACTSES</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x0f</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_LOCTFUL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x11</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_REMTFUL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_ILLNN</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x13</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NOCALL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x14</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NOWILD</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x15</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_INUSE</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NAMERR</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x17</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_SABORT</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x18</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NAMCONF</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x19</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_IFBUSY</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x21</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_TOOMANY</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x22</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_BRIDGE</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x23</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_CANOCCR</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x24</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_CANCEL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x26</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_DUPENV</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x30</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_ENVNOTDEF</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x34</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_OSRESNOTAV</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x35</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_MAXAPPS</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x36</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NOSAPS</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x37</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_NORESOURCES</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x38</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_INVADDRESS</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x39</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_INVDDID</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x3B</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_LOCKFAIL</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x3C</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_OPENERR</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x3f</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_SYSTEM</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0x40</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NRC_PENDING</span>: ::<span class="ident">UCHAR</span> <span class="op">=</span> <span class="number">0xff</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -436,12 +462,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -462,7 +492,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -473,11 +503,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["Input",""]],"fn":[["alloc","Allocates a console if the process does not already have a console."],["attach","Attaches the process to the console of the specified process. Pass None to attach to the console of the parent process."],["free","Detaches the process from its current console."]],"struct":[["CharInfo",""],["Info",""],["ScreenBuffer",""]]});

@@ -9,13 +9,15 @@
 
     <title>winapi::tlhelp32::PROCESSENTRY32W - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>tlhelp32</a></p><script>window.sidebarCurrent = {name: 'PROCESSENTRY32W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct PROCESSENTRY32W</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.dwSize">dwSize</a><a href="#structfield.cntUsage">cntUsage</a><a href="#structfield.th32ProcessID">th32ProcessID</a><a href="#structfield.th32DefaultHeapID">th32DefaultHeapID</a><a href="#structfield.th32ModuleID">th32ModuleID</a><a href="#structfield.cntThreads">cntThreads</a><a href="#structfield.th32ParentProcessID">th32ParentProcessID</a><a href="#structfield.pcPriClassBase">pcPriClassBase</a><a href="#structfield.dwFlags">dwFlags</a><a href="#structfield.szExeFile">szExeFile</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>tlhelp32</a></p><script>window.sidebarCurrent = {name: 'PROCESSENTRY32W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,37 +43,76 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>tlhelp32</a>::<wbr><a class='struct' href=''>PROCESSENTRY32W</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-85234' class='srclink' href='../../src/winapi/tlhelp32.rs.html#39-50' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct PROCESSENTRY32W {
-    pub dwSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub cntUsage: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub th32ProcessID: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub th32DefaultHeapID: <a class='type' href='../../winapi/basetsd/type.ULONG_PTR.html' title='winapi::basetsd::ULONG_PTR'>ULONG_PTR</a>,
-    pub th32ModuleID: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub cntThreads: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub th32ParentProcessID: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub pcPriClassBase: <a class='type' href='../../winapi/winnt/type.LONG.html' title='winapi::winnt::LONG'>LONG</a>,
-    pub dwFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub szExeFile: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; ::MAX_PATH]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.dwSize'><code>dwSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cntUsage'><code>cntUsage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.th32ProcessID'><code>th32ProcessID</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.th32DefaultHeapID'><code>th32DefaultHeapID</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.th32ModuleID'><code>th32ModuleID</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cntThreads'><code>cntThreads</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.th32ParentProcessID'><code>th32ParentProcessID</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pcPriClassBase'><code>pcPriClassBase</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFlags'><code>dwFlags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.szExeFile'><code>szExeFile</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/tlhelp32/struct.PROCESSENTRY32W.html' title='winapi::tlhelp32::PROCESSENTRY32W'>PROCESSENTRY32W</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/tlhelp32/struct.PROCESSENTRY32W.html' title='winapi::tlhelp32::PROCESSENTRY32W'>PROCESSENTRY32W</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/tlhelp32/struct.PROCESSENTRY32W.html' title='winapi::tlhelp32::PROCESSENTRY32W'>PROCESSENTRY32W</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>tlhelp32</a>::<wbr><a class="struct" href=''>PROCESSENTRY32W</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct PROCESSENTRY32W {
+    pub dwSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub cntUsage: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub th32ProcessID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub th32DefaultHeapID: <a class="type" href="../../winapi/basetsd/type.ULONG_PTR.html" title="type winapi::basetsd::ULONG_PTR">ULONG_PTR</a>,
+    pub th32ModuleID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub cntThreads: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub th32ParentProcessID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub pcPriClassBase: <a class="type" href="../../winapi/winnt/type.LONG.html" title="type winapi::winnt::LONG">LONG</a>,
+    pub dwFlags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub szExeFile: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.dwSize" class="structfield small-section-header">
+                           <a href="#structfield.dwSize" class="anchor field"></a>
+                           <span id="dwSize.v" class='invisible'>
+                           <code>dwSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.cntUsage" class="structfield small-section-header">
+                           <a href="#structfield.cntUsage" class="anchor field"></a>
+                           <span id="cntUsage.v" class='invisible'>
+                           <code>cntUsage: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.th32ProcessID" class="structfield small-section-header">
+                           <a href="#structfield.th32ProcessID" class="anchor field"></a>
+                           <span id="th32ProcessID.v" class='invisible'>
+                           <code>th32ProcessID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.th32DefaultHeapID" class="structfield small-section-header">
+                           <a href="#structfield.th32DefaultHeapID" class="anchor field"></a>
+                           <span id="th32DefaultHeapID.v" class='invisible'>
+                           <code>th32DefaultHeapID: <a class="type" href="../../winapi/basetsd/type.ULONG_PTR.html" title="type winapi::basetsd::ULONG_PTR">ULONG_PTR</a></code>
+                           </span></span><span id="structfield.th32ModuleID" class="structfield small-section-header">
+                           <a href="#structfield.th32ModuleID" class="anchor field"></a>
+                           <span id="th32ModuleID.v" class='invisible'>
+                           <code>th32ModuleID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.cntThreads" class="structfield small-section-header">
+                           <a href="#structfield.cntThreads" class="anchor field"></a>
+                           <span id="cntThreads.v" class='invisible'>
+                           <code>cntThreads: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.th32ParentProcessID" class="structfield small-section-header">
+                           <a href="#structfield.th32ParentProcessID" class="anchor field"></a>
+                           <span id="th32ParentProcessID.v" class='invisible'>
+                           <code>th32ParentProcessID: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.pcPriClassBase" class="structfield small-section-header">
+                           <a href="#structfield.pcPriClassBase" class="anchor field"></a>
+                           <span id="pcPriClassBase.v" class='invisible'>
+                           <code>pcPriClassBase: <a class="type" href="../../winapi/winnt/type.LONG.html" title="type winapi::winnt::LONG">LONG</a></code>
+                           </span></span><span id="structfield.dwFlags" class="structfield small-section-header">
+                           <a href="#structfield.dwFlags" class="anchor field"></a>
+                           <span id="dwFlags.v" class='invisible'>
+                           <code>dwFlags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.szExeFile" class="structfield small-section-header">
+                           <a href="#structfield.szExeFile" class="anchor field"></a>
+                           <span id="szExeFile.v" class='invisible'>
+                           <code>szExeFile: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/tlhelp32/struct.PROCESSENTRY32W.html" title="struct winapi::tlhelp32::PROCESSENTRY32W">PROCESSENTRY32W</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/tlhelp32/struct.PROCESSENTRY32W.html" title="struct winapi::tlhelp32::PROCESSENTRY32W">PROCESSENTRY32W</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/tlhelp32/struct.PROCESSENTRY32W.html" title="struct winapi::tlhelp32::PROCESSENTRY32W">PROCESSENTRY32W</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -88,12 +129,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -114,7 +159,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -125,11 +170,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

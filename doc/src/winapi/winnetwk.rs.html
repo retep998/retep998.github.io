@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winnetwk.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\winnetwk.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winnetwk.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -316,282 +318,282 @@
 <span id="273">273</span>
 <span id="274">274</span>
 <span id="275">275</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Standard WINNET Header File for WIN32</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_MSNET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SMB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_NETWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00030000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_VINES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_10NET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00050000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LOCUS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00060000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SUN_PC_NFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00070000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LANSTEP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_9TILES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00090000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LANTASTIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000A0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_AS400</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000B0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_FTP_NFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000C0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_PATHWORKS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000D0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LIFENET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000E0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_POWERLAN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x000F0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_BWNFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_COGENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00110000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_FARALLON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00120000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_APPLETALK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00130000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_INTERGRAPH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00140000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SYMFONET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00150000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_CLEARCASE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00160000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_FRONTIER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00170000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_BMC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00180000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00190000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_AVID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001A0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DOCUSPACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001B0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_MANGOSOFT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001C0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SERNET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001D0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_RIVERFRONT1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001E0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_RIVERFRONT2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x001F0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DECORB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_PROTSTOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00210000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_FJ_REDIR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00220000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DISTINCT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00230000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_TWINS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00240000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_RDR2SAMPLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00250000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_CSC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00260000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_3IN1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00270000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_EXTENDNET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00290000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_STAC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002A0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_FOXBAT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002B0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_YAHOO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002C0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_EXIFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002D0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DAV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002E0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_KNOWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x002F0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_OBJECT_DIRE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00300000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_MASFAX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00310000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_HOB_NFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00320000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SHIVA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00330000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_IBMAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00340000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LOCK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00350000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_TERMSRV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00360000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_SRT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00370000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_QUINCY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00380000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_OPENAFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00390000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_AVID1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003A0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003B0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_KWNP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003C0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_ZENWORKS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003D0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DRIVEONWEB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003E0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_VMWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x003F0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_RSFX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_MFILES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00410000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_MS_NFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00420000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_GOOGLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00430000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_NDFS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00440000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_DOCUSHARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00450000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_CRED_MANAGER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFF0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNNC_NET_LANMAN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>WNNC_NET_SMB</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCE_CONNECTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCE_GLOBALNET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCE_REMEMBERED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCE_RECENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCE_CONTEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCETYPE_ANY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCETYPE_DISK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCETYPE_PRINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCETYPE_RESERVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCETYPE_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_CONNECTABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_CONTAINER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_NOLOCALDEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_SIBLING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_ATTACHED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_ALL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='ident'>RESOURCEUSAGE_CONNECTABLE</span> <span class='op'>|</span> <span class='ident'>RESOURCEUSAGE_CONTAINER</span>
-    <span class='op'>|</span> <span class='ident'>RESOURCEUSAGE_ATTACHED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEUSAGE_RESERVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_GENERIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_DOMAIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_SERVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_SHARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000003</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_FILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_GROUP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000005</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_NETWORK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000006</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_ROOT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000007</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_SHAREADMIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_DIRECTORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000009</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_TREE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000000A</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>RESOURCEDISPLAYTYPE_NDSCONTAINER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000000B</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NETRESOURCEA</span> {
-    <span class='ident'>dwScope</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDisplayType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwUsage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpLocalName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpRemoteName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpComment</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpProvider</span>: ::<span class='ident'>LPSTR</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Standard WINNET Header File for WIN32</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_MSNET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SMB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_NETWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00030000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_VINES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_10NET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00050000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LOCUS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00060000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SUN_PC_NFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00070000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LANSTEP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_9TILES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00090000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LANTASTIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000A0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_AS400</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000B0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_FTP_NFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000C0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_PATHWORKS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000D0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LIFENET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000E0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_POWERLAN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x000F0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_BWNFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_COGENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00110000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_FARALLON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00120000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_APPLETALK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00130000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_INTERGRAPH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00140000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SYMFONET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00150000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_CLEARCASE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00160000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_FRONTIER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00170000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_BMC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00180000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00190000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_AVID</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001A0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DOCUSPACE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001B0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_MANGOSOFT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001C0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SERNET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001D0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_RIVERFRONT1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001E0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_RIVERFRONT2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x001F0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DECORB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_PROTSTOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00210000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_FJ_REDIR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00220000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DISTINCT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00230000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_TWINS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00240000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_RDR2SAMPLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00250000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_CSC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00260000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_3IN1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00270000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_EXTENDNET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00290000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_STAC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002A0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_FOXBAT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002B0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_YAHOO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002C0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_EXIFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002D0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DAV</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002E0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_KNOWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x002F0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_OBJECT_DIRE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00300000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_MASFAX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00310000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_HOB_NFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00320000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SHIVA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00330000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_IBMAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00340000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LOCK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00350000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_TERMSRV</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00360000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_SRT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00370000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_QUINCY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00380000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_OPENAFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00390000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_AVID1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003A0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003B0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_KWNP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003C0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_ZENWORKS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003D0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DRIVEONWEB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003E0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_VMWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x003F0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_RSFX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_MFILES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00410000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_MS_NFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00420000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_GOOGLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00430000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_NDFS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00440000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_DOCUSHARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00450000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_CRED_MANAGER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFF0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNNC_NET_LANMAN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">WNNC_NET_SMB</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCE_CONNECTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCE_GLOBALNET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCE_REMEMBERED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCE_RECENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCE_CONTEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCETYPE_ANY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCETYPE_DISK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCETYPE_PRINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCETYPE_RESERVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCETYPE_UNKNOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_CONNECTABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_CONTAINER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_NOLOCALDEVICE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_SIBLING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_ATTACHED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_ALL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="ident">RESOURCEUSAGE_CONNECTABLE</span> <span class="op">|</span> <span class="ident">RESOURCEUSAGE_CONTAINER</span>
+    <span class="op">|</span> <span class="ident">RESOURCEUSAGE_ATTACHED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEUSAGE_RESERVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_GENERIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_DOMAIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_SERVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_SHARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000003</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_FILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_GROUP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000005</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_NETWORK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000006</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_ROOT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000007</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_SHAREADMIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_DIRECTORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000009</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_TREE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000000A</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RESOURCEDISPLAYTYPE_NDSCONTAINER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000000B</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">NETRESOURCEA</span> {
+    <span class="ident">dwScope</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDisplayType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwUsage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpLocalName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpRemoteName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpComment</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpProvider</span>: ::<span class="ident">LPSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNETRESOURCEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NETRESOURCEA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NETRESOURCEW</span> {
-    <span class='ident'>dwScope</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDisplayType</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwUsage</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpLocalName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpRemoteName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpComment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpProvider</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPNETRESOURCEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NETRESOURCEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">NETRESOURCEW</span> {
+    <span class="ident">dwScope</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDisplayType</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwUsage</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpLocalName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpRemoteName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpComment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpProvider</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNETRESOURCEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NETRESOURCEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NETPROPERTY_PERSISTENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_UPDATE_PROFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_UPDATE_RECENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_TEMPORARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_INTERACTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_PROMPT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_NEED_DRIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_REFCOUNT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_REDIRECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_LOCALDRIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_CURRENT_MEDIA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_DEFERRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_RESERVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFF000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_COMMANDLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_CMD_SAVECRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNECT_CRED_RESET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONNECTDLGSTRUCTA</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>lpConnRes</span>: ::<span class='ident'>LPNETRESOURCEA</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDevNum</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPNETRESOURCEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NETRESOURCEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NETPROPERTY_PERSISTENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_UPDATE_PROFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_UPDATE_RECENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_TEMPORARY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_INTERACTIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_PROMPT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_NEED_DRIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_REFCOUNT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_REDIRECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_LOCALDRIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_CURRENT_MEDIA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_DEFERRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_RESERVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFF000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_COMMANDLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_CMD_SAVECRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNECT_CRED_RESET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CONNECTDLGSTRUCTA</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">lpConnRes</span>: ::<span class="ident">LPNETRESOURCEA</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDevNum</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCONNECTDLGSTRUCTA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONNECTDLGSTRUCTA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CONNECTDLGSTRUCTW</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>lpConnRes</span>: ::<span class='ident'>LPNETRESOURCEW</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDevNum</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCONNECTDLGSTRUCTA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CONNECTDLGSTRUCTA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CONNECTDLGSTRUCTW</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">lpConnRes</span>: ::<span class="ident">LPNETRESOURCEW</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDevNum</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCONNECTDLGSTRUCTW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CONNECTDLGSTRUCTW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_RO_PATH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_CONN_POINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_USE_MRU</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_HIDE_BOX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_PERSIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CONNDLG_NOT_PERSIST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DISCDLGSTRUCTA</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>lpLocalName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpRemoteName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCONNECTDLGSTRUCTW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CONNECTDLGSTRUCTW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_RO_PATH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_CONN_POINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_USE_MRU</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_HIDE_BOX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_PERSIST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CONNDLG_NOT_PERSIST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DISCDLGSTRUCTA</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">lpLocalName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpRemoteName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDISCDLGSTRUCTA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DISCDLGSTRUCTA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DISCDLGSTRUCTW</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='ident'>lpLocalName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpRemoteName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDISCDLGSTRUCTA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DISCDLGSTRUCTA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DISCDLGSTRUCTW</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">lpLocalName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpRemoteName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDISCDLGSTRUCTW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DISCDLGSTRUCTW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DISC_UPDATE_PROFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DISC_NO_FORCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>UNIVERSAL_NAME_INFO_LEVEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>REMOTE_NAME_INFO_LEVEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>UNIVERSAL_NAME_INFOA</span> {
-    <span class='ident'>lpUniversalName</span>: ::<span class='ident'>LPSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDISCDLGSTRUCTW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DISCDLGSTRUCTW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DISC_UPDATE_PROFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DISC_NO_FORCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">UNIVERSAL_NAME_INFO_LEVEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">REMOTE_NAME_INFO_LEVEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">UNIVERSAL_NAME_INFOA</span> {
+    <span class="ident">lpUniversalName</span>: ::<span class="ident">LPSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPUNIVERSAL_NAME_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UNIVERSAL_NAME_INFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>UNIVERSAL_NAME_INFOW</span> {
-    <span class='ident'>lpUniversalName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUNIVERSAL_NAME_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UNIVERSAL_NAME_INFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">UNIVERSAL_NAME_INFOW</span> {
+    <span class="ident">lpUniversalName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPUNIVERSAL_NAME_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>UNIVERSAL_NAME_INFOW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>REMOTE_NAME_INFOA</span> {
-    <span class='ident'>lpUniversalName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpConnectionName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>lpRemainingPath</span>: ::<span class='ident'>LPSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPUNIVERSAL_NAME_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">UNIVERSAL_NAME_INFOW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">REMOTE_NAME_INFOA</span> {
+    <span class="ident">lpUniversalName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpConnectionName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">lpRemainingPath</span>: ::<span class="ident">LPSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPREMOTE_NAME_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>REMOTE_NAME_INFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>REMOTE_NAME_INFOW</span> {
-    <span class='ident'>lpUniversalName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpConnectionName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>lpRemainingPath</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPREMOTE_NAME_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">REMOTE_NAME_INFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">REMOTE_NAME_INFOW</span> {
+    <span class="ident">lpUniversalName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpConnectionName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">lpRemainingPath</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPREMOTE_NAME_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>REMOTE_NAME_INFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNFMT_MULTILINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNFMT_ABBREVIATED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNFMT_INENUM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNFMT_CONNECTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NETINFOSTRUCT</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwProviderVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwStatus</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwCharacteristics</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwHandle</span>: ::<span class='ident'>ULONG_PTR</span>,
-    <span class='ident'>wNetType</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>dwPrinters</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDrives</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPREMOTE_NAME_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">REMOTE_NAME_INFOW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNFMT_MULTILINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNFMT_ABBREVIATED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNFMT_INENUM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNFMT_CONNECTION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">NETINFOSTRUCT</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwProviderVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwStatus</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwCharacteristics</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwHandle</span>: ::<span class="ident">ULONG_PTR</span>,
+    <span class="ident">wNetType</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">dwPrinters</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDrives</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNETINFOSTRUCT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NETINFOSTRUCT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NETINFO_DLL16</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NETINFO_DISKRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NETINFO_PRINTERRED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_SUCCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>NO_ERROR</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NO_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>NO_ERROR</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_SUPPORTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_SUPPORTED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_CANCEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_CANCELLED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_RETRY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_RETRY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NET_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_UNEXP_NET_ERR</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_MORE_DATA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_MORE_DATA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_ADDRESS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_VALUE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_PARAMETER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_USER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_USERNAME</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_PASSWORD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_ACCESS_DENIED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_ACCESS_DENIED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_FUNCTION_BUSY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BUSY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_WINDOWS_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_UNEXP_NET_ERR</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_OUT_OF_MEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_ENOUGH_MEMORY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NO_NETWORK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NO_NETWORK</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_EXTENDED_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_EXTENDED_ERROR</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_LEVEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_LEVEL</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_HANDLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_INVALID_HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_INITIALIZING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_ALREADY_INITIALIZED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NO_MORE_DEVICES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NO_MORE_DEVICES</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_CONNECTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_CONNECTED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_OPEN_FILES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_OPEN_FILES</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_DEVICE_IN_USE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_DEVICE_IN_USE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_NETNAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_NET_NAME</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_LOCALNAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_DEVICE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_ALREADY_CONNECTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_ALREADY_ASSIGNED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_DEVICE_ERROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_GEN_FAILURE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_CONNECTION_CLOSED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_CONNECTION_UNAVAIL</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NO_NET_OR_BAD_PATH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NO_NET_OR_BAD_PATH</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_PROVIDER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_PROVIDER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_CANNOT_OPEN_PROFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_CANNOT_OPEN_PROFILE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_PROFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_PROFILE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_BAD_DEV_TYPE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_BAD_DEV_TYPE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_DEVICE_ALREADY_REMEMBERED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_DEVICE_ALREADY_REMEMBERED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_CONNECTED_OTHER_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_CONNECTED_OTHER_PASSWORD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_CONNECTED_OTHER_PASSWORD_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NO_MORE_ENTRIES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NO_MORE_ITEMS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_CONTAINER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_CONTAINER</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_AUTHENTICATED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_AUTHENTICATED</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_LOGGED_ON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NOT_LOGGED_ON</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WN_NOT_VALIDATED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> ::<span class='ident'>ERROR_NO_LOGON_SERVERS</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>NETCONNECTINFOSTRUCT</span> {
-    <span class='ident'>cbStructure</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwSpeed</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDelay</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwOptDataSize</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPNETINFOSTRUCT</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NETINFOSTRUCT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NETINFO_DLL16</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NETINFO_DISKRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NETINFO_PRINTERRED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_SUCCESS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">NO_ERROR</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NO_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">NO_ERROR</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_SUPPORTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_SUPPORTED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_CANCEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_CANCELLED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_RETRY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_RETRY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NET_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_UNEXP_NET_ERR</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_MORE_DATA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_MORE_DATA</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_POINTER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_ADDRESS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_VALUE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_PARAMETER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_USER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_USERNAME</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_PASSWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_PASSWORD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_ACCESS_DENIED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_ACCESS_DENIED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_FUNCTION_BUSY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BUSY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_WINDOWS_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_UNEXP_NET_ERR</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_OUT_OF_MEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_ENOUGH_MEMORY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NO_NETWORK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NO_NETWORK</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_EXTENDED_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_EXTENDED_ERROR</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_LEVEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_LEVEL</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_HANDLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_INVALID_HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_INITIALIZING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_ALREADY_INITIALIZED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NO_MORE_DEVICES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NO_MORE_DEVICES</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_CONNECTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_CONNECTED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_OPEN_FILES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_OPEN_FILES</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_DEVICE_IN_USE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_DEVICE_IN_USE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_NETNAME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_NET_NAME</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_LOCALNAME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_DEVICE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_ALREADY_CONNECTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_ALREADY_ASSIGNED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_DEVICE_ERROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_GEN_FAILURE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_CONNECTION_CLOSED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_CONNECTION_UNAVAIL</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NO_NET_OR_BAD_PATH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NO_NET_OR_BAD_PATH</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_PROVIDER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_PROVIDER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_CANNOT_OPEN_PROFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_CANNOT_OPEN_PROFILE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_PROFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_PROFILE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_BAD_DEV_TYPE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_BAD_DEV_TYPE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_DEVICE_ALREADY_REMEMBERED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_DEVICE_ALREADY_REMEMBERED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_CONNECTED_OTHER_PASSWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_CONNECTED_OTHER_PASSWORD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_CONNECTED_OTHER_PASSWORD_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NO_MORE_ENTRIES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NO_MORE_ITEMS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_CONTAINER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_CONTAINER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_AUTHENTICATED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_AUTHENTICATED</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_LOGGED_ON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NOT_LOGGED_ON</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WN_NOT_VALIDATED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> ::<span class="ident">ERROR_NO_LOGON_SERVERS</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">NETCONNECTINFOSTRUCT</span> {
+    <span class="ident">cbStructure</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwSpeed</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDelay</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwOptDataSize</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPNETCONNECTINFOSTRUCT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>NETCONNECTINFOSTRUCT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNCON_FORNETCARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNCON_NOTROUTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNCON_SLOWLINK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WNCON_DYNAMIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPNETCONNECTINFOSTRUCT</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">NETCONNECTINFOSTRUCT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNCON_FORNETCARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNCON_NOTROUTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNCON_SLOWLINK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WNCON_DYNAMIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -610,12 +612,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -636,7 +642,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -647,11 +653,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

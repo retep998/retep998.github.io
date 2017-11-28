@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\usp10.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\usp10.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>usp10.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -242,207 +244,207 @@
 <span id="199">199</span>
 <span id="200">200</span>
 <span id="201">201</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Jordan Miner</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Uniscribe structure declarations and constant definitions</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_UNDEFINED</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>USP_E_SCRIPT_NOT_IN_FONT</span>: ::<span class='ident'>HRESULT</span> <span class='op'>=</span> <span class='macro'>MAKE_HRESULT</span><span class='macro'>!</span>(
-    ::<span class='ident'>SEVERITY_ERROR</span>, ::<span class='ident'>FACILITY_ITF</span>, <span class='number'>0x200</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Jordan Miner</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Uniscribe structure declarations and constant definitions</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_UNDEFINED</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">USP_E_SCRIPT_NOT_IN_FONT</span>: ::<span class="ident">HRESULT</span> <span class="op">=</span> <span class="macro">MAKE_HRESULT</span><span class="macro">!</span>(
+    ::<span class="ident">SEVERITY_ERROR</span>, ::<span class="ident">FACILITY_ITF</span>, <span class="number">0x200</span>
 );
-<span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_CACHE</span>, <span class='ident'>SCRIPT_CACHE__</span>);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_CONTROL</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>DWORD</span>,
+<span class="macro">DECLARE_HANDLE</span><span class="macro">!</span>(<span class="ident">SCRIPT_CACHE</span>, <span class="ident">SCRIPT_CACHE__</span>);
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_CONTROL</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_CONTROL</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>DWORD</span> [
-    <span class='ident'>uDefaultLanguage</span> <span class='ident'>set_uDefaultLanguage</span>[<span class='number'>0</span>..<span class='number'>16</span>],
-    <span class='ident'>fContextDigits</span> <span class='ident'>set_fContextDigits</span>[<span class='number'>16</span>..<span class='number'>17</span>],
-    <span class='ident'>fInvertPreBoundDir</span> <span class='ident'>set_fInvertPreBoundDir</span>[<span class='number'>17</span>..<span class='number'>18</span>],
-    <span class='ident'>fInvertPostBoundDir</span> <span class='ident'>set_fInvertPostBoundDir</span>[<span class='number'>18</span>..<span class='number'>19</span>],
-    <span class='ident'>fLinkStringBefore</span> <span class='ident'>set_fLinkStringBefore</span>[<span class='number'>19</span>..<span class='number'>20</span>],
-    <span class='ident'>fLinkStringAfter</span> <span class='ident'>set_fLinkStringAfter</span>[<span class='number'>20</span>..<span class='number'>21</span>],
-    <span class='ident'>fNeutralOverride</span> <span class='ident'>set_fNeutralOverride</span>[<span class='number'>21</span>..<span class='number'>22</span>],
-    <span class='ident'>fNumericOverride</span> <span class='ident'>set_fNumericOverride</span>[<span class='number'>22</span>..<span class='number'>23</span>],
-    <span class='ident'>fLegacyBidiClass</span> <span class='ident'>set_fLegacyBidiClass</span>[<span class='number'>23</span>..<span class='number'>24</span>],
-    <span class='ident'>fMergeNeutralItems</span> <span class='ident'>set_fMergeNeutralItems</span>[<span class='number'>24</span>..<span class='number'>25</span>],
-    <span class='ident'>fReserved</span> <span class='ident'>set_fReserved</span>[<span class='number'>25</span>..<span class='number'>32</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_CONTROL</span> <span class="ident">bit_fields</span>: ::<span class="ident">DWORD</span> [
+    <span class="ident">uDefaultLanguage</span> <span class="ident">set_uDefaultLanguage</span>[<span class="number">0</span>..<span class="number">16</span>],
+    <span class="ident">fContextDigits</span> <span class="ident">set_fContextDigits</span>[<span class="number">16</span>..<span class="number">17</span>],
+    <span class="ident">fInvertPreBoundDir</span> <span class="ident">set_fInvertPreBoundDir</span>[<span class="number">17</span>..<span class="number">18</span>],
+    <span class="ident">fInvertPostBoundDir</span> <span class="ident">set_fInvertPostBoundDir</span>[<span class="number">18</span>..<span class="number">19</span>],
+    <span class="ident">fLinkStringBefore</span> <span class="ident">set_fLinkStringBefore</span>[<span class="number">19</span>..<span class="number">20</span>],
+    <span class="ident">fLinkStringAfter</span> <span class="ident">set_fLinkStringAfter</span>[<span class="number">20</span>..<span class="number">21</span>],
+    <span class="ident">fNeutralOverride</span> <span class="ident">set_fNeutralOverride</span>[<span class="number">21</span>..<span class="number">22</span>],
+    <span class="ident">fNumericOverride</span> <span class="ident">set_fNumericOverride</span>[<span class="number">22</span>..<span class="number">23</span>],
+    <span class="ident">fLegacyBidiClass</span> <span class="ident">set_fLegacyBidiClass</span>[<span class="number">23</span>..<span class="number">24</span>],
+    <span class="ident">fMergeNeutralItems</span> <span class="ident">set_fMergeNeutralItems</span>[<span class="number">24</span>..<span class="number">25</span>],
+    <span class="ident">fReserved</span> <span class="ident">set_fReserved</span>[<span class="number">25</span>..<span class="number">32</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_STATE</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_STATE</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_STATE</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span> [
-    <span class='ident'>uBidiLevel</span> <span class='ident'>set_uBidiLevel</span>[<span class='number'>0</span>..<span class='number'>5</span>],
-    <span class='ident'>fOverrideDirection</span> <span class='ident'>set_fOverrideDirection</span>[<span class='number'>5</span>..<span class='number'>6</span>],
-    <span class='ident'>fInhibitSymSwap</span> <span class='ident'>set_fInhibitSymSwap</span>[<span class='number'>6</span>..<span class='number'>7</span>],
-    <span class='ident'>fCharShape</span> <span class='ident'>set_fCharShape</span>[<span class='number'>7</span>..<span class='number'>8</span>],
-    <span class='ident'>fDigitSubstitute</span> <span class='ident'>set_fDigitSubstitute</span>[<span class='number'>8</span>..<span class='number'>9</span>],
-    <span class='ident'>fInhibitLigate</span> <span class='ident'>set_fInhibitLigate</span>[<span class='number'>9</span>..<span class='number'>10</span>],
-    <span class='ident'>fDisplayZWG</span> <span class='ident'>set_fDisplayZWG</span>[<span class='number'>10</span>..<span class='number'>11</span>],
-    <span class='ident'>fArabicNumContext</span> <span class='ident'>set_fArabicNumContext</span>[<span class='number'>11</span>..<span class='number'>12</span>],
-    <span class='ident'>fGcpClusters</span> <span class='ident'>set_fGcpClusters</span>[<span class='number'>12</span>..<span class='number'>13</span>],
-    <span class='ident'>fReserved</span> <span class='ident'>set_fReserved</span>[<span class='number'>13</span>..<span class='number'>14</span>],
-    <span class='ident'>fEngineReserved</span> <span class='ident'>set_fEngineReserved</span>[<span class='number'>14</span>..<span class='number'>16</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_STATE</span> <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span> [
+    <span class="ident">uBidiLevel</span> <span class="ident">set_uBidiLevel</span>[<span class="number">0</span>..<span class="number">5</span>],
+    <span class="ident">fOverrideDirection</span> <span class="ident">set_fOverrideDirection</span>[<span class="number">5</span>..<span class="number">6</span>],
+    <span class="ident">fInhibitSymSwap</span> <span class="ident">set_fInhibitSymSwap</span>[<span class="number">6</span>..<span class="number">7</span>],
+    <span class="ident">fCharShape</span> <span class="ident">set_fCharShape</span>[<span class="number">7</span>..<span class="number">8</span>],
+    <span class="ident">fDigitSubstitute</span> <span class="ident">set_fDigitSubstitute</span>[<span class="number">8</span>..<span class="number">9</span>],
+    <span class="ident">fInhibitLigate</span> <span class="ident">set_fInhibitLigate</span>[<span class="number">9</span>..<span class="number">10</span>],
+    <span class="ident">fDisplayZWG</span> <span class="ident">set_fDisplayZWG</span>[<span class="number">10</span>..<span class="number">11</span>],
+    <span class="ident">fArabicNumContext</span> <span class="ident">set_fArabicNumContext</span>[<span class="number">11</span>..<span class="number">12</span>],
+    <span class="ident">fGcpClusters</span> <span class="ident">set_fGcpClusters</span>[<span class="number">12</span>..<span class="number">13</span>],
+    <span class="ident">fReserved</span> <span class="ident">set_fReserved</span>[<span class="number">13</span>..<span class="number">14</span>],
+    <span class="ident">fEngineReserved</span> <span class="ident">set_fEngineReserved</span>[<span class="number">14</span>..<span class="number">16</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_ANALYSIS</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>s</span>: <span class='ident'>SCRIPT_STATE</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_ANALYSIS</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">s</span>: <span class="ident">SCRIPT_STATE</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_ANALYSIS</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span> [
-    <span class='ident'>eScript</span> <span class='ident'>set_eScript</span>[<span class='number'>0</span>..<span class='number'>10</span>],
-    <span class='ident'>fRTL</span> <span class='ident'>set_fRTL</span>[<span class='number'>10</span>..<span class='number'>11</span>],
-    <span class='ident'>fLayoutRTL</span> <span class='ident'>set_fLayoutRTL</span>[<span class='number'>11</span>..<span class='number'>12</span>],
-    <span class='ident'>fLinkBefore</span> <span class='ident'>set_fLinkBefore</span>[<span class='number'>12</span>..<span class='number'>13</span>],
-    <span class='ident'>fLinkAfter</span> <span class='ident'>set_fLinkAfter</span>[<span class='number'>13</span>..<span class='number'>14</span>],
-    <span class='ident'>fLogicalOrder</span> <span class='ident'>set_fLogicalOrder</span>[<span class='number'>14</span>..<span class='number'>15</span>],
-    <span class='ident'>fNoGlyphIndex</span> <span class='ident'>set_fNoGlyphIndex</span>[<span class='number'>15</span>..<span class='number'>16</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_ANALYSIS</span> <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span> [
+    <span class="ident">eScript</span> <span class="ident">set_eScript</span>[<span class="number">0</span>..<span class="number">10</span>],
+    <span class="ident">fRTL</span> <span class="ident">set_fRTL</span>[<span class="number">10</span>..<span class="number">11</span>],
+    <span class="ident">fLayoutRTL</span> <span class="ident">set_fLayoutRTL</span>[<span class="number">11</span>..<span class="number">12</span>],
+    <span class="ident">fLinkBefore</span> <span class="ident">set_fLinkBefore</span>[<span class="number">12</span>..<span class="number">13</span>],
+    <span class="ident">fLinkAfter</span> <span class="ident">set_fLinkAfter</span>[<span class="number">13</span>..<span class="number">14</span>],
+    <span class="ident">fLogicalOrder</span> <span class="ident">set_fLogicalOrder</span>[<span class="number">14</span>..<span class="number">15</span>],
+    <span class="ident">fNoGlyphIndex</span> <span class="ident">set_fNoGlyphIndex</span>[<span class="number">15</span>..<span class="number">16</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_ITEM</span> {
-    <span class='ident'>iCharPos</span>: ::<span class='ident'>c_int</span>,
-    <span class='ident'>a</span>: <span class='ident'>SCRIPT_ANALYSIS</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_ITEM</span> {
+    <span class="ident">iCharPos</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">a</span>: <span class="ident">SCRIPT_ANALYSIS</span>,
 }}
-<span class='comment'>//490</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_NONE</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_BLANK</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_CHARACTER</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_RESERVED1</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_BLANK</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_RESERVED2</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_RESERVED3</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_NORMAL</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_KASHIDA</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_ALEF</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_HA</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_RA</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>11</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_BA</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_BARA</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>13</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_SEEN</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>14</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_JUSTIFY_ARABIC_SEEN_M</span>: ::<span class='ident'>WORD</span> <span class='op'>=</span> <span class='number'>15</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_VISATTR</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span>,
+<span class="comment">//490</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_NONE</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_BLANK</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_CHARACTER</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_RESERVED1</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_BLANK</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_RESERVED2</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_RESERVED3</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_NORMAL</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_KASHIDA</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_ALEF</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_HA</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_RA</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">11</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_BA</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_BARA</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">13</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_SEEN</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">14</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_JUSTIFY_ARABIC_SEEN_M</span>: ::<span class="ident">WORD</span> <span class="op">=</span> <span class="number">15</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_VISATTR</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_VISATTR</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span> [
-    <span class='ident'>uJustification</span> <span class='ident'>set_uJustification</span>[<span class='number'>0</span>..<span class='number'>4</span>],
-    <span class='ident'>fClusterStart</span> <span class='ident'>set_fClusterStart</span>[<span class='number'>4</span>..<span class='number'>5</span>],
-    <span class='ident'>fDiacritic</span> <span class='ident'>set_fDiacritic</span>[<span class='number'>5</span>..<span class='number'>6</span>],
-    <span class='ident'>fZeroWidth</span> <span class='ident'>set_fZeroWidth</span>[<span class='number'>6</span>..<span class='number'>7</span>],
-    <span class='ident'>fReserved</span> <span class='ident'>set_fReserved</span>[<span class='number'>7</span>..<span class='number'>8</span>],
-    <span class='ident'>fShapeReserved</span> <span class='ident'>set_fShapeReserved</span>[<span class='number'>8</span>..<span class='number'>16</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_VISATTR</span> <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span> [
+    <span class="ident">uJustification</span> <span class="ident">set_uJustification</span>[<span class="number">0</span>..<span class="number">4</span>],
+    <span class="ident">fClusterStart</span> <span class="ident">set_fClusterStart</span>[<span class="number">4</span>..<span class="number">5</span>],
+    <span class="ident">fDiacritic</span> <span class="ident">set_fDiacritic</span>[<span class="number">5</span>..<span class="number">6</span>],
+    <span class="ident">fZeroWidth</span> <span class="ident">set_fZeroWidth</span>[<span class="number">6</span>..<span class="number">7</span>],
+    <span class="ident">fReserved</span> <span class="ident">set_fReserved</span>[<span class="number">7</span>..<span class="number">8</span>],
+    <span class="ident">fShapeReserved</span> <span class="ident">set_fShapeReserved</span>[<span class="number">8</span>..<span class="number">16</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>GOFFSET</span> {
-    <span class='ident'>du</span>: ::<span class='ident'>LONG</span>,
-    <span class='ident'>dv</span>: ::<span class='ident'>LONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">GOFFSET</span> {
+    <span class="ident">du</span>: ::<span class="ident">LONG</span>,
+    <span class="ident">dv</span>: ::<span class="ident">LONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_LOGATTR</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>BYTE</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_LOGATTR</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">BYTE</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_LOGATTR</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>BYTE</span> [
-    <span class='ident'>fSoftBreak</span> <span class='ident'>set_fSoftBreak</span>[<span class='number'>0</span>..<span class='number'>1</span>],
-    <span class='ident'>fWhiteSpace</span> <span class='ident'>set_fWhiteSpace</span>[<span class='number'>1</span>..<span class='number'>2</span>],
-    <span class='ident'>fCharStop</span> <span class='ident'>set_fCharStop</span>[<span class='number'>2</span>..<span class='number'>3</span>],
-    <span class='ident'>fWordStop</span> <span class='ident'>set_fWordStop</span>[<span class='number'>3</span>..<span class='number'>4</span>],
-    <span class='ident'>fInvalid</span> <span class='ident'>set_fInvalid</span>[<span class='number'>4</span>..<span class='number'>5</span>],
-    <span class='ident'>fReserved</span> <span class='ident'>set_fReserved</span>[<span class='number'>5</span>..<span class='number'>8</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_LOGATTR</span> <span class="ident">bit_fields</span>: ::<span class="ident">BYTE</span> [
+    <span class="ident">fSoftBreak</span> <span class="ident">set_fSoftBreak</span>[<span class="number">0</span>..<span class="number">1</span>],
+    <span class="ident">fWhiteSpace</span> <span class="ident">set_fWhiteSpace</span>[<span class="number">1</span>..<span class="number">2</span>],
+    <span class="ident">fCharStop</span> <span class="ident">set_fCharStop</span>[<span class="number">2</span>..<span class="number">3</span>],
+    <span class="ident">fWordStop</span> <span class="ident">set_fWordStop</span>[<span class="number">3</span>..<span class="number">4</span>],
+    <span class="ident">fInvalid</span> <span class="ident">set_fInvalid</span>[<span class="number">4</span>..<span class="number">5</span>],
+    <span class="ident">fReserved</span> <span class="ident">set_fReserved</span>[<span class="number">5</span>..<span class="number">8</span>],
 ]);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SGCM_RTL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_PROPERTIES</span> {
-    <span class='ident'>bit_fields1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>bit_fields2</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGCM_RTL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_PROPERTIES</span> {
+    <span class="ident">bit_fields1</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">bit_fields2</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_PROPERTIES</span> <span class='ident'>bit_fields1</span>: ::<span class='ident'>DWORD</span> [
-    <span class='ident'>langid</span> <span class='ident'>set_langid</span>[<span class='number'>0</span>..<span class='number'>16</span>],
-    <span class='ident'>fNumeric</span> <span class='ident'>set_fNumeric</span>[<span class='number'>16</span>..<span class='number'>17</span>],
-    <span class='ident'>fComplex</span> <span class='ident'>set_fComplex</span>[<span class='number'>17</span>..<span class='number'>18</span>],
-    <span class='ident'>fNeedsWordBreaking</span> <span class='ident'>set_fNeedsWordBreaking</span>[<span class='number'>18</span>..<span class='number'>19</span>],
-    <span class='ident'>fNeedsCaretInfo</span> <span class='ident'>set_fNeedsCaretInfo</span>[<span class='number'>19</span>..<span class='number'>20</span>],
-    <span class='ident'>bCharSet</span> <span class='ident'>set_bCharSet</span>[<span class='number'>20</span>..<span class='number'>28</span>],
-    <span class='ident'>fControl</span> <span class='ident'>set_fControl</span>[<span class='number'>28</span>..<span class='number'>29</span>],
-    <span class='ident'>fPrivateUseArea</span> <span class='ident'>set_fPrivateUseArea</span>[<span class='number'>29</span>..<span class='number'>30</span>],
-    <span class='ident'>fNeedsCharacterJustify</span> <span class='ident'>set_fNeedsCharacterJustify</span>[<span class='number'>30</span>..<span class='number'>31</span>],
-    <span class='ident'>fInvalidGlyph</span> <span class='ident'>set_fInvalidGlyph</span>[<span class='number'>31</span>..<span class='number'>32</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_PROPERTIES</span> <span class="ident">bit_fields1</span>: ::<span class="ident">DWORD</span> [
+    <span class="ident">langid</span> <span class="ident">set_langid</span>[<span class="number">0</span>..<span class="number">16</span>],
+    <span class="ident">fNumeric</span> <span class="ident">set_fNumeric</span>[<span class="number">16</span>..<span class="number">17</span>],
+    <span class="ident">fComplex</span> <span class="ident">set_fComplex</span>[<span class="number">17</span>..<span class="number">18</span>],
+    <span class="ident">fNeedsWordBreaking</span> <span class="ident">set_fNeedsWordBreaking</span>[<span class="number">18</span>..<span class="number">19</span>],
+    <span class="ident">fNeedsCaretInfo</span> <span class="ident">set_fNeedsCaretInfo</span>[<span class="number">19</span>..<span class="number">20</span>],
+    <span class="ident">bCharSet</span> <span class="ident">set_bCharSet</span>[<span class="number">20</span>..<span class="number">28</span>],
+    <span class="ident">fControl</span> <span class="ident">set_fControl</span>[<span class="number">28</span>..<span class="number">29</span>],
+    <span class="ident">fPrivateUseArea</span> <span class="ident">set_fPrivateUseArea</span>[<span class="number">29</span>..<span class="number">30</span>],
+    <span class="ident">fNeedsCharacterJustify</span> <span class="ident">set_fNeedsCharacterJustify</span>[<span class="number">30</span>..<span class="number">31</span>],
+    <span class="ident">fInvalidGlyph</span> <span class="ident">set_fInvalidGlyph</span>[<span class="number">31</span>..<span class="number">32</span>],
 ]);
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_PROPERTIES</span> <span class='ident'>bit_fields2</span>: ::<span class='ident'>DWORD</span> [
-    <span class='ident'>fInvalidLogAttr</span> <span class='ident'>set_fInvalidLogAttr</span>[<span class='number'>0</span>..<span class='number'>1</span>],
-    <span class='ident'>fCDM</span> <span class='ident'>set_fCDM</span>[<span class='number'>1</span>..<span class='number'>2</span>],
-    <span class='ident'>fAmbiguousCharSet</span> <span class='ident'>set_fAmbiguousCharSet</span>[<span class='number'>2</span>..<span class='number'>3</span>],
-    <span class='ident'>fClusterSizeVaries</span> <span class='ident'>set_fClusterSizeVaries</span>[<span class='number'>3</span>..<span class='number'>4</span>],
-    <span class='ident'>fRejectInvalid</span> <span class='ident'>set_fRejectInvalid</span>[<span class='number'>4</span>..<span class='number'>5</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_PROPERTIES</span> <span class="ident">bit_fields2</span>: ::<span class="ident">DWORD</span> [
+    <span class="ident">fInvalidLogAttr</span> <span class="ident">set_fInvalidLogAttr</span>[<span class="number">0</span>..<span class="number">1</span>],
+    <span class="ident">fCDM</span> <span class="ident">set_fCDM</span>[<span class="number">1</span>..<span class="number">2</span>],
+    <span class="ident">fAmbiguousCharSet</span> <span class="ident">set_fAmbiguousCharSet</span>[<span class="number">2</span>..<span class="number">3</span>],
+    <span class="ident">fClusterSizeVaries</span> <span class="ident">set_fClusterSizeVaries</span>[<span class="number">3</span>..<span class="number">4</span>],
+    <span class="ident">fRejectInvalid</span> <span class="ident">set_fRejectInvalid</span>[<span class="number">4</span>..<span class="number">5</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_FONTPROPERTIES</span> {
-    <span class='ident'>cBytes</span>: ::<span class='ident'>c_int</span>,
-    <span class='ident'>wgBlank</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wgDefault</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wgInvalid</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>wgKashida</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>iKashidaWidth</span>: ::<span class='ident'>c_int</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_FONTPROPERTIES</span> {
+    <span class="ident">cBytes</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">wgBlank</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wgDefault</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wgInvalid</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">wgKashida</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">iKashidaWidth</span>: ::<span class="ident">c_int</span>,
 }}
-<span class='comment'>//1440</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_PASSWORD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_TAB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_CLIP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_FIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_DZWG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_FALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_BREAK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_GLYPHS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_RTL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_GCP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_HOTKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_METAFILE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_LINK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_HIDEHOTKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_HOTKEYONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_FULLMEASURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_LPKANSIFALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_PIDX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_LAYOUTRTL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_DONTGLYPH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SSA_NOKASHIDA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_TABDEF</span> {
-    <span class='ident'>cTabStops</span>: ::<span class='ident'>c_int</span>,
-    <span class='ident'>iScale</span>: ::<span class='ident'>c_int</span>,
-    <span class='ident'>pTabStops</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_int</span>,
-    <span class='ident'>iTabOrigin</span>: ::<span class='ident'>c_int</span>,
+<span class="comment">//1440</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_PASSWORD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_TAB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_CLIP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_FIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_DZWG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_FALLBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_BREAK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_GLYPHS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_RTL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_GCP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_HOTKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_METAFILE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_LINK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_HIDEHOTKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_HOTKEYONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_FULLMEASURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x04000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_LPKANSIFALLBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x08000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_PIDX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_LAYOUTRTL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_DONTGLYPH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SSA_NOKASHIDA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_TABDEF</span> {
+    <span class="ident">cTabStops</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">iScale</span>: ::<span class="ident">c_int</span>,
+    <span class="ident">pTabStops</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_int</span>,
+    <span class="ident">iTabOrigin</span>: ::<span class="ident">c_int</span>,
 }}
-<span class='macro'>DECLARE_HANDLE</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_STRING_ANALYSIS</span>, <span class='ident'>SCRIPT_STRING_ANALYSIS__</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIC_COMPLEX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIC_ASCIIDIGIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SIC_NEUTRAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_DIGITSUBSTITUTE</span> {
-    <span class='ident'>bit_fields1</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>bit_fields2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwReserved</span>: ::<span class='ident'>DWORD</span>,
+<span class="macro">DECLARE_HANDLE</span><span class="macro">!</span>(<span class="ident">SCRIPT_STRING_ANALYSIS</span>, <span class="ident">SCRIPT_STRING_ANALYSIS__</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIC_COMPLEX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIC_ASCIIDIGIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIC_NEUTRAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_DIGITSUBSTITUTE</span> {
+    <span class="ident">bit_fields1</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">bit_fields2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwReserved</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_DIGITSUBSTITUTE</span> <span class='ident'>bit_fields1</span>: ::<span class='ident'>DWORD</span> [
-    <span class='ident'>NationalDigitLanguage</span> <span class='ident'>set_NationalDigitLanguage</span>[<span class='number'>0</span>..<span class='number'>16</span>],
-    <span class='ident'>TraditionalDigitLanguage</span> <span class='ident'>set_TraditionalDigitLanguage</span>[<span class='number'>16</span>..<span class='number'>32</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_DIGITSUBSTITUTE</span> <span class="ident">bit_fields1</span>: ::<span class="ident">DWORD</span> [
+    <span class="ident">NationalDigitLanguage</span> <span class="ident">set_NationalDigitLanguage</span>[<span class="number">0</span>..<span class="number">16</span>],
+    <span class="ident">TraditionalDigitLanguage</span> <span class="ident">set_TraditionalDigitLanguage</span>[<span class="number">16</span>..<span class="number">32</span>],
 ]);
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_DIGITSUBSTITUTE</span> <span class='ident'>bit_fields2</span>: ::<span class='ident'>DWORD</span> [
-    <span class='ident'>DigitSubstitute</span> <span class='ident'>set_DigitSubstitute</span>[<span class='number'>0</span>..<span class='number'>8</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_DIGITSUBSTITUTE</span> <span class="ident">bit_fields2</span>: ::<span class="ident">DWORD</span> [
+    <span class="ident">DigitSubstitute</span> <span class="ident">set_DigitSubstitute</span>[<span class="number">0</span>..<span class="number">8</span>],
 ]);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_DIGITSUBSTITUTE_CONTEXT</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_DIGITSUBSTITUTE_NONE</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_DIGITSUBSTITUTE_NATIONAL</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_DIGITSUBSTITUTE_TRADITIONAL</span>: ::<span class='ident'>BYTE</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>OPENTYPE_TAG</span> <span class='op'>=</span> ::<span class='ident'>ULONG</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCRIPT_TAG_UNKNOWN</span>: <span class='ident'>OPENTYPE_TAG</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>OPENTYPE_FEATURE_RECORD</span> {
-    <span class='ident'>tagFeature</span>: <span class='ident'>OPENTYPE_TAG</span>,
-    <span class='ident'>lParameter</span>: ::<span class='ident'>LONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_DIGITSUBSTITUTE_CONTEXT</span>: ::<span class="ident">BYTE</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_DIGITSUBSTITUTE_NONE</span>: ::<span class="ident">BYTE</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_DIGITSUBSTITUTE_NATIONAL</span>: ::<span class="ident">BYTE</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_DIGITSUBSTITUTE_TRADITIONAL</span>: ::<span class="ident">BYTE</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">OPENTYPE_TAG</span> <span class="op">=</span> ::<span class="ident">ULONG</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCRIPT_TAG_UNKNOWN</span>: <span class="ident">OPENTYPE_TAG</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">OPENTYPE_FEATURE_RECORD</span> {
+    <span class="ident">tagFeature</span>: <span class="ident">OPENTYPE_TAG</span>,
+    <span class="ident">lParameter</span>: ::<span class="ident">LONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>TEXTRANGE_PROPERTIES</span> {
-    <span class='ident'>potfRecords</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENTYPE_FEATURE_RECORD</span>,
-    <span class='ident'>cotfRecords</span>: ::<span class='ident'>c_int</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">TEXTRANGE_PROPERTIES</span> {
+    <span class="ident">potfRecords</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENTYPE_FEATURE_RECORD</span>,
+    <span class="ident">cotfRecords</span>: ::<span class="ident">c_int</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_CHARPROP</span> {
-    <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_CHARPROP</span> {
+    <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span>,
 }}
-<span class='macro'>BITFIELD</span><span class='macro'>!</span>(<span class='ident'>SCRIPT_CHARPROP</span> <span class='ident'>bit_fields</span>: ::<span class='ident'>WORD</span> [
-    <span class='ident'>fCanGlyphAlone</span> <span class='ident'>set_fCanGlyphAlone</span>[<span class='number'>0</span>..<span class='number'>1</span>],
-    <span class='ident'>reserved</span> <span class='ident'>set_reserved</span>[<span class='number'>1</span>..<span class='number'>16</span>],
+<span class="macro">BITFIELD</span><span class="macro">!</span>(<span class="ident">SCRIPT_CHARPROP</span> <span class="ident">bit_fields</span>: ::<span class="ident">WORD</span> [
+    <span class="ident">fCanGlyphAlone</span> <span class="ident">set_fCanGlyphAlone</span>[<span class="number">0</span>..<span class="number">1</span>],
+    <span class="ident">reserved</span> <span class="ident">set_reserved</span>[<span class="number">1</span>..<span class="number">16</span>],
 ]);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>SCRIPT_GLYPHPROP</span> {
-    <span class='ident'>sva</span>: <span class='ident'>SCRIPT_VISATTR</span>,
-    <span class='ident'>reserved</span>: ::<span class='ident'>WORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">SCRIPT_GLYPHPROP</span> {
+    <span class="ident">sva</span>: <span class="ident">SCRIPT_VISATTR</span>,
+    <span class="ident">reserved</span>: ::<span class="ident">WORD</span>,
 }}
 </pre>
 </section>
@@ -462,12 +464,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -488,7 +494,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -499,11 +505,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

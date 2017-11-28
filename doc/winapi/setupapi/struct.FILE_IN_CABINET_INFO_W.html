@@ -9,13 +9,15 @@
 
     <title>winapi::setupapi::FILE_IN_CABINET_INFO_W - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a></p><script>window.sidebarCurrent = {name: 'FILE_IN_CABINET_INFO_W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct FILE_IN_CABINET_INFO_W</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.NameInCabinet">NameInCabinet</a><a href="#structfield.FileSize">FileSize</a><a href="#structfield.Win32Error">Win32Error</a><a href="#structfield.DosDate">DosDate</a><a href="#structfield.DosTime">DosTime</a><a href="#structfield.DosAttribs">DosAttribs</a><a href="#structfield.FullTargetName">FullTargetName</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a></p><script>window.sidebarCurrent = {name: 'FILE_IN_CABINET_INFO_W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,31 +43,61 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a>::<wbr><a class='struct' href=''>FILE_IN_CABINET_INFO_W</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-78058' class='srclink' href='../../src/winapi/setupapi.rs.html#252-260' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct FILE_IN_CABINET_INFO_W {
-    pub NameInCabinet: <a class='type' href='../../winapi/winnt/type.PCWSTR.html' title='winapi::winnt::PCWSTR'>PCWSTR</a>,
-    pub FileSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub Win32Error: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub DosDate: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub DosTime: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub DosAttribs: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub FullTargetName: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; ::MAX_PATH]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.NameInCabinet'><code>NameInCabinet</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FileSize'><code>FileSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Win32Error'><code>Win32Error</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.DosDate'><code>DosDate</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.DosTime'><code>DosTime</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.DosAttribs'><code>DosAttribs</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FullTargetName'><code>FullTargetName</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html' title='winapi::setupapi::FILE_IN_CABINET_INFO_W'>FILE_IN_CABINET_INFO_W</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html' title='winapi::setupapi::FILE_IN_CABINET_INFO_W'>FILE_IN_CABINET_INFO_W</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html' title='winapi::setupapi::FILE_IN_CABINET_INFO_W'>FILE_IN_CABINET_INFO_W</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a>::<wbr><a class="struct" href=''>FILE_IN_CABINET_INFO_W</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct FILE_IN_CABINET_INFO_W {
+    pub NameInCabinet: <a class="type" href="../../winapi/winnt/type.PCWSTR.html" title="type winapi::winnt::PCWSTR">PCWSTR</a>,
+    pub FileSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub Win32Error: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub DosDate: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub DosTime: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub DosAttribs: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub FullTargetName: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.NameInCabinet" class="structfield small-section-header">
+                           <a href="#structfield.NameInCabinet" class="anchor field"></a>
+                           <span id="NameInCabinet.v" class='invisible'>
+                           <code>NameInCabinet: <a class="type" href="../../winapi/winnt/type.PCWSTR.html" title="type winapi::winnt::PCWSTR">PCWSTR</a></code>
+                           </span></span><span id="structfield.FileSize" class="structfield small-section-header">
+                           <a href="#structfield.FileSize" class="anchor field"></a>
+                           <span id="FileSize.v" class='invisible'>
+                           <code>FileSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.Win32Error" class="structfield small-section-header">
+                           <a href="#structfield.Win32Error" class="anchor field"></a>
+                           <span id="Win32Error.v" class='invisible'>
+                           <code>Win32Error: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.DosDate" class="structfield small-section-header">
+                           <a href="#structfield.DosDate" class="anchor field"></a>
+                           <span id="DosDate.v" class='invisible'>
+                           <code>DosDate: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.DosTime" class="structfield small-section-header">
+                           <a href="#structfield.DosTime" class="anchor field"></a>
+                           <span id="DosTime.v" class='invisible'>
+                           <code>DosTime: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.DosAttribs" class="structfield small-section-header">
+                           <a href="#structfield.DosAttribs" class="anchor field"></a>
+                           <span id="DosAttribs.v" class='invisible'>
+                           <code>DosAttribs: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.FullTargetName" class="structfield small-section-header">
+                           <a href="#structfield.FullTargetName" class="anchor field"></a>
+                           <span id="FullTargetName.v" class='invisible'>
+                           <code>FullTargetName: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html" title="struct winapi::setupapi::FILE_IN_CABINET_INFO_W">FILE_IN_CABINET_INFO_W</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html" title="struct winapi::setupapi::FILE_IN_CABINET_INFO_W">FILE_IN_CABINET_INFO_W</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/setupapi/struct.FILE_IN_CABINET_INFO_W.html" title="struct winapi::setupapi::FILE_IN_CABINET_INFO_W">FILE_IN_CABINET_INFO_W</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -82,12 +114,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -108,7 +144,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -119,11 +155,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

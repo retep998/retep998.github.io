@@ -9,13 +9,15 @@
 
     <title>winapi::wingdi::OUTLINETEXTMETRICA - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wingdi</a></p><script>window.sidebarCurrent = {name: 'OUTLINETEXTMETRICA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct OUTLINETEXTMETRICA</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.otmSize">otmSize</a><a href="#structfield.otmTextMetrics">otmTextMetrics</a><a href="#structfield.otmFiller">otmFiller</a><a href="#structfield.otmPanoseNumber">otmPanoseNumber</a><a href="#structfield.otmfsSelection">otmfsSelection</a><a href="#structfield.otmfsType">otmfsType</a><a href="#structfield.otmsCharSlopeRise">otmsCharSlopeRise</a><a href="#structfield.otmsCharSlopeRun">otmsCharSlopeRun</a><a href="#structfield.otmItalicAngle">otmItalicAngle</a><a href="#structfield.otmEMSquare">otmEMSquare</a><a href="#structfield.otmAscent">otmAscent</a><a href="#structfield.otmDescent">otmDescent</a><a href="#structfield.otmLineGap">otmLineGap</a><a href="#structfield.otmsCapEmHeight">otmsCapEmHeight</a><a href="#structfield.otmsXHeight">otmsXHeight</a><a href="#structfield.otmrcFontBox">otmrcFontBox</a><a href="#structfield.otmMacAscent">otmMacAscent</a><a href="#structfield.otmMacDescent">otmMacDescent</a><a href="#structfield.otmMacLineGap">otmMacLineGap</a><a href="#structfield.otmusMinimumPPEM">otmusMinimumPPEM</a><a href="#structfield.otmptSubscriptSize">otmptSubscriptSize</a><a href="#structfield.otmptSubscriptOffset">otmptSubscriptOffset</a><a href="#structfield.otmptSuperscriptSize">otmptSuperscriptSize</a><a href="#structfield.otmptSuperscriptOffset">otmptSuperscriptOffset</a><a href="#structfield.otmsStrikeoutSize">otmsStrikeoutSize</a><a href="#structfield.otmsStrikeoutPosition">otmsStrikeoutPosition</a><a href="#structfield.otmsUnderscoreSize">otmsUnderscoreSize</a><a href="#structfield.otmsUnderscorePosition">otmsUnderscorePosition</a><a href="#structfield.otmpFamilyName">otmpFamilyName</a><a href="#structfield.otmpFaceName">otmpFaceName</a><a href="#structfield.otmpStyleName">otmpStyleName</a><a href="#structfield.otmpFullName">otmpFullName</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wingdi</a></p><script>window.sidebarCurrent = {name: 'OUTLINETEXTMETRICA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,82 +43,189 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wingdi</a>::<wbr><a class='struct' href=''>OUTLINETEXTMETRICA</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-104538' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct OUTLINETEXTMETRICA {
-    pub otmSize: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmTextMetrics: <a class='struct' href='../../winapi/wingdi/struct.TEXTMETRICA.html' title='winapi::wingdi::TEXTMETRICA'>TEXTMETRICA</a>,
-    pub otmFiller: <a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a>,
-    pub otmPanoseNumber: <a class='struct' href='../../winapi/wingdi/struct.PANOSE.html' title='winapi::wingdi::PANOSE'>PANOSE</a>,
-    pub otmfsSelection: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmfsType: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmsCharSlopeRise: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmsCharSlopeRun: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmItalicAngle: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmEMSquare: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmAscent: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmDescent: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmLineGap: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmsCapEmHeight: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmsXHeight: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmrcFontBox: <a class='struct' href='../../winapi/windef/struct.RECT.html' title='winapi::windef::RECT'>RECT</a>,
-    pub otmMacAscent: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmMacDescent: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmMacLineGap: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmusMinimumPPEM: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmptSubscriptSize: <a class='struct' href='../../winapi/windef/struct.POINT.html' title='winapi::windef::POINT'>POINT</a>,
-    pub otmptSubscriptOffset: <a class='struct' href='../../winapi/windef/struct.POINT.html' title='winapi::windef::POINT'>POINT</a>,
-    pub otmptSuperscriptSize: <a class='struct' href='../../winapi/windef/struct.POINT.html' title='winapi::windef::POINT'>POINT</a>,
-    pub otmptSuperscriptOffset: <a class='struct' href='../../winapi/windef/struct.POINT.html' title='winapi::windef::POINT'>POINT</a>,
-    pub otmsStrikeoutSize: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub otmsStrikeoutPosition: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmsUnderscoreSize: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmsUnderscorePosition: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub otmpFamilyName: <a class='type' href='../../winapi/winnt/type.PSTR.html' title='winapi::winnt::PSTR'>PSTR</a>,
-    pub otmpFaceName: <a class='type' href='../../winapi/winnt/type.PSTR.html' title='winapi::winnt::PSTR'>PSTR</a>,
-    pub otmpStyleName: <a class='type' href='../../winapi/winnt/type.PSTR.html' title='winapi::winnt::PSTR'>PSTR</a>,
-    pub otmpFullName: <a class='type' href='../../winapi/winnt/type.PSTR.html' title='winapi::winnt::PSTR'>PSTR</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.otmSize'><code>otmSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmTextMetrics'><code>otmTextMetrics</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmFiller'><code>otmFiller</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmPanoseNumber'><code>otmPanoseNumber</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmfsSelection'><code>otmfsSelection</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmfsType'><code>otmfsType</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsCharSlopeRise'><code>otmsCharSlopeRise</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsCharSlopeRun'><code>otmsCharSlopeRun</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmItalicAngle'><code>otmItalicAngle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmEMSquare'><code>otmEMSquare</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmAscent'><code>otmAscent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmDescent'><code>otmDescent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmLineGap'><code>otmLineGap</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsCapEmHeight'><code>otmsCapEmHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsXHeight'><code>otmsXHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmrcFontBox'><code>otmrcFontBox</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmMacAscent'><code>otmMacAscent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmMacDescent'><code>otmMacDescent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmMacLineGap'><code>otmMacLineGap</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmusMinimumPPEM'><code>otmusMinimumPPEM</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmptSubscriptSize'><code>otmptSubscriptSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmptSubscriptOffset'><code>otmptSubscriptOffset</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmptSuperscriptSize'><code>otmptSuperscriptSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmptSuperscriptOffset'><code>otmptSuperscriptOffset</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsStrikeoutSize'><code>otmsStrikeoutSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsStrikeoutPosition'><code>otmsStrikeoutPosition</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsUnderscoreSize'><code>otmsUnderscoreSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmsUnderscorePosition'><code>otmsUnderscorePosition</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmpFamilyName'><code>otmpFamilyName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmpFaceName'><code>otmpFaceName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmpStyleName'><code>otmpStyleName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.otmpFullName'><code>otmpFullName</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html' title='winapi::wingdi::OUTLINETEXTMETRICA'>OUTLINETEXTMETRICA</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html' title='winapi::wingdi::OUTLINETEXTMETRICA'>OUTLINETEXTMETRICA</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html' title='winapi::wingdi::OUTLINETEXTMETRICA'>OUTLINETEXTMETRICA</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html' title='winapi::wingdi::OUTLINETEXTMETRICA'>OUTLINETEXTMETRICA</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>wingdi</a>::<wbr><a class="struct" href=''>OUTLINETEXTMETRICA</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct OUTLINETEXTMETRICA {
+    pub otmSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmTextMetrics: <a class="struct" href="../../winapi/wingdi/struct.TEXTMETRICA.html" title="struct winapi::wingdi::TEXTMETRICA">TEXTMETRICA</a>,
+    pub otmFiller: <a class="type" href="../../winapi/minwindef/type.BYTE.html" title="type winapi::minwindef::BYTE">BYTE</a>,
+    pub otmPanoseNumber: <a class="struct" href="../../winapi/wingdi/struct.PANOSE.html" title="struct winapi::wingdi::PANOSE">PANOSE</a>,
+    pub otmfsSelection: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmfsType: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmsCharSlopeRise: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmsCharSlopeRun: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmItalicAngle: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmEMSquare: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmAscent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmDescent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmLineGap: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmsCapEmHeight: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmsXHeight: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmrcFontBox: <a class="struct" href="../../winapi/windef/struct.RECT.html" title="struct winapi::windef::RECT">RECT</a>,
+    pub otmMacAscent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmMacDescent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmMacLineGap: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmusMinimumPPEM: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmptSubscriptSize: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a>,
+    pub otmptSubscriptOffset: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a>,
+    pub otmptSuperscriptSize: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a>,
+    pub otmptSuperscriptOffset: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a>,
+    pub otmsStrikeoutSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub otmsStrikeoutPosition: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmsUnderscoreSize: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmsUnderscorePosition: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub otmpFamilyName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a>,
+    pub otmpFaceName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a>,
+    pub otmpStyleName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a>,
+    pub otmpFullName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.otmSize" class="structfield small-section-header">
+                           <a href="#structfield.otmSize" class="anchor field"></a>
+                           <span id="otmSize.v" class='invisible'>
+                           <code>otmSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmTextMetrics" class="structfield small-section-header">
+                           <a href="#structfield.otmTextMetrics" class="anchor field"></a>
+                           <span id="otmTextMetrics.v" class='invisible'>
+                           <code>otmTextMetrics: <a class="struct" href="../../winapi/wingdi/struct.TEXTMETRICA.html" title="struct winapi::wingdi::TEXTMETRICA">TEXTMETRICA</a></code>
+                           </span></span><span id="structfield.otmFiller" class="structfield small-section-header">
+                           <a href="#structfield.otmFiller" class="anchor field"></a>
+                           <span id="otmFiller.v" class='invisible'>
+                           <code>otmFiller: <a class="type" href="../../winapi/minwindef/type.BYTE.html" title="type winapi::minwindef::BYTE">BYTE</a></code>
+                           </span></span><span id="structfield.otmPanoseNumber" class="structfield small-section-header">
+                           <a href="#structfield.otmPanoseNumber" class="anchor field"></a>
+                           <span id="otmPanoseNumber.v" class='invisible'>
+                           <code>otmPanoseNumber: <a class="struct" href="../../winapi/wingdi/struct.PANOSE.html" title="struct winapi::wingdi::PANOSE">PANOSE</a></code>
+                           </span></span><span id="structfield.otmfsSelection" class="structfield small-section-header">
+                           <a href="#structfield.otmfsSelection" class="anchor field"></a>
+                           <span id="otmfsSelection.v" class='invisible'>
+                           <code>otmfsSelection: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmfsType" class="structfield small-section-header">
+                           <a href="#structfield.otmfsType" class="anchor field"></a>
+                           <span id="otmfsType.v" class='invisible'>
+                           <code>otmfsType: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmsCharSlopeRise" class="structfield small-section-header">
+                           <a href="#structfield.otmsCharSlopeRise" class="anchor field"></a>
+                           <span id="otmsCharSlopeRise.v" class='invisible'>
+                           <code>otmsCharSlopeRise: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmsCharSlopeRun" class="structfield small-section-header">
+                           <a href="#structfield.otmsCharSlopeRun" class="anchor field"></a>
+                           <span id="otmsCharSlopeRun.v" class='invisible'>
+                           <code>otmsCharSlopeRun: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmItalicAngle" class="structfield small-section-header">
+                           <a href="#structfield.otmItalicAngle" class="anchor field"></a>
+                           <span id="otmItalicAngle.v" class='invisible'>
+                           <code>otmItalicAngle: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmEMSquare" class="structfield small-section-header">
+                           <a href="#structfield.otmEMSquare" class="anchor field"></a>
+                           <span id="otmEMSquare.v" class='invisible'>
+                           <code>otmEMSquare: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmAscent" class="structfield small-section-header">
+                           <a href="#structfield.otmAscent" class="anchor field"></a>
+                           <span id="otmAscent.v" class='invisible'>
+                           <code>otmAscent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmDescent" class="structfield small-section-header">
+                           <a href="#structfield.otmDescent" class="anchor field"></a>
+                           <span id="otmDescent.v" class='invisible'>
+                           <code>otmDescent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmLineGap" class="structfield small-section-header">
+                           <a href="#structfield.otmLineGap" class="anchor field"></a>
+                           <span id="otmLineGap.v" class='invisible'>
+                           <code>otmLineGap: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmsCapEmHeight" class="structfield small-section-header">
+                           <a href="#structfield.otmsCapEmHeight" class="anchor field"></a>
+                           <span id="otmsCapEmHeight.v" class='invisible'>
+                           <code>otmsCapEmHeight: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmsXHeight" class="structfield small-section-header">
+                           <a href="#structfield.otmsXHeight" class="anchor field"></a>
+                           <span id="otmsXHeight.v" class='invisible'>
+                           <code>otmsXHeight: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmrcFontBox" class="structfield small-section-header">
+                           <a href="#structfield.otmrcFontBox" class="anchor field"></a>
+                           <span id="otmrcFontBox.v" class='invisible'>
+                           <code>otmrcFontBox: <a class="struct" href="../../winapi/windef/struct.RECT.html" title="struct winapi::windef::RECT">RECT</a></code>
+                           </span></span><span id="structfield.otmMacAscent" class="structfield small-section-header">
+                           <a href="#structfield.otmMacAscent" class="anchor field"></a>
+                           <span id="otmMacAscent.v" class='invisible'>
+                           <code>otmMacAscent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmMacDescent" class="structfield small-section-header">
+                           <a href="#structfield.otmMacDescent" class="anchor field"></a>
+                           <span id="otmMacDescent.v" class='invisible'>
+                           <code>otmMacDescent: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmMacLineGap" class="structfield small-section-header">
+                           <a href="#structfield.otmMacLineGap" class="anchor field"></a>
+                           <span id="otmMacLineGap.v" class='invisible'>
+                           <code>otmMacLineGap: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmusMinimumPPEM" class="structfield small-section-header">
+                           <a href="#structfield.otmusMinimumPPEM" class="anchor field"></a>
+                           <span id="otmusMinimumPPEM.v" class='invisible'>
+                           <code>otmusMinimumPPEM: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmptSubscriptSize" class="structfield small-section-header">
+                           <a href="#structfield.otmptSubscriptSize" class="anchor field"></a>
+                           <span id="otmptSubscriptSize.v" class='invisible'>
+                           <code>otmptSubscriptSize: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a></code>
+                           </span></span><span id="structfield.otmptSubscriptOffset" class="structfield small-section-header">
+                           <a href="#structfield.otmptSubscriptOffset" class="anchor field"></a>
+                           <span id="otmptSubscriptOffset.v" class='invisible'>
+                           <code>otmptSubscriptOffset: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a></code>
+                           </span></span><span id="structfield.otmptSuperscriptSize" class="structfield small-section-header">
+                           <a href="#structfield.otmptSuperscriptSize" class="anchor field"></a>
+                           <span id="otmptSuperscriptSize.v" class='invisible'>
+                           <code>otmptSuperscriptSize: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a></code>
+                           </span></span><span id="structfield.otmptSuperscriptOffset" class="structfield small-section-header">
+                           <a href="#structfield.otmptSuperscriptOffset" class="anchor field"></a>
+                           <span id="otmptSuperscriptOffset.v" class='invisible'>
+                           <code>otmptSuperscriptOffset: <a class="struct" href="../../winapi/windef/struct.POINT.html" title="struct winapi::windef::POINT">POINT</a></code>
+                           </span></span><span id="structfield.otmsStrikeoutSize" class="structfield small-section-header">
+                           <a href="#structfield.otmsStrikeoutSize" class="anchor field"></a>
+                           <span id="otmsStrikeoutSize.v" class='invisible'>
+                           <code>otmsStrikeoutSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.otmsStrikeoutPosition" class="structfield small-section-header">
+                           <a href="#structfield.otmsStrikeoutPosition" class="anchor field"></a>
+                           <span id="otmsStrikeoutPosition.v" class='invisible'>
+                           <code>otmsStrikeoutPosition: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmsUnderscoreSize" class="structfield small-section-header">
+                           <a href="#structfield.otmsUnderscoreSize" class="anchor field"></a>
+                           <span id="otmsUnderscoreSize.v" class='invisible'>
+                           <code>otmsUnderscoreSize: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmsUnderscorePosition" class="structfield small-section-header">
+                           <a href="#structfield.otmsUnderscorePosition" class="anchor field"></a>
+                           <span id="otmsUnderscorePosition.v" class='invisible'>
+                           <code>otmsUnderscorePosition: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.otmpFamilyName" class="structfield small-section-header">
+                           <a href="#structfield.otmpFamilyName" class="anchor field"></a>
+                           <span id="otmpFamilyName.v" class='invisible'>
+                           <code>otmpFamilyName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a></code>
+                           </span></span><span id="structfield.otmpFaceName" class="structfield small-section-header">
+                           <a href="#structfield.otmpFaceName" class="anchor field"></a>
+                           <span id="otmpFaceName.v" class='invisible'>
+                           <code>otmpFaceName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a></code>
+                           </span></span><span id="structfield.otmpStyleName" class="structfield small-section-header">
+                           <a href="#structfield.otmpStyleName" class="anchor field"></a>
+                           <span id="otmpStyleName.v" class='invisible'>
+                           <code>otmpStyleName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a></code>
+                           </span></span><span id="structfield.otmpFullName" class="structfield small-section-header">
+                           <a href="#structfield.otmpFullName" class="anchor field"></a>
+                           <span id="otmpFullName.v" class='invisible'>
+                           <code>otmpFullName: <a class="type" href="../../winapi/winnt/type.PSTR.html" title="type winapi::winnt::PSTR">PSTR</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html" title="struct winapi::wingdi::OUTLINETEXTMETRICA">OUTLINETEXTMETRICA</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html" title="struct winapi::wingdi::OUTLINETEXTMETRICA">OUTLINETEXTMETRICA</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html" title="struct winapi::wingdi::OUTLINETEXTMETRICA">OUTLINETEXTMETRICA</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/wingdi/struct.OUTLINETEXTMETRICA.html" title="struct winapi::wingdi::OUTLINETEXTMETRICA">OUTLINETEXTMETRICA</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -133,12 +242,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -159,7 +272,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -170,11 +283,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

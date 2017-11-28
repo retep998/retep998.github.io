@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winevt.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\winevt.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winevt.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -81,47 +83,47 @@
 <span id="38">38</span>
 <span id="39">39</span>
 <span id="40">40</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Windows Events API</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>EVT_HANDLE</span> <span class='op'>=</span> ::<span class='ident'>HANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PEVT_HANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HANDLE</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>EVT_VARIANT_TYPE</span> {
-    <span class='ident'>EvtVarTypeNull</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>EvtVarTypeString</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>EvtVarTypeAnsiString</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>EvtVarTypeSByte</span> <span class='op'>=</span> <span class='number'>3</span>,
-    <span class='ident'>EvtVarTypeByte</span> <span class='op'>=</span> <span class='number'>4</span>,
-    <span class='ident'>EvtVarTypeInt16</span> <span class='op'>=</span> <span class='number'>5</span>,
-    <span class='ident'>EvtVarTypeUInt16</span> <span class='op'>=</span> <span class='number'>6</span>,
-    <span class='ident'>EvtVarTypeInt32</span> <span class='op'>=</span> <span class='number'>7</span>,
-    <span class='ident'>EvtVarTypeUInt32</span> <span class='op'>=</span> <span class='number'>8</span>,
-    <span class='ident'>EvtVarTypeInt64</span> <span class='op'>=</span> <span class='number'>9</span>,
-    <span class='ident'>EvtVarTypeUInt64</span> <span class='op'>=</span> <span class='number'>10</span>,
-    <span class='ident'>EvtVarTypeSingle</span> <span class='op'>=</span> <span class='number'>11</span>,
-    <span class='ident'>EvtVarTypeDouble</span> <span class='op'>=</span> <span class='number'>12</span>,
-    <span class='ident'>EvtVarTypeBoolean</span> <span class='op'>=</span> <span class='number'>13</span>,
-    <span class='ident'>EvtVarTypeBinary</span> <span class='op'>=</span> <span class='number'>14</span>,
-    <span class='ident'>EvtVarTypeGuid</span> <span class='op'>=</span> <span class='number'>15</span>,
-    <span class='ident'>EvtVarTypeSizeT</span> <span class='op'>=</span> <span class='number'>16</span>,
-    <span class='ident'>EvtVarTypeFileTime</span> <span class='op'>=</span> <span class='number'>17</span>,
-    <span class='ident'>EvtVarTypeSysTime</span> <span class='op'>=</span> <span class='number'>18</span>,
-    <span class='ident'>EvtVarTypeSid</span> <span class='op'>=</span> <span class='number'>19</span>,
-    <span class='ident'>EvtVarTypeHexInt32</span> <span class='op'>=</span> <span class='number'>20</span>,
-    <span class='ident'>EvtVarTypeHexInt64</span> <span class='op'>=</span> <span class='number'>21</span>,
-    <span class='ident'>EvtVarTypeEvtHandle</span> <span class='op'>=</span> <span class='number'>32</span>,
-    <span class='ident'>EvtVarTypeEvtXml</span> <span class='op'>=</span> <span class='number'>35</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Windows Events API</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">EVT_HANDLE</span> <span class="op">=</span> ::<span class="ident">HANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PEVT_HANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HANDLE</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">EVT_VARIANT_TYPE</span> {
+    <span class="ident">EvtVarTypeNull</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">EvtVarTypeString</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">EvtVarTypeAnsiString</span> <span class="op">=</span> <span class="number">2</span>,
+    <span class="ident">EvtVarTypeSByte</span> <span class="op">=</span> <span class="number">3</span>,
+    <span class="ident">EvtVarTypeByte</span> <span class="op">=</span> <span class="number">4</span>,
+    <span class="ident">EvtVarTypeInt16</span> <span class="op">=</span> <span class="number">5</span>,
+    <span class="ident">EvtVarTypeUInt16</span> <span class="op">=</span> <span class="number">6</span>,
+    <span class="ident">EvtVarTypeInt32</span> <span class="op">=</span> <span class="number">7</span>,
+    <span class="ident">EvtVarTypeUInt32</span> <span class="op">=</span> <span class="number">8</span>,
+    <span class="ident">EvtVarTypeInt64</span> <span class="op">=</span> <span class="number">9</span>,
+    <span class="ident">EvtVarTypeUInt64</span> <span class="op">=</span> <span class="number">10</span>,
+    <span class="ident">EvtVarTypeSingle</span> <span class="op">=</span> <span class="number">11</span>,
+    <span class="ident">EvtVarTypeDouble</span> <span class="op">=</span> <span class="number">12</span>,
+    <span class="ident">EvtVarTypeBoolean</span> <span class="op">=</span> <span class="number">13</span>,
+    <span class="ident">EvtVarTypeBinary</span> <span class="op">=</span> <span class="number">14</span>,
+    <span class="ident">EvtVarTypeGuid</span> <span class="op">=</span> <span class="number">15</span>,
+    <span class="ident">EvtVarTypeSizeT</span> <span class="op">=</span> <span class="number">16</span>,
+    <span class="ident">EvtVarTypeFileTime</span> <span class="op">=</span> <span class="number">17</span>,
+    <span class="ident">EvtVarTypeSysTime</span> <span class="op">=</span> <span class="number">18</span>,
+    <span class="ident">EvtVarTypeSid</span> <span class="op">=</span> <span class="number">19</span>,
+    <span class="ident">EvtVarTypeHexInt32</span> <span class="op">=</span> <span class="number">20</span>,
+    <span class="ident">EvtVarTypeHexInt64</span> <span class="op">=</span> <span class="number">21</span>,
+    <span class="ident">EvtVarTypeEvtHandle</span> <span class="op">=</span> <span class="number">32</span>,
+    <span class="ident">EvtVarTypeEvtXml</span> <span class="op">=</span> <span class="number">35</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EVT_VARIANT_TYPE_MASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x7f</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>EVT_VARIANT_TYPE_ARRAY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>128</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>EVT_VARIANT</span> {
-    <span class='ident'>u</span>: <span class='ident'>u64</span>,
-    <span class='ident'>Count</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Type</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EVT_VARIANT_TYPE_MASK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x7f</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EVT_VARIANT_TYPE_ARRAY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">128</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">EVT_VARIANT</span> {
+    <span class="ident">u</span>: <span class="ident">u64</span>,
+    <span class="ident">Count</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Type</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='comment'>// TODO - All the UNION! for each variant</span>
-<span class='comment'>// TODO - The rest of this header</span>
+<span class="comment">// TODO - All the UNION! for each variant</span>
+<span class="comment">// TODO - The rest of this header</span>
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -140,12 +142,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -166,7 +172,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -177,11 +183,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

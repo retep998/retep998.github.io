@@ -9,13 +9,15 @@
 
     <title>winapi::dxgi1_2::IDXGIOutput1Vtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_2</a></p><script>window.sidebarCurrent = {name: 'IDXGIOutput1Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IDXGIOutput1Vtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.GetDisplayModeList1">GetDisplayModeList1</a><a href="#structfield.FindClosestMatchingMode1">FindClosestMatchingMode1</a><a href="#structfield.GetDisplaySurfaceData1">GetDisplaySurfaceData1</a><a href="#structfield.DuplicateOutput">DuplicateOutput</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_2</a></p><script>window.sidebarCurrent = {name: 'IDXGIOutput1Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +43,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_2</a>::<wbr><a class='struct' href=''>IDXGIOutput1Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-45713' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IDXGIOutput1Vtbl {
-    pub parent: <a class='struct' href='../../winapi/dxgi/struct.IDXGIOutputVtbl.html' title='winapi::dxgi::IDXGIOutputVtbl'>IDXGIOutputVtbl</a>,
-    pub GetDisplayModeList1: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIOutput1.html' title='winapi::dxgi1_2::IDXGIOutput1'>IDXGIOutput1</a>, EnumFormat: <a class='struct' href='../../winapi/dxgiformat/struct.DXGI_FORMAT.html' title='winapi::dxgiformat::DXGI_FORMAT'>DXGI_FORMAT</a>, Flags: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, pNumModes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, pDesc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html' title='winapi::dxgi1_2::DXGI_MODE_DESC1'>DXGI_MODE_DESC1</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub FindClosestMatchingMode1: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIOutput1.html' title='winapi::dxgi1_2::IDXGIOutput1'>IDXGIOutput1</a>, pModeToMatch: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html' title='winapi::dxgi1_2::DXGI_MODE_DESC1'>DXGI_MODE_DESC1</a>, pClosestMatch: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html' title='winapi::dxgi1_2::DXGI_MODE_DESC1'>DXGI_MODE_DESC1</a>, pConcernedDevice: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetDisplaySurfaceData1: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIOutput1.html' title='winapi::dxgi1_2::IDXGIOutput1'>IDXGIOutput1</a>, pDestination: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi/struct.IDXGIResource.html' title='winapi::dxgi::IDXGIResource'>IDXGIResource</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub DuplicateOutput: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIOutput1.html' title='winapi::dxgi1_2::IDXGIOutput1'>IDXGIOutput1</a>, pDevice: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a>, ppOutputDuplication: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIOutputDuplication.html' title='winapi::dxgi1_2::IDXGIOutputDuplication'>IDXGIOutputDuplication</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetDisplayModeList1'><code>GetDisplayModeList1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FindClosestMatchingMode1'><code>FindClosestMatchingMode1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetDisplaySurfaceData1'><code>GetDisplaySurfaceData1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.DuplicateOutput'><code>DuplicateOutput</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_2</a>::<wbr><a class="struct" href=''>IDXGIOutput1Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IDXGIOutput1Vtbl {
+    pub parent: <a class="struct" href="../../winapi/dxgi/struct.IDXGIOutputVtbl.html" title="struct winapi::dxgi::IDXGIOutputVtbl">IDXGIOutputVtbl</a>,
+    pub GetDisplayModeList1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, EnumFormat: <a class="struct" href="../../winapi/dxgiformat/struct.DXGI_FORMAT.html" title="struct winapi::dxgiformat::DXGI_FORMAT">DXGI_FORMAT</a>, Flags: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pNumModes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pDesc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub FindClosestMatchingMode1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pModeToMatch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>, pClosestMatch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>, pConcernedDevice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetDisplaySurfaceData1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pDestination: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi/struct.IDXGIResource.html" title="struct winapi::dxgi::IDXGIResource">IDXGIResource</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub DuplicateOutput: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pDevice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>, ppOutputDuplication: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutputDuplication.html" title="struct winapi::dxgi1_2::IDXGIOutputDuplication">IDXGIOutputDuplication</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/dxgi/struct.IDXGIOutputVtbl.html" title="struct winapi::dxgi::IDXGIOutputVtbl">IDXGIOutputVtbl</a></code>
+                           </span></span><span id="structfield.GetDisplayModeList1" class="structfield small-section-header">
+                           <a href="#structfield.GetDisplayModeList1" class="anchor field"></a>
+                           <span id="GetDisplayModeList1.v" class='invisible'>
+                           <code>GetDisplayModeList1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, EnumFormat: <a class="struct" href="../../winapi/dxgiformat/struct.DXGI_FORMAT.html" title="struct winapi::dxgiformat::DXGI_FORMAT">DXGI_FORMAT</a>, Flags: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pNumModes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pDesc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.FindClosestMatchingMode1" class="structfield small-section-header">
+                           <a href="#structfield.FindClosestMatchingMode1" class="anchor field"></a>
+                           <span id="FindClosestMatchingMode1.v" class='invisible'>
+                           <code>FindClosestMatchingMode1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pModeToMatch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>, pClosestMatch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.DXGI_MODE_DESC1.html" title="struct winapi::dxgi1_2::DXGI_MODE_DESC1">DXGI_MODE_DESC1</a>, pConcernedDevice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetDisplaySurfaceData1" class="structfield small-section-header">
+                           <a href="#structfield.GetDisplaySurfaceData1" class="anchor field"></a>
+                           <span id="GetDisplaySurfaceData1.v" class='invisible'>
+                           <code>GetDisplaySurfaceData1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pDestination: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi/struct.IDXGIResource.html" title="struct winapi::dxgi::IDXGIResource">IDXGIResource</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.DuplicateOutput" class="structfield small-section-header">
+                           <a href="#structfield.DuplicateOutput" class="anchor field"></a>
+                           <span id="DuplicateOutput.v" class='invisible'>
+                           <code>DuplicateOutput: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutput1.html" title="struct winapi::dxgi1_2::IDXGIOutput1">IDXGIOutput1</a>, pDevice: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>, ppOutputDuplication: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIOutputDuplication.html" title="struct winapi::dxgi1_2::IDXGIOutputDuplication">IDXGIOutputDuplication</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,12 +94,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -102,7 +124,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,11 +135,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\dsgetdc.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\dsgetdc.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dsgetdc.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -154,120 +156,120 @@
 <span id="111">111</span>
 <span id="112">112</span>
 <span id="113">113</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! This file contains structures, function prototypes, and definitions for the DsGetDcName API.</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_FORCE_REDISCOVERY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DIRECTORY_SERVICE_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DIRECTORY_SERVICE_PREFERRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_GC_SERVER_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_PDC_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_BACKGROUND_ONLY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_IP_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_KDC_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_TIMESERV_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_WRITABLE_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_GOOD_TIMESERV_PREFERRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_AVOID_SELF</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_ONLY_LDAP_NEEDED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_IS_FLAT_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_IS_DNS_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_TRY_NEXTCLOSEST_SITE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DIRECTORY_SERVICE_6_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_WEB_SERVICE_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DIRECTORY_SERVICE_8_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DIRECTORY_SERVICE_9_REQUIRED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_RETURN_DNS_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_RETURN_FLAT_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSGETDC_VALID_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>DS_FORCE_REDISCOVERY</span> <span class='op'>|</span> <span class='ident'>DS_DIRECTORY_SERVICE_REQUIRED</span>
-    <span class='op'>|</span> <span class='ident'>DS_DIRECTORY_SERVICE_PREFERRED</span> <span class='op'>|</span> <span class='ident'>DS_GC_SERVER_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_PDC_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_BACKGROUND_ONLY</span>
-    <span class='op'>|</span> <span class='ident'>DS_IP_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_KDC_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_TIMESERV_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_WRITABLE_REQUIRED</span>
-    <span class='op'>|</span> <span class='ident'>DS_GOOD_TIMESERV_PREFERRED</span> <span class='op'>|</span> <span class='ident'>DS_AVOID_SELF</span> <span class='op'>|</span> <span class='ident'>DS_ONLY_LDAP_NEEDED</span> <span class='op'>|</span> <span class='ident'>DS_IS_FLAT_NAME</span>
-    <span class='op'>|</span> <span class='ident'>DS_IS_DNS_NAME</span> <span class='op'>|</span> <span class='ident'>DS_TRY_NEXTCLOSEST_SITE</span> <span class='op'>|</span> <span class='ident'>DS_DIRECTORY_SERVICE_6_REQUIRED</span>
-    <span class='op'>|</span> <span class='ident'>DS_DIRECTORY_SERVICE_8_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_DIRECTORY_SERVICE_9_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_WEB_SERVICE_REQUIRED</span>
-    <span class='op'>|</span> <span class='ident'>DS_RETURN_FLAT_NAME</span> <span class='op'>|</span> <span class='ident'>DS_RETURN_DNS_NAME</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DOMAIN_CONTROLLER_INFOA</span> {
-    <span class='ident'>DomainControllerName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>DomainControllerAddress</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>DomainControllerAddressType</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>DomainName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>DnsForestName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DcSiteName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>ClientSiteName</span>: ::<span class='ident'>LPSTR</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! This file contains structures, function prototypes, and definitions for the DsGetDcName API.</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_FORCE_REDISCOVERY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DIRECTORY_SERVICE_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DIRECTORY_SERVICE_PREFERRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_GC_SERVER_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_PDC_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_BACKGROUND_ONLY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_IP_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_KDC_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_TIMESERV_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_WRITABLE_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_GOOD_TIMESERV_PREFERRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_AVOID_SELF</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_ONLY_LDAP_NEEDED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_IS_FLAT_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_IS_DNS_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_TRY_NEXTCLOSEST_SITE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DIRECTORY_SERVICE_6_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_WEB_SERVICE_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DIRECTORY_SERVICE_8_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DIRECTORY_SERVICE_9_REQUIRED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_RETURN_DNS_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_RETURN_FLAT_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSGETDC_VALID_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">DS_FORCE_REDISCOVERY</span> <span class="op">|</span> <span class="ident">DS_DIRECTORY_SERVICE_REQUIRED</span>
+    <span class="op">|</span> <span class="ident">DS_DIRECTORY_SERVICE_PREFERRED</span> <span class="op">|</span> <span class="ident">DS_GC_SERVER_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_PDC_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_BACKGROUND_ONLY</span>
+    <span class="op">|</span> <span class="ident">DS_IP_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_KDC_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_TIMESERV_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_WRITABLE_REQUIRED</span>
+    <span class="op">|</span> <span class="ident">DS_GOOD_TIMESERV_PREFERRED</span> <span class="op">|</span> <span class="ident">DS_AVOID_SELF</span> <span class="op">|</span> <span class="ident">DS_ONLY_LDAP_NEEDED</span> <span class="op">|</span> <span class="ident">DS_IS_FLAT_NAME</span>
+    <span class="op">|</span> <span class="ident">DS_IS_DNS_NAME</span> <span class="op">|</span> <span class="ident">DS_TRY_NEXTCLOSEST_SITE</span> <span class="op">|</span> <span class="ident">DS_DIRECTORY_SERVICE_6_REQUIRED</span>
+    <span class="op">|</span> <span class="ident">DS_DIRECTORY_SERVICE_8_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_DIRECTORY_SERVICE_9_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_WEB_SERVICE_REQUIRED</span>
+    <span class="op">|</span> <span class="ident">DS_RETURN_FLAT_NAME</span> <span class="op">|</span> <span class="ident">DS_RETURN_DNS_NAME</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DOMAIN_CONTROLLER_INFOA</span> {
+    <span class="ident">DomainControllerName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">DomainControllerAddress</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">DomainControllerAddressType</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainGuid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">DomainName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">DnsForestName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DcSiteName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">ClientSiteName</span>: ::<span class="ident">LPSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDOMAIN_CONTROLLER_INFOA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DOMAIN_CONTROLLER_INFOA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DOMAIN_CONTROLLER_INFOW</span> {
-    <span class='ident'>DomainControllerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DomainControllerAddress</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DomainControllerAddressType</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainGuid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>DomainName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DnsForestName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DcSiteName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>ClientSiteName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDOMAIN_CONTROLLER_INFOA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOMAIN_CONTROLLER_INFOA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DOMAIN_CONTROLLER_INFOW</span> {
+    <span class="ident">DomainControllerName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DomainControllerAddress</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DomainControllerAddressType</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainGuid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">DomainName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DnsForestName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DcSiteName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">ClientSiteName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDOMAIN_CONTROLLER_INFOW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DOMAIN_CONTROLLER_INFOW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_INET_ADDRESS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_NETBIOS_ADDRESS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_PDC_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_GC_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_LDAP_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DS_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_KDC_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_TIMESERV_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_CLOSEST_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_WRITABLE_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_GOOD_TIMESERV_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_NDNC_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_SELECT_SECRET_DOMAIN_6_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_FULL_SECRET_DOMAIN_6_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_WS_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DS_8_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DS_9_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_PING_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x000FFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DNS_CONTROLLER_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DNS_DOMAIN_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DNS_FOREST_FLAG</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_IN_FOREST</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_DIRECT_OUTBOUND</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_TREE_ROOT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_PRIMARY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_NATIVE_MODE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_DIRECT_INBOUND</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x0020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_DOMAIN_VALID_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>DS_DOMAIN_IN_FOREST</span> <span class='op'>|</span> <span class='ident'>DS_DOMAIN_DIRECT_OUTBOUND</span>
-    <span class='op'>|</span> <span class='ident'>DS_DOMAIN_TREE_ROOT</span> <span class='op'>|</span> <span class='ident'>DS_DOMAIN_PRIMARY</span> <span class='op'>|</span> <span class='ident'>DS_DOMAIN_NATIVE_MODE</span> <span class='op'>|</span> <span class='ident'>DS_DOMAIN_DIRECT_INBOUND</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DS_DOMAIN_TRUSTSW</span> {
-    <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ParentIndex</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>TrustType</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>TrustAttributes</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainSid</span>: ::<span class='ident'>PSID</span>,
-    <span class='ident'>DomainGuid</span>: ::<span class='ident'>GUID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDOMAIN_CONTROLLER_INFOW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DOMAIN_CONTROLLER_INFOW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_INET_ADDRESS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_NETBIOS_ADDRESS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_PDC_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_GC_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_LDAP_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DS_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_KDC_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_TIMESERV_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_CLOSEST_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_WRITABLE_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_GOOD_TIMESERV_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_NDNC_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_SELECT_SECRET_DOMAIN_6_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_FULL_SECRET_DOMAIN_6_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_WS_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DS_8_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DS_9_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_PING_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x000FFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DNS_CONTROLLER_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x20000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DNS_DOMAIN_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DNS_FOREST_FLAG</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_IN_FOREST</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_DIRECT_OUTBOUND</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_TREE_ROOT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_PRIMARY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_NATIVE_MODE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_DIRECT_INBOUND</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x0020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_DOMAIN_VALID_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">DS_DOMAIN_IN_FOREST</span> <span class="op">|</span> <span class="ident">DS_DOMAIN_DIRECT_OUTBOUND</span>
+    <span class="op">|</span> <span class="ident">DS_DOMAIN_TREE_ROOT</span> <span class="op">|</span> <span class="ident">DS_DOMAIN_PRIMARY</span> <span class="op">|</span> <span class="ident">DS_DOMAIN_NATIVE_MODE</span> <span class="op">|</span> <span class="ident">DS_DOMAIN_DIRECT_INBOUND</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DS_DOMAIN_TRUSTSW</span> {
+    <span class="ident">NetbiosDomainName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DnsDomainName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ParentIndex</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">TrustType</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">TrustAttributes</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainSid</span>: ::<span class="ident">PSID</span>,
+    <span class="ident">DomainGuid</span>: ::<span class="ident">GUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDS_DOMAIN_TRUSTSW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DS_DOMAIN_TRUSTSW</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DS_DOMAIN_TRUSTSA</span> {
-    <span class='ident'>NetbiosDomainName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>DnsDomainName</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ParentIndex</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>TrustType</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>TrustAttributes</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainSid</span>: ::<span class='ident'>PSID</span>,
-    <span class='ident'>DomainGuid</span>: ::<span class='ident'>GUID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDS_DOMAIN_TRUSTSW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DS_DOMAIN_TRUSTSW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DS_DOMAIN_TRUSTSA</span> {
+    <span class="ident">NetbiosDomainName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">DnsDomainName</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ParentIndex</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">TrustType</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">TrustAttributes</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainSid</span>: ::<span class="ident">PSID</span>,
+    <span class="ident">DomainGuid</span>: ::<span class="ident">GUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDS_DOMAIN_TRUSTSA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DS_DOMAIN_TRUSTSA</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_ONLY_DO_SITE_NAME</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_NOTIFY_AFTER_SITE_RECORDS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_OPEN_VALID_OPTION_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>DS_ONLY_DO_SITE_NAME</span>
-    <span class='op'>|</span> <span class='ident'>DS_NOTIFY_AFTER_SITE_RECORDS</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DS_OPEN_VALID_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>DS_FORCE_REDISCOVERY</span> <span class='op'>|</span> <span class='ident'>DS_ONLY_LDAP_NEEDED</span>
-    <span class='op'>|</span> <span class='ident'>DS_KDC_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_PDC_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_GC_SERVER_REQUIRED</span> <span class='op'>|</span> <span class='ident'>DS_WRITABLE_REQUIRED</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDS_DOMAIN_TRUSTSA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DS_DOMAIN_TRUSTSA</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_ONLY_DO_SITE_NAME</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_NOTIFY_AFTER_SITE_RECORDS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_OPEN_VALID_OPTION_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">DS_ONLY_DO_SITE_NAME</span>
+    <span class="op">|</span> <span class="ident">DS_NOTIFY_AFTER_SITE_RECORDS</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DS_OPEN_VALID_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">DS_FORCE_REDISCOVERY</span> <span class="op">|</span> <span class="ident">DS_ONLY_LDAP_NEEDED</span>
+    <span class="op">|</span> <span class="ident">DS_KDC_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_PDC_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_GC_SERVER_REQUIRED</span> <span class="op">|</span> <span class="ident">DS_WRITABLE_REQUIRED</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -286,12 +288,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -312,7 +318,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -323,11 +329,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

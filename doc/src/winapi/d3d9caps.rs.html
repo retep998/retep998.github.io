@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\d3d9caps.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\d3d9caps.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>d3d9caps.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -390,372 +392,356 @@
 <span id="347">347</span>
 <span id="348">348</span>
 <span id="349">349</span>
-<span id="350">350</span>
-<span id="351">351</span>
-<span id="352">352</span>
-<span id="353">353</span>
-<span id="354">354</span>
-<span id="355">355</span>
-<span id="356">356</span>
-<span id="357">357</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Corey Richardson</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Direct3D capabilities include file</span>
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DVSHADERCAPS2_0</span> {
-    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Corey Richardson</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Direct3D capabilities include file</span>
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">D3DVSHADERCAPS2_0</span> {
+    <span class="ident">Caps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DynamicFlowControlDepth</span>: ::<span class="ident">INT</span>,
+    <span class="ident">NumTemps</span>: ::<span class="ident">INT</span>,
+    <span class="ident">StaticFlowControlDepth</span>: ::<span class="ident">INT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20CAPS_PREDICATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>24</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MAX_NUMTEMPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_NUMTEMPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MAX_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVS20_MIN_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DPSHADERCAPS2_0</span> {
-    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DynamicFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>NumTemps</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>StaticFlowControlDepth</span>: ::<span class='ident'>INT</span>,
-    <span class='ident'>NumInstructionSlots</span>: ::<span class='ident'>INT</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20CAPS_PREDICATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">24</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MAX_NUMTEMPS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MIN_NUMTEMPS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MAX_STATICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVS20_MIN_STATICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">D3DPSHADERCAPS2_0</span> {
+    <span class="ident">Caps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DynamicFlowControlDepth</span>: ::<span class="ident">INT</span>,
+    <span class="ident">NumTemps</span>: ::<span class="ident">INT</span>,
+    <span class="ident">StaticFlowControlDepth</span>: ::<span class="ident">INT</span>,
+    <span class="ident">NumInstructionSlots</span>: ::<span class="ident">INT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_ARBITRARYSWIZZLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_GRADIENTINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_PREDICATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_NODEPENDENTREADLIMIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>24</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MAX_NUMTEMPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MIN_NUMTEMPS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MAX_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MIN_STATICFLOWCONTROLDEPTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MAX_NUMINSTRUCTIONSLOTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>512</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPS20_MIN_NUMINSTRUCTIONSLOTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>96</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DMIN30SHADERINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>512</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DMAX30SHADERINSTRUCTIONS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>32768</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DOVERLAYCAPS</span> {
-    <span class='ident'>Caps</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>MaxOverlayDisplayWidth</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>MaxOverlayDisplayHeight</span>: ::<span class='ident'>UINT</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20CAPS_ARBITRARYSWIZZLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20CAPS_GRADIENTINSTRUCTIONS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20CAPS_PREDICATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20CAPS_NODEPENDENTREADLIMIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;&lt;</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">24</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MAX_NUMTEMPS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MIN_NUMTEMPS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MAX_STATICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MIN_STATICFLOWCONTROLDEPTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MAX_NUMINSTRUCTIONSLOTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">512</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPS20_MIN_NUMINSTRUCTIONSLOTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">96</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DMIN30SHADERINSTRUCTIONS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">512</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DMAX30SHADERINSTRUCTIONS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">32768</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">D3DOVERLAYCAPS</span> {
+    <span class="ident">Caps</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">MaxOverlayDisplayWidth</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">MaxOverlayDisplayHeight</span>: ::<span class="ident">UINT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_FULLRANGERGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_LIMITEDRANGERGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT601</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT709</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT601_xvYCC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_YCbCr_BT709_xvYCC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_STRETCHX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DOVERLAYCAPS_STRETCHY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DCONTENTPROTECTIONCAPS</span> {
-    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>KeyExchangeType</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>BufferAlignmentStart</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>BlockAlignmentSize</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>ProtectedMemorySize</span>: ::<span class='ident'>ULONGLONG</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_FULLRANGERGB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_LIMITEDRANGERGB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_YCbCr_BT601</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_YCbCr_BT709</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_YCbCr_BT601_xvYCC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_YCbCr_BT709_xvYCC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_STRETCHX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DOVERLAYCAPS_STRETCHY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">D3DCONTENTPROTECTIONCAPS</span> {
+    <span class="ident">Caps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">KeyExchangeType</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">BufferAlignmentStart</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">BlockAlignmentSize</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">ProtectedMemorySize</span>: ::<span class="ident">ULONGLONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_SOFTWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_HARDWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_PROTECTIONALWAYSON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_PARTIALDECRYPTION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_CONTENTKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_FRESHENSESSIONKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_ENCRYPTEDREADBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_ENCRYPTEDREADBACKKEY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_SEQUENTIAL_CTR_IV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCPCAPS_ENCRYPTSLICEDATAONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>D3DCRYPTOTYPE_AES128_CTR</span>, <span class='number'>0x9b6bd711</span>, <span class='number'>0x4f74</span>, <span class='number'>0x41c9</span>,
-    <span class='number'>0x9e</span>, <span class='number'>0x7b</span>, <span class='number'>0xb</span>, <span class='number'>0xe2</span>, <span class='number'>0xd7</span>, <span class='number'>0xd9</span>, <span class='number'>0x3b</span>, <span class='number'>0x4f</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>D3DCRYPTOTYPE_PROPRIETARY</span>, <span class='number'>0xab4e9afd</span>, <span class='number'>0x1d1c</span>, <span class='number'>0x46e6</span>,
-    <span class='number'>0xa7</span>, <span class='number'>0x2f</span>, <span class='number'>0x8</span>, <span class='number'>0x69</span>, <span class='number'>0x91</span>, <span class='number'>0x7b</span>, <span class='number'>0xd</span>, <span class='number'>0xe8</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>D3DKEYEXCHANGE_RSAES_OAEP</span>, <span class='number'>0xc1949895</span>, <span class='number'>0xd72a</span>, <span class='number'>0x4a1d</span>,
-    <span class='number'>0x8e</span>, <span class='number'>0x5d</span>, <span class='number'>0xed</span>, <span class='number'>0x85</span>, <span class='number'>0x7d</span>, <span class='number'>0x17</span>, <span class='number'>0x15</span>, <span class='number'>0x20</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>D3DKEYEXCHANGE_DXVA</span>, <span class='number'>0x43d3775c</span>, <span class='number'>0x38e5</span>, <span class='number'>0x4924</span>, <span class='number'>0x8d</span>,
-    <span class='number'>0x86</span>, <span class='number'>0xd3</span>, <span class='number'>0xfc</span>, <span class='number'>0xcf</span>, <span class='number'>0x15</span>, <span class='number'>0x3e</span>, <span class='number'>0x9b</span>);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>D3DCAPS9</span> {
-    <span class='ident'>DeviceType</span>: ::<span class='ident'>D3DDEVTYPE</span>,
-    <span class='ident'>AdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>Caps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Caps2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Caps3</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>PresentationIntervals</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>CursorCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DevCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>PrimitiveMiscCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>RasterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ZCmpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>SrcBlendCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DestBlendCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>AlphaCmpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ShadeCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>TextureCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>TextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>CubeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>VolumeTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>TextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>VolumeTextureAddressCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>LineCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxTextureWidth</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxTextureHeight</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVolumeExtent</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxTextureRepeat</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxTextureAspectRatio</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxAnisotropy</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexW</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>GuardBandLeft</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>GuardBandTop</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>GuardBandRight</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>GuardBandBottom</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>ExtentsAdjust</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>StencilCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>FVFCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>TextureOpCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxTextureBlendStages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxSimultaneousTextures</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>VertexProcessingCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxActiveLights</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxUserClipPlanes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexBlendMatrices</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexBlendMatrixIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxPointSize</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>MaxPrimitiveCount</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxStreams</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxStreamStride</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>VertexShaderVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexShaderConst</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>PixelShaderVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>PixelShader1xMaxValue</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>DevCaps2</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxNpatchTessellationLevel</span>: ::<span class='ident'>c_float</span>,
-    <span class='ident'>Reserved5</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MasterAdapterOrdinal</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>AdapterOrdinalInGroup</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>NumberOfAdaptersInGroup</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>DeclTypes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>NumSimultaneousRTs</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>StretchRectFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>VS20Caps</span>: ::<span class='ident'>D3DVSHADERCAPS2_0</span>,
-    <span class='ident'>PS20Caps</span>: ::<span class='ident'>D3DPSHADERCAPS2_0</span>,
-    <span class='ident'>VertexTextureFilterCaps</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxPShaderInstructionsExecuted</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxVertexShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MaxPixelShader30InstructionSlots</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_SOFTWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_HARDWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_PROTECTIONALWAYSON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_PARTIALDECRYPTION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_CONTENTKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_FRESHENSESSIONKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_ENCRYPTEDREADBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_ENCRYPTEDREADBACKKEY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_SEQUENTIAL_CTR_IV</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCPCAPS_ENCRYPTSLICEDATAONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">D3DCAPS9</span> {
+    <span class="ident">DeviceType</span>: ::<span class="ident">D3DDEVTYPE</span>,
+    <span class="ident">AdapterOrdinal</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">Caps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Caps2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Caps3</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">PresentationIntervals</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">CursorCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DevCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">PrimitiveMiscCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">RasterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ZCmpCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">SrcBlendCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DestBlendCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">AlphaCmpCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ShadeCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">TextureCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">TextureFilterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">CubeTextureFilterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">VolumeTextureFilterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">TextureAddressCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">VolumeTextureAddressCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">LineCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxTextureWidth</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxTextureHeight</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVolumeExtent</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxTextureRepeat</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxTextureAspectRatio</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxAnisotropy</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexW</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">GuardBandLeft</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">GuardBandTop</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">GuardBandRight</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">GuardBandBottom</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">ExtentsAdjust</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">StencilCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FVFCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">TextureOpCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxTextureBlendStages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxSimultaneousTextures</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">VertexProcessingCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxActiveLights</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxUserClipPlanes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexBlendMatrices</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexBlendMatrixIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxPointSize</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">MaxPrimitiveCount</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxStreams</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxStreamStride</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">VertexShaderVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexShaderConst</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">PixelShaderVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">PixelShader1xMaxValue</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">DevCaps2</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxNpatchTessellationLevel</span>: ::<span class="ident">c_float</span>,
+    <span class="ident">Reserved5</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MasterAdapterOrdinal</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">AdapterOrdinalInGroup</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">NumberOfAdaptersInGroup</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">DeclTypes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">NumSimultaneousRTs</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">StretchRectFilterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">VS20Caps</span>: ::<span class="ident">D3DVSHADERCAPS2_0</span>,
+    <span class="ident">PS20Caps</span>: ::<span class="ident">D3DPSHADERCAPS2_0</span>,
+    <span class="ident">VertexTextureFilterCaps</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVShaderInstructionsExecuted</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxPShaderInstructionsExecuted</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxVertexShader30InstructionSlots</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MaxPixelShader30InstructionSlots</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS_OVERLAY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS_READ_SCANLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_FULLSCREENGAMMA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_CANCALIBRATEGAMMA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_RESERVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_CANMANAGERESOURCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_DYNAMICTEXTURES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_CANAUTOGENMIPMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS2_CANSHARERESOURCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_RESERVED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000001f</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_COPY_TO_VIDMEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_COPY_TO_SYSTEMMEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_DXVAHD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCAPS3_DXVAHD_LIMITED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_ONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_TWO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_THREE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_FOUR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRESENT_INTERVAL_IMMEDIATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x80000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCURSORCAPS_COLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DCURSORCAPS_LOWRES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_EXECUTESYSTEMMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_EXECUTEVIDEOMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_TLVERTEXSYSTEMMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_TLVERTEXVIDEOMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_TEXTURESYSTEMMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_TEXTUREVIDEOMEMORY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_DRAWPRIMTLVERTEX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_CANRENDERAFTERFLIP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_TEXTURENONLOCALVIDMEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_DRAWPRIMITIVES2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_SEPARATETEXTUREMEMORIES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_DRAWPRIMITIVES2EX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_HWTRANSFORMANDLIGHT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_CANBLTSYSTONONLOCAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_HWRASTERIZATION</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_PUREDEVICE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_QUINTICRTPATCHES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_RTPATCHES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_RTPATCHHANDLEZERO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS_NPATCHES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_MASKZ</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_CULLNONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_CULLCW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_CULLCCW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_COLORWRITEENABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_CLIPPLANESCALEDPOINTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_CLIPTLVERTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_TSSARGTEMP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_BLENDOP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_NULLREFERENCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_INDEPENDENTWRITEMASKS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_PERSTAGECONSTANT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_FOGANDSPECULARALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_SEPARATEALPHABLEND</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_FOGVERTEXCLAMPED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPMISCCAPS_POSTBLENDSRGBCONVERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_TEXTURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_ZTEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_BLEND</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_ALPHACMP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_FOG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DLINECAPS_ANTIALIAS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_DITHER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_ZTEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_FOGVERTEX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_FOGTABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_MIPMAPLODBIAS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_ZBUFFERLESSHSR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_FOGRANGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_ANISOTROPY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_WBUFFER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_WFOG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_ZFOG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_COLORPERSPECTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_SCISSORTEST</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_DEPTHBIAS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPRASTERCAPS_MULTISAMPLE_TOGGLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_NEVER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_LESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_EQUAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_LESSEQUAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_GREATER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_NOTEQUAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_GREATEREQUAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPCMPCAPS_ALWAYS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_ZERO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_ONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_SRCCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_INVSRCCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_SRCALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_INVSRCALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_DESTALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_INVDESTALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_DESTCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_INVDESTCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_SRCALPHASAT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_BOTHSRCALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_BOTHINVSRCALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_BLENDFACTOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_SRCCOLOR2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPBLENDCAPS_INVSRCCOLOR2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPSHADECAPS_COLORGOURAUDRGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPSHADECAPS_SPECULARGOURAUDRGB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPSHADECAPS_ALPHAGOURAUDBLEND</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPSHADECAPS_FOGGOURAUD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_PERSPECTIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_POW2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_ALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_SQUAREONLY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_ALPHAPALETTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_NONPOW2CONDITIONAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_PROJECTED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_CUBEMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_VOLUMEMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_MIPMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_MIPVOLUMEMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_MIPCUBEMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_CUBEMAP_POW2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_VOLUMEMAP_POW2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTEXTURECAPS_NOPROJECTEDBUMPENV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MINFPOINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MINFLINEAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MINFANISOTROPIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MINFPYRAMIDALQUAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MINFGAUSSIANQUAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MIPFPOINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MIPFLINEAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_CONVOLUTIONMONO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MAGFPOINT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MAGFLINEAR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MAGFANISOTROPIC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTFILTERCAPS_MAGFGAUSSIANQUAD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_WRAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_MIRROR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_CLAMP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_BORDER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_INDEPENDENTUV</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DPTADDRESSCAPS_MIRRORONCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_KEEP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_ZERO</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_REPLACE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_INCRSAT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_DECRSAT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_INVERT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_INCR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_DECR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DSTENCILCAPS_TWOSIDED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_DISABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_SELECTARG1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_SELECTARG2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATE2X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATE4X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_ADD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_ADDSIGNED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_ADDSIGNED2X</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_SUBTRACT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_ADDSMOOTH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BLENDDIFFUSEALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BLENDTEXTUREALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BLENDFACTORALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BLENDTEXTUREALPHAPM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BLENDCURRENTALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_PREMODULATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BUMPENVMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_BUMPENVMAPLUMINANCE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_DOTPRODUCT3</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00800000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_MULTIPLYADD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DTEXOPCAPS_LERP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DFVFCAPS_TEXCOORDCOUNTMASK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000ffff</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DFVFCAPS_DONOTSTRIPELEMENTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DFVFCAPS_PSIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_TEXGEN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_MATERIALSOURCE7</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_DIRECTIONALLIGHTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_POSITIONALLIGHTS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_LOCALVIEWER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_TWEENING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_TEXGEN_SPHEREMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_STREAMOFFSET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_DMAPNPATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_ADAPTIVETESSRTPATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_ADAPTIVETESSNPATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_UBYTE4</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_UBYTE4N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_SHORT2N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_SHORT4N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_USHORT2N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_USHORT4N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_UDEC3</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_DEC3N</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_FLOAT16_2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>D3DDTCAPS_FLOAT16_4</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS_OVERLAY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS_READ_SCANLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_FULLSCREENGAMMA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_CANCALIBRATEGAMMA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_RESERVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_CANMANAGERESOURCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_DYNAMICTEXTURES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_CANAUTOGENMIPMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS2_CANSHARERESOURCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_RESERVED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x8000001f</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_COPY_TO_VIDMEM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_COPY_TO_SYSTEMMEM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_DXVAHD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCAPS3_DXVAHD_LIMITED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_ONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_TWO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_THREE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_FOUR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRESENT_INTERVAL_IMMEDIATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x80000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCURSORCAPS_COLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DCURSORCAPS_LOWRES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_EXECUTESYSTEMMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_EXECUTEVIDEOMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_TLVERTEXSYSTEMMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_TLVERTEXVIDEOMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_TEXTURESYSTEMMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_TEXTUREVIDEOMEMORY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_DRAWPRIMTLVERTEX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_CANRENDERAFTERFLIP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_TEXTURENONLOCALVIDMEM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_DRAWPRIMITIVES2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_SEPARATETEXTUREMEMORIES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_DRAWPRIMITIVES2EX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_HWTRANSFORMANDLIGHT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_CANBLTSYSTONONLOCAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_HWRASTERIZATION</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_PUREDEVICE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_QUINTICRTPATCHES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_RTPATCHES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_RTPATCHHANDLEZERO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00800000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS_NPATCHES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_MASKZ</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_CULLNONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_CULLCW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_CULLCCW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_COLORWRITEENABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_CLIPPLANESCALEDPOINTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_CLIPTLVERTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_TSSARGTEMP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_BLENDOP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_NULLREFERENCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_INDEPENDENTWRITEMASKS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_PERSTAGECONSTANT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_FOGANDSPECULARALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_SEPARATEALPHABLEND</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_FOGVERTEXCLAMPED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPMISCCAPS_POSTBLENDSRGBCONVERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_TEXTURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_ZTEST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_BLEND</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_ALPHACMP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_FOG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DLINECAPS_ANTIALIAS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_DITHER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_ZTEST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_FOGVERTEX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_FOGTABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_MIPMAPLODBIAS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_ZBUFFERLESSHSR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_FOGRANGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_ANISOTROPY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_WBUFFER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_WFOG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_ZFOG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_COLORPERSPECTIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_SCISSORTEST</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_DEPTHBIAS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x04000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPRASTERCAPS_MULTISAMPLE_TOGGLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x08000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_NEVER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_LESS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_EQUAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_LESSEQUAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_GREATER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_NOTEQUAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_GREATEREQUAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPCMPCAPS_ALWAYS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_ZERO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_ONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_SRCCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_INVSRCCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_SRCALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_INVSRCALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_DESTALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_INVDESTALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_DESTCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_INVDESTCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_SRCALPHASAT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_BOTHSRCALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_BOTHINVSRCALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_BLENDFACTOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_SRCCOLOR2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPBLENDCAPS_INVSRCCOLOR2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPSHADECAPS_COLORGOURAUDRGB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPSHADECAPS_SPECULARGOURAUDRGB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPSHADECAPS_ALPHAGOURAUDBLEND</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPSHADECAPS_FOGGOURAUD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_PERSPECTIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_POW2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_ALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_SQUAREONLY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_ALPHAPALETTE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_NONPOW2CONDITIONAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_PROJECTED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_CUBEMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_VOLUMEMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_MIPMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_MIPVOLUMEMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_MIPCUBEMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_CUBEMAP_POW2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_VOLUMEMAP_POW2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTEXTURECAPS_NOPROJECTEDBUMPENV</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MINFPOINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MINFLINEAR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MINFANISOTROPIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MINFPYRAMIDALQUAD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MINFGAUSSIANQUAD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MIPFPOINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MIPFLINEAR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_CONVOLUTIONMONO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MAGFPOINT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MAGFLINEAR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MAGFANISOTROPIC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x04000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x08000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTFILTERCAPS_MAGFGAUSSIANQUAD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_WRAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_MIRROR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_CLAMP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_BORDER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_INDEPENDENTUV</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DPTADDRESSCAPS_MIRRORONCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_KEEP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_ZERO</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_REPLACE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_INCRSAT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_DECRSAT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_INVERT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_INCR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_DECR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DSTENCILCAPS_TWOSIDED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_DISABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_SELECTARG1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_SELECTARG2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATE2X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATE4X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_ADD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_ADDSIGNED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_ADDSIGNED2X</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_SUBTRACT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_ADDSMOOTH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BLENDDIFFUSEALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BLENDTEXTUREALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BLENDFACTORALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BLENDTEXTUREALPHAPM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BLENDCURRENTALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_PREMODULATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BUMPENVMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_BUMPENVMAPLUMINANCE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_DOTPRODUCT3</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00800000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_MULTIPLYADD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DTEXOPCAPS_LERP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DFVFCAPS_TEXCOORDCOUNTMASK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000ffff</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DFVFCAPS_DONOTSTRIPELEMENTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DFVFCAPS_PSIZE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_TEXGEN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_MATERIALSOURCE7</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_DIRECTIONALLIGHTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_POSITIONALLIGHTS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_LOCALVIEWER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_TWEENING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_TEXGEN_SPHEREMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_STREAMOFFSET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_DMAPNPATCH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_ADAPTIVETESSRTPATCH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_ADAPTIVETESSNPATCH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_UBYTE4</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_UBYTE4N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_SHORT2N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_SHORT4N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_USHORT2N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_USHORT4N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_UDEC3</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_DEC3N</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_FLOAT16_2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D3DDTCAPS_FLOAT16_4</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -774,12 +760,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -800,7 +790,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -811,11 +801,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

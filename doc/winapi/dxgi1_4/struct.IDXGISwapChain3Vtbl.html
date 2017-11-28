@@ -9,13 +9,15 @@
 
     <title>winapi::dxgi1_4::IDXGISwapChain3Vtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a></p><script>window.sidebarCurrent = {name: 'IDXGISwapChain3Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IDXGISwapChain3Vtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.GetCurrentBackBufferIndex">GetCurrentBackBufferIndex</a><a href="#structfield.CheckColorSpaceSupport">CheckColorSpaceSupport</a><a href="#structfield.SetColorSpace1">SetColorSpace1</a><a href="#structfield.ResizeBuffers1">ResizeBuffers1</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a></p><script>window.sidebarCurrent = {name: 'IDXGISwapChain3Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +43,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a>::<wbr><a class='struct' href=''>IDXGISwapChain3Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-46840' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IDXGISwapChain3Vtbl {
-    pub parent: <a class='struct' href='../../winapi/dxgi1_3/struct.IDXGISwapChain2Vtbl.html' title='winapi::dxgi1_3::IDXGISwapChain2Vtbl'>IDXGISwapChain2Vtbl</a>,
-    pub GetCurrentBackBufferIndex: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGISwapChain3.html' title='winapi::dxgi1_4::IDXGISwapChain3'>IDXGISwapChain3</a>) -&gt; <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub CheckColorSpaceSupport: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGISwapChain3.html' title='winapi::dxgi1_4::IDXGISwapChain3'>IDXGISwapChain3</a>, ColorSpace: <a class='struct' href='../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html' title='winapi::dxgitype::DXGI_COLOR_SPACE_TYPE'>DXGI_COLOR_SPACE_TYPE</a>, pColorSpaceSupport: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub SetColorSpace1: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGISwapChain3.html' title='winapi::dxgi1_4::IDXGISwapChain3'>IDXGISwapChain3</a>, ColorSpace: <a class='struct' href='../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html' title='winapi::dxgitype::DXGI_COLOR_SPACE_TYPE'>DXGI_COLOR_SPACE_TYPE</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub ResizeBuffers1: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGISwapChain3.html' title='winapi::dxgi1_4::IDXGISwapChain3'>IDXGISwapChain3</a>, BufferCount: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, Width: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, Height: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, Format: <a class='struct' href='../../winapi/dxgiformat/struct.DXGI_FORMAT.html' title='winapi::dxgiformat::DXGI_FORMAT'>DXGI_FORMAT</a>, SwapChainFlags: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, pCreationNodeMask: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, ppPresentQueue: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetCurrentBackBufferIndex'><code>GetCurrentBackBufferIndex</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.CheckColorSpaceSupport'><code>CheckColorSpaceSupport</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetColorSpace1'><code>SetColorSpace1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ResizeBuffers1'><code>ResizeBuffers1</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a>::<wbr><a class="struct" href=''>IDXGISwapChain3Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IDXGISwapChain3Vtbl {
+    pub parent: <a class="struct" href="../../winapi/dxgi1_3/struct.IDXGISwapChain2Vtbl.html" title="struct winapi::dxgi1_3::IDXGISwapChain2Vtbl">IDXGISwapChain2Vtbl</a>,
+    pub GetCurrentBackBufferIndex: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>) -&gt; <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub CheckColorSpaceSupport: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, ColorSpace: <a class="struct" href="../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html" title="struct winapi::dxgitype::DXGI_COLOR_SPACE_TYPE">DXGI_COLOR_SPACE_TYPE</a>, pColorSpaceSupport: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub SetColorSpace1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, ColorSpace: <a class="struct" href="../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html" title="struct winapi::dxgitype::DXGI_COLOR_SPACE_TYPE">DXGI_COLOR_SPACE_TYPE</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub ResizeBuffers1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, BufferCount: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Width: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Height: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Format: <a class="struct" href="../../winapi/dxgiformat/struct.DXGI_FORMAT.html" title="struct winapi::dxgiformat::DXGI_FORMAT">DXGI_FORMAT</a>, SwapChainFlags: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pCreationNodeMask: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, ppPresentQueue: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/dxgi1_3/struct.IDXGISwapChain2Vtbl.html" title="struct winapi::dxgi1_3::IDXGISwapChain2Vtbl">IDXGISwapChain2Vtbl</a></code>
+                           </span></span><span id="structfield.GetCurrentBackBufferIndex" class="structfield small-section-header">
+                           <a href="#structfield.GetCurrentBackBufferIndex" class="anchor field"></a>
+                           <span id="GetCurrentBackBufferIndex.v" class='invisible'>
+                           <code>GetCurrentBackBufferIndex: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>) -&gt; <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.CheckColorSpaceSupport" class="structfield small-section-header">
+                           <a href="#structfield.CheckColorSpaceSupport" class="anchor field"></a>
+                           <span id="CheckColorSpaceSupport.v" class='invisible'>
+                           <code>CheckColorSpaceSupport: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, ColorSpace: <a class="struct" href="../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html" title="struct winapi::dxgitype::DXGI_COLOR_SPACE_TYPE">DXGI_COLOR_SPACE_TYPE</a>, pColorSpaceSupport: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.SetColorSpace1" class="structfield small-section-header">
+                           <a href="#structfield.SetColorSpace1" class="anchor field"></a>
+                           <span id="SetColorSpace1.v" class='invisible'>
+                           <code>SetColorSpace1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, ColorSpace: <a class="struct" href="../../winapi/dxgitype/struct.DXGI_COLOR_SPACE_TYPE.html" title="struct winapi::dxgitype::DXGI_COLOR_SPACE_TYPE">DXGI_COLOR_SPACE_TYPE</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.ResizeBuffers1" class="structfield small-section-header">
+                           <a href="#structfield.ResizeBuffers1" class="anchor field"></a>
+                           <span id="ResizeBuffers1.v" class='invisible'>
+                           <code>ResizeBuffers1: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGISwapChain3.html" title="struct winapi::dxgi1_4::IDXGISwapChain3">IDXGISwapChain3</a>, BufferCount: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Width: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Height: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, Format: <a class="struct" href="../../winapi/dxgiformat/struct.DXGI_FORMAT.html" title="struct winapi::dxgiformat::DXGI_FORMAT">DXGI_FORMAT</a>, SwapChainFlags: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, pCreationNodeMask: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, ppPresentQueue: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,12 +94,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -102,7 +124,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,11 +135,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

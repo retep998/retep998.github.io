@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\mpr-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\mpr-sys-0.1.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -150,115 +152,115 @@
 <span id="107">107</span>
 <span id="108">108</span>
 <span id="109">109</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! FFI bindings to mpr.</span>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
-<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MultinetGetConnectionPerformanceA</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpNetConnectInfoStruct</span>: <span class='ident'>LPNETCONNECTINFOSTRUCT</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>MultinetGetConnectionPerformanceW</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpNetConnectInfoStruct</span>: <span class='ident'>LPNETCONNECTINFOSTRUCT</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetAddConnection2A</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpUsername</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetAddConnection2W</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpUsername</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetAddConnection3A</span>(
-        <span class='ident'>hwndOwner</span>: <span class='ident'>HWND</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpUsername</span>: <span class='ident'>LPCSTR</span>,
-        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetAddConnection3W</span>(
-        <span class='ident'>hwndOwner</span>: <span class='ident'>HWND</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpUsername</span>: <span class='ident'>LPCWSTR</span>,
-        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetCancelConnectionA</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>fForce</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetCancelConnectionW</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>fForce</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetCancelConnection2A</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>fForce</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetCancelConnection2W</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>fForce</span>: <span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetCloseEnum</span>(<span class='ident'>hEnum</span>: <span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetConnectionDialog</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>dwType</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetConnectionDialog1A</span>(<span class='ident'>lpConnDlgStruct</span>: <span class='ident'>LPCONNECTDLGSTRUCTA</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetConnectionDialog1W</span>(<span class='ident'>lpConnDlgStruct</span>: <span class='ident'>LPCONNECTDLGSTRUCTW</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetDisconnectDialog</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWND</span>, <span class='ident'>dwType</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetDisconnectDialog1A</span>(<span class='ident'>lpConnDlgStruct</span>: <span class='ident'>LPDISCDLGSTRUCTA</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetDisconnectDialog1W</span>(<span class='ident'>lpConnDlgStruct</span>: <span class='ident'>LPDISCDLGSTRUCTW</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetEnumResourceA</span>(
-        <span class='ident'>hEnum</span>: <span class='ident'>HANDLE</span>, <span class='ident'>lpcCount</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetEnumResourceW</span>(
-        <span class='ident'>hEnum</span>: <span class='ident'>HANDLE</span>, <span class='ident'>lpcCount</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetConnectionA</span>(
-        <span class='ident'>lpLocalName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpRemoteName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>lpnLength</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetConnectionW</span>(
-        <span class='ident'>lpLocalName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpRemoteName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>lpnLength</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetLastErrorA</span>(
-        <span class='ident'>lpError</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpErrorBuf</span>: <span class='ident'>LPSTR</span>, <span class='ident'>nErrorBufSize</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpNameBuf</span>: <span class='ident'>LPSTR</span>,
-        <span class='ident'>nNameBufSize</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetLastErrorW</span>(
-        <span class='ident'>lpError</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpErrorBuf</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>nErrorBufSize</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpNameBuf</span>: <span class='ident'>LPWSTR</span>,
-        <span class='ident'>nNameBufSize</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetNetworkInformationA</span>(
-        <span class='ident'>lpProvider</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpNetInfoStruct</span>: <span class='ident'>LPNETINFOSTRUCT</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetNetworkInformationW</span>(
-        <span class='ident'>lpProvider</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpNetInfoStruct</span>: <span class='ident'>LPNETINFOSTRUCT</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetProviderNameA</span>(
-        <span class='ident'>dwNetType</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpProviderName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetProviderNameW</span>(
-        <span class='ident'>dwNetType</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpProviderName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetResourceInformationA</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpcbBuffer</span>: <span class='ident'>LPDWORD</span>,
-        <span class='ident'>lplpSystem</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPSTR</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetResourceInformationW</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpcbBuffer</span>: <span class='ident'>LPDWORD</span>,
-        <span class='ident'>lplpSystem</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPWSTR</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetResourceParentA</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpcbBuffer</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetResourceParentW</span>(
-        <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpcbBuffer</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetUniversalNameA</span>(
-        <span class='ident'>lpLocalPath</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>dwInfoLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetUniversalNameW</span>(
-        <span class='ident'>lpLocalPath</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>dwInfoLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpBuffer</span>: <span class='ident'>LPVOID</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetUserA</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpUserName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>lpnLength</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetGetUserW</span>(<span class='ident'>lpName</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpUserName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>lpnLength</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetOpenEnumA</span>(
-        <span class='ident'>dwScope</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwType</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwUsage</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>,
-        <span class='ident'>lphEnum</span>: <span class='ident'>LPHANDLE</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetOpenEnumW</span>(
-        <span class='ident'>dwScope</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwType</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwUsage</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>,
-        <span class='ident'>lphEnum</span>: <span class='ident'>LPHANDLE</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetUseConnectionA</span>(
-        <span class='ident'>hwndOwner</span>: <span class='ident'>HWND</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEA</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>lpUserId</span>: <span class='ident'>LPCSTR</span>,
-        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpAccessName</span>: <span class='ident'>LPSTR</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpResult</span>: <span class='ident'>LPDWORD</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>WNetUseConnectionW</span>(
-        <span class='ident'>hwndOwner</span>: <span class='ident'>HWND</span>, <span class='ident'>lpNetResource</span>: <span class='ident'>LPNETRESOURCEW</span>, <span class='ident'>lpPassword</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>lpUserId</span>: <span class='ident'>LPCWSTR</span>,
-        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>lpAccessName</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>lpBufferSize</span>: <span class='ident'>LPDWORD</span>, <span class='ident'>lpResult</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to mpr.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">MultinetGetConnectionPerformanceA</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpNetConnectInfoStruct</span>: <span class="ident">LPNETCONNECTINFOSTRUCT</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">MultinetGetConnectionPerformanceW</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpNetConnectInfoStruct</span>: <span class="ident">LPNETCONNECTINFOSTRUCT</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetAddConnection2A</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpUsername</span>: <span class="ident">LPCSTR</span>, <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetAddConnection2W</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpUsername</span>: <span class="ident">LPCWSTR</span>, <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetAddConnection3A</span>(
+        <span class="ident">hwndOwner</span>: <span class="ident">HWND</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpUsername</span>: <span class="ident">LPCSTR</span>,
+        <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetAddConnection3W</span>(
+        <span class="ident">hwndOwner</span>: <span class="ident">HWND</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpUsername</span>: <span class="ident">LPCWSTR</span>,
+        <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetCancelConnectionA</span>(<span class="ident">lpName</span>: <span class="ident">LPCSTR</span>, <span class="ident">fForce</span>: <span class="ident">BOOL</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetCancelConnectionW</span>(<span class="ident">lpName</span>: <span class="ident">LPCWSTR</span>, <span class="ident">fForce</span>: <span class="ident">BOOL</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetCancelConnection2A</span>(<span class="ident">lpName</span>: <span class="ident">LPCSTR</span>, <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>, <span class="ident">fForce</span>: <span class="ident">BOOL</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetCancelConnection2W</span>(<span class="ident">lpName</span>: <span class="ident">LPCWSTR</span>, <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>, <span class="ident">fForce</span>: <span class="ident">BOOL</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetCloseEnum</span>(<span class="ident">hEnum</span>: <span class="ident">HANDLE</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetConnectionDialog</span>(<span class="ident">hwnd</span>: <span class="ident">HWND</span>, <span class="ident">dwType</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetConnectionDialog1A</span>(<span class="ident">lpConnDlgStruct</span>: <span class="ident">LPCONNECTDLGSTRUCTA</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetConnectionDialog1W</span>(<span class="ident">lpConnDlgStruct</span>: <span class="ident">LPCONNECTDLGSTRUCTW</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetDisconnectDialog</span>(<span class="ident">hwnd</span>: <span class="ident">HWND</span>, <span class="ident">dwType</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetDisconnectDialog1A</span>(<span class="ident">lpConnDlgStruct</span>: <span class="ident">LPDISCDLGSTRUCTA</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetDisconnectDialog1W</span>(<span class="ident">lpConnDlgStruct</span>: <span class="ident">LPDISCDLGSTRUCTW</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetEnumResourceA</span>(
+        <span class="ident">hEnum</span>: <span class="ident">HANDLE</span>, <span class="ident">lpcCount</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetEnumResourceW</span>(
+        <span class="ident">hEnum</span>: <span class="ident">HANDLE</span>, <span class="ident">lpcCount</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetConnectionA</span>(
+        <span class="ident">lpLocalName</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpRemoteName</span>: <span class="ident">LPSTR</span>, <span class="ident">lpnLength</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetConnectionW</span>(
+        <span class="ident">lpLocalName</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpRemoteName</span>: <span class="ident">LPWSTR</span>, <span class="ident">lpnLength</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetLastErrorA</span>(
+        <span class="ident">lpError</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpErrorBuf</span>: <span class="ident">LPSTR</span>, <span class="ident">nErrorBufSize</span>: <span class="ident">DWORD</span>, <span class="ident">lpNameBuf</span>: <span class="ident">LPSTR</span>,
+        <span class="ident">nNameBufSize</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetLastErrorW</span>(
+        <span class="ident">lpError</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpErrorBuf</span>: <span class="ident">LPWSTR</span>, <span class="ident">nErrorBufSize</span>: <span class="ident">DWORD</span>, <span class="ident">lpNameBuf</span>: <span class="ident">LPWSTR</span>,
+        <span class="ident">nNameBufSize</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetNetworkInformationA</span>(
+        <span class="ident">lpProvider</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpNetInfoStruct</span>: <span class="ident">LPNETINFOSTRUCT</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetNetworkInformationW</span>(
+        <span class="ident">lpProvider</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpNetInfoStruct</span>: <span class="ident">LPNETINFOSTRUCT</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetProviderNameA</span>(
+        <span class="ident">dwNetType</span>: <span class="ident">DWORD</span>, <span class="ident">lpProviderName</span>: <span class="ident">LPSTR</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetProviderNameW</span>(
+        <span class="ident">dwNetType</span>: <span class="ident">DWORD</span>, <span class="ident">lpProviderName</span>: <span class="ident">LPWSTR</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetResourceInformationA</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpcbBuffer</span>: <span class="ident">LPDWORD</span>,
+        <span class="ident">lplpSystem</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPSTR</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetResourceInformationW</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpcbBuffer</span>: <span class="ident">LPDWORD</span>,
+        <span class="ident">lplpSystem</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPWSTR</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetResourceParentA</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpcbBuffer</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetResourceParentW</span>(
+        <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpcbBuffer</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetUniversalNameA</span>(
+        <span class="ident">lpLocalPath</span>: <span class="ident">LPCSTR</span>, <span class="ident">dwInfoLevel</span>: <span class="ident">DWORD</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetUniversalNameW</span>(
+        <span class="ident">lpLocalPath</span>: <span class="ident">LPCWSTR</span>, <span class="ident">dwInfoLevel</span>: <span class="ident">DWORD</span>, <span class="ident">lpBuffer</span>: <span class="ident">LPVOID</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetUserA</span>(<span class="ident">lpName</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpUserName</span>: <span class="ident">LPSTR</span>, <span class="ident">lpnLength</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetGetUserW</span>(<span class="ident">lpName</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpUserName</span>: <span class="ident">LPWSTR</span>, <span class="ident">lpnLength</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetOpenEnumA</span>(
+        <span class="ident">dwScope</span>: <span class="ident">DWORD</span>, <span class="ident">dwType</span>: <span class="ident">DWORD</span>, <span class="ident">dwUsage</span>: <span class="ident">DWORD</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>,
+        <span class="ident">lphEnum</span>: <span class="ident">LPHANDLE</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetOpenEnumW</span>(
+        <span class="ident">dwScope</span>: <span class="ident">DWORD</span>, <span class="ident">dwType</span>: <span class="ident">DWORD</span>, <span class="ident">dwUsage</span>: <span class="ident">DWORD</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>,
+        <span class="ident">lphEnum</span>: <span class="ident">LPHANDLE</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetUseConnectionA</span>(
+        <span class="ident">hwndOwner</span>: <span class="ident">HWND</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEA</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCSTR</span>, <span class="ident">lpUserId</span>: <span class="ident">LPCSTR</span>,
+        <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>, <span class="ident">lpAccessName</span>: <span class="ident">LPSTR</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpResult</span>: <span class="ident">LPDWORD</span>
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">WNetUseConnectionW</span>(
+        <span class="ident">hwndOwner</span>: <span class="ident">HWND</span>, <span class="ident">lpNetResource</span>: <span class="ident">LPNETRESOURCEW</span>, <span class="ident">lpPassword</span>: <span class="ident">LPCWSTR</span>, <span class="ident">lpUserId</span>: <span class="ident">LPCWSTR</span>,
+        <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>, <span class="ident">lpAccessName</span>: <span class="ident">LPWSTR</span>, <span class="ident">lpBufferSize</span>: <span class="ident">LPDWORD</span>, <span class="ident">lpResult</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
 }
 </pre>
 </section>
@@ -278,12 +280,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -304,7 +310,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -315,11 +321,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "mpr";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

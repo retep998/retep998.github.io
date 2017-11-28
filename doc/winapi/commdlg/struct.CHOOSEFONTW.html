@@ -9,13 +9,15 @@
 
     <title>winapi::commdlg::CHOOSEFONTW - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a></p><script>window.sidebarCurrent = {name: 'CHOOSEFONTW', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct CHOOSEFONTW</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.lStructSize">lStructSize</a><a href="#structfield.hwndOwner">hwndOwner</a><a href="#structfield.hDC">hDC</a><a href="#structfield.lpLogFont">lpLogFont</a><a href="#structfield.iPointSize">iPointSize</a><a href="#structfield.Flags">Flags</a><a href="#structfield.rgbColors">rgbColors</a><a href="#structfield.lCustData">lCustData</a><a href="#structfield.lpfnHook">lpfnHook</a><a href="#structfield.lpTemplateName">lpTemplateName</a><a href="#structfield.hInstance">hInstance</a><a href="#structfield.lpszStyle">lpszStyle</a><a href="#structfield.nFontType">nFontType</a><a href="#structfield.___MISSING_ALIGNMENT__">___MISSING_ALIGNMENT__</a><a href="#structfield.nSizeMin">nSizeMin</a><a href="#structfield.nSizeMax">nSizeMax</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a></p><script>window.sidebarCurrent = {name: 'CHOOSEFONTW', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,49 +43,106 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a>::<wbr><a class='struct' href=''>CHOOSEFONTW</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-9027' class='srclink' href='../../src/winapi/commdlg.rs.html#309-326' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct CHOOSEFONTW {
-    pub lStructSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub hwndOwner: <a class='type' href='../../winapi/windef/type.HWND.html' title='winapi::windef::HWND'>HWND</a>,
-    pub hDC: <a class='type' href='../../winapi/windef/type.HDC.html' title='winapi::windef::HDC'>HDC</a>,
-    pub lpLogFont: <a class='type' href='../../winapi/wingdi/type.LPLOGFONTW.html' title='winapi::wingdi::LPLOGFONTW'>LPLOGFONTW</a>,
-    pub iPointSize: <a class='type' href='../../winapi/minwindef/type.INT.html' title='winapi::minwindef::INT'>INT</a>,
-    pub Flags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub rgbColors: <a class='type' href='../../winapi/windef/type.COLORREF.html' title='winapi::windef::COLORREF'>COLORREF</a>,
-    pub lCustData: <a class='type' href='../../winapi/minwindef/type.LPARAM.html' title='winapi::minwindef::LPARAM'>LPARAM</a>,
-    pub lpfnHook: <a class='type' href='../../winapi/commdlg/type.LPCFHOOKPROC.html' title='winapi::commdlg::LPCFHOOKPROC'>LPCFHOOKPROC</a>,
-    pub lpTemplateName: <a class='type' href='../../winapi/winnt/type.LPCWSTR.html' title='winapi::winnt::LPCWSTR'>LPCWSTR</a>,
-    pub hInstance: <a class='type' href='../../winapi/minwindef/type.HINSTANCE.html' title='winapi::minwindef::HINSTANCE'>HINSTANCE</a>,
-    pub lpszStyle: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub nFontType: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub ___MISSING_ALIGNMENT__: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub nSizeMin: <a class='type' href='../../winapi/minwindef/type.INT.html' title='winapi::minwindef::INT'>INT</a>,
-    pub nSizeMax: <a class='type' href='../../winapi/minwindef/type.INT.html' title='winapi::minwindef::INT'>INT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.lStructSize'><code>lStructSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hwndOwner'><code>hwndOwner</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hDC'><code>hDC</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpLogFont'><code>lpLogFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iPointSize'><code>iPointSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Flags'><code>Flags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.rgbColors'><code>rgbColors</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lCustData'><code>lCustData</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpfnHook'><code>lpfnHook</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpTemplateName'><code>lpTemplateName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hInstance'><code>hInstance</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpszStyle'><code>lpszStyle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nFontType'><code>nFontType</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.___MISSING_ALIGNMENT__'><code>___MISSING_ALIGNMENT__</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nSizeMin'><code>nSizeMin</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nSizeMax'><code>nSizeMax</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/commdlg/struct.CHOOSEFONTW.html' title='winapi::commdlg::CHOOSEFONTW'>CHOOSEFONTW</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/commdlg/struct.CHOOSEFONTW.html' title='winapi::commdlg::CHOOSEFONTW'>CHOOSEFONTW</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/commdlg/struct.CHOOSEFONTW.html' title='winapi::commdlg::CHOOSEFONTW'>CHOOSEFONTW</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a>::<wbr><a class="struct" href=''>CHOOSEFONTW</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct CHOOSEFONTW {
+    pub lStructSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub hwndOwner: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a>,
+    pub hDC: <a class="type" href="../../winapi/windef/type.HDC.html" title="type winapi::windef::HDC">HDC</a>,
+    pub lpLogFont: <a class="type" href="../../winapi/wingdi/type.LPLOGFONTW.html" title="type winapi::wingdi::LPLOGFONTW">LPLOGFONTW</a>,
+    pub iPointSize: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a>,
+    pub Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub rgbColors: <a class="type" href="../../winapi/windef/type.COLORREF.html" title="type winapi::windef::COLORREF">COLORREF</a>,
+    pub lCustData: <a class="type" href="../../winapi/minwindef/type.LPARAM.html" title="type winapi::minwindef::LPARAM">LPARAM</a>,
+    pub lpfnHook: <a class="type" href="../../winapi/commdlg/type.LPCFHOOKPROC.html" title="type winapi::commdlg::LPCFHOOKPROC">LPCFHOOKPROC</a>,
+    pub lpTemplateName: <a class="type" href="../../winapi/winnt/type.LPCWSTR.html" title="type winapi::winnt::LPCWSTR">LPCWSTR</a>,
+    pub hInstance: <a class="type" href="../../winapi/minwindef/type.HINSTANCE.html" title="type winapi::minwindef::HINSTANCE">HINSTANCE</a>,
+    pub lpszStyle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub nFontType: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub ___MISSING_ALIGNMENT__: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub nSizeMin: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a>,
+    pub nSizeMax: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.lStructSize" class="structfield small-section-header">
+                           <a href="#structfield.lStructSize" class="anchor field"></a>
+                           <span id="lStructSize.v" class='invisible'>
+                           <code>lStructSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.hwndOwner" class="structfield small-section-header">
+                           <a href="#structfield.hwndOwner" class="anchor field"></a>
+                           <span id="hwndOwner.v" class='invisible'>
+                           <code>hwndOwner: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a></code>
+                           </span></span><span id="structfield.hDC" class="structfield small-section-header">
+                           <a href="#structfield.hDC" class="anchor field"></a>
+                           <span id="hDC.v" class='invisible'>
+                           <code>hDC: <a class="type" href="../../winapi/windef/type.HDC.html" title="type winapi::windef::HDC">HDC</a></code>
+                           </span></span><span id="structfield.lpLogFont" class="structfield small-section-header">
+                           <a href="#structfield.lpLogFont" class="anchor field"></a>
+                           <span id="lpLogFont.v" class='invisible'>
+                           <code>lpLogFont: <a class="type" href="../../winapi/wingdi/type.LPLOGFONTW.html" title="type winapi::wingdi::LPLOGFONTW">LPLOGFONTW</a></code>
+                           </span></span><span id="structfield.iPointSize" class="structfield small-section-header">
+                           <a href="#structfield.iPointSize" class="anchor field"></a>
+                           <span id="iPointSize.v" class='invisible'>
+                           <code>iPointSize: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a></code>
+                           </span></span><span id="structfield.Flags" class="structfield small-section-header">
+                           <a href="#structfield.Flags" class="anchor field"></a>
+                           <span id="Flags.v" class='invisible'>
+                           <code>Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.rgbColors" class="structfield small-section-header">
+                           <a href="#structfield.rgbColors" class="anchor field"></a>
+                           <span id="rgbColors.v" class='invisible'>
+                           <code>rgbColors: <a class="type" href="../../winapi/windef/type.COLORREF.html" title="type winapi::windef::COLORREF">COLORREF</a></code>
+                           </span></span><span id="structfield.lCustData" class="structfield small-section-header">
+                           <a href="#structfield.lCustData" class="anchor field"></a>
+                           <span id="lCustData.v" class='invisible'>
+                           <code>lCustData: <a class="type" href="../../winapi/minwindef/type.LPARAM.html" title="type winapi::minwindef::LPARAM">LPARAM</a></code>
+                           </span></span><span id="structfield.lpfnHook" class="structfield small-section-header">
+                           <a href="#structfield.lpfnHook" class="anchor field"></a>
+                           <span id="lpfnHook.v" class='invisible'>
+                           <code>lpfnHook: <a class="type" href="../../winapi/commdlg/type.LPCFHOOKPROC.html" title="type winapi::commdlg::LPCFHOOKPROC">LPCFHOOKPROC</a></code>
+                           </span></span><span id="structfield.lpTemplateName" class="structfield small-section-header">
+                           <a href="#structfield.lpTemplateName" class="anchor field"></a>
+                           <span id="lpTemplateName.v" class='invisible'>
+                           <code>lpTemplateName: <a class="type" href="../../winapi/winnt/type.LPCWSTR.html" title="type winapi::winnt::LPCWSTR">LPCWSTR</a></code>
+                           </span></span><span id="structfield.hInstance" class="structfield small-section-header">
+                           <a href="#structfield.hInstance" class="anchor field"></a>
+                           <span id="hInstance.v" class='invisible'>
+                           <code>hInstance: <a class="type" href="../../winapi/minwindef/type.HINSTANCE.html" title="type winapi::minwindef::HINSTANCE">HINSTANCE</a></code>
+                           </span></span><span id="structfield.lpszStyle" class="structfield small-section-header">
+                           <a href="#structfield.lpszStyle" class="anchor field"></a>
+                           <span id="lpszStyle.v" class='invisible'>
+                           <code>lpszStyle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.nFontType" class="structfield small-section-header">
+                           <a href="#structfield.nFontType" class="anchor field"></a>
+                           <span id="nFontType.v" class='invisible'>
+                           <code>nFontType: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.___MISSING_ALIGNMENT__" class="structfield small-section-header">
+                           <a href="#structfield.___MISSING_ALIGNMENT__" class="anchor field"></a>
+                           <span id="___MISSING_ALIGNMENT__.v" class='invisible'>
+                           <code>___MISSING_ALIGNMENT__: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.nSizeMin" class="structfield small-section-header">
+                           <a href="#structfield.nSizeMin" class="anchor field"></a>
+                           <span id="nSizeMin.v" class='invisible'>
+                           <code>nSizeMin: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a></code>
+                           </span></span><span id="structfield.nSizeMax" class="structfield small-section-header">
+                           <a href="#structfield.nSizeMax" class="anchor field"></a>
+                           <span id="nSizeMax.v" class='invisible'>
+                           <code>nSizeMax: <a class="type" href="../../winapi/minwindef/type.INT.html" title="type winapi::minwindef::INT">INT</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/commdlg/struct.CHOOSEFONTW.html" title="struct winapi::commdlg::CHOOSEFONTW">CHOOSEFONTW</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/commdlg/struct.CHOOSEFONTW.html" title="struct winapi::commdlg::CHOOSEFONTW">CHOOSEFONTW</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/commdlg/struct.CHOOSEFONTW.html" title="struct winapi::commdlg::CHOOSEFONTW">CHOOSEFONTW</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -100,12 +159,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -126,7 +189,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -137,11 +200,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

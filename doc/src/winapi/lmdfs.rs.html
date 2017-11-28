@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\lmdfs.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\lmdfs.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lmdfs.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -352,318 +354,318 @@
 <span id="309">309</span>
 <span id="310">310</span>
 <span id="311">311</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='comment'>// This file contains structures, function prototypes, and definitions for the NetDfs API</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_OK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_INCONSISTENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_OFFLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_ONLINE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_RESYNCHRONIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_STANDBY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x20</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_STATE_FORCE_SYNC</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x40</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_FLAVORS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0300</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_FLAVOR_UNUSED1</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_FLAVOR_STANDALONE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VOLUME_FLAVOR_AD_BLOB</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_STORAGE_FLAVOR_UNUSED2</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0300</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_STORAGE_STATES</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0xF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_STORAGE_STATE_OFFLINE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_STORAGE_STATE_ONLINE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_STORAGE_STATE_ACTIVE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DFS_TARGET_PRIORITY_CLASS</span> {
-    <span class='ident'>DfsInvalidPriorityClass</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1i32</span> <span class='kw'>as</span> <span class='ident'>u32</span>,
-    <span class='ident'>DfsSiteCostNormalPriorityClass</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>DfsGlobalHighPriorityClass</span>,
-    <span class='ident'>DfsSiteCostHighPriorityClass</span>,
-    <span class='ident'>DfsSiteCostLowPriorityClass</span>,
-    <span class='ident'>DfsGlobalLowPriorityClass</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="comment">// This file contains structures, function prototypes, and definitions for the NetDfs API</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_OK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_INCONSISTENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_OFFLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_ONLINE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_RESYNCHRONIZE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_STANDBY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x20</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_STATE_FORCE_SYNC</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x40</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_FLAVORS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0300</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_FLAVOR_UNUSED1</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_FLAVOR_STANDALONE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VOLUME_FLAVOR_AD_BLOB</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_STORAGE_FLAVOR_UNUSED2</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0300</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_STORAGE_STATES</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0xF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_STORAGE_STATE_OFFLINE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_STORAGE_STATE_ONLINE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_STORAGE_STATE_ACTIVE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DFS_TARGET_PRIORITY_CLASS</span> {
+    <span class="ident">DfsInvalidPriorityClass</span> <span class="op">=</span> <span class="op">-</span><span class="number">1i32</span> <span class="kw">as</span> <span class="ident">u32</span>,
+    <span class="ident">DfsSiteCostNormalPriorityClass</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">DfsGlobalHighPriorityClass</span>,
+    <span class="ident">DfsSiteCostHighPriorityClass</span>,
+    <span class="ident">DfsSiteCostLowPriorityClass</span>,
+    <span class="ident">DfsGlobalLowPriorityClass</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_TARGET_PRIORITY</span> {
-    <span class='ident'>TargetPriorityClass</span>: <span class='ident'>DFS_TARGET_PRIORITY_CLASS</span>,
-    <span class='ident'>TargetPriorityRank</span>: ::<span class='ident'>USHORT</span>,
-    <span class='ident'>Reserved</span>: ::<span class='ident'>USHORT</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_TARGET_PRIORITY</span> {
+    <span class="ident">TargetPriorityClass</span>: <span class="ident">DFS_TARGET_PRIORITY_CLASS</span>,
+    <span class="ident">TargetPriorityRank</span>: ::<span class="ident">USHORT</span>,
+    <span class="ident">Reserved</span>: ::<span class="ident">USHORT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_TARGET_PRIORITY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_TARGET_PRIORITY</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_1</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_TARGET_PRIORITY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_TARGET_PRIORITY</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_1</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_1</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_1</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_1_32</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_1</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_1</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span> <span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_1_32</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_1_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_1_32</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_1_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_1_32</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_2</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_1_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_1_32</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_1_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_1_32</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_2</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_2</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_2_32</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_2</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span> <span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_2_32</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_2_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_2_32</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_2_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_2_32</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_STORAGE_INFO</span> {
-    <span class='ident'>State</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ServerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>ShareName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_2_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_2_32</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_2_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_2_32</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_STORAGE_INFO</span> {
+    <span class="ident">State</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ServerName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">ShareName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_STORAGE_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_STORAGE_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_STORAGE_INFO_0_32</span> {
-    <span class='ident'>State</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ServerName</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ShareName</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_STORAGE_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_STORAGE_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span> <span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_STORAGE_INFO_0_32</span> {
+    <span class="ident">State</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ServerName</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ShareName</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_STORAGE_INFO_0_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO_0_32</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_STORAGE_INFO_0_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO_0_32</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_STORAGE_INFO_1</span> {
-    <span class='ident'>State</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ServerName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>ShareName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>TargetPriority</span>: <span class='ident'>DFS_TARGET_PRIORITY</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_STORAGE_INFO_0_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO_0_32</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_STORAGE_INFO_0_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO_0_32</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_STORAGE_INFO_1</span> {
+    <span class="ident">State</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ServerName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">ShareName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">TargetPriority</span>: <span class="ident">DFS_TARGET_PRIORITY</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_STORAGE_INFO_1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO_1</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_STORAGE_INFO_1</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_STORAGE_INFO_1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_3</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: <span class='ident'>LPDFS_STORAGE_INFO</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_STORAGE_INFO_1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO_1</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_STORAGE_INFO_1</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_STORAGE_INFO_1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_3</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: <span class="ident">LPDFS_STORAGE_INFO</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_3</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_3</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_3</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_3</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_3_32</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_3</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_3</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_3</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_3</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span> <span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_3_32</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_3_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_3_32</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_3_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_3_32</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_4</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: <span class='ident'>LPDFS_STORAGE_INFO</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_3_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_3_32</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_3_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_3_32</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_4</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: <span class="ident">LPDFS_STORAGE_INFO</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_4</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span> <span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_4_32</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_4</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span> <span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_4_32</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_4_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_4_32</span>;
-<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_arch</span><span class='op'>=</span><span class='string'>&quot;x86_64&quot;</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_4_32</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_4_32</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_5</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>MetadataSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_4_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_4_32</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_arch</span><span class="op">=</span><span class="string">&quot;x86_64&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_4_32</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_4_32</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_5</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">MetadataSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_5</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_5</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_5</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_5</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_6</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>MetadataSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: <span class='ident'>LPDFS_STORAGE_INFO</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_5</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_5</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_5</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_5</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_6</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">MetadataSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: <span class="ident">LPDFS_STORAGE_INFO</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_6</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_6</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_6</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_6</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_7</span> {
-    <span class='ident'>GenerationGuid</span>: ::<span class='ident'>GUID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_6</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_6</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_6</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_6</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_7</span> {
+    <span class="ident">GenerationGuid</span>: ::<span class="ident">GUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_7</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_7</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_7</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_7</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_8</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>MetadataSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>SdLengthReserved</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pSecurityDescriptor</span>: ::<span class='ident'>PSECURITY_DESCRIPTOR</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_7</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_7</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_7</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_7</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_8</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">MetadataSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">SdLengthReserved</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pSecurityDescriptor</span>: ::<span class="ident">PSECURITY_DESCRIPTOR</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_8</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_8</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_8</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_8</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_9</span> {
-    <span class='ident'>EntryPath</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Guid</span>: ::<span class='ident'>GUID</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>MetadataSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>SdLengthReserved</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pSecurityDescriptor</span>: ::<span class='ident'>PSECURITY_DESCRIPTOR</span>,
-    <span class='ident'>NumberOfStorages</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Storage</span>: <span class='ident'>LPDFS_STORAGE_INFO</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_8</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_8</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_8</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_8</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_9</span> {
+    <span class="ident">EntryPath</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Guid</span>: ::<span class="ident">GUID</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">MetadataSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">SdLengthReserved</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pSecurityDescriptor</span>: ::<span class="ident">PSECURITY_DESCRIPTOR</span>,
+    <span class="ident">NumberOfStorages</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Storage</span>: <span class="ident">LPDFS_STORAGE_INFO</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_9</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_9</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_9</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_INSITE_REFERRALS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_ROOT_SCALABILITY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_SITE_COSTING</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_TARGET_FAILBACK</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_CLUSTER_ENABLED</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_PROPERTY_FLAG_ABDE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_VALID_PROPERTY_FLAGS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='ident'>DFS_PROPERTY_FLAG_INSITE_REFERRALS</span>
-    <span class='op'>|</span> <span class='ident'>DFS_PROPERTY_FLAG_ROOT_SCALABILITY</span> <span class='op'>|</span> <span class='ident'>DFS_PROPERTY_FLAG_SITE_COSTING</span>
-    <span class='op'>|</span> <span class='ident'>DFS_PROPERTY_FLAG_TARGET_FAILBACK</span> <span class='op'>|</span> <span class='ident'>DFS_PROPERTY_FLAG_CLUSTER_ENABLED</span>
-    <span class='op'>|</span> <span class='ident'>DFS_PROPERTY_FLAG_ABDE</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_50</span> {
-    <span class='ident'>NamespaceMajorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>NamespaceMinorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>NamespaceCapabilities</span>: ::<span class='ident'>ULONGLONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_9</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_9</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_9</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_INSITE_REFERRALS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_ROOT_SCALABILITY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_SITE_COSTING</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_TARGET_FAILBACK</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_CLUSTER_ENABLED</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_PROPERTY_FLAG_ABDE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_VALID_PROPERTY_FLAGS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="ident">DFS_PROPERTY_FLAG_INSITE_REFERRALS</span>
+    <span class="op">|</span> <span class="ident">DFS_PROPERTY_FLAG_ROOT_SCALABILITY</span> <span class="op">|</span> <span class="ident">DFS_PROPERTY_FLAG_SITE_COSTING</span>
+    <span class="op">|</span> <span class="ident">DFS_PROPERTY_FLAG_TARGET_FAILBACK</span> <span class="op">|</span> <span class="ident">DFS_PROPERTY_FLAG_CLUSTER_ENABLED</span>
+    <span class="op">|</span> <span class="ident">DFS_PROPERTY_FLAG_ABDE</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_50</span> {
+    <span class="ident">NamespaceMajorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">NamespaceMinorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">NamespaceCapabilities</span>: ::<span class="ident">ULONGLONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_50</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_50</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_50</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_50</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_100</span> {
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_50</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_50</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_50</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_50</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_100</span> {
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_100</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_100</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_100</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_100</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_101</span> {
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_100</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_100</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_100</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_100</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_101</span> {
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_101</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_101</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_101</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_101</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_102</span> {
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_101</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_101</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_101</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_101</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_102</span> {
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_102</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_102</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_102</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_102</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_103</span> {
-    <span class='ident'>PropertyFlagMask</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_102</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_102</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_102</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_102</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_103</span> {
+    <span class="ident">PropertyFlagMask</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_103</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_103</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_103</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_103</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_104</span> {
-    <span class='ident'>TargetPriority</span>: <span class='ident'>DFS_TARGET_PRIORITY</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_103</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_103</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_103</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_103</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_104</span> {
+    <span class="ident">TargetPriority</span>: <span class="ident">DFS_TARGET_PRIORITY</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_104</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_104</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_104</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_104</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_105</span> {
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PropertyFlagMask</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_104</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_104</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_104</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_104</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_105</span> {
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PropertyFlagMask</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_105</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_105</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_105</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_105</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_106</span> {
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>TargetPriority</span>: <span class='ident'>DFS_TARGET_PRIORITY</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_105</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_105</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_105</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_105</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_106</span> {
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">TargetPriority</span>: <span class="ident">DFS_TARGET_PRIORITY</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_106</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_106</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_106</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_106</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_107</span> {
-    <span class='ident'>Comment</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>State</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>Timeout</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PropertyFlagMask</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PropertyFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>SdLengthReserved</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pSecurityDescriptor</span>: ::<span class='ident'>PSECURITY_DESCRIPTOR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_106</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_106</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_106</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_106</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_107</span> {
+    <span class="ident">Comment</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">State</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">Timeout</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PropertyFlagMask</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PropertyFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">SdLengthReserved</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pSecurityDescriptor</span>: ::<span class="ident">PSECURITY_DESCRIPTOR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_107</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_107</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_107</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_107</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_150</span> {
-    <span class='ident'>SdLengthReserved</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>pSecurityDescriptor</span>: ::<span class='ident'>PSECURITY_DESCRIPTOR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_107</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_107</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_107</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_107</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_150</span> {
+    <span class="ident">SdLengthReserved</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">pSecurityDescriptor</span>: ::<span class="ident">PSECURITY_DESCRIPTOR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_150</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_150</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_150</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_150</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_200</span> {
-    <span class='ident'>FtDfsName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_150</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_150</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_150</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_150</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_200</span> {
+    <span class="ident">FtDfsName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_200</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_200</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_200</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_200</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_INFO_300</span> {
-    <span class='ident'>Flags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DfsName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_200</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_200</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_200</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_200</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_INFO_300</span> {
+    <span class="ident">Flags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DfsName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_INFO_300</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_300</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_INFO_300</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_INFO_300</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_ADD_VOLUME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_RESTORE_VOLUME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NET_DFS_SETDC_FLAGS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NET_DFS_SETDC_TIMEOUT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>NET_DFS_SETDC_INITPKT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_SITENAME_INFO</span> {
-    <span class='ident'>SiteFlags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>SiteName</span>: ::<span class='ident'>LPWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_INFO_300</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_300</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_INFO_300</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_INFO_300</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_ADD_VOLUME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_RESTORE_VOLUME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NET_DFS_SETDC_FLAGS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NET_DFS_SETDC_TIMEOUT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NET_DFS_SETDC_INITPKT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_SITENAME_INFO</span> {
+    <span class="ident">SiteFlags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">SiteName</span>: ::<span class="ident">LPWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_SITENAME_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_SITENAME_INFO</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_SITENAME_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_SITENAME_INFO</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_SITE_PRIMARY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x1</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_SITELIST_INFO</span> {
-    <span class='ident'>cSites</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Site</span>: [<span class='ident'>DFS_SITENAME_INFO</span>; <span class='number'>1</span>],
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_SITENAME_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_SITENAME_INFO</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_SITENAME_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_SITENAME_INFO</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_SITE_PRIMARY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_SITELIST_INFO</span> {
+    <span class="ident">cSites</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Site</span>: [<span class="ident">DFS_SITENAME_INFO</span>; <span class="number">1</span>],
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_SITELIST_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_SITELIST_INFO</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPDFS_SITELIST_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_SITELIST_INFO</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DFS_NAMESPACE_VERSION_ORIGIN</span> {
-    <span class='ident'>DFS_NAMESPACE_VERSION_ORIGIN_COMBINED</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>DFS_NAMESPACE_VERSION_ORIGIN_SERVER</span>,
-    <span class='ident'>DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_SITELIST_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_SITELIST_INFO</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPDFS_SITELIST_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_SITELIST_INFO</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DFS_NAMESPACE_VERSION_ORIGIN</span> {
+    <span class="ident">DFS_NAMESPACE_VERSION_ORIGIN_COMBINED</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">DFS_NAMESPACE_VERSION_ORIGIN_SERVER</span>,
+    <span class="ident">DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_NAMESPACE_VERSION_ORIGIN</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_NAMESPACE_VERSION_ORIGIN</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DFS_NAMESPACE_CAPABILITY_ABDE</span>: ::<span class='ident'>ULONGLONG</span> <span class='op'>=</span> <span class='number'>0x0000000000000001</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DFS_SUPPORTED_NAMESPACE_VERSION_INFO</span> {
-    <span class='ident'>DomainDfsMajorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainDfsMinorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainDfsCapabilities</span>: ::<span class='ident'>ULONGLONG</span>,
-    <span class='ident'>StandaloneDfsMajorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>StandaloneDfsMinorVersion</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>StandaloneDfsCapabilities</span>: ::<span class='ident'>ULONGLONG</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_NAMESPACE_VERSION_ORIGIN</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_NAMESPACE_VERSION_ORIGIN</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DFS_NAMESPACE_CAPABILITY_ABDE</span>: ::<span class="ident">ULONGLONG</span> <span class="op">=</span> <span class="number">0x0000000000000001</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DFS_SUPPORTED_NAMESPACE_VERSION_INFO</span> {
+    <span class="ident">DomainDfsMajorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainDfsMinorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainDfsCapabilities</span>: ::<span class="ident">ULONGLONG</span>,
+    <span class="ident">StandaloneDfsMajorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">StandaloneDfsMinorVersion</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">StandaloneDfsCapabilities</span>: ::<span class="ident">ULONGLONG</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDFS_SUPPORTED_NAMESPACE_VERSION_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DFS_SUPPORTED_NAMESPACE_VERSION_INFO</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDFS_SUPPORTED_NAMESPACE_VERSION_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DFS_SUPPORTED_NAMESPACE_VERSION_INFO</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -682,12 +684,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -708,7 +714,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -719,11 +725,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

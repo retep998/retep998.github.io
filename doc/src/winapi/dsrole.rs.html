@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\dsrole.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\dsrole.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>dsrole.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -91,57 +93,57 @@
 <span id="48">48</span>
 <span id="49">49</span>
 <span id="50">50</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Contains public interfaces to query the network roles of workstations, servers, and DCs</span>
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DSROLE_MACHINE_ROLE</span> {
-    <span class='ident'>DsRole_RoleStandaloneWorkstation</span>,
-    <span class='ident'>DsRole_RoleMemberWorkstation</span>,
-    <span class='ident'>DsRole_RoleStandaloneServer</span>,
-    <span class='ident'>DsRole_RoleMemberServer</span>,
-    <span class='ident'>DsRole_RoleBackupDomainController</span>,
-    <span class='ident'>DsRole_RolePrimaryDomainController</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Contains public interfaces to query the network roles of workstations, servers, and DCs</span>
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DSROLE_MACHINE_ROLE</span> {
+    <span class="ident">DsRole_RoleStandaloneWorkstation</span>,
+    <span class="ident">DsRole_RoleMemberWorkstation</span>,
+    <span class="ident">DsRole_RoleStandaloneServer</span>,
+    <span class="ident">DsRole_RoleMemberServer</span>,
+    <span class="ident">DsRole_RoleBackupDomainController</span>,
+    <span class="ident">DsRole_RolePrimaryDomainController</span>,
 }}
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DSROLE_SERVER_STATE</span> {
-    <span class='ident'>DsRoleServerUnknown</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>DsRoleServerPrimary</span>,
-    <span class='ident'>DsRoleServerBackup</span>,
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DSROLE_SERVER_STATE</span> {
+    <span class="ident">DsRoleServerUnknown</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">DsRoleServerPrimary</span>,
+    <span class="ident">DsRoleServerBackup</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDSROLE_SERVER_STATE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSROLE_SERVER_STATE</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DSROLE_PRIMARY_DOMAIN_INFO_LEVEL</span> {
-    <span class='ident'>DsRolePrimaryDomainInfoBasic</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>DsRoleUpgradeStatus</span>,
-    <span class='ident'>DsRoleOperationState</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDSROLE_SERVER_STATE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DSROLE_SERVER_STATE</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DSROLE_PRIMARY_DOMAIN_INFO_LEVEL</span> {
+    <span class="ident">DsRolePrimaryDomainInfoBasic</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">DsRoleUpgradeStatus</span>,
+    <span class="ident">DsRoleOperationState</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSROLE_PRIMARY_DS_RUNNING</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSROLE_PRIMARY_DS_MIXED_MODE</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSROLE_UPGRADE_IN_PROGRESS</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSROLE_PRIMARY_DS_READONLY</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>DSROLE_PRIMARY_DOMAIN_GUID_PRESENT</span>: ::<span class='ident'>ULONG</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSROLE_PRIMARY_DOMAIN_INFO_BASIC</span> {
-    <span class='ident'>MachineRole</span>: <span class='ident'>DSROLE_MACHINE_ROLE</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>DomainNameFlat</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DomainNameDns</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DomainForestName</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='ident'>DomainGuid</span>: ::<span class='ident'>GUID</span>,
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSROLE_PRIMARY_DS_RUNNING</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSROLE_PRIMARY_DS_MIXED_MODE</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSROLE_UPGRADE_IN_PROGRESS</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSROLE_PRIMARY_DS_READONLY</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSROLE_PRIMARY_DOMAIN_GUID_PRESENT</span>: ::<span class="ident">ULONG</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DSROLE_PRIMARY_DOMAIN_INFO_BASIC</span> {
+    <span class="ident">MachineRole</span>: <span class="ident">DSROLE_MACHINE_ROLE</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">DomainNameFlat</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DomainNameDns</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DomainForestName</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">DomainGuid</span>: ::<span class="ident">GUID</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDSROLE_PRIMARY_DOMAIN_INFO_BASIC</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSROLE_PRIMARY_DOMAIN_INFO_BASIC</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSROLE_UPGRADE_STATUS_INFO</span> {
-    <span class='ident'>OperationState</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PreviousServerState</span>: <span class='ident'>DSROLE_SERVER_STATE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDSROLE_PRIMARY_DOMAIN_INFO_BASIC</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DSROLE_PRIMARY_DOMAIN_INFO_BASIC</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DSROLE_UPGRADE_STATUS_INFO</span> {
+    <span class="ident">OperationState</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PreviousServerState</span>: <span class="ident">DSROLE_SERVER_STATE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDSROLE_UPGRADE_STATUS_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSROLE_UPGRADE_STATUS_INFO</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>DSROLE_OPERATION_STATE</span> {
-    <span class='ident'>DsRoleOperationIdle</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>DsRoleOperationActive</span>,
-    <span class='ident'>DsRoleOperationNeedReboot</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDSROLE_UPGRADE_STATUS_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DSROLE_UPGRADE_STATUS_INFO</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">DSROLE_OPERATION_STATE</span> {
+    <span class="ident">DsRoleOperationIdle</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">DsRoleOperationActive</span>,
+    <span class="ident">DsRoleOperationNeedReboot</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>DSROLE_OPERATION_STATE_INFO</span> {
-    <span class='ident'>OperationState</span>: <span class='ident'>DSROLE_OPERATION_STATE</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">DSROLE_OPERATION_STATE_INFO</span> {
+    <span class="ident">OperationState</span>: <span class="ident">DSROLE_OPERATION_STATE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PDSROLE_OPERATION_STATE_INFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>DSROLE_OPERATION_STATE_INFO</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PDSROLE_OPERATION_STATE_INFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">DSROLE_OPERATION_STATE_INFO</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -160,12 +162,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -186,7 +192,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -197,11 +203,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

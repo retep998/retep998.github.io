@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\winscard.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\winscard.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>winscard.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -310,312 +312,276 @@
 <span id="267">267</span>
 <span id="268">268</span>
 <span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Data Protection API Prototypes and Definitions</span>
-<span class='comment'>// This header file provides the definitions and symbols necessary for an</span>
-<span class='comment'>// Application or Smart Card Service Provider to access the Smartcard Subsystem.</span>
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCBYTE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>BYTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SCARDCONTEXT</span> <span class='op'>=</span> ::<span class='ident'>ULONG_PTR</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARDCONTEXT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARDCONTEXT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARDCONTEXT</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARDCONTEXT</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SCARDHANDLE</span> <span class='op'>=</span> ::<span class='ident'>ULONG_PTR</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARDHANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARDHANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARDHANDLE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARDHANDLE</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_AUTOALLOCATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>1i32</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SCOPE_USER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SCOPE_TERMINAL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SCOPE_SYSTEM</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROVIDER_PRIMARY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROVIDER_CSP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_PROVIDER_KSP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCARD_READERSTATEA</span> {
-    <span class='kw'>pub</span> <span class='ident'>szReader</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCurrentState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwEventState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbAtr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbAtr</span>: [::<span class='ident'>BYTE</span>; <span class='number'>36</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SCARD_READERSTATEA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SCARD_READERSTATEA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_READERSTATEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_READERSTATEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_READERSTATEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_READERSTATEA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCARD_READERSTATEW</span> {
-    <span class='kw'>pub</span> <span class='ident'>szReader</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwCurrentState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwEventState</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>cbAtr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbAtr</span>: [::<span class='ident'>BYTE</span>; <span class='number'>36</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SCARD_READERSTATEW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SCARD_READERSTATEW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_READERSTATEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_READERSTATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_READERSTATEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_READERSTATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SCARD_READERSTATE_A</span> <span class='op'>=</span> <span class='ident'>SCARD_READERSTATEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>SCARD_READERSTATE_W</span> <span class='op'>=</span> <span class='ident'>SCARD_READERSTATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_READERSTATE_A</span> <span class='op'>=</span> <span class='ident'>PSCARD_READERSTATEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_READERSTATE_W</span> <span class='op'>=</span> <span class='ident'>PSCARD_READERSTATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_READERSTATE_A</span> <span class='op'>=</span> <span class='ident'>LPSCARD_READERSTATEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_READERSTATE_W</span> <span class='op'>=</span> <span class='ident'>LPSCARD_READERSTATEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_UNAWARE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_IGNORE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_CHANGED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_UNKNOWN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_UNAVAILABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_EMPTY</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_PRESENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_ATRMATCH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_EXCLUSIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_INUSE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_MUTE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_STATE_UNPOWERED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SCARD_ATRMASK</span> {
-    <span class='kw'>pub</span> <span class='ident'>cbAtr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgbAtr</span>: [::<span class='ident'>BYTE</span>; <span class='number'>36</span>],
-    <span class='kw'>pub</span> <span class='ident'>rgbMask</span>: [::<span class='ident'>BYTE</span>; <span class='number'>36</span>],
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>SCARD_ATRMASK</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>SCARD_ATRMASK</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PSCARD_ATRMASK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_ATRMASK</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSCARD_ATRMASK</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SCARD_ATRMASK</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SHARE_EXCLUSIVE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SHARE_SHARED</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_SHARE_DIRECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_LEAVE_CARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_RESET_CARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_UNPOWER_CARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_EJECT_CARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SC_DLG_MINIMAL_UI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SC_DLG_NO_UI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SC_DLG_FORCE_UI</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCERR_NOCARDNAME</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x4000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCERR_NOGUIDS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x8000</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOCNCONNPROCA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>SCARDCONTEXT</span>, ::<span class='ident'>LPSTR</span>, ::<span class='ident'>LPSTR</span>, ::<span class='ident'>PVOID</span>,
-) <span class='op'>-&gt;</span> <span class='ident'>SCARDHANDLE</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOCNCONNPROCW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>SCARDCONTEXT</span>, ::<span class='ident'>LPWSTR</span>, ::<span class='ident'>LPWSTR</span>, ::<span class='ident'>PVOID</span>,
-) <span class='op'>-&gt;</span> <span class='ident'>SCARDHANDLE</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOCNCHKPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>SCARDCONTEXT</span>, <span class='ident'>SCARDHANDLE</span>, ::<span class='ident'>PVOID</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOCNDSCPROC</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(<span class='ident'>SCARDCONTEXT</span>, <span class='ident'>SCARDHANDLE</span>, ::<span class='ident'>PVOID</span>)<span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAA</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrGroupNames</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxGroupNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgguidInterfaces</span>: ::<span class='ident'>LPCGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>cguidInterfaces</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCardNames</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCardNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnCheck</span>: <span class='ident'>LPOCNCHKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCA</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnDisconnect</span>: <span class='ident'>LPOCNDSCPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARD_SEARCH_CRITERIAA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARD_SEARCH_CRITERIAA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAW</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrGroupNames</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxGroupNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgguidInterfaces</span>: ::<span class='ident'>LPCGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>cguidInterfaces</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCardNames</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCardNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnCheck</span>: <span class='ident'>LPOCNCHKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCW</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnDisconnect</span>: <span class='ident'>LPOCNDSCPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARD_SEARCH_CRITERIAW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARD_SEARCH_CRITERIAW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARD_SEARCH_CRITERIAW</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARDNAME_EXA</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSCardContext</span>: <span class='ident'>SCARDCONTEXT</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrSearchDesc</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pOpenCardSearchCriteria</span>: <span class='ident'>POPENCARD_SEARCH_CRITERIAA</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCA</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrRdr</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxRdr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCard</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCard</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwActiveProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hCardHandle</span>: <span class='ident'>SCARDHANDLE</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARDNAME_EXA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARDNAME_EXA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAME_EXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAME_EXA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAME_EXA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAME_EXA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARDNAME_EXW</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSCardContext</span>: <span class='ident'>SCARDCONTEXT</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrSearchDesc</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pOpenCardSearchCriteria</span>: <span class='ident'>POPENCARD_SEARCH_CRITERIAW</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCW</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrRdr</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxRdr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCard</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCard</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwActiveProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hCardHandle</span>: <span class='ident'>SCARDHANDLE</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARDNAME_EXW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARDNAME_EXW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAME_EXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAME_EXW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAME_EXW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAME_EXW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>OPENCARDNAMEA_EX</span> <span class='op'>=</span> <span class='ident'>OPENCARDNAME_EXA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>OPENCARDNAMEW_EX</span> <span class='op'>=</span> <span class='ident'>OPENCARDNAME_EXW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAMEA_EX</span> <span class='op'>=</span> <span class='ident'>POPENCARDNAME_EXA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAMEW_EX</span> <span class='op'>=</span> <span class='ident'>POPENCARDNAME_EXW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAMEA_EX</span> <span class='op'>=</span> <span class='ident'>LPOPENCARDNAME_EXA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAMEW_EX</span> <span class='op'>=</span> <span class='ident'>LPOPENCARDNAME_EXW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_READER_SEL_AUTH_PACKAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='op'>-</span><span class='number'>629i32</span> <span class='kw'>as</span> ::<span class='ident'>DWORD</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>READER_SEL_REQUEST_MATCH_TYPE</span> {
-    <span class='ident'>RSR_MATCH_TYPE_READER_AND_CONTAINER</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>RSR_MATCH_TYPE_SERIAL_NUMBER</span>,
-    <span class='ident'>RSR_MATCH_TYPE_ALL_CARDS</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Data Protection API Prototypes and Definitions</span>
+<span class="comment">// This header file provides the definitions and symbols necessary for an</span>
+<span class="comment">// Application or Smart Card Service Provider to access the Smartcard Subsystem.</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCBYTE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">BYTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SCARDCONTEXT</span> <span class="op">=</span> ::<span class="ident">ULONG_PTR</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARDCONTEXT</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARDCONTEXT</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARDCONTEXT</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARDCONTEXT</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SCARDHANDLE</span> <span class="op">=</span> ::<span class="ident">ULONG_PTR</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARDHANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARDHANDLE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARDHANDLE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARDHANDLE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_AUTOALLOCATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="op">-</span><span class="number">1i32</span> <span class="kw">as</span> ::<span class="ident">DWORD</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SCOPE_USER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SCOPE_TERMINAL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SCOPE_SYSTEM</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROVIDER_PRIMARY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROVIDER_CSP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_PROVIDER_KSP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SCARD_READERSTATEA</span> {
+    <span class="ident">szReader</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwCurrentState</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwEventState</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbAtr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbAtr</span>: [::<span class="ident">BYTE</span>; <span class="number">36</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>READER_SEL_REQUEST_ReaderAndContainerParameter</span> {
-    <span class='ident'>cbReaderNameOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cchReaderNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbContainerNameOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cchContainerNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDesiredCardModuleVersion</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwCspFlags</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_READERSTATEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_READERSTATEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_READERSTATEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_READERSTATEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SCARD_READERSTATEW</span> {
+    <span class="ident">szReader</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwCurrentState</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwEventState</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbAtr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbAtr</span>: [::<span class="ident">BYTE</span>; <span class="number">36</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>READER_SEL_REQUEST_SerialNumberParameter</span> {
-    <span class='ident'>cbSerialNumberOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbSerialNumberLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwDesiredCardModuleVersion</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_READERSTATEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_READERSTATEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_READERSTATEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_READERSTATEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SCARD_READERSTATE_A</span> <span class="op">=</span> <span class="ident">SCARD_READERSTATEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SCARD_READERSTATE_W</span> <span class="op">=</span> <span class="ident">SCARD_READERSTATEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_READERSTATE_A</span> <span class="op">=</span> <span class="ident">PSCARD_READERSTATEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_READERSTATE_W</span> <span class="op">=</span> <span class="ident">PSCARD_READERSTATEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_READERSTATE_A</span> <span class="op">=</span> <span class="ident">LPSCARD_READERSTATEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_READERSTATE_W</span> <span class="op">=</span> <span class="ident">LPSCARD_READERSTATEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_UNAWARE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_IGNORE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_CHANGED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_UNKNOWN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_UNAVAILABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_EMPTY</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_PRESENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_ATRMATCH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_EXCLUSIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_INUSE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_MUTE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_STATE_UNPOWERED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">SCARD_ATRMASK</span> {
+    <span class="ident">cbAtr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgbAtr</span>: [::<span class="ident">BYTE</span>; <span class="number">36</span>],
+    <span class="ident">rgbMask</span>: [::<span class="ident">BYTE</span>; <span class="number">36</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>READER_SEL_REQUEST</span> {
-    <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>MatchType</span>: <span class='ident'>READER_SEL_REQUEST_MATCH_TYPE</span>,
-    <span class='ident'>ReaderAndContainerParameter</span>: <span class='ident'>READER_SEL_REQUEST_ReaderAndContainerParameter</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PSCARD_ATRMASK</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_ATRMASK</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSCARD_ATRMASK</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SCARD_ATRMASK</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SHARE_EXCLUSIVE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SHARE_SHARED</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_SHARE_DIRECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_LEAVE_CARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_RESET_CARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_UNPOWER_CARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_EJECT_CARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SC_DLG_MINIMAL_UI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SC_DLG_NO_UI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SC_DLG_FORCE_UI</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x04</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCERR_NOCARDNAME</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x4000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCERR_NOGUIDS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x8000</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOCNCONNPROCA</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">SCARDCONTEXT</span>, ::<span class="ident">LPSTR</span>, ::<span class="ident">LPSTR</span>, ::<span class="ident">PVOID</span>,
+) <span class="op">-&gt;</span> <span class="ident">SCARDHANDLE</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOCNCONNPROCW</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">SCARDCONTEXT</span>, ::<span class="ident">LPWSTR</span>, ::<span class="ident">LPWSTR</span>, ::<span class="ident">PVOID</span>,
+) <span class="op">-&gt;</span> <span class="ident">SCARDHANDLE</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOCNCHKPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">SCARDCONTEXT</span>, <span class="ident">SCARDHANDLE</span>, ::<span class="ident">PVOID</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">BOOL</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOCNDSCPROC</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(<span class="ident">SCARDCONTEXT</span>, <span class="ident">SCARDHANDLE</span>, ::<span class="ident">PVOID</span>)<span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARD_SEARCH_CRITERIAA</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrGroupNames</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxGroupNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgguidInterfaces</span>: ::<span class="ident">LPCGUID</span>,
+    <span class="ident">cguidInterfaces</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCardNames</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCardNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpfnCheck</span>: <span class="ident">LPOCNCHKPROC</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCA</span>,
+    <span class="ident">lpfnDisconnect</span>: <span class="ident">LPOCNDSCPROC</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>UNION</span><span class='macro'>!</span>(
-    <span class='ident'>READER_SEL_REQUEST</span>, <span class='ident'>ReaderAndContainerParameter</span>, <span class='ident'>SerialNumberParameter</span>,
-    <span class='ident'>SerialNumberParameter_mut</span>, <span class='ident'>READER_SEL_REQUEST_SerialNumberParameter</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARD_SEARCH_CRITERIAA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARD_SEARCH_CRITERIAA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARD_SEARCH_CRITERIAA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARD_SEARCH_CRITERIAA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARD_SEARCH_CRITERIAW</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrGroupNames</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxGroupNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgguidInterfaces</span>: ::<span class="ident">LPCGUID</span>,
+    <span class="ident">cguidInterfaces</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCardNames</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCardNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpfnCheck</span>: <span class="ident">LPOCNCHKPROC</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCW</span>,
+    <span class="ident">lpfnDisconnect</span>: <span class="ident">LPOCNDSCPROC</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARD_SEARCH_CRITERIAW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARD_SEARCH_CRITERIAW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARD_SEARCH_CRITERIAW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARD_SEARCH_CRITERIAW</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARDNAME_EXA</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hSCardContext</span>: <span class="ident">SCARDCONTEXT</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">lpstrSearchDesc</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pOpenCardSearchCriteria</span>: <span class="ident">POPENCARD_SEARCH_CRITERIAA</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCA</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrRdr</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxRdr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCard</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCard</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwActiveProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hCardHandle</span>: <span class="ident">SCARDHANDLE</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAME_EXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAME_EXA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAME_EXA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAME_EXA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARDNAME_EXW</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hSCardContext</span>: <span class="ident">SCARDCONTEXT</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">lpstrSearchDesc</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pOpenCardSearchCriteria</span>: <span class="ident">POPENCARD_SEARCH_CRITERIAW</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCW</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrRdr</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxRdr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCard</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCard</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwActiveProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hCardHandle</span>: <span class="ident">SCARDHANDLE</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAME_EXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAME_EXW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAME_EXW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAME_EXW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">OPENCARDNAMEA_EX</span> <span class="op">=</span> <span class="ident">OPENCARDNAME_EXA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">OPENCARDNAMEW_EX</span> <span class="op">=</span> <span class="ident">OPENCARDNAME_EXW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAMEA_EX</span> <span class="op">=</span> <span class="ident">POPENCARDNAME_EXA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAMEW_EX</span> <span class="op">=</span> <span class="ident">POPENCARDNAME_EXW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAMEA_EX</span> <span class="op">=</span> <span class="ident">LPOPENCARDNAME_EXA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAMEW_EX</span> <span class="op">=</span> <span class="ident">LPOPENCARDNAME_EXW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_READER_SEL_AUTH_PACKAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="op">-</span><span class="number">629i32</span> <span class="kw">as</span> ::<span class="ident">DWORD</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">READER_SEL_REQUEST_MATCH_TYPE</span> {
+    <span class="ident">RSR_MATCH_TYPE_READER_AND_CONTAINER</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">RSR_MATCH_TYPE_SERIAL_NUMBER</span>,
+    <span class="ident">RSR_MATCH_TYPE_ALL_CARDS</span>,
+}}
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">READER_SEL_REQUEST_ReaderAndContainerParameter</span> {
+    <span class="ident">cbReaderNameOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cchReaderNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbContainerNameOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cchContainerNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDesiredCardModuleVersion</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwCspFlags</span>: ::<span class="ident">DWORD</span>,
+}}
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">READER_SEL_REQUEST_SerialNumberParameter</span> {
+    <span class="ident">cbSerialNumberOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbSerialNumberLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwDesiredCardModuleVersion</span>: ::<span class="ident">DWORD</span>,
+}}
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">READER_SEL_REQUEST</span> {
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">MatchType</span>: <span class="ident">READER_SEL_REQUEST_MATCH_TYPE</span>,
+    <span class="ident">ReaderAndContainerParameter</span>: <span class="ident">READER_SEL_REQUEST_ReaderAndContainerParameter</span>,
+}}
+<span class="macro">UNION</span><span class="macro">!</span>(
+    <span class="ident">READER_SEL_REQUEST</span>, <span class="ident">ReaderAndContainerParameter</span>, <span class="ident">SerialNumberParameter</span>,
+    <span class="ident">SerialNumberParameter_mut</span>, <span class="ident">READER_SEL_REQUEST_SerialNumberParameter</span>
 );
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PREADER_SEL_REQUEST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>READER_SEL_REQUEST</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>READER_SEL_RESPONSE</span> {
-    <span class='ident'>cbReaderNameOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cchReaderNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cbCardNameOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cchCardNameLength</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PREADER_SEL_REQUEST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">READER_SEL_REQUEST</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">READER_SEL_RESPONSE</span> {
+    <span class="ident">cbReaderNameOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cchReaderNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cbCardNameOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cchCardNameLength</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PREADER_SEL_RESPONSE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>READER_SEL_RESPONSE</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARDNAMEA</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSCardContext</span>: <span class='ident'>SCARDCONTEXT</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrGroupNames</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxGroupNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCardNames</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCardNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgguidInterfaces</span>: ::<span class='ident'>LPCGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>cguidInterfaces</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrRdr</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxRdr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCard</span>: ::<span class='ident'>LPSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCard</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwActiveProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCA</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnCheck</span>: <span class='ident'>LPOCNCHKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnDisconnect</span>: <span class='ident'>LPOCNDSCPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>hCardHandle</span>: <span class='ident'>SCARDHANDLE</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARDNAMEA</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARDNAMEA</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAMEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAMEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAMEA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAMEA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>OPENCARDNAMEW</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwStructSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndOwner</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hSCardContext</span>: <span class='ident'>SCARDCONTEXT</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrGroupNames</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxGroupNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCardNames</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCardNames</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>rgguidInterfaces</span>: ::<span class='ident'>LPCGUID</span>,
-    <span class='kw'>pub</span> <span class='ident'>cguidInterfaces</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrRdr</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxRdr</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrCard</span>: ::<span class='ident'>LPWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nMaxCard</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpstrTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>pvUserData</span>: ::<span class='ident'>LPVOID</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwShareMode</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwPreferredProtocols</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwActiveProtocol</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnConnect</span>: <span class='ident'>LPOCNCONNPROCW</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnCheck</span>: <span class='ident'>LPOCNCHKPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lpfnDisconnect</span>: <span class='ident'>LPOCNDSCPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>hCardHandle</span>: <span class='ident'>SCARDHANDLE</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>OPENCARDNAMEW</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>OPENCARDNAMEW</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAMEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAMEW</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>OPENCARDNAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>OPENCARDNAME_A</span> <span class='op'>=</span> <span class='ident'>OPENCARDNAMEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>OPENCARDNAME_W</span> <span class='op'>=</span> <span class='ident'>OPENCARDNAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAME_A</span> <span class='op'>=</span> <span class='ident'>POPENCARDNAMEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>POPENCARDNAME_W</span> <span class='op'>=</span> <span class='ident'>POPENCARDNAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAME_A</span> <span class='op'>=</span> <span class='ident'>LPOPENCARDNAMEA</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPOPENCARDNAME_W</span> <span class='op'>=</span> <span class='ident'>LPOPENCARDNAMEW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_AUDIT_CHV_FAILURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>SCARD_AUDIT_CHV_SUCCESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x1</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PREADER_SEL_RESPONSE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">READER_SEL_RESPONSE</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARDNAMEA</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hSCardContext</span>: <span class="ident">SCARDCONTEXT</span>,
+    <span class="ident">lpstrGroupNames</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxGroupNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCardNames</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCardNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgguidInterfaces</span>: ::<span class="ident">LPCGUID</span>,
+    <span class="ident">cguidInterfaces</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrRdr</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxRdr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCard</span>: ::<span class="ident">LPSTR</span>,
+    <span class="ident">nMaxCard</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwActiveProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCA</span>,
+    <span class="ident">lpfnCheck</span>: <span class="ident">LPOCNCHKPROC</span>,
+    <span class="ident">lpfnDisconnect</span>: <span class="ident">LPOCNDSCPROC</span>,
+    <span class="ident">hCardHandle</span>: <span class="ident">SCARDHANDLE</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAMEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAMEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAMEA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAMEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">OPENCARDNAMEW</span> {
+    <span class="ident">dwStructSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndOwner</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hSCardContext</span>: <span class="ident">SCARDCONTEXT</span>,
+    <span class="ident">lpstrGroupNames</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxGroupNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCardNames</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCardNames</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">rgguidInterfaces</span>: ::<span class="ident">LPCGUID</span>,
+    <span class="ident">cguidInterfaces</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrRdr</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxRdr</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrCard</span>: ::<span class="ident">LPWSTR</span>,
+    <span class="ident">nMaxCard</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpstrTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">pvUserData</span>: ::<span class="ident">LPVOID</span>,
+    <span class="ident">dwShareMode</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwPreferredProtocols</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwActiveProtocol</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpfnConnect</span>: <span class="ident">LPOCNCONNPROCW</span>,
+    <span class="ident">lpfnCheck</span>: <span class="ident">LPOCNCHKPROC</span>,
+    <span class="ident">lpfnDisconnect</span>: <span class="ident">LPOCNDSCPROC</span>,
+    <span class="ident">hCardHandle</span>: <span class="ident">SCARDHANDLE</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAMEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAMEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAMEW</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">OPENCARDNAMEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">OPENCARDNAME_A</span> <span class="op">=</span> <span class="ident">OPENCARDNAMEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">OPENCARDNAME_W</span> <span class="op">=</span> <span class="ident">OPENCARDNAMEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAME_A</span> <span class="op">=</span> <span class="ident">POPENCARDNAMEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">POPENCARDNAME_W</span> <span class="op">=</span> <span class="ident">POPENCARDNAMEW</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAME_A</span> <span class="op">=</span> <span class="ident">LPOPENCARDNAMEA</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPOPENCARDNAME_W</span> <span class="op">=</span> <span class="ident">LPOPENCARDNAMEW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_AUDIT_CHV_FAILURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SCARD_AUDIT_CHV_SUCCESS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x1</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -634,12 +600,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -660,7 +630,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -671,11 +641,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

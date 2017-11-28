@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\fileapi.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\fileapi.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>fileapi.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -193,158 +195,158 @@
 <span id="150">150</span>
 <span id="151">151</span>
 <span id="152">152</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! ApiSet Contract for api-ms-win-core-file-l1</span>
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREATE_NEW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>CREATE_ALWAYS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OPEN_EXISTING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>OPEN_ALWAYS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>TRUNCATE_EXISTING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_FILE_SIZE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_SET_FILE_POINTER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>INVALID_FILE_ATTRIBUTES</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0xFFFFFFFF</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>WIN32_FILE_ATTRIBUTE_DATA</span> {
-    <span class='ident'>dwFileAttributes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ftCreationTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>ftLastAccessTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>ftLastWriteTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>nFileSizeHigh</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nFileSizeLow</span>: ::<span class='ident'>DWORD</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! ApiSet Contract for api-ms-win-core-file-l1</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CREATE_NEW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">CREATE_ALWAYS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OPEN_EXISTING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">OPEN_ALWAYS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TRUNCATE_EXISTING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INVALID_FILE_SIZE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INVALID_SET_FILE_POINTER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">INVALID_FILE_ATTRIBUTES</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0xFFFFFFFF</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">WIN32_FILE_ATTRIBUTE_DATA</span> {
+    <span class="ident">dwFileAttributes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ftCreationTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">ftLastAccessTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">ftLastWriteTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">nFileSizeHigh</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileSizeLow</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPWIN32_FILE_ATTRIBUTE_DATA</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>WIN32_FILE_ATTRIBUTE_DATA</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>BY_HANDLE_FILE_INFORMATION</span> {
-    <span class='ident'>dwFileAttributes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ftCreationTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>ftLastAccessTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>ftLastWriteTime</span>: ::<span class='ident'>FILETIME</span>,
-    <span class='ident'>dwVolumeSerialNumber</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nFileSizeHigh</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nFileSizeLow</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nNumberOfLinks</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nFileIndexHigh</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>nFileIndexLow</span>: ::<span class='ident'>DWORD</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPWIN32_FILE_ATTRIBUTE_DATA</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">WIN32_FILE_ATTRIBUTE_DATA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">BY_HANDLE_FILE_INFORMATION</span> {
+    <span class="ident">dwFileAttributes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ftCreationTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">ftLastAccessTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">ftLastWriteTime</span>: ::<span class="ident">FILETIME</span>,
+    <span class="ident">dwVolumeSerialNumber</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileSizeHigh</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileSizeLow</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nNumberOfLinks</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileIndexHigh</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">nFileIndexLow</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PBY_HANDLE_FILE_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BY_HANDLE_FILE_INFORMATION</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPBY_HANDLE_FILE_INFORMATION</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>BY_HANDLE_FILE_INFORMATION</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>CREATEFILE2_EXTENDED_PARAMETERS</span> {
-    <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFileAttributes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwFileFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>dwSecurityQosFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>lpSecurityAttributes</span>: ::<span class='ident'>LPSECURITY_ATTRIBUTES</span>,
-    <span class='ident'>hTemplateFile</span>: ::<span class='ident'>HANDLE</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PBY_HANDLE_FILE_INFORMATION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BY_HANDLE_FILE_INFORMATION</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPBY_HANDLE_FILE_INFORMATION</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">BY_HANDLE_FILE_INFORMATION</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">CREATEFILE2_EXTENDED_PARAMETERS</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFileAttributes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFileFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwSecurityQosFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">lpSecurityAttributes</span>: ::<span class="ident">LPSECURITY_ATTRIBUTES</span>,
+    <span class="ident">hTemplateFile</span>: ::<span class="ident">HANDLE</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCREATEFILE2_EXTENDED_PARAMETERS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREATEFILE2_EXTENDED_PARAMETERS</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCREATEFILE2_EXTENDED_PARAMETERS</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CREATEFILE2_EXTENDED_PARAMETERS</span>;
-<span class='macro'>ENUM</span><span class='macro'>!</span>{<span class='kw'>enum</span> <span class='ident'>PRIORITY_HINT</span> {
-    <span class='ident'>IoPriorityHintVeryLow</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>IoPriorityHintLow</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>IoPriorityHintNormal</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>MaximumIoPriorityHintType</span> <span class='op'>=</span> <span class='number'>3</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCREATEFILE2_EXTENDED_PARAMETERS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CREATEFILE2_EXTENDED_PARAMETERS</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCREATEFILE2_EXTENDED_PARAMETERS</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CREATEFILE2_EXTENDED_PARAMETERS</span>;
+<span class="macro">ENUM</span><span class="macro">!</span>{<span class="kw">enum</span> <span class="ident">PRIORITY_HINT</span> {
+    <span class="ident">IoPriorityHintVeryLow</span> <span class="op">=</span> <span class="number">0</span>,
+    <span class="ident">IoPriorityHintLow</span> <span class="op">=</span> <span class="number">1</span>,
+    <span class="ident">IoPriorityHintNormal</span> <span class="op">=</span> <span class="number">2</span>,
+    <span class="ident">MaximumIoPriorityHintType</span> <span class="op">=</span> <span class="number">3</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_BASIC_INFO</span> {
-    <span class='ident'>CreationTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastAccessTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastWriteTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>ChangeTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>FileAttributes</span>: ::<span class='ident'>DWORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_BASIC_INFO</span> {
+    <span class="ident">CreationTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastAccessTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastWriteTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">ChangeTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">FileAttributes</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_STANDARD_INFO</span> {
-    <span class='ident'>AllocationSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>EndOfFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>NumberOfLinks</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>DeletePending</span>: ::<span class='ident'>BOOLEAN</span>,
-    <span class='ident'>Directory</span>: ::<span class='ident'>BOOLEAN</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_STANDARD_INFO</span> {
+    <span class="ident">AllocationSize</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">EndOfFile</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">NumberOfLinks</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">DeletePending</span>: ::<span class="ident">BOOLEAN</span>,
+    <span class="ident">Directory</span>: ::<span class="ident">BOOLEAN</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_NAME_INFO</span> {
-    <span class='ident'>FileNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>FileName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>0</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_NAME_INFO</span> {
+    <span class="ident">FileNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FileName</span>: [::<span class="ident">WCHAR</span>; <span class="number">0</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_RENAME_INFO</span> {
-    <span class='ident'>ReplaceIfExists</span>: ::<span class='ident'>BOOL</span>,
-    <span class='ident'>RootDirectory</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='ident'>FileNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>FileName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>0</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_RENAME_INFO</span> {
+    <span class="ident">ReplaceIfExists</span>: ::<span class="ident">BOOL</span>,
+    <span class="ident">RootDirectory</span>: ::<span class="ident">HANDLE</span>,
+    <span class="ident">FileNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FileName</span>: [::<span class="ident">WCHAR</span>; <span class="number">0</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_DISPOSITION_INFO</span> {
-    <span class='ident'>DeleteFile</span>: ::<span class='ident'>BOOL</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_DISPOSITION_INFO</span> {
+    <span class="ident">DeleteFile</span>: ::<span class="ident">BOOL</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_ALLOCATION_INFO</span> {
-    <span class='ident'>AllocationSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_ALLOCATION_INFO</span> {
+    <span class="ident">AllocationSize</span>: ::<span class="ident">LARGE_INTEGER</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_END_OF_FILE_INFO</span> {
-    <span class='ident'>EndOfFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_END_OF_FILE_INFO</span> {
+    <span class="ident">EndOfFile</span>: ::<span class="ident">LARGE_INTEGER</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_STREAM_INFO</span> {
-    <span class='ident'>NextEntryOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>StreamNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>StreamSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>StreamAllocationSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>StreamName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>0</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_STREAM_INFO</span> {
+    <span class="ident">NextEntryOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">StreamNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">StreamSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">StreamAllocationSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">StreamName</span>: [::<span class="ident">WCHAR</span>; <span class="number">0</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_COMPRESSION_INFO</span> {
-    <span class='ident'>CompressedFileSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>CompressionFormat</span>: ::<span class='ident'>WORD</span>,
-    <span class='ident'>CompressionUnitShift</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>ChunkShift</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>ClusterShift</span>: ::<span class='ident'>UCHAR</span>,
-    <span class='ident'>Reserved</span>: [::<span class='ident'>UCHAR</span>; <span class='number'>3</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_COMPRESSION_INFO</span> {
+    <span class="ident">CompressedFileSize</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">CompressionFormat</span>: ::<span class="ident">WORD</span>,
+    <span class="ident">CompressionUnitShift</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ChunkShift</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">ClusterShift</span>: ::<span class="ident">UCHAR</span>,
+    <span class="ident">Reserved</span>: [::<span class="ident">UCHAR</span>; <span class="number">3</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_ATTRIBUTE_TAG_INFO</span> {
-    <span class='ident'>NextEntryOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ReparseTag</span>: ::<span class='ident'>DWORD</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_ATTRIBUTE_TAG_INFO</span> {
+    <span class="ident">NextEntryOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ReparseTag</span>: ::<span class="ident">DWORD</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_ID_BOTH_DIR_INFO</span> {
-    <span class='ident'>NextEntryOffset</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>FileIndex</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>CreationTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastAccessTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastWriteTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>ChangeTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>EndOfFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>AllocationSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>FileAttributes</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>FileNameLength</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>EaSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>ShortNameLength</span>: ::<span class='ident'>CCHAR</span>,
-    <span class='ident'>ShortName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>12</span>],
-    <span class='ident'>FileId</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>FileName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>0</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_ID_BOTH_DIR_INFO</span> {
+    <span class="ident">NextEntryOffset</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FileIndex</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">CreationTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastAccessTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastWriteTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">ChangeTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">EndOfFile</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">AllocationSize</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">FileAttributes</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">FileNameLength</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">EaSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">ShortNameLength</span>: ::<span class="ident">CCHAR</span>,
+    <span class="ident">ShortName</span>: [::<span class="ident">WCHAR</span>; <span class="number">12</span>],
+    <span class="ident">FileId</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">FileName</span>: [::<span class="ident">WCHAR</span>; <span class="number">0</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_IO_PRIORITY_HINT_INFO</span> {
-    <span class='ident'>PriorityHint</span>: ::<span class='ident'>PRIORITY_HINT</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_IO_PRIORITY_HINT_INFO</span> {
+    <span class="ident">PriorityHint</span>: ::<span class="ident">PRIORITY_HINT</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_FULL_DIR_INFO</span> {
-    <span class='ident'>NextEntryOffset</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>FileIndex</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>CreationTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastAccessTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>LastWriteTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>ChangeTime</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>EndOfFile</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>AllocationSize</span>: ::<span class='ident'>LARGE_INTEGER</span>,
-    <span class='ident'>FileAttributes</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>FileNameLength</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>EaSize</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>FileName</span>: [::<span class='ident'>WCHAR</span>; <span class='number'>0</span>],
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_FULL_DIR_INFO</span> {
+    <span class="ident">NextEntryOffset</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">FileIndex</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">CreationTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastAccessTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">LastWriteTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">ChangeTime</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">EndOfFile</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">AllocationSize</span>: ::<span class="ident">LARGE_INTEGER</span>,
+    <span class="ident">FileAttributes</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">FileNameLength</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">EaSize</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">FileName</span>: [::<span class="ident">WCHAR</span>; <span class="number">0</span>],
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_STORAGE_INFO</span> {
-    <span class='ident'>LogicalBytesPerSector</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PhysicalBytesPerSectorForAtomicity</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>PhysicalBytesPerSectorForPerformance</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>FileSystemEffectivePhysicalBytesPerSectorForAtomicity</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>Flags</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ByteOffsetForSectorAlignment</span>: ::<span class='ident'>ULONG</span>,
-    <span class='ident'>ByteOffsetForPartitionAlignment</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_STORAGE_INFO</span> {
+    <span class="ident">LogicalBytesPerSector</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PhysicalBytesPerSectorForAtomicity</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">PhysicalBytesPerSectorForPerformance</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">FileSystemEffectivePhysicalBytesPerSectorForAtomicity</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">Flags</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ByteOffsetForSectorAlignment</span>: ::<span class="ident">ULONG</span>,
+    <span class="ident">ByteOffsetForPartitionAlignment</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_ALIGNMENT_INFO</span> {
-    <span class='ident'>AlignmentRequirement</span>: ::<span class='ident'>ULONG</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_ALIGNMENT_INFO</span> {
+    <span class="ident">AlignmentRequirement</span>: ::<span class="ident">ULONG</span>,
 }}
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>FILE_ID_INFO</span> {
-    <span class='ident'>VolumeSerialNumber</span>: ::<span class='ident'>ULONGLONG</span>,
-    <span class='ident'>FileId</span>: ::<span class='ident'>FILE_ID_128</span>,
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">FILE_ID_INFO</span> {
+    <span class="ident">VolumeSerialNumber</span>: ::<span class="ident">ULONGLONG</span>,
+    <span class="ident">FileId</span>: ::<span class="ident">FILE_ID_128</span>,
 }}
 </pre>
 </section>
@@ -364,12 +366,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -390,7 +396,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -401,11 +407,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

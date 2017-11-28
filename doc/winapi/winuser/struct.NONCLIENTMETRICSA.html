@@ -9,13 +9,15 @@
 
     <title>winapi::winuser::NONCLIENTMETRICSA - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winuser</a></p><script>window.sidebarCurrent = {name: 'NONCLIENTMETRICSA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct NONCLIENTMETRICSA</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.cbSize">cbSize</a><a href="#structfield.iBorderWidth">iBorderWidth</a><a href="#structfield.iScrollWidth">iScrollWidth</a><a href="#structfield.iScrollHeight">iScrollHeight</a><a href="#structfield.iCaptionWidth">iCaptionWidth</a><a href="#structfield.iCaptionHeight">iCaptionHeight</a><a href="#structfield.lfCaptionFont">lfCaptionFont</a><a href="#structfield.iSmCaptionWidth">iSmCaptionWidth</a><a href="#structfield.iSmCaptionHeight">iSmCaptionHeight</a><a href="#structfield.lfSmCaptionFont">lfSmCaptionFont</a><a href="#structfield.iMenuWidth">iMenuWidth</a><a href="#structfield.iMenuHeight">iMenuHeight</a><a href="#structfield.lfMenuFont">lfMenuFont</a><a href="#structfield.lfStatusFont">lfStatusFont</a><a href="#structfield.lfMessageFont">lfMessageFont</a><a href="#structfield.iPaddedBorderWidth">iPaddedBorderWidth</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winuser</a></p><script>window.sidebarCurrent = {name: 'NONCLIENTMETRICSA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,49 +43,106 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winuser</a>::<wbr><a class='struct' href=''>NONCLIENTMETRICSA</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-114649' class='srclink' href='../../src/winapi/winuser.rs.html#1510-1527' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct NONCLIENTMETRICSA {
-    pub cbSize: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub iBorderWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iScrollWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iScrollHeight: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iCaptionWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iCaptionHeight: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub lfCaptionFont: <a class='struct' href='../../winapi/wingdi/struct.LOGFONTA.html' title='winapi::wingdi::LOGFONTA'>LOGFONTA</a>,
-    pub iSmCaptionWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iSmCaptionHeight: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub lfSmCaptionFont: <a class='struct' href='../../winapi/wingdi/struct.LOGFONTA.html' title='winapi::wingdi::LOGFONTA'>LOGFONTA</a>,
-    pub iMenuWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iMenuHeight: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub lfMenuFont: <a class='struct' href='../../winapi/wingdi/struct.LOGFONTA.html' title='winapi::wingdi::LOGFONTA'>LOGFONTA</a>,
-    pub lfStatusFont: <a class='struct' href='../../winapi/wingdi/struct.LOGFONTA.html' title='winapi::wingdi::LOGFONTA'>LOGFONTA</a>,
-    pub lfMessageFont: <a class='struct' href='../../winapi/wingdi/struct.LOGFONTA.html' title='winapi::wingdi::LOGFONTA'>LOGFONTA</a>,
-    pub iPaddedBorderWidth: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.cbSize'><code>cbSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iBorderWidth'><code>iBorderWidth</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iScrollWidth'><code>iScrollWidth</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iScrollHeight'><code>iScrollHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iCaptionWidth'><code>iCaptionWidth</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iCaptionHeight'><code>iCaptionHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lfCaptionFont'><code>lfCaptionFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iSmCaptionWidth'><code>iSmCaptionWidth</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iSmCaptionHeight'><code>iSmCaptionHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lfSmCaptionFont'><code>lfSmCaptionFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iMenuWidth'><code>iMenuWidth</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iMenuHeight'><code>iMenuHeight</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lfMenuFont'><code>lfMenuFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lfStatusFont'><code>lfStatusFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lfMessageFont'><code>lfMessageFont</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iPaddedBorderWidth'><code>iPaddedBorderWidth</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/winuser/struct.NONCLIENTMETRICSA.html' title='winapi::winuser::NONCLIENTMETRICSA'>NONCLIENTMETRICSA</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/winuser/struct.NONCLIENTMETRICSA.html' title='winapi::winuser::NONCLIENTMETRICSA'>NONCLIENTMETRICSA</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/winuser/struct.NONCLIENTMETRICSA.html' title='winapi::winuser::NONCLIENTMETRICSA'>NONCLIENTMETRICSA</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>winuser</a>::<wbr><a class="struct" href=''>NONCLIENTMETRICSA</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct NONCLIENTMETRICSA {
+    pub cbSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub iBorderWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iScrollWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iScrollHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iCaptionWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iCaptionHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub lfCaptionFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a>,
+    pub iSmCaptionWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iSmCaptionHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub lfSmCaptionFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a>,
+    pub iMenuWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iMenuHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub lfMenuFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a>,
+    pub lfStatusFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a>,
+    pub lfMessageFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a>,
+    pub iPaddedBorderWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.cbSize" class="structfield small-section-header">
+                           <a href="#structfield.cbSize" class="anchor field"></a>
+                           <span id="cbSize.v" class='invisible'>
+                           <code>cbSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.iBorderWidth" class="structfield small-section-header">
+                           <a href="#structfield.iBorderWidth" class="anchor field"></a>
+                           <span id="iBorderWidth.v" class='invisible'>
+                           <code>iBorderWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iScrollWidth" class="structfield small-section-header">
+                           <a href="#structfield.iScrollWidth" class="anchor field"></a>
+                           <span id="iScrollWidth.v" class='invisible'>
+                           <code>iScrollWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iScrollHeight" class="structfield small-section-header">
+                           <a href="#structfield.iScrollHeight" class="anchor field"></a>
+                           <span id="iScrollHeight.v" class='invisible'>
+                           <code>iScrollHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iCaptionWidth" class="structfield small-section-header">
+                           <a href="#structfield.iCaptionWidth" class="anchor field"></a>
+                           <span id="iCaptionWidth.v" class='invisible'>
+                           <code>iCaptionWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iCaptionHeight" class="structfield small-section-header">
+                           <a href="#structfield.iCaptionHeight" class="anchor field"></a>
+                           <span id="iCaptionHeight.v" class='invisible'>
+                           <code>iCaptionHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.lfCaptionFont" class="structfield small-section-header">
+                           <a href="#structfield.lfCaptionFont" class="anchor field"></a>
+                           <span id="lfCaptionFont.v" class='invisible'>
+                           <code>lfCaptionFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a></code>
+                           </span></span><span id="structfield.iSmCaptionWidth" class="structfield small-section-header">
+                           <a href="#structfield.iSmCaptionWidth" class="anchor field"></a>
+                           <span id="iSmCaptionWidth.v" class='invisible'>
+                           <code>iSmCaptionWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iSmCaptionHeight" class="structfield small-section-header">
+                           <a href="#structfield.iSmCaptionHeight" class="anchor field"></a>
+                           <span id="iSmCaptionHeight.v" class='invisible'>
+                           <code>iSmCaptionHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.lfSmCaptionFont" class="structfield small-section-header">
+                           <a href="#structfield.lfSmCaptionFont" class="anchor field"></a>
+                           <span id="lfSmCaptionFont.v" class='invisible'>
+                           <code>lfSmCaptionFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a></code>
+                           </span></span><span id="structfield.iMenuWidth" class="structfield small-section-header">
+                           <a href="#structfield.iMenuWidth" class="anchor field"></a>
+                           <span id="iMenuWidth.v" class='invisible'>
+                           <code>iMenuWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iMenuHeight" class="structfield small-section-header">
+                           <a href="#structfield.iMenuHeight" class="anchor field"></a>
+                           <span id="iMenuHeight.v" class='invisible'>
+                           <code>iMenuHeight: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.lfMenuFont" class="structfield small-section-header">
+                           <a href="#structfield.lfMenuFont" class="anchor field"></a>
+                           <span id="lfMenuFont.v" class='invisible'>
+                           <code>lfMenuFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a></code>
+                           </span></span><span id="structfield.lfStatusFont" class="structfield small-section-header">
+                           <a href="#structfield.lfStatusFont" class="anchor field"></a>
+                           <span id="lfStatusFont.v" class='invisible'>
+                           <code>lfStatusFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a></code>
+                           </span></span><span id="structfield.lfMessageFont" class="structfield small-section-header">
+                           <a href="#structfield.lfMessageFont" class="anchor field"></a>
+                           <span id="lfMessageFont.v" class='invisible'>
+                           <code>lfMessageFont: <a class="struct" href="../../winapi/wingdi/struct.LOGFONTA.html" title="struct winapi::wingdi::LOGFONTA">LOGFONTA</a></code>
+                           </span></span><span id="structfield.iPaddedBorderWidth" class="structfield small-section-header">
+                           <a href="#structfield.iPaddedBorderWidth" class="anchor field"></a>
+                           <span id="iPaddedBorderWidth.v" class='invisible'>
+                           <code>iPaddedBorderWidth: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/winuser/struct.NONCLIENTMETRICSA.html" title="struct winapi::winuser::NONCLIENTMETRICSA">NONCLIENTMETRICSA</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/winuser/struct.NONCLIENTMETRICSA.html" title="struct winapi::winuser::NONCLIENTMETRICSA">NONCLIENTMETRICSA</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/winuser/struct.NONCLIENTMETRICSA.html" title="struct winapi::winuser::NONCLIENTMETRICSA">NONCLIENTMETRICSA</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -100,12 +159,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -126,7 +189,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -137,11 +200,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

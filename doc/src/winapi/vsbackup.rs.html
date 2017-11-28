@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\vsbackup.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\vsbackup.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>vsbackup.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -344,310 +346,310 @@
 <span id="301">301</span>
 <span id="302">302</span>
 <span id="303">303</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Brian Vincent</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! VSS backup interfaces</span>
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IVssExamineWriterMetadata</span>, <span class='number'>0x902fcf7f</span>, <span class='number'>0xb7fd</span>, <span class='number'>0x42f8</span>,
-    <span class='number'>0x81</span>, <span class='number'>0xf1</span>, <span class='number'>0xb2</span>, <span class='number'>0xe4</span>, <span class='number'>0x00</span>, <span class='number'>0xb1</span>, <span class='number'>0xe5</span>, <span class='number'>0xbd</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IVssExamineWriterMetadataEx</span>, <span class='number'>0x0c0e5ec0</span>, <span class='number'>0xca44</span>, <span class='number'>0x472b</span>,
-    <span class='number'>0xb7</span>, <span class='number'>0x02</span>, <span class='number'>0xe6</span>, <span class='number'>0x52</span>, <span class='number'>0xdb</span>, <span class='number'>0x1c</span>, <span class='number'>0x04</span>, <span class='number'>0x51</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IVssBackupComponents</span>, <span class='number'>0x665c1d5f</span>, <span class='number'>0xc218</span>, <span class='number'>0x414d</span>,
-    <span class='number'>0xa0</span>, <span class='number'>0x5d</span>, <span class='number'>0x7f</span>, <span class='number'>0xef</span>, <span class='number'>0x5f</span>, <span class='number'>0x9d</span>, <span class='number'>0x5c</span>, <span class='number'>0x86</span>);
-<span class='macro'>DEFINE_GUID</span><span class='macro'>!</span>(<span class='ident'>IID_IVssBackupComponentsEx</span>, <span class='number'>0x963f03ad</span>, <span class='number'>0x9e4c</span>, <span class='number'>0x4a34</span>,
-    <span class='number'>0xac</span>, <span class='number'>0x15</span>, <span class='number'>0xe4</span>, <span class='number'>0xb6</span>, <span class='number'>0x17</span>, <span class='number'>0x4e</span>, <span class='number'>0x50</span>, <span class='number'>0x36</span>);
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>VSS_COMPONENTINFO</span> {
-    <span class='ident'>type_</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='comment'>// type is a keyword in rust</span>
-    <span class='ident'>bstrLogicalPath</span>: ::<span class='ident'>BSTR</span>,
-    <span class='ident'>bstrComponentName</span>: ::<span class='ident'>BSTR</span>,
-    <span class='ident'>bstrCaption</span>: ::<span class='ident'>BSTR</span>,
-    <span class='ident'>pbIcon</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BYTE</span>,
-    <span class='ident'>cbIcon</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>bRestoreMetadata</span>: <span class='ident'>bool</span>,
-    <span class='ident'>bNotifyOnBackupComplete</span>: <span class='ident'>bool</span>,
-    <span class='ident'>bSelectable</span>: <span class='ident'>bool</span>,
-    <span class='ident'>bSelectableForRestore</span>: <span class='ident'>bool</span>,
-    <span class='ident'>dwComponentFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='ident'>cFileCount</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>cDatabases</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>cLogFiles</span>: ::<span class='ident'>UINT</span>,
-    <span class='ident'>cDependencies</span>: ::<span class='ident'>UINT</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Brian Vincent</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! VSS backup interfaces</span>
+<span class="macro">DEFINE_GUID</span><span class="macro">!</span>(<span class="ident">IID_IVssExamineWriterMetadata</span>, <span class="number">0x902fcf7f</span>, <span class="number">0xb7fd</span>, <span class="number">0x42f8</span>,
+    <span class="number">0x81</span>, <span class="number">0xf1</span>, <span class="number">0xb2</span>, <span class="number">0xe4</span>, <span class="number">0x00</span>, <span class="number">0xb1</span>, <span class="number">0xe5</span>, <span class="number">0xbd</span>);
+<span class="macro">DEFINE_GUID</span><span class="macro">!</span>(<span class="ident">IID_IVssExamineWriterMetadataEx</span>, <span class="number">0x0c0e5ec0</span>, <span class="number">0xca44</span>, <span class="number">0x472b</span>,
+    <span class="number">0xb7</span>, <span class="number">0x02</span>, <span class="number">0xe6</span>, <span class="number">0x52</span>, <span class="number">0xdb</span>, <span class="number">0x1c</span>, <span class="number">0x04</span>, <span class="number">0x51</span>);
+<span class="macro">DEFINE_GUID</span><span class="macro">!</span>(<span class="ident">IID_IVssBackupComponents</span>, <span class="number">0x665c1d5f</span>, <span class="number">0xc218</span>, <span class="number">0x414d</span>,
+    <span class="number">0xa0</span>, <span class="number">0x5d</span>, <span class="number">0x7f</span>, <span class="number">0xef</span>, <span class="number">0x5f</span>, <span class="number">0x9d</span>, <span class="number">0x5c</span>, <span class="number">0x86</span>);
+<span class="macro">DEFINE_GUID</span><span class="macro">!</span>(<span class="ident">IID_IVssBackupComponentsEx</span>, <span class="number">0x963f03ad</span>, <span class="number">0x9e4c</span>, <span class="number">0x4a34</span>,
+    <span class="number">0xac</span>, <span class="number">0x15</span>, <span class="number">0xe4</span>, <span class="number">0xb6</span>, <span class="number">0x17</span>, <span class="number">0x4e</span>, <span class="number">0x50</span>, <span class="number">0x36</span>);
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">VSS_COMPONENTINFO</span> {
+    <span class="ident">type_</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="comment">// type is a keyword in rust</span>
+    <span class="ident">bstrLogicalPath</span>: ::<span class="ident">BSTR</span>,
+    <span class="ident">bstrComponentName</span>: ::<span class="ident">BSTR</span>,
+    <span class="ident">bstrCaption</span>: ::<span class="ident">BSTR</span>,
+    <span class="ident">pbIcon</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BYTE</span>,
+    <span class="ident">cbIcon</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">bRestoreMetadata</span>: <span class="ident">bool</span>,
+    <span class="ident">bNotifyOnBackupComplete</span>: <span class="ident">bool</span>,
+    <span class="ident">bSelectable</span>: <span class="ident">bool</span>,
+    <span class="ident">bSelectableForRestore</span>: <span class="ident">bool</span>,
+    <span class="ident">dwComponentFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">cFileCount</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">cDatabases</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">cLogFiles</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">cDependencies</span>: ::<span class="ident">UINT</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PVSSCOMPONENTINFO</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>VSS_COMPONENTINFO</span>;
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssWMComponent</span>(<span class='ident'>IVssWMComponentVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetComponentInfo</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppInfo</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>PVSSCOMPONENTINFO</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>FreeComponentInfo</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pInfo</span>: ::<span class='ident'>PVSSCOMPONENTINFO</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetFile</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDatabaseFile</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iDBFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDatabaseLogFile</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iDbLogFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDependency</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iDependency</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppDependency</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMDependency</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PVSSCOMPONENTINFO</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">VSS_COMPONENTINFO</span>;
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssWMComponent</span>(<span class="ident">IVssWMComponentVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetComponentInfo</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppInfo</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">PVSSCOMPONENTINFO</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">FreeComponentInfo</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pInfo</span>: ::<span class="ident">PVSSCOMPONENTINFO</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetFile</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetDatabaseFile</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iDBFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetDatabaseLogFile</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iDbLogFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetDependency</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iDependency</span>: ::<span class="ident">UINT</span>, <span class="ident">ppDependency</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMDependency</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssExamineWriterMetadata</span>(<span class='ident'>IVssExamineWriterMetadataVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetIdentity</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>pidWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>pbstrWriterName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>, <span class='ident'>pUsage</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_USAGE_TYPE</span>,
-        <span class='ident'>pSource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_SOURCE_TYPE</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetFileCounts</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcIncludeFiles</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>, <span class='ident'>pcExcludeFiles</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>,
-        <span class='ident'>pcComponents</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetIncludeFile</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetExcludeFile</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetComponent</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iComponent</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppComponent</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMComponent</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetRestoreMethod</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pMethod</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_RESTOREMETHOD_ENUM</span>, <span class='ident'>pbstrService</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>,
-        <span class='ident'>pbstrUserProcedure</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>, <span class='ident'>pwriterRestore</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_WRITERRESTORE_ENUM</span>,
-        <span class='ident'>pbRebootRequired</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>bool</span>, <span class='ident'>pcMappings</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetAlternateLocationMapping</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iMapping</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetBackupSchema</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pdwSchemaMask</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetDocument</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pDoc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>c_void</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>, <span class='comment'>//TODO IXMLDOMDocument</span>
-    <span class='kw'>fn</span> <span class='ident'>SaveAsXML</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pbstrXML</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>LoadFromXML</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pbstrXML</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssExamineWriterMetadata</span>(<span class="ident">IVssExamineWriterMetadataVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetIdentity</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>, <span class="ident">pidWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">pbstrWriterName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>, <span class="ident">pUsage</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_USAGE_TYPE</span>,
+        <span class="ident">pSource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_SOURCE_TYPE</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetFileCounts</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcIncludeFiles</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>, <span class="ident">pcExcludeFiles</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>,
+        <span class="ident">pcComponents</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetIncludeFile</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetExcludeFile</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetComponent</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iComponent</span>: ::<span class="ident">UINT</span>, <span class="ident">ppComponent</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMComponent</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetRestoreMethod</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pMethod</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_RESTOREMETHOD_ENUM</span>, <span class="ident">pbstrService</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>,
+        <span class="ident">pbstrUserProcedure</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>, <span class="ident">pwriterRestore</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_WRITERRESTORE_ENUM</span>,
+        <span class="ident">pbRebootRequired</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">bool</span>, <span class="ident">pcMappings</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetAlternateLocationMapping</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iMapping</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetBackupSchema</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pdwSchemaMask</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">DWORD</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetDocument</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pDoc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">c_void</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>, <span class="comment">//TODO IXMLDOMDocument</span>
+    <span class="kw">fn</span> <span class="ident">SaveAsXML</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pbstrXML</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">LoadFromXML</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pbstrXML</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssExamineWriterMetadataEx</span>(<span class='ident'>IVssExamineWriterMetadataExVtbl</span>):
-    <span class='ident'>IVssExamineWriterMetadata</span>(<span class='ident'>IVssExamineWriterMetadataVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetIdentityEx</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>pidWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>pbstrWriterName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>, <span class='ident'>pbstrInstanceName</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>,
-        <span class='ident'>pUsage</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_USAGE_TYPE</span>, <span class='ident'>pSource</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_SOURCE_TYPE</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssExamineWriterMetadataEx</span>(<span class="ident">IVssExamineWriterMetadataExVtbl</span>):
+    <span class="ident">IVssExamineWriterMetadata</span>(<span class="ident">IVssExamineWriterMetadataVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetIdentityEx</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>, <span class="ident">pidWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">pbstrWriterName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>, <span class="ident">pbstrInstanceName</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>,
+        <span class="ident">pUsage</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_USAGE_TYPE</span>, <span class="ident">pSource</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_SOURCE_TYPE</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssExamineWriterMetadataEx2</span>(<span class='ident'>IVssExamineWriterMetadataEx2Vtbl</span>):
-    <span class='ident'>IVssExamineWriterMetadataEx</span>(<span class='ident'>IVssExamineWriterMetadataExVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetVersion</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pdwMajorVersion</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>DWORD</span>, <span class='ident'>pdwMinorVersion</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>DWORD</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetExcludeFromSnapshotCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcExcludedFromSnapshot</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetExcludeFromSnapshotFile</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppFiledesc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssWMFiledesc</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssExamineWriterMetadataEx2</span>(<span class="ident">IVssExamineWriterMetadataEx2Vtbl</span>):
+    <span class="ident">IVssExamineWriterMetadataEx</span>(<span class="ident">IVssExamineWriterMetadataExVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetVersion</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pdwMajorVersion</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">DWORD</span>, <span class="ident">pdwMinorVersion</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">DWORD</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetExcludeFromSnapshotCount</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcExcludedFromSnapshot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetExcludeFromSnapshotFile</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iFile</span>: ::<span class="ident">UINT</span>, <span class="ident">ppFiledesc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssWMFiledesc</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IVssWriterComponentsExt</span> {
-    <span class='kw'>pub</span> <span class='ident'>lpVtbl</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>IVssWriterComponentsExtVtbl</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IVssWriterComponentsExt</span> {
+    <span class="kw">pub</span> <span class="ident">lpVtbl</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">IVssWriterComponentsExtVtbl</span>,
 }
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>IVssWriterComponentsExtVtbl</span> {
-    <span class='kw'>pub</span> <span class='ident'>parent1</span>: ::<span class='ident'>IVssWriterComponentsVtbl</span>,
-    <span class='kw'>pub</span> <span class='ident'>parent2</span>: ::<span class='ident'>IUnknownVtbl</span>,
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IVssWriterComponentsExtVtbl</span> {
+    <span class="kw">pub</span> <span class="ident">parent1</span>: ::<span class="ident">IVssWriterComponentsVtbl</span>,
+    <span class="kw">pub</span> <span class="ident">parent2</span>: ::<span class="ident">IUnknownVtbl</span>,
 }
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssBackupComponents</span>(<span class='ident'>IVssBackupComponentsVtbl</span>): <span class='ident'>IUnknown</span>(<span class='ident'>IUnknownVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetWriterComponentsCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcComponents</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetWriterComponents</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iWriter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IVssWriterComponentsExt</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>InitializeForBackup</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bstrXML</span>: ::<span class='ident'>BSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetBackupState</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bSelectComponents</span>: <span class='ident'>bool</span>, <span class='ident'>bBackupBootableSystemState</span>: <span class='ident'>bool</span>,
-        <span class='ident'>backupType</span>: ::<span class='ident'>VSS_BACKUP_TYPE</span>, <span class='ident'>bPartialFileSupport</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>InitializeForRestore</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>bstrXML</span>: ::<span class='ident'>BSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetRestoreState</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>restoreType</span>: ::<span class='ident'>VSS_RESTORE_TYPE</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GatherWriterMetadata</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetWriterMetadataCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcWriters</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetWriterMetadata</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iWriter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>ppMetadata</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>IVssExamineWriterMetadata</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>FreeWriterMetadata</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddComponent</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>instanceId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>,
-        <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>PrepareForBackup</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AbortBackup</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GatherWriterStatus</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetWriterStatusCount</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pcWriters</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>FreeWriterStatus</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetWriterStatus</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iWriter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>pidWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>pbstrWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>, <span class='ident'>pnStatus</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_WRITER_STATE</span>,
-        <span class='ident'>phResultFailure</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HRESULT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetBackupSucceeded</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>instanceId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>,
-        <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bSucceded</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetBackupOptions</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszBackupOptions</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetSelectedForRestore</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bSelectedForRestore</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetRestoreOptions</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszRestoreOptions</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetAdditionalRestores</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bAdditionalRestores</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetPreviousBackupStamp</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszPreviousBackupStamp</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SaveAsXML</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pbstrXML</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>BackupComplete</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddAlternativeLocationMapping</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszPath</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszFilespec</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bRecursive</span>: <span class='ident'>bool</span>,
-        <span class='ident'>wszDestination</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddRestoreSubcomponent</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszSubComponentLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszSubComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bRepair</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetFileRestoreStatus</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>status</span>: ::<span class='ident'>VSS_FILE_RESTORE_STATUS</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddNewTarget</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszPath</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszFileName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bRecursive</span>: <span class='ident'>bool</span>,
-        <span class='ident'>wszAlternatePath</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetRangesFilePath</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>iPartialFile</span>: ::<span class='ident'>UINT</span>, <span class='ident'>wszRangesFile</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>PreRestore</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>PostRestore</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetContext</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>lContext</span>: ::<span class='ident'>LONG</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>StartSnapshotSet</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pSnapshotSetId</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddToSnapshotSet</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pwszVolumeName</span>: ::<span class='ident'>VSS_PWSZ</span>, <span class='ident'>ProviderId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>pidSnapshot</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>DoSnapshotSet</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>DeleteSnapshots</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SourceObjectId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>eSourceObjectType</span>: ::<span class='ident'>VSS_OBJECT_TYPE</span>,
-        <span class='ident'>bForceDelete</span>: ::<span class='ident'>BOOL</span>, <span class='ident'>plDeletedSnapshots</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>LONG</span>, <span class='ident'>pNondeletedSnapshotID</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>ImportSnapshots</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>BreakSnapshotSet</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotSetId</span>: ::<span class='ident'>VSS_ID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetSnapshotProperties</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotId</span>: ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>pProp</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_SNAPSHOT_PROP</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>Query</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>QueriedObjectId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>eQueriedObjectType</span>: ::<span class='ident'>VSS_OBJECT_TYPE</span>,
-        <span class='ident'>eReturnedObjectsType</span>: ::<span class='ident'>VSS_OBJECT_TYPE</span>, <span class='ident'>ppEnum</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssEnumObject</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>IsVolumeSupported</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>ProviderId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>pwszVolumeName</span>: ::<span class='ident'>VSS_PWSZ</span>,
-        <span class='ident'>pbSupportedByThisProvider</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>DisableWriterClasses</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rgWriterClassId</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>cClassId</span>: ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>EnableWriterClasses</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rgWriterClassId</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>cClassId</span>: ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>DisableWriterInstances</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rgWriterInstanceId</span>: <span class='op'>*</span><span class='kw'>const</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>cInstanceId</span>: ::<span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>ExposeSnapshot</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>wszPathFromRoot</span>: ::<span class='ident'>VSS_PWSZ</span>,
-        <span class='ident'>lAttributes</span>: ::<span class='ident'>LONG</span>, <span class='ident'>wszExpose</span>: ::<span class='ident'>VSS_PWSZ</span>, <span class='ident'>pwszExposed</span>: ::<span class='ident'>VSS_PWSZ</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>RevertToSnapshot</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>bForceDismount</span>: ::<span class='ident'>BOOL</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>QueryRevertStatus</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pwszVolume</span>: ::<span class='ident'>VSS_PWSZ</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
-}
-);
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssBackupComponentsEx</span>(<span class='ident'>IVssBackupComponentsExVtbl</span>):
-    <span class='ident'>IVssBackupComponents</span>(<span class='ident'>IVssBackupComponentsVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetWriterMetadataEx</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iWriter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>ppMetadata</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssExamineWriterMetadataEx</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetSelectedForRestoreEx</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bSelectedForRestore</span>: <span class='ident'>bool</span>, <span class='ident'>instanceId</span>: ::<span class='ident'>VSS_ID</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssBackupComponents</span>(<span class="ident">IVssBackupComponentsVtbl</span>): <span class="ident">IUnknown</span>(<span class="ident">IUnknownVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetWriterComponentsCount</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcComponents</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetWriterComponents</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iWriter</span>: ::<span class="ident">UINT</span>, <span class="ident">ppWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IVssWriterComponentsExt</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">InitializeForBackup</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">bstrXML</span>: ::<span class="ident">BSTR</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetBackupState</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">bSelectComponents</span>: <span class="ident">bool</span>, <span class="ident">bBackupBootableSystemState</span>: <span class="ident">bool</span>,
+        <span class="ident">backupType</span>: ::<span class="ident">VSS_BACKUP_TYPE</span>, <span class="ident">bPartialFileSupport</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">InitializeForRestore</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">bstrXML</span>: ::<span class="ident">BSTR</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetRestoreState</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">restoreType</span>: ::<span class="ident">VSS_RESTORE_TYPE</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GatherWriterMetadata</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetWriterMetadataCount</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcWriters</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetWriterMetadata</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iWriter</span>: ::<span class="ident">UINT</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">ppMetadata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">IVssExamineWriterMetadata</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">FreeWriterMetadata</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddComponent</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">instanceId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>,
+        <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">PrepareForBackup</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AbortBackup</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GatherWriterStatus</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetWriterStatusCount</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pcWriters</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">FreeWriterStatus</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetWriterStatus</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iWriter</span>: ::<span class="ident">UINT</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>, <span class="ident">pidWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">pbstrWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>, <span class="ident">pnStatus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_WRITER_STATE</span>,
+        <span class="ident">phResultFailure</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HRESULT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetBackupSucceeded</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">instanceId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>,
+        <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bSucceded</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetBackupOptions</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszBackupOptions</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetSelectedForRestore</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bSelectedForRestore</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetRestoreOptions</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszRestoreOptions</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetAdditionalRestores</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bAdditionalRestores</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetPreviousBackupStamp</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszPreviousBackupStamp</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SaveAsXML</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pbstrXML</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">BackupComplete</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddAlternativeLocationMapping</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszPath</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszFilespec</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bRecursive</span>: <span class="ident">bool</span>,
+        <span class="ident">wszDestination</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddRestoreSubcomponent</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszSubComponentLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszSubComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bRepair</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetFileRestoreStatus</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">status</span>: ::<span class="ident">VSS_FILE_RESTORE_STATUS</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddNewTarget</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszPath</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszFileName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bRecursive</span>: <span class="ident">bool</span>,
+        <span class="ident">wszAlternatePath</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetRangesFilePath</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">iPartialFile</span>: ::<span class="ident">UINT</span>, <span class="ident">wszRangesFile</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">PreRestore</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">PostRestore</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetContext</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">lContext</span>: ::<span class="ident">LONG</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">StartSnapshotSet</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pSnapshotSetId</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddToSnapshotSet</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pwszVolumeName</span>: ::<span class="ident">VSS_PWSZ</span>, <span class="ident">ProviderId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">pidSnapshot</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">DoSnapshotSet</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">DeleteSnapshots</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SourceObjectId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">eSourceObjectType</span>: ::<span class="ident">VSS_OBJECT_TYPE</span>,
+        <span class="ident">bForceDelete</span>: ::<span class="ident">BOOL</span>, <span class="ident">plDeletedSnapshots</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">LONG</span>, <span class="ident">pNondeletedSnapshotID</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">ImportSnapshots</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">BreakSnapshotSet</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotSetId</span>: ::<span class="ident">VSS_ID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetSnapshotProperties</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotId</span>: ::<span class="ident">VSS_ID</span>,
+        <span class="ident">pProp</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_SNAPSHOT_PROP</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">Query</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">QueriedObjectId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">eQueriedObjectType</span>: ::<span class="ident">VSS_OBJECT_TYPE</span>,
+        <span class="ident">eReturnedObjectsType</span>: ::<span class="ident">VSS_OBJECT_TYPE</span>, <span class="ident">ppEnum</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssEnumObject</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">IsVolumeSupported</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ProviderId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">pwszVolumeName</span>: ::<span class="ident">VSS_PWSZ</span>,
+        <span class="ident">pbSupportedByThisProvider</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">DisableWriterClasses</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">rgWriterClassId</span>: <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">VSS_ID</span>, <span class="ident">cClassId</span>: ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">EnableWriterClasses</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">rgWriterClassId</span>: <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">VSS_ID</span>, <span class="ident">cClassId</span>: ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">DisableWriterInstances</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">rgWriterInstanceId</span>: <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">VSS_ID</span>, <span class="ident">cInstanceId</span>: ::<span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">ExposeSnapshot</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">wszPathFromRoot</span>: ::<span class="ident">VSS_PWSZ</span>,
+        <span class="ident">lAttributes</span>: ::<span class="ident">LONG</span>, <span class="ident">wszExpose</span>: ::<span class="ident">VSS_PWSZ</span>, <span class="ident">pwszExposed</span>: ::<span class="ident">VSS_PWSZ</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">RevertToSnapshot</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">bForceDismount</span>: ::<span class="ident">BOOL</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">QueryRevertStatus</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pwszVolume</span>: ::<span class="ident">VSS_PWSZ</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssBackupComponentsEx2</span>(<span class='ident'>IVssBackupComponentsEx2Vtbl</span>):
-    <span class='ident'>IVssBackupComponentsEx</span>(<span class='ident'>IVssBackupComponentsExVtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>UnexposeSnapshot</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>snapshotId</span>: ::<span class='ident'>VSS_ID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetAuthoritativeRestore</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>bAuth</span>: <span class='ident'>bool</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetRollForward</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>rollType</span>: ::<span class='ident'>VSS_ROLLFORWARD_TYPE</span>,
-        <span class='ident'>wszRollForwardPoint</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>SetRestoreName</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>writerId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>ct</span>: ::<span class='ident'>VSS_COMPONENT_TYPE</span>, <span class='ident'>wszLogicalPath</span>: ::<span class='ident'>LPCWSTR</span>,
-        <span class='ident'>wszComponentName</span>: ::<span class='ident'>LPCWSTR</span>, <span class='ident'>wszRestoreName</span>: ::<span class='ident'>LPCWSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>BreakSnapshotSetEx</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotSetID</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>dwBreakFlags</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>PreFastRecovery</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotSetID</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>dwPreFastRecoveryFlags</span>: ::<span class='ident'>DWORD</span>,
-        <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>FastRecovery</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>SnapshotSetID</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>dwFastRecoveryFlags</span>: ::<span class='ident'>DWORD</span>,
-        <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssBackupComponentsEx</span>(<span class="ident">IVssBackupComponentsExVtbl</span>):
+    <span class="ident">IVssBackupComponents</span>(<span class="ident">IVssBackupComponentsVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetWriterMetadataEx</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iWriter</span>: ::<span class="ident">UINT</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">ppMetadata</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssExamineWriterMetadataEx</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetSelectedForRestoreEx</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bSelectedForRestore</span>: <span class="ident">bool</span>, <span class="ident">instanceId</span>: ::<span class="ident">VSS_ID</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssBackupComponentsEx3</span>(<span class='ident'>IVssBackupComponentsEx3Vtbl</span>):
-    <span class='ident'>IVssBackupComponentsEx2</span>(<span class='ident'>IVssBackupComponentsEx2Vtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetWriterStatusEx</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>iWriter</span>: ::<span class='ident'>UINT</span>, <span class='ident'>pidInstance</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>, <span class='ident'>pidWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>,
-        <span class='ident'>pbstrWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>, <span class='ident'>pnStatus</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_WRITER_STATE</span>,
-        <span class='ident'>phrFailureWriter</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HRESULT</span>, <span class='ident'>phrApplication</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>HRESULT</span>,
-        <span class='ident'>pbstrApplicationMessage</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>BSTR</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>AddSnapshotToRecoverySet</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>snapshotId</span>: ::<span class='ident'>VSS_ID</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>pwszDestinationVolume</span>: ::<span class='ident'>VSS_PWSZ</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>RecoverSet</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>, <span class='ident'>ppAsync</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>IVssAsync</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>,
-    <span class='kw'>fn</span> <span class='ident'>GetSessionId</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>idSession</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_ID</span>) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssBackupComponentsEx2</span>(<span class="ident">IVssBackupComponentsEx2Vtbl</span>):
+    <span class="ident">IVssBackupComponentsEx</span>(<span class="ident">IVssBackupComponentsExVtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">UnexposeSnapshot</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">snapshotId</span>: ::<span class="ident">VSS_ID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetAuthoritativeRestore</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">bAuth</span>: <span class="ident">bool</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetRollForward</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">rollType</span>: ::<span class="ident">VSS_ROLLFORWARD_TYPE</span>,
+        <span class="ident">wszRollForwardPoint</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">SetRestoreName</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">writerId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">ct</span>: ::<span class="ident">VSS_COMPONENT_TYPE</span>, <span class="ident">wszLogicalPath</span>: ::<span class="ident">LPCWSTR</span>,
+        <span class="ident">wszComponentName</span>: ::<span class="ident">LPCWSTR</span>, <span class="ident">wszRestoreName</span>: ::<span class="ident">LPCWSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">BreakSnapshotSetEx</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotSetID</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">dwBreakFlags</span>: ::<span class="ident">DWORD</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">PreFastRecovery</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotSetID</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">dwPreFastRecoveryFlags</span>: ::<span class="ident">DWORD</span>,
+        <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">FastRecovery</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">SnapshotSetID</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">dwFastRecoveryFlags</span>: ::<span class="ident">DWORD</span>,
+        <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='macro'>RIDL</span><span class='macro'>!</span>(
-<span class='ident'>interface</span> <span class='ident'>IVssBackupComponentsEx4</span>(<span class='ident'>IVssBackupComponentsEx4Vtbl</span>):
-    <span class='ident'>IVssBackupComponentsEx3</span>(<span class='ident'>IVssBackupComponentsEx3Vtbl</span>) {
-    <span class='kw'>fn</span> <span class='ident'>GetRootAndLogicalPrefixPaths</span>(
-        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pwszFilePath</span>: ::<span class='ident'>VSS_PWSZ</span>, <span class='ident'>ppwszRootPath</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_PWSZ</span>,
-        <span class='ident'>ppwszLogicalPrefix</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>VSS_PWSZ</span>, <span class='ident'>bNormalizeFQDNforRootPath</span>: ::<span class='ident'>BOOL</span>
-    ) <span class='op'>-&gt;</span> ::<span class='ident'>HRESULT</span>
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssBackupComponentsEx3</span>(<span class="ident">IVssBackupComponentsEx3Vtbl</span>):
+    <span class="ident">IVssBackupComponentsEx2</span>(<span class="ident">IVssBackupComponentsEx2Vtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetWriterStatusEx</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">iWriter</span>: ::<span class="ident">UINT</span>, <span class="ident">pidInstance</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>, <span class="ident">pidWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>,
+        <span class="ident">pbstrWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>, <span class="ident">pnStatus</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_WRITER_STATE</span>,
+        <span class="ident">phrFailureWriter</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HRESULT</span>, <span class="ident">phrApplication</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">HRESULT</span>,
+        <span class="ident">pbstrApplicationMessage</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">BSTR</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">AddSnapshotToRecoverySet</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">snapshotId</span>: ::<span class="ident">VSS_ID</span>, <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>, <span class="ident">pwszDestinationVolume</span>: ::<span class="ident">VSS_PWSZ</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">RecoverSet</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>, <span class="ident">ppAsync</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">IVssAsync</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>,
+    <span class="kw">fn</span> <span class="ident">GetSessionId</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">idSession</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_ID</span>) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
 }
 );
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>VSS_SW_BOOTABLE_STATE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>1</span>;
+<span class="macro">RIDL</span><span class="macro">!</span>(
+<span class="ident">interface</span> <span class="ident">IVssBackupComponentsEx4</span>(<span class="ident">IVssBackupComponentsEx4Vtbl</span>):
+    <span class="ident">IVssBackupComponentsEx3</span>(<span class="ident">IVssBackupComponentsEx3Vtbl</span>) {
+    <span class="kw">fn</span> <span class="ident">GetRootAndLogicalPrefixPaths</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pwszFilePath</span>: ::<span class="ident">VSS_PWSZ</span>, <span class="ident">ppwszRootPath</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_PWSZ</span>,
+        <span class="ident">ppwszLogicalPrefix</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">VSS_PWSZ</span>, <span class="ident">bNormalizeFQDNforRootPath</span>: ::<span class="ident">BOOL</span>
+    ) <span class="op">-&gt;</span> ::<span class="ident">HRESULT</span>
+}
+);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">VSS_SW_BOOTABLE_STATE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">1</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -666,12 +668,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -692,7 +698,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -703,11 +709,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

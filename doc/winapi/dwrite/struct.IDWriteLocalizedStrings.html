@@ -9,13 +9,15 @@
 
     <title>winapi::dwrite::IDWriteLocalizedStrings - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dwrite</a></p><script>window.sidebarCurrent = {name: 'IDWriteLocalizedStrings', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IDWriteLocalizedStrings</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.lpVtbl">lpVtbl</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.GetCount">GetCount</a><a href="#method.FindLocaleName">FindLocaleName</a><a href="#method.GetLocaleNameLength">GetLocaleNameLength</a><a href="#method.GetLocaleName">GetLocaleName</a><a href="#method.GetStringLength">GetStringLength</a><a href="#method.GetString">GetString</a></div><a class="sidebar-title" href="#deref-methods">Methods from Deref&lt;Target=IUnknown&gt;</a><div class="sidebar-links"></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Deref">Deref</a><a href="#impl-DerefMut">DerefMut</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dwrite</a></p><script>window.sidebarCurrent = {name: 'IDWriteLocalizedStrings', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,30 +43,54 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dwrite</a>::<wbr><a class='struct' href=''>IDWriteLocalizedStrings</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-41354' class='srclink' href='../../src/winapi/macros.rs.html#120-122' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IDWriteLocalizedStrings {
-    pub lpVtbl: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/dwrite/struct.IDWriteLocalizedStringsVtbl.html' title='winapi::dwrite::IDWriteLocalizedStringsVtbl'>IDWriteLocalizedStringsVtbl</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.lpVtbl'><code>lpVtbl</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../winapi/dwrite/struct.IDWriteLocalizedStrings.html' title='winapi::dwrite::IDWriteLocalizedStrings'>IDWriteLocalizedStrings</a></code></h3><div class='impl-items'><h4 id='method.GetCount' class='method'><code>unsafe fn <a href='#method.GetCount' class='fnname'>GetCount</a>(&amp;mut self) -&gt; <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a></code></h4>
-<h4 id='method.FindLocaleName' class='method'><code>unsafe fn <a href='#method.FindLocaleName' class='fnname'>FindLocaleName</a>(&amp;mut self, localeName: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a>, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>, exists: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.BOOL.html' title='winapi::minwindef::BOOL'>BOOL</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetLocaleNameLength' class='method'><code>unsafe fn <a href='#method.GetLocaleNameLength' class='fnname'>GetLocaleNameLength</a>(&amp;mut self, index: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>, length: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetLocaleName' class='method'><code>unsafe fn <a href='#method.GetLocaleName' class='fnname'>GetLocaleName</a>(&amp;mut self, index: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>, localeName: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a>, size: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetStringLength' class='method'><code>unsafe fn <a href='#method.GetStringLength' class='fnname'>GetStringLength</a>(&amp;mut self, index: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>, length: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetString' class='method'><code>unsafe fn <a href='#method.GetString' class='fnname'>GetString</a>(&amp;mut self, index: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>, stringBuffer: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a>, size: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-</div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a>&gt;</h2><div class='impl-items'><h4 id='method.QueryInterface' class='method'><code>unsafe fn <a href='#method.QueryInterface' class='fnname'>QueryInterface</a>(&amp;mut self, riid: <a class='type' href='../../winapi/guiddef/type.REFIID.html' title='winapi::guiddef::REFIID'>REFIID</a>, ppvObject: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='enum' href='../../winapi/enum.c_void.html' title='winapi::c_void'>c_void</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.AddRef' class='method'><code>unsafe fn <a href='#method.AddRef' class='fnname'>AddRef</a>(&amp;mut self) -&gt; <a class='type' href='../../winapi/minwindef/type.ULONG.html' title='winapi::minwindef::ULONG'>ULONG</a></code></h4>
-<h4 id='method.Release' class='method'><code>unsafe fn <a href='#method.Release' class='fnname'>Release</a>(&amp;mut self) -&gt; <a class='type' href='../../winapi/minwindef/type.ULONG.html' title='winapi::minwindef::ULONG'>ULONG</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../winapi/dwrite/struct.IDWriteLocalizedStrings.html' title='winapi::dwrite::IDWriteLocalizedStrings'>IDWriteLocalizedStrings</a></code></h3><div class='impl-items'><h4 id='assoc_type.Target' class='type'><code>type Target = <a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a></code></h4>
-<h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#method.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html' title='core::ops::DerefMut'>DerefMut</a> for <a class='struct' href='../../winapi/dwrite/struct.IDWriteLocalizedStrings.html' title='winapi::dwrite::IDWriteLocalizedStrings'>IDWriteLocalizedStrings</a></code></h3><div class='impl-items'><h4 id='method.deref_mut' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html#method.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/unknwnbase/struct.IUnknown.html' title='winapi::unknwnbase::IUnknown'>IUnknown</a></code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/dwrite/struct.IDWriteLocalizedStrings.html' title='winapi::dwrite::IDWriteLocalizedStrings'>IDWriteLocalizedStrings</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dwrite</a>::<wbr><a class="struct" href=''>IDWriteLocalizedStrings</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#147-149' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IDWriteLocalizedStrings {
+    pub lpVtbl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStringsVtbl.html" title="struct winapi::dwrite::IDWriteLocalizedStringsVtbl">IDWriteLocalizedStringsVtbl</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.lpVtbl" class="structfield small-section-header">
+                           <a href="#structfield.lpVtbl" class="anchor field"></a>
+                           <span id="lpVtbl.v" class='invisible'>
+                           <code>lpVtbl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStringsVtbl.html" title="struct winapi::dwrite::IDWriteLocalizedStringsVtbl">IDWriteLocalizedStringsVtbl</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStrings.html" title="struct winapi::dwrite::IDWriteLocalizedStrings">IDWriteLocalizedStrings</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#150-155' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.GetCount' class="method"><span id='GetCount.v' class='invisible'><code>pub unsafe fn <a href='#method.GetCount' class='fnname'>GetCount</a>(&amp;mut self) -&gt; <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.FindLocaleName' class="method"><span id='FindLocaleName.v' class='invisible'><code>pub unsafe fn <a href='#method.FindLocaleName' class='fnname'>FindLocaleName</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;localeName: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;exists: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.BOOL.html" title="type winapi::minwindef::BOOL">BOOL</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetLocaleNameLength' class="method"><span id='GetLocaleNameLength.v' class='invisible'><code>pub unsafe fn <a href='#method.GetLocaleNameLength' class='fnname'>GetLocaleNameLength</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;length: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetLocaleName' class="method"><span id='GetLocaleName.v' class='invisible'><code>pub unsafe fn <a href='#method.GetLocaleName' class='fnname'>GetLocaleName</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;localeName: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;size: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetStringLength' class="method"><span id='GetStringLength.v' class='invisible'><code>pub unsafe fn <a href='#method.GetStringLength' class='fnname'>GetStringLength</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;length: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetString' class="method"><span id='GetString.v' class='invisible'><code>pub unsafe fn <a href='#method.GetString' class='fnname'>GetString</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;stringBuffer: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;size: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+</div>
+                    <h2 id='deref-methods' class='small-section-header'>
+                      Methods from <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a>&lt;Target = <a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a>&gt;<a href='#deref-methods' class='anchor'></a>
+                    </h2>
+                <div class='impl-items'><h4 id='method.QueryInterface' class="method"><span id='QueryInterface.v' class='invisible'><code>pub unsafe fn <a href='#method.QueryInterface' class='fnname'>QueryInterface</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;riid: <a class="type" href="../../winapi/guiddef/type.REFIID.html" title="type winapi::guiddef::REFIID">REFIID</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;ppvObject: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="enum" href="../../winapi/enum.c_void.html" title="enum winapi::c_void">c_void</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#104-106' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.AddRef' class="method"><span id='AddRef.v' class='invisible'><code>pub unsafe fn <a href='#method.AddRef' class='fnname'>AddRef</a>(&amp;mut self) -&gt; <a class="type" href="../../winapi/minwindef/type.ULONG.html" title="type winapi::minwindef::ULONG">ULONG</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#104-106' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.Release' class="method"><span id='Release.v' class='invisible'><code>pub unsafe fn <a href='#method.Release' class='fnname'>Release</a>(&amp;mut self) -&gt; <a class="type" href="../../winapi/minwindef/type.ULONG.html" title="type winapi::minwindef::ULONG">ULONG</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#104-106' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStrings.html" title="struct winapi::dwrite::IDWriteLocalizedStrings">IDWriteLocalizedStrings</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#146' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#146' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Deref' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> for <a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStrings.html" title="struct winapi::dwrite::IDWriteLocalizedStrings">IDWriteLocalizedStrings</a></code><a href='#impl-Deref' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#156-162' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class="type"><span id='Target.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target' class="type">Target</a> = <a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a></code></span></h4>
+<div class='docblock'><p>The resulting type after dereferencing.</p>
+</div><h4 id='method.deref' class="method"><span id='deref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#159-161' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Dereferences the value.</p>
+</div></div><h3 id='impl-DerefMut' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html" title="trait core::ops::deref::DerefMut">DerefMut</a> for <a class="struct" href="../../winapi/dwrite/struct.IDWriteLocalizedStrings.html" title="struct winapi::dwrite::IDWriteLocalizedStrings">IDWriteLocalizedStrings</a></code><a href='#impl-DerefMut' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#163-168' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deref_mut' class="method"><span id='deref_mut.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html#tymethod.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/unknwnbase/struct.IUnknown.html" title="struct winapi::unknwnbase::IUnknown">IUnknown</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#165-167' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mutably dereferences the value.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -81,12 +107,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -107,7 +137,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -118,11 +148,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

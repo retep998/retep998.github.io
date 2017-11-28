@@ -9,13 +9,15 @@
 
     <title>winapi::d2d1::ID2D1GeometrySinkVtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a></p><script>window.sidebarCurrent = {name: 'ID2D1GeometrySinkVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct ID2D1GeometrySinkVtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.AddLine">AddLine</a><a href="#structfield.AddBezier">AddBezier</a><a href="#structfield.AddQuadraticBezier">AddQuadraticBezier</a><a href="#structfield.AddQuadraticBeziers">AddQuadraticBeziers</a><a href="#structfield.AddArc">AddArc</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a></p><script>window.sidebarCurrent = {name: 'ID2D1GeometrySinkVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,27 +43,46 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a>::<wbr><a class='struct' href=''>ID2D1GeometrySinkVtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-11923' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ID2D1GeometrySinkVtbl {
-    pub parent: <a class='struct' href='../../winapi/d2d1/struct.ID2D1SimplifiedGeometrySinkVtbl.html' title='winapi::d2d1::ID2D1SimplifiedGeometrySinkVtbl'>ID2D1SimplifiedGeometrySinkVtbl</a>,
-    pub AddLine: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1GeometrySink.html' title='winapi::d2d1::ID2D1GeometrySink'>ID2D1GeometrySink</a>, point: <a class='type' href='../../winapi/d2d1/type.D2D1_POINT_2F.html' title='winapi::d2d1::D2D1_POINT_2F'>D2D1_POINT_2F</a>),
-    pub AddBezier: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1GeometrySink.html' title='winapi::d2d1::ID2D1GeometrySink'>ID2D1GeometrySink</a>, bezier: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_BEZIER_SEGMENT.html' title='winapi::d2d1::D2D1_BEZIER_SEGMENT'>D2D1_BEZIER_SEGMENT</a>),
-    pub AddQuadraticBezier: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1GeometrySink.html' title='winapi::d2d1::ID2D1GeometrySink'>ID2D1GeometrySink</a>, bezier: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html' title='winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT'>D2D1_QUADRATIC_BEZIER_SEGMENT</a>),
-    pub AddQuadraticBeziers: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1GeometrySink.html' title='winapi::d2d1::ID2D1GeometrySink'>ID2D1GeometrySink</a>, beziers: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html' title='winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT'>D2D1_QUADRATIC_BEZIER_SEGMENT</a>, beziersCount: <a class='type' href='../../winapi/basetsd/type.UINT32.html' title='winapi::basetsd::UINT32'>UINT32</a>),
-    pub AddArc: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1GeometrySink.html' title='winapi::d2d1::ID2D1GeometrySink'>ID2D1GeometrySink</a>, arc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_ARC_SEGMENT.html' title='winapi::d2d1::D2D1_ARC_SEGMENT'>D2D1_ARC_SEGMENT</a>),
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.AddLine'><code>AddLine</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.AddBezier'><code>AddBezier</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.AddQuadraticBezier'><code>AddQuadraticBezier</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.AddQuadraticBeziers'><code>AddQuadraticBeziers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.AddArc'><code>AddArc</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a>::<wbr><a class="struct" href=''>ID2D1GeometrySinkVtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct ID2D1GeometrySinkVtbl {
+    pub parent: <a class="struct" href="../../winapi/d2d1/struct.ID2D1SimplifiedGeometrySinkVtbl.html" title="struct winapi::d2d1::ID2D1SimplifiedGeometrySinkVtbl">ID2D1SimplifiedGeometrySinkVtbl</a>,
+    pub AddLine: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, point: <a class="type" href="../../winapi/d2d1/type.D2D1_POINT_2F.html" title="type winapi::d2d1::D2D1_POINT_2F">D2D1_POINT_2F</a>),
+    pub AddBezier: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, bezier: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_BEZIER_SEGMENT">D2D1_BEZIER_SEGMENT</a>),
+    pub AddQuadraticBezier: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, bezier: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT">D2D1_QUADRATIC_BEZIER_SEGMENT</a>),
+    pub AddQuadraticBeziers: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, beziers: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT">D2D1_QUADRATIC_BEZIER_SEGMENT</a>, beziersCount: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>),
+    pub AddArc: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, arc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_ARC_SEGMENT.html" title="struct winapi::d2d1::D2D1_ARC_SEGMENT">D2D1_ARC_SEGMENT</a>),
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/d2d1/struct.ID2D1SimplifiedGeometrySinkVtbl.html" title="struct winapi::d2d1::ID2D1SimplifiedGeometrySinkVtbl">ID2D1SimplifiedGeometrySinkVtbl</a></code>
+                           </span></span><span id="structfield.AddLine" class="structfield small-section-header">
+                           <a href="#structfield.AddLine" class="anchor field"></a>
+                           <span id="AddLine.v" class='invisible'>
+                           <code>AddLine: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, point: <a class="type" href="../../winapi/d2d1/type.D2D1_POINT_2F.html" title="type winapi::d2d1::D2D1_POINT_2F">D2D1_POINT_2F</a>)</code>
+                           </span></span><span id="structfield.AddBezier" class="structfield small-section-header">
+                           <a href="#structfield.AddBezier" class="anchor field"></a>
+                           <span id="AddBezier.v" class='invisible'>
+                           <code>AddBezier: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, bezier: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_BEZIER_SEGMENT">D2D1_BEZIER_SEGMENT</a>)</code>
+                           </span></span><span id="structfield.AddQuadraticBezier" class="structfield small-section-header">
+                           <a href="#structfield.AddQuadraticBezier" class="anchor field"></a>
+                           <span id="AddQuadraticBezier.v" class='invisible'>
+                           <code>AddQuadraticBezier: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, bezier: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT">D2D1_QUADRATIC_BEZIER_SEGMENT</a>)</code>
+                           </span></span><span id="structfield.AddQuadraticBeziers" class="structfield small-section-header">
+                           <a href="#structfield.AddQuadraticBeziers" class="anchor field"></a>
+                           <span id="AddQuadraticBeziers.v" class='invisible'>
+                           <code>AddQuadraticBeziers: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, beziers: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_QUADRATIC_BEZIER_SEGMENT.html" title="struct winapi::d2d1::D2D1_QUADRATIC_BEZIER_SEGMENT">D2D1_QUADRATIC_BEZIER_SEGMENT</a>, beziersCount: <a class="type" href="../../winapi/basetsd/type.UINT32.html" title="type winapi::basetsd::UINT32">UINT32</a>)</code>
+                           </span></span><span id="structfield.AddArc" class="structfield small-section-header">
+                           <a href="#structfield.AddArc" class="anchor field"></a>
+                           <span id="AddArc.v" class='invisible'>
+                           <code>AddArc: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1GeometrySink.html" title="struct winapi::d2d1::ID2D1GeometrySink">ID2D1GeometrySink</a>, arc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_ARC_SEGMENT.html" title="struct winapi::d2d1::D2D1_ARC_SEGMENT">D2D1_ARC_SEGMENT</a>)</code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -78,12 +99,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -104,7 +129,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -115,11 +140,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

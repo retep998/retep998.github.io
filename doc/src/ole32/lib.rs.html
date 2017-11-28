@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\ole32-sys-0.2.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\ole32-sys-0.2.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -595,560 +597,560 @@
 <span id="552">552</span>
 <span id="553">553</span>
 <span id="554">554</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! FFI bindings to ole32.</span>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
-<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='comment'>// pub fn BindMoniker();</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserFree64();</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserMarshal64();</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserSize64();</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn CLIPFORMAT_UserUnmarshal64();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CLSIDFromProgID</span>(<span class='ident'>lpszProgID</span>: <span class='ident'>LPCOLESTR</span>, <span class='ident'>lpclsid</span>: <span class='ident'>LPCLSID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CLSIDFromProgIDEx();</span>
-    <span class='comment'>// pub fn CLSIDFromString();</span>
-    <span class='comment'>// pub fn CoAddRefServerProcess();</span>
-    <span class='comment'>// pub fn CoAllowSetForegroundWindow();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoAllowUnmarshalerCLSID</span>(<span class='ident'>clsid</span>: <span class='ident'>REFCLSID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoBuildVersion();</span>
-    <span class='comment'>// pub fn CoCancelCall();</span>
-    <span class='comment'>// pub fn CoCopyProxy();</span>
-    <span class='comment'>// pub fn CoCreateFreeThreadedMarshaler();</span>
-    <span class='comment'>// pub fn CoCreateGuid();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoCreateInstance</span>(
-        <span class='ident'>rclsid</span>: <span class='ident'>REFCLSID</span>, <span class='ident'>pUnkOuter</span>: <span class='ident'>LPUNKNOWN</span>, <span class='ident'>dwClsContext</span>: <span class='ident'>DWORD</span>, <span class='ident'>riid</span>: <span class='ident'>REFIID</span>,
-        <span class='ident'>ppv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPVOID</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoCreateInstanceEx();</span>
-    <span class='comment'>// pub fn CoCreateInstanceFromApp();</span>
-    <span class='comment'>// pub fn CoCreateObjectInContext();</span>
-    <span class='comment'>// pub fn CoDeactivateObject();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoDecodeProxy</span>(
-        <span class='ident'>dwClientPid</span>: <span class='ident'>DWORD</span>, <span class='ident'>ui64ProxyAddress</span>: <span class='ident'>UINT64</span>, <span class='ident'>pServerInformation</span>: <span class='ident'>PServerInformation</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoDecrementMTAUsage</span>(<span class='ident'>Cookie</span>: <span class='ident'>CO_MTA_USAGE_COOKIE</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoDisableCallCancellation();</span>
-    <span class='comment'>// pub fn CoDisconnectContext();</span>
-    <span class='comment'>// pub fn CoDisconnectObject();</span>
-    <span class='comment'>// pub fn CoDosDateTimeToFileTime();</span>
-    <span class='comment'>// pub fn CoEnableCallCancellation();</span>
-    <span class='comment'>// pub fn CoFileTimeNow();</span>
-    <span class='comment'>// pub fn CoFileTimeToDosDateTime();</span>
-    <span class='comment'>// pub fn CoFreeAllLibraries();</span>
-    <span class='comment'>// pub fn CoFreeLibrary();</span>
-    <span class='comment'>// pub fn CoFreeUnusedLibraries();</span>
-    <span class='comment'>// pub fn CoFreeUnusedLibrariesEx();</span>
-    <span class='comment'>// pub fn CoGetApartmentID();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetApartmentType</span>(
-        <span class='ident'>pAptType</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>APTTYPE</span>, <span class='ident'>pAptQualifier</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>APTTYPEQUALIFIER</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetCallContext();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetCallerTID</span>(<span class='ident'>lpdwTID</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetCancelObject();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetClassObject</span>(
-        <span class='ident'>rclsid</span>: <span class='ident'>REFCLSID</span>, <span class='ident'>dwClsContext</span>: <span class='ident'>DWORD</span>, <span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>, <span class='ident'>riid</span>: <span class='ident'>REFIID</span>, <span class='ident'>ppv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPVOID</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetClassVersion();</span>
-    <span class='comment'>// pub fn CoGetComCatalog();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetContextToken</span>(<span class='ident'>pToken</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ULONG_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetCurrentLogicalThreadId</span>(<span class='ident'>pguid</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>GUID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetCurrentProcess</span>() <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetDefaultContext</span>(<span class='ident'>aptType</span>: <span class='ident'>APTTYPE</span>, <span class='ident'>riid</span>: <span class='ident'>REFIID</span>, <span class='ident'>ppv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>c_void</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetInstanceFromFile();</span>
-    <span class='comment'>// pub fn CoGetInstanceFromIStorage();</span>
-    <span class='comment'>// pub fn CoGetInterceptor();</span>
-    <span class='comment'>// pub fn CoGetInterceptorFromTypeInfo();</span>
-    <span class='comment'>// pub fn CoGetInterfaceAndReleaseStream();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetMalloc</span>(<span class='ident'>dwMemContext</span>: <span class='ident'>DWORD</span>, <span class='ident'>ppMalloc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPMALLOC</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetMarshalSizeMax();</span>
-    <span class='comment'>// pub fn CoGetObject();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoGetObjectContext</span>(<span class='ident'>riid</span>: <span class='ident'>REFIID</span>, <span class='ident'>ppv</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoGetPSClsid();</span>
-    <span class='comment'>// pub fn CoGetProcessIdentifier();</span>
-    <span class='comment'>// pub fn CoGetStandardMarshal();</span>
-    <span class='comment'>// pub fn CoGetStdMarshalEx();</span>
-    <span class='comment'>// pub fn CoGetSystemSecurityPermissions();</span>
-    <span class='comment'>// pub fn CoGetTreatAsClass();</span>
-    <span class='comment'>// pub fn CoHandlePriorityEventsFromMessagePump();</span>
-    <span class='comment'>// pub fn CoImpersonateClient();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoIncrementMTAUsage</span>(<span class='ident'>pCookie</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>CO_MTA_USAGE_COOKIE</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitialize</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeEx</span>(<span class='ident'>pvReserved</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCoInit</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoInitializeSecurity</span>(
-        <span class='ident'>pSecDesc</span>: <span class='ident'>PSECURITY_DESCRIPTOR</span>, <span class='ident'>cAuthSvc</span>: <span class='ident'>LONG</span>,
-        <span class='ident'>asAuthSvc</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SOLE_AUTHENTICATION_SERVICE</span>, <span class='ident'>pReserved1</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwAuthnLevel</span>: <span class='ident'>DWORD</span>,
-        <span class='ident'>dwImpLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>pAuthList</span>: <span class='ident'>LPVOID</span>, <span class='ident'>dwCapabilities</span>: <span class='ident'>DWORD</span>, <span class='ident'>pReserved3</span>: <span class='ident'>LPVOID</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoInitializeWOW();</span>
-    <span class='comment'>// pub fn CoInstall();</span>
-    <span class='comment'>// pub fn CoInvalidateRemoteMachineBindings();</span>
-    <span class='comment'>// pub fn CoIsHandlerConnected();</span>
-    <span class='comment'>// pub fn CoIsOle1Class();</span>
-    <span class='comment'>// pub fn CoLoadLibrary();</span>
-    <span class='comment'>// pub fn CoLockObjectExternal();</span>
-    <span class='comment'>// pub fn CoMarshalHresult();</span>
-    <span class='comment'>// pub fn CoMarshalInterThreadInterfaceInStream();</span>
-    <span class='comment'>// pub fn CoMarshalInterface();</span>
-    <span class='comment'>// pub fn CoQueryAuthenticationServices();</span>
-    <span class='comment'>// pub fn CoQueryClientBlanket();</span>
-    <span class='comment'>// pub fn CoQueryProxyBlanket();</span>
-    <span class='comment'>// pub fn CoQueryReleaseObject();</span>
-    <span class='comment'>// pub fn CoReactivateObject();</span>
-    <span class='comment'>// pub fn CoRegisterActivationFilter();</span>
-    <span class='comment'>// pub fn CoRegisterChannelHook();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoRegisterClassObject</span>(
-        <span class='ident'>rclsid</span>: <span class='ident'>REFCLSID</span>, <span class='ident'>pUnk</span>: <span class='ident'>LPUNKNOWN</span>, <span class='ident'>dwClsContext</span>: <span class='ident'>DWORD</span>, <span class='ident'>flags</span>: <span class='ident'>DWORD</span>,
-        <span class='ident'>lpdwRegister</span>: <span class='ident'>LPDWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoRegisterInitializeSpy();</span>
-    <span class='comment'>// pub fn CoRegisterMallocSpy();</span>
-    <span class='comment'>// pub fn CoRegisterMessageFilter();</span>
-    <span class='comment'>// pub fn CoRegisterPSClsid();</span>
-    <span class='comment'>// pub fn CoRegisterSurrogate();</span>
-    <span class='comment'>// pub fn CoRegisterSurrogateEx();</span>
-    <span class='comment'>// pub fn CoReleaseMarshalData();</span>
-    <span class='comment'>// pub fn CoReleaseServerProcess();</span>
-    <span class='comment'>// pub fn CoResumeClassObjects();</span>
-    <span class='comment'>// pub fn CoRetireServer();</span>
-    <span class='comment'>// pub fn CoRevertToSelf();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoRevokeClassObject</span>() <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn CoRevokeInitializeSpy();</span>
-    <span class='comment'>// pub fn CoRevokeMallocSpy();</span>
-    <span class='comment'>// pub fn CoSetCancelObject();</span>
-    <span class='comment'>// pub fn CoSetMessageDispatcher();</span>
-    <span class='comment'>// pub fn CoSetProxyBlanket();</span>
-    <span class='comment'>// pub fn CoSuspendClassObjects();</span>
-    <span class='comment'>// pub fn CoSwitchCallContext();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoTaskMemAlloc</span>(<span class='ident'>cb</span>: <span class='ident'>SIZE_T</span>) <span class='op'>-&gt;</span> <span class='ident'>LPVOID</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoTaskMemFree</span>(<span class='ident'>pv</span>: <span class='ident'>LPVOID</span>);
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoTaskMemRealloc</span>(<span class='ident'>pv</span>: <span class='ident'>LPVOID</span>, <span class='ident'>cb</span>: <span class='ident'>SIZE_T</span>) <span class='op'>-&gt;</span> <span class='ident'>LPVOID</span>;
-    <span class='comment'>// pub fn CoTestCancel();</span>
-    <span class='comment'>// pub fn CoTreatAsClass();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CoUninitialize</span>();
-    <span class='comment'>// pub fn CoUnloadingWOW();</span>
-    <span class='comment'>// pub fn CoUnmarshalHresult();</span>
-    <span class='comment'>// pub fn CoUnmarshalInterface();</span>
-    <span class='comment'>// pub fn CoWaitForMultipleHandles();</span>
-    <span class='comment'>// pub fn CoWaitForMultipleObjects();</span>
-    <span class='comment'>// pub fn ComPs_NdrDllCanUnloadNow();</span>
-    <span class='comment'>// pub fn ComPs_NdrDllGetClassObject();</span>
-    <span class='comment'>// pub fn ComPs_NdrDllRegisterProxy();</span>
-    <span class='comment'>// pub fn ComPs_NdrDllUnregisterProxy();</span>
-    <span class='comment'>// pub fn CreateAntiMoniker();</span>
-    <span class='comment'>// pub fn CreateBindCtx();</span>
-    <span class='comment'>// pub fn CreateClassMoniker();</span>
-    <span class='comment'>// pub fn CreateDataAdviseHolder();</span>
-    <span class='comment'>// pub fn CreateDataCache();</span>
-    <span class='comment'>// pub fn CreateFileMoniker();</span>
-    <span class='comment'>// pub fn CreateGenericComposite();</span>
-    <span class='comment'>// pub fn CreateILockBytesOnHGlobal();</span>
-    <span class='comment'>// pub fn CreateItemMoniker();</span>
-    <span class='comment'>// pub fn CreateObjrefMoniker();</span>
-    <span class='comment'>// pub fn CreateOleAdviseHolder();</span>
-    <span class='comment'>// pub fn CreatePointerMoniker();</span>
-    <span class='comment'>// pub fn CreateStdProgressIndicator();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateStreamOnHGlobal</span>(
-        <span class='ident'>hGlobal</span>: <span class='ident'>HGLOBAL</span>, <span class='ident'>fDeleteOnRelease</span>: <span class='ident'>BOOL</span>, <span class='ident'>ppstm</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>LPSTREAM</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn DcomChannelSetHResult();</span>
-    <span class='comment'>// pub fn DllDebugObjectRPCHook();</span>
-    <span class='comment'>// pub fn DllGetClassObjectWOW();</span>
-    <span class='comment'>// pub fn DoDragDrop();</span>
-    <span class='comment'>// pub fn EnableHookObject();</span>
-    <span class='comment'>// pub fn FmtIdToPropStgName();</span>
-    <span class='comment'>// pub fn FreePropVariantArray();</span>
-    <span class='comment'>// pub fn GetActiveObjectExt();</span>
-    <span class='comment'>// pub fn GetClassFile();</span>
-    <span class='comment'>// pub fn GetConvertStg();</span>
-    <span class='comment'>// pub fn GetDocumentBitStg();</span>
-    <span class='comment'>// pub fn GetHGlobalFromILockBytes();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>GetHGlobalFromStream</span>(<span class='ident'>pstm</span>: <span class='ident'>LPSTREAM</span>, <span class='ident'>phglobal</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HGLOBAL</span>) <span class='op'>-&gt;</span> <span class='ident'>HRESULT</span>;
-    <span class='comment'>// pub fn GetHookInterface();</span>
-    <span class='comment'>// pub fn GetRunningObjectTable();</span>
-    <span class='comment'>// pub fn HACCEL_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HACCEL_UserFree64();</span>
-    <span class='comment'>// pub fn HACCEL_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HACCEL_UserMarshal64();</span>
-    <span class='comment'>// pub fn HACCEL_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HACCEL_UserSize64();</span>
-    <span class='comment'>// pub fn HACCEL_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HACCEL_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HBITMAP_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBITMAP_UserFree64();</span>
-    <span class='comment'>// pub fn HBITMAP_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBITMAP_UserMarshal64();</span>
-    <span class='comment'>// pub fn HBITMAP_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBITMAP_UserSize64();</span>
-    <span class='comment'>// pub fn HBITMAP_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBITMAP_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HBRUSH_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBRUSH_UserFree64();</span>
-    <span class='comment'>// pub fn HBRUSH_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBRUSH_UserMarshal64();</span>
-    <span class='comment'>// pub fn HBRUSH_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBRUSH_UserSize64();</span>
-    <span class='comment'>// pub fn HBRUSH_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HBRUSH_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HDC_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HDC_UserFree64();</span>
-    <span class='comment'>// pub fn HDC_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HDC_UserMarshal64();</span>
-    <span class='comment'>// pub fn HDC_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HDC_UserSize64();</span>
-    <span class='comment'>// pub fn HDC_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HDC_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserFree64();</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserMarshal64();</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserSize64();</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HENHMETAFILE_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HGLOBAL_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HGLOBAL_UserFree64();</span>
-    <span class='comment'>// pub fn HGLOBAL_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HGLOBAL_UserMarshal64();</span>
-    <span class='comment'>// pub fn HGLOBAL_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HGLOBAL_UserSize64();</span>
-    <span class='comment'>// pub fn HGLOBAL_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HGLOBAL_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HICON_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HICON_UserFree64();</span>
-    <span class='comment'>// pub fn HICON_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HICON_UserMarshal64();</span>
-    <span class='comment'>// pub fn HICON_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HICON_UserSize64();</span>
-    <span class='comment'>// pub fn HICON_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HICON_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HMENU_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMENU_UserFree64();</span>
-    <span class='comment'>// pub fn HMENU_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMENU_UserMarshal64();</span>
-    <span class='comment'>// pub fn HMENU_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMENU_UserSize64();</span>
-    <span class='comment'>// pub fn HMENU_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMENU_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserFree64();</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserMarshal64();</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserSize64();</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILEPICT_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HMETAFILE_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILE_UserFree64();</span>
-    <span class='comment'>// pub fn HMETAFILE_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILE_UserMarshal64();</span>
-    <span class='comment'>// pub fn HMETAFILE_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILE_UserSize64();</span>
-    <span class='comment'>// pub fn HMETAFILE_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMETAFILE_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HMONITOR_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMONITOR_UserFree64();</span>
-    <span class='comment'>// pub fn HMONITOR_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMONITOR_UserMarshal64();</span>
-    <span class='comment'>// pub fn HMONITOR_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMONITOR_UserSize64();</span>
-    <span class='comment'>// pub fn HMONITOR_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HMONITOR_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HPALETTE_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HPALETTE_UserFree64();</span>
-    <span class='comment'>// pub fn HPALETTE_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HPALETTE_UserMarshal64();</span>
-    <span class='comment'>// pub fn HPALETTE_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HPALETTE_UserSize64();</span>
-    <span class='comment'>// pub fn HPALETTE_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HPALETTE_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HWND_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HWND_UserFree64();</span>
-    <span class='comment'>// pub fn HWND_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HWND_UserMarshal64();</span>
-    <span class='comment'>// pub fn HWND_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HWND_UserSize64();</span>
-    <span class='comment'>// pub fn HWND_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn HWND_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn HkOleRegisterObject();</span>
-    <span class='comment'>// pub fn IIDFromString();</span>
-    <span class='comment'>// pub fn IsAccelerator();</span>
-    <span class='comment'>// pub fn IsEqualGUID();</span>
-    <span class='comment'>// pub fn MkParseDisplayName();</span>
-    <span class='comment'>// pub fn MonikerCommonPrefixWith();</span>
-    <span class='comment'>// pub fn MonikerRelativePathTo();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction10();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction11();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction12();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction13();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction14();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction15();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction16();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction17();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction18();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction19();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction20();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction21();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction22();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction23();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction24();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction25();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction26();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction27();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction28();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction29();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction3();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction30();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction31();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction32();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction4();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction5();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction6();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction7();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction8();</span>
-    <span class='comment'>// pub fn NdrProxyForwardingFunction9();</span>
-    <span class='comment'>// pub fn ObjectStublessClient10();</span>
-    <span class='comment'>// pub fn ObjectStublessClient11();</span>
-    <span class='comment'>// pub fn ObjectStublessClient12();</span>
-    <span class='comment'>// pub fn ObjectStublessClient13();</span>
-    <span class='comment'>// pub fn ObjectStublessClient14();</span>
-    <span class='comment'>// pub fn ObjectStublessClient15();</span>
-    <span class='comment'>// pub fn ObjectStublessClient16();</span>
-    <span class='comment'>// pub fn ObjectStublessClient17();</span>
-    <span class='comment'>// pub fn ObjectStublessClient18();</span>
-    <span class='comment'>// pub fn ObjectStublessClient19();</span>
-    <span class='comment'>// pub fn ObjectStublessClient20();</span>
-    <span class='comment'>// pub fn ObjectStublessClient21();</span>
-    <span class='comment'>// pub fn ObjectStublessClient22();</span>
-    <span class='comment'>// pub fn ObjectStublessClient23();</span>
-    <span class='comment'>// pub fn ObjectStublessClient24();</span>
-    <span class='comment'>// pub fn ObjectStublessClient25();</span>
-    <span class='comment'>// pub fn ObjectStublessClient26();</span>
-    <span class='comment'>// pub fn ObjectStublessClient27();</span>
-    <span class='comment'>// pub fn ObjectStublessClient28();</span>
-    <span class='comment'>// pub fn ObjectStublessClient29();</span>
-    <span class='comment'>// pub fn ObjectStublessClient3();</span>
-    <span class='comment'>// pub fn ObjectStublessClient30();</span>
-    <span class='comment'>// pub fn ObjectStublessClient31();</span>
-    <span class='comment'>// pub fn ObjectStublessClient32();</span>
-    <span class='comment'>// pub fn ObjectStublessClient4();</span>
-    <span class='comment'>// pub fn ObjectStublessClient5();</span>
-    <span class='comment'>// pub fn ObjectStublessClient6();</span>
-    <span class='comment'>// pub fn ObjectStublessClient7();</span>
-    <span class='comment'>// pub fn ObjectStublessClient8();</span>
-    <span class='comment'>// pub fn ObjectStublessClient9();</span>
-    <span class='comment'>// pub fn Ole32DllGetClassObject();</span>
-    <span class='comment'>// pub fn OleBuildVersion();</span>
-    <span class='comment'>// pub fn OleConvertIStorageToOLESTREAM();</span>
-    <span class='comment'>// pub fn OleConvertIStorageToOLESTREAMEx();</span>
-    <span class='comment'>// pub fn OleConvertOLESTREAMToIStorage();</span>
-    <span class='comment'>// pub fn OleConvertOLESTREAMToIStorageEx();</span>
-    <span class='comment'>// pub fn OleCreate();</span>
-    <span class='comment'>// pub fn OleCreateDefaultHandler();</span>
-    <span class='comment'>// pub fn OleCreateEmbeddingHelper();</span>
-    <span class='comment'>// pub fn OleCreateEx();</span>
-    <span class='comment'>// pub fn OleCreateFontIndirectExt();</span>
-    <span class='comment'>// pub fn OleCreateFromData();</span>
-    <span class='comment'>// pub fn OleCreateFromDataEx();</span>
-    <span class='comment'>// pub fn OleCreateFromFile();</span>
-    <span class='comment'>// pub fn OleCreateFromFileEx();</span>
-    <span class='comment'>// pub fn OleCreateLink();</span>
-    <span class='comment'>// pub fn OleCreateLinkEx();</span>
-    <span class='comment'>// pub fn OleCreateLinkFromData();</span>
-    <span class='comment'>// pub fn OleCreateLinkFromDataEx();</span>
-    <span class='comment'>// pub fn OleCreateLinkToFile();</span>
-    <span class='comment'>// pub fn OleCreateLinkToFileEx();</span>
-    <span class='comment'>// pub fn OleCreateMenuDescriptor();</span>
-    <span class='comment'>// pub fn OleCreatePictureIndirectExt();</span>
-    <span class='comment'>// pub fn OleCreatePropertyFrameIndirectExt();</span>
-    <span class='comment'>// pub fn OleCreateStaticFromData();</span>
-    <span class='comment'>// pub fn OleDestroyMenuDescriptor();</span>
-    <span class='comment'>// pub fn OleDoAutoConvert();</span>
-    <span class='comment'>// pub fn OleDraw();</span>
-    <span class='comment'>// pub fn OleDuplicateData();</span>
-    <span class='comment'>// pub fn OleFlushClipboard();</span>
-    <span class='comment'>// pub fn OleGetAutoConvert();</span>
-    <span class='comment'>// pub fn OleGetClipboard();</span>
-    <span class='comment'>// pub fn OleGetIconOfClass();</span>
-    <span class='comment'>// pub fn OleGetIconOfFile();</span>
-    <span class='comment'>// pub fn OleIconToCursorExt();</span>
-    <span class='comment'>// pub fn OleInitialize();</span>
-    <span class='comment'>// pub fn OleInitializeWOW();</span>
-    <span class='comment'>// pub fn OleIsCurrentClipboard();</span>
-    <span class='comment'>// pub fn OleIsRunning();</span>
-    <span class='comment'>// pub fn OleLoad();</span>
-    <span class='comment'>// pub fn OleLoadFromStream();</span>
-    <span class='comment'>// pub fn OleLoadPictureExt();</span>
-    <span class='comment'>// pub fn OleLoadPictureFileExt();</span>
-    <span class='comment'>// pub fn OleLoadPicturePathExt();</span>
-    <span class='comment'>// pub fn OleLockRunning();</span>
-    <span class='comment'>// pub fn OleMetafilePictFromIconAndLabel();</span>
-    <span class='comment'>// pub fn OleNoteObjectVisible();</span>
-    <span class='comment'>// pub fn OleQueryCreateFromData();</span>
-    <span class='comment'>// pub fn OleQueryLinkFromData();</span>
-    <span class='comment'>// pub fn OleRegEnumFormatEtc();</span>
-    <span class='comment'>// pub fn OleRegEnumVerbs();</span>
-    <span class='comment'>// pub fn OleRegGetMiscStatus();</span>
-    <span class='comment'>// pub fn OleRegGetUserType();</span>
-    <span class='comment'>// pub fn OleRun();</span>
-    <span class='comment'>// pub fn OleSave();</span>
-    <span class='comment'>// pub fn OleSavePictureFileExt();</span>
-    <span class='comment'>// pub fn OleSaveToStream();</span>
-    <span class='comment'>// pub fn OleSetAutoConvert();</span>
-    <span class='comment'>// pub fn OleSetClipboard();</span>
-    <span class='comment'>// pub fn OleSetContainedObject();</span>
-    <span class='comment'>// pub fn OleSetMenuDescriptor();</span>
-    <span class='comment'>// pub fn OleTranslateAccelerator();</span>
-    <span class='comment'>// pub fn OleTranslateColorExt();</span>
-    <span class='comment'>// pub fn OleUninitialize();</span>
-    <span class='comment'>// pub fn OpenOrCreateStream();</span>
-    <span class='comment'>// pub fn ProgIDFromCLSID();</span>
-    <span class='comment'>// pub fn PropStgNameToFmtId();</span>
-    <span class='comment'>// pub fn PropVariantClear();</span>
-    <span class='comment'>// pub fn PropVariantCopy();</span>
-    <span class='comment'>// pub fn ReadClassStg();</span>
-    <span class='comment'>// pub fn ReadClassStm();</span>
-    <span class='comment'>// pub fn ReadFmtUserTypeStg();</span>
-    <span class='comment'>// pub fn ReadOleStg();</span>
-    <span class='comment'>// pub fn ReadStringStream();</span>
-    <span class='comment'>// pub fn RegisterActiveObjectExt();</span>
-    <span class='comment'>// pub fn RegisterDragDrop();</span>
-    <span class='comment'>// pub fn ReleaseStgMedium();</span>
-    <span class='comment'>// pub fn RevokeActiveObjectExt();</span>
-    <span class='comment'>// pub fn RevokeDragDrop();</span>
-    <span class='comment'>// pub fn RoGetAgileReference();</span>
-    <span class='comment'>// pub fn SNB_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn SNB_UserFree64();</span>
-    <span class='comment'>// pub fn SNB_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn SNB_UserMarshal64();</span>
-    <span class='comment'>// pub fn SNB_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn SNB_UserSize64();</span>
-    <span class='comment'>// pub fn SNB_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn SNB_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserFree64();</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserMarshal64();</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserSize64();</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn STGMEDIUM_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn SetConvertStg();</span>
-    <span class='comment'>// pub fn SetDocumentBitStg();</span>
-    <span class='comment'>// pub fn StgConvertPropertyToVariant();</span>
-    <span class='comment'>// pub fn StgConvertVariantToProperty();</span>
-    <span class='comment'>// pub fn StgCreateDocfile();</span>
-    <span class='comment'>// pub fn StgCreateDocfileOnILockBytes();</span>
-    <span class='comment'>// pub fn StgCreatePropSetStg();</span>
-    <span class='comment'>// pub fn StgCreatePropStg();</span>
-    <span class='comment'>// pub fn StgCreateStorageEx();</span>
-    <span class='comment'>// pub fn StgGetIFillLockBytesOnFile();</span>
-    <span class='comment'>// pub fn StgGetIFillLockBytesOnILockBytes();</span>
-    <span class='comment'>// pub fn StgIsStorageFile();</span>
-    <span class='comment'>// pub fn StgIsStorageILockBytes();</span>
-    <span class='comment'>// pub fn StgOpenAsyncDocfileOnIFillLockBytes();</span>
-    <span class='comment'>// pub fn StgOpenPropStg();</span>
-    <span class='comment'>// pub fn StgOpenStorage();</span>
-    <span class='comment'>// pub fn StgOpenStorageEx();</span>
-    <span class='comment'>// pub fn StgOpenStorageOnILockBytes();</span>
-    <span class='comment'>// pub fn StgPropertyLengthAsVariant();</span>
-    <span class='comment'>// pub fn StgSetTimes();</span>
-    <span class='comment'>// pub fn StringFromCLSID();</span>
-    <span class='comment'>// pub fn StringFromGUID2();</span>
-    <span class='comment'>// pub fn StringFromIID();</span>
-    <span class='comment'>// pub fn UpdateDCOMSettings();</span>
-    <span class='comment'>// pub fn UtConvertDvtd16toDvtd32();</span>
-    <span class='comment'>// pub fn UtConvertDvtd32toDvtd16();</span>
-    <span class='comment'>// pub fn UtGetDvtd16Info();</span>
-    <span class='comment'>// pub fn UtGetDvtd32Info();</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserFree();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserFree64();</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserMarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserMarshal64();</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserSize();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserSize64();</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserUnmarshal();</span>
-    <span class='comment'>// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
-    <span class='comment'>// pub fn WdtpInterfacePointer_UserUnmarshal64();</span>
-    <span class='comment'>// pub fn WriteClassStg();</span>
-    <span class='comment'>// pub fn WriteClassStm();</span>
-    <span class='comment'>// pub fn WriteFmtUserTypeStg();</span>
-    <span class='comment'>// pub fn WriteOleStg();</span>
-    <span class='comment'>// pub fn WriteStringStream();</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to ole32.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="comment">// pub fn BindMoniker();</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserFree64();</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserMarshal64();</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserSize64();</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn CLIPFORMAT_UserUnmarshal64();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CLSIDFromProgID</span>(<span class="ident">lpszProgID</span>: <span class="ident">LPCOLESTR</span>, <span class="ident">lpclsid</span>: <span class="ident">LPCLSID</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CLSIDFromProgIDEx();</span>
+    <span class="comment">// pub fn CLSIDFromString();</span>
+    <span class="comment">// pub fn CoAddRefServerProcess();</span>
+    <span class="comment">// pub fn CoAllowSetForegroundWindow();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoAllowUnmarshalerCLSID</span>(<span class="ident">clsid</span>: <span class="ident">REFCLSID</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoBuildVersion();</span>
+    <span class="comment">// pub fn CoCancelCall();</span>
+    <span class="comment">// pub fn CoCopyProxy();</span>
+    <span class="comment">// pub fn CoCreateFreeThreadedMarshaler();</span>
+    <span class="comment">// pub fn CoCreateGuid();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoCreateInstance</span>(
+        <span class="ident">rclsid</span>: <span class="ident">REFCLSID</span>, <span class="ident">pUnkOuter</span>: <span class="ident">LPUNKNOWN</span>, <span class="ident">dwClsContext</span>: <span class="ident">DWORD</span>, <span class="ident">riid</span>: <span class="ident">REFIID</span>,
+        <span class="ident">ppv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPVOID</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoCreateInstanceEx();</span>
+    <span class="comment">// pub fn CoCreateInstanceFromApp();</span>
+    <span class="comment">// pub fn CoCreateObjectInContext();</span>
+    <span class="comment">// pub fn CoDeactivateObject();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoDecodeProxy</span>(
+        <span class="ident">dwClientPid</span>: <span class="ident">DWORD</span>, <span class="ident">ui64ProxyAddress</span>: <span class="ident">UINT64</span>, <span class="ident">pServerInformation</span>: <span class="ident">PServerInformation</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoDecrementMTAUsage</span>(<span class="ident">Cookie</span>: <span class="ident">CO_MTA_USAGE_COOKIE</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoDisableCallCancellation();</span>
+    <span class="comment">// pub fn CoDisconnectContext();</span>
+    <span class="comment">// pub fn CoDisconnectObject();</span>
+    <span class="comment">// pub fn CoDosDateTimeToFileTime();</span>
+    <span class="comment">// pub fn CoEnableCallCancellation();</span>
+    <span class="comment">// pub fn CoFileTimeNow();</span>
+    <span class="comment">// pub fn CoFileTimeToDosDateTime();</span>
+    <span class="comment">// pub fn CoFreeAllLibraries();</span>
+    <span class="comment">// pub fn CoFreeLibrary();</span>
+    <span class="comment">// pub fn CoFreeUnusedLibraries();</span>
+    <span class="comment">// pub fn CoFreeUnusedLibrariesEx();</span>
+    <span class="comment">// pub fn CoGetApartmentID();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetApartmentType</span>(
+        <span class="ident">pAptType</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">APTTYPE</span>, <span class="ident">pAptQualifier</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">APTTYPEQUALIFIER</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetCallContext();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetCallerTID</span>(<span class="ident">lpdwTID</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetCancelObject();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetClassObject</span>(
+        <span class="ident">rclsid</span>: <span class="ident">REFCLSID</span>, <span class="ident">dwClsContext</span>: <span class="ident">DWORD</span>, <span class="ident">pvReserved</span>: <span class="ident">LPVOID</span>, <span class="ident">riid</span>: <span class="ident">REFIID</span>, <span class="ident">ppv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPVOID</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetClassVersion();</span>
+    <span class="comment">// pub fn CoGetComCatalog();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetContextToken</span>(<span class="ident">pToken</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ULONG_PTR</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetCurrentLogicalThreadId</span>(<span class="ident">pguid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">GUID</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetCurrentProcess</span>() <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetDefaultContext</span>(<span class="ident">aptType</span>: <span class="ident">APTTYPE</span>, <span class="ident">riid</span>: <span class="ident">REFIID</span>, <span class="ident">ppv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetInstanceFromFile();</span>
+    <span class="comment">// pub fn CoGetInstanceFromIStorage();</span>
+    <span class="comment">// pub fn CoGetInterceptor();</span>
+    <span class="comment">// pub fn CoGetInterceptorFromTypeInfo();</span>
+    <span class="comment">// pub fn CoGetInterfaceAndReleaseStream();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetMalloc</span>(<span class="ident">dwMemContext</span>: <span class="ident">DWORD</span>, <span class="ident">ppMalloc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPMALLOC</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetMarshalSizeMax();</span>
+    <span class="comment">// pub fn CoGetObject();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoGetObjectContext</span>(<span class="ident">riid</span>: <span class="ident">REFIID</span>, <span class="ident">ppv</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPVOID</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoGetPSClsid();</span>
+    <span class="comment">// pub fn CoGetProcessIdentifier();</span>
+    <span class="comment">// pub fn CoGetStandardMarshal();</span>
+    <span class="comment">// pub fn CoGetStdMarshalEx();</span>
+    <span class="comment">// pub fn CoGetSystemSecurityPermissions();</span>
+    <span class="comment">// pub fn CoGetTreatAsClass();</span>
+    <span class="comment">// pub fn CoHandlePriorityEventsFromMessagePump();</span>
+    <span class="comment">// pub fn CoImpersonateClient();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoIncrementMTAUsage</span>(<span class="ident">pCookie</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">CO_MTA_USAGE_COOKIE</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoInitialize</span>(<span class="ident">pvReserved</span>: <span class="ident">LPVOID</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoInitializeEx</span>(<span class="ident">pvReserved</span>: <span class="ident">LPVOID</span>, <span class="ident">dwCoInit</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoInitializeSecurity</span>(
+        <span class="ident">pSecDesc</span>: <span class="ident">PSECURITY_DESCRIPTOR</span>, <span class="ident">cAuthSvc</span>: <span class="ident">LONG</span>,
+        <span class="ident">asAuthSvc</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SOLE_AUTHENTICATION_SERVICE</span>, <span class="ident">pReserved1</span>: <span class="ident">LPVOID</span>, <span class="ident">dwAuthnLevel</span>: <span class="ident">DWORD</span>,
+        <span class="ident">dwImpLevel</span>: <span class="ident">DWORD</span>, <span class="ident">pAuthList</span>: <span class="ident">LPVOID</span>, <span class="ident">dwCapabilities</span>: <span class="ident">DWORD</span>, <span class="ident">pReserved3</span>: <span class="ident">LPVOID</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoInitializeWOW();</span>
+    <span class="comment">// pub fn CoInstall();</span>
+    <span class="comment">// pub fn CoInvalidateRemoteMachineBindings();</span>
+    <span class="comment">// pub fn CoIsHandlerConnected();</span>
+    <span class="comment">// pub fn CoIsOle1Class();</span>
+    <span class="comment">// pub fn CoLoadLibrary();</span>
+    <span class="comment">// pub fn CoLockObjectExternal();</span>
+    <span class="comment">// pub fn CoMarshalHresult();</span>
+    <span class="comment">// pub fn CoMarshalInterThreadInterfaceInStream();</span>
+    <span class="comment">// pub fn CoMarshalInterface();</span>
+    <span class="comment">// pub fn CoQueryAuthenticationServices();</span>
+    <span class="comment">// pub fn CoQueryClientBlanket();</span>
+    <span class="comment">// pub fn CoQueryProxyBlanket();</span>
+    <span class="comment">// pub fn CoQueryReleaseObject();</span>
+    <span class="comment">// pub fn CoReactivateObject();</span>
+    <span class="comment">// pub fn CoRegisterActivationFilter();</span>
+    <span class="comment">// pub fn CoRegisterChannelHook();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoRegisterClassObject</span>(
+        <span class="ident">rclsid</span>: <span class="ident">REFCLSID</span>, <span class="ident">pUnk</span>: <span class="ident">LPUNKNOWN</span>, <span class="ident">dwClsContext</span>: <span class="ident">DWORD</span>, <span class="ident">flags</span>: <span class="ident">DWORD</span>,
+        <span class="ident">lpdwRegister</span>: <span class="ident">LPDWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoRegisterInitializeSpy();</span>
+    <span class="comment">// pub fn CoRegisterMallocSpy();</span>
+    <span class="comment">// pub fn CoRegisterMessageFilter();</span>
+    <span class="comment">// pub fn CoRegisterPSClsid();</span>
+    <span class="comment">// pub fn CoRegisterSurrogate();</span>
+    <span class="comment">// pub fn CoRegisterSurrogateEx();</span>
+    <span class="comment">// pub fn CoReleaseMarshalData();</span>
+    <span class="comment">// pub fn CoReleaseServerProcess();</span>
+    <span class="comment">// pub fn CoResumeClassObjects();</span>
+    <span class="comment">// pub fn CoRetireServer();</span>
+    <span class="comment">// pub fn CoRevertToSelf();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoRevokeClassObject</span>() <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn CoRevokeInitializeSpy();</span>
+    <span class="comment">// pub fn CoRevokeMallocSpy();</span>
+    <span class="comment">// pub fn CoSetCancelObject();</span>
+    <span class="comment">// pub fn CoSetMessageDispatcher();</span>
+    <span class="comment">// pub fn CoSetProxyBlanket();</span>
+    <span class="comment">// pub fn CoSuspendClassObjects();</span>
+    <span class="comment">// pub fn CoSwitchCallContext();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoTaskMemAlloc</span>(<span class="ident">cb</span>: <span class="ident">SIZE_T</span>) <span class="op">-&gt;</span> <span class="ident">LPVOID</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoTaskMemFree</span>(<span class="ident">pv</span>: <span class="ident">LPVOID</span>);
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoTaskMemRealloc</span>(<span class="ident">pv</span>: <span class="ident">LPVOID</span>, <span class="ident">cb</span>: <span class="ident">SIZE_T</span>) <span class="op">-&gt;</span> <span class="ident">LPVOID</span>;
+    <span class="comment">// pub fn CoTestCancel();</span>
+    <span class="comment">// pub fn CoTreatAsClass();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CoUninitialize</span>();
+    <span class="comment">// pub fn CoUnloadingWOW();</span>
+    <span class="comment">// pub fn CoUnmarshalHresult();</span>
+    <span class="comment">// pub fn CoUnmarshalInterface();</span>
+    <span class="comment">// pub fn CoWaitForMultipleHandles();</span>
+    <span class="comment">// pub fn CoWaitForMultipleObjects();</span>
+    <span class="comment">// pub fn ComPs_NdrDllCanUnloadNow();</span>
+    <span class="comment">// pub fn ComPs_NdrDllGetClassObject();</span>
+    <span class="comment">// pub fn ComPs_NdrDllRegisterProxy();</span>
+    <span class="comment">// pub fn ComPs_NdrDllUnregisterProxy();</span>
+    <span class="comment">// pub fn CreateAntiMoniker();</span>
+    <span class="comment">// pub fn CreateBindCtx();</span>
+    <span class="comment">// pub fn CreateClassMoniker();</span>
+    <span class="comment">// pub fn CreateDataAdviseHolder();</span>
+    <span class="comment">// pub fn CreateDataCache();</span>
+    <span class="comment">// pub fn CreateFileMoniker();</span>
+    <span class="comment">// pub fn CreateGenericComposite();</span>
+    <span class="comment">// pub fn CreateILockBytesOnHGlobal();</span>
+    <span class="comment">// pub fn CreateItemMoniker();</span>
+    <span class="comment">// pub fn CreateObjrefMoniker();</span>
+    <span class="comment">// pub fn CreateOleAdviseHolder();</span>
+    <span class="comment">// pub fn CreatePointerMoniker();</span>
+    <span class="comment">// pub fn CreateStdProgressIndicator();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CreateStreamOnHGlobal</span>(
+        <span class="ident">hGlobal</span>: <span class="ident">HGLOBAL</span>, <span class="ident">fDeleteOnRelease</span>: <span class="ident">BOOL</span>, <span class="ident">ppstm</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">LPSTREAM</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn DcomChannelSetHResult();</span>
+    <span class="comment">// pub fn DllDebugObjectRPCHook();</span>
+    <span class="comment">// pub fn DllGetClassObjectWOW();</span>
+    <span class="comment">// pub fn DoDragDrop();</span>
+    <span class="comment">// pub fn EnableHookObject();</span>
+    <span class="comment">// pub fn FmtIdToPropStgName();</span>
+    <span class="comment">// pub fn FreePropVariantArray();</span>
+    <span class="comment">// pub fn GetActiveObjectExt();</span>
+    <span class="comment">// pub fn GetClassFile();</span>
+    <span class="comment">// pub fn GetConvertStg();</span>
+    <span class="comment">// pub fn GetDocumentBitStg();</span>
+    <span class="comment">// pub fn GetHGlobalFromILockBytes();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">GetHGlobalFromStream</span>(<span class="ident">pstm</span>: <span class="ident">LPSTREAM</span>, <span class="ident">phglobal</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">HGLOBAL</span>) <span class="op">-&gt;</span> <span class="ident">HRESULT</span>;
+    <span class="comment">// pub fn GetHookInterface();</span>
+    <span class="comment">// pub fn GetRunningObjectTable();</span>
+    <span class="comment">// pub fn HACCEL_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HACCEL_UserFree64();</span>
+    <span class="comment">// pub fn HACCEL_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HACCEL_UserMarshal64();</span>
+    <span class="comment">// pub fn HACCEL_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HACCEL_UserSize64();</span>
+    <span class="comment">// pub fn HACCEL_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HACCEL_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HBITMAP_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBITMAP_UserFree64();</span>
+    <span class="comment">// pub fn HBITMAP_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBITMAP_UserMarshal64();</span>
+    <span class="comment">// pub fn HBITMAP_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBITMAP_UserSize64();</span>
+    <span class="comment">// pub fn HBITMAP_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBITMAP_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HBRUSH_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBRUSH_UserFree64();</span>
+    <span class="comment">// pub fn HBRUSH_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBRUSH_UserMarshal64();</span>
+    <span class="comment">// pub fn HBRUSH_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBRUSH_UserSize64();</span>
+    <span class="comment">// pub fn HBRUSH_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HBRUSH_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HDC_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HDC_UserFree64();</span>
+    <span class="comment">// pub fn HDC_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HDC_UserMarshal64();</span>
+    <span class="comment">// pub fn HDC_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HDC_UserSize64();</span>
+    <span class="comment">// pub fn HDC_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HDC_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserFree64();</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserMarshal64();</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserSize64();</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HENHMETAFILE_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HGLOBAL_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HGLOBAL_UserFree64();</span>
+    <span class="comment">// pub fn HGLOBAL_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HGLOBAL_UserMarshal64();</span>
+    <span class="comment">// pub fn HGLOBAL_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HGLOBAL_UserSize64();</span>
+    <span class="comment">// pub fn HGLOBAL_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HGLOBAL_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HICON_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HICON_UserFree64();</span>
+    <span class="comment">// pub fn HICON_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HICON_UserMarshal64();</span>
+    <span class="comment">// pub fn HICON_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HICON_UserSize64();</span>
+    <span class="comment">// pub fn HICON_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HICON_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HMENU_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMENU_UserFree64();</span>
+    <span class="comment">// pub fn HMENU_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMENU_UserMarshal64();</span>
+    <span class="comment">// pub fn HMENU_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMENU_UserSize64();</span>
+    <span class="comment">// pub fn HMENU_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMENU_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserFree64();</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserMarshal64();</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserSize64();</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILEPICT_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HMETAFILE_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILE_UserFree64();</span>
+    <span class="comment">// pub fn HMETAFILE_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILE_UserMarshal64();</span>
+    <span class="comment">// pub fn HMETAFILE_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILE_UserSize64();</span>
+    <span class="comment">// pub fn HMETAFILE_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMETAFILE_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HMONITOR_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMONITOR_UserFree64();</span>
+    <span class="comment">// pub fn HMONITOR_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMONITOR_UserMarshal64();</span>
+    <span class="comment">// pub fn HMONITOR_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMONITOR_UserSize64();</span>
+    <span class="comment">// pub fn HMONITOR_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HMONITOR_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HPALETTE_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HPALETTE_UserFree64();</span>
+    <span class="comment">// pub fn HPALETTE_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HPALETTE_UserMarshal64();</span>
+    <span class="comment">// pub fn HPALETTE_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HPALETTE_UserSize64();</span>
+    <span class="comment">// pub fn HPALETTE_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HPALETTE_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HWND_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HWND_UserFree64();</span>
+    <span class="comment">// pub fn HWND_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HWND_UserMarshal64();</span>
+    <span class="comment">// pub fn HWND_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HWND_UserSize64();</span>
+    <span class="comment">// pub fn HWND_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn HWND_UserUnmarshal64();</span>
+    <span class="comment">// pub fn HkOleRegisterObject();</span>
+    <span class="comment">// pub fn IIDFromString();</span>
+    <span class="comment">// pub fn IsAccelerator();</span>
+    <span class="comment">// pub fn IsEqualGUID();</span>
+    <span class="comment">// pub fn MkParseDisplayName();</span>
+    <span class="comment">// pub fn MonikerCommonPrefixWith();</span>
+    <span class="comment">// pub fn MonikerRelativePathTo();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction10();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction11();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction12();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction13();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction14();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction15();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction16();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction17();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction18();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction19();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction20();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction21();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction22();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction23();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction24();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction25();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction26();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction27();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction28();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction29();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction3();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction30();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction31();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction32();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction4();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction5();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction6();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction7();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction8();</span>
+    <span class="comment">// pub fn NdrProxyForwardingFunction9();</span>
+    <span class="comment">// pub fn ObjectStublessClient10();</span>
+    <span class="comment">// pub fn ObjectStublessClient11();</span>
+    <span class="comment">// pub fn ObjectStublessClient12();</span>
+    <span class="comment">// pub fn ObjectStublessClient13();</span>
+    <span class="comment">// pub fn ObjectStublessClient14();</span>
+    <span class="comment">// pub fn ObjectStublessClient15();</span>
+    <span class="comment">// pub fn ObjectStublessClient16();</span>
+    <span class="comment">// pub fn ObjectStublessClient17();</span>
+    <span class="comment">// pub fn ObjectStublessClient18();</span>
+    <span class="comment">// pub fn ObjectStublessClient19();</span>
+    <span class="comment">// pub fn ObjectStublessClient20();</span>
+    <span class="comment">// pub fn ObjectStublessClient21();</span>
+    <span class="comment">// pub fn ObjectStublessClient22();</span>
+    <span class="comment">// pub fn ObjectStublessClient23();</span>
+    <span class="comment">// pub fn ObjectStublessClient24();</span>
+    <span class="comment">// pub fn ObjectStublessClient25();</span>
+    <span class="comment">// pub fn ObjectStublessClient26();</span>
+    <span class="comment">// pub fn ObjectStublessClient27();</span>
+    <span class="comment">// pub fn ObjectStublessClient28();</span>
+    <span class="comment">// pub fn ObjectStublessClient29();</span>
+    <span class="comment">// pub fn ObjectStublessClient3();</span>
+    <span class="comment">// pub fn ObjectStublessClient30();</span>
+    <span class="comment">// pub fn ObjectStublessClient31();</span>
+    <span class="comment">// pub fn ObjectStublessClient32();</span>
+    <span class="comment">// pub fn ObjectStublessClient4();</span>
+    <span class="comment">// pub fn ObjectStublessClient5();</span>
+    <span class="comment">// pub fn ObjectStublessClient6();</span>
+    <span class="comment">// pub fn ObjectStublessClient7();</span>
+    <span class="comment">// pub fn ObjectStublessClient8();</span>
+    <span class="comment">// pub fn ObjectStublessClient9();</span>
+    <span class="comment">// pub fn Ole32DllGetClassObject();</span>
+    <span class="comment">// pub fn OleBuildVersion();</span>
+    <span class="comment">// pub fn OleConvertIStorageToOLESTREAM();</span>
+    <span class="comment">// pub fn OleConvertIStorageToOLESTREAMEx();</span>
+    <span class="comment">// pub fn OleConvertOLESTREAMToIStorage();</span>
+    <span class="comment">// pub fn OleConvertOLESTREAMToIStorageEx();</span>
+    <span class="comment">// pub fn OleCreate();</span>
+    <span class="comment">// pub fn OleCreateDefaultHandler();</span>
+    <span class="comment">// pub fn OleCreateEmbeddingHelper();</span>
+    <span class="comment">// pub fn OleCreateEx();</span>
+    <span class="comment">// pub fn OleCreateFontIndirectExt();</span>
+    <span class="comment">// pub fn OleCreateFromData();</span>
+    <span class="comment">// pub fn OleCreateFromDataEx();</span>
+    <span class="comment">// pub fn OleCreateFromFile();</span>
+    <span class="comment">// pub fn OleCreateFromFileEx();</span>
+    <span class="comment">// pub fn OleCreateLink();</span>
+    <span class="comment">// pub fn OleCreateLinkEx();</span>
+    <span class="comment">// pub fn OleCreateLinkFromData();</span>
+    <span class="comment">// pub fn OleCreateLinkFromDataEx();</span>
+    <span class="comment">// pub fn OleCreateLinkToFile();</span>
+    <span class="comment">// pub fn OleCreateLinkToFileEx();</span>
+    <span class="comment">// pub fn OleCreateMenuDescriptor();</span>
+    <span class="comment">// pub fn OleCreatePictureIndirectExt();</span>
+    <span class="comment">// pub fn OleCreatePropertyFrameIndirectExt();</span>
+    <span class="comment">// pub fn OleCreateStaticFromData();</span>
+    <span class="comment">// pub fn OleDestroyMenuDescriptor();</span>
+    <span class="comment">// pub fn OleDoAutoConvert();</span>
+    <span class="comment">// pub fn OleDraw();</span>
+    <span class="comment">// pub fn OleDuplicateData();</span>
+    <span class="comment">// pub fn OleFlushClipboard();</span>
+    <span class="comment">// pub fn OleGetAutoConvert();</span>
+    <span class="comment">// pub fn OleGetClipboard();</span>
+    <span class="comment">// pub fn OleGetIconOfClass();</span>
+    <span class="comment">// pub fn OleGetIconOfFile();</span>
+    <span class="comment">// pub fn OleIconToCursorExt();</span>
+    <span class="comment">// pub fn OleInitialize();</span>
+    <span class="comment">// pub fn OleInitializeWOW();</span>
+    <span class="comment">// pub fn OleIsCurrentClipboard();</span>
+    <span class="comment">// pub fn OleIsRunning();</span>
+    <span class="comment">// pub fn OleLoad();</span>
+    <span class="comment">// pub fn OleLoadFromStream();</span>
+    <span class="comment">// pub fn OleLoadPictureExt();</span>
+    <span class="comment">// pub fn OleLoadPictureFileExt();</span>
+    <span class="comment">// pub fn OleLoadPicturePathExt();</span>
+    <span class="comment">// pub fn OleLockRunning();</span>
+    <span class="comment">// pub fn OleMetafilePictFromIconAndLabel();</span>
+    <span class="comment">// pub fn OleNoteObjectVisible();</span>
+    <span class="comment">// pub fn OleQueryCreateFromData();</span>
+    <span class="comment">// pub fn OleQueryLinkFromData();</span>
+    <span class="comment">// pub fn OleRegEnumFormatEtc();</span>
+    <span class="comment">// pub fn OleRegEnumVerbs();</span>
+    <span class="comment">// pub fn OleRegGetMiscStatus();</span>
+    <span class="comment">// pub fn OleRegGetUserType();</span>
+    <span class="comment">// pub fn OleRun();</span>
+    <span class="comment">// pub fn OleSave();</span>
+    <span class="comment">// pub fn OleSavePictureFileExt();</span>
+    <span class="comment">// pub fn OleSaveToStream();</span>
+    <span class="comment">// pub fn OleSetAutoConvert();</span>
+    <span class="comment">// pub fn OleSetClipboard();</span>
+    <span class="comment">// pub fn OleSetContainedObject();</span>
+    <span class="comment">// pub fn OleSetMenuDescriptor();</span>
+    <span class="comment">// pub fn OleTranslateAccelerator();</span>
+    <span class="comment">// pub fn OleTranslateColorExt();</span>
+    <span class="comment">// pub fn OleUninitialize();</span>
+    <span class="comment">// pub fn OpenOrCreateStream();</span>
+    <span class="comment">// pub fn ProgIDFromCLSID();</span>
+    <span class="comment">// pub fn PropStgNameToFmtId();</span>
+    <span class="comment">// pub fn PropVariantClear();</span>
+    <span class="comment">// pub fn PropVariantCopy();</span>
+    <span class="comment">// pub fn ReadClassStg();</span>
+    <span class="comment">// pub fn ReadClassStm();</span>
+    <span class="comment">// pub fn ReadFmtUserTypeStg();</span>
+    <span class="comment">// pub fn ReadOleStg();</span>
+    <span class="comment">// pub fn ReadStringStream();</span>
+    <span class="comment">// pub fn RegisterActiveObjectExt();</span>
+    <span class="comment">// pub fn RegisterDragDrop();</span>
+    <span class="comment">// pub fn ReleaseStgMedium();</span>
+    <span class="comment">// pub fn RevokeActiveObjectExt();</span>
+    <span class="comment">// pub fn RevokeDragDrop();</span>
+    <span class="comment">// pub fn RoGetAgileReference();</span>
+    <span class="comment">// pub fn SNB_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn SNB_UserFree64();</span>
+    <span class="comment">// pub fn SNB_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn SNB_UserMarshal64();</span>
+    <span class="comment">// pub fn SNB_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn SNB_UserSize64();</span>
+    <span class="comment">// pub fn SNB_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn SNB_UserUnmarshal64();</span>
+    <span class="comment">// pub fn STGMEDIUM_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn STGMEDIUM_UserFree64();</span>
+    <span class="comment">// pub fn STGMEDIUM_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn STGMEDIUM_UserMarshal64();</span>
+    <span class="comment">// pub fn STGMEDIUM_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn STGMEDIUM_UserSize64();</span>
+    <span class="comment">// pub fn STGMEDIUM_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn STGMEDIUM_UserUnmarshal64();</span>
+    <span class="comment">// pub fn SetConvertStg();</span>
+    <span class="comment">// pub fn SetDocumentBitStg();</span>
+    <span class="comment">// pub fn StgConvertPropertyToVariant();</span>
+    <span class="comment">// pub fn StgConvertVariantToProperty();</span>
+    <span class="comment">// pub fn StgCreateDocfile();</span>
+    <span class="comment">// pub fn StgCreateDocfileOnILockBytes();</span>
+    <span class="comment">// pub fn StgCreatePropSetStg();</span>
+    <span class="comment">// pub fn StgCreatePropStg();</span>
+    <span class="comment">// pub fn StgCreateStorageEx();</span>
+    <span class="comment">// pub fn StgGetIFillLockBytesOnFile();</span>
+    <span class="comment">// pub fn StgGetIFillLockBytesOnILockBytes();</span>
+    <span class="comment">// pub fn StgIsStorageFile();</span>
+    <span class="comment">// pub fn StgIsStorageILockBytes();</span>
+    <span class="comment">// pub fn StgOpenAsyncDocfileOnIFillLockBytes();</span>
+    <span class="comment">// pub fn StgOpenPropStg();</span>
+    <span class="comment">// pub fn StgOpenStorage();</span>
+    <span class="comment">// pub fn StgOpenStorageEx();</span>
+    <span class="comment">// pub fn StgOpenStorageOnILockBytes();</span>
+    <span class="comment">// pub fn StgPropertyLengthAsVariant();</span>
+    <span class="comment">// pub fn StgSetTimes();</span>
+    <span class="comment">// pub fn StringFromCLSID();</span>
+    <span class="comment">// pub fn StringFromGUID2();</span>
+    <span class="comment">// pub fn StringFromIID();</span>
+    <span class="comment">// pub fn UpdateDCOMSettings();</span>
+    <span class="comment">// pub fn UtConvertDvtd16toDvtd32();</span>
+    <span class="comment">// pub fn UtConvertDvtd32toDvtd16();</span>
+    <span class="comment">// pub fn UtGetDvtd16Info();</span>
+    <span class="comment">// pub fn UtGetDvtd32Info();</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserFree();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserFree64();</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserMarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserMarshal64();</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserSize();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserSize64();</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserUnmarshal();</span>
+    <span class="comment">// #[cfg(target_arch = &quot;x86_64&quot;)]</span>
+    <span class="comment">// pub fn WdtpInterfacePointer_UserUnmarshal64();</span>
+    <span class="comment">// pub fn WriteClassStg();</span>
+    <span class="comment">// pub fn WriteClassStm();</span>
+    <span class="comment">// pub fn WriteFmtUserTypeStg();</span>
+    <span class="comment">// pub fn WriteOleStg();</span>
+    <span class="comment">// pub fn WriteStringStream();</span>
 }
 </pre>
 </section>
@@ -1168,12 +1170,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -1194,7 +1200,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -1205,11 +1211,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "ole32";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

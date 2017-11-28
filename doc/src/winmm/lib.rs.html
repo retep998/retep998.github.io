@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winmm-sys-0.2.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winmm-sys-0.2.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -166,131 +168,131 @@
 <span id="123">123</span>
 <span id="124">124</span>
 <span id="125">125</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! FFI bindings to winmm.</span>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
-<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>PlaySoundA</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>hmod</span>: <span class='ident'>HMODULE</span>, <span class='ident'>fdwSound</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>PlaySoundW</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>hmod</span>: <span class='ident'>HMODULE</span>, <span class='ident'>fdwSound</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sndPlaySoundA</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCSTR</span>, <span class='ident'>fuSound</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>sndPlaySoundW</span>(<span class='ident'>pszSound</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>fuSound</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeBeginPeriod</span>(<span class='ident'>uPeriod</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeEndPeriod</span>(<span class='ident'>uPeriod</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeGetDevCaps</span>(<span class='ident'>ptc</span>: <span class='ident'>LPTIMECAPS</span>, <span class='ident'>cbtc</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>timeGetTime</span>() <span class='op'>-&gt;</span> <span class='ident'>DWORD</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInAddBuffer</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInClose</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveInGetDevCapsA();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetDevCapsW</span>(<span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>pwic</span>: <span class='ident'>LPWAVEINCAPSW</span>, <span class='ident'>cbwic</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveInGetErrorTextA();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetErrorTextW</span>(<span class='ident'>mmrError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>pszText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveInGetID();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInGetPosition</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pmmt</span>: <span class='ident'>LPMMTIME</span>, <span class='ident'>cbmmt</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInMessage</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>uMsg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInOpen</span>(
-        <span class='ident'>phwi</span>: <span class='ident'>LPHWAVEIN</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>pwfx</span>: <span class='ident'>LPCWAVEFORMATEX</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>,
-        <span class='ident'>dwInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>fdwOpen</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInPrepareHeader</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInReset</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInStart</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInStop</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveInUnprepareHeader</span>(<span class='ident'>hwi</span>: <span class='ident'>HWAVEIN</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutBreakLoop</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutClose</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveOutGetDevCapsA();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetDevCapsW</span>(<span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>pwoc</span>: <span class='ident'>LPWAVEOUTCAPSW</span>, <span class='ident'>cbwoc</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveOutGetErrorTextA();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetErrorTextW</span>(<span class='ident'>mmrError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>pszText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='comment'>// pub fn waveOutGetID();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPitch</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwPitch</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPlaybackRate</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwRate</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetPosition</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pmmt</span>: <span class='ident'>LPMMTIME</span>, <span class='ident'>cbmmt</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutGetVolume</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pdwVolume</span>: <span class='ident'>LPDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutMessage</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>uMsg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutOpen</span>(
-        <span class='ident'>phwo</span>: <span class='ident'>LPHWAVEOUT</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>pwfx</span>: <span class='ident'>LPCWAVEFORMATEX</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>,
-        <span class='ident'>dwInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>fdwOpen</span>: <span class='ident'>DWORD</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutPause</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutPrepareHeader</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutReset</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutRestart</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetPitch</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwPitch</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetPlaybackRate</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwRate</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutSetVolume</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>dwVolume</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutUnprepareHeader</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>waveOutWrite</span>(<span class='ident'>hwo</span>: <span class='ident'>HWAVEOUT</span>, <span class='ident'>pwh</span>: <span class='ident'>LPWAVEHDR</span>, <span class='ident'>cbwh</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamOpen</span>(
-        <span class='ident'>lphStream</span>: <span class='ident'>LPHMIDISTRM</span>, <span class='ident'>puDeviceID</span>: <span class='ident'>LPUINT</span>, <span class='ident'>cMidi</span>: <span class='ident'>DWORD</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>,
-        <span class='ident'>dwInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>fdwOpen</span>: <span class='ident'>DWORD</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamClose</span>(<span class='ident'>hStream</span>: <span class='ident'>HMIDISTRM</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamProperty</span>(<span class='ident'>hm</span>: <span class='ident'>HMIDISTRM</span>, <span class='ident'>lppropdata</span>: <span class='ident'>LPBYTE</span>, <span class='ident'>dwProperty</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamPosition</span>(<span class='ident'>hms</span>: <span class='ident'>HMIDISTRM</span>, <span class='ident'>pmmt</span>: <span class='ident'>LPMMTIME</span>, <span class='ident'>cbmmt</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamOut</span>(<span class='ident'>hMidiStream</span>: <span class='ident'>HMIDISTRM</span>, <span class='ident'>lpMidiHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiHdr</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamPause</span>(<span class='ident'>hms</span>: <span class='ident'>HMIDISTRM</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamRestart</span>(<span class='ident'>hms</span>: <span class='ident'>HMIDISTRM</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiStreamStop</span>(<span class='ident'>hms</span>: <span class='ident'>HMIDISTRM</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiConnect</span>(<span class='ident'>hMidi</span>: <span class='ident'>HMIDI</span>, <span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>pReserved</span>: <span class='ident'>PVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiDisconnect</span>(<span class='ident'>hMidi</span>: <span class='ident'>HMIDI</span>, <span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>pReserved</span>: <span class='ident'>PVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutGetDevCapsW</span>(
-        <span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>lpMidiOutCaps</span>: <span class='ident'>LPMIDIOUTCAPSW</span>, <span class='ident'>cbMidiOutCaps</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutGetVolume</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>lpdwVolume</span>: <span class='ident'>PDWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutSetVolume</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>dwVolume</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutGetErrorTextW</span>(<span class='ident'>mmrError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>lpText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutOpen</span>(
-        <span class='ident'>lphmo</span>: <span class='ident'>LPHMIDIOUT</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dwCallbackInstance</span>: <span class='ident'>DWORD_PTR</span>,
-        <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutClose</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutPrepareHeader</span>(
-        <span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>lpMidiOutHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiOutHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutUnprepareHeader</span>(
-        <span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>lpMidiOutHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiOutHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutShortMsg</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>dwMsg</span>: <span class='ident'>DWORD</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutLongMsg</span>(
-        <span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>lpMidiOutHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiOutHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutReset</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutCachePatches</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>wBank</span>: <span class='ident'>UINT</span>, <span class='ident'>lpPatchArray</span>: <span class='ident'>LPWORD</span>, <span class='ident'>wFlags</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutCacheDrumPatches</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>wPatch</span>: <span class='ident'>UINT</span>, <span class='ident'>lpKeyArray</span>: <span class='ident'>LPWORD</span>, <span class='ident'>wFlags</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutGetID</span>(<span class='ident'>hmo</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>puDeviceID</span>: <span class='ident'>LPUINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiOutMessage</span>(<span class='ident'>deviceID</span>: <span class='ident'>HMIDIOUT</span>, <span class='ident'>msg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInGetNumDevs</span>() <span class='op'>-&gt;</span> <span class='ident'>UINT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInGetDevCapsW</span>(
-        <span class='ident'>uDeviceID</span>: <span class='ident'>UINT_PTR</span>, <span class='ident'>lpMidiInCaps</span>: <span class='ident'>LPMIDIINCAPSW</span>, <span class='ident'>cbMidiInCaps</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInGetErrorTextW</span>(<span class='ident'>wError</span>: <span class='ident'>MMRESULT</span>, <span class='ident'>lpText</span>: <span class='ident'>LPWSTR</span>, <span class='ident'>cchText</span>: <span class='ident'>UINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInOpen</span>(
-        <span class='ident'>lphMidiIn</span>: <span class='ident'>LPHMIDIIN</span>, <span class='ident'>uDeviceID</span>: <span class='ident'>UINT</span>, <span class='ident'>dwCallback</span>: <span class='ident'>DWORD_PTR</span>, 
-        <span class='ident'>dwCallbackInstance</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dwFlags</span>: <span class='ident'>DWORD</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInClose</span>(<span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInPrepareHeader</span>(
-        <span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>, <span class='ident'>lpMidiInHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiInHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInUnprepareHeader</span>(
-        <span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>, <span class='ident'>lpMidiInHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiInHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInAddBuffer</span>(
-        <span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>, <span class='ident'>lpMidiInHdr</span>: <span class='ident'>LPMIDIHDR</span>, <span class='ident'>cbMidiInHdr</span>: <span class='ident'>UINT</span>
-    ) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInStart</span>(<span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInStop</span>(<span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInReset</span>(<span class='ident'>hMidiIn</span>: <span class='ident'>HMIDIIN</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInGetID</span>(<span class='ident'>hmi</span>: <span class='ident'>HMIDIIN</span>, <span class='ident'>puDeviceID</span>: <span class='ident'>LPUINT</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>midiInMessage</span>(<span class='ident'>deviceID</span>: <span class='ident'>HMIDIIN</span>, <span class='ident'>msg</span>: <span class='ident'>UINT</span>, <span class='ident'>dw1</span>: <span class='ident'>DWORD_PTR</span>, <span class='ident'>dw2</span>: <span class='ident'>DWORD_PTR</span>) <span class='op'>-&gt;</span> <span class='ident'>MMRESULT</span>;
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to winmm.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PlaySoundA</span>(<span class="ident">pszSound</span>: <span class="ident">LPCSTR</span>, <span class="ident">hmod</span>: <span class="ident">HMODULE</span>, <span class="ident">fdwSound</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">PlaySoundW</span>(<span class="ident">pszSound</span>: <span class="ident">LPCWSTR</span>, <span class="ident">hmod</span>: <span class="ident">HMODULE</span>, <span class="ident">fdwSound</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sndPlaySoundA</span>(<span class="ident">pszSound</span>: <span class="ident">LPCSTR</span>, <span class="ident">fuSound</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sndPlaySoundW</span>(<span class="ident">pszSound</span>: <span class="ident">LPCWSTR</span>, <span class="ident">fuSound</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeBeginPeriod</span>(<span class="ident">uPeriod</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeEndPeriod</span>(<span class="ident">uPeriod</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeGetDevCaps</span>(<span class="ident">ptc</span>: <span class="ident">LPTIMECAPS</span>, <span class="ident">cbtc</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">timeGetTime</span>() <span class="op">-&gt;</span> <span class="ident">DWORD</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInAddBuffer</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInClose</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveInGetDevCapsA();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInGetDevCapsW</span>(<span class="ident">uDeviceID</span>: <span class="ident">UINT_PTR</span>, <span class="ident">pwic</span>: <span class="ident">LPWAVEINCAPSW</span>, <span class="ident">cbwic</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveInGetErrorTextA();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInGetErrorTextW</span>(<span class="ident">mmrError</span>: <span class="ident">MMRESULT</span>, <span class="ident">pszText</span>: <span class="ident">LPWSTR</span>, <span class="ident">cchText</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveInGetID();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInGetNumDevs</span>() <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInGetPosition</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>, <span class="ident">pmmt</span>: <span class="ident">LPMMTIME</span>, <span class="ident">cbmmt</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInMessage</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>, <span class="ident">uMsg</span>: <span class="ident">UINT</span>, <span class="ident">dw1</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dw2</span>: <span class="ident">DWORD_PTR</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInOpen</span>(
+        <span class="ident">phwi</span>: <span class="ident">LPHWAVEIN</span>, <span class="ident">uDeviceID</span>: <span class="ident">UINT</span>, <span class="ident">pwfx</span>: <span class="ident">LPCWAVEFORMATEX</span>, <span class="ident">dwCallback</span>: <span class="ident">DWORD_PTR</span>,
+        <span class="ident">dwInstance</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">fdwOpen</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInPrepareHeader</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInReset</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInStart</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInStop</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveInUnprepareHeader</span>(<span class="ident">hwi</span>: <span class="ident">HWAVEIN</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutBreakLoop</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutClose</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveOutGetDevCapsA();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetDevCapsW</span>(<span class="ident">uDeviceID</span>: <span class="ident">UINT_PTR</span>, <span class="ident">pwoc</span>: <span class="ident">LPWAVEOUTCAPSW</span>, <span class="ident">cbwoc</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveOutGetErrorTextA();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetErrorTextW</span>(<span class="ident">mmrError</span>: <span class="ident">MMRESULT</span>, <span class="ident">pszText</span>: <span class="ident">LPWSTR</span>, <span class="ident">cchText</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="comment">// pub fn waveOutGetID();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetNumDevs</span>() <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetPitch</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pdwPitch</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetPlaybackRate</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pdwRate</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetPosition</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pmmt</span>: <span class="ident">LPMMTIME</span>, <span class="ident">cbmmt</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutGetVolume</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pdwVolume</span>: <span class="ident">LPDWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutMessage</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">uMsg</span>: <span class="ident">UINT</span>, <span class="ident">dw1</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dw2</span>: <span class="ident">DWORD_PTR</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutOpen</span>(
+        <span class="ident">phwo</span>: <span class="ident">LPHWAVEOUT</span>, <span class="ident">uDeviceID</span>: <span class="ident">UINT</span>, <span class="ident">pwfx</span>: <span class="ident">LPCWAVEFORMATEX</span>, <span class="ident">dwCallback</span>: <span class="ident">DWORD_PTR</span>,
+        <span class="ident">dwInstance</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">fdwOpen</span>: <span class="ident">DWORD</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutPause</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutPrepareHeader</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutReset</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutRestart</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutSetPitch</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">dwPitch</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutSetPlaybackRate</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">dwRate</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutSetVolume</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">dwVolume</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutUnprepareHeader</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">waveOutWrite</span>(<span class="ident">hwo</span>: <span class="ident">HWAVEOUT</span>, <span class="ident">pwh</span>: <span class="ident">LPWAVEHDR</span>, <span class="ident">cbwh</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamOpen</span>(
+        <span class="ident">lphStream</span>: <span class="ident">LPHMIDISTRM</span>, <span class="ident">puDeviceID</span>: <span class="ident">LPUINT</span>, <span class="ident">cMidi</span>: <span class="ident">DWORD</span>, <span class="ident">dwCallback</span>: <span class="ident">DWORD_PTR</span>,
+        <span class="ident">dwInstance</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">fdwOpen</span>: <span class="ident">DWORD</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamClose</span>(<span class="ident">hStream</span>: <span class="ident">HMIDISTRM</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamProperty</span>(<span class="ident">hm</span>: <span class="ident">HMIDISTRM</span>, <span class="ident">lppropdata</span>: <span class="ident">LPBYTE</span>, <span class="ident">dwProperty</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamPosition</span>(<span class="ident">hms</span>: <span class="ident">HMIDISTRM</span>, <span class="ident">pmmt</span>: <span class="ident">LPMMTIME</span>, <span class="ident">cbmmt</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamOut</span>(<span class="ident">hMidiStream</span>: <span class="ident">HMIDISTRM</span>, <span class="ident">lpMidiHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiHdr</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamPause</span>(<span class="ident">hms</span>: <span class="ident">HMIDISTRM</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamRestart</span>(<span class="ident">hms</span>: <span class="ident">HMIDISTRM</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiStreamStop</span>(<span class="ident">hms</span>: <span class="ident">HMIDISTRM</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiConnect</span>(<span class="ident">hMidi</span>: <span class="ident">HMIDI</span>, <span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">pReserved</span>: <span class="ident">PVOID</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiDisconnect</span>(<span class="ident">hMidi</span>: <span class="ident">HMIDI</span>, <span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">pReserved</span>: <span class="ident">PVOID</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutGetNumDevs</span>() <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutGetDevCapsW</span>(
+        <span class="ident">uDeviceID</span>: <span class="ident">UINT_PTR</span>, <span class="ident">lpMidiOutCaps</span>: <span class="ident">LPMIDIOUTCAPSW</span>, <span class="ident">cbMidiOutCaps</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutGetVolume</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">lpdwVolume</span>: <span class="ident">PDWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutSetVolume</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">dwVolume</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutGetErrorTextW</span>(<span class="ident">mmrError</span>: <span class="ident">MMRESULT</span>, <span class="ident">lpText</span>: <span class="ident">LPWSTR</span>, <span class="ident">cchText</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutOpen</span>(
+        <span class="ident">lphmo</span>: <span class="ident">LPHMIDIOUT</span>, <span class="ident">uDeviceID</span>: <span class="ident">UINT</span>, <span class="ident">dwCallback</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dwCallbackInstance</span>: <span class="ident">DWORD_PTR</span>,
+        <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutClose</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutPrepareHeader</span>(
+        <span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">lpMidiOutHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiOutHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutUnprepareHeader</span>(
+        <span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">lpMidiOutHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiOutHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutShortMsg</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">dwMsg</span>: <span class="ident">DWORD</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutLongMsg</span>(
+        <span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">lpMidiOutHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiOutHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutReset</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutCachePatches</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">wBank</span>: <span class="ident">UINT</span>, <span class="ident">lpPatchArray</span>: <span class="ident">LPWORD</span>, <span class="ident">wFlags</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutCacheDrumPatches</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">wPatch</span>: <span class="ident">UINT</span>, <span class="ident">lpKeyArray</span>: <span class="ident">LPWORD</span>, <span class="ident">wFlags</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutGetID</span>(<span class="ident">hmo</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">puDeviceID</span>: <span class="ident">LPUINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiOutMessage</span>(<span class="ident">deviceID</span>: <span class="ident">HMIDIOUT</span>, <span class="ident">msg</span>: <span class="ident">UINT</span>, <span class="ident">dw1</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dw2</span>: <span class="ident">DWORD_PTR</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInGetNumDevs</span>() <span class="op">-&gt;</span> <span class="ident">UINT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInGetDevCapsW</span>(
+        <span class="ident">uDeviceID</span>: <span class="ident">UINT_PTR</span>, <span class="ident">lpMidiInCaps</span>: <span class="ident">LPMIDIINCAPSW</span>, <span class="ident">cbMidiInCaps</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInGetErrorTextW</span>(<span class="ident">wError</span>: <span class="ident">MMRESULT</span>, <span class="ident">lpText</span>: <span class="ident">LPWSTR</span>, <span class="ident">cchText</span>: <span class="ident">UINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInOpen</span>(
+        <span class="ident">lphMidiIn</span>: <span class="ident">LPHMIDIIN</span>, <span class="ident">uDeviceID</span>: <span class="ident">UINT</span>, <span class="ident">dwCallback</span>: <span class="ident">DWORD_PTR</span>, 
+        <span class="ident">dwCallbackInstance</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dwFlags</span>: <span class="ident">DWORD</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInClose</span>(<span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInPrepareHeader</span>(
+        <span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>, <span class="ident">lpMidiInHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiInHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInUnprepareHeader</span>(
+        <span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>, <span class="ident">lpMidiInHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiInHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInAddBuffer</span>(
+        <span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>, <span class="ident">lpMidiInHdr</span>: <span class="ident">LPMIDIHDR</span>, <span class="ident">cbMidiInHdr</span>: <span class="ident">UINT</span>
+    ) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInStart</span>(<span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInStop</span>(<span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInReset</span>(<span class="ident">hMidiIn</span>: <span class="ident">HMIDIIN</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInGetID</span>(<span class="ident">hmi</span>: <span class="ident">HMIDIIN</span>, <span class="ident">puDeviceID</span>: <span class="ident">LPUINT</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midiInMessage</span>(<span class="ident">deviceID</span>: <span class="ident">HMIDIIN</span>, <span class="ident">msg</span>: <span class="ident">UINT</span>, <span class="ident">dw1</span>: <span class="ident">DWORD_PTR</span>, <span class="ident">dw2</span>: <span class="ident">DWORD_PTR</span>) <span class="op">-&gt;</span> <span class="ident">MMRESULT</span>;
 }
 </pre>
 </section>
@@ -310,12 +312,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -336,7 +342,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -347,11 +353,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winmm";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

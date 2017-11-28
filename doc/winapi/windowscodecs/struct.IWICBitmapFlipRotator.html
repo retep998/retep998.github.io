@@ -9,13 +9,15 @@
 
     <title>winapi::windowscodecs::IWICBitmapFlipRotator - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>windowscodecs</a></p><script>window.sidebarCurrent = {name: 'IWICBitmapFlipRotator', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IWICBitmapFlipRotator</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.lpVtbl">lpVtbl</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.Initialize">Initialize</a></div><a class="sidebar-title" href="#deref-methods">Methods from Deref&lt;Target=IWICBitmapSource&gt;</a><div class="sidebar-links"></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Deref">Deref</a><a href="#impl-DerefMut">DerefMut</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>windowscodecs</a></p><script>window.sidebarCurrent = {name: 'IWICBitmapFlipRotator', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,27 +43,51 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>windowscodecs</a>::<wbr><a class='struct' href=''>IWICBitmapFlipRotator</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-96487' class='srclink' href='../../src/winapi/macros.rs.html#120-122' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IWICBitmapFlipRotator {
-    pub lpVtbl: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapFlipRotatorVtbl.html' title='winapi::windowscodecs::IWICBitmapFlipRotatorVtbl'>IWICBitmapFlipRotatorVtbl</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.lpVtbl'><code>lpVtbl</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html' title='winapi::windowscodecs::IWICBitmapFlipRotator'>IWICBitmapFlipRotator</a></code></h3><div class='impl-items'><h4 id='method.Initialize' class='method'><code>unsafe fn <a href='#method.Initialize' class='fnname'>Initialize</a>(&amp;mut self, pISource: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapSource.html' title='winapi::windowscodecs::IWICBitmapSource'>IWICBitmapSource</a>, options: <a class='struct' href='../../winapi/windowscodecs/struct.WICBitmapTransformOptions.html' title='winapi::windowscodecs::WICBitmapTransformOptions'>WICBitmapTransformOptions</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-</div><h2 id='deref-methods'>Methods from <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a>&lt;Target=<a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapSource.html' title='winapi::windowscodecs::IWICBitmapSource'>IWICBitmapSource</a>&gt;</h2><div class='impl-items'><h4 id='method.GetSize' class='method'><code>unsafe fn <a href='#method.GetSize' class='fnname'>GetSize</a>(&amp;mut self, puiWidth: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, puiHeight: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetPixelFormat' class='method'><code>unsafe fn <a href='#method.GetPixelFormat' class='fnname'>GetPixelFormat</a>(&amp;mut self, pPixelFormat: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/windowscodecs/type.WICPixelFormatGUID.html' title='winapi::windowscodecs::WICPixelFormatGUID'>WICPixelFormatGUID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.GetResolution' class='method'><code>unsafe fn <a href='#method.GetResolution' class='fnname'>GetResolution</a>(&amp;mut self, pDpiX: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, pDpiY: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.CopyPalette' class='method'><code>unsafe fn <a href='#method.CopyPalette' class='fnname'>CopyPalette</a>(&amp;mut self, pIPalette: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/windowscodecs/struct.IWICPalette.html' title='winapi::windowscodecs::IWICPalette'>IWICPalette</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-<h4 id='method.CopyPixels' class='method'><code>unsafe fn <a href='#method.CopyPixels' class='fnname'>CopyPixels</a>(&amp;mut self, prc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/windowscodecs/struct.WICRect.html' title='winapi::windowscodecs::WICRect'>WICRect</a>, cbStride: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, cbBufferSize: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, pbBuffer: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.BYTE.html' title='winapi::minwindef::BYTE'>BYTE</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html' title='core::ops::Deref'>Deref</a> for <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html' title='winapi::windowscodecs::IWICBitmapFlipRotator'>IWICBitmapFlipRotator</a></code></h3><div class='impl-items'><h4 id='assoc_type.Target' class='type'><code>type Target = <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapSource.html' title='winapi::windowscodecs::IWICBitmapSource'>IWICBitmapSource</a></code></h4>
-<h4 id='method.deref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Deref.html#method.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapSource.html' title='winapi::windowscodecs::IWICBitmapSource'>IWICBitmapSource</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html' title='core::ops::DerefMut'>DerefMut</a> for <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html' title='winapi::windowscodecs::IWICBitmapFlipRotator'>IWICBitmapFlipRotator</a></code></h3><div class='impl-items'><h4 id='method.deref_mut' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.DerefMut.html#method.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapSource.html' title='winapi::windowscodecs::IWICBitmapSource'>IWICBitmapSource</a></code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html' title='winapi::windowscodecs::IWICBitmapFlipRotator'>IWICBitmapFlipRotator</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>windowscodecs</a>::<wbr><a class="struct" href=''>IWICBitmapFlipRotator</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#147-149' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IWICBitmapFlipRotator {
+    pub lpVtbl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotatorVtbl.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotatorVtbl">IWICBitmapFlipRotatorVtbl</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.lpVtbl" class="structfield small-section-header">
+                           <a href="#structfield.lpVtbl" class="anchor field"></a>
+                           <span id="lpVtbl.v" class='invisible'>
+                           <code>lpVtbl: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotatorVtbl.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotatorVtbl">IWICBitmapFlipRotatorVtbl</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotator">IWICBitmapFlipRotator</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#150-155' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.Initialize' class="method"><span id='Initialize.v' class='invisible'><code>pub unsafe fn <a href='#method.Initialize' class='fnname'>Initialize</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;pISource: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapSource.html" title="struct winapi::windowscodecs::IWICBitmapSource">IWICBitmapSource</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;options: <a class="struct" href="../../winapi/windowscodecs/struct.WICBitmapTransformOptions.html" title="struct winapi::windowscodecs::WICBitmapTransformOptions">WICBitmapTransformOptions</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+</div>
+                    <h2 id='deref-methods' class='small-section-header'>
+                      Methods from <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a>&lt;Target = <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapSource.html" title="struct winapi::windowscodecs::IWICBitmapSource">IWICBitmapSource</a>&gt;<a href='#deref-methods' class='anchor'></a>
+                    </h2>
+                <div class='impl-items'><h4 id='method.GetSize' class="method"><span id='GetSize.v' class='invisible'><code>pub unsafe fn <a href='#method.GetSize' class='fnname'>GetSize</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;puiWidth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;puiHeight: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetPixelFormat' class="method"><span id='GetPixelFormat.v' class='invisible'><code>pub unsafe fn <a href='#method.GetPixelFormat' class='fnname'>GetPixelFormat</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;pPixelFormat: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/windowscodecs/type.WICPixelFormatGUID.html" title="type winapi::windowscodecs::WICPixelFormatGUID">WICPixelFormatGUID</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.GetResolution' class="method"><span id='GetResolution.v' class='invisible'><code>pub unsafe fn <a href='#method.GetResolution' class='fnname'>GetResolution</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;pDpiX: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;pDpiY: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.CopyPalette' class="method"><span id='CopyPalette.v' class='invisible'><code>pub unsafe fn <a href='#method.CopyPalette' class='fnname'>CopyPalette</a>(&amp;mut self, pIPalette: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/windowscodecs/struct.IWICPalette.html" title="struct winapi::windowscodecs::IWICPalette">IWICPalette</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.CopyPixels' class="method"><span id='CopyPixels.v' class='invisible'><code>pub unsafe fn <a href='#method.CopyPixels' class='fnname'>CopyPixels</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;prc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/windowscodecs/struct.WICRect.html" title="struct winapi::windowscodecs::WICRect">WICRect</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;cbStride: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;cbBufferSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;pbBuffer: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.BYTE.html" title="type winapi::minwindef::BYTE">BYTE</a><br>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#152-154' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotator">IWICBitmapFlipRotator</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#146' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#146' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Deref' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> for <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotator">IWICBitmapFlipRotator</a></code><a href='#impl-Deref' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#156-162' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class="type"><span id='Target.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target' class="type">Target</a> = <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapSource.html" title="struct winapi::windowscodecs::IWICBitmapSource">IWICBitmapSource</a></code></span></h4>
+<div class='docblock'><p>The resulting type after dereferencing.</p>
+</div><h4 id='method.deref' class="method"><span id='deref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapSource.html" title="struct winapi::windowscodecs::IWICBitmapSource">IWICBitmapSource</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#159-161' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Dereferences the value.</p>
+</div></div><h3 id='impl-DerefMut' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html" title="trait core::ops::deref::DerefMut">DerefMut</a> for <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapFlipRotator.html" title="struct winapi::windowscodecs::IWICBitmapFlipRotator">IWICBitmapFlipRotator</a></code><a href='#impl-DerefMut' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#163-168' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deref_mut' class="method"><span id='deref_mut.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html#tymethod.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/windowscodecs/struct.IWICBitmapSource.html" title="struct winapi::windowscodecs::IWICBitmapSource">IWICBitmapSource</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#165-167' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Mutably dereferences the value.</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -78,12 +104,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -104,7 +134,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -115,11 +145,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

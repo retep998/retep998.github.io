@@ -9,13 +9,15 @@
 
     <title>winapi::dxgi1_4::IDXGIAdapter3Vtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a></p><script>window.sidebarCurrent = {name: 'IDXGIAdapter3Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IDXGIAdapter3Vtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.RegisterHardwareContentProtectionTeardownStatusEvent">RegisterHardwareContentProtectionTeardownStatusEvent</a><a href="#structfield.UnregisterHardwareContentProtectionTeardownStatus">UnregisterHardwareContentProtectionTeardownStatus</a><a href="#structfield.QueryVideoMemoryInfo">QueryVideoMemoryInfo</a><a href="#structfield.SetVideoMemoryReservation">SetVideoMemoryReservation</a><a href="#structfield.RegisterVideoMemoryBudgetChangeNotificationEvent">RegisterVideoMemoryBudgetChangeNotificationEvent</a><a href="#structfield.UnregisterVideoMemoryBudgetChangeNotification">UnregisterVideoMemoryBudgetChangeNotification</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a></p><script>window.sidebarCurrent = {name: 'IDXGIAdapter3Vtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,29 +43,51 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a>::<wbr><a class='struct' href=''>IDXGIAdapter3Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-46708' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IDXGIAdapter3Vtbl {
-    pub parent: <a class='struct' href='../../winapi/dxgi1_2/struct.IDXGIAdapter2Vtbl.html' title='winapi::dxgi1_2::IDXGIAdapter2Vtbl'>IDXGIAdapter2Vtbl</a>,
-    pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, hEvent: <a class='type' href='../../winapi/winnt/type.HANDLE.html' title='winapi::winnt::HANDLE'>HANDLE</a>, pdwCookie: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub UnregisterHardwareContentProtectionTeardownStatus: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, dwCookie: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>),
-    pub QueryVideoMemoryInfo: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, NodeIndex: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, MemorySegmentGroup: <a class='struct' href='../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html' title='winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP'>DXGI_MEMORY_SEGMENT_GROUP</a>, pVideoMemoryInfo: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.DXGI_QUERY_VIDEO_MEMORY_INFO.html' title='winapi::dxgi1_4::DXGI_QUERY_VIDEO_MEMORY_INFO'>DXGI_QUERY_VIDEO_MEMORY_INFO</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub SetVideoMemoryReservation: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, NodeIndex: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, MemorySegmentGroup: <a class='struct' href='../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html' title='winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP'>DXGI_MEMORY_SEGMENT_GROUP</a>, Reservation: <a class='type' href='../../winapi/basetsd/type.UINT64.html' title='winapi::basetsd::UINT64'>UINT64</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, hEvent: <a class='type' href='../../winapi/winnt/type.HANDLE.html' title='winapi::winnt::HANDLE'>HANDLE</a>, pdwCookie: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub UnregisterVideoMemoryBudgetChangeNotification: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dxgi1_4/struct.IDXGIAdapter3.html' title='winapi::dxgi1_4::IDXGIAdapter3'>IDXGIAdapter3</a>, dwCookie: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>),
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.RegisterHardwareContentProtectionTeardownStatusEvent'><code>RegisterHardwareContentProtectionTeardownStatusEvent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.UnregisterHardwareContentProtectionTeardownStatus'><code>UnregisterHardwareContentProtectionTeardownStatus</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.QueryVideoMemoryInfo'><code>QueryVideoMemoryInfo</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetVideoMemoryReservation'><code>SetVideoMemoryReservation</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.RegisterVideoMemoryBudgetChangeNotificationEvent'><code>RegisterVideoMemoryBudgetChangeNotificationEvent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.UnregisterVideoMemoryBudgetChangeNotification'><code>UnregisterVideoMemoryBudgetChangeNotification</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dxgi1_4</a>::<wbr><a class="struct" href=''>IDXGIAdapter3Vtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IDXGIAdapter3Vtbl {
+    pub parent: <a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIAdapter2Vtbl.html" title="struct winapi::dxgi1_2::IDXGIAdapter2Vtbl">IDXGIAdapter2Vtbl</a>,
+    pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, hEvent: <a class="type" href="../../winapi/winnt/type.HANDLE.html" title="type winapi::winnt::HANDLE">HANDLE</a>, pdwCookie: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub UnregisterHardwareContentProtectionTeardownStatus: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, dwCookie: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>),
+    pub QueryVideoMemoryInfo: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, NodeIndex: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, MemorySegmentGroup: <a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html" title="struct winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP">DXGI_MEMORY_SEGMENT_GROUP</a>, pVideoMemoryInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_QUERY_VIDEO_MEMORY_INFO.html" title="struct winapi::dxgi1_4::DXGI_QUERY_VIDEO_MEMORY_INFO">DXGI_QUERY_VIDEO_MEMORY_INFO</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub SetVideoMemoryReservation: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, NodeIndex: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, MemorySegmentGroup: <a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html" title="struct winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP">DXGI_MEMORY_SEGMENT_GROUP</a>, Reservation: <a class="type" href="../../winapi/basetsd/type.UINT64.html" title="type winapi::basetsd::UINT64">UINT64</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, hEvent: <a class="type" href="../../winapi/winnt/type.HANDLE.html" title="type winapi::winnt::HANDLE">HANDLE</a>, pdwCookie: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub UnregisterVideoMemoryBudgetChangeNotification: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, dwCookie: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>),
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/dxgi1_2/struct.IDXGIAdapter2Vtbl.html" title="struct winapi::dxgi1_2::IDXGIAdapter2Vtbl">IDXGIAdapter2Vtbl</a></code>
+                           </span></span><span id="structfield.RegisterHardwareContentProtectionTeardownStatusEvent" class="structfield small-section-header">
+                           <a href="#structfield.RegisterHardwareContentProtectionTeardownStatusEvent" class="anchor field"></a>
+                           <span id="RegisterHardwareContentProtectionTeardownStatusEvent.v" class='invisible'>
+                           <code>RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, hEvent: <a class="type" href="../../winapi/winnt/type.HANDLE.html" title="type winapi::winnt::HANDLE">HANDLE</a>, pdwCookie: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.UnregisterHardwareContentProtectionTeardownStatus" class="structfield small-section-header">
+                           <a href="#structfield.UnregisterHardwareContentProtectionTeardownStatus" class="anchor field"></a>
+                           <span id="UnregisterHardwareContentProtectionTeardownStatus.v" class='invisible'>
+                           <code>UnregisterHardwareContentProtectionTeardownStatus: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, dwCookie: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>)</code>
+                           </span></span><span id="structfield.QueryVideoMemoryInfo" class="structfield small-section-header">
+                           <a href="#structfield.QueryVideoMemoryInfo" class="anchor field"></a>
+                           <span id="QueryVideoMemoryInfo.v" class='invisible'>
+                           <code>QueryVideoMemoryInfo: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, NodeIndex: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, MemorySegmentGroup: <a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html" title="struct winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP">DXGI_MEMORY_SEGMENT_GROUP</a>, pVideoMemoryInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_QUERY_VIDEO_MEMORY_INFO.html" title="struct winapi::dxgi1_4::DXGI_QUERY_VIDEO_MEMORY_INFO">DXGI_QUERY_VIDEO_MEMORY_INFO</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.SetVideoMemoryReservation" class="structfield small-section-header">
+                           <a href="#structfield.SetVideoMemoryReservation" class="anchor field"></a>
+                           <span id="SetVideoMemoryReservation.v" class='invisible'>
+                           <code>SetVideoMemoryReservation: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, NodeIndex: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, MemorySegmentGroup: <a class="struct" href="../../winapi/dxgi1_4/struct.DXGI_MEMORY_SEGMENT_GROUP.html" title="struct winapi::dxgi1_4::DXGI_MEMORY_SEGMENT_GROUP">DXGI_MEMORY_SEGMENT_GROUP</a>, Reservation: <a class="type" href="../../winapi/basetsd/type.UINT64.html" title="type winapi::basetsd::UINT64">UINT64</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.RegisterVideoMemoryBudgetChangeNotificationEvent" class="structfield small-section-header">
+                           <a href="#structfield.RegisterVideoMemoryBudgetChangeNotificationEvent" class="anchor field"></a>
+                           <span id="RegisterVideoMemoryBudgetChangeNotificationEvent.v" class='invisible'>
+                           <code>RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, hEvent: <a class="type" href="../../winapi/winnt/type.HANDLE.html" title="type winapi::winnt::HANDLE">HANDLE</a>, pdwCookie: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.UnregisterVideoMemoryBudgetChangeNotification" class="structfield small-section-header">
+                           <a href="#structfield.UnregisterVideoMemoryBudgetChangeNotification" class="anchor field"></a>
+                           <span id="UnregisterVideoMemoryBudgetChangeNotification.v" class='invisible'>
+                           <code>UnregisterVideoMemoryBudgetChangeNotification: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dxgi1_4/struct.IDXGIAdapter3.html" title="struct winapi::dxgi1_4::IDXGIAdapter3">IDXGIAdapter3</a>, dwCookie: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>)</code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -80,12 +104,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -106,7 +134,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -117,11 +145,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

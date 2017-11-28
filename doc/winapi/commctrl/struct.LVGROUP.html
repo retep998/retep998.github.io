@@ -9,13 +9,15 @@
 
     <title>winapi::commctrl::LVGROUP - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commctrl</a></p><script>window.sidebarCurrent = {name: 'LVGROUP', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct LVGROUP</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.cbSize">cbSize</a><a href="#structfield.mask">mask</a><a href="#structfield.pszHeader">pszHeader</a><a href="#structfield.cchHeader">cchHeader</a><a href="#structfield.pszFooter">pszFooter</a><a href="#structfield.cchFooter">cchFooter</a><a href="#structfield.iGroupId">iGroupId</a><a href="#structfield.stateMask">stateMask</a><a href="#structfield.state">state</a><a href="#structfield.uAlign">uAlign</a><a href="#structfield.pszSubtitle">pszSubtitle</a><a href="#structfield.cchSubtitle">cchSubtitle</a><a href="#structfield.pszTask">pszTask</a><a href="#structfield.cchTask">cchTask</a><a href="#structfield.pszDescriptionTop">pszDescriptionTop</a><a href="#structfield.cchDescriptionTop">cchDescriptionTop</a><a href="#structfield.pszDescriptionBottom">pszDescriptionBottom</a><a href="#structfield.cchDescriptionBottom">cchDescriptionBottom</a><a href="#structfield.iTitleImage">iTitleImage</a><a href="#structfield.iExtendedImage">iExtendedImage</a><a href="#structfield.iFirstItem">iFirstItem</a><a href="#structfield.cItems">cItems</a><a href="#structfield.pszSubsetTitle">pszSubsetTitle</a><a href="#structfield.cchSubsetTitle">cchSubsetTitle</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commctrl</a></p><script>window.sidebarCurrent = {name: 'LVGROUP', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,66 +43,149 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commctrl</a>::<wbr><a class='struct' href=''>LVGROUP</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-5752' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct LVGROUP {
-    pub cbSize: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub mask: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszHeader: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchHeader: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub pszFooter: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchFooter: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iGroupId: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub stateMask: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub state: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub uAlign: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszSubtitle: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchSubtitle: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszTask: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchTask: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszDescriptionTop: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchDescriptionTop: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszDescriptionBottom: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchDescriptionBottom: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub iTitleImage: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iExtendedImage: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub iFirstItem: <a class='type' href='../../winapi/type.c_int.html' title='winapi::c_int'>c_int</a>,
-    pub cItems: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-    pub pszSubsetTitle: <a class='type' href='../../winapi/winnt/type.LPWSTR.html' title='winapi::winnt::LPWSTR'>LPWSTR</a>,
-    pub cchSubsetTitle: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.cbSize'><code>cbSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.mask'><code>mask</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszHeader'><code>pszHeader</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchHeader'><code>cchHeader</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszFooter'><code>pszFooter</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchFooter'><code>cchFooter</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iGroupId'><code>iGroupId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.stateMask'><code>stateMask</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.state'><code>state</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.uAlign'><code>uAlign</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszSubtitle'><code>pszSubtitle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchSubtitle'><code>cchSubtitle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszTask'><code>pszTask</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchTask'><code>cchTask</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszDescriptionTop'><code>pszDescriptionTop</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchDescriptionTop'><code>cchDescriptionTop</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszDescriptionBottom'><code>pszDescriptionBottom</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchDescriptionBottom'><code>cchDescriptionBottom</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iTitleImage'><code>iTitleImage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iExtendedImage'><code>iExtendedImage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.iFirstItem'><code>iFirstItem</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cItems'><code>cItems</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.pszSubsetTitle'><code>pszSubsetTitle</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.cchSubsetTitle'><code>cchSubsetTitle</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/commctrl/struct.LVGROUP.html' title='winapi::commctrl::LVGROUP'>LVGROUP</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/commctrl/struct.LVGROUP.html' title='winapi::commctrl::LVGROUP'>LVGROUP</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/commctrl/struct.LVGROUP.html' title='winapi::commctrl::LVGROUP'>LVGROUP</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/commctrl/struct.LVGROUP.html' title='winapi::commctrl::LVGROUP'>LVGROUP</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commctrl</a>::<wbr><a class="struct" href=''>LVGROUP</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct LVGROUP {
+    pub cbSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub mask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszHeader: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchHeader: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub pszFooter: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchFooter: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iGroupId: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub stateMask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub state: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub uAlign: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszSubtitle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchSubtitle: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszTask: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchTask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszDescriptionTop: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchDescriptionTop: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszDescriptionBottom: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchDescriptionBottom: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub iTitleImage: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iExtendedImage: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub iFirstItem: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a>,
+    pub cItems: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+    pub pszSubsetTitle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a>,
+    pub cchSubsetTitle: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.cbSize" class="structfield small-section-header">
+                           <a href="#structfield.cbSize" class="anchor field"></a>
+                           <span id="cbSize.v" class='invisible'>
+                           <code>cbSize: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.mask" class="structfield small-section-header">
+                           <a href="#structfield.mask" class="anchor field"></a>
+                           <span id="mask.v" class='invisible'>
+                           <code>mask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszHeader" class="structfield small-section-header">
+                           <a href="#structfield.pszHeader" class="anchor field"></a>
+                           <span id="pszHeader.v" class='invisible'>
+                           <code>pszHeader: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchHeader" class="structfield small-section-header">
+                           <a href="#structfield.cchHeader" class="anchor field"></a>
+                           <span id="cchHeader.v" class='invisible'>
+                           <code>cchHeader: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.pszFooter" class="structfield small-section-header">
+                           <a href="#structfield.pszFooter" class="anchor field"></a>
+                           <span id="pszFooter.v" class='invisible'>
+                           <code>pszFooter: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchFooter" class="structfield small-section-header">
+                           <a href="#structfield.cchFooter" class="anchor field"></a>
+                           <span id="cchFooter.v" class='invisible'>
+                           <code>cchFooter: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iGroupId" class="structfield small-section-header">
+                           <a href="#structfield.iGroupId" class="anchor field"></a>
+                           <span id="iGroupId.v" class='invisible'>
+                           <code>iGroupId: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.stateMask" class="structfield small-section-header">
+                           <a href="#structfield.stateMask" class="anchor field"></a>
+                           <span id="stateMask.v" class='invisible'>
+                           <code>stateMask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.state" class="structfield small-section-header">
+                           <a href="#structfield.state" class="anchor field"></a>
+                           <span id="state.v" class='invisible'>
+                           <code>state: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.uAlign" class="structfield small-section-header">
+                           <a href="#structfield.uAlign" class="anchor field"></a>
+                           <span id="uAlign.v" class='invisible'>
+                           <code>uAlign: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszSubtitle" class="structfield small-section-header">
+                           <a href="#structfield.pszSubtitle" class="anchor field"></a>
+                           <span id="pszSubtitle.v" class='invisible'>
+                           <code>pszSubtitle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchSubtitle" class="structfield small-section-header">
+                           <a href="#structfield.cchSubtitle" class="anchor field"></a>
+                           <span id="cchSubtitle.v" class='invisible'>
+                           <code>cchSubtitle: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszTask" class="structfield small-section-header">
+                           <a href="#structfield.pszTask" class="anchor field"></a>
+                           <span id="pszTask.v" class='invisible'>
+                           <code>pszTask: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchTask" class="structfield small-section-header">
+                           <a href="#structfield.cchTask" class="anchor field"></a>
+                           <span id="cchTask.v" class='invisible'>
+                           <code>cchTask: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszDescriptionTop" class="structfield small-section-header">
+                           <a href="#structfield.pszDescriptionTop" class="anchor field"></a>
+                           <span id="pszDescriptionTop.v" class='invisible'>
+                           <code>pszDescriptionTop: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchDescriptionTop" class="structfield small-section-header">
+                           <a href="#structfield.cchDescriptionTop" class="anchor field"></a>
+                           <span id="cchDescriptionTop.v" class='invisible'>
+                           <code>cchDescriptionTop: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszDescriptionBottom" class="structfield small-section-header">
+                           <a href="#structfield.pszDescriptionBottom" class="anchor field"></a>
+                           <span id="pszDescriptionBottom.v" class='invisible'>
+                           <code>pszDescriptionBottom: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchDescriptionBottom" class="structfield small-section-header">
+                           <a href="#structfield.cchDescriptionBottom" class="anchor field"></a>
+                           <span id="cchDescriptionBottom.v" class='invisible'>
+                           <code>cchDescriptionBottom: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.iTitleImage" class="structfield small-section-header">
+                           <a href="#structfield.iTitleImage" class="anchor field"></a>
+                           <span id="iTitleImage.v" class='invisible'>
+                           <code>iTitleImage: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iExtendedImage" class="structfield small-section-header">
+                           <a href="#structfield.iExtendedImage" class="anchor field"></a>
+                           <span id="iExtendedImage.v" class='invisible'>
+                           <code>iExtendedImage: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.iFirstItem" class="structfield small-section-header">
+                           <a href="#structfield.iFirstItem" class="anchor field"></a>
+                           <span id="iFirstItem.v" class='invisible'>
+                           <code>iFirstItem: <a class="type" href="../../winapi/type.c_int.html" title="type winapi::c_int">c_int</a></code>
+                           </span></span><span id="structfield.cItems" class="structfield small-section-header">
+                           <a href="#structfield.cItems" class="anchor field"></a>
+                           <span id="cItems.v" class='invisible'>
+                           <code>cItems: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span><span id="structfield.pszSubsetTitle" class="structfield small-section-header">
+                           <a href="#structfield.pszSubsetTitle" class="anchor field"></a>
+                           <span id="pszSubsetTitle.v" class='invisible'>
+                           <code>pszSubsetTitle: <a class="type" href="../../winapi/winnt/type.LPWSTR.html" title="type winapi::winnt::LPWSTR">LPWSTR</a></code>
+                           </span></span><span id="structfield.cchSubsetTitle" class="structfield small-section-header">
+                           <a href="#structfield.cchSubsetTitle" class="anchor field"></a>
+                           <span id="cchSubsetTitle.v" class='invisible'>
+                           <code>cchSubsetTitle: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/commctrl/struct.LVGROUP.html" title="struct winapi::commctrl::LVGROUP">LVGROUP</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/commctrl/struct.LVGROUP.html" title="struct winapi::commctrl::LVGROUP">LVGROUP</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/commctrl/struct.LVGROUP.html" title="struct winapi::commctrl::LVGROUP">LVGROUP</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/commctrl/struct.LVGROUP.html" title="struct winapi::commctrl::LVGROUP">LVGROUP</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -117,12 +202,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -143,7 +232,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -154,11 +243,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

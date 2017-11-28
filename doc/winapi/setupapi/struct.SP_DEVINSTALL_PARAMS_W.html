@@ -9,13 +9,15 @@
 
     <title>winapi::setupapi::SP_DEVINSTALL_PARAMS_W - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a></p><script>window.sidebarCurrent = {name: 'SP_DEVINSTALL_PARAMS_W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct SP_DEVINSTALL_PARAMS_W</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.cbSize">cbSize</a><a href="#structfield.Flags">Flags</a><a href="#structfield.FlagsEx">FlagsEx</a><a href="#structfield.hwndParent">hwndParent</a><a href="#structfield.InstallMsgHandler">InstallMsgHandler</a><a href="#structfield.InstallMsgHandlerContext">InstallMsgHandlerContext</a><a href="#structfield.FileQueue">FileQueue</a><a href="#structfield.ClassInstallReserved">ClassInstallReserved</a><a href="#structfield.Reserved">Reserved</a><a href="#structfield.DriverPath">DriverPath</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a></p><script>window.sidebarCurrent = {name: 'SP_DEVINSTALL_PARAMS_W', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,37 +43,76 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a>::<wbr><a class='struct' href=''>SP_DEVINSTALL_PARAMS_W</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-78345' class='srclink' href='../../src/winapi/setupapi.rs.html#431-442' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct SP_DEVINSTALL_PARAMS_W {
-    pub cbSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub Flags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub FlagsEx: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub hwndParent: <a class='type' href='../../winapi/windef/type.HWND.html' title='winapi::windef::HWND'>HWND</a>,
-    pub InstallMsgHandler: <a class='type' href='../../winapi/setupapi/type.PSP_FILE_CALLBACK_W.html' title='winapi::setupapi::PSP_FILE_CALLBACK_W'>PSP_FILE_CALLBACK_W</a>,
-    pub InstallMsgHandlerContext: <a class='type' href='../../winapi/winnt/type.PVOID.html' title='winapi::winnt::PVOID'>PVOID</a>,
-    pub FileQueue: <a class='type' href='../../winapi/setupapi/type.HSPFILEQ.html' title='winapi::setupapi::HSPFILEQ'>HSPFILEQ</a>,
-    pub ClassInstallReserved: <a class='type' href='../../winapi/basetsd/type.ULONG_PTR.html' title='winapi::basetsd::ULONG_PTR'>ULONG_PTR</a>,
-    pub Reserved: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub DriverPath: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/winnt/type.WCHAR.html' title='winapi::winnt::WCHAR'>WCHAR</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; ::MAX_PATH]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.cbSize'><code>cbSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Flags'><code>Flags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FlagsEx'><code>FlagsEx</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hwndParent'><code>hwndParent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.InstallMsgHandler'><code>InstallMsgHandler</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.InstallMsgHandlerContext'><code>InstallMsgHandlerContext</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.FileQueue'><code>FileQueue</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ClassInstallReserved'><code>ClassInstallReserved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Reserved'><code>Reserved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.DriverPath'><code>DriverPath</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html' title='winapi::setupapi::SP_DEVINSTALL_PARAMS_W'>SP_DEVINSTALL_PARAMS_W</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html' title='winapi::setupapi::SP_DEVINSTALL_PARAMS_W'>SP_DEVINSTALL_PARAMS_W</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html' title='winapi::setupapi::SP_DEVINSTALL_PARAMS_W'>SP_DEVINSTALL_PARAMS_W</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>setupapi</a>::<wbr><a class="struct" href=''>SP_DEVINSTALL_PARAMS_W</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct SP_DEVINSTALL_PARAMS_W {
+    pub cbSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub FlagsEx: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub hwndParent: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a>,
+    pub InstallMsgHandler: <a class="type" href="../../winapi/setupapi/type.PSP_FILE_CALLBACK_W.html" title="type winapi::setupapi::PSP_FILE_CALLBACK_W">PSP_FILE_CALLBACK_W</a>,
+    pub InstallMsgHandlerContext: <a class="type" href="../../winapi/winnt/type.PVOID.html" title="type winapi::winnt::PVOID">PVOID</a>,
+    pub FileQueue: <a class="type" href="../../winapi/setupapi/type.HSPFILEQ.html" title="type winapi::setupapi::HSPFILEQ">HSPFILEQ</a>,
+    pub ClassInstallReserved: <a class="type" href="../../winapi/basetsd/type.ULONG_PTR.html" title="type winapi::basetsd::ULONG_PTR">ULONG_PTR</a>,
+    pub Reserved: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub DriverPath: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.cbSize" class="structfield small-section-header">
+                           <a href="#structfield.cbSize" class="anchor field"></a>
+                           <span id="cbSize.v" class='invisible'>
+                           <code>cbSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.Flags" class="structfield small-section-header">
+                           <a href="#structfield.Flags" class="anchor field"></a>
+                           <span id="Flags.v" class='invisible'>
+                           <code>Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.FlagsEx" class="structfield small-section-header">
+                           <a href="#structfield.FlagsEx" class="anchor field"></a>
+                           <span id="FlagsEx.v" class='invisible'>
+                           <code>FlagsEx: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.hwndParent" class="structfield small-section-header">
+                           <a href="#structfield.hwndParent" class="anchor field"></a>
+                           <span id="hwndParent.v" class='invisible'>
+                           <code>hwndParent: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a></code>
+                           </span></span><span id="structfield.InstallMsgHandler" class="structfield small-section-header">
+                           <a href="#structfield.InstallMsgHandler" class="anchor field"></a>
+                           <span id="InstallMsgHandler.v" class='invisible'>
+                           <code>InstallMsgHandler: <a class="type" href="../../winapi/setupapi/type.PSP_FILE_CALLBACK_W.html" title="type winapi::setupapi::PSP_FILE_CALLBACK_W">PSP_FILE_CALLBACK_W</a></code>
+                           </span></span><span id="structfield.InstallMsgHandlerContext" class="structfield small-section-header">
+                           <a href="#structfield.InstallMsgHandlerContext" class="anchor field"></a>
+                           <span id="InstallMsgHandlerContext.v" class='invisible'>
+                           <code>InstallMsgHandlerContext: <a class="type" href="../../winapi/winnt/type.PVOID.html" title="type winapi::winnt::PVOID">PVOID</a></code>
+                           </span></span><span id="structfield.FileQueue" class="structfield small-section-header">
+                           <a href="#structfield.FileQueue" class="anchor field"></a>
+                           <span id="FileQueue.v" class='invisible'>
+                           <code>FileQueue: <a class="type" href="../../winapi/setupapi/type.HSPFILEQ.html" title="type winapi::setupapi::HSPFILEQ">HSPFILEQ</a></code>
+                           </span></span><span id="structfield.ClassInstallReserved" class="structfield small-section-header">
+                           <a href="#structfield.ClassInstallReserved" class="anchor field"></a>
+                           <span id="ClassInstallReserved.v" class='invisible'>
+                           <code>ClassInstallReserved: <a class="type" href="../../winapi/basetsd/type.ULONG_PTR.html" title="type winapi::basetsd::ULONG_PTR">ULONG_PTR</a></code>
+                           </span></span><span id="structfield.Reserved" class="structfield small-section-header">
+                           <a href="#structfield.Reserved" class="anchor field"></a>
+                           <span id="Reserved.v" class='invisible'>
+                           <code>Reserved: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.DriverPath" class="structfield small-section-header">
+                           <a href="#structfield.DriverPath" class="anchor field"></a>
+                           <span id="DriverPath.v" class='invisible'>
+                           <code>DriverPath: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/winnt/type.WCHAR.html" title="type winapi::winnt::WCHAR">WCHAR</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 260]</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html" title="struct winapi::setupapi::SP_DEVINSTALL_PARAMS_W">SP_DEVINSTALL_PARAMS_W</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html" title="struct winapi::setupapi::SP_DEVINSTALL_PARAMS_W">SP_DEVINSTALL_PARAMS_W</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/setupapi/struct.SP_DEVINSTALL_PARAMS_W.html" title="struct winapi::setupapi::SP_DEVINSTALL_PARAMS_W">SP_DEVINSTALL_PARAMS_W</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -88,12 +129,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -114,7 +159,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -125,11 +170,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

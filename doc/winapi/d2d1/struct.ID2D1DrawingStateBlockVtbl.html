@@ -9,13 +9,15 @@
 
     <title>winapi::d2d1::ID2D1DrawingStateBlockVtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a></p><script>window.sidebarCurrent = {name: 'ID2D1DrawingStateBlockVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct ID2D1DrawingStateBlockVtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.GetDescription">GetDescription</a><a href="#structfield.SetDescription">SetDescription</a><a href="#structfield.SetTextRenderingParams">SetTextRenderingParams</a><a href="#structfield.GetTextRenderingParams">GetTextRenderingParams</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a></p><script>window.sidebarCurrent = {name: 'ID2D1DrawingStateBlockVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +43,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a>::<wbr><a class='struct' href=''>ID2D1DrawingStateBlockVtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-12093' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct ID2D1DrawingStateBlockVtbl {
-    pub parent: <a class='struct' href='../../winapi/d2d1/struct.ID2D1ResourceVtbl.html' title='winapi::d2d1::ID2D1ResourceVtbl'>ID2D1ResourceVtbl</a>,
-    pub GetDescription: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html' title='winapi::d2d1::ID2D1DrawingStateBlock'>ID2D1DrawingStateBlock</a>, stateDescription: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html' title='winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION'>D2D1_DRAWING_STATE_DESCRIPTION</a>),
-    pub SetDescription: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html' title='winapi::d2d1::ID2D1DrawingStateBlock'>ID2D1DrawingStateBlock</a>, stateDescription: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*const </a><a class='struct' href='../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html' title='winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION'>D2D1_DRAWING_STATE_DESCRIPTION</a>),
-    pub SetTextRenderingParams: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html' title='winapi::d2d1::ID2D1DrawingStateBlock'>ID2D1DrawingStateBlock</a>, textRenderingParams: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dwrite/struct.IDWriteRenderingParams.html' title='winapi::dwrite::IDWriteRenderingParams'>IDWriteRenderingParams</a>),
-    pub GetTextRenderingParams: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html' title='winapi::d2d1::ID2D1DrawingStateBlock'>ID2D1DrawingStateBlock</a>, textRenderingParams: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/dwrite/struct.IDWriteRenderingParams.html' title='winapi::dwrite::IDWriteRenderingParams'>IDWriteRenderingParams</a>),
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetDescription'><code>GetDescription</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetDescription'><code>SetDescription</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.SetTextRenderingParams'><code>SetTextRenderingParams</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetTextRenderingParams'><code>GetTextRenderingParams</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>d2d1</a>::<wbr><a class="struct" href=''>ID2D1DrawingStateBlockVtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct ID2D1DrawingStateBlockVtbl {
+    pub parent: <a class="struct" href="../../winapi/d2d1/struct.ID2D1ResourceVtbl.html" title="struct winapi::d2d1::ID2D1ResourceVtbl">ID2D1ResourceVtbl</a>,
+    pub GetDescription: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, stateDescription: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html" title="struct winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION">D2D1_DRAWING_STATE_DESCRIPTION</a>),
+    pub SetDescription: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, stateDescription: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html" title="struct winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION">D2D1_DRAWING_STATE_DESCRIPTION</a>),
+    pub SetTextRenderingParams: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, textRenderingParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteRenderingParams.html" title="struct winapi::dwrite::IDWriteRenderingParams">IDWriteRenderingParams</a>),
+    pub GetTextRenderingParams: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, textRenderingParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteRenderingParams.html" title="struct winapi::dwrite::IDWriteRenderingParams">IDWriteRenderingParams</a>),
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/d2d1/struct.ID2D1ResourceVtbl.html" title="struct winapi::d2d1::ID2D1ResourceVtbl">ID2D1ResourceVtbl</a></code>
+                           </span></span><span id="structfield.GetDescription" class="structfield small-section-header">
+                           <a href="#structfield.GetDescription" class="anchor field"></a>
+                           <span id="GetDescription.v" class='invisible'>
+                           <code>GetDescription: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, stateDescription: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html" title="struct winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION">D2D1_DRAWING_STATE_DESCRIPTION</a>)</code>
+                           </span></span><span id="structfield.SetDescription" class="structfield small-section-header">
+                           <a href="#structfield.SetDescription" class="anchor field"></a>
+                           <span id="SetDescription.v" class='invisible'>
+                           <code>SetDescription: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, stateDescription: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*const </a><a class="struct" href="../../winapi/d2d1/struct.D2D1_DRAWING_STATE_DESCRIPTION.html" title="struct winapi::d2d1::D2D1_DRAWING_STATE_DESCRIPTION">D2D1_DRAWING_STATE_DESCRIPTION</a>)</code>
+                           </span></span><span id="structfield.SetTextRenderingParams" class="structfield small-section-header">
+                           <a href="#structfield.SetTextRenderingParams" class="anchor field"></a>
+                           <span id="SetTextRenderingParams.v" class='invisible'>
+                           <code>SetTextRenderingParams: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, textRenderingParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteRenderingParams.html" title="struct winapi::dwrite::IDWriteRenderingParams">IDWriteRenderingParams</a>)</code>
+                           </span></span><span id="structfield.GetTextRenderingParams" class="structfield small-section-header">
+                           <a href="#structfield.GetTextRenderingParams" class="anchor field"></a>
+                           <span id="GetTextRenderingParams.v" class='invisible'>
+                           <code>GetTextRenderingParams: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/d2d1/struct.ID2D1DrawingStateBlock.html" title="struct winapi::d2d1::ID2D1DrawingStateBlock">ID2D1DrawingStateBlock</a>, textRenderingParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/dwrite/struct.IDWriteRenderingParams.html" title="struct winapi::dwrite::IDWriteRenderingParams">IDWriteRenderingParams</a>)</code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,12 +94,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -102,7 +124,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,11 +135,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -9,13 +9,15 @@
 
     <title>winapi::dsound::DSCAPS - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dsound</a></p><script>window.sidebarCurrent = {name: 'DSCAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct DSCAPS</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.dwSize">dwSize</a><a href="#structfield.dwFlags">dwFlags</a><a href="#structfield.dwMinSecondarySampleRate">dwMinSecondarySampleRate</a><a href="#structfield.dwMaxSecondarySampleRate">dwMaxSecondarySampleRate</a><a href="#structfield.dwPrimaryBuffers">dwPrimaryBuffers</a><a href="#structfield.dwMaxHwMixingAllBuffers">dwMaxHwMixingAllBuffers</a><a href="#structfield.dwMaxHwMixingStaticBuffers">dwMaxHwMixingStaticBuffers</a><a href="#structfield.dwMaxHwMixingStreamingBuffers">dwMaxHwMixingStreamingBuffers</a><a href="#structfield.dwFreeHwMixingAllBuffers">dwFreeHwMixingAllBuffers</a><a href="#structfield.dwFreeHwMixingStaticBuffers">dwFreeHwMixingStaticBuffers</a><a href="#structfield.dwFreeHwMixingStreamingBuffers">dwFreeHwMixingStreamingBuffers</a><a href="#structfield.dwMaxHw3DAllBuffers">dwMaxHw3DAllBuffers</a><a href="#structfield.dwMaxHw3DStaticBuffers">dwMaxHw3DStaticBuffers</a><a href="#structfield.dwMaxHw3DStreamingBuffers">dwMaxHw3DStreamingBuffers</a><a href="#structfield.dwFreeHw3DAllBuffers">dwFreeHw3DAllBuffers</a><a href="#structfield.dwFreeHw3DStaticBuffers">dwFreeHw3DStaticBuffers</a><a href="#structfield.dwFreeHw3DStreamingBuffers">dwFreeHw3DStreamingBuffers</a><a href="#structfield.dwTotalHwMemBytes">dwTotalHwMemBytes</a><a href="#structfield.dwFreeHwMemBytes">dwFreeHwMemBytes</a><a href="#structfield.dwMaxContigFreeHwMemBytes">dwMaxContigFreeHwMemBytes</a><a href="#structfield.dwUnlockTransferRateHwBuffers">dwUnlockTransferRateHwBuffers</a><a href="#structfield.dwPlayCpuOverheadSwBuffers">dwPlayCpuOverheadSwBuffers</a><a href="#structfield.dwReserved1">dwReserved1</a><a href="#structfield.dwReserved2">dwReserved2</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dsound</a></p><script>window.sidebarCurrent = {name: 'DSCAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,66 +43,149 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dsound</a>::<wbr><a class='struct' href=''>DSCAPS</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-39837' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct DSCAPS {
-    pub dwSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFlags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMinSecondarySampleRate: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxSecondarySampleRate: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwPrimaryBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHwMixingAllBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHwMixingStaticBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHwMixingStreamingBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHwMixingAllBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHwMixingStaticBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHwMixingStreamingBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHw3DAllBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHw3DStaticBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxHw3DStreamingBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHw3DAllBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHw3DStaticBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHw3DStreamingBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwTotalHwMemBytes: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwFreeHwMemBytes: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwMaxContigFreeHwMemBytes: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwUnlockTransferRateHwBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwPlayCpuOverheadSwBuffers: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwReserved1: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwReserved2: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.dwSize'><code>dwSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFlags'><code>dwFlags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMinSecondarySampleRate'><code>dwMinSecondarySampleRate</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxSecondarySampleRate'><code>dwMaxSecondarySampleRate</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwPrimaryBuffers'><code>dwPrimaryBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHwMixingAllBuffers'><code>dwMaxHwMixingAllBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHwMixingStaticBuffers'><code>dwMaxHwMixingStaticBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHwMixingStreamingBuffers'><code>dwMaxHwMixingStreamingBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHwMixingAllBuffers'><code>dwFreeHwMixingAllBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHwMixingStaticBuffers'><code>dwFreeHwMixingStaticBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHwMixingStreamingBuffers'><code>dwFreeHwMixingStreamingBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHw3DAllBuffers'><code>dwMaxHw3DAllBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHw3DStaticBuffers'><code>dwMaxHw3DStaticBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxHw3DStreamingBuffers'><code>dwMaxHw3DStreamingBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHw3DAllBuffers'><code>dwFreeHw3DAllBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHw3DStaticBuffers'><code>dwFreeHw3DStaticBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHw3DStreamingBuffers'><code>dwFreeHw3DStreamingBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwTotalHwMemBytes'><code>dwTotalHwMemBytes</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwFreeHwMemBytes'><code>dwFreeHwMemBytes</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwMaxContigFreeHwMemBytes'><code>dwMaxContigFreeHwMemBytes</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwUnlockTransferRateHwBuffers'><code>dwUnlockTransferRateHwBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwPlayCpuOverheadSwBuffers'><code>dwPlayCpuOverheadSwBuffers</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwReserved1'><code>dwReserved1</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwReserved2'><code>dwReserved2</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/dsound/struct.DSCAPS.html' title='winapi::dsound::DSCAPS'>DSCAPS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/dsound/struct.DSCAPS.html' title='winapi::dsound::DSCAPS'>DSCAPS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/dsound/struct.DSCAPS.html' title='winapi::dsound::DSCAPS'>DSCAPS</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/dsound/struct.DSCAPS.html' title='winapi::dsound::DSCAPS'>DSCAPS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>dsound</a>::<wbr><a class="struct" href=''>DSCAPS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct DSCAPS {
+    pub dwSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFlags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMinSecondarySampleRate: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxSecondarySampleRate: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwPrimaryBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHwMixingAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHwMixingStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHwMixingStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHwMixingAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHwMixingStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHwMixingStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHw3DAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHw3DStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxHw3DStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHw3DAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHw3DStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHw3DStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwTotalHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwFreeHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwMaxContigFreeHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwUnlockTransferRateHwBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwPlayCpuOverheadSwBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwReserved1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwReserved2: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.dwSize" class="structfield small-section-header">
+                           <a href="#structfield.dwSize" class="anchor field"></a>
+                           <span id="dwSize.v" class='invisible'>
+                           <code>dwSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFlags" class="structfield small-section-header">
+                           <a href="#structfield.dwFlags" class="anchor field"></a>
+                           <span id="dwFlags.v" class='invisible'>
+                           <code>dwFlags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMinSecondarySampleRate" class="structfield small-section-header">
+                           <a href="#structfield.dwMinSecondarySampleRate" class="anchor field"></a>
+                           <span id="dwMinSecondarySampleRate.v" class='invisible'>
+                           <code>dwMinSecondarySampleRate: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxSecondarySampleRate" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxSecondarySampleRate" class="anchor field"></a>
+                           <span id="dwMaxSecondarySampleRate.v" class='invisible'>
+                           <code>dwMaxSecondarySampleRate: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwPrimaryBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwPrimaryBuffers" class="anchor field"></a>
+                           <span id="dwPrimaryBuffers.v" class='invisible'>
+                           <code>dwPrimaryBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHwMixingAllBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHwMixingAllBuffers" class="anchor field"></a>
+                           <span id="dwMaxHwMixingAllBuffers.v" class='invisible'>
+                           <code>dwMaxHwMixingAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHwMixingStaticBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHwMixingStaticBuffers" class="anchor field"></a>
+                           <span id="dwMaxHwMixingStaticBuffers.v" class='invisible'>
+                           <code>dwMaxHwMixingStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHwMixingStreamingBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHwMixingStreamingBuffers" class="anchor field"></a>
+                           <span id="dwMaxHwMixingStreamingBuffers.v" class='invisible'>
+                           <code>dwMaxHwMixingStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHwMixingAllBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHwMixingAllBuffers" class="anchor field"></a>
+                           <span id="dwFreeHwMixingAllBuffers.v" class='invisible'>
+                           <code>dwFreeHwMixingAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHwMixingStaticBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHwMixingStaticBuffers" class="anchor field"></a>
+                           <span id="dwFreeHwMixingStaticBuffers.v" class='invisible'>
+                           <code>dwFreeHwMixingStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHwMixingStreamingBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHwMixingStreamingBuffers" class="anchor field"></a>
+                           <span id="dwFreeHwMixingStreamingBuffers.v" class='invisible'>
+                           <code>dwFreeHwMixingStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHw3DAllBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHw3DAllBuffers" class="anchor field"></a>
+                           <span id="dwMaxHw3DAllBuffers.v" class='invisible'>
+                           <code>dwMaxHw3DAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHw3DStaticBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHw3DStaticBuffers" class="anchor field"></a>
+                           <span id="dwMaxHw3DStaticBuffers.v" class='invisible'>
+                           <code>dwMaxHw3DStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxHw3DStreamingBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxHw3DStreamingBuffers" class="anchor field"></a>
+                           <span id="dwMaxHw3DStreamingBuffers.v" class='invisible'>
+                           <code>dwMaxHw3DStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHw3DAllBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHw3DAllBuffers" class="anchor field"></a>
+                           <span id="dwFreeHw3DAllBuffers.v" class='invisible'>
+                           <code>dwFreeHw3DAllBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHw3DStaticBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHw3DStaticBuffers" class="anchor field"></a>
+                           <span id="dwFreeHw3DStaticBuffers.v" class='invisible'>
+                           <code>dwFreeHw3DStaticBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHw3DStreamingBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHw3DStreamingBuffers" class="anchor field"></a>
+                           <span id="dwFreeHw3DStreamingBuffers.v" class='invisible'>
+                           <code>dwFreeHw3DStreamingBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwTotalHwMemBytes" class="structfield small-section-header">
+                           <a href="#structfield.dwTotalHwMemBytes" class="anchor field"></a>
+                           <span id="dwTotalHwMemBytes.v" class='invisible'>
+                           <code>dwTotalHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwFreeHwMemBytes" class="structfield small-section-header">
+                           <a href="#structfield.dwFreeHwMemBytes" class="anchor field"></a>
+                           <span id="dwFreeHwMemBytes.v" class='invisible'>
+                           <code>dwFreeHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwMaxContigFreeHwMemBytes" class="structfield small-section-header">
+                           <a href="#structfield.dwMaxContigFreeHwMemBytes" class="anchor field"></a>
+                           <span id="dwMaxContigFreeHwMemBytes.v" class='invisible'>
+                           <code>dwMaxContigFreeHwMemBytes: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwUnlockTransferRateHwBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwUnlockTransferRateHwBuffers" class="anchor field"></a>
+                           <span id="dwUnlockTransferRateHwBuffers.v" class='invisible'>
+                           <code>dwUnlockTransferRateHwBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwPlayCpuOverheadSwBuffers" class="structfield small-section-header">
+                           <a href="#structfield.dwPlayCpuOverheadSwBuffers" class="anchor field"></a>
+                           <span id="dwPlayCpuOverheadSwBuffers.v" class='invisible'>
+                           <code>dwPlayCpuOverheadSwBuffers: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwReserved1" class="structfield small-section-header">
+                           <a href="#structfield.dwReserved1" class="anchor field"></a>
+                           <span id="dwReserved1.v" class='invisible'>
+                           <code>dwReserved1: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwReserved2" class="structfield small-section-header">
+                           <a href="#structfield.dwReserved2" class="anchor field"></a>
+                           <span id="dwReserved2.v" class='invisible'>
+                           <code>dwReserved2: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/dsound/struct.DSCAPS.html" title="struct winapi::dsound::DSCAPS">DSCAPS</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/dsound/struct.DSCAPS.html" title="struct winapi::dsound::DSCAPS">DSCAPS</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/dsound/struct.DSCAPS.html" title="struct winapi::dsound::DSCAPS">DSCAPS</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/dsound/struct.DSCAPS.html" title="struct winapi::dsound::DSCAPS">DSCAPS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -117,12 +202,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -143,7 +232,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -154,11 +243,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

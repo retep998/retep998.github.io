@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["CLSID_CUrlHistory",""]]});
+initSidebarItems({});

@@ -9,13 +9,15 @@
 
     <title>winapi::oaidl::IDispatchVtbl - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>oaidl</a></p><script>window.sidebarCurrent = {name: 'IDispatchVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct IDispatchVtbl</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.parent">parent</a><a href="#structfield.GetTypeInfoCount">GetTypeInfoCount</a><a href="#structfield.GetTypeInfo">GetTypeInfo</a><a href="#structfield.GetIDsOfNames">GetIDsOfNames</a><a href="#structfield.Invoke">Invoke</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>oaidl</a></p><script>window.sidebarCurrent = {name: 'IDispatchVtbl', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,25 +43,41 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>oaidl</a>::<wbr><a class='struct' href=''>IDispatchVtbl</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-64056' class='srclink' href='../../src/winapi/macros.rs.html#112-118' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct IDispatchVtbl {
-    pub parent: <a class='struct' href='../../winapi/unknwnbase/struct.IUnknownVtbl.html' title='winapi::unknwnbase::IUnknownVtbl'>IUnknownVtbl</a>,
-    pub GetTypeInfoCount: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.IDispatch.html' title='winapi::oaidl::IDispatch'>IDispatch</a>, pctinfo: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetTypeInfo: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.IDispatch.html' title='winapi::oaidl::IDispatch'>IDispatch</a>, iTInfo: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, lcid: <a class='type' href='../../winapi/winnt/type.LCID.html' title='winapi::winnt::LCID'>LCID</a>, ppTInfo: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.ITypeInfo.html' title='winapi::oaidl::ITypeInfo'>ITypeInfo</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub GetIDsOfNames: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.IDispatch.html' title='winapi::oaidl::IDispatch'>IDispatch</a>, riid: <a class='type' href='../../winapi/guiddef/type.REFIID.html' title='winapi::guiddef::REFIID'>REFIID</a>, rgszNames: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/wtypesbase/type.LPOLESTR.html' title='winapi::wtypesbase::LPOLESTR'>LPOLESTR</a>, cNames: <a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>, lcid: <a class='type' href='../../winapi/winnt/type.LCID.html' title='winapi::winnt::LCID'>LCID</a>, rgDispId: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/oaidl/type.DISPID.html' title='winapi::oaidl::DISPID'>DISPID</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-    pub Invoke: unsafe  extern "system" fn(This: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.IDispatch.html' title='winapi::oaidl::IDispatch'>IDispatch</a>, dispIdMember: <a class='type' href='../../winapi/oaidl/type.DISPID.html' title='winapi::oaidl::DISPID'>DISPID</a>, riid: <a class='type' href='../../winapi/guiddef/type.REFIID.html' title='winapi::guiddef::REFIID'>REFIID</a>, lcid: <a class='type' href='../../winapi/winnt/type.LCID.html' title='winapi::winnt::LCID'>LCID</a>, wFlags: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>, pDispParams: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.DISPPARAMS.html' title='winapi::oaidl::DISPPARAMS'>DISPPARAMS</a>, pVarResult: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.VARIANT.html' title='winapi::oaidl::VARIANT'>VARIANT</a>, pExcepInfo: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='struct' href='../../winapi/oaidl/struct.EXCEPINFO.html' title='winapi::oaidl::EXCEPINFO'>EXCEPINFO</a>, puArgErr: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../winapi/minwindef/type.UINT.html' title='winapi::minwindef::UINT'>UINT</a>) -&gt; <a class='type' href='../../winapi/winerror/type.HRESULT.html' title='winapi::winerror::HRESULT'>HRESULT</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.parent'><code>parent</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetTypeInfoCount'><code>GetTypeInfoCount</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetTypeInfo'><code>GetTypeInfo</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.GetIDsOfNames'><code>GetIDsOfNames</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Invoke'><code>Invoke</code></td><td></td></tr></table></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>oaidl</a>::<wbr><a class="struct" href=''>IDispatchVtbl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#139-145' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct IDispatchVtbl {
+    pub parent: <a class="struct" href="../../winapi/unknwnbase/struct.IUnknownVtbl.html" title="struct winapi::unknwnbase::IUnknownVtbl">IUnknownVtbl</a>,
+    pub GetTypeInfoCount: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, pctinfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetTypeInfo: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, iTInfo: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, ppTInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.ITypeInfo.html" title="struct winapi::oaidl::ITypeInfo">ITypeInfo</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub GetIDsOfNames: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, riid: <a class="type" href="../../winapi/guiddef/type.REFIID.html" title="type winapi::guiddef::REFIID">REFIID</a>, rgszNames: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/wtypesbase/type.LPOLESTR.html" title="type winapi::wtypesbase::LPOLESTR">LPOLESTR</a>, cNames: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, rgDispId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/oaidl/type.DISPID.html" title="type winapi::oaidl::DISPID">DISPID</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+    pub Invoke: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, dispIdMember: <a class="type" href="../../winapi/oaidl/type.DISPID.html" title="type winapi::oaidl::DISPID">DISPID</a>, riid: <a class="type" href="../../winapi/guiddef/type.REFIID.html" title="type winapi::guiddef::REFIID">REFIID</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, wFlags: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>, pDispParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.DISPPARAMS.html" title="struct winapi::oaidl::DISPPARAMS">DISPPARAMS</a>, pVarResult: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.VARIANT.html" title="struct winapi::oaidl::VARIANT">VARIANT</a>, pExcepInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.EXCEPINFO.html" title="struct winapi::oaidl::EXCEPINFO">EXCEPINFO</a>, puArgErr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.parent" class="structfield small-section-header">
+                           <a href="#structfield.parent" class="anchor field"></a>
+                           <span id="parent.v" class='invisible'>
+                           <code>parent: <a class="struct" href="../../winapi/unknwnbase/struct.IUnknownVtbl.html" title="struct winapi::unknwnbase::IUnknownVtbl">IUnknownVtbl</a></code>
+                           </span></span><span id="structfield.GetTypeInfoCount" class="structfield small-section-header">
+                           <a href="#structfield.GetTypeInfoCount" class="anchor field"></a>
+                           <span id="GetTypeInfoCount.v" class='invisible'>
+                           <code>GetTypeInfoCount: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, pctinfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetTypeInfo" class="structfield small-section-header">
+                           <a href="#structfield.GetTypeInfo" class="anchor field"></a>
+                           <span id="GetTypeInfo.v" class='invisible'>
+                           <code>GetTypeInfo: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, iTInfo: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, ppTInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.ITypeInfo.html" title="struct winapi::oaidl::ITypeInfo">ITypeInfo</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.GetIDsOfNames" class="structfield small-section-header">
+                           <a href="#structfield.GetIDsOfNames" class="anchor field"></a>
+                           <span id="GetIDsOfNames.v" class='invisible'>
+                           <code>GetIDsOfNames: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, riid: <a class="type" href="../../winapi/guiddef/type.REFIID.html" title="type winapi::guiddef::REFIID">REFIID</a>, rgszNames: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/wtypesbase/type.LPOLESTR.html" title="type winapi::wtypesbase::LPOLESTR">LPOLESTR</a>, cNames: <a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, rgDispId: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/oaidl/type.DISPID.html" title="type winapi::oaidl::DISPID">DISPID</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span><span id="structfield.Invoke" class="structfield small-section-header">
+                           <a href="#structfield.Invoke" class="anchor field"></a>
+                           <span id="Invoke.v" class='invisible'>
+                           <code>Invoke: unsafe extern &quot;system&quot; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.fn.html">fn</a>(This: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.IDispatch.html" title="struct winapi::oaidl::IDispatch">IDispatch</a>, dispIdMember: <a class="type" href="../../winapi/oaidl/type.DISPID.html" title="type winapi::oaidl::DISPID">DISPID</a>, riid: <a class="type" href="../../winapi/guiddef/type.REFIID.html" title="type winapi::guiddef::REFIID">REFIID</a>, lcid: <a class="type" href="../../winapi/winnt/type.LCID.html" title="type winapi::winnt::LCID">LCID</a>, wFlags: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>, pDispParams: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.DISPPARAMS.html" title="struct winapi::oaidl::DISPPARAMS">DISPPARAMS</a>, pVarResult: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.VARIANT.html" title="struct winapi::oaidl::VARIANT">VARIANT</a>, pExcepInfo: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../../winapi/oaidl/struct.EXCEPINFO.html" title="struct winapi::oaidl::EXCEPINFO">EXCEPINFO</a>, puArgErr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="type" href="../../winapi/minwindef/type.UINT.html" title="type winapi::minwindef::UINT">UINT</a>) -&gt; <a class="type" href="../../winapi/winerror/type.HRESULT.html" title="type winapi::winerror::HRESULT">HRESULT</a></code>
+                           </span></span></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -76,12 +94,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -102,7 +124,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -113,11 +135,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

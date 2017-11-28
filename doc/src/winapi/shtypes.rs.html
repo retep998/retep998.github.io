@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\shtypes.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\shtypes.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>shtypes.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -81,47 +83,47 @@
 <span id="38">38</span>
 <span id="39">39</span>
 <span id="40">40</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! this ALWAYS GENERATED file contains the definitions for the interfaces</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>SHITEMID</span> {
-    <span class='kw'>pub</span> <span class='ident'>cb</span>: ::<span class='ident'>USHORT</span>,
-    <span class='kw'>pub</span> <span class='ident'>abID</span>: [::<span class='ident'>BYTE</span>; <span class='number'>0</span>],
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! this ALWAYS GENERATED file contains the definitions for the interfaces</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span> <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">missing_copy_implementations</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SHITEMID</span> {
+    <span class="kw">pub</span> <span class="ident">cb</span>: ::<span class="ident">USHORT</span>,
+    <span class="kw">pub</span> <span class="ident">abID</span>: [::<span class="ident">BYTE</span>; <span class="number">0</span>],
 }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPSHITEMID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>SHITEMID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCSHITEMID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>SHITEMID</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ITEMIDLIST</span> {
-    <span class='kw'>pub</span> <span class='ident'>mkid</span>: <span class='ident'>SHITEMID</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPSHITEMID</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">SHITEMID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCSHITEMID</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">SHITEMID</span>;
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ITEMIDLIST</span> {
+    <span class="kw">pub</span> <span class="ident">mkid</span>: <span class="ident">SHITEMID</span>,
 }
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ITEMIDLIST_RELATIVE</span> <span class='op'>=</span> <span class='ident'>ITEMIDLIST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ITEMID_CHILD</span> <span class='op'>=</span> <span class='ident'>ITEMIDLIST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>ITEMIDLIST_ABSOLUTE</span> <span class='op'>=</span> <span class='ident'>ITEMIDLIST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPITEMIDLIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMIDLIST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCITEMIDLIST</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMIDLIST</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIDLIST_ABSOLUTE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMIDLIST_ABSOLUTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCIDLIST_ABSOLUTE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMIDLIST_ABSOLUTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_ABSOLUTE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMIDLIST_ABSOLUTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PIDLIST_RELATIVE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMIDLIST_RELATIVE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCIDLIST_RELATIVE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMIDLIST_RELATIVE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PUIDLIST_RELATIVE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMIDLIST_RELATIVE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_RELATIVE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMIDLIST_RELATIVE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PITEMID_CHILD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMID_CHILD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCITEMID_CHILD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMID_CHILD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PUITEMID_CHILD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>ITEMID_CHILD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUITEMID_CHILD</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>ITEMID_CHILD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUITEMID_CHILD_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCUITEMID_CHILD</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_RELATIVE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCUIDLIST_RELATIVE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCIDLIST_ABSOLUTE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCIDLIST_ABSOLUTE</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PCUIDLIST_ABSOLUTE_ARRAY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PCUIDLIST_ABSOLUTE</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>COMDLG_FILTERSPEC</span> {
-    <span class='ident'>pszName</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='ident'>pszSpec</span>: ::<span class='ident'>LPCWSTR</span>,
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ITEMIDLIST_RELATIVE</span> <span class="op">=</span> <span class="ident">ITEMIDLIST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ITEMID_CHILD</span> <span class="op">=</span> <span class="ident">ITEMIDLIST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ITEMIDLIST_ABSOLUTE</span> <span class="op">=</span> <span class="ident">ITEMIDLIST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPITEMIDLIST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMIDLIST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCITEMIDLIST</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMIDLIST</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PIDLIST_ABSOLUTE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMIDLIST_ABSOLUTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCIDLIST_ABSOLUTE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMIDLIST_ABSOLUTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUIDLIST_ABSOLUTE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMIDLIST_ABSOLUTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PIDLIST_RELATIVE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMIDLIST_RELATIVE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCIDLIST_RELATIVE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMIDLIST_RELATIVE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PUIDLIST_RELATIVE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMIDLIST_RELATIVE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUIDLIST_RELATIVE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMIDLIST_RELATIVE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PITEMID_CHILD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMID_CHILD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCITEMID_CHILD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMID_CHILD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PUITEMID_CHILD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ITEMID_CHILD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUITEMID_CHILD</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ITEMID_CHILD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUITEMID_CHILD_ARRAY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PCUITEMID_CHILD</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUIDLIST_RELATIVE_ARRAY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PCUIDLIST_RELATIVE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCIDLIST_ABSOLUTE_ARRAY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PCIDLIST_ABSOLUTE</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PCUIDLIST_ABSOLUTE_ARRAY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PCUIDLIST_ABSOLUTE</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">COMDLG_FILTERSPEC</span> {
+    <span class="ident">pszName</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pszSpec</span>: ::<span class="ident">LPCWSTR</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>KNOWNFOLDERID</span> <span class='op'>=</span> ::<span class='ident'>GUID</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>REFKNOWNFOLDERID</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>KNOWNFOLDERID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">KNOWNFOLDERID</span> <span class="op">=</span> ::<span class="ident">GUID</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">REFKNOWNFOLDERID</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">KNOWNFOLDERID</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -140,12 +142,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -166,7 +172,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -177,11 +183,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

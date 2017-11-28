@@ -9,13 +9,15 @@
 
     <title>winapi::hidpi::HIDP_BUTTON_CAPS - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a></p><script>window.sidebarCurrent = {name: 'HIDP_BUTTON_CAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct HIDP_BUTTON_CAPS</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.UsagePage">UsagePage</a><a href="#structfield.ReportID">ReportID</a><a href="#structfield.IsAlias">IsAlias</a><a href="#structfield.BitField">BitField</a><a href="#structfield.LinkCollection">LinkCollection</a><a href="#structfield.LinkUsage">LinkUsage</a><a href="#structfield.LinkUsagePage">LinkUsagePage</a><a href="#structfield.IsRange">IsRange</a><a href="#structfield.IsStringRange">IsStringRange</a><a href="#structfield.IsDesignatorRange">IsDesignatorRange</a><a href="#structfield.IsAbsolute">IsAbsolute</a><a href="#structfield.Reserved">Reserved</a><a href="#structfield.S_un">S_un</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.Range">Range</a><a href="#method.Range_mut">Range_mut</a><a href="#method.NotRange">NotRange</a><a href="#method.NotRange_mut">NotRange_mut</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a></p><script>window.sidebarCurrent = {name: 'HIDP_BUTTON_CAPS', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,48 +43,104 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a>::<wbr><a class='struct' href=''>HIDP_BUTTON_CAPS</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-47994' class='srclink' href='../../src/winapi/macros.rs.html#236-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct HIDP_BUTTON_CAPS {
-    pub UsagePage: <a class='type' href='../../winapi/hidusage/type.USAGE.html' title='winapi::hidusage::USAGE'>USAGE</a>,
-    pub ReportID: <a class='type' href='../../winapi/minwindef/type.UCHAR.html' title='winapi::minwindef::UCHAR'>UCHAR</a>,
-    pub IsAlias: <a class='type' href='../../winapi/winnt/type.BOOLEAN.html' title='winapi::winnt::BOOLEAN'>BOOLEAN</a>,
-    pub BitField: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub LinkCollection: <a class='type' href='../../winapi/minwindef/type.USHORT.html' title='winapi::minwindef::USHORT'>USHORT</a>,
-    pub LinkUsage: <a class='type' href='../../winapi/hidusage/type.USAGE.html' title='winapi::hidusage::USAGE'>USAGE</a>,
-    pub LinkUsagePage: <a class='type' href='../../winapi/hidusage/type.USAGE.html' title='winapi::hidusage::USAGE'>USAGE</a>,
-    pub IsRange: <a class='type' href='../../winapi/winnt/type.BOOLEAN.html' title='winapi::winnt::BOOLEAN'>BOOLEAN</a>,
-    pub IsStringRange: <a class='type' href='../../winapi/winnt/type.BOOLEAN.html' title='winapi::winnt::BOOLEAN'>BOOLEAN</a>,
-    pub IsDesignatorRange: <a class='type' href='../../winapi/winnt/type.BOOLEAN.html' title='winapi::winnt::BOOLEAN'>BOOLEAN</a>,
-    pub IsAbsolute: <a class='type' href='../../winapi/winnt/type.BOOLEAN.html' title='winapi::winnt::BOOLEAN'>BOOLEAN</a>,
-    pub Reserved: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='type' href='../../winapi/minwindef/type.ULONG.html' title='winapi::minwindef::ULONG'>ULONG</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 10]</a>,
-    pub S_un: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 16]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.UsagePage'><code>UsagePage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.ReportID'><code>ReportID</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.IsAlias'><code>IsAlias</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.BitField'><code>BitField</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.LinkCollection'><code>LinkCollection</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.LinkUsage'><code>LinkUsage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.LinkUsagePage'><code>LinkUsagePage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.IsRange'><code>IsRange</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.IsStringRange'><code>IsStringRange</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.IsDesignatorRange'><code>IsDesignatorRange</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.IsAbsolute'><code>IsAbsolute</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Reserved'><code>Reserved</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.S_un'><code>S_un</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h3><div class='impl-items'><h4 id='method.Range' class='method'><code>unsafe fn <a href='#method.Range' class='fnname'>Range</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/hidpi/struct.HIDP_RANGE_STRUCT.html' title='winapi::hidpi::HIDP_RANGE_STRUCT'>HIDP_RANGE_STRUCT</a></code></h4>
-<h4 id='method.Range_mut' class='method'><code>unsafe fn <a href='#method.Range_mut' class='fnname'>Range_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/hidpi/struct.HIDP_RANGE_STRUCT.html' title='winapi::hidpi::HIDP_RANGE_STRUCT'>HIDP_RANGE_STRUCT</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h3><div class='impl-items'><h4 id='method.NotRange' class='method'><code>unsafe fn <a href='#method.NotRange' class='fnname'>NotRange</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/hidpi/struct.HIDP_NOTRANGE_STRUCT.html' title='winapi::hidpi::HIDP_NOTRANGE_STRUCT'>HIDP_NOTRANGE_STRUCT</a></code></h4>
-<h4 id='method.NotRange_mut' class='method'><code>unsafe fn <a href='#method.NotRange_mut' class='fnname'>NotRange_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/hidpi/struct.HIDP_NOTRANGE_STRUCT.html' title='winapi::hidpi::HIDP_NOTRANGE_STRUCT'>HIDP_NOTRANGE_STRUCT</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html' title='winapi::hidpi::HIDP_BUTTON_CAPS'>HIDP_BUTTON_CAPS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>hidpi</a>::<wbr><a class="struct" href=''>HIDP_BUTTON_CAPS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#264-266' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct HIDP_BUTTON_CAPS {
+    pub UsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a>,
+    pub ReportID: <a class="type" href="../../winapi/minwindef/type.UCHAR.html" title="type winapi::minwindef::UCHAR">UCHAR</a>,
+    pub IsAlias: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a>,
+    pub BitField: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub LinkCollection: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a>,
+    pub LinkUsage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a>,
+    pub LinkUsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a>,
+    pub IsRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a>,
+    pub IsStringRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a>,
+    pub IsDesignatorRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a>,
+    pub IsAbsolute: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a>,
+    pub Reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.ULONG.html" title="type winapi::minwindef::ULONG">ULONG</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 10]</a>,
+    pub S_un: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 8]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.UsagePage" class="structfield small-section-header">
+                           <a href="#structfield.UsagePage" class="anchor field"></a>
+                           <span id="UsagePage.v" class='invisible'>
+                           <code>UsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a></code>
+                           </span></span><span id="structfield.ReportID" class="structfield small-section-header">
+                           <a href="#structfield.ReportID" class="anchor field"></a>
+                           <span id="ReportID.v" class='invisible'>
+                           <code>ReportID: <a class="type" href="../../winapi/minwindef/type.UCHAR.html" title="type winapi::minwindef::UCHAR">UCHAR</a></code>
+                           </span></span><span id="structfield.IsAlias" class="structfield small-section-header">
+                           <a href="#structfield.IsAlias" class="anchor field"></a>
+                           <span id="IsAlias.v" class='invisible'>
+                           <code>IsAlias: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a></code>
+                           </span></span><span id="structfield.BitField" class="structfield small-section-header">
+                           <a href="#structfield.BitField" class="anchor field"></a>
+                           <span id="BitField.v" class='invisible'>
+                           <code>BitField: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.LinkCollection" class="structfield small-section-header">
+                           <a href="#structfield.LinkCollection" class="anchor field"></a>
+                           <span id="LinkCollection.v" class='invisible'>
+                           <code>LinkCollection: <a class="type" href="../../winapi/minwindef/type.USHORT.html" title="type winapi::minwindef::USHORT">USHORT</a></code>
+                           </span></span><span id="structfield.LinkUsage" class="structfield small-section-header">
+                           <a href="#structfield.LinkUsage" class="anchor field"></a>
+                           <span id="LinkUsage.v" class='invisible'>
+                           <code>LinkUsage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a></code>
+                           </span></span><span id="structfield.LinkUsagePage" class="structfield small-section-header">
+                           <a href="#structfield.LinkUsagePage" class="anchor field"></a>
+                           <span id="LinkUsagePage.v" class='invisible'>
+                           <code>LinkUsagePage: <a class="type" href="../../winapi/hidusage/type.USAGE.html" title="type winapi::hidusage::USAGE">USAGE</a></code>
+                           </span></span><span id="structfield.IsRange" class="structfield small-section-header">
+                           <a href="#structfield.IsRange" class="anchor field"></a>
+                           <span id="IsRange.v" class='invisible'>
+                           <code>IsRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a></code>
+                           </span></span><span id="structfield.IsStringRange" class="structfield small-section-header">
+                           <a href="#structfield.IsStringRange" class="anchor field"></a>
+                           <span id="IsStringRange.v" class='invisible'>
+                           <code>IsStringRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a></code>
+                           </span></span><span id="structfield.IsDesignatorRange" class="structfield small-section-header">
+                           <a href="#structfield.IsDesignatorRange" class="anchor field"></a>
+                           <span id="IsDesignatorRange.v" class='invisible'>
+                           <code>IsDesignatorRange: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a></code>
+                           </span></span><span id="structfield.IsAbsolute" class="structfield small-section-header">
+                           <a href="#structfield.IsAbsolute" class="anchor field"></a>
+                           <span id="IsAbsolute.v" class='invisible'>
+                           <code>IsAbsolute: <a class="type" href="../../winapi/winnt/type.BOOLEAN.html" title="type winapi::winnt::BOOLEAN">BOOLEAN</a></code>
+                           </span></span><span id="structfield.Reserved" class="structfield small-section-header">
+                           <a href="#structfield.Reserved" class="anchor field"></a>
+                           <span id="Reserved.v" class='invisible'>
+                           <code>Reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../../winapi/minwindef/type.ULONG.html" title="type winapi::minwindef::ULONG">ULONG</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 10]</a></code>
+                           </span></span><span id="structfield.S_un" class="structfield small-section-header">
+                           <a href="#structfield.S_un" class="anchor field"></a>
+                           <span id="S_un.v" class='invisible'>
+                           <code>S_un: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 8]</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.Range' class="method"><span id='Range.v' class='invisible'><code>pub unsafe fn <a href='#method.Range' class='fnname'>Range</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/hidpi/struct.HIDP_RANGE_STRUCT.html" title="struct winapi::hidpi::HIDP_RANGE_STRUCT">HIDP_RANGE_STRUCT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.Range_mut' class="method"><span id='Range_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.Range_mut' class='fnname'>Range_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/hidpi/struct.HIDP_RANGE_STRUCT.html" title="struct winapi::hidpi::HIDP_RANGE_STRUCT">HIDP_RANGE_STRUCT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.NotRange' class="method"><span id='NotRange.v' class='invisible'><code>pub unsafe fn <a href='#method.NotRange' class='fnname'>NotRange</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/hidpi/struct.HIDP_NOTRANGE_STRUCT.html" title="struct winapi::hidpi::HIDP_NOTRANGE_STRUCT">HIDP_NOTRANGE_STRUCT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.NotRange_mut' class="method"><span id='NotRange_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.NotRange_mut' class='fnname'>NotRange_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/hidpi/struct.HIDP_NOTRANGE_STRUCT.html" title="struct winapi::hidpi::HIDP_NOTRANGE_STRUCT">HIDP_NOTRANGE_STRUCT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#263' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#267' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/hidpi/struct.HIDP_BUTTON_CAPS.html" title="struct winapi::hidpi::HIDP_BUTTON_CAPS">HIDP_BUTTON_CAPS</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#268' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -99,12 +157,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -125,7 +187,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -136,11 +198,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

@@ -9,13 +9,15 @@
 
     <title>winapi::commdlg::PRINTDLGA - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a></p><script>window.sidebarCurrent = {name: 'PRINTDLGA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct PRINTDLGA</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.lStructSize">lStructSize</a><a href="#structfield.hwndOwner">hwndOwner</a><a href="#structfield.hDevMode">hDevMode</a><a href="#structfield.hDevNames">hDevNames</a><a href="#structfield.hDC">hDC</a><a href="#structfield.Flags">Flags</a><a href="#structfield.nFromPage">nFromPage</a><a href="#structfield.nToPage">nToPage</a><a href="#structfield.nMinPage">nMinPage</a><a href="#structfield.nMaxPage">nMaxPage</a><a href="#structfield.nCopies">nCopies</a><a href="#structfield.hInstance">hInstance</a><a href="#structfield.lCustData">lCustData</a><a href="#structfield.lpfnPrintHook">lpfnPrintHook</a><a href="#structfield.lpfnSetupHook">lpfnSetupHook</a><a href="#structfield.lpPrintTemplateName">lpPrintTemplateName</a><a href="#structfield.lpSetupTemplateName">lpSetupTemplateName</a><a href="#structfield.hPrintTemplate">hPrintTemplate</a><a href="#structfield.hSetupTemplate">hSetupTemplate</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a></p><script>window.sidebarCurrent = {name: 'PRINTDLGA', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,55 +43,121 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a>::<wbr><a class='struct' href=''>PRINTDLGA</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-9105' class='srclink' href='../../src/winapi/commdlg.rs.html#382-402' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct PRINTDLGA {
-    pub lStructSize: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub hwndOwner: <a class='type' href='../../winapi/windef/type.HWND.html' title='winapi::windef::HWND'>HWND</a>,
-    pub hDevMode: <a class='type' href='../../winapi/minwindef/type.HGLOBAL.html' title='winapi::minwindef::HGLOBAL'>HGLOBAL</a>,
-    pub hDevNames: <a class='type' href='../../winapi/minwindef/type.HGLOBAL.html' title='winapi::minwindef::HGLOBAL'>HGLOBAL</a>,
-    pub hDC: <a class='type' href='../../winapi/windef/type.HDC.html' title='winapi::windef::HDC'>HDC</a>,
-    pub Flags: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub nFromPage: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub nToPage: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub nMinPage: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub nMaxPage: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub nCopies: <a class='type' href='../../winapi/minwindef/type.WORD.html' title='winapi::minwindef::WORD'>WORD</a>,
-    pub hInstance: <a class='type' href='../../winapi/minwindef/type.HINSTANCE.html' title='winapi::minwindef::HINSTANCE'>HINSTANCE</a>,
-    pub lCustData: <a class='type' href='../../winapi/minwindef/type.LPARAM.html' title='winapi::minwindef::LPARAM'>LPARAM</a>,
-    pub lpfnPrintHook: <a class='type' href='../../winapi/commdlg/type.LPPRINTHOOKPROC.html' title='winapi::commdlg::LPPRINTHOOKPROC'>LPPRINTHOOKPROC</a>,
-    pub lpfnSetupHook: <a class='type' href='../../winapi/commdlg/type.LPSETUPHOOKPROC.html' title='winapi::commdlg::LPSETUPHOOKPROC'>LPSETUPHOOKPROC</a>,
-    pub lpPrintTemplateName: <a class='type' href='../../winapi/winnt/type.LPCSTR.html' title='winapi::winnt::LPCSTR'>LPCSTR</a>,
-    pub lpSetupTemplateName: <a class='type' href='../../winapi/winnt/type.LPCSTR.html' title='winapi::winnt::LPCSTR'>LPCSTR</a>,
-    pub hPrintTemplate: <a class='type' href='../../winapi/minwindef/type.HGLOBAL.html' title='winapi::minwindef::HGLOBAL'>HGLOBAL</a>,
-    pub hSetupTemplate: <a class='type' href='../../winapi/minwindef/type.HGLOBAL.html' title='winapi::minwindef::HGLOBAL'>HGLOBAL</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.lStructSize'><code>lStructSize</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hwndOwner'><code>hwndOwner</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hDevMode'><code>hDevMode</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hDevNames'><code>hDevNames</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hDC'><code>hDC</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.Flags'><code>Flags</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nFromPage'><code>nFromPage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nToPage'><code>nToPage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nMinPage'><code>nMinPage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nMaxPage'><code>nMaxPage</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.nCopies'><code>nCopies</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hInstance'><code>hInstance</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lCustData'><code>lCustData</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpfnPrintHook'><code>lpfnPrintHook</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpfnSetupHook'><code>lpfnSetupHook</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpPrintTemplateName'><code>lpPrintTemplateName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.lpSetupTemplateName'><code>lpSetupTemplateName</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hPrintTemplate'><code>hPrintTemplate</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.hSetupTemplate'><code>hSetupTemplate</code></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/commdlg/struct.PRINTDLGA.html' title='winapi::commdlg::PRINTDLGA'>PRINTDLGA</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/commdlg/struct.PRINTDLGA.html' title='winapi::commdlg::PRINTDLGA'>PRINTDLGA</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/commdlg/struct.PRINTDLGA.html' title='winapi::commdlg::PRINTDLGA'>PRINTDLGA</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>commdlg</a>::<wbr><a class="struct" href=''>PRINTDLGA</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct PRINTDLGA {
+    pub lStructSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub hwndOwner: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a>,
+    pub hDevMode: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a>,
+    pub hDevNames: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a>,
+    pub hDC: <a class="type" href="../../winapi/windef/type.HDC.html" title="type winapi::windef::HDC">HDC</a>,
+    pub Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub nFromPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub nToPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub nMinPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub nMaxPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub nCopies: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a>,
+    pub hInstance: <a class="type" href="../../winapi/minwindef/type.HINSTANCE.html" title="type winapi::minwindef::HINSTANCE">HINSTANCE</a>,
+    pub lCustData: <a class="type" href="../../winapi/minwindef/type.LPARAM.html" title="type winapi::minwindef::LPARAM">LPARAM</a>,
+    pub lpfnPrintHook: <a class="type" href="../../winapi/commdlg/type.LPPRINTHOOKPROC.html" title="type winapi::commdlg::LPPRINTHOOKPROC">LPPRINTHOOKPROC</a>,
+    pub lpfnSetupHook: <a class="type" href="../../winapi/commdlg/type.LPSETUPHOOKPROC.html" title="type winapi::commdlg::LPSETUPHOOKPROC">LPSETUPHOOKPROC</a>,
+    pub lpPrintTemplateName: <a class="type" href="../../winapi/winnt/type.LPCSTR.html" title="type winapi::winnt::LPCSTR">LPCSTR</a>,
+    pub lpSetupTemplateName: <a class="type" href="../../winapi/winnt/type.LPCSTR.html" title="type winapi::winnt::LPCSTR">LPCSTR</a>,
+    pub hPrintTemplate: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a>,
+    pub hSetupTemplate: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.lStructSize" class="structfield small-section-header">
+                           <a href="#structfield.lStructSize" class="anchor field"></a>
+                           <span id="lStructSize.v" class='invisible'>
+                           <code>lStructSize: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.hwndOwner" class="structfield small-section-header">
+                           <a href="#structfield.hwndOwner" class="anchor field"></a>
+                           <span id="hwndOwner.v" class='invisible'>
+                           <code>hwndOwner: <a class="type" href="../../winapi/windef/type.HWND.html" title="type winapi::windef::HWND">HWND</a></code>
+                           </span></span><span id="structfield.hDevMode" class="structfield small-section-header">
+                           <a href="#structfield.hDevMode" class="anchor field"></a>
+                           <span id="hDevMode.v" class='invisible'>
+                           <code>hDevMode: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a></code>
+                           </span></span><span id="structfield.hDevNames" class="structfield small-section-header">
+                           <a href="#structfield.hDevNames" class="anchor field"></a>
+                           <span id="hDevNames.v" class='invisible'>
+                           <code>hDevNames: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a></code>
+                           </span></span><span id="structfield.hDC" class="structfield small-section-header">
+                           <a href="#structfield.hDC" class="anchor field"></a>
+                           <span id="hDC.v" class='invisible'>
+                           <code>hDC: <a class="type" href="../../winapi/windef/type.HDC.html" title="type winapi::windef::HDC">HDC</a></code>
+                           </span></span><span id="structfield.Flags" class="structfield small-section-header">
+                           <a href="#structfield.Flags" class="anchor field"></a>
+                           <span id="Flags.v" class='invisible'>
+                           <code>Flags: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.nFromPage" class="structfield small-section-header">
+                           <a href="#structfield.nFromPage" class="anchor field"></a>
+                           <span id="nFromPage.v" class='invisible'>
+                           <code>nFromPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.nToPage" class="structfield small-section-header">
+                           <a href="#structfield.nToPage" class="anchor field"></a>
+                           <span id="nToPage.v" class='invisible'>
+                           <code>nToPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.nMinPage" class="structfield small-section-header">
+                           <a href="#structfield.nMinPage" class="anchor field"></a>
+                           <span id="nMinPage.v" class='invisible'>
+                           <code>nMinPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.nMaxPage" class="structfield small-section-header">
+                           <a href="#structfield.nMaxPage" class="anchor field"></a>
+                           <span id="nMaxPage.v" class='invisible'>
+                           <code>nMaxPage: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.nCopies" class="structfield small-section-header">
+                           <a href="#structfield.nCopies" class="anchor field"></a>
+                           <span id="nCopies.v" class='invisible'>
+                           <code>nCopies: <a class="type" href="../../winapi/minwindef/type.WORD.html" title="type winapi::minwindef::WORD">WORD</a></code>
+                           </span></span><span id="structfield.hInstance" class="structfield small-section-header">
+                           <a href="#structfield.hInstance" class="anchor field"></a>
+                           <span id="hInstance.v" class='invisible'>
+                           <code>hInstance: <a class="type" href="../../winapi/minwindef/type.HINSTANCE.html" title="type winapi::minwindef::HINSTANCE">HINSTANCE</a></code>
+                           </span></span><span id="structfield.lCustData" class="structfield small-section-header">
+                           <a href="#structfield.lCustData" class="anchor field"></a>
+                           <span id="lCustData.v" class='invisible'>
+                           <code>lCustData: <a class="type" href="../../winapi/minwindef/type.LPARAM.html" title="type winapi::minwindef::LPARAM">LPARAM</a></code>
+                           </span></span><span id="structfield.lpfnPrintHook" class="structfield small-section-header">
+                           <a href="#structfield.lpfnPrintHook" class="anchor field"></a>
+                           <span id="lpfnPrintHook.v" class='invisible'>
+                           <code>lpfnPrintHook: <a class="type" href="../../winapi/commdlg/type.LPPRINTHOOKPROC.html" title="type winapi::commdlg::LPPRINTHOOKPROC">LPPRINTHOOKPROC</a></code>
+                           </span></span><span id="structfield.lpfnSetupHook" class="structfield small-section-header">
+                           <a href="#structfield.lpfnSetupHook" class="anchor field"></a>
+                           <span id="lpfnSetupHook.v" class='invisible'>
+                           <code>lpfnSetupHook: <a class="type" href="../../winapi/commdlg/type.LPSETUPHOOKPROC.html" title="type winapi::commdlg::LPSETUPHOOKPROC">LPSETUPHOOKPROC</a></code>
+                           </span></span><span id="structfield.lpPrintTemplateName" class="structfield small-section-header">
+                           <a href="#structfield.lpPrintTemplateName" class="anchor field"></a>
+                           <span id="lpPrintTemplateName.v" class='invisible'>
+                           <code>lpPrintTemplateName: <a class="type" href="../../winapi/winnt/type.LPCSTR.html" title="type winapi::winnt::LPCSTR">LPCSTR</a></code>
+                           </span></span><span id="structfield.lpSetupTemplateName" class="structfield small-section-header">
+                           <a href="#structfield.lpSetupTemplateName" class="anchor field"></a>
+                           <span id="lpSetupTemplateName.v" class='invisible'>
+                           <code>lpSetupTemplateName: <a class="type" href="../../winapi/winnt/type.LPCSTR.html" title="type winapi::winnt::LPCSTR">LPCSTR</a></code>
+                           </span></span><span id="structfield.hPrintTemplate" class="structfield small-section-header">
+                           <a href="#structfield.hPrintTemplate" class="anchor field"></a>
+                           <span id="hPrintTemplate.v" class='invisible'>
+                           <code>hPrintTemplate: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a></code>
+                           </span></span><span id="structfield.hSetupTemplate" class="structfield small-section-header">
+                           <a href="#structfield.hSetupTemplate" class="anchor field"></a>
+                           <span id="hSetupTemplate.v" class='invisible'>
+                           <code>hSetupTemplate: <a class="type" href="../../winapi/minwindef/type.HGLOBAL.html" title="type winapi::minwindef::HGLOBAL">HGLOBAL</a></code>
+                           </span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/commdlg/struct.PRINTDLGA.html" title="struct winapi::commdlg::PRINTDLGA">PRINTDLGA</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/commdlg/struct.PRINTDLGA.html" title="struct winapi::commdlg::PRINTDLGA">PRINTDLGA</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/commdlg/struct.PRINTDLGA.html" title="struct winapi::commdlg::PRINTDLGA">PRINTDLGA</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -106,12 +174,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -132,7 +204,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -143,11 +215,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

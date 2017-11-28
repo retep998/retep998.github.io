@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\ktmw32-sys-0.1.0\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\ktmw32-sys-0.1.0\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -96,61 +98,61 @@
 <span id="53">53</span>
 <span id="54">54</span>
 <span id="55">55</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, Peter Atashian</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! FFI bindings to ktmw32.</span>
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg</span>(<span class='ident'>windows</span>)]</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>winapi</span>;
-<span class='kw'>use</span> <span class='ident'>winapi</span>::<span class='op'>*</span>;
-<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> {
-    <span class='comment'>// pub fn CommitComplete();</span>
-    <span class='comment'>// pub fn CommitEnlistment();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CommitTransaction</span>(<span class='ident'>TransactionHandle</span>: <span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn CommitTransactionAsync();</span>
-    <span class='comment'>// pub fn CreateEnlistment();</span>
-    <span class='comment'>// pub fn CreateResourceManager();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>CreateTransaction</span>(
-        <span class='ident'>lpTransactionAttributes</span>: <span class='ident'>LPSECURITY_ATTRIBUTES</span>, <span class='ident'>UOW</span>: <span class='ident'>LPGUID</span>, <span class='ident'>CreateOptions</span>: <span class='ident'>DWORD</span>,
-        <span class='ident'>IsolationLevel</span>: <span class='ident'>DWORD</span>, <span class='ident'>IsolationFlags</span>: <span class='ident'>DWORD</span>, <span class='ident'>Timeout</span>: <span class='ident'>DWORD</span>, <span class='ident'>Description</span>: <span class='ident'>LPWSTR</span>,
-    ) <span class='op'>-&gt;</span> <span class='ident'>HANDLE</span>;
-    <span class='comment'>// pub fn CreateTransactionManager();</span>
-    <span class='comment'>// pub fn GetCurrentClockTransactionManager();</span>
-    <span class='comment'>// pub fn GetEnlistmentId();</span>
-    <span class='comment'>// pub fn GetEnlistmentRecoveryInformation();</span>
-    <span class='comment'>// pub fn GetNotificationResourceManager();</span>
-    <span class='comment'>// pub fn GetNotificationResourceManagerAsync();</span>
-    <span class='comment'>// pub fn GetTransactionId();</span>
-    <span class='comment'>// pub fn GetTransactionInformation();</span>
-    <span class='comment'>// pub fn GetTransactionManagerId();</span>
-    <span class='comment'>// pub fn OpenEnlistment();</span>
-    <span class='comment'>// pub fn OpenResourceManager();</span>
-    <span class='comment'>// pub fn OpenTransaction();</span>
-    <span class='comment'>// pub fn OpenTransactionManager();</span>
-    <span class='comment'>// pub fn OpenTransactionManagerById();</span>
-    <span class='comment'>// pub fn PrepareComplete();</span>
-    <span class='comment'>// pub fn PrepareEnlistment();</span>
-    <span class='comment'>// pub fn PrePrepareComplete();</span>
-    <span class='comment'>// pub fn PrePrepareEnlistment();</span>
-    <span class='comment'>// pub fn PrivCreateTransaction();</span>
-    <span class='comment'>// pub fn PrivIsLogWritableTransactionManager();</span>
-    <span class='comment'>// pub fn PrivPropagationComplete();</span>
-    <span class='comment'>// pub fn PrivPropagationFailed();</span>
-    <span class='comment'>// pub fn PrivRegisterProtocolAddressInformation();</span>
-    <span class='comment'>// pub fn ReadOnlyEnlistment();</span>
-    <span class='comment'>// pub fn RecoverEnlistment();</span>
-    <span class='comment'>// pub fn RecoverResourceManager();</span>
-    <span class='comment'>// pub fn RecoverTransactionManager();</span>
-    <span class='comment'>// pub fn RenameTransactionManager();</span>
-    <span class='comment'>// pub fn RollbackComplete();</span>
-    <span class='comment'>// pub fn RollbackEnlistment();</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>RollbackTransaction</span>(<span class='ident'>TransactionHandle</span>: <span class='ident'>HANDLE</span>) <span class='op'>-&gt;</span> <span class='ident'>BOOL</span>;
-    <span class='comment'>// pub fn RollbackTransactionAsync();</span>
-    <span class='comment'>// pub fn RollforwardTransactionManager();</span>
-    <span class='comment'>// pub fn SetEnlistmentRecoveryInformation();</span>
-    <span class='comment'>// pub fn SetResourceManagerCompletionPort();</span>
-    <span class='comment'>// pub fn SetTransactionInformation();</span>
-    <span class='comment'>// pub fn SinglePhaseReject();</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, Peter Atashian</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! FFI bindings to ktmw32.</span>
+<span class="attribute">#![<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">winapi</span>;
+<span class="kw">use</span> <span class="ident">winapi</span>::<span class="kw-2">*</span>;
+<span class="kw">extern</span> <span class="string">&quot;system&quot;</span> {
+    <span class="comment">// pub fn CommitComplete();</span>
+    <span class="comment">// pub fn CommitEnlistment();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CommitTransaction</span>(<span class="ident">TransactionHandle</span>: <span class="ident">HANDLE</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="comment">// pub fn CommitTransactionAsync();</span>
+    <span class="comment">// pub fn CreateEnlistment();</span>
+    <span class="comment">// pub fn CreateResourceManager();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">CreateTransaction</span>(
+        <span class="ident">lpTransactionAttributes</span>: <span class="ident">LPSECURITY_ATTRIBUTES</span>, <span class="ident">UOW</span>: <span class="ident">LPGUID</span>, <span class="ident">CreateOptions</span>: <span class="ident">DWORD</span>,
+        <span class="ident">IsolationLevel</span>: <span class="ident">DWORD</span>, <span class="ident">IsolationFlags</span>: <span class="ident">DWORD</span>, <span class="ident">Timeout</span>: <span class="ident">DWORD</span>, <span class="ident">Description</span>: <span class="ident">LPWSTR</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">HANDLE</span>;
+    <span class="comment">// pub fn CreateTransactionManager();</span>
+    <span class="comment">// pub fn GetCurrentClockTransactionManager();</span>
+    <span class="comment">// pub fn GetEnlistmentId();</span>
+    <span class="comment">// pub fn GetEnlistmentRecoveryInformation();</span>
+    <span class="comment">// pub fn GetNotificationResourceManager();</span>
+    <span class="comment">// pub fn GetNotificationResourceManagerAsync();</span>
+    <span class="comment">// pub fn GetTransactionId();</span>
+    <span class="comment">// pub fn GetTransactionInformation();</span>
+    <span class="comment">// pub fn GetTransactionManagerId();</span>
+    <span class="comment">// pub fn OpenEnlistment();</span>
+    <span class="comment">// pub fn OpenResourceManager();</span>
+    <span class="comment">// pub fn OpenTransaction();</span>
+    <span class="comment">// pub fn OpenTransactionManager();</span>
+    <span class="comment">// pub fn OpenTransactionManagerById();</span>
+    <span class="comment">// pub fn PrepareComplete();</span>
+    <span class="comment">// pub fn PrepareEnlistment();</span>
+    <span class="comment">// pub fn PrePrepareComplete();</span>
+    <span class="comment">// pub fn PrePrepareEnlistment();</span>
+    <span class="comment">// pub fn PrivCreateTransaction();</span>
+    <span class="comment">// pub fn PrivIsLogWritableTransactionManager();</span>
+    <span class="comment">// pub fn PrivPropagationComplete();</span>
+    <span class="comment">// pub fn PrivPropagationFailed();</span>
+    <span class="comment">// pub fn PrivRegisterProtocolAddressInformation();</span>
+    <span class="comment">// pub fn ReadOnlyEnlistment();</span>
+    <span class="comment">// pub fn RecoverEnlistment();</span>
+    <span class="comment">// pub fn RecoverResourceManager();</span>
+    <span class="comment">// pub fn RecoverTransactionManager();</span>
+    <span class="comment">// pub fn RenameTransactionManager();</span>
+    <span class="comment">// pub fn RollbackComplete();</span>
+    <span class="comment">// pub fn RollbackEnlistment();</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">RollbackTransaction</span>(<span class="ident">TransactionHandle</span>: <span class="ident">HANDLE</span>) <span class="op">-&gt;</span> <span class="ident">BOOL</span>;
+    <span class="comment">// pub fn RollbackTransactionAsync();</span>
+    <span class="comment">// pub fn RollforwardTransactionManager();</span>
+    <span class="comment">// pub fn SetEnlistmentRecoveryInformation();</span>
+    <span class="comment">// pub fn SetResourceManagerCompletionPort();</span>
+    <span class="comment">// pub fn SetTransactionInformation();</span>
+    <span class="comment">// pub fn SinglePhaseReject();</span>
 }
 </pre>
 </section>
@@ -170,12 +172,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -196,7 +202,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -207,11 +213,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "ktmw32";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

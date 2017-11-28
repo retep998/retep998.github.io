@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\msys64\home\Peter\.cargo\registry\src\github.com-88ac128001ac3a9a\winapi-0.2.5\src\prsht.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\Peter\AppData\Roaming\Rust\registry\src\github.com-1ecc6299db9ec823\winapi-0.2.8\src\prsht.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>prsht.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc source">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -41,7 +43,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -303,291 +305,269 @@
 <span id="260">260</span>
 <span id="261">261</span>
 <span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-</pre><pre class='rust '>
-<span class='comment'>// Copyright © 2015, skdltmxn</span>
-<span class='comment'>// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
-<span class='doccomment'>//! Interface for the Windows Property Sheet Pages</span>
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>missing_copy_implementations</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PSP</span> {
-    <span class='ident'>unused</span>: ::<span class='ident'>c_void</span>,
-}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>HPROPSHEETPAGE</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSP</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFNPSPCALLBACKA</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>hwnd</span>: ::<span class='ident'>HWND</span>, <span class='ident'>uMsg</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppsp</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETPAGEA</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFNPSPCALLBACKW</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>hwnd</span>: ::<span class='ident'>HWND</span>, <span class='ident'>uMsg</span>: ::<span class='ident'>UINT</span>, <span class='ident'>ppsp</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETPAGEW</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>UINT</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_DLGINDIRECT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEHICON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEICONID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USETITLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_RTLREADING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_HASHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEREFPARENT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USECALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_PREMATURE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_HIDEHEADER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEHEADERTITLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEHEADERSUBTITLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00002000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSP_USEFUSIONCONTEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSPCB_ADDREF</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSPCB_RELEASE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSPCB_CREATE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETPAGE_RESOURCE</span> <span class='op'>=</span> ::<span class='ident'>LPCDLGTEMPLATEA</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROPSHEETPAGEA_V4</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszTemplate</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnDlgProc</span>: ::<span class='ident'>DLGPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lParam</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnCallback</span>: <span class='ident'>LPFNPSPCALLBACKA</span>,
-    <span class='kw'>pub</span> <span class='ident'>pcRefParent</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszHeaderTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszHeaderSubTitle</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hActCtx</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmHeader</span>: ::<span class='ident'>HBITMAP</span>
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROPSHEETPAGEA_V4</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROPSHEETPAGEA_V4</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEA_V4</span>, <span class='ident'>pszTemplate</span>, <span class='ident'>pResource</span>, <span class='ident'>pResource_mut</span>, <span class='ident'>PROPSHEETPAGE_RESOURCE</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEA_V4</span>, <span class='ident'>hIcon</span>, <span class='ident'>pszIcon</span>, <span class='ident'>pszIcon_mut</span>, ::<span class='ident'>LPCSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEA_V4</span>, <span class='ident'>hbmHeader</span>, <span class='ident'>pszbmHeader</span>, <span class='ident'>pszbmHeader_mut</span>, ::<span class='ident'>LPCSTR</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEA_V4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEA_V4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PROPSHEETPAGEA_V4</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROPSHEETPAGEW_V4</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszTemplate</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnDlgProc</span>: ::<span class='ident'>DLGPROC</span>,
-    <span class='kw'>pub</span> <span class='ident'>lParam</span>: ::<span class='ident'>LPARAM</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnCallback</span>: <span class='ident'>LPFNPSPCALLBACKW</span>,
-    <span class='kw'>pub</span> <span class='ident'>pcRefParent</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszHeaderTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszHeaderSubTitle</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>hActCtx</span>: ::<span class='ident'>HANDLE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmHeader</span>: ::<span class='ident'>HBITMAP</span>
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROPSHEETPAGEW_V4</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROPSHEETPAGEW_V4</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEW_V4</span>, <span class='ident'>pszTemplate</span>, <span class='ident'>pResource</span>, <span class='ident'>pResource_mut</span>, <span class='ident'>PROPSHEETPAGE_RESOURCE</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEW_V4</span>, <span class='ident'>hIcon</span>, <span class='ident'>pszIcon</span>, <span class='ident'>pszIcon_mut</span>, ::<span class='ident'>LPCWSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETPAGEW_V4</span>, <span class='ident'>hbmHeader</span>, <span class='ident'>pszbmHeader</span>, <span class='ident'>pszbmHeader_mut</span>, ::<span class='ident'>LPCWSTR</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEW_V4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEW_V4</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETPAGEA_LATEST</span> <span class='op'>=</span> <span class='ident'>PROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETPAGEW_LATEST</span> <span class='op'>=</span> <span class='ident'>PROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEA_LATEST</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEW_LATEST</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEA_LATEST</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEW_LATEST</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETPAGEA</span> <span class='op'>=</span> <span class='ident'>PROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETPAGEW</span> <span class='op'>=</span> <span class='ident'>PROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEA</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETPAGEW</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEA</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETPAGEA_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETPAGEW</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETPAGEW_V4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_DEFAULT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_PROPTITLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEHICON</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEICONID</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_PROPSHEETPAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WIZARDHASFINISH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000010</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WIZARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000020</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEPSTARTPAGE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000040</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_NOAPPLYNOW</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000080</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USECALLBACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000100</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_HASHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000200</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_MODELESS</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000400</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_RTLREADING</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000800</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WIZARDCONTEXTHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00001000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WIZARD97</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x01000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WATERMARK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00008000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEHBMWATERMARK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00010000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEHPLWATERMARK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00020000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_STRETCHWATERMARK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00040000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_HEADER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00080000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEHBMHEADER</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00100000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_USEPAGELANG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00200000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_WIZARD_LITE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00400000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_NOCONTEXTHELP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x02000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_AEROWIZARD</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00004000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_RESIZABLE</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x04000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_HEADERBITMAP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x08000000</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSH_NOMARGIN</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x10000000</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PFNPROPSHEETCALLBACK</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>HWND</span>, ::<span class='ident'>UINT</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>c_int</span><span class='op'>&gt;</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROPSHEETHEADERA_V2</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszCaption</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nPages</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>pStartPage</span>: ::<span class='ident'>LPCSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ppsp</span>: <span class='ident'>LPCPROPSHEETPAGEA</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnCallback</span>: <span class='ident'>PFNPROPSHEETCALLBACK</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmWatermark</span>: ::<span class='ident'>HBITMAP</span>,
-    <span class='kw'>pub</span> <span class='ident'>hplWatermark</span>: ::<span class='ident'>HPALETTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmHeader</span>: ::<span class='ident'>HBITMAP</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROPSHEETHEADERA_V2</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROPSHEETHEADERA_V2</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERA_V2</span>, <span class='ident'>hIcon</span>, <span class='ident'>pszIcon</span>, <span class='ident'>pszIcon_mut</span>, ::<span class='ident'>LPCSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERA_V2</span>, <span class='ident'>pStartPage</span>, <span class='ident'>nStartPage</span>, <span class='ident'>nStartPage_mut</span>, ::<span class='ident'>UINT</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERA_V2</span>, <span class='ident'>ppsp</span>, <span class='ident'>phpage</span>, <span class='ident'>phpage_mut</span>, <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HPROPSHEETPAGE</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERA_V2</span>, <span class='ident'>hbmWatermark</span>, <span class='ident'>pszbmWatermark</span>, <span class='ident'>pszbmWatermark_mut</span>, ::<span class='ident'>LPCSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERA_V2</span>, <span class='ident'>hbmHeader</span>, <span class='ident'>pszbmHeader</span>, <span class='ident'>pszbmHeader_mut</span>, ::<span class='ident'>LPCSTR</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETHEADERA_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETHEADERA_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETHEADERA_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PROPSHEETHEADERA_V2</span>;
-<span class='attribute'>#[<span class='ident'>repr</span>(<span class='ident'>C</span>)]</span> <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>PROPSHEETHEADERW_V2</span> {
-    <span class='kw'>pub</span> <span class='ident'>dwSize</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>dwFlags</span>: ::<span class='ident'>DWORD</span>,
-    <span class='kw'>pub</span> <span class='ident'>hwndParent</span>: ::<span class='ident'>HWND</span>,
-    <span class='kw'>pub</span> <span class='ident'>hInstance</span>: ::<span class='ident'>HINSTANCE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hIcon</span>: ::<span class='ident'>HICON</span>,
-    <span class='kw'>pub</span> <span class='ident'>pszCaption</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>nPages</span>: ::<span class='ident'>UINT</span>,
-    <span class='kw'>pub</span> <span class='ident'>pStartPage</span>: ::<span class='ident'>LPCWSTR</span>,
-    <span class='kw'>pub</span> <span class='ident'>ppsp</span>: <span class='ident'>LPCPROPSHEETPAGEW</span>,
-    <span class='kw'>pub</span> <span class='ident'>pfnCallback</span>: <span class='ident'>PFNPROPSHEETCALLBACK</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmWatermark</span>: ::<span class='ident'>HBITMAP</span>,
-    <span class='kw'>pub</span> <span class='ident'>hplWatermark</span>: ::<span class='ident'>HPALETTE</span>,
-    <span class='kw'>pub</span> <span class='ident'>hbmHeader</span>: ::<span class='ident'>HBITMAP</span>,
-}
-<span class='kw'>impl</span> <span class='ident'>Clone</span> <span class='kw'>for</span> <span class='ident'>PROPSHEETHEADERW_V2</span> { <span class='kw'>fn</span> <span class='ident'>clone</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>PROPSHEETHEADERW_V2</span> { <span class='op'>*</span><span class='self'>self</span> } }
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERW_V2</span>, <span class='ident'>hIcon</span>, <span class='ident'>pszIcon</span>, <span class='ident'>pszIcon_mut</span>, ::<span class='ident'>LPCWSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERW_V2</span>, <span class='ident'>pStartPage</span>, <span class='ident'>nStartPage</span>, <span class='ident'>nStartPage_mut</span>, ::<span class='ident'>UINT</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERW_V2</span>, <span class='ident'>ppsp</span>, <span class='ident'>phpage</span>, <span class='ident'>phpage_mut</span>, <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>HPROPSHEETPAGE</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERW_V2</span>, <span class='ident'>hbmWatermark</span>, <span class='ident'>pszbmWatermark</span>, <span class='ident'>pszbmWatermark_mut</span>, ::<span class='ident'>LPCWSTR</span>);
-<span class='macro'>UNION</span><span class='macro'>!</span>(<span class='ident'>PROPSHEETHEADERW_V2</span>, <span class='ident'>hbmHeader</span>, <span class='ident'>pszbmHeader</span>, <span class='ident'>pszbmHeader_mut</span>, ::<span class='ident'>LPCWSTR</span>);
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETHEADERW_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PROPSHEETHEADERW_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETHEADERW_V2</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>PROPSHEETHEADERW_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETHEADERA</span> <span class='op'>=</span> <span class='ident'>PROPSHEETHEADERA_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>PROPSHEETHEADERW</span> <span class='op'>=</span> <span class='ident'>PROPSHEETHEADERW_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETHEADERA</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETHEADERA_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPROPSHEETHEADERW</span> <span class='op'>=</span> <span class='ident'>LPPROPSHEETHEADERW_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETHEADERA</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETHEADERA_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPCPROPSHEETHEADERW</span> <span class='op'>=</span> <span class='ident'>LPCPROPSHEETHEADERW_V2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSCB_INITIALIZED</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSCB_PRECREATE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSCB_BUTTONPRESSED</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFNADDPROPSHEETPAGE</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    <span class='ident'>HPROPSHEETPAGE</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPFNADDPROPSHEETPAGES</span> <span class='op'>=</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='kw'>unsafe</span> <span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span>(
-    ::<span class='ident'>LPVOID</span>, <span class='ident'>LPFNADDPROPSHEETPAGE</span>, ::<span class='ident'>LPARAM</span>,
-) <span class='op'>-&gt;</span> ::<span class='ident'>BOOL</span><span class='op'>&gt;</span>;
-<span class='macro'>STRUCT</span><span class='macro'>!</span>{<span class='kw'>struct</span> <span class='ident'>PSHNOTIFY</span> {
-    <span class='ident'>hdr</span>: ::<span class='ident'>NMHDR</span>,
-    <span class='ident'>lParam</span>: ::<span class='ident'>LPARAM</span>,
+</pre><pre class="rust ">
+<span class="comment">// Copyright © 2015, skdltmxn</span>
+<span class="comment">// Licensed under the MIT License &lt;LICENSE.md&gt;</span>
+<span class="doccomment">//! Interface for the Windows Property Sheet Pages</span>
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">PSP</span> {}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">HPROPSHEETPAGE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PSP</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFNPSPCALLBACKA</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">hwnd</span>: ::<span class="ident">HWND</span>, <span class="ident">uMsg</span>: ::<span class="ident">UINT</span>, <span class="ident">ppsp</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETPAGEA</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFNPSPCALLBACKW</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">hwnd</span>: ::<span class="ident">HWND</span>, <span class="ident">uMsg</span>: ::<span class="ident">UINT</span>, <span class="ident">ppsp</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETPAGEW</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">UINT</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_DLGINDIRECT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEHICON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEICONID</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USETITLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_RTLREADING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_HASHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEREFPARENT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USECALLBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_PREMATURE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_HIDEHEADER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEHEADERTITLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEHEADERSUBTITLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00002000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSP_USEFUSIONCONTEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSPCB_ADDREF</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSPCB_RELEASE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSPCB_CREATE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETPAGE_RESOURCE</span> <span class="op">=</span> ::<span class="ident">LPCDLGTEMPLATEA</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PROPSHEETPAGEA_V4</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">pszTemplate</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pszTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">pfnDlgProc</span>: ::<span class="ident">DLGPROC</span>,
+    <span class="ident">lParam</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">pfnCallback</span>: <span class="ident">LPFNPSPCALLBACKA</span>,
+    <span class="ident">pcRefParent</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>,
+    <span class="ident">pszHeaderTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">pszHeaderSubTitle</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">hActCtx</span>: ::<span class="ident">HANDLE</span>,
+    <span class="ident">hbmHeader</span>: ::<span class="ident">HBITMAP</span>,
 }}
-<span class='kw'>pub</span> <span class='kw'>type</span> <span class='ident'>LPPSHNOTIFY</span> <span class='op'>=</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>PSHNOTIFY</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_FIRST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> (<span class='number'>0</span> <span class='op'>-</span> <span class='number'>200</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_LAST</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> (<span class='number'>0</span> <span class='op'>-</span> <span class='number'>299</span>);
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_SETACTIVE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_KILLACTIVE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_APPLY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_RESET</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_HELP</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_WIZBACK</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_WIZNEXT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>7</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_WIZFINISH</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>8</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_QUERYCANCEL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>9</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_GETOBJECT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>10</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_TRANSLATEACCELERATOR</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>12</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSN_QUERYINITIALFOCUS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSN_FIRST</span> <span class='op'>-</span> <span class='number'>13</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSNRET_NOERROR</span>: ::<span class='ident'>LRESULT</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSNRET_INVALID</span>: ::<span class='ident'>LRESULT</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSNRET_INVALID_NOCHANGEPAGE</span>: ::<span class='ident'>LRESULT</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSNRET_MESSAGEHANDLED</span>: ::<span class='ident'>LRESULT</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETCURSEL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>101</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_REMOVEPAGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>102</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_ADDPAGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>103</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_CHANGED</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>104</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_RESTARTWINDOWS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>105</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_REBOOTSYSTEM</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>106</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_CANCELTOCLOSE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>107</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_QUERYSIBLINGS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>108</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_UNCHANGED</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>109</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_APPLY</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>110</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETTITLEA</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>111</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETTITLEW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>120</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETWIZBUTTONS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>112</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZB_BACK</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZB_NEXT</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000002</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZB_FINISH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000004</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZB_DISABLEDFINISH</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZB_CANCEL</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>0x00000008</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZBF_ELEVATIONREQUIRED</span>: ::<span class='ident'>WPARAM</span> <span class='op'>=</span> <span class='number'>0x00000001</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_BACK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>0</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_NEXT</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_FINISH</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_OK</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>3</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_APPLYNOW</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>4</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_CANCEL</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>5</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_HELP</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSBTN_MAX</span>: ::<span class='ident'>c_int</span> <span class='op'>=</span> <span class='number'>6</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_PRESSBUTTON</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>113</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETCURSELID</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>114</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETFINISHTEXTA</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>115</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETFINISHTEXTW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>121</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_GETTABCONTROL</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>116</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_ISDIALOGMESSAGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>117</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_GETCURRENTPAGEHWND</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>118</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_INSERTPAGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>119</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETHEADERTITLEA</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>125</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETHEADERTITLEW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>126</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSWIZF_SETCOLOR</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> (<span class='number'>0</span> <span class='op'>-</span> <span class='number'>1</span>) <span class='kw'>as</span> ::<span class='ident'>UINT</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETHEADERSUBTITLEA</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>127</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETHEADERSUBTITLEW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>128</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_HWNDTOINDEX</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>129</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_INDEXTOHWND</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>130</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_PAGETOINDEX</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>131</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_INDEXTOPAGE</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>132</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_IDTOINDEX</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>133</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_INDEXTOID</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>134</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_GETRESULT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>135</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_RECALCPAGESIZES</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>136</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETNEXTTEXTW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>137</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SHOWWIZBUTTONS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>138</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_ENABLEWIZBUTTONS</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>139</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETBUTTONTEXTW</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> ::<span class='ident'>WM_USER</span> <span class='op'>+</span> <span class='number'>140</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PSM_SETBUTTONTEXT</span>: ::<span class='ident'>UINT</span> <span class='op'>=</span> <span class='ident'>PSM_SETBUTTONTEXTW</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ID_PSRESTARTWINDOWS</span>: ::<span class='ident'>INT_PTR</span> <span class='op'>=</span> <span class='number'>0x2</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>ID_PSREBOOTSYSTEM</span>: ::<span class='ident'>INT_PTR</span> <span class='op'>=</span> <span class='ident'>ID_PSRESTARTWINDOWS</span> <span class='op'>|</span> <span class='number'>0x1</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WIZ_CXDLG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>276</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WIZ_CYDLG</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>140</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WIZ_CXBMP</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>80</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WIZ_BODYX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>92</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>WIZ_BODYCX</span>: ::<span class='ident'>DWORD</span> <span class='op'>=</span> <span class='number'>184</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_SM_CXDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>212</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_SM_CYDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>188</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_MED_CXDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>227</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_MED_CYDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>215</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_LG_CXDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>252</span>;
-<span class='kw'>pub</span> <span class='kw'>const</span> <span class='ident'>PROP_LG_CYDLG</span>: ::<span class='ident'>c_short</span> <span class='op'>=</span> <span class='number'>218</span>;
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEA_V4</span>, <span class="ident">pszTemplate</span>, <span class="ident">pResource</span>, <span class="ident">pResource_mut</span>, <span class="ident">PROPSHEETPAGE_RESOURCE</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEA_V4</span>, <span class="ident">hIcon</span>, <span class="ident">pszIcon</span>, <span class="ident">pszIcon_mut</span>, ::<span class="ident">LPCSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEA_V4</span>, <span class="ident">hbmHeader</span>, <span class="ident">pszbmHeader</span>, <span class="ident">pszbmHeader_mut</span>, ::<span class="ident">LPCSTR</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEA_V4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEA_V4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PROPSHEETPAGEA_V4</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PROPSHEETPAGEW_V4</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">pszTemplate</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pszTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pfnDlgProc</span>: ::<span class="ident">DLGPROC</span>,
+    <span class="ident">lParam</span>: ::<span class="ident">LPARAM</span>,
+    <span class="ident">pfnCallback</span>: <span class="ident">LPFNPSPCALLBACKW</span>,
+    <span class="ident">pcRefParent</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> ::<span class="ident">UINT</span>,
+    <span class="ident">pszHeaderTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">pszHeaderSubTitle</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">hActCtx</span>: ::<span class="ident">HANDLE</span>,
+    <span class="ident">hbmHeader</span>: ::<span class="ident">HBITMAP</span>,
+}}
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEW_V4</span>, <span class="ident">pszTemplate</span>, <span class="ident">pResource</span>, <span class="ident">pResource_mut</span>, <span class="ident">PROPSHEETPAGE_RESOURCE</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEW_V4</span>, <span class="ident">hIcon</span>, <span class="ident">pszIcon</span>, <span class="ident">pszIcon_mut</span>, ::<span class="ident">LPCWSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETPAGEW_V4</span>, <span class="ident">hbmHeader</span>, <span class="ident">pszbmHeader</span>, <span class="ident">pszbmHeader_mut</span>, ::<span class="ident">LPCWSTR</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEW_V4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEW_V4</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETPAGEA_LATEST</span> <span class="op">=</span> <span class="ident">PROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETPAGEW_LATEST</span> <span class="op">=</span> <span class="ident">PROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEA_LATEST</span> <span class="op">=</span> <span class="ident">LPPROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEW_LATEST</span> <span class="op">=</span> <span class="ident">LPPROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEA_LATEST</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEW_LATEST</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETPAGEA</span> <span class="op">=</span> <span class="ident">PROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETPAGEW</span> <span class="op">=</span> <span class="ident">PROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEA</span> <span class="op">=</span> <span class="ident">LPPROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETPAGEW</span> <span class="op">=</span> <span class="ident">LPPROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEA</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETPAGEA_V4</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETPAGEW</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETPAGEW_V4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_DEFAULT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_PROPTITLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEHICON</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEICONID</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_PROPSHEETPAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WIZARDHASFINISH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000010</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WIZARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000020</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEPSTARTPAGE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000040</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_NOAPPLYNOW</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000080</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USECALLBACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000100</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_HASHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000200</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_MODELESS</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000400</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_RTLREADING</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000800</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WIZARDCONTEXTHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00001000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WIZARD97</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x01000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WATERMARK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00008000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEHBMWATERMARK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00010000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEHPLWATERMARK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00020000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_STRETCHWATERMARK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00040000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_HEADER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00080000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEHBMHEADER</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00100000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_USEPAGELANG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00200000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_WIZARD_LITE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00400000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_NOCONTEXTHELP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x02000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_AEROWIZARD</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00004000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_RESIZABLE</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x04000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_HEADERBITMAP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x08000000</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSH_NOMARGIN</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x10000000</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PFNPROPSHEETCALLBACK</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">HWND</span>, ::<span class="ident">UINT</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">c_int</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PROPSHEETHEADERA_V2</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndParent</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pszCaption</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">nPages</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">pStartPage</span>: ::<span class="ident">LPCSTR</span>,
+    <span class="ident">ppsp</span>: <span class="ident">LPCPROPSHEETPAGEA</span>,
+    <span class="ident">pfnCallback</span>: <span class="ident">PFNPROPSHEETCALLBACK</span>,
+    <span class="ident">hbmWatermark</span>: ::<span class="ident">HBITMAP</span>,
+    <span class="ident">hplWatermark</span>: ::<span class="ident">HPALETTE</span>,
+    <span class="ident">hbmHeader</span>: ::<span class="ident">HBITMAP</span>,
+}}
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERA_V2</span>, <span class="ident">hIcon</span>, <span class="ident">pszIcon</span>, <span class="ident">pszIcon_mut</span>, ::<span class="ident">LPCSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERA_V2</span>, <span class="ident">pStartPage</span>, <span class="ident">nStartPage</span>, <span class="ident">nStartPage_mut</span>, ::<span class="ident">UINT</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERA_V2</span>, <span class="ident">ppsp</span>, <span class="ident">phpage</span>, <span class="ident">phpage_mut</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">HPROPSHEETPAGE</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERA_V2</span>, <span class="ident">hbmWatermark</span>, <span class="ident">pszbmWatermark</span>, <span class="ident">pszbmWatermark_mut</span>, ::<span class="ident">LPCSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERA_V2</span>, <span class="ident">hbmHeader</span>, <span class="ident">pszbmHeader</span>, <span class="ident">pszbmHeader_mut</span>, ::<span class="ident">LPCSTR</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETHEADERA_V2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETHEADERA_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETHEADERA_V2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PROPSHEETHEADERA_V2</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="ident">nodebug</span> <span class="kw">struct</span> <span class="ident">PROPSHEETHEADERW_V2</span> {
+    <span class="ident">dwSize</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">dwFlags</span>: ::<span class="ident">DWORD</span>,
+    <span class="ident">hwndParent</span>: ::<span class="ident">HWND</span>,
+    <span class="ident">hInstance</span>: ::<span class="ident">HINSTANCE</span>,
+    <span class="ident">hIcon</span>: ::<span class="ident">HICON</span>,
+    <span class="ident">pszCaption</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">nPages</span>: ::<span class="ident">UINT</span>,
+    <span class="ident">pStartPage</span>: ::<span class="ident">LPCWSTR</span>,
+    <span class="ident">ppsp</span>: <span class="ident">LPCPROPSHEETPAGEW</span>,
+    <span class="ident">pfnCallback</span>: <span class="ident">PFNPROPSHEETCALLBACK</span>,
+    <span class="ident">hbmWatermark</span>: ::<span class="ident">HBITMAP</span>,
+    <span class="ident">hplWatermark</span>: ::<span class="ident">HPALETTE</span>,
+    <span class="ident">hbmHeader</span>: ::<span class="ident">HBITMAP</span>,
+}}
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERW_V2</span>, <span class="ident">hIcon</span>, <span class="ident">pszIcon</span>, <span class="ident">pszIcon_mut</span>, ::<span class="ident">LPCWSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERW_V2</span>, <span class="ident">pStartPage</span>, <span class="ident">nStartPage</span>, <span class="ident">nStartPage_mut</span>, ::<span class="ident">UINT</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERW_V2</span>, <span class="ident">ppsp</span>, <span class="ident">phpage</span>, <span class="ident">phpage_mut</span>, <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">HPROPSHEETPAGE</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERW_V2</span>, <span class="ident">hbmWatermark</span>, <span class="ident">pszbmWatermark</span>, <span class="ident">pszbmWatermark_mut</span>, ::<span class="ident">LPCWSTR</span>);
+<span class="macro">UNION</span><span class="macro">!</span>(<span class="ident">PROPSHEETHEADERW_V2</span>, <span class="ident">hbmHeader</span>, <span class="ident">pszbmHeader</span>, <span class="ident">pszbmHeader_mut</span>, ::<span class="ident">LPCWSTR</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETHEADERW_V2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PROPSHEETHEADERW_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETHEADERW_V2</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">PROPSHEETHEADERW_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETHEADERA</span> <span class="op">=</span> <span class="ident">PROPSHEETHEADERA_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PROPSHEETHEADERW</span> <span class="op">=</span> <span class="ident">PROPSHEETHEADERW_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETHEADERA</span> <span class="op">=</span> <span class="ident">LPPROPSHEETHEADERA_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPROPSHEETHEADERW</span> <span class="op">=</span> <span class="ident">LPPROPSHEETHEADERW_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETHEADERA</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETHEADERA_V2</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPCPROPSHEETHEADERW</span> <span class="op">=</span> <span class="ident">LPCPROPSHEETHEADERW_V2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSCB_INITIALIZED</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSCB_PRECREATE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSCB_BUTTONPRESSED</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFNADDPROPSHEETPAGE</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">HPROPSHEETPAGE</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">BOOL</span><span class="op">&gt;</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPFNADDPROPSHEETPAGES</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;system&quot;</span> <span class="kw">fn</span>(
+    ::<span class="ident">LPVOID</span>, <span class="ident">LPFNADDPROPSHEETPAGE</span>, ::<span class="ident">LPARAM</span>,
+) <span class="op">-&gt;</span> ::<span class="ident">BOOL</span><span class="op">&gt;</span>;
+<span class="macro">STRUCT</span><span class="macro">!</span>{<span class="kw">struct</span> <span class="ident">PSHNOTIFY</span> {
+    <span class="ident">hdr</span>: ::<span class="ident">NMHDR</span>,
+    <span class="ident">lParam</span>: ::<span class="ident">LPARAM</span>,
+}}
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LPPSHNOTIFY</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PSHNOTIFY</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_FIRST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="op">-</span><span class="number">200i32</span> <span class="kw">as</span> ::<span class="ident">UINT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_LAST</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="op">-</span><span class="number">299i32</span> <span class="kw">as</span> ::<span class="ident">UINT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_SETACTIVE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_KILLACTIVE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_APPLY</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_RESET</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_HELP</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_WIZBACK</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_WIZNEXT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">7</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_WIZFINISH</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">8</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_QUERYCANCEL</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">9</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_GETOBJECT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">10</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_TRANSLATEACCELERATOR</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSN_QUERYINITIALFOCUS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSN_FIRST</span> <span class="op">-</span> <span class="number">13</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSNRET_NOERROR</span>: ::<span class="ident">LRESULT</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSNRET_INVALID</span>: ::<span class="ident">LRESULT</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSNRET_INVALID_NOCHANGEPAGE</span>: ::<span class="ident">LRESULT</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSNRET_MESSAGEHANDLED</span>: ::<span class="ident">LRESULT</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETCURSEL</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">101</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_REMOVEPAGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">102</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_ADDPAGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">103</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_CHANGED</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">104</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_RESTARTWINDOWS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">105</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_REBOOTSYSTEM</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">106</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_CANCELTOCLOSE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">107</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_QUERYSIBLINGS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">108</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_UNCHANGED</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">109</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_APPLY</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">110</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETTITLEA</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">111</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETTITLEW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">120</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETWIZBUTTONS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">112</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZB_BACK</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZB_NEXT</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000002</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZB_FINISH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000004</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZB_DISABLEDFINISH</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZB_CANCEL</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">0x00000008</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZBF_ELEVATIONREQUIRED</span>: ::<span class="ident">WPARAM</span> <span class="op">=</span> <span class="number">0x00000001</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_BACK</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_NEXT</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_FINISH</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_OK</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_APPLYNOW</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_CANCEL</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_HELP</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSBTN_MAX</span>: ::<span class="ident">c_int</span> <span class="op">=</span> <span class="number">6</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_PRESSBUTTON</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">113</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETCURSELID</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">114</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETFINISHTEXTA</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">115</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETFINISHTEXTW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">121</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_GETTABCONTROL</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">116</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_ISDIALOGMESSAGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">117</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_GETCURRENTPAGEHWND</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">118</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_INSERTPAGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">119</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETHEADERTITLEA</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">125</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETHEADERTITLEW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">126</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSWIZF_SETCOLOR</span>: ::<span class="ident">UINT</span> <span class="op">=</span> (<span class="number">0</span> <span class="op">-</span> <span class="number">1</span>) <span class="kw">as</span> ::<span class="ident">UINT</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETHEADERSUBTITLEA</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">127</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETHEADERSUBTITLEW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">128</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_HWNDTOINDEX</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">129</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_INDEXTOHWND</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">130</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_PAGETOINDEX</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">131</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_INDEXTOPAGE</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">132</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_IDTOINDEX</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">133</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_INDEXTOID</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">134</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_GETRESULT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">135</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_RECALCPAGESIZES</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">136</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETNEXTTEXTW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">137</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SHOWWIZBUTTONS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">138</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_ENABLEWIZBUTTONS</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">139</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETBUTTONTEXTW</span>: ::<span class="ident">UINT</span> <span class="op">=</span> ::<span class="ident">WM_USER</span> <span class="op">+</span> <span class="number">140</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PSM_SETBUTTONTEXT</span>: ::<span class="ident">UINT</span> <span class="op">=</span> <span class="ident">PSM_SETBUTTONTEXTW</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ID_PSRESTARTWINDOWS</span>: ::<span class="ident">INT_PTR</span> <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ID_PSREBOOTSYSTEM</span>: ::<span class="ident">INT_PTR</span> <span class="op">=</span> <span class="ident">ID_PSRESTARTWINDOWS</span> <span class="op">|</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WIZ_CXDLG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">276</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WIZ_CYDLG</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">140</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WIZ_CXBMP</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">80</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WIZ_BODYX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">92</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">WIZ_BODYCX</span>: ::<span class="ident">DWORD</span> <span class="op">=</span> <span class="number">184</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_SM_CXDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">212</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_SM_CYDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">188</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_MED_CXDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">227</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_MED_CYDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">215</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_LG_CXDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">252</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PROP_LG_CYDLG</span>: ::<span class="ident">c_short</span> <span class="op">=</span> <span class="number">218</span>;
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -606,12 +586,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -632,7 +616,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -643,11 +627,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

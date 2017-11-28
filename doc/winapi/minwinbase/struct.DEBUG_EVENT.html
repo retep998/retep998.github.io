@@ -9,13 +9,15 @@
 
     <title>winapi::minwinbase::DEBUG_EVENT - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc struct">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>minwinbase</a></p><script>window.sidebarCurrent = {name: 'DEBUG_EVENT', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct DEBUG_EVENT</p><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.dwDebugEventCode">dwDebugEventCode</a><a href="#structfield.dwProcessId">dwProcessId</a><a href="#structfield.dwThreadId">dwThreadId</a><a href="#structfield.u">u</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.Exception">Exception</a><a href="#method.Exception_mut">Exception_mut</a><a href="#method.CreateThread">CreateThread</a><a href="#method.CreateThread_mut">CreateThread_mut</a><a href="#method.CreateProcessInfo">CreateProcessInfo</a><a href="#method.CreateProcessInfo_mut">CreateProcessInfo_mut</a><a href="#method.ExitThread">ExitThread</a><a href="#method.ExitThread_mut">ExitThread_mut</a><a href="#method.ExitProcess">ExitProcess</a><a href="#method.ExitProcess_mut">ExitProcess_mut</a><a href="#method.LoadDll">LoadDll</a><a href="#method.LoadDll_mut">LoadDll_mut</a><a href="#method.UnloadDll">UnloadDll</a><a href="#method.UnloadDll_mut">UnloadDll_mut</a><a href="#method.DebugString">DebugString</a><a href="#method.DebugString_mut">DebugString_mut</a><a href="#method.RipInfo">RipInfo</a><a href="#method.RipInfo_mut">RipInfo_mut</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>winapi</a>::<wbr><a href='index.html'>minwinbase</a></p><script>window.sidebarCurrent = {name: 'DEBUG_EVENT', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -41,43 +43,77 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>minwinbase</a>::<wbr><a class='struct' href=''>DEBUG_EVENT</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-54544' class='srclink' href='../../src/winapi/minwinbase.rs.html#239-247' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct DEBUG_EVENT {
-    pub dwDebugEventCode: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwProcessId: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub dwThreadId: <a class='type' href='../../winapi/minwindef/type.DWORD.html' title='winapi::minwindef::DWORD'>DWORD</a>,
-    pub u: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.array.html'>; 160]</a>,
-}</pre><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.dwDebugEventCode'><code>dwDebugEventCode</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwProcessId'><code>dwProcessId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.dwThreadId'><code>dwThreadId</code></td><td></td></tr><tr class='stab '>
-                                  <td id='structfield.u'><code>u</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.Exception' class='method'><code>unsafe fn <a href='#method.Exception' class='fnname'>Exception</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.EXCEPTION_DEBUG_INFO.html' title='winapi::minwinbase::EXCEPTION_DEBUG_INFO'>EXCEPTION_DEBUG_INFO</a></code></h4>
-<h4 id='method.Exception_mut' class='method'><code>unsafe fn <a href='#method.Exception_mut' class='fnname'>Exception_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.EXCEPTION_DEBUG_INFO.html' title='winapi::minwinbase::EXCEPTION_DEBUG_INFO'>EXCEPTION_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.CreateThread' class='method'><code>unsafe fn <a href='#method.CreateThread' class='fnname'>CreateThread</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.CREATE_THREAD_DEBUG_INFO.html' title='winapi::minwinbase::CREATE_THREAD_DEBUG_INFO'>CREATE_THREAD_DEBUG_INFO</a></code></h4>
-<h4 id='method.CreateThread_mut' class='method'><code>unsafe fn <a href='#method.CreateThread_mut' class='fnname'>CreateThread_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.CREATE_THREAD_DEBUG_INFO.html' title='winapi::minwinbase::CREATE_THREAD_DEBUG_INFO'>CREATE_THREAD_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.CreateProcessInfo' class='method'><code>unsafe fn <a href='#method.CreateProcessInfo' class='fnname'>CreateProcessInfo</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.CREATE_PROCESS_DEBUG_INFO.html' title='winapi::minwinbase::CREATE_PROCESS_DEBUG_INFO'>CREATE_PROCESS_DEBUG_INFO</a></code></h4>
-<h4 id='method.CreateProcessInfo_mut' class='method'><code>unsafe fn <a href='#method.CreateProcessInfo_mut' class='fnname'>CreateProcessInfo_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.CREATE_PROCESS_DEBUG_INFO.html' title='winapi::minwinbase::CREATE_PROCESS_DEBUG_INFO'>CREATE_PROCESS_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.ExitThread' class='method'><code>unsafe fn <a href='#method.ExitThread' class='fnname'>ExitThread</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.EXIT_THREAD_DEBUG_INFO.html' title='winapi::minwinbase::EXIT_THREAD_DEBUG_INFO'>EXIT_THREAD_DEBUG_INFO</a></code></h4>
-<h4 id='method.ExitThread_mut' class='method'><code>unsafe fn <a href='#method.ExitThread_mut' class='fnname'>ExitThread_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.EXIT_THREAD_DEBUG_INFO.html' title='winapi::minwinbase::EXIT_THREAD_DEBUG_INFO'>EXIT_THREAD_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.ExitProcess' class='method'><code>unsafe fn <a href='#method.ExitProcess' class='fnname'>ExitProcess</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.EXIT_PROCESS_DEBUG_INFO.html' title='winapi::minwinbase::EXIT_PROCESS_DEBUG_INFO'>EXIT_PROCESS_DEBUG_INFO</a></code></h4>
-<h4 id='method.ExitProcess_mut' class='method'><code>unsafe fn <a href='#method.ExitProcess_mut' class='fnname'>ExitProcess_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.EXIT_PROCESS_DEBUG_INFO.html' title='winapi::minwinbase::EXIT_PROCESS_DEBUG_INFO'>EXIT_PROCESS_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.LoadDll' class='method'><code>unsafe fn <a href='#method.LoadDll' class='fnname'>LoadDll</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.LOAD_DLL_DEBUG_INFO.html' title='winapi::minwinbase::LOAD_DLL_DEBUG_INFO'>LOAD_DLL_DEBUG_INFO</a></code></h4>
-<h4 id='method.LoadDll_mut' class='method'><code>unsafe fn <a href='#method.LoadDll_mut' class='fnname'>LoadDll_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.LOAD_DLL_DEBUG_INFO.html' title='winapi::minwinbase::LOAD_DLL_DEBUG_INFO'>LOAD_DLL_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.UnloadDll' class='method'><code>unsafe fn <a href='#method.UnloadDll' class='fnname'>UnloadDll</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.UNLOAD_DLL_DEBUG_INFO.html' title='winapi::minwinbase::UNLOAD_DLL_DEBUG_INFO'>UNLOAD_DLL_DEBUG_INFO</a></code></h4>
-<h4 id='method.UnloadDll_mut' class='method'><code>unsafe fn <a href='#method.UnloadDll_mut' class='fnname'>UnloadDll_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.UNLOAD_DLL_DEBUG_INFO.html' title='winapi::minwinbase::UNLOAD_DLL_DEBUG_INFO'>UNLOAD_DLL_DEBUG_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.DebugString' class='method'><code>unsafe fn <a href='#method.DebugString' class='fnname'>DebugString</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.OUTPUT_DEBUG_STRING_INFO.html' title='winapi::minwinbase::OUTPUT_DEBUG_STRING_INFO'>OUTPUT_DEBUG_STRING_INFO</a></code></h4>
-<h4 id='method.DebugString_mut' class='method'><code>unsafe fn <a href='#method.DebugString_mut' class='fnname'>DebugString_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.OUTPUT_DEBUG_STRING_INFO.html' title='winapi::minwinbase::OUTPUT_DEBUG_STRING_INFO'>OUTPUT_DEBUG_STRING_INFO</a></code></h4>
-</div><h3 class='impl'><code>impl <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.RipInfo' class='method'><code>unsafe fn <a href='#method.RipInfo' class='fnname'>RipInfo</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../winapi/minwinbase/struct.RIP_INFO.html' title='winapi::minwinbase::RIP_INFO'>RIP_INFO</a></code></h4>
-<h4 id='method.RipInfo_mut' class='method'><code>unsafe fn <a href='#method.RipInfo_mut' class='fnname'>RipInfo_mut</a>(&amp;mut self) -&gt; &amp;mut <a class='struct' href='../../winapi/minwinbase/struct.RIP_INFO.html' title='winapi::minwinbase::RIP_INFO'>RIP_INFO</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
-</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../winapi/minwinbase/struct.DEBUG_EVENT.html' title='winapi::minwinbase::DEBUG_EVENT'>DEBUG_EVENT</a></code></h3><div class='impl-items'></div></section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>winapi</a>::<wbr><a href='index.html'>minwinbase</a>::<wbr><a class="struct" href=''>DEBUG_EVENT</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/winapi/macros.rs.html#256-258' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct DEBUG_EVENT {
+    pub dwDebugEventCode: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwProcessId: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub dwThreadId: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a>,
+    pub u: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 160]</a>,
+}</pre><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.dwDebugEventCode" class="structfield small-section-header">
+                           <a href="#structfield.dwDebugEventCode" class="anchor field"></a>
+                           <span id="dwDebugEventCode.v" class='invisible'>
+                           <code>dwDebugEventCode: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwProcessId" class="structfield small-section-header">
+                           <a href="#structfield.dwProcessId" class="anchor field"></a>
+                           <span id="dwProcessId.v" class='invisible'>
+                           <code>dwProcessId: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.dwThreadId" class="structfield small-section-header">
+                           <a href="#structfield.dwThreadId" class="anchor field"></a>
+                           <span id="dwThreadId.v" class='invisible'>
+                           <code>dwThreadId: <a class="type" href="../../winapi/minwindef/type.DWORD.html" title="type winapi::minwindef::DWORD">DWORD</a></code>
+                           </span></span><span id="structfield.u" class="structfield small-section-header">
+                           <a href="#structfield.u" class="anchor field"></a>
+                           <span id="u.v" class='invisible'>
+                           <code>u: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 160]</a></code>
+                           </span></span>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.Exception' class="method"><span id='Exception.v' class='invisible'><code>pub unsafe fn <a href='#method.Exception' class='fnname'>Exception</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.EXCEPTION_DEBUG_INFO.html" title="struct winapi::minwinbase::EXCEPTION_DEBUG_INFO">EXCEPTION_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.Exception_mut' class="method"><span id='Exception_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.Exception_mut' class='fnname'>Exception_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.EXCEPTION_DEBUG_INFO.html" title="struct winapi::minwinbase::EXCEPTION_DEBUG_INFO">EXCEPTION_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.CreateThread' class="method"><span id='CreateThread.v' class='invisible'><code>pub unsafe fn <a href='#method.CreateThread' class='fnname'>CreateThread</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.CREATE_THREAD_DEBUG_INFO.html" title="struct winapi::minwinbase::CREATE_THREAD_DEBUG_INFO">CREATE_THREAD_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.CreateThread_mut' class="method"><span id='CreateThread_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.CreateThread_mut' class='fnname'>CreateThread_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.CREATE_THREAD_DEBUG_INFO.html" title="struct winapi::minwinbase::CREATE_THREAD_DEBUG_INFO">CREATE_THREAD_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.CreateProcessInfo' class="method"><span id='CreateProcessInfo.v' class='invisible'><code>pub unsafe fn <a href='#method.CreateProcessInfo' class='fnname'>CreateProcessInfo</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.CREATE_PROCESS_DEBUG_INFO.html" title="struct winapi::minwinbase::CREATE_PROCESS_DEBUG_INFO">CREATE_PROCESS_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.CreateProcessInfo_mut' class="method"><span id='CreateProcessInfo_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.CreateProcessInfo_mut' class='fnname'>CreateProcessInfo_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.CREATE_PROCESS_DEBUG_INFO.html" title="struct winapi::minwinbase::CREATE_PROCESS_DEBUG_INFO">CREATE_PROCESS_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-3' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-3' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.ExitThread' class="method"><span id='ExitThread.v' class='invisible'><code>pub unsafe fn <a href='#method.ExitThread' class='fnname'>ExitThread</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.EXIT_THREAD_DEBUG_INFO.html" title="struct winapi::minwinbase::EXIT_THREAD_DEBUG_INFO">EXIT_THREAD_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.ExitThread_mut' class="method"><span id='ExitThread_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.ExitThread_mut' class='fnname'>ExitThread_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.EXIT_THREAD_DEBUG_INFO.html" title="struct winapi::minwinbase::EXIT_THREAD_DEBUG_INFO">EXIT_THREAD_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-4' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-4' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.ExitProcess' class="method"><span id='ExitProcess.v' class='invisible'><code>pub unsafe fn <a href='#method.ExitProcess' class='fnname'>ExitProcess</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.EXIT_PROCESS_DEBUG_INFO.html" title="struct winapi::minwinbase::EXIT_PROCESS_DEBUG_INFO">EXIT_PROCESS_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.ExitProcess_mut' class="method"><span id='ExitProcess_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.ExitProcess_mut' class='fnname'>ExitProcess_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.EXIT_PROCESS_DEBUG_INFO.html" title="struct winapi::minwinbase::EXIT_PROCESS_DEBUG_INFO">EXIT_PROCESS_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-5' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-5' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.LoadDll' class="method"><span id='LoadDll.v' class='invisible'><code>pub unsafe fn <a href='#method.LoadDll' class='fnname'>LoadDll</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.LOAD_DLL_DEBUG_INFO.html" title="struct winapi::minwinbase::LOAD_DLL_DEBUG_INFO">LOAD_DLL_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.LoadDll_mut' class="method"><span id='LoadDll_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.LoadDll_mut' class='fnname'>LoadDll_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.LOAD_DLL_DEBUG_INFO.html" title="struct winapi::minwinbase::LOAD_DLL_DEBUG_INFO">LOAD_DLL_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-6' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-6' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.UnloadDll' class="method"><span id='UnloadDll.v' class='invisible'><code>pub unsafe fn <a href='#method.UnloadDll' class='fnname'>UnloadDll</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.UNLOAD_DLL_DEBUG_INFO.html" title="struct winapi::minwinbase::UNLOAD_DLL_DEBUG_INFO">UNLOAD_DLL_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.UnloadDll_mut' class="method"><span id='UnloadDll_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.UnloadDll_mut' class='fnname'>UnloadDll_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.UNLOAD_DLL_DEBUG_INFO.html" title="struct winapi::minwinbase::UNLOAD_DLL_DEBUG_INFO">UNLOAD_DLL_DEBUG_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-7' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-7' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.DebugString' class="method"><span id='DebugString.v' class='invisible'><code>pub unsafe fn <a href='#method.DebugString' class='fnname'>DebugString</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.OUTPUT_DEBUG_STRING_INFO.html" title="struct winapi::minwinbase::OUTPUT_DEBUG_STRING_INFO">OUTPUT_DEBUG_STRING_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.DebugString_mut' class="method"><span id='DebugString_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.DebugString_mut' class='fnname'>DebugString_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.OUTPUT_DEBUG_STRING_INFO.html" title="struct winapi::minwinbase::OUTPUT_DEBUG_STRING_INFO">OUTPUT_DEBUG_STRING_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div><h3 id='impl-8' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-8' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.RipInfo' class="method"><span id='RipInfo.v' class='invisible'><code>pub unsafe fn <a href='#method.RipInfo' class='fnname'>RipInfo</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../winapi/minwinbase/struct.RIP_INFO.html" title="struct winapi::minwinbase::RIP_INFO">RIP_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#175-177' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.RipInfo_mut' class="method"><span id='RipInfo_mut.v' class='invisible'><code>pub unsafe fn <a href='#method.RipInfo_mut' class='fnname'>RipInfo_mut</a>(&amp;mut self) -&gt; &amp;mut <a class="struct" href="../../winapi/minwinbase/struct.RIP_INFO.html" title="struct winapi::minwinbase::RIP_INFO">RIP_INFO</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#179-181' title='goto source code'>[src]</a></span></h4>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../winapi/minwinbase/struct.DEBUG_EVENT.html" title="struct winapi::minwinbase::DEBUG_EVENT">DEBUG_EVENT</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/winapi/macros.rs.html#260' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -94,12 +130,16 @@
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -120,7 +160,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -131,11 +171,8 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "winapi";
-        window.playgroundUrl = "";
     </script>
-    <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>
